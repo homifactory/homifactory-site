@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>블로그 · 뉴스룸 | 호미팩토리</title>
+  <meta name="description" content="호미팩토리의 인사이트 · 캠페인 리포트 · 크리에이터 이코노미 이슈 — SNS 마케팅과 콘텐츠 제작의 최신 흐름을 공유합니다." />
+  <meta property="og:title" content="블로그 · 뉴스룸 | 호미팩토리" />
+  <meta property="og:description" content="호미팩토리가 전하는 크리에이터 이코노미와 콘텐츠 마케팅 인사이트" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://homifactory.com/blog.html" />
+  <link rel="canonical" href="https://homifactory.com/blog.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── BLOG LAYOUT ── */
+
+    /* Category Filter */
+    .category-bar {
+      position: sticky; top: 64px; z-index: 100;
+      background: rgba(8,8,8,0.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .category-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 20px 48px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .category-chip {
+      font-size: 12px; letter-spacing: 0.08em;
+      padding: 8px 16px; border-radius: 100px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text2); cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.2s;
+    }
+    .category-chip:hover { color: var(--text); border-color: var(--text2); }
+    .category-chip.active {
+      background: var(--accent); color: #080808; border-color: var(--accent); font-weight: 700;
+    }
+
+    /* Featured Post */
+    .featured-section { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+    .featured-inner { max-width: 1280px; margin: 0 auto; }
+    .featured-label {
+      font-size: 10px; letter-spacing: 0.25em; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .featured-label .live-dot-sm {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
+
+    .featured-card {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px;
+      padding: 48px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; align-items: center;
+      transition: border-color 0.3s; cursor: pointer;
+    }
+    .featured-card:hover { border-color: var(--accent); }
+    .featured-visual {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, rgba(200,240,60,0.08), rgba(60,240,200,0.05));
+      border: 1px solid var(--border); border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 88px;
+      color: rgba(200,240,60,0.25); letter-spacing: 0.02em;
+      position: relative; overflow: hidden;
+    }
+    .featured-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(200,240,60,0.12), transparent 60%);
+    }
+    .featured-cat {
+      font-size: 10px; letter-spacing: 0.2em; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .featured-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 3.5vw, 52px); line-height: 1.05; letter-spacing: -0.005em;
+      margin-bottom: 20px;
+    }
+    .featured-excerpt {
+      font-size: 15px; color: var(--text2); line-height: 1.9; margin-bottom: 24px;
+    }
+    .featured-meta {
+      display: flex; gap: 16px; font-size: 12px; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding-top: 16px; border-top: 1px solid var(--border);
+    }
+
+    /* Post Grid */
+    .posts-section { padding: 80px 48px 120px; }
+    .posts-inner { max-width: 1280px; margin: 0 auto; }
+    .posts-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 48px; flex-wrap: wrap; gap: 16px;
+    }
+    .posts-count { font-size: 13px; color: var(--muted); letter-spacing: 0.08em; }
+    .posts-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .post-card {
+      background: var(--bg);
+      padding: 32px 32px 40px;
+      cursor: pointer; transition: background 0.3s;
+      display: flex; flex-direction: column;
+      position: relative;
+    }
+    .post-card:hover { background: var(--surface); }
+    .post-thumb {
+      aspect-ratio: 16 / 10;
+      background: var(--surface2); border: 1px solid var(--border);
+      margin-bottom: 24px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 56px;
+      letter-spacing: 0.04em; border-radius: 2px;
+      position: relative; overflow: hidden;
+    }
+    .post-thumb::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(200,240,60,0.08), transparent 70%);
+    }
+    .post-card.cat-sns .post-thumb { color: rgba(200,240,60,0.4); }
+    .post-card.cat-live .post-thumb { color: rgba(255,96,96,0.4); }
+    .post-card.cat-mgt .post-thumb { color: rgba(180,158,255,0.4); }
+    .post-card.cat-content .post-thumb { color: rgba(240,200,60,0.4); }
+    .post-card.cat-news .post-thumb { color: rgba(60,240,200,0.4); }
+
+    .post-cat {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .post-card.cat-sns .post-cat { color: var(--accent); }
+    .post-card.cat-live .post-cat { color: var(--red); }
+    .post-card.cat-mgt .post-cat { color: var(--purple); }
+    .post-card.cat-content .post-cat { color: var(--accent2); }
+    .post-card.cat-news .post-cat { color: var(--accent3); }
+
+    .post-title {
+      font-size: 18px; font-weight: 500; line-height: 1.4;
+      margin-bottom: 12px; color: var(--text);
+    }
+    .post-excerpt {
+      font-size: 13px; color: var(--text2); line-height: 1.8;
+      margin-bottom: 24px; flex: 1;
+    }
+    .post-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 11px; color: var(--muted); letter-spacing: 0.08em;
+    }
+    .post-read {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--text2); transition: color 0.2s;
+    }
+    .post-card:hover .post-read { color: var(--accent); }
+
+    /* Newsletter */
+    .newsletter-section {
+      padding: 100px 48px; background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .newsletter-inner {
+      max-width: 720px; margin: 0 auto; text-align: center;
+    }
+    .newsletter-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 4vw, 52px); letter-spacing: 0.01em; line-height: 1;
+      margin-bottom: 16px;
+    }
+    .newsletter-title .hl { color: var(--accent); }
+    .newsletter-desc {
+      font-size: 14px; color: var(--text2); line-height: 1.9; margin-bottom: 32px;
+    }
+    .newsletter-form {
+      display: flex; gap: 8px; max-width: 480px; margin: 0 auto;
+    }
+    .newsletter-input {
+      flex: 1; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 2px; color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif; font-size: 14px;
+      padding: 14px 16px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input:focus { border-color: var(--accent); }
+    .newsletter-input::placeholder { color: var(--muted); }
+    .newsletter-submit {
+      background: var(--accent); color: #080808; border: none;
+      padding: 14px 24px; border-radius: 2px;
+      font-family: 'Noto Sans KR', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: 0.08em; cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .newsletter-submit:hover { filter: brightness(1.1); }
+    .newsletter-privacy {
+      font-size: 11px; color: var(--muted); margin-top: 16px;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 960px) {
+      .category-inner { padding: 16px 20px; }
+      .featured-section { padding: 60px 20px; }
+      .featured-card { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+      .featured-visual { font-size: 56px; }
+      .posts-section { padding: 60px 20px 80px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .newsletter-section { padding: 80px 20px; }
+      .newsletter-form { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">HOMI<span class="acc">.</span>FACTORY</a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="blog.html" class="active">블로그</a>
+    <a href="index.html#inquiry-section">문의</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="index.html#inquiry-section" class="nav-cta">문의하기</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">홈</a>
+  <a href="about.html">회사소개</a>
+  <a href="reference.html">레퍼런스</a>
+  <a href="blog.html">블로그</a>
+  <a href="index.html#inquiry-section">문의하기 →</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span><span class="current">Blog</span>
+</div>
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="eyebrow">Blog · Newsroom</div>
+    <h1 class="page-title">
+      <span class="hl">인사이트</span>와<br>
+      <span class="outline">현장의 기록</span>
+    </h1>
+    <p class="page-subtitle">
+      호미팩토리가 캠페인 현장에서 얻은 인사이트와 크리에이터 이코노미의 흐름을 기록합니다.
+      숏폼, 라이브, 음원 바이럴 — 숫자 뒤에 숨은 이야기를 공유합니다.
+    </p>
+  </div>
+</header>
+
+<!-- CATEGORY FILTER -->
+<div class="category-bar">
+  <div class="category-inner">
+    <button class="category-chip active" data-cat="all">전체</button>
+    <button class="category-chip" data-cat="sns">SNS 마케팅</button>
+    <button class="category-chip" data-cat="live">TikTok Live</button>
+    <button class="category-chip" data-cat="mgt">매니지먼트</button>
+    <button class="category-chip" data-cat="content">콘텐츠 제작</button>
+    <button class="category-chip" data-cat="news">회사 소식</button>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<section class="featured-section">
+  <div class="featured-inner reveal">
+    <div class="featured-label"><span class="live-dot-sm"></span><span>Featured</span></div>
+    <a href="#" class="featured-card" style="text-decoration:none; color:inherit;">
+      <div class="featured-visual">VIRAL</div>
+      <div>
+        <div class="featured-cat">SNS 마케팅</div>
+        <h2 class="featured-title">2026년 음원 바이럴,<br>이제는 <span style="color:var(--accent)">알고리즘</span>을 설계해야 합니다</h2>
+        <p class="featured-excerpt">
+          TikTok과 릴스가 음원 소비 패턴을 완전히 바꿔놨습니다.
+          단순히 인플루언서에게 뿌리는 시대는 지났고,
+          이제는 '어떤 구간이 퍼질지'를 설계하는 단계까지 왔습니다.
+          호미팩토리 팀이 최근 집행한 캠페인 데이터로 짚어봅니다.
+        </p>
+        <div class="featured-meta">
+          <span>2026.04.15</span>
+          <span>By 배수빈 · CMO</span>
+          <span>읽는 시간 · 8분</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- POST GRID -->
+<section class="posts-section">
+  <div class="posts-inner">
+    <div class="posts-header">
+      <div>
+        <div class="sec-eyebrow">Latest</div>
+        <h2 class="sec-title" style="margin-bottom:0;">최근 글</h2>
+      </div>
+      <div class="posts-count" id="postCount">총 <span>9</span>개의 글</div>
+    </div>
+
+    <div class="posts-grid" id="postsGrid">
+
+      <a href="#" class="post-card cat-sns" data-cat="sns" style="text-decoration:none;">
+        <div class="post-thumb">SNS</div>
+        <div class="post-cat">SNS 마케팅</div>
+        <h3 class="post-title">인스타그램 리얼 바이럴을 만드는 5가지 체크포인트</h3>
+        <p class="post-excerpt">광고비 태우기 전에 반드시 점검해야 할 '오가닉 도달' 구조를 정리했습니다. 초기 저장률이 핵심.</p>
+        <div class="post-meta"><span>2026.04.10</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-live" data-cat="live" style="text-decoration:none;">
+        <div class="post-thumb">LIVE</div>
+        <div class="post-cat">TikTok Live</div>
+        <h3 class="post-title">라이브 커머스 전환율을 2배로 올린 크리에이터 매칭 방법</h3>
+        <p class="post-excerpt">팔로워 규모보다 중요한 건 '관객 성향'입니다. 우리 팀이 매칭 의사결정에 쓰는 3가지 기준.</p>
+        <div class="post-meta"><span>2026.04.05</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-mgt" data-cat="mgt" style="text-decoration:none;">
+        <div class="post-thumb">MGT</div>
+        <div class="post-cat">매니지먼트</div>
+        <h3 class="post-title">신인 크리에이터 육성, 첫 3개월에 만들어야 할 것들</h3>
+        <p class="post-excerpt">채널 아이덴티티 · 콘텐츠 주기 · 수익화 모델. 초반에 놓치면 1년을 헤매게 되는 포인트들.</p>
+        <div class="post-meta"><span>2026.03.28</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-content" data-cat="content" style="text-decoration:none;">
+        <div class="post-thumb">CONT</div>
+        <div class="post-cat">콘텐츠 제작</div>
+        <h3 class="post-title">AI로 만드는 숏폼, 어디까지 효율적일까</h3>
+        <p class="post-excerpt">호미팩토리가 실제 캠페인에 쓰는 AI 워크플로와 '사람이 반드시 개입해야 할 구간'을 공유합니다.</p>
+        <div class="post-meta"><span>2026.03.22</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-news" data-cat="news" style="text-decoration:none;">
+        <div class="post-thumb">NEWS</div>
+        <div class="post-cat">회사 소식</div>
+        <h3 class="post-title">호미팩토리, 퍼포먼스팀 Sena Kim 팀장 합류</h3>
+        <p class="post-excerpt">광고 운영과 KPI 분석 전문가 Sena Kim 팀장이 호미팩토리에 합류했습니다. 앞으로의 방향성을 공유합니다.</p>
+        <div class="post-meta"><span>2026.04.18</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-sns" data-cat="sns" style="text-decoration:none;">
+        <div class="post-thumb">SNS</div>
+        <div class="post-cat">SNS 마케팅</div>
+        <h3 class="post-title">지자체 국가사업 바이럴, 왜 쉽지 않을까</h3>
+        <p class="post-excerpt">공공 캠페인은 톤앤매너부터 다릅니다. 우리가 지자체 프로젝트에서 얻은 교훈 3가지.</p>
+        <div class="post-meta"><span>2026.03.15</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-live" data-cat="live" style="text-decoration:none;">
+        <div class="post-thumb">LIVE</div>
+        <div class="post-cat">TikTok Live</div>
+        <h3 class="post-title">라이브 시청 유지율을 결정하는 첫 60초</h3>
+        <p class="post-excerpt">라이브 오픈 직후 1분의 대본이 매출의 80%를 결정합니다. 실제 대본 예시와 함께.</p>
+        <div class="post-meta"><span>2026.03.08</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-mgt" data-cat="mgt" style="text-decoration:none;">
+        <div class="post-thumb">MGT</div>
+        <div class="post-cat">매니지먼트</div>
+        <h3 class="post-title">크리에이터와 장기 파트너가 되는 법</h3>
+        <p class="post-excerpt">정산 투명성, 기대치 관리, 콘텐츠 자율성 — 우리가 계약서보다 먼저 합의하는 것들.</p>
+        <div class="post-meta"><span>2026.02.28</span><span class="post-read">Read →</span></div>
+      </a>
+
+      <a href="#" class="post-card cat-news" data-cat="news" style="text-decoration:none;">
+        <div class="post-thumb">NEWS</div>
+        <div class="post-cat">회사 소식</div>
+        <h3 class="post-title">homifactory.com 공식 도메인 오픈</h3>
+        <p class="post-excerpt">브랜드 이메일(@homifactory.com) 및 공식 홈페이지를 오픈했습니다. 앞으로의 로드맵을 소개합니다.</p>
+        <div class="post-meta"><span>2026.04.19</span><span class="post-read">Read →</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner reveal">
+    <div class="sec-eyebrow">Newsletter</div>
+    <h2 class="newsletter-title">호미팩토리 <span class="hl">뉴스레터</span></h2>
+    <p class="newsletter-desc">
+      매주 한 번, 크리에이터 이코노미와 플랫폼 알고리즘 변화 —<br>
+      현장에서 체감한 내용만 정리해 보내드립니다.
+    </p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('구독 신청이 접수되었습니다!');">
+      <input type="email" class="newsletter-input" placeholder="이메일 주소를 입력하세요" required />
+      <button type="submit" class="newsletter-submit">구독하기</button>
+    </form>
+    <p class="newsletter-privacy">구독 정보는 뉴스레터 발송 목적으로만 사용되며, 언제든 해지 가능합니다.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">HOMI<span class="acc">.</span>FACTORY</div>
+        <p class="f-tagline">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
+        <div class="f-socials">
+          <a class="f-social" href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" title="Instagram">📸</a>
+          <a class="f-social" href="mailto:hosung@homifactory.com" title="Email">✉</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Services</h4>
+        <a href="index.html#dept-wrap">SNS 마케팅</a>
+        <a href="index.html#dept-wrap">크리에이터 매니지먼트</a>
+        <a href="index.html#dept-wrap">TikTok 라이브</a>
+        <a href="index.html#dept-wrap">퍼포먼스 섭외</a>
+        <a href="index.html#dept-wrap">콘텐츠 제작</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">회사소개</a>
+        <a href="reference.html">레퍼런스</a>
+        <a href="blog.html">블로그</a>
+        <a href="index.html#inquiry-section">문의하기</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <a href="mailto:hosung@homifactory.com">hosung@homifactory.com</a>
+        <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram @homi_factory</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>호미 팩토리 | 대표: 윤호성·배수빈·최성용 | 경기도 용인시 처인구 금령로 23, 302-73호 | 사업자등록번호: 295-20-02749 | © 2026 Homi Factory. All rights reserved.</span>
+      <div><a href="#">개인정보처리방침</a><a href="#">이용약관</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+<script>
+  /* Category Filter */
+  const chips = document.querySelectorAll('.category-chip');
+  const postCards = document.querySelectorAll('.post-card');
+  const countEl = document.querySelector('#postCount span');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const cat = chip.dataset.cat;
+      let shown = 0;
+      postCards.forEach(card => {
+        const match = cat === 'all' || card.dataset.cat === cat;
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (countEl) countEl.textContent = shown;
+    });
+  });
+</script>
+</body>
+</html>

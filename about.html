@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회사소개 | 호미팩토리</title>
+  <meta name="description" content="호미팩토리는 2025년 설립된 종합 콘텐츠 에이전시입니다. 공동대표 3인 체제와 6인의 전문 팀이 브랜드와 크리에이터의 성장을 설계합니다." />
+  <meta property="og:title" content="회사소개 | 호미팩토리" />
+  <meta property="og:description" content="공동대표 3인 체제의 종합 콘텐츠 에이전시, 호미팩토리" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://homifactory.com/about.html" />
+  <link rel="canonical" href="https://homifactory.com/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── ABOUT ONLY ── */
+    .about-hero .page-subtitle { max-width: 640px; }
+
+    /* Story Section */
+    .story-section { padding: 120px 48px; border-bottom: 1px solid var(--border); }
+    .story-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start;
+    }
+    .story-text p {
+      font-size: 15px; color: var(--text2); line-height: 2;
+      margin-bottom: 20px;
+    }
+    .story-text p strong { color: var(--text); font-weight: 500; }
+    .story-text .quote {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 3vw, 40px); line-height: 1.2; letter-spacing: 0.02em;
+      color: var(--text); margin-bottom: 32px;
+      padding-left: 20px; border-left: 3px solid var(--accent);
+    }
+
+    /* Values */
+    .values-section { padding: 120px 48px; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .values-inner { max-width: 1280px; margin: 0 auto; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;
+    }
+    .value-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 2px;
+      padding: 40px 32px; transition: border-color 0.3s, transform 0.3s;
+    }
+    .value-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .value-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 56px;
+      color: var(--accent); line-height: 1; margin-bottom: 20px;
+      -webkit-text-stroke: 1.5px var(--accent); color: transparent;
+    }
+    .value-card h3 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+      letter-spacing: 0.02em; margin-bottom: 12px;
+    }
+    .value-card p { font-size: 13px; color: var(--text2); line-height: 1.9; }
+
+    /* Team */
+    .team-section { padding: 120px 48px; }
+    .team-inner { max-width: 1280px; margin: 0 auto; }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .team-card {
+      background: var(--bg); padding: 48px 32px;
+      transition: background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .team-card:hover { background: var(--surface); }
+    .team-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 0; height: 2px; background: var(--accent);
+      transition: width 0.4s ease;
+    }
+    .team-card:hover::before { width: 100%; }
+    .team-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .team-name {
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+    .team-role {
+      font-size: 11px; letter-spacing: 0.15em; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .team-bio { font-size: 13px; color: var(--text2); line-height: 1.8; }
+    .team-card.founder::after {
+      content: 'CO-FOUNDER'; position: absolute; top: 24px; right: 24px;
+      font-size: 9px; letter-spacing: 0.2em; color: var(--muted);
+      padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px;
+    }
+
+    /* Timeline */
+    .timeline-section { padding: 120px 48px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .timeline-inner { max-width: 1000px; margin: 0 auto; }
+    .timeline {
+      position: relative; padding-left: 32px; margin-top: 48px;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item { position: relative; padding-bottom: 40px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -29px; top: 4px;
+      width: 13px; height: 13px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
+    }
+    .timeline-date {
+      font-family: 'Bebas Neue', sans-serif; font-size: 14px;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px;
+    }
+    .timeline-title { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+    .timeline-desc { font-size: 13px; color: var(--text2); line-height: 1.8; }
+
+    /* Info Section */
+    .info-section { padding: 120px 48px; }
+    .info-inner { max-width: 1280px; margin: 0 auto; }
+    .info-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+      background: var(--border); border: 1px solid var(--border); margin-top: 48px;
+    }
+    .info-row {
+      background: var(--bg); padding: 24px 32px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .info-label {
+      font-size: 11px; letter-spacing: 0.15em; color: var(--muted);
+      text-transform: uppercase; min-width: 140px; flex-shrink: 0;
+    }
+    .info-value { font-size: 14px; color: var(--text); }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 48px; text-align: center;
+      background: linear-gradient(to bottom, var(--bg), var(--surface));
+      border-top: 1px solid var(--border);
+    }
+    .cta-inner { max-width: 720px; margin: 0 auto; }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: 0.01em;
+      margin-bottom: 24px;
+    }
+    .cta-title .hl { color: var(--accent); }
+    .cta-desc { font-size: 15px; color: var(--text2); line-height: 1.9; margin-bottom: 40px; }
+
+    @media (max-width: 960px) {
+      .story-section, .values-section, .team-section, .timeline-section, .info-section, .cta-section {
+        padding: 80px 20px;
+      }
+      .story-inner { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-row { padding: 20px 24px; flex-direction: column; align-items: flex-start; gap: 6px; }
+      .info-label { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">HOMI<span class="acc">.</span>FACTORY</a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html" class="active">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="blog.html">블로그</a>
+    <a href="index.html#inquiry-section">문의</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="index.html#inquiry-section" class="nav-cta">문의하기</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">홈</a>
+  <a href="about.html">회사소개</a>
+  <a href="reference.html">레퍼런스</a>
+  <a href="blog.html">블로그</a>
+  <a href="index.html#inquiry-section">문의하기 →</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span><span class="current">About</span>
+</div>
+<header class="page-header about-hero">
+  <div class="page-header-inner">
+    <div class="eyebrow">About Homi Factory</div>
+    <h1 class="page-title">
+      우리는 <span class="hl">콘텐츠로</span><br>
+      세상과 연결됩니다
+    </h1>
+    <p class="page-subtitle">
+      호미팩토리는 2025년 6월 설립된 종합 콘텐츠 에이전시입니다.
+      SNS 마케팅부터 TikTok 라이브, 아티스트 매니지먼트, 콘텐츠 제작까지 —
+      브랜드와 크리에이터가 함께 성장하는 플랫폼을 만듭니다.
+    </p>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">Our Story</div>
+      <div class="sec-title">왜 호미팩토리인가</div>
+    </div>
+    <div class="story-text reveal">
+      <p class="quote">
+        "좋은 콘텐츠는<br>브랜드와 사람을 연결합니다."
+      </p>
+      <p>
+        <strong>호미팩토리</strong>는 단순한 마케팅 대행사가 아닙니다.
+        우리는 플랫폼 알고리즘을 연구하고, 크리에이터와 동행하며,
+        브랜드가 진짜 팬을 만나는 과정을 함께 설계합니다.
+      </p>
+      <p>
+        공동대표 3인은 각각 기술(CTO), 마케팅(CMO), 운영(COO) 영역을 리드하며
+        서로의 전문성을 교차시켜 프로젝트를 추진합니다.
+        숏폼·라이브·음원·행사 등 서로 다른 포맷을 자유롭게 조합해
+        브랜드가 실제로 움직이는 결과를 만듭니다.
+      </p>
+      <p>
+        우리는 유행을 쫓지 않습니다.
+        알고리즘, 크리에이터, 그리고 브랜드 — 세 축의 균형을 설계해
+        <strong>지속가능한 바이럴</strong>을 만드는 것이 우리의 일입니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">Our Values</div>
+      <div class="sec-title">일하는 방식</div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">01</div>
+        <h3>Data-Driven</h3>
+        <p>느낌이 아닌 데이터로 판단합니다. 플랫폼별 지표, 크리에이터 성과, 전환율까지 — 모든 의사결정의 근거를 수치로 만듭니다.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">02</div>
+        <h3>Creator-First</h3>
+        <p>크리에이터는 우리의 파트너입니다. 단기 섭외를 넘어 장기 성장을 함께 설계하며, 공정한 정산과 투명한 소통을 약속합니다.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-num">03</div>
+        <h3>End-to-End</h3>
+        <p>기획부터 운영, 리포팅까지 한 팀 안에서 해결합니다. 외주 구조가 없기에 속도와 품질을 동시에 가져갑니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">Our Team</div>
+      <div class="sec-title">호미팩토리 사람들</div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card founder reveal">
+        <div class="team-avatar">YHS</div>
+        <div class="team-name">윤호성</div>
+        <div class="team-role">CEO · CTO</div>
+        <p class="team-bio">공동대표 & 기술 총괄. AI 모니터링 시스템, 자동화 파이프라인, 데이터 인프라를 설계합니다.</p>
+      </div>
+      <div class="team-card founder reveal">
+        <div class="team-avatar">BSB</div>
+        <div class="team-name">배수빈</div>
+        <div class="team-role">CEO · CMO</div>
+        <p class="team-bio">공동대표 & 마케팅 총괄. 브랜드 전략, 캠페인 기획, 크리에이티브 디렉션을 리드합니다.</p>
+      </div>
+      <div class="team-card founder reveal">
+        <div class="team-avatar">CSY</div>
+        <div class="team-name">최성용</div>
+        <div class="team-role">CEO · COO</div>
+        <p class="team-bio">공동대표 & 운영 총괄. 클라이언트 관리, 사업 개발, 팀 오퍼레이션 전반을 담당합니다.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">SK</div>
+        <div class="team-name">Sena Kim</div>
+        <div class="team-role">Performance Lead</div>
+        <p class="team-bio">퍼포먼스 팀장. 광고 운영, KPI 분석, 리포팅 대시보드까지 — 숫자로 증명하는 결과를 만듭니다.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">CHJ</div>
+        <div class="team-name">최홍주</div>
+        <div class="team-role">Management</div>
+        <p class="team-bio">매니지먼트팀 대리. 크리에이터·아티스트 계약, 스케줄링, 정산까지 파트너 관리를 책임집니다.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">PYJ</div>
+        <div class="team-name">박영주</div>
+        <div class="team-role">Business Support</div>
+        <p class="team-bio">경영지원팀. 회계·세무·법인 서류·내부 운영을 담당하며 팀이 본업에 집중할 수 있게 돕습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">History</div>
+      <div class="sec-title">걸어온 길</div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2025.06</div>
+        <div class="timeline-title">호미팩토리 법인 설립</div>
+        <div class="timeline-desc">공동대표 3인 체제로 법인 설립 (사업자등록번호 295-20-02749). 정보통신업·서비스업 등록.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2025.09</div>
+        <div class="timeline-title">TikTok 라이브 에이전시 본격 운영</div>
+        <div class="timeline-desc">TikTok Live 전문 팀 구축. 크리에이터 매칭·라이브 커머스 운영 서비스 오픈.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2025.12</div>
+        <div class="timeline-title">퍼포먼스 섭외 사업부 신설</div>
+        <div class="timeline-desc">기업 행사·공연 아티스트 섭외 영역 확장. 공연·행사 통합 운영 대행 시작.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026.03</div>
+        <div class="timeline-title">자체 AI 모니터링 시스템 도입</div>
+        <div class="timeline-desc">크리에이터 성과·콘텐츠 트렌드를 실시간 분석하는 내부 AI 툴 가동.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026.04</div>
+        <div class="timeline-title">팀 확장 & 브랜드 리뉴얼</div>
+        <div class="timeline-desc">퍼포먼스·매니지먼트·경영지원 팀 확장, 공식 도메인 homifactory.com 오픈.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL / BUSINESS INFO -->
+<section class="info-section">
+  <div class="info-inner">
+    <div class="reveal">
+      <div class="sec-eyebrow">Company Info</div>
+      <div class="sec-title">법인 기본 정보</div>
+    </div>
+    <div class="info-grid">
+      <div class="info-row reveal"><div class="info-label">상호 (국문)</div><div class="info-value">호미 팩토리</div></div>
+      <div class="info-row reveal"><div class="info-label">상호 (영문)</div><div class="info-value">Homi Factory</div></div>
+      <div class="info-row reveal"><div class="info-label">대표자</div><div class="info-value">윤호성 · 배수빈 · 최성용 (공동대표)</div></div>
+      <div class="info-row reveal"><div class="info-label">사업자등록번호</div><div class="info-value">295-20-02749</div></div>
+      <div class="info-row reveal"><div class="info-label">개업일</div><div class="info-value">2025년 6월 5일</div></div>
+      <div class="info-row reveal"><div class="info-label">업태 / 종목</div><div class="info-value">정보통신업·서비스업 / 미디어콘텐츠창작업·광고 대행업</div></div>
+      <div class="info-row reveal"><div class="info-label">소재지</div><div class="info-value">경기도 용인시 처인구 금령로 23, 302-73호 (김량장동)</div></div>
+      <div class="info-row reveal"><div class="info-label">과세구분</div><div class="info-value">일반과세자 · 용인세무서</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">지금<br><span class="hl">이야기</span>를 시작하세요</h2>
+    <p class="cta-desc">브랜드 마케팅부터 크리에이터 매니지먼트까지 —<br>어떤 고민이든 먼저 편하게 알려주세요.</p>
+    <a href="index.html#inquiry-section" class="btn-primary">문의 바로 가기 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">HOMI<span class="acc">.</span>FACTORY</div>
+        <p class="f-tagline">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
+        <div class="f-socials">
+          <a class="f-social" href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" title="Instagram">📸</a>
+          <a class="f-social" href="mailto:hosung@homifactory.com" title="Email">✉</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Services</h4>
+        <a href="index.html#dept-wrap">SNS 마케팅</a>
+        <a href="index.html#dept-wrap">크리에이터 매니지먼트</a>
+        <a href="index.html#dept-wrap">TikTok 라이브</a>
+        <a href="index.html#dept-wrap">퍼포먼스 섭외</a>
+        <a href="index.html#dept-wrap">콘텐츠 제작</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">회사소개</a>
+        <a href="reference.html">레퍼런스</a>
+        <a href="blog.html">블로그</a>
+        <a href="index.html#inquiry-section">문의하기</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <a href="mailto:hosung@homifactory.com">hosung@homifactory.com</a>
+        <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram @homi_factory</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>호미 팩토리 | 대표: 윤호성·배수빈·최성용 | 경기도 용인시 처인구 금령로 23, 302-73호 | 사업자등록번호: 295-20-02749 | © 2026 Homi Factory. All rights reserved.</span>
+      <div><a href="#">개인정보처리방침</a><a href="#">이용약관</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+</body>
+</html>

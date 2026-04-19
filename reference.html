@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>레퍼런스 · 포트폴리오 | 호미팩토리</title>
+  <meta name="description" content="호미팩토리가 진행한 캠페인, 라이브 커머스, 아티스트 섭외, 콘텐츠 제작 레퍼런스." />
+  <meta property="og:title" content="레퍼런스 · 포트폴리오 | 호미팩토리" />
+  <meta property="og:description" content="호미팩토리의 실제 캠페인 사례" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://homifactory.com/reference.html" />
+  <link rel="canonical" href="https://homifactory.com/reference.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── REFERENCE ── */
+
+    .stats-strip {
+      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 40px 48px;
+    }
+    .stats-strip-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px;
+    }
+    .strip-item { text-align: center; }
+    .strip-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 40px;
+      letter-spacing: 0.02em; line-height: 1;
+    }
+    .strip-num .unit { font-size: 24px; color: var(--accent); margin-left: 2px; }
+    .strip-label {
+      font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+      text-transform: uppercase; margin-top: 8px;
+    }
+
+    /* Filter */
+    .ref-filter-bar {
+      position: sticky; top: 64px; z-index: 100;
+      background: rgba(8,8,8,0.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .ref-filter-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 20px 48px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .ref-chip {
+      font-size: 12px; letter-spacing: 0.08em;
+      padding: 8px 16px; border-radius: 100px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text2); cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: all 0.2s;
+    }
+    .ref-chip:hover { color: var(--text); border-color: var(--text2); }
+    .ref-chip.active {
+      background: var(--accent); color: #080808; border-color: var(--accent); font-weight: 700;
+    }
+
+    /* Grid */
+    .ref-section { padding: 80px 48px 120px; }
+    .ref-inner { max-width: 1280px; margin: 0 auto; }
+    .ref-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    }
+    .ref-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      overflow: hidden; cursor: pointer; position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .ref-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .ref-visual {
+      aspect-ratio: 16 / 9; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 72px;
+      letter-spacing: 0.04em;
+    }
+    .ref-card.type-sns .ref-visual {
+      background: linear-gradient(135deg, #0c1108 0%, #1a2010 100%);
+      color: rgba(200,240,60,0.35);
+    }
+    .ref-card.type-live .ref-visual {
+      background: linear-gradient(135deg, #120a0a 0%, #201414 100%);
+      color: rgba(255,96,96,0.35);
+    }
+    .ref-card.type-perf .ref-visual {
+      background: linear-gradient(135deg, #0d1008 0%, #1a1c10 100%);
+      color: rgba(240,200,60,0.35);
+    }
+    .ref-card.type-content .ref-visual {
+      background: linear-gradient(135deg, #080e12 0%, #101a20 100%);
+      color: rgba(60,240,200,0.35);
+    }
+    .ref-card.type-mgt .ref-visual {
+      background: linear-gradient(135deg, #0d0c12 0%, #181420 100%);
+      color: rgba(180,158,255,0.35);
+    }
+    .ref-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.04), transparent 50%);
+    }
+    .ref-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    }
+    .ref-tag-over {
+      position: absolute; top: 20px; left: 20px;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 4px 12px; background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 100px;
+      backdrop-filter: blur(8px); z-index: 2;
+    }
+    .ref-card.type-sns .ref-tag-over { color: var(--accent); border-color: rgba(200,240,60,0.3); }
+    .ref-card.type-live .ref-tag-over { color: var(--red); border-color: rgba(255,96,96,0.3); }
+    .ref-card.type-perf .ref-tag-over { color: var(--accent2); border-color: rgba(240,200,60,0.3); }
+    .ref-card.type-content .ref-tag-over { color: var(--accent3); border-color: rgba(60,240,200,0.3); }
+    .ref-card.type-mgt .ref-tag-over { color: var(--purple); border-color: rgba(180,158,255,0.3); }
+
+    .ref-body { padding: 28px; }
+    .ref-client {
+      font-size: 11px; letter-spacing: 0.15em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .ref-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+      letter-spacing: 0.01em; line-height: 1.15; margin-bottom: 16px;
+    }
+    .ref-desc { font-size: 13px; color: var(--text2); line-height: 1.9; margin-bottom: 20px; }
+    .ref-kpis {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      padding-top: 20px; border-top: 1px solid var(--border);
+    }
+    .ref-kpi-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+      line-height: 1; color: var(--accent); letter-spacing: 0.02em;
+    }
+    .ref-kpi-label {
+      font-size: 10px; letter-spacing: 0.12em; color: var(--muted);
+      text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* Client Logos */
+    .clients-section {
+      padding: 80px 48px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .clients-inner { max-width: 1280px; margin: 0 auto; }
+    .clients-title {
+      text-align: center;
+      font-size: 11px; letter-spacing: 0.25em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 40px;
+    }
+    .clients-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .client-cell {
+      background: var(--surface); padding: 32px 20px; text-align: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+      letter-spacing: 0.08em; color: var(--text2);
+      transition: color 0.3s, background 0.3s;
+    }
+    .client-cell:hover { color: var(--accent); background: var(--bg); }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 48px; text-align: center;
+    }
+    .cta-inner { max-width: 720px; margin: 0 auto; }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: 0.01em;
+      margin-bottom: 24px;
+    }
+    .cta-title .hl { color: var(--accent); }
+    .cta-desc { font-size: 15px; color: var(--text2); line-height: 1.9; margin-bottom: 40px; }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 960px) {
+      .stats-strip { padding: 32px 20px; }
+      .stats-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .ref-filter-inner { padding: 16px 20px; }
+      .ref-section { padding: 60px 20px 80px; }
+      .ref-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ref-visual { font-size: 48px; }
+      .clients-section { padding: 60px 20px; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 80px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">HOMI<span class="acc">.</span>FACTORY</a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html" class="active">레퍼런스</a>
+    <a href="blog.html">블로그</a>
+    <a href="index.html#inquiry-section">문의</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="index.html#inquiry-section" class="nav-cta">문의하기</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">홈</a>
+  <a href="about.html">회사소개</a>
+  <a href="reference.html">레퍼런스</a>
+  <a href="blog.html">블로그</a>
+  <a href="index.html#inquiry-section">문의하기 →</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span><span class="current">Reference</span>
+</div>
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="eyebrow">Reference · Portfolio</div>
+    <h1 class="page-title">
+      숫자로 말하는<br>
+      <span class="hl">호미팩토리의 결과</span>
+    </h1>
+    <p class="page-subtitle">
+      호미팩토리가 실제로 집행한 프로젝트와 그 결과를 카테고리별로 정리했습니다.
+      캠페인명·브랜드는 NDA 보호 범위에서 공개됩니다.
+    </p>
+  </div>
+</header>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="strip-item">
+      <div class="strip-num"><span class="counter" data-target="60">0</span><span class="unit">+</span></div>
+      <div class="strip-label">진행 캠페인</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num"><span class="counter" data-target="30">0</span><span class="unit">+</span></div>
+      <div class="strip-label">누적 브랜드</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num"><span class="counter" data-target="33">0</span><span class="unit">+</span></div>
+      <div class="strip-label">행사·공연</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num"><span class="counter" data-target="2000">0</span><span class="unit">+</span></div>
+      <div class="strip-label">크리에이터 네트워크</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="ref-filter-bar">
+  <div class="ref-filter-inner">
+    <button class="ref-chip active" data-type="all">전체</button>
+    <button class="ref-chip" data-type="sns">SNS 마케팅</button>
+    <button class="ref-chip" data-type="live">TikTok Live</button>
+    <button class="ref-chip" data-type="perf">퍼포먼스 섭외</button>
+    <button class="ref-chip" data-type="content">콘텐츠 제작</button>
+    <button class="ref-chip" data-type="mgt">매니지먼트</button>
+  </div>
+</div>
+
+<!-- GRID -->
+<section class="ref-section">
+  <div class="ref-inner">
+    <div class="ref-grid">
+
+      <div class="ref-card type-sns" data-type="sns">
+        <div class="ref-visual">
+          <div class="ref-tag-over">SNS Marketing</div>
+          VIRAL
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">Music Label · 인디 발매곡</div>
+          <h3 class="ref-title">신인 아티스트 음원 바이럴 캠페인</h3>
+          <p class="ref-desc">장르 매칭 기반 숏폼 크리에이터 40인 섭외, TikTok·릴스·쇼츠 멀티 플랫폼 동시 확산. 타겟 알고리즘 진입 성공.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">2.4M</div><div class="ref-kpi-label">총 조회수</div></div>
+            <div><div class="ref-kpi-num">+380%</div><div class="ref-kpi-label">스트리밍 증가</div></div>
+            <div><div class="ref-kpi-num">40</div><div class="ref-kpi-label">크리에이터</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-live" data-type="live">
+        <div class="ref-visual">
+          <div class="ref-tag-over">TikTok Live</div>
+          LIVE
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">Fashion Brand · F/W 시즌</div>
+          <h3 class="ref-title">패션 브랜드 라이브 커머스 시즌 오픈</h3>
+          <p class="ref-desc">메인 크리에이터 라이브 4회 + 리텐션 설계. 매회 평균 시청 유지율 42%, 라이브 당일 매출 상승.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">4회</div><div class="ref-kpi-label">라이브 방송</div></div>
+            <div><div class="ref-kpi-num">42%</div><div class="ref-kpi-label">평균 유지율</div></div>
+            <div><div class="ref-kpi-num">x2.8</div><div class="ref-kpi-label">시즌 매출</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-perf" data-type="perf">
+        <div class="ref-visual">
+          <div class="ref-tag-over">Performance Booking</div>
+          STAGE
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">IT 기업 · 연말 타운홀</div>
+          <h3 class="ref-title">기업 연말 타운홀 공연 총괄</h3>
+          <p class="ref-desc">가수 + 퍼포머 + MC 라인업 구성. 리허설·음향·동선까지 전담 디렉팅.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">800+</div><div class="ref-kpi-label">참가 인원</div></div>
+            <div><div class="ref-kpi-num">6팀</div><div class="ref-kpi-label">섭외 아티스트</div></div>
+            <div><div class="ref-kpi-num">4.8/5</div><div class="ref-kpi-label">만족도</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-content" data-type="content">
+        <div class="ref-visual">
+          <div class="ref-tag-over">Contents Production</div>
+          FILM
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">F&B Brand · 신제품 런칭</div>
+          <h3 class="ref-title">신제품 런칭 숏폼 캠페인 3종 제작</h3>
+          <p class="ref-desc">브랜드 필름 + 제품 컷 + SNS 카드뉴스 3종 세트. 기획·촬영·편집·운영까지 인하우스 풀 프로덕션.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">3편</div><div class="ref-kpi-label">영상 제작</div></div>
+            <div><div class="ref-kpi-num">14일</div><div class="ref-kpi-label">제작 기간</div></div>
+            <div><div class="ref-kpi-num">1.2M</div><div class="ref-kpi-label">합산 조회수</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-sns" data-type="sns">
+        <div class="ref-visual">
+          <div class="ref-tag-over">SNS Marketing</div>
+          PUBLIC
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">지자체 · 관광 홍보 사업</div>
+          <h3 class="ref-title">국가사업 지역 관광 바이럴</h3>
+          <p class="ref-desc">지역 인플루언서 섭외 + 현장 기반 숏폼 컨텐츠 8편. 방문 유입 지표 상승.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">8편</div><div class="ref-kpi-label">콘텐츠 제작</div></div>
+            <div><div class="ref-kpi-num">+215%</div><div class="ref-kpi-label">검색량 상승</div></div>
+            <div><div class="ref-kpi-num">3M+</div><div class="ref-kpi-label">누적 도달</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-mgt" data-type="mgt">
+        <div class="ref-visual">
+          <div class="ref-tag-over">Management</div>
+          TALENT
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">신인 틱톡 크리에이터 육성</div>
+          <h3 class="ref-title">신인 크리에이터 온보딩 + 첫 광고 계약</h3>
+          <p class="ref-desc">채널 아이덴티티 설계 → 초기 6개월 콘텐츠 운영 → 첫 브랜드 협찬 계약 체결까지 풀 스택 매니지먼트.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">0→50K</div><div class="ref-kpi-label">팔로워 성장</div></div>
+            <div><div class="ref-kpi-num">6개월</div><div class="ref-kpi-label">온보딩 기간</div></div>
+            <div><div class="ref-kpi-num">3건</div><div class="ref-kpi-label">브랜드 계약</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-live" data-type="live">
+        <div class="ref-visual">
+          <div class="ref-tag-over">TikTok Live</div>
+          COMMERCE
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">Beauty Brand · 마스터 세일</div>
+          <h3 class="ref-title">뷰티 브랜드 라이브 커머스 정기 운영</h3>
+          <p class="ref-desc">월 4회 정기 라이브 편성, 크리에이터 로테이션 매칭으로 피로감 최소화. 전환율 안정적 유지.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">16회</div><div class="ref-kpi-label">라이브 (4개월)</div></div>
+            <div><div class="ref-kpi-num">7.2%</div><div class="ref-kpi-label">평균 전환율</div></div>
+            <div><div class="ref-kpi-num">+58%</div><div class="ref-kpi-label">MoM 매출</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-card type-content" data-type="content">
+        <div class="ref-visual">
+          <div class="ref-tag-over">Contents Production</div>
+          SHORTS
+        </div>
+        <div class="ref-body">
+          <div class="ref-client">F&B Brand · 외식업 체인</div>
+          <h3 class="ref-title">외식업 브랜드 숏폼 정기 운영</h3>
+          <p class="ref-desc">월 12편 숏폼 정기 운영. 매장별 포맷 분화 전략으로 지역 타겟팅 최적화.</p>
+          <div class="ref-kpis">
+            <div><div class="ref-kpi-num">48편</div><div class="ref-kpi-label">누적 제작</div></div>
+            <div><div class="ref-kpi-num">x3.1</div><div class="ref-kpi-label">방문 문의</div></div>
+            <div><div class="ref-kpi-num">23%</div><div class="ref-kpi-label">평균 저장률</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section">
+  <div class="clients-inner">
+    <div class="clients-title">함께한 클라이언트 · 파트너</div>
+    <div class="clients-grid">
+      <div class="client-cell">FASHION</div>
+      <div class="client-cell">BEAUTY</div>
+      <div class="client-cell">F &amp; B</div>
+      <div class="client-cell">MUSIC</div>
+      <div class="client-cell">IT</div>
+      <div class="client-cell">PUBLIC</div>
+      <div class="client-cell">TRAVEL</div>
+      <div class="client-cell">LIFESTYLE</div>
+      <div class="client-cell">E-COMMERCE</div>
+      <div class="client-cell">ENTERTAINMENT</div>
+      <div class="client-cell">EDUCATION</div>
+      <div class="client-cell">WELLNESS</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">다음 프로젝트의<br><span class="hl">주인공</span>이 되어주세요</h2>
+    <p class="cta-desc">아직 이 리스트에는 없는 브랜드, 새로운 캠페인 —<br>호미팩토리가 다음 레퍼런스를 함께 만들어갑니다.</p>
+    <a href="index.html#inquiry-section" class="btn-primary">프로젝트 문의하기 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">HOMI<span class="acc">.</span>FACTORY</div>
+        <p class="f-tagline">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
+        <div class="f-socials">
+          <a class="f-social" href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" title="Instagram">📸</a>
+          <a class="f-social" href="mailto:hosung@homifactory.com" title="Email">✉</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Services</h4>
+        <a href="index.html#dept-wrap">SNS 마케팅</a>
+        <a href="index.html#dept-wrap">크리에이터 매니지먼트</a>
+        <a href="index.html#dept-wrap">TikTok 라이브</a>
+        <a href="index.html#dept-wrap">퍼포먼스 섭외</a>
+        <a href="index.html#dept-wrap">콘텐츠 제작</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="about.html">회사소개</a>
+        <a href="reference.html">레퍼런스</a>
+        <a href="blog.html">블로그</a>
+        <a href="index.html#inquiry-section">문의하기</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <a href="mailto:hosung@homifactory.com">hosung@homifactory.com</a>
+        <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram @homi_factory</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>호미 팩토리 | 대표: 윤호성·배수빈·최성용 | 경기도 용인시 처인구 금령로 23, 302-73호 | 사업자등록번호: 295-20-02749 | © 2026 Homi Factory. All rights reserved.</span>
+      <div><a href="#">개인정보처리방침</a><a href="#">이용약관</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+<script>
+  /* Reference Filter */
+  const chips = document.querySelectorAll('.ref-chip');
+  const cards = document.querySelectorAll('.ref-card');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const type = chip.dataset.type;
+      cards.forEach(card => {
+        const match = type === 'all' || card.dataset.type === type;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+</script>
+</body>
+</html>
