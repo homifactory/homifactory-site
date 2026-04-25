@@ -49,7 +49,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <!-- Brand typefaces: Space Grotesk (display) + Pretendard (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -105,7 +108,7 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
     .hero-badge span { font-size:11px; letter-spacing:0.2em; color:var(--accent); text-transform:uppercase; }
     .hero h1 {
-      font-family:'Bebas Neue', sans-serif;
+      font-family:'Space Grotesk', sans-serif;
       font-size:clamp(72px, 11vw, 148px); line-height:0.88; letter-spacing:-0.01em;
       margin-bottom:36px;
       opacity:0; animation:fadeUp 0.7s ease forwards 0.35s;
@@ -139,9 +142,9 @@
       padding:80px 64px; display:flex; flex-direction:column; justify-content:center;
       position:relative; z-index:1;
     }
-    .dept-num { font-family:'Bebas Neue', sans-serif; font-size:11px; letter-spacing:0.24em; color:var(--muted); margin-bottom:24px; }
+    .dept-num { font-family:'Space Grotesk', sans-serif; font-size:11px; letter-spacing:0.24em; color:var(--muted); margin-bottom:24px; }
     .dept-title {
-      font-family:'Bebas Neue', sans-serif;
+      font-family:'Space Grotesk', sans-serif;
       font-size:clamp(32px, 4vw, 52px); letter-spacing:0.01em; line-height:1; margin-bottom:20px;
     }
     .dept-title .hl { color:var(--accent); }
@@ -156,7 +159,7 @@
       font-size:12px; letter-spacing:0.1em; color:var(--text2);
       background:none; border:none; border-bottom:1px solid var(--border);
       padding-bottom:6px; cursor:pointer;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       transition:color 0.2s, border-color 0.2s;
     }
     .dept-detail-btn:hover { color:var(--accent); border-color:var(--accent); }
@@ -166,7 +169,7 @@
     }
     .dept-visual-bg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; will-change: transform; }
     .dept-visual-text {
-      font-family:'Bebas Neue', sans-serif; font-size:clamp(80px,12vw,180px);
+      font-family:'Space Grotesk', sans-serif; font-size:clamp(80px,12vw,180px);
       color:rgba(255,255,255,0.03); letter-spacing:-0.02em; white-space:nowrap; user-select:none;
     }
     .dept-icon-wrap {
@@ -223,7 +226,7 @@
     .modal-close:hover { color:var(--accent); }
     .modal-eyebrow { font-size:10px; letter-spacing:0.2em; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
     .modal h3 {
-      font-family:'Bebas Neue', sans-serif; font-size:36px; letter-spacing:0.02em; margin-bottom:20px;
+      font-family:'Space Grotesk', sans-serif; font-size:36px; letter-spacing:0.02em; margin-bottom:20px;
     }
     .modal p { font-size:14px; color:var(--text2); line-height:1.9; margin-bottom:16px; }
     .modal-features { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0; }
@@ -249,7 +252,7 @@
     .stats-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(6,1fr); gap:2px; }
     .stat-card { background:var(--bg); padding:40px 32px; border-right:1px solid var(--border); }
     .stat-card:last-child { border-right:none; }
-    .stat-num { font-family:'Bebas Neue', sans-serif; font-size:56px; letter-spacing:0.02em; line-height:1; display:flex; align-items:baseline; gap:4px; }
+    .stat-num { font-family:'Space Grotesk', sans-serif; font-size:56px; letter-spacing:0.02em; line-height:1; display:flex; align-items:baseline; gap:4px; }
     .stat-unit { font-size:36px; color:var(--accent); }
     .stat-label { font-size:12px; color:var(--muted); letter-spacing:0.1em; margin-top:8px; text-transform:uppercase; }
     .stat-desc { font-size:12px; color:var(--text2); margin-top:8px; line-height:1.6; }
@@ -290,7 +293,7 @@
     .form-label { font-size:11px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; }
     .form-input, .form-select, .form-textarea {
       background:var(--surface2); border:1px solid var(--border); border-radius:2px;
-      color:var(--text); font-family:'Noto Sans KR', sans-serif; font-size:14px;
+      color:var(--text); font-family:'Pretendard', 'Noto Sans KR', sans-serif; font-size:14px;
       padding:12px 16px; outline:none; transition:border-color 0.2s;
       -webkit-appearance:none;
     }
@@ -312,7 +315,7 @@
     .form-submit {
       background:var(--accent); color:#080808; border:none;
       padding:16px 32px; border-radius:2px;
-      font-family:'Noto Sans KR', sans-serif; font-weight:700;
+      font-family:'Pretendard', 'Noto Sans KR', sans-serif; font-weight:700;
       font-size:14px; letter-spacing:0.08em; cursor:pointer;
       transition:filter 0.2s, transform 0.2s;
       display:flex; align-items:center; justify-content:center; gap:8px;
@@ -321,24 +324,29 @@
     .form-submit:hover { filter:brightness(1.1); transform:translateY(-2px); }
     .form-success { display:none; text-align:center; padding:48px 0; }
     .form-success .check { font-size:48px; margin-bottom:16px; }
-    .form-success h4 { font-family:'Bebas Neue', sans-serif; font-size:28px; margin-bottom:8px; color:var(--accent); }
+    .form-success h4 { font-family:'Space Grotesk', sans-serif; font-size:28px; margin-bottom:8px; color:var(--accent); }
     .form-success p { font-size:14px; color:var(--text2); }
 
     /* ── HERO CTA BUTTONS ── */
     .hero-cta-row {
-      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* 두 버튼 정확히 동일 폭 */
+      gap: 14px;
+      max-width: 680px;                 /* 너무 넓어지지 않게 */
       margin-bottom: 44px;
       opacity: 0; animation: fadeUp 0.7s ease forwards 0.55s;
     }
     .hero-main-cta {
-      display: inline-flex; align-items: center; gap: 10px;
+      width: 100%;                      /* 그리드 셀 전체 채우기 */
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       background: var(--accent); color: #080808; border: none;
-      padding: 18px 34px; border-radius: 100px;
-      font-family: 'Noto Sans KR', sans-serif;
+      padding: 18px 24px; border-radius: 100px;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
       cursor: pointer;
       box-shadow: 0 8px 40px -8px color-mix(in srgb, var(--accent) 60%, transparent);
       transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.2s;
+      white-space: nowrap;
     }
     .hero-main-cta:hover {
       transform: translateY(-3px);
@@ -350,18 +358,9 @@
       font-size: 18px;
     }
     .hero-main-cta:hover .arrow { transform: translateX(4px); }
-    .hero-sub-cta {
-      background: transparent; color: var(--text);
-      border: 1px solid rgba(242,239,232,0.25);
-      padding: 16px 28px; border-radius: 100px;
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
-      cursor: pointer;
-      transition: border-color 0.25s, color 0.25s, background 0.25s;
-    }
-    .hero-sub-cta:hover {
-      border-color: var(--accent); color: var(--accent);
-      background: rgba(200,240,60,0.06);
+    @media (max-width: 640px) {
+      .hero-cta-row { grid-template-columns: 1fr; max-width: 100%; }
+      .hero-main-cta { padding: 16px 20px; font-size: 15px; }
     }
 
     /* ── INLINE CTA in Dept Cards ── */
@@ -375,7 +374,7 @@
       border: 1px solid rgba(180,158,255,0.25);
       transition: background 0.2s, transform 0.2s;
       cursor: pointer;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     }
     .dept-inline-cta:hover {
       background: rgba(180,158,255,0.2);
@@ -405,7 +404,7 @@
       content: ''; width: 20px; height: 1px; background: var(--accent2);
     }
     .allin-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; letter-spacing: 0.01em;
       margin-bottom: 32px;
     }
@@ -414,7 +413,7 @@
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--accent); color: #080808; border: none;
       padding: 18px 34px; border-radius: 100px;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       font-size: 15px; font-weight: 800; letter-spacing: 0.02em;
       cursor: pointer;
       box-shadow: 0 8px 40px -10px color-mix(in srgb, var(--accent) 60%, transparent);
@@ -473,7 +472,7 @@
       content: ''; width: 20px; height: 1px; background: var(--accent);
     }
     .quick-cta-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(32px, 4.5vw, 56px); line-height: 1; letter-spacing: 0.01em;
     }
     .quick-cta-title .hl { color: var(--accent); }
@@ -492,7 +491,7 @@
       position: relative;
       overflow: hidden;
       transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       text-align: left;
       color: var(--text);
       display: flex; flex-direction: column;
@@ -523,7 +522,7 @@
       position: relative; z-index: 1;
     }
     .qcta-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 24px; letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 10px;
       color: var(--text);
       position: relative; z-index: 1;
@@ -574,7 +573,7 @@
     .qform-label .req { color: var(--accent); }
     .qform-input, .qform-select, .qform-textarea {
       background: var(--surface2); border: 1px solid var(--border); border-radius: 2px;
-      color: var(--text); font-family: 'Noto Sans KR', sans-serif; font-size: 14px;
+      color: var(--text); font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 14px;
       padding: 11px 14px; outline: none;
       transition: border-color 0.2s;
       -webkit-appearance: none;
@@ -605,7 +604,7 @@
     .qform-submit {
       background: var(--accent); color: #080808; border: none;
       padding: 14px 28px; border-radius: 2px;
-      font-family: 'Noto Sans KR', sans-serif; font-weight: 700;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-weight: 700;
       font-size: 13px; letter-spacing: 0.08em; cursor: pointer;
       transition: filter 0.2s, transform 0.2s;
       margin-top: 8px;
@@ -617,7 +616,7 @@
     }
     .qform-success .check { font-size: 40px; margin-bottom: 12px; }
     .qform-success h5 {
-      font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.02em;
+      font-family: 'Space Grotesk', sans-serif; font-size: 26px; letter-spacing: 0.02em;
       color: var(--accent); margin-bottom: 8px;
     }
     .qform-success p { font-size: 13px; color: var(--text2); line-height: 1.8; }
@@ -676,7 +675,19 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">HOMI<span class="acc">.</span>FACTORY</a>
+  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <polygon points="8,22 32,8 32,104 8,90"/>
+        <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
+        <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
+        <polygon points="64,8 88,22 88,90 64,104"/>
+        <polygon points="32,50 64,46 64,62 32,58"/>
+        <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
+      </svg>
+    </span>
+    <span class="brand-word">HOMI FACTORY</span>
+  </a>
   <div class="nav-center">
     <a href="index.html" class="active">홈</a>
     <a href="about.html">회사소개</a>
@@ -685,7 +696,7 @@
     <a href="#inquiry-section">문의</a>
   </div>
   <div style="display:flex;align-items:center;gap:16px;">
-    <a href="#" class="nav-cta" data-modal="modal-quick">⚡ 30초 간편문의</a>
+    <a href="#" class="nav-cta" data-modal="modal-quick">광고 제안 받기</a>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -694,7 +705,7 @@
   <a href="about.html">회사소개</a>
   <a href="reference.html">레퍼런스</a>
   <a href="blog.html">블로그</a>
-  <a href="#" data-modal="modal-quick">⚡ 30초 간편문의 →</a>
+  <a href="#" data-modal="modal-quick">광고 제안 받기 →</a>
 </div>
 
 <!-- HERO -->
@@ -713,11 +724,12 @@
     </h1>
     <div class="hero-cta-row">
       <button type="button" class="hero-main-cta" data-modal="modal-free">
-        <span>💡 지금 무료 제안 받기</span>
+        <span>광고 제안 하기(기업 문의용)</span>
         <span class="arrow">→</span>
       </button>
-      <button type="button" class="hero-sub-cta" data-modal="modal-quick">
-        <span>⚡ 30초 간편문의</span>
+      <button type="button" class="hero-main-cta" data-modal="modal-quick">
+        <span>광고 제안 받기(크리에이터용)</span>
+        <span class="arrow">→</span>
       </button>
     </div>
     <div class="hero-bottom">
@@ -737,34 +749,34 @@
     <div class="quick-cta-header reveal">
       <div>
         <div class="quick-cta-eyebrow">Get a Proposal</div>
-        <h2 class="quick-cta-title">30초 만에 시작하는<br><span class="hl">4가지 제안 받기</span></h2>
+        <h2 class="quick-cta-title">당신에게 맞는<br><span class="hl">4가지 제안 경로</span></h2>
       </div>
       <p class="quick-cta-sub">가장 편한 방법을 골라주세요.<br>담당자가 평일 기준 24시간 내 연락드립니다.</p>
     </div>
 
     <div class="quick-cta-grid">
-      <!-- 1. 30초 간편문의 -->
+      <!-- 1. 광고 제안 받기 (크리에이터용) -->
       <button type="button" class="qcta-card card-quick reveal" data-modal="modal-quick">
-        <span class="qcta-badge">⚡ 30초</span>
+        <span class="qcta-badge">🎨 크리에이터</span>
         <div class="qcta-icon">📝</div>
-        <div class="qcta-title">30초 간편문의</div>
-        <p class="qcta-desc">이름·연락처·한 줄 메시지만. 가장 빠르게 시작하는 경로.</p>
+        <div class="qcta-title">광고 제안 받기<br><span style="font-size:14px;color:var(--text2);font-weight:400;">(크리에이터용)</span></div>
+        <p class="qcta-desc">이름·연락처·채널 정보만 남기시면, 예산·결에 맞는 브랜드 제안을 골라 전달드립니다.</p>
         <div class="qcta-meta">
           <span>⏱ 30초</span><span>·</span><span>필드 3개</span>
         </div>
-        <span class="qcta-cta">시작하기 →</span>
+        <span class="qcta-cta">제안 받기 →</span>
       </button>
 
-      <!-- 2. 지금 무료 제안 받기 -->
+      <!-- 2. 광고 제안 하기 (기업 문의용) -->
       <button type="button" class="qcta-card card-free reveal" data-modal="modal-free">
-        <span class="qcta-badge">💡 무료</span>
+        <span class="qcta-badge">🏢 기업</span>
         <div class="qcta-icon">🎁</div>
-        <div class="qcta-title">지금 무료 제안 받기</div>
-        <p class="qcta-desc">브랜드 상황에 맞춘 마케팅 제안서 무료 제공. 금액 확약 없음.</p>
+        <div class="qcta-title">광고 제안 하기<br><span style="font-size:14px;color:var(--text2);font-weight:400;">(기업 문의용)</span></div>
+        <p class="qcta-desc">브랜드 상황·타겟·예산에 맞춘 마케팅 제안서 무료 제공. 금액 확약 없음.</p>
         <div class="qcta-meta">
           <span>⏱ 2분</span><span>·</span><span>필드 5개</span>
         </div>
-        <span class="qcta-cta">무료 제안 받기 →</span>
+        <span class="qcta-cta">제안 하기 →</span>
       </button>
 
       <!-- 3. 맞춤 인플루언서 제안 -->
@@ -1066,7 +1078,19 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="f-logo">HOMI<span class="acc">.</span>FACTORY</div>
+        <div class="f-logo">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <polygon points="8,22 32,8 32,104 8,90"/>
+              <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
+              <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
+              <polygon points="64,8 88,22 88,90 64,104"/>
+              <polygon points="32,50 64,46 64,62 32,58"/>
+              <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
+            </svg>
+          </span>
+          <span class="brand-word">HOMI FACTORY</span>
+        </div>
         <p class="f-tagline">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
         <div class="f-socials">
           <a class="f-social" href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" title="Instagram">📸</a>
@@ -1184,13 +1208,13 @@
 
 <!-- ══════════════ QUICK CTA MODALS ══════════════ -->
 
-<!-- 1. 30초 간편문의 -->
+<!-- 1. 광고 제안 받기 (크리에이터용) -->
 <div class="modal-overlay" id="modal-quick">
   <div class="modal">
     <button class="modal-close" data-close>✕</button>
-    <div class="modal-eyebrow">⚡ 30초 간편문의</div>
-    <h3>딱 3가지만 알려주세요</h3>
-    <p>바쁘실 땐 이걸로. 담당자가 받는 즉시 회신드립니다.</p>
+    <div class="modal-eyebrow">🎨 크리에이터 · 광고 제안 받기</div>
+    <h3>이름·연락처·채널만 알려주세요</h3>
+    <p>크리에이터님의 결·규모에 맞는 브랜드 제안을 선별해 회신드립니다.</p>
     <form class="qform" id="qform-quick" data-kind="quick" novalidate>
       <div class="qform-row single">
         <div class="qform-group">
@@ -1211,7 +1235,7 @@
           <span class="qform-hint">선택 항목. 상세 내용은 첫 통화에서 상담드립니다.</span>
         </div>
       </div>
-      <button type="submit" class="qform-submit">빠르게 보내기 →</button>
+      <button type="submit" class="qform-submit">광고 제안 받기 →</button>
     </form>
     <div class="qform-success" id="qsuccess-quick">
       <div class="check">✅</div>
@@ -1221,13 +1245,13 @@
   </div>
 </div>
 
-<!-- 2. 지금 무료 제안 받기 -->
+<!-- 2. 광고 제안 하기 (기업 문의용) -->
 <div class="modal-overlay" id="modal-free">
   <div class="modal">
     <button class="modal-close" data-close>✕</button>
-    <div class="modal-eyebrow">💡 무료 제안</div>
+    <div class="modal-eyebrow">🏢 기업 문의 · 광고 제안 하기</div>
     <h3>브랜드 상황에 맞춘 제안서,<br>무료로 받아보세요</h3>
-    <p>5개 필드만 채워주시면 담당자가 방향성과 예시 레퍼런스를 정리해 보내드립니다.</p>
+    <p>5개 필드만 채워주시면 담당자가 방향성·예시 레퍼런스·예산 가이드를 정리해 보내드립니다.</p>
     <form class="qform" id="qform-free" data-kind="free" novalidate>
       <div class="qform-row">
         <div class="qform-group">
@@ -1276,11 +1300,11 @@
           <textarea class="qform-textarea" name="context" placeholder="예: 신제품 런칭 앞두고 있고, SNS 인지도 확보가 급합니다."></textarea>
         </div>
       </div>
-      <button type="submit" class="qform-submit">무료 제안서 받기 →</button>
+      <button type="submit" class="qform-submit">광고 제안 하기 →</button>
     </form>
     <div class="qform-success" id="qsuccess-free">
       <div class="check">🎁</div>
-      <h5>무료 제안 요청 접수!</h5>
+      <h5>광고 제안 요청 접수!</h5>
       <p>담당자가 24시간 내 맞춤 제안서 초안을 이메일로 보내드립니다.<br>금액 확약은 없으니 가볍게 검토해 주세요.</p>
     </div>
   </div>
