@@ -86,19 +86,78 @@
     .hero-grid {
       position:absolute; inset:0; z-index:0;
       background-image:
-        linear-gradient(rgba(0,244,233,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,244,233,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(37,37,37,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,37,37,0.04) 1px, transparent 1px);
       background-size:60px 60px;
       animation: gridShift 25s linear infinite;
     }
     @keyframes gridShift { from{background-position:0 0} to{background-position:60px 60px} }
+
+    /* HERO 배경 — 비디오성 mesh blob 애니메이션 */
     .hero-glow {
-      position:absolute; width:700px; height:700px;
-      background:radial-gradient(circle, rgba(0,244,233,0.07) 0%, transparent 65%);
-      top:5%; right:-150px; z-index:0;
-      animation: glowFloat 9s ease-in-out infinite;
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+      pointer-events: none;
     }
-    @keyframes glowFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-40px) scale(1.06)} }
+    .hero-glow::before,
+    .hero-glow::after,
+    .hero-glow .blob-3 {
+      content: '';
+      position: absolute; border-radius: 50%;
+      filter: blur(80px);
+      will-change: transform;
+    }
+    /* Blob 1 — 민트 (좌상단) */
+    .hero-glow::before {
+      width: 720px; height: 720px;
+      background: radial-gradient(circle at 50% 50%, rgba(0,244,233,0.55) 0%, rgba(0,244,233,0) 65%);
+      top: -10%; left: -10%;
+      animation: blobFloat1 18s ease-in-out infinite;
+    }
+    /* Blob 2 — 분홍 (우중단) */
+    .hero-glow::after {
+      width: 620px; height: 620px;
+      background: radial-gradient(circle at 50% 50%, rgba(253,1,81,0.45) 0%, rgba(253,1,81,0) 65%);
+      top: 30%; right: -8%;
+      animation: blobFloat2 22s ease-in-out infinite;
+    }
+    /* Blob 3 — 민트 보조 (하단) */
+    .hero-glow .blob-3 {
+      width: 540px; height: 540px;
+      background: radial-gradient(circle at 50% 50%, rgba(0,244,233,0.35) 0%, rgba(0,244,233,0) 65%);
+      bottom: -15%; left: 35%;
+      animation: blobFloat3 26s ease-in-out infinite;
+    }
+    @keyframes blobFloat1 {
+      0%   { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(80px, 60px) scale(1.1); }
+      66%  { transform: translate(140px, -40px) scale(0.95); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes blobFloat2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(-100px, 80px) scale(1.08); }
+      66%  { transform: translate(-50px, -70px) scale(1.15); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes blobFloat3 {
+      0%   { transform: translate(0, 0) scale(1); }
+      40%  { transform: translate(-120px, -60px) scale(1.12); }
+      70%  { transform: translate(80px, 40px) scale(0.92); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    /* 모바일에서는 GPU 부담 줄이기 */
+    @media (max-width: 768px) {
+      .hero-glow::before,
+      .hero-glow::after,
+      .hero-glow .blob-3 { filter: blur(60px); animation-duration: 30s; }
+      .hero-glow .blob-3 { display: none; }
+    }
+    /* 사용자가 모션 줄이기 설정한 경우 */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-glow::before,
+      .hero-glow::after,
+      .hero-glow .blob-3 { animation: none; }
+    }
     .hero-content { position:relative; z-index:1; max-width:1280px; margin:0 auto; width:100%; }
     .hero-badge {
       display:inline-flex; align-items:center; gap:8px; margin-bottom:28px;
@@ -713,7 +772,7 @@
 <nav>
   <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
     <span class="brand-mark" aria-hidden="true">
-      <img src="assets/logo-symbol.png" alt="" />
+      <img src="assets/logo-symbol.png?v=2" alt="" />
     </span>
     <span class="brand-word">HOMI FACTORY</span>
   </a>
@@ -738,7 +797,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
+  <div class="hero-glow"><span class="blob-3"></span></div>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="live-dot"></span>
@@ -1105,7 +1164,7 @@
       <div>
         <div class="f-logo">
           <span class="brand-mark" aria-hidden="true">
-            <img src="assets/logo-symbol.png" alt="" />
+            <img src="assets/logo-symbol.png?v=2" alt="" />
           </span>
           <span class="brand-word">HOMI FACTORY</span>
         </div>
