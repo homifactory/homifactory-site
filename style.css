@@ -21,9 +21,11 @@
   --pink: #fd0151;
   --mint-soft: #c2faf6;
   --pink-soft: #ffc5d4;
-  --accent: var(--mint);          /* primary 액센트 */
-  --accent2: var(--pink);         /* secondary 액센트 */
-  --accent3: var(--mint);         /* (구) 호환 */
+  --mint-deep: #009b94;            /* 텍스트로 쓸 때의 짙은 민트 (라이트 배경에서 가독성 확보) */
+  --accent: var(--mint);           /* primary 액센트 — 배경/블록/큰 면적 */
+  --accent2: var(--pink);          /* secondary 액센트 — 텍스트 강조/포인트 */
+  --accent-text: var(--pink);      /* 텍스트 강조 시 사용 */
+  --accent3: var(--mint);          /* (구) 호환 */
 
   /* 구 토큰 호환 매핑 — 모두 mint/pink로 수렴 */
   --lime: var(--mint);
@@ -131,7 +133,7 @@ nav {
 .nav-logo .brand-word { display: inline-block; }
 .nav-logo .brand-word .sp { display: inline-block; width: 0.35em; }
 /* 하위 호환 (기존 .acc 있는 경우) */
-.nav-logo .acc { color: var(--lime); }
+.nav-logo .acc { color: var(--pink); }
 .nav-center {
   display: flex; gap: 32px;
   position: absolute; left: 50%; transform: translateX(-50%);
@@ -142,7 +144,7 @@ nav {
   font-family: var(--font-body);
 }
 .nav-center a:hover { color: var(--text); }
-.nav-center a.active { color: var(--lime); }
+.nav-center a.active { color: var(--pink); }
 .nav-center a.active::after {
   content: ''; position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
   width: 5px; height: 5px; border-radius: 50%; background: var(--lime);
@@ -170,7 +172,7 @@ nav {
   color:var(--text2); text-decoration:none; font-size:15px; font-weight: 500;
   transition:color 0.2s;
 }
-.mobile-nav a:last-child { color:var(--lime); font-weight:700; border:none; }
+.mobile-nav a:last-child { color: var(--pink); font-weight:700; border:none; }
 
 /* ── SECTION / PAGE HEADER ── */
 .page-header {
@@ -188,7 +190,7 @@ nav {
 }
 .page-header-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
 .page-header .eyebrow {
-  font-size: 12px; letter-spacing: 0.18em; color: var(--lime); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.18em; color: var(--pink); font-weight: 600;
   text-transform: uppercase; margin-bottom: 20px;
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-display);
@@ -201,7 +203,7 @@ nav {
   font-size: clamp(48px, 8vw, 120px); line-height: 0.95; letter-spacing: -0.035em;
   margin-bottom: 24px;
 }
-.page-title .hl { color: var(--lime); }
+.page-title .hl { color: var(--pink); }
 .page-title .outline { -webkit-text-stroke:1.5px rgba(37,37,37,0.2); color:transparent; }
 .page-subtitle { font-size: 16px; color: var(--text2); line-height: 1.85; max-width: 560px; }
 
@@ -229,7 +231,7 @@ nav {
   font-size:14px; font-weight: 600; letter-spacing:0.02em; color:var(--muted);
   border-right:1px solid var(--border); white-space:nowrap; transition:color 0.2s;
 }
-.m-item:hover { color:var(--lime); }
+.m-item:hover { color: var(--pink); }
 .m-sep { color:var(--hot-pink) !important; border-right:none !important; padding:0 16px !important; }
 
 /* ── SHARED BUTTONS ── */
@@ -253,7 +255,7 @@ nav {
   font-family: var(--font-body);
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
-.btn-ghost:hover { color: var(--lime); border-color: var(--lime); background: rgba(0,244,233,0.06); }
+.btn-ghost:hover { color: var(--pink); border-color: var(--pink); background: rgba(0,244,233,0.06); }
 
 /* ── SECTION 색상 블록 유틸리티 ── */
 .sec-ink { background: var(--ink); color: var(--cream); }
@@ -290,7 +292,7 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
 .f-logo .brand-mark svg,
 .f-logo .brand-mark img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .f-logo .brand-word .sp { display: inline-block; width: 0.35em; }
-.f-logo .acc { color:var(--lime); }
+.f-logo .acc { color: var(--pink); }
 .f-tagline { font-size:13px; color:var(--muted); line-height:1.8; margin-bottom:20px; }
 .f-socials { display:flex; gap:12px; }
 .f-social {
@@ -298,7 +300,7 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
   display:flex; align-items:center; justify-content:center; font-size:15px;
   text-decoration:none; color:var(--text2); transition:border-color 0.2s, color 0.2s, background 0.2s;
 }
-.f-social:hover { border-color:var(--lime); color:var(--lime); background: rgba(0,244,233,0.06); }
+.f-social:hover { border-color: var(--pink); color: var(--pink); background: rgba(0,244,233,0.06); }
 .f-col h4 { font-family:var(--font-display); font-size:12px; letter-spacing:0.12em; color:var(--hot-pink); text-transform:uppercase; margin-bottom:16px; font-weight:700; }
 .f-col a { display:block; font-size:14px; color:var(--text2); text-decoration:none; margin-bottom:10px; transition:color 0.2s; }
 .f-col a:hover { color:var(--text); }
@@ -319,7 +321,7 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
 .section-inner { max-width: 1280px; margin: 0 auto; }
 .sec-eyebrow {
   font-family: var(--font-display); font-weight: 600;
-  font-size: 12px; letter-spacing: 0.16em; color: var(--lime);
+  font-size: 12px; letter-spacing: 0.16em; color: var(--pink);
   text-transform: uppercase; margin-bottom: 14px;
   display: inline-flex; align-items: center; gap: 8px;
 }
@@ -336,12 +338,12 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 0;
   padding: 6px 14px; border-radius: 100px;
-  background: rgba(0,244,233,0.1); color: var(--lime);
+  background: rgba(0,244,233,0.1); color: var(--pink);
   border: 1px solid rgba(0,244,233,0.28);
 }
 .chip--hot { background: rgba(253,1,81,0.1); color: var(--hot-pink); border-color: rgba(253,1,81,0.28); }
 .chip--purple { background: rgba(253,1,81,0.1); color: var(--purple); border-color: rgba(253,1,81,0.28); }
-.chip--cobalt { background: rgba(253,1,81,0.1); color: var(--cobalt); border-color: rgba(253,1,81,0.3); }
+.chip--cobalt { background: rgba(253,1,81,0.1); color: var(--pink); border-color: rgba(253,1,81,0.3); }
 .chip--orange { background: rgba(253,1,81,0.1); color: var(--orange); border-color: rgba(253,1,81,0.3); }
 
 /* ── RESPONSIVE ── */

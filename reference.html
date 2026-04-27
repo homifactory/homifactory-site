@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-6" />
+  <link rel="stylesheet" href="style.css?v=20260425-7" />
 
   <style>
     /* ── REFERENCE ── */
@@ -34,7 +34,7 @@
       font-family: 'Space Grotesk', sans-serif; font-size: 40px;
       letter-spacing: 0.02em; line-height: 1;
     }
-    .strip-num .unit { font-size: 24px; color: var(--accent); margin-left: 2px; }
+    .strip-num .unit { font-size: 24px; color: var(--pink); margin-left: 2px; }
     .strip-label {
       font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
       text-transform: uppercase; margin-top: 8px;
@@ -61,7 +61,7 @@
     }
     .ref-chip:hover { color: var(--text); border-color: var(--text2); }
     .ref-chip.active {
-      background: var(--accent); color: #252525; border-color: var(--accent); font-weight: 700;
+      background: var(--accent); color: #252525; border-color: var(--pink); font-weight: 700;
     }
 
     /* Grid */
@@ -75,7 +75,7 @@
       overflow: hidden; cursor: pointer; position: relative;
       transition: border-color 0.3s, transform 0.3s;
     }
-    .ref-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .ref-card:hover { border-color: var(--pink); transform: translateY(-4px); }
     .ref-visual {
       aspect-ratio: 16 / 9; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
@@ -117,11 +117,11 @@
       border: 1px solid rgba(255,255,255,0.15); border-radius: 100px;
       backdrop-filter: blur(8px); z-index: 2;
     }
-    .ref-card.type-sns .ref-tag-over { color: var(--accent); border-color: rgba(0,244,233,0.3); }
-    .ref-card.type-live .ref-tag-over { color: var(--red); border-color: rgba(253,1,81,0.3); }
+    .ref-card.type-sns .ref-tag-over { color: var(--pink); border-color: rgba(0,244,233,0.3); }
+    .ref-card.type-live .ref-tag-over { color: var(--pink); border-color: rgba(253,1,81,0.3); }
     .ref-card.type-perf .ref-tag-over { color: var(--accent2); border-color: rgba(253,1,81,0.3); }
-    .ref-card.type-content .ref-tag-over { color: var(--accent3); border-color: rgba(0,244,233,0.3); }
-    .ref-card.type-mgt .ref-tag-over { color: var(--purple); border-color: rgba(253,1,81,0.3); }
+    .ref-card.type-content .ref-tag-over { color: var(--pink); border-color: rgba(0,244,233,0.3); }
+    .ref-card.type-mgt .ref-tag-over { color: var(--pink); border-color: rgba(253,1,81,0.3); }
 
     .ref-body { padding: 28px; }
     .ref-client {
@@ -139,7 +139,7 @@
     }
     .ref-kpi-num {
       font-family: 'Space Grotesk', sans-serif; font-size: 28px;
-      line-height: 1; color: var(--accent); letter-spacing: 0.02em;
+      line-height: 1; color: var(--pink); letter-spacing: 0.02em;
     }
     .ref-kpi-label {
       font-size: 10px; letter-spacing: 0.12em; color: var(--muted);
@@ -168,7 +168,7 @@
       letter-spacing: 0.08em; color: var(--text2);
       transition: color 0.3s, background 0.3s;
     }
-    .client-cell:hover { color: var(--accent); background: var(--bg); }
+    .client-cell:hover { color: var(--pink); background: var(--bg); }
 
     /* CTA */
     .cta-section {
@@ -180,7 +180,7 @@
       font-size: clamp(36px, 5vw, 64px); line-height: 1; letter-spacing: 0.01em;
       margin-bottom: 24px;
     }
-    .cta-title .hl { color: var(--accent); }
+    .cta-title .hl { color: var(--pink); }
     .cta-desc { font-size: 15px; color: var(--text2); line-height: 1.9; margin-bottom: 40px; }
 
     .hidden { display: none !important; }
