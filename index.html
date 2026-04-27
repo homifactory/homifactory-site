@@ -53,7 +53,7 @@
   <!-- Brand typefaces: Space Grotesk (display) + Pretendard (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-7" />
+  <link rel="stylesheet" href="style.css?v=20260425-8" />
 
   <style>
     /* ── INDEX ONLY ── */
@@ -249,20 +249,32 @@
     /* STATS */
     .stats-section {
       background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-      padding:80px 48px;
+      padding:0;                                /* 외부 여백 제거 — 박스 풀폭 */
     }
-    .stats-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(6,1fr); gap:2px; }
-    .stat-card { background:var(--bg); padding:40px 32px; border-right:1px solid var(--border); }
+    .stats-inner {
+      max-width: 100%; margin: 0;               /* 풀폭 그리드 */
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));   /* minmax(0,1fr) — 콘텐츠가 셀 폭을 못 늘리게 */
+      gap: 0;
+    }
+    .stat-card {
+      background:var(--bg); padding:48px 32px;
+      border-right: 1px solid var(--border);
+      min-width: 0;                              /* flex/grid 셀이 최소 0까지 줄어들 수 있게 */
+    }
     .stat-card:last-child { border-right:none; }
     .stat-num {
-      font-family:'Space Grotesk', sans-serif; font-size:56px; letter-spacing:0.02em; line-height:1;
-      display:flex; align-items:baseline; gap:4px;
-      font-variant-numeric: tabular-nums;          /* 자릿수 변해도 폭 고정 */
-      font-feature-settings: "tnum" 1, "lnum" 1;   /* 폴백 */
+      font-family:'Space Grotesk', sans-serif; font-size:clamp(40px, 4vw, 56px); letter-spacing:0.02em; line-height:1;
+      display:inline-flex; align-items:baseline; gap:4px;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+      white-space: nowrap;                       /* 숫자+단위 한 줄로 강제 */
     }
-    .stat-unit { font-size:36px; color: var(--pink); font-variant-numeric: normal; }
+    .stat-unit { font-size:clamp(28px, 2.6vw, 36px); color: var(--pink); font-variant-numeric: normal; flex-shrink: 0; }
     .stat-card .counter {
-      display: inline-block; min-width: 1ch;
+      display: inline-block;
+      min-width: 4ch;                            /* 최대 4자리 (2,000) 너비 미리 확보 — 카운트업 시 흔들림 0 */
+      text-align: left;
       font-variant-numeric: tabular-nums;
     }
     .stat-label { font-size:12px; color:var(--muted); letter-spacing:0.1em; margin-top:8px; text-transform:uppercase; }
@@ -643,9 +655,10 @@
       .dept-item:nth-child(even) > * { direction:ltr; }
       .dept-visual { min-height:220px; }
       .dept-content { padding:48px 24px; }
-      .stats-inner { grid-template-columns:repeat(3,1fr); }
-      .stat-card { border-right:none; border-bottom:1px solid var(--border); }
-      .stat-card:last-child { border-bottom:none; }
+      .stats-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .stat-card { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 20px; }
+      .stat-card:nth-child(3n) { border-right: none; }
+      .stat-card:nth-last-child(-n+3) { border-bottom: none; }
       .faq-section { padding:80px 20px; }
       .inquiry-section { padding:80px 20px; }
       .inquiry-inner { grid-template-columns:1fr; gap:48px; }
@@ -656,7 +669,9 @@
       .quick-cta-header { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width:480px) {
-      .stats-inner { grid-template-columns:1fr 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stat-card:nth-child(2n) { border-right: none; }
+      .stat-card:nth-child(3n) { border-right: 1px solid var(--border); }
       .modal { padding:32px 24px; }
       .modal-features { grid-template-columns:1fr; }
       .service-checks { grid-template-columns:1fr; }
