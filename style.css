@@ -56,7 +56,7 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;                    /* 기본 OS 커서 사용 (커스텀 커서 비활성화) */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* 한글 텍스트가 단어 중간(예: 카테/고리, 프/로젝트)에서 잘리지 않도록 */
@@ -64,6 +64,9 @@ body {
   overflow-wrap: break-word;
   line-break: strict;
 }
+
+/* 커스텀 커서/링 완전 비표시 */
+#cursor, #cursor-ring { display: none !important; }
 
 /* soft grain (약화) */
 body::after {

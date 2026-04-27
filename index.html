@@ -53,7 +53,7 @@
   <!-- Brand typefaces: Space Grotesk (display) + Pretendard (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-2" />
+  <link rel="stylesheet" href="style.css?v=20260425-3" />
 
   <style>
     /* ── INDEX ONLY ── */
@@ -109,11 +109,13 @@
     .hero-badge span { font-size:11px; letter-spacing:0.2em; color:var(--accent); text-transform:uppercase; }
     .hero h1 {
       font-family:'Space Grotesk', sans-serif;
-      font-size:clamp(72px, 11vw, 148px); line-height:0.88; letter-spacing:-0.01em;
+      font-size:clamp(64px, 10vw, 132px);
+      line-height:1.12;            /* 한글 받침/내림이 윗줄과 겹치지 않게 충분히 확보 */
+      letter-spacing:-0.005em;
       margin-bottom:36px;
       opacity:0; animation:fadeUp 0.7s ease forwards 0.35s;
     }
-    .hero h1 .scramble { display:inline-block; }
+    .hero h1 .scramble { display:inline-block; line-height:inherit; }
     .hero h1 .line2 { color:var(--accent); }
     .hero h1 .outline { -webkit-text-stroke:1.5px rgba(242,239,232,0.18); color:transparent; }
     .hero-bottom {
@@ -252,8 +254,17 @@
     .stats-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:repeat(6,1fr); gap:2px; }
     .stat-card { background:var(--bg); padding:40px 32px; border-right:1px solid var(--border); }
     .stat-card:last-child { border-right:none; }
-    .stat-num { font-family:'Space Grotesk', sans-serif; font-size:56px; letter-spacing:0.02em; line-height:1; display:flex; align-items:baseline; gap:4px; }
-    .stat-unit { font-size:36px; color:var(--accent); }
+    .stat-num {
+      font-family:'Space Grotesk', sans-serif; font-size:56px; letter-spacing:0.02em; line-height:1;
+      display:flex; align-items:baseline; gap:4px;
+      font-variant-numeric: tabular-nums;          /* 자릿수 변해도 폭 고정 */
+      font-feature-settings: "tnum" 1, "lnum" 1;   /* 폴백 */
+    }
+    .stat-unit { font-size:36px; color:var(--accent); font-variant-numeric: normal; }
+    .stat-card .counter {
+      display: inline-block; min-width: 1ch;
+      font-variant-numeric: tabular-nums;
+    }
     .stat-label { font-size:12px; color:var(--muted); letter-spacing:0.1em; margin-top:8px; text-transform:uppercase; }
     .stat-desc { font-size:12px; color:var(--text2); margin-top:8px; line-height:1.6; }
 
@@ -692,7 +703,6 @@
     <a href="index.html" class="active">홈</a>
     <a href="about.html">회사소개</a>
     <a href="reference.html">레퍼런스</a>
-    <a href="blog.html">블로그</a>
     <a href="#inquiry-section">문의</a>
   </div>
   <div style="display:flex;align-items:center;gap:16px;">
@@ -704,7 +714,6 @@
   <a href="index.html">홈</a>
   <a href="about.html">회사소개</a>
   <a href="reference.html">레퍼런스</a>
-  <a href="blog.html">블로그</a>
   <a href="#" data-modal="modal-quick">광고 제안 받기 →</a>
 </div>
 
@@ -1109,8 +1118,7 @@
         <h4>Company</h4>
         <a href="about.html">회사소개</a>
         <a href="reference.html">레퍼런스</a>
-        <a href="blog.html">블로그</a>
-        <a href="#inquiry-section">문의하기</a>
+            <a href="#inquiry-section">문의하기</a>
       </div>
       <div class="f-col">
         <h4>Contact</h4>
