@@ -59,6 +59,10 @@ body {
   cursor: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* 한글 텍스트가 단어 중간(예: 카테/고리, 프/로젝트)에서 잘리지 않도록 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
 }
 
 /* soft grain (약화) */
