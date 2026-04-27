@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-3" />
+  <link rel="stylesheet" href="style.css?v=20260425-5" />
 
   <style>
     /* ── REFERENCE ── */
@@ -43,7 +43,7 @@
     /* Filter */
     .ref-filter-bar {
       position: sticky; top: 64px; z-index: 100;
-      background: rgba(8,8,8,0.92); backdrop-filter: blur(20px);
+      background: rgba(242,242,242,0.92); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .ref-filter-inner {
@@ -61,7 +61,7 @@
     }
     .ref-chip:hover { color: var(--text); border-color: var(--text2); }
     .ref-chip.active {
-      background: var(--accent); color: #080808; border-color: var(--accent); font-weight: 700;
+      background: var(--accent); color: #252525; border-color: var(--accent); font-weight: 700;
     }
 
     /* Grid */
@@ -83,24 +83,24 @@
       letter-spacing: 0.04em;
     }
     .ref-card.type-sns .ref-visual {
-      background: linear-gradient(135deg, #0c1108 0%, #1a2010 100%);
-      color: rgba(200,240,60,0.35);
+      background: linear-gradient(135deg, #f7fcf6 0%, #e8f9f7 100%);
+      color: rgba(0,244,233,0.35);
     }
     .ref-card.type-live .ref-visual {
-      background: linear-gradient(135deg, #120a0a 0%, #201414 100%);
-      color: rgba(255,96,96,0.35);
+      background: linear-gradient(135deg, #fcf6f6 0%, #fde8ed 100%);
+      color: rgba(253,1,81,0.35);
     }
     .ref-card.type-perf .ref-visual {
-      background: linear-gradient(135deg, #0d1008 0%, #1a1c10 100%);
-      color: rgba(240,200,60,0.35);
+      background: linear-gradient(135deg, #fcfaf3 0%, #fde8ed 100%);
+      color: rgba(253,1,81,0.35);
     }
     .ref-card.type-content .ref-visual {
-      background: linear-gradient(135deg, #080e12 0%, #101a20 100%);
-      color: rgba(60,240,200,0.35);
+      background: linear-gradient(135deg, #f5fcfb 0%, #e8f9f7 100%);
+      color: rgba(0,244,233,0.35);
     }
     .ref-card.type-mgt .ref-visual {
-      background: linear-gradient(135deg, #0d0c12 0%, #181420 100%);
-      color: rgba(180,158,255,0.35);
+      background: linear-gradient(135deg, #fcf6f8 0%, #fde8ed 100%);
+      color: rgba(253,1,81,0.35);
     }
     .ref-visual::before {
       content: ''; position: absolute; inset: 0;
@@ -108,20 +108,20 @@
     }
     .ref-visual::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(0,0,0,0.06) 0%, transparent 50%);
     }
     .ref-tag-over {
       position: absolute; top: 20px; left: 20px;
       font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 4px 12px; background: rgba(0,0,0,0.5);
+      padding: 4px 12px; background: rgba(0,0,0,0.05);
       border: 1px solid rgba(255,255,255,0.15); border-radius: 100px;
       backdrop-filter: blur(8px); z-index: 2;
     }
-    .ref-card.type-sns .ref-tag-over { color: var(--accent); border-color: rgba(200,240,60,0.3); }
-    .ref-card.type-live .ref-tag-over { color: var(--red); border-color: rgba(255,96,96,0.3); }
-    .ref-card.type-perf .ref-tag-over { color: var(--accent2); border-color: rgba(240,200,60,0.3); }
-    .ref-card.type-content .ref-tag-over { color: var(--accent3); border-color: rgba(60,240,200,0.3); }
-    .ref-card.type-mgt .ref-tag-over { color: var(--purple); border-color: rgba(180,158,255,0.3); }
+    .ref-card.type-sns .ref-tag-over { color: var(--accent); border-color: rgba(0,244,233,0.3); }
+    .ref-card.type-live .ref-tag-over { color: var(--red); border-color: rgba(253,1,81,0.3); }
+    .ref-card.type-perf .ref-tag-over { color: var(--accent2); border-color: rgba(253,1,81,0.3); }
+    .ref-card.type-content .ref-tag-over { color: var(--accent3); border-color: rgba(0,244,233,0.3); }
+    .ref-card.type-mgt .ref-tag-over { color: var(--purple); border-color: rgba(253,1,81,0.3); }
 
     .ref-body { padding: 28px; }
     .ref-client {
@@ -207,14 +207,7 @@
 <nav>
   <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
     <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <polygon points="8,22 32,8 32,104 8,90"/>
-        <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
-        <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
-        <polygon points="64,8 88,22 88,90 64,104"/>
-        <polygon points="32,50 64,46 64,62 32,58"/>
-        <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
-      </svg>
+      <img src="assets/logo-symbol.png" alt="" />
     </span>
     <span class="brand-word">HOMI FACTORY</span>
   </a>
@@ -469,14 +462,7 @@
       <div>
         <div class="f-logo">
           <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <polygon points="8,22 32,8 32,104 8,90"/>
-              <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
-              <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
-              <polygon points="64,8 88,22 88,90 64,104"/>
-              <polygon points="32,50 64,46 64,62 32,58"/>
-              <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
-            </svg>
+            <img src="assets/logo-symbol.png" alt="" />
           </span>
           <span class="brand-word">HOMI FACTORY</span>
         </div>

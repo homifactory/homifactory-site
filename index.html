@@ -53,7 +53,7 @@
   <!-- Brand typefaces: Space Grotesk (display) + Pretendard (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-3" />
+  <link rel="stylesheet" href="style.css?v=20260425-5" />
 
   <style>
     /* ── INDEX ONLY ── */
@@ -86,15 +86,15 @@
     .hero-grid {
       position:absolute; inset:0; z-index:0;
       background-image:
-        linear-gradient(rgba(200,240,60,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,240,60,0.035) 1px, transparent 1px);
+        linear-gradient(rgba(0,244,233,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,244,233,0.035) 1px, transparent 1px);
       background-size:60px 60px;
       animation: gridShift 25s linear infinite;
     }
     @keyframes gridShift { from{background-position:0 0} to{background-position:60px 60px} }
     .hero-glow {
       position:absolute; width:700px; height:700px;
-      background:radial-gradient(circle, rgba(200,240,60,0.07) 0%, transparent 65%);
+      background:radial-gradient(circle, rgba(0,244,233,0.07) 0%, transparent 65%);
       top:5%; right:-150px; z-index:0;
       animation: glowFloat 9s ease-in-out infinite;
     }
@@ -154,7 +154,7 @@
     .dept-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
     .dept-tag {
       font-size:11px; letter-spacing:0.08em; padding:4px 12px; border-radius:2px;
-      background:rgba(200,240,60,0.08); color:var(--accent); border:1px solid rgba(200,240,60,0.2);
+      background:rgba(0,244,233,0.08); color:var(--accent); border:1px solid rgba(0,244,233,0.2);
     }
     .dept-detail-btn {
       display:inline-flex; align-items:center; gap:8px;
@@ -181,33 +181,33 @@
       transition:transform 0.4s ease;
     }
     .dept-item:hover .dept-icon-wrap { transform:scale(1.1) rotate(-6deg); }
-    .dept-1 .dept-visual { background:#0c1108; }
-    .dept-1 .dept-icon-wrap { background:rgba(200,240,60,0.08); border:1px solid rgba(200,240,60,0.15); }
-    .dept-1 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(200,240,60,0.07) 0%, transparent 65%); }
-    .dept-2 .dept-visual { background:#0d0c12; }
-    .dept-2 .dept-icon-wrap { background:rgba(180,158,255,0.1); border:1px solid rgba(180,158,255,0.2); }
+    .dept-1 .dept-visual { background:#f7fcf6; }
+    .dept-1 .dept-icon-wrap { background:rgba(0,244,233,0.08); border:1px solid rgba(0,244,233,0.15); }
+    .dept-1 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(0,244,233,0.07) 0%, transparent 65%); }
+    .dept-2 .dept-visual { background:#fcf6f8; }
+    .dept-2 .dept-icon-wrap { background:rgba(253,1,81,0.1); border:1px solid rgba(253,1,81,0.2); }
     .dept-2 .dept-title .hl { color:var(--purple); }
-    .dept-2 .dept-tag { background:rgba(180,158,255,0.08); color:var(--purple); border-color:rgba(180,158,255,0.2); }
-    .dept-2 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(180,158,255,0.07) 0%, transparent 65%); }
-    .dept-3 .dept-visual { background:#120a0a; }
-    .dept-3 .dept-icon-wrap { background:rgba(255,96,96,0.1); border:1px solid rgba(255,96,96,0.2); }
+    .dept-2 .dept-tag { background:rgba(253,1,81,0.08); color:var(--purple); border-color:rgba(253,1,81,0.2); }
+    .dept-2 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(253,1,81,0.07) 0%, transparent 65%); }
+    .dept-3 .dept-visual { background:#fcf6f6; }
+    .dept-3 .dept-icon-wrap { background:rgba(253,1,81,0.1); border:1px solid rgba(253,1,81,0.2); }
     .dept-3 .dept-title .hl { color:var(--red); }
-    .dept-3 .dept-tag { background:rgba(255,96,96,0.08); color:var(--red); border-color:rgba(255,96,96,0.2); }
-    .dept-3 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(255,96,96,0.07) 0%, transparent 65%); }
-    .dept-4 .dept-visual { background:#080e12; }
-    .dept-4 .dept-icon-wrap { background:rgba(60,240,200,0.1); border:1px solid rgba(60,240,200,0.2); }
+    .dept-3 .dept-tag { background:rgba(253,1,81,0.08); color:var(--red); border-color:rgba(253,1,81,0.2); }
+    .dept-3 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(253,1,81,0.07) 0%, transparent 65%); }
+    .dept-4 .dept-visual { background:#f5fcfb; }
+    .dept-4 .dept-icon-wrap { background:rgba(0,244,233,0.1); border:1px solid rgba(0,244,233,0.2); }
     .dept-4 .dept-title .hl { color:var(--accent3); }
-    .dept-4 .dept-tag { background:rgba(60,240,200,0.08); color:var(--accent3); border-color:rgba(60,240,200,0.2); }
-    .dept-4 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(60,240,200,0.07) 0%, transparent 65%); }
-    .dept-5 .dept-visual { background:#0d1008; }
-    .dept-5 .dept-icon-wrap { background:rgba(240,200,60,0.1); border:1px solid rgba(240,200,60,0.2); }
+    .dept-4 .dept-tag { background:rgba(0,244,233,0.08); color:var(--accent3); border-color:rgba(0,244,233,0.2); }
+    .dept-4 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(0,244,233,0.07) 0%, transparent 65%); }
+    .dept-5 .dept-visual { background:#fcfaf3; }
+    .dept-5 .dept-icon-wrap { background:rgba(253,1,81,0.1); border:1px solid rgba(253,1,81,0.2); }
     .dept-5 .dept-title .hl { color:var(--accent2); }
-    .dept-5 .dept-tag { background:rgba(240,200,60,0.08); color:var(--accent2); border-color:rgba(240,200,60,0.2); }
-    .dept-5 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(240,200,60,0.07) 0%, transparent 65%); }
+    .dept-5 .dept-tag { background:rgba(253,1,81,0.08); color:var(--accent2); border-color:rgba(253,1,81,0.2); }
+    .dept-5 .dept-visual::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%, rgba(253,1,81,0.07) 0%, transparent 65%); }
 
     /* MODAL */
     .modal-overlay {
-      position:fixed; inset:0; z-index:800; background:rgba(0,0,0,0.85);
+      position:fixed; inset:0; z-index:800; background:rgba(255,255,255,0.85);
       backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center;
       opacity:0; pointer-events:none; transition:opacity 0.3s;
     }
@@ -239,7 +239,7 @@
     .modal-feat strong { color:var(--text); font-size:13px; display:block; margin-bottom:4px; }
     .modal-cta {
       display:inline-flex; align-items:center; gap:8px;
-      background:var(--accent); color:#080808;
+      background:var(--accent); color:#252525;
       padding:14px 32px; border-radius:2px;
       font-weight:700; font-size:13px; letter-spacing:0.08em;
       text-decoration:none; transition:filter 0.2s; margin-top:8px;
@@ -321,10 +321,10 @@
       display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s;
     }
     .service-check input:checked ~ .check-box { background:var(--accent); border-color:var(--accent); }
-    .service-check input:checked ~ .check-box::after { content:'✓'; font-size:11px; color:#080808; font-weight:700; }
+    .service-check input:checked ~ .check-box::after { content:'✓'; font-size:11px; color:#252525; font-weight:700; }
     .check-label { font-size:13px; color:var(--text2); }
     .form-submit {
-      background:var(--accent); color:#080808; border:none;
+      background:var(--accent); color:#252525; border:none;
       padding:16px 32px; border-radius:2px;
       font-family:'Pretendard', 'Noto Sans KR', sans-serif; font-weight:700;
       font-size:14px; letter-spacing:0.08em; cursor:pointer;
@@ -350,7 +350,7 @@
     .hero-main-cta {
       width: 100%;                      /* 그리드 셀 전체 채우기 */
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      background: var(--accent); color: #080808; border: none;
+      background: var(--accent); color: #252525; border: none;
       padding: 18px 24px; border-radius: 100px;
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
@@ -381,14 +381,14 @@
       font-size: 12px; letter-spacing: 0.08em;
       color: var(--purple); text-decoration: none;
       padding: 4px 12px; border-radius: 100px;
-      background: rgba(180,158,255,0.08);
-      border: 1px solid rgba(180,158,255,0.25);
+      background: rgba(253,1,81,0.08);
+      border: 1px solid rgba(253,1,81,0.25);
       transition: background 0.2s, transform 0.2s;
       cursor: pointer;
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     }
     .dept-inline-cta:hover {
-      background: rgba(180,158,255,0.2);
+      background: rgba(253,1,81,0.2);
       transform: translateX(2px);
     }
 
@@ -396,7 +396,7 @@
     .allin-banner {
       padding: 100px 48px;
       background:
-        radial-gradient(ellipse at 80% 50%, rgba(240,200,60,0.05), transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(253,1,81,0.05), transparent 60%),
         var(--bg);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -422,7 +422,7 @@
     .allin-title .hl { color: var(--accent2); }
     .allin-cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--accent); color: #080808; border: none;
+      background: var(--accent); color: #252525; border: none;
       padding: 18px 34px; border-radius: 100px;
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       font-size: 15px; font-weight: 800; letter-spacing: 0.02em;
@@ -448,7 +448,7 @@
     .allin-check::before {
       content: '✓'; display: inline-flex; align-items: center; justify-content: center;
       width: 24px; height: 24px; border-radius: 50%;
-      background: var(--accent); color: #080808;
+      background: var(--accent); color: #252525;
       font-weight: 700; font-size: 14px; flex-shrink: 0;
       margin-top: 1px;
     }
@@ -464,8 +464,8 @@
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background:
-        radial-gradient(ellipse at 20% 0%, rgba(200,240,60,0.04), transparent 50%),
-        radial-gradient(ellipse at 80% 100%, rgba(180,158,255,0.04), transparent 50%),
+        radial-gradient(ellipse at 20% 0%, rgba(0,244,233,0.04), transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(253,1,81,0.04), transparent 50%),
         var(--bg);
       position: relative;
     }
@@ -607,13 +607,13 @@
       color: var(--text2); transition: all 0.2s;
     }
     .qform-chip input:checked ~ .qform-chip-label {
-      background: var(--accent); color: #080808; border-color: var(--accent); font-weight: 700;
+      background: var(--accent); color: #252525; border-color: var(--accent); font-weight: 700;
     }
     .qform-hint {
       font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 2px;
     }
     .qform-submit {
-      background: var(--accent); color: #080808; border: none;
+      background: var(--accent); color: #252525; border: none;
       padding: 14px 28px; border-radius: 2px;
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-weight: 700;
       font-size: 13px; letter-spacing: 0.08em; cursor: pointer;
@@ -688,14 +688,7 @@
 <nav>
   <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
     <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <polygon points="8,22 32,8 32,104 8,90"/>
-        <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
-        <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
-        <polygon points="64,8 88,22 88,90 64,104"/>
-        <polygon points="32,50 64,46 64,62 32,58"/>
-        <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
-      </svg>
+      <img src="assets/logo-symbol.png" alt="" />
     </span>
     <span class="brand-word">HOMI FACTORY</span>
   </a>
@@ -743,9 +736,7 @@
     </div>
     <div class="hero-bottom">
       <p class="hero-desc">
-        <strong>호미팩토리</strong>는 SNS 마케팅, 크리에이터 매니지먼트,<br>
-        TikTok 라이브, 퍼포먼스 섭외, 콘텐츠 제작까지<br>
-        브랜드와 크리에이터의 성장을 함께 설계합니다.
+        SNS 마케팅, 크리에이터 매니지먼트, TikTok 라이브, 퍼포먼스 섭외, 콘텐츠 제작까지 브랜드와 크리에이터의 성장을 함께 설계합니다.
       </p>
       <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
     </div>
@@ -846,9 +837,9 @@
       <div class="dept-title">SNS<br><span class="hl">마케팅</span></div>
       <p class="dept-desc">음원 바이럴, 식당·의류 브랜드, 국가사업 홍보까지 — 플랫폼 알고리즘을 이해하는 팀이 유기적 확산을 설계합니다. 단순 광고비 소진이 아닌 진짜 바이럴을 만듭니다.</p>
       <div class="dept-tags">
-        <span class="dept-tag">음원 바이럴</span><span class="dept-tag">식당 마케팅</span>
-        <span class="dept-tag">의류 SNS</span><span class="dept-tag">국가사업</span>
-        <span class="dept-tag">인스타그램</span><span class="dept-tag">틱톡</span>
+        <span class="dept-tag">#음원바이럴</span><span class="dept-tag">#식당마케팅</span>
+        <span class="dept-tag">#의류SNS</span><span class="dept-tag">#국가사업</span>
+        <span class="dept-tag">#인스타그램</span><span class="dept-tag">#틱톡</span>
       </div>
       <button class="dept-detail-btn" data-modal="modal-sns">자세히 보기 →</button>
     </div>
@@ -862,10 +853,10 @@
     <div class="dept-content">
       <div class="dept-num">DEPARTMENT 02</div>
       <div class="dept-title">크리에이터 &<br><span class="hl">아티스트 매니지먼트</span></div>
-      <p class="dept-desc">신인 발굴부터 기성 아티스트 채널 전략까지. 콘텐츠 기획, 브랜드 협찬 연결, 스케줄 관리를 체계적으로 지원합니다.</p>
+      <p class="dept-desc">신인 발굴부터 기성 아티스트 채널 전략까지 — 콘텐츠 기획, 브랜드 협찬 연결, 스케줄 관리를 체계적으로 지원합니다.</p>
       <div class="dept-tags">
-        <span class="dept-tag">크리에이터 발굴</span><span class="dept-tag">채널 전략</span>
-        <span class="dept-tag">브랜드 연결</span><span class="dept-tag">아티스트 육성</span>
+        <span class="dept-tag">#크리에이터발굴</span><span class="dept-tag">#채널전략</span>
+        <span class="dept-tag">#브랜드연결</span><span class="dept-tag">#아티스트육성</span>
       </div>
       <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
         <button class="dept-detail-btn" data-modal="modal-mgt">자세히 보기 →</button>
@@ -884,8 +875,8 @@
       <div class="dept-title">틱톡 라이브<br><span class="hl">에이전시</span></div>
       <p class="dept-desc">TikTok Live 전문 운영 팀이 크리에이터 매칭, 라이브 커머스 전략, 실시간 운영까지. 데이터 기반 라이브 수익화 시스템을 구축합니다.</p>
       <div class="dept-tags">
-        <span class="dept-tag">TikTok Live</span><span class="dept-tag">라이브 커머스</span>
-        <span class="dept-tag">크리에이터 매칭</span><span class="dept-tag">수익화 전략</span>
+        <span class="dept-tag">#TikTokLive</span><span class="dept-tag">#라이브커머스</span>
+        <span class="dept-tag">#크리에이터매칭</span><span class="dept-tag">#수익화전략</span>
       </div>
       <button class="dept-detail-btn" data-modal="modal-live">자세히 보기 →</button>
     </div>
@@ -901,8 +892,8 @@
       <div class="dept-title">퍼포먼스<br><span class="hl">아티스트 섭외</span></div>
       <p class="dept-desc">행사, 기업 이벤트, 브랜드 캠페인에 필요한 아티스트·퍼포머 섭외 대행. 규모와 예산에 맞는 최적의 라인업을 제안합니다.</p>
       <div class="dept-tags">
-        <span class="dept-tag">아티스트 섭외</span><span class="dept-tag">기업 행사</span>
-        <span class="dept-tag">MC 섭외</span><span class="dept-tag">공연 기획</span>
+        <span class="dept-tag">#아티스트섭외</span><span class="dept-tag">#기업행사</span>
+        <span class="dept-tag">#MC섭외</span><span class="dept-tag">#공연기획</span>
       </div>
       <button class="dept-detail-btn" data-modal="modal-perf">자세히 보기 →</button>
     </div>
@@ -918,8 +909,8 @@
       <div class="dept-title">콘텐츠<br><span class="hl">제작</span></div>
       <p class="dept-desc">숏폼 영상, 캠페인 영상, SNS 카드뉴스, 광고 소재까지 — 기획부터 편집까지 인하우스로 처리합니다. 트렌드를 앞서 읽는 크리에이티브 팀이 퀄리티를 보장합니다.</p>
       <div class="dept-tags">
-        <span class="dept-tag">숏폼 영상</span><span class="dept-tag">캠페인 영상</span>
-        <span class="dept-tag">카드뉴스</span><span class="dept-tag">광고 소재</span>
+        <span class="dept-tag">#숏폼영상</span><span class="dept-tag">#캠페인영상</span>
+        <span class="dept-tag">#카드뉴스</span><span class="dept-tag">#광고소재</span>
       </div>
       <button class="dept-detail-btn" data-modal="modal-cont">자세히 보기 →</button>
     </div>
@@ -1089,14 +1080,7 @@
       <div>
         <div class="f-logo">
           <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 96 112" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <polygon points="8,22 32,8 32,104 8,90"/>
-              <polygon points="32,8 40,24 40,96 32,104" opacity="0.45"/>
-              <polygon points="56,24 64,8 64,104 56,96" opacity="0.45"/>
-              <polygon points="64,8 88,22 88,90 64,104"/>
-              <polygon points="32,50 64,46 64,62 32,58"/>
-              <polygon points="32,50 64,46 64,49 32,52" opacity="0.35"/>
-            </svg>
+            <img src="assets/logo-symbol.png" alt="" />
           </span>
           <span class="brand-word">HOMI FACTORY</span>
         </div>

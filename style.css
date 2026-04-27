@@ -3,45 +3,43 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── 새 토큰 시스템 ── */
+/* ── 라이트 테마 토큰 시스템 (mint + pink) ── */
 :root {
-  /* BASE · 색상 블록 팔레트 */
-  --ink: #0a0a0a;
-  --ink-2: #141414;
-  --ink-3: #1c1c1c;
-  --cream: #f4efe3;
-  --cream-2: #ebe4d2;
-  --off-white: #faf7f1;
+  /* BASE · 라이트 테마 */
+  --bg: #f2f2f2;
+  --surface: #ffffff;
+  --surface2: #fafafa;
+  --surface3: #e8e8e8;
+  --border: #e0e0e0;
+  --border-strong: #c8c8c8;
+  --text: #252525;
+  --text2: #555555;
+  --muted: #888888;
 
-  /* HOMI 컬러풀 팔레트 */
-  --lime: #d5f23c;
-  --lime-soft: #eaf9a3;
-  --cobalt: #2e5dff;
-  --cobalt-soft: #cad6ff;
-  --hot-pink: #ff3d81;
-  --hot-pink-soft: #ffc5d9;
-  --purple: #9b6dff;
-  --purple-soft: #d8c8ff;
-  --orange: #ff7a2b;
-  --orange-soft: #ffd3b2;
-  --sky: #6fd6ff;
-  --sky-soft: #c8ecff;
-  --sun: #ffd23c;
+  /* ACCENT · 단 2가지 */
+  --mint: #00f4e9;
+  --pink: #fd0151;
+  --mint-soft: #c2faf6;
+  --pink-soft: #ffc5d4;
+  --accent: var(--mint);          /* primary 액센트 */
+  --accent2: var(--pink);         /* secondary 액센트 */
+  --accent3: var(--mint);         /* (구) 호환 */
 
-  /* SEMANTIC · 하위 호환 (기존 변수명 유지) */
-  --bg: var(--ink);
-  --surface: var(--ink-2);
-  --surface2: var(--ink-3);
-  --border: #262626;
-  --border-light: rgba(244,239,227,0.12);
-  --border-dark: rgba(10,10,10,0.12);
-  --accent: var(--lime);
-  --accent2: var(--orange);
-  --accent3: var(--sky);
-  --red: var(--hot-pink);
-  --text: var(--cream);
-  --text2: #9b9b9b;
-  --muted: #5a5a5a;
+  /* 구 토큰 호환 매핑 — 모두 mint/pink로 수렴 */
+  --lime: var(--mint);
+  --cobalt: var(--mint);
+  --sky: var(--mint);
+  --hot-pink: var(--pink);
+  --purple: var(--pink);
+  --orange: var(--pink);
+  --sun: var(--pink);
+  --red: var(--pink);
+  --cream: var(--text);
+  --ink: var(--text);
+  --ink-2: var(--surface);
+  --ink-3: var(--surface2);
+  --off-white: #f8f8f8;
+
   --cursor-size: 12px;
 
   /* Typography */
@@ -86,7 +84,7 @@ body::after {
 #cursor-ring {
   position: fixed; z-index: 9996; pointer-events: none;
   width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid rgba(213,242,60,0.45);
+  border: 1.5px solid rgba(0,244,233,0.45);
   transform: translate(-50%, -50%);
   transition: width 0.4s ease, height 0.4s ease, border-color 0.4s, transform 0.1s ease;
 }
@@ -111,7 +109,7 @@ nav {
   height: 68px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
-  background: rgba(10,10,10,0.78); backdrop-filter: blur(24px);
+  background: rgba(242,242,242,0.85); backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
 }
 /* ── BRAND LOGO · HOMI FACTORY ── */
@@ -125,10 +123,11 @@ nav {
   line-height: 1;
 }
 .nav-logo .brand-mark {
-  width: 28px; height: 32px; display: inline-block; color: inherit;
+  width: 30px; height: 34px; display: inline-block; color: inherit;
   flex-shrink: 0;
 }
-.nav-logo .brand-mark svg { width: 100%; height: 100%; display: block; }
+.nav-logo .brand-mark svg,
+.nav-logo .brand-mark img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .nav-logo .brand-word { display: inline-block; }
 .nav-logo .brand-word .sp { display: inline-block; width: 0.35em; }
 /* 하위 호환 (기존 .acc 있는 경우) */
@@ -149,7 +148,7 @@ nav {
   width: 5px; height: 5px; border-radius: 50%; background: var(--lime);
 }
 .nav-cta {
-  background: var(--lime); color: var(--ink) !important;
+  background: var(--pink); color: #ffffff !important;
   padding: 10px 22px; border-radius: 100px;
   font-weight: 700; font-size: 12px; letter-spacing: 0;
   font-family: var(--font-body);
@@ -182,8 +181,8 @@ nav {
 .page-header::before {
   content: ''; position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(213,242,60,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(213,242,60,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0,244,233,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,244,233,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -203,7 +202,7 @@ nav {
   margin-bottom: 24px;
 }
 .page-title .hl { color: var(--lime); }
-.page-title .outline { -webkit-text-stroke:1.5px rgba(244,239,227,0.2); color:transparent; }
+.page-title .outline { -webkit-text-stroke:1.5px rgba(37,37,37,0.2); color:transparent; }
 .page-subtitle { font-size: 16px; color: var(--text2); line-height: 1.85; max-width: 560px; }
 
 /* ── BREADCRUMB ── */
@@ -242,19 +241,19 @@ nav {
   text-decoration:none; border: none; cursor: pointer;
   font-family: var(--font-body);
   transition:filter 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 6px 28px -8px rgba(213,242,60,0.5);
+  box-shadow: 0 6px 28px -8px rgba(0,244,233,0.5);
 }
-.btn-primary:hover { filter:brightness(1.05); transform:translateY(-2px); box-shadow: 0 12px 36px -8px rgba(213,242,60,0.7); }
+.btn-primary:hover { filter:brightness(1.05); transform:translateY(-2px); box-shadow: 0 12px 36px -8px rgba(0,244,233,0.7); }
 .btn-ghost {
   display:inline-flex; align-items:center; gap:10px;
   background: transparent; color: var(--text);
-  padding: 16px 28px; border: 1.5px solid rgba(244,239,227,0.25); border-radius: 100px;
+  padding: 16px 28px; border: 1.5px solid rgba(37,37,37,0.25); border-radius: 100px;
   font-weight: 500; font-size: 14px; letter-spacing: 0;
   text-decoration: none; cursor: pointer;
   font-family: var(--font-body);
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
-.btn-ghost:hover { color: var(--lime); border-color: var(--lime); background: rgba(213,242,60,0.06); }
+.btn-ghost:hover { color: var(--lime); border-color: var(--lime); background: rgba(0,244,233,0.06); }
 
 /* ── SECTION 색상 블록 유틸리티 ── */
 .sec-ink { background: var(--ink); color: var(--cream); }
@@ -273,7 +272,7 @@ nav {
 .on-light { color: var(--ink); }
 
 /* ── FOOTER ── */
-footer { background:var(--ink); border-top:1px solid var(--border); padding:80px 48px 40px; }
+footer { background:var(--surface); border-top:1px solid var(--border); padding:80px 48px 40px; }
 .footer-inner { max-width:1280px; margin:0 auto; }
 .footer-top {
   display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px;
@@ -287,8 +286,9 @@ footer { background:var(--ink); border-top:1px solid var(--border); padding:80px
   text-transform: uppercase;
   line-height: 1;
 }
-.f-logo .brand-mark { width: 40px; height: 46px; display: inline-block; color: inherit; flex-shrink: 0; }
-.f-logo .brand-mark svg { width: 100%; height: 100%; display: block; }
+.f-logo .brand-mark { width: 42px; height: 48px; display: inline-block; color: inherit; flex-shrink: 0; }
+.f-logo .brand-mark svg,
+.f-logo .brand-mark img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .f-logo .brand-word .sp { display: inline-block; width: 0.35em; }
 .f-logo .acc { color:var(--lime); }
 .f-tagline { font-size:13px; color:var(--muted); line-height:1.8; margin-bottom:20px; }
@@ -298,7 +298,7 @@ footer { background:var(--ink); border-top:1px solid var(--border); padding:80px
   display:flex; align-items:center; justify-content:center; font-size:15px;
   text-decoration:none; color:var(--text2); transition:border-color 0.2s, color 0.2s, background 0.2s;
 }
-.f-social:hover { border-color:var(--lime); color:var(--lime); background: rgba(213,242,60,0.06); }
+.f-social:hover { border-color:var(--lime); color:var(--lime); background: rgba(0,244,233,0.06); }
 .f-col h4 { font-family:var(--font-display); font-size:12px; letter-spacing:0.12em; color:var(--hot-pink); text-transform:uppercase; margin-bottom:16px; font-weight:700; }
 .f-col a { display:block; font-size:14px; color:var(--text2); text-decoration:none; margin-bottom:10px; transition:color 0.2s; }
 .f-col a:hover { color:var(--text); }
@@ -336,13 +336,13 @@ footer { background:var(--ink); border-top:1px solid var(--border); padding:80px
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 0;
   padding: 6px 14px; border-radius: 100px;
-  background: rgba(213,242,60,0.1); color: var(--lime);
-  border: 1px solid rgba(213,242,60,0.28);
+  background: rgba(0,244,233,0.1); color: var(--lime);
+  border: 1px solid rgba(0,244,233,0.28);
 }
-.chip--hot { background: rgba(255,61,129,0.1); color: var(--hot-pink); border-color: rgba(255,61,129,0.28); }
-.chip--purple { background: rgba(155,109,255,0.1); color: var(--purple); border-color: rgba(155,109,255,0.28); }
-.chip--cobalt { background: rgba(46,93,255,0.1); color: var(--cobalt); border-color: rgba(46,93,255,0.3); }
-.chip--orange { background: rgba(255,122,43,0.1); color: var(--orange); border-color: rgba(255,122,43,0.3); }
+.chip--hot { background: rgba(253,1,81,0.1); color: var(--hot-pink); border-color: rgba(253,1,81,0.28); }
+.chip--purple { background: rgba(253,1,81,0.1); color: var(--purple); border-color: rgba(253,1,81,0.28); }
+.chip--cobalt { background: rgba(253,1,81,0.1); color: var(--cobalt); border-color: rgba(253,1,81,0.3); }
+.chip--orange { background: rgba(253,1,81,0.1); color: var(--orange); border-color: rgba(253,1,81,0.3); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
