@@ -51,9 +51,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <!-- Brand typefaces: Space Grotesk (display) + Pretendard (body) -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-8" />
+  <link rel="stylesheet" href="style.css?v=20260425-9" />
 
   <style>
     /* ── INDEX ONLY ── */
@@ -108,15 +108,25 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
     .hero-badge span { font-size:11px; letter-spacing:0.2em; color: var(--pink); text-transform:uppercase; }
     .hero h1 {
-      font-family:'Space Grotesk', sans-serif;
-      font-size:clamp(64px, 10vw, 132px);
-      line-height:1.12;            /* 한글 받침/내림이 윗줄과 겹치지 않게 충분히 확보 */
-      letter-spacing:-0.005em;
+      font-family:'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size:clamp(64px, 10vw, 140px);
+      font-weight: 700;
+      line-height:1.06;                            /* Bricolage는 더 타이트하게 */
+      letter-spacing:-0.025em;                     /* 트렌디한 네거티브 트래킹 */
       margin-bottom:36px;
       opacity:0; animation:fadeUp 0.7s ease forwards 0.35s;
+      font-variation-settings: "wdth" 90, "opsz" 96;  /* Bricolage 변동형: 약간 좁게, 옵티컬 사이즈 96 */
     }
     .hero h1 .scramble { display:inline-block; line-height:inherit; }
-    .hero h1 .line2 { color: var(--pink); }
+    /* 트렌디 mixed-typography: "연결하고" 만 이탤릭 세리프 + 분홍 — 시선 집중 */
+    .hero h1 .line2 {
+      color: var(--pink);
+      font-family: 'Instrument Serif', 'Pretendard', serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      font-variation-settings: normal;
+    }
     .hero h1 .outline { -webkit-text-stroke:1.8px rgba(37,37,37,0.55); color:transparent; }
     .hero-bottom {
       display:flex; justify-content:space-between; align-items:flex-end;
@@ -144,9 +154,9 @@
       padding:80px 64px; display:flex; flex-direction:column; justify-content:center;
       position:relative; z-index:1;
     }
-    .dept-num { font-family:'Space Grotesk', sans-serif; font-size:11px; letter-spacing:0.24em; color:var(--muted); margin-bottom:24px; }
+    .dept-num { font-family:'Bricolage Grotesque', 'Pretendard', sans-serif; font-size:11px; letter-spacing:0.24em; color:var(--muted); margin-bottom:24px; }
     .dept-title {
-      font-family:'Space Grotesk', sans-serif;
+      font-family:'Bricolage Grotesque', 'Pretendard', sans-serif;
       font-size:clamp(32px, 4vw, 52px); letter-spacing:0.01em; line-height:1; margin-bottom:20px;
     }
     .dept-title .hl { color: var(--pink); }
@@ -171,7 +181,7 @@
     }
     .dept-visual-bg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; will-change: transform; }
     .dept-visual-text {
-      font-family:'Space Grotesk', sans-serif; font-size:clamp(80px,12vw,180px);
+      font-family:'Bricolage Grotesque', 'Pretendard', sans-serif; font-size:clamp(80px,12vw,180px);
       color:rgba(255,255,255,0.03); letter-spacing:-0.02em; white-space:nowrap; user-select:none;
     }
     .dept-icon-wrap {
@@ -228,7 +238,7 @@
     .modal-close:hover { color: var(--pink); }
     .modal-eyebrow { font-size:10px; letter-spacing:0.2em; color: var(--pink); text-transform:uppercase; margin-bottom:12px; }
     .modal h3 {
-      font-family:'Space Grotesk', sans-serif; font-size:36px; letter-spacing:0.02em; margin-bottom:20px;
+      font-family:'Bricolage Grotesque', 'Pretendard', sans-serif; font-size:36px; letter-spacing:0.02em; margin-bottom:20px;
     }
     .modal p { font-size:14px; color:var(--text2); line-height:1.9; margin-bottom:16px; }
     .modal-features { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0; }
@@ -264,7 +274,7 @@
     }
     .stat-card:last-child { border-right:none; }
     .stat-num {
-      font-family:'Space Grotesk', sans-serif; font-size:clamp(40px, 4vw, 56px); letter-spacing:0.02em; line-height:1;
+      font-family:'Bricolage Grotesque', 'Pretendard', sans-serif; font-size:clamp(40px, 4vw, 56px); letter-spacing:0.02em; line-height:1;
       display:inline-flex; align-items:baseline; gap:4px;
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum" 1, "lnum" 1;
@@ -347,7 +357,7 @@
     .form-submit:hover { filter:brightness(1.1); transform:translateY(-2px); }
     .form-success { display:none; text-align:center; padding:48px 0; }
     .form-success .check { font-size:48px; margin-bottom:16px; }
-    .form-success h4 { font-family:'Space Grotesk', sans-serif; font-size:28px; margin-bottom:8px; color: var(--pink); }
+    .form-success h4 { font-family:'Bricolage Grotesque', 'Pretendard', sans-serif; font-size:28px; margin-bottom:8px; color: var(--pink); }
     .form-success p { font-size:14px; color:var(--text2); }
 
     /* ── HERO CTA BUTTONS ── */
@@ -427,7 +437,7 @@
       content: ''; width: 20px; height: 1px; background: var(--accent2);
     }
     .allin-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
       font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; letter-spacing: 0.01em;
       margin-bottom: 32px;
     }
@@ -495,7 +505,7 @@
       content: ''; width: 20px; height: 1px; background: var(--accent);
     }
     .quick-cta-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
       font-size: clamp(32px, 4.5vw, 56px); line-height: 1; letter-spacing: 0.01em;
     }
     .quick-cta-title .hl { color: var(--pink); }
@@ -545,7 +555,7 @@
       position: relative; z-index: 1;
     }
     .qcta-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
       font-size: 24px; letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 10px;
       color: var(--text);
       position: relative; z-index: 1;
@@ -639,7 +649,7 @@
     }
     .qform-success .check { font-size: 40px; margin-bottom: 12px; }
     .qform-success h5 {
-      font-family: 'Space Grotesk', sans-serif; font-size: 26px; letter-spacing: 0.02em;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 26px; letter-spacing: 0.02em;
       color: var(--pink); margin-bottom: 8px;
     }
     .qform-success p { font-size: 13px; color: var(--text2); line-height: 1.8; }

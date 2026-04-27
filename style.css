@@ -44,9 +44,11 @@
 
   --cursor-size: 12px;
 
-  /* Typography */
-  --font-display: 'Space Grotesk', 'Pretendard', system-ui, sans-serif;
-  --font-body: 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+  /* Typography — 트렌디 mixed-typography (2026) */
+  --font-display: 'Bricolage Grotesque', 'Pretendard', system-ui, sans-serif;   /* 디스플레이: 변동형 그로테스크 */
+  --font-serif: 'Instrument Serif', 'Times New Roman', Georgia, serif;          /* 액센트 이탤릭 세리프 */
+  --font-body: 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;             /* 본문: Pretendard (한글 가독성) */
+  --font-brand: 'Pretendard', 'Noto Sans KR', sans-serif;                       /* 브랜드 워드마크 (HOMI FACTORY) — 명함과 동일 */
 }
 
 html { scroll-behavior: smooth; }
