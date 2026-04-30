@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>관리자 — 크리에이터 관리 | 호미팩토리</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css?v=20260425-10" />
+
+  <style>
+    body { padding-top: 80px; }
+
+    .admin-shell { max-width: 1280px; margin: 0 auto; padding: 40px 32px 120px; }
+    .admin-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    }
+    .admin-head h1 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 40px); letter-spacing: -0.02em; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .admin-head .sub { font-size: 13px; color: var(--text2); }
+    .admin-user { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text2); }
+    .admin-user .who { color: var(--text); font-weight: 600; }
+    .btn-logout {
+      padding: 8px 16px; border: 1px solid var(--border); border-radius: 100px;
+      background: transparent; color: var(--text2); cursor: pointer;
+      font-family: var(--font-body); font-size: 12px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-logout:hover { border-color: var(--pink); color: var(--pink); }
+
+    /* 추가 폼 */
+    .creator-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+    .creator-form h2 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 20px; letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .form-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 11px; letter-spacing: 0.1em; color: var(--muted);
+      text-transform: uppercase; font-weight: 600;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 10px 12px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 14px; font-family: var(--font-body);
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--pink); }
+    .form-group input[type=file] { padding: 8px; }
+    .form-group .full { grid-column: 1 / -1; }
+    .form-actions {
+      display: flex; gap: 12px; align-items: center; margin-top: 18px;
+    }
+    .btn-primary-submit {
+      padding: 12px 24px; background: var(--pink); color: #fff;
+      border: none; border-radius: 100px;
+      font-family: var(--font-body); font-weight: 700; font-size: 13px;
+      cursor: pointer; transition: filter 0.2s, transform 0.2s;
+    }
+    .btn-primary-submit:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .btn-primary-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-secondary {
+      padding: 12px 20px; background: transparent; color: var(--text2);
+      border: 1px solid var(--border); border-radius: 100px;
+      font-family: var(--font-body); font-size: 13px; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text2); color: var(--text); }
+    .form-msg {
+      margin-left: auto; padding: 8px 14px; border-radius: 8px;
+      font-size: 12px; display: none;
+    }
+    .form-msg.success { display: block; background: rgba(0,244,233,0.1); color: #006d68; border: 1px solid rgba(0,244,233,0.3); }
+    .form-msg.error { display: block; background: rgba(253,1,81,0.08); color: var(--pink); border: 1px solid rgba(253,1,81,0.25); }
+
+    /* 목록 */
+    .list-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .list-head h2 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 20px;
+    }
+    .list-count { font-size: 12px; color: var(--text2); }
+
+    .creators-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--surface); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .creators-table th,
+    .creators-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left; font-size: 13px;
+      vertical-align: middle;
+    }
+    .creators-table th {
+      background: var(--bg);
+      font-size: 11px; letter-spacing: 0.08em; color: var(--muted);
+      text-transform: uppercase; font-weight: 600;
+    }
+    .creators-table tbody tr:last-child td { border-bottom: none; }
+    .creators-table .col-thumb { width: 60px; }
+    .creators-table .thumb {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--mint-soft), var(--pink-soft));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; overflow: hidden;
+    }
+    .creators-table .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .creators-table .name { font-weight: 600; color: var(--text); }
+    .creators-table .handle { font-size: 12px; color: var(--text2); }
+    .creators-table .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 100px;
+      font-size: 10px; letter-spacing: 0.04em;
+    }
+    .badge.active { background: rgba(0,244,233,0.15); color: #006d68; }
+    .badge.inactive { background: rgba(150,150,150,0.15); color: var(--muted); }
+
+    .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+    .row-actions button {
+      padding: 6px 12px; border-radius: 6px; font-size: 12px;
+      cursor: pointer; transition: filter 0.2s;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text2);
+      font-family: var(--font-body);
+    }
+    .row-actions button.edit:hover { color: var(--pink); border-color: var(--pink); }
+    .row-actions button.delete:hover { color: #fff; background: var(--pink); border-color: var(--pink); }
+    .row-actions button.toggle:hover { color: var(--text); border-color: var(--text2); }
+
+    .loading { text-align: center; padding: 40px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .creators-table .col-cat,
+      .creators-table .col-order { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="assets/logo-symbol.png?v=2" alt="" />
+    </span>
+    <span class="brand-word">HOMI FACTORY</span>
+  </a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="admin.html" class="active">관리자</a>
+  </div>
+</nav>
+
+<main class="admin-shell">
+  <div class="admin-head">
+    <div>
+      <h1>크리에이터 관리</h1>
+      <p class="sub">우리 크리에이터 카드(about 페이지)에 표시되는 정보를 관리합니다.</p>
+    </div>
+    <div class="admin-user">
+      <span>로그인:</span>
+      <span class="who" id="userEmail">—</span>
+      <button class="btn-logout" id="logoutBtn">로그아웃</button>
+    </div>
+  </div>
+
+  <!-- 추가 / 수정 폼 -->
+  <div class="creator-form">
+    <h2 id="formTitle">+ 새 크리에이터 등록</h2>
+    <form id="creatorForm">
+      <input type="hidden" id="editId">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="f-name">이름 *</label>
+          <input id="f-name" type="text" required placeholder="댄스 김씨">
+        </div>
+        <div class="form-group">
+          <label for="f-handle">핸들 (@ 제외)</label>
+          <input id="f-handle" type="text" placeholder="dance_kim">
+        </div>
+        <div class="form-group">
+          <label for="f-platform">플랫폼</label>
+          <select id="f-platform">
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="youtube">YouTube</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="f-url">프로필 URL</label>
+          <input id="f-url" type="url" placeholder="https://www.instagram.com/...">
+        </div>
+        <div class="form-group">
+          <label for="f-category">카테고리</label>
+          <input id="f-category" type="text" placeholder="댄스 / 뷰티 / 푸드 …">
+        </div>
+        <div class="form-group">
+          <label for="f-emoji">이모지 (사진 없을 때)</label>
+          <input id="f-emoji" type="text" placeholder="✨" maxlength="4">
+        </div>
+        <div class="form-group">
+          <label for="f-order">정렬 순서 (작을수록 앞)</label>
+          <input id="f-order" type="number" value="100">
+        </div>
+        <div class="form-group">
+          <label for="f-photo">사진 업로드 (선택)</label>
+          <input id="f-photo" type="file" accept="image/*">
+        </div>
+        <div class="form-group full">
+          <label>
+            <input id="f-active" type="checkbox" checked> 활성 (체크 해제 시 사이트에서 숨김)
+          </label>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary-submit" id="formSubmit">저장 →</button>
+        <button type="button" class="btn-secondary" id="formCancel" style="display:none;">취소</button>
+        <div class="form-msg" id="formMsg"></div>
+      </div>
+    </form>
+  </div>
+
+  <!-- 목록 -->
+  <div class="list-head">
+    <h2>등록된 크리에이터</h2>
+    <span class="list-count" id="listCount">로딩 중…</span>
+  </div>
+  <div id="creatorsList">
+    <div class="loading">불러오는 중…</div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=1"></script>
+<script>
+(async () => {
+  const { sb } = window.HOMI;
+
+  // 1. 인증 체크 — 미로그인 시 login으로
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { location.href = 'login.html'; return; }
+  document.getElementById('userEmail').textContent = session.user.email;
+
+  // 2. 로그아웃
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await sb.auth.signOut();
+    location.href = 'login.html';
+  });
+
+  // 3. 크리에이터 목록 로드 + 렌더
+  const listEl = document.getElementById('creatorsList');
+  const countEl = document.getElementById('listCount');
+
+  function showFormMsg(type, text) {
+    const m = document.getElementById('formMsg');
+    m.className = 'form-msg ' + type;
+    m.textContent = text;
+    if (type === 'success') setTimeout(() => { m.className = 'form-msg'; m.textContent = ''; }, 3000);
+  }
+
+  async function loadCreators() {
+    listEl.innerHTML = '<div class="loading">불러오는 중…</div>';
+    const { data, error } = await sb.from('creators').select('*').order('display_order', { ascending: true }).order('created_at', { ascending: false });
+    if (error) { listEl.innerHTML = '<div class="loading">에러: ' + error.message + '</div>'; return; }
+    countEl.textContent = `총 ${data.length}명`;
+    if (data.length === 0) { listEl.innerHTML = '<div class="loading">아직 등록된 크리에이터가 없습니다.</div>'; return; }
+
+    const rows = data.map(c => {
+      const thumb = c.photo_url
+        ? `<img src="${c.photo_url}" alt="">`
+        : `<span>${c.emoji || '✨'}</span>`;
+      const platformLabel = { instagram:'IG', tiktok:'TT', youtube:'YT', other:'—' }[c.platform] || '—';
+      const url = c.profile_url || '#';
+      const activeBadge = c.is_active
+        ? '<span class="badge active">활성</span>'
+        : '<span class="badge inactive">숨김</span>';
+      return `
+        <tr data-id="${c.id}">
+          <td class="col-thumb"><div class="thumb">${thumb}</div></td>
+          <td>
+            <div class="name">${c.name || ''}</div>
+            <div class="handle">${c.handle ? '@'+c.handle : ''} · ${platformLabel}</div>
+          </td>
+          <td class="col-cat">${c.category || ''}</td>
+          <td class="col-order">${c.display_order ?? '-'}</td>
+          <td>${activeBadge}</td>
+          <td>
+            <div class="row-actions">
+              <button class="toggle" data-action="toggle">${c.is_active ? '숨김' : '활성화'}</button>
+              <button class="edit" data-action="edit">수정</button>
+              <button class="delete" data-action="delete">삭제</button>
+            </div>
+          </td>
+        </tr>`;
+    }).join('');
+
+    listEl.innerHTML = `
+      <table class="creators-table">
+        <thead><tr>
+          <th></th><th>이름·핸들</th><th class="col-cat">카테고리</th>
+          <th class="col-order">순서</th><th>상태</th><th></th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+
+    // 액션 핸들러
+    listEl.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const tr = e.target.closest('tr');
+        const id = tr.dataset.id;
+        const action = btn.dataset.action;
+        if (action === 'delete') {
+          if (!confirm('정말 삭제할까요? 되돌릴 수 없습니다.')) return;
+          const { error } = await sb.from('creators').delete().eq('id', id);
+          if (error) return alert('삭제 실패: ' + error.message);
+          loadCreators();
+        } else if (action === 'toggle') {
+          const c = data.find(x => x.id === id);
+          const { error } = await sb.from('creators').update({ is_active: !c.is_active }).eq('id', id);
+          if (error) return alert('변경 실패: ' + error.message);
+          loadCreators();
+        } else if (action === 'edit') {
+          const c = data.find(x => x.id === id);
+          startEdit(c);
+        }
+      });
+    });
+  }
+
+  // 4. 폼 — 추가 또는 수정
+  const form = document.getElementById('creatorForm');
+  const formTitle = document.getElementById('formTitle');
+  const cancelBtn = document.getElementById('formCancel');
+
+  function resetForm() {
+    form.reset();
+    document.getElementById('editId').value = '';
+    document.getElementById('f-active').checked = true;
+    document.getElementById('f-order').value = '100';
+    formTitle.textContent = '+ 새 크리에이터 등록';
+    cancelBtn.style.display = 'none';
+  }
+
+  function startEdit(c) {
+    document.getElementById('editId').value = c.id;
+    document.getElementById('f-name').value = c.name || '';
+    document.getElementById('f-handle').value = c.handle || '';
+    document.getElementById('f-platform').value = c.platform || 'instagram';
+    document.getElementById('f-url').value = c.profile_url || '';
+    document.getElementById('f-category').value = c.category || '';
+    document.getElementById('f-emoji').value = c.emoji || '';
+    document.getElementById('f-order').value = c.display_order ?? 100;
+    document.getElementById('f-active').checked = !!c.is_active;
+    formTitle.textContent = '✎ 수정 — ' + c.name;
+    cancelBtn.style.display = 'inline-flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  cancelBtn.addEventListener('click', resetForm);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submit = document.getElementById('formSubmit');
+    submit.disabled = true; submit.textContent = '저장 중...';
+
+    const editId = document.getElementById('editId').value;
+    const photoFile = document.getElementById('f-photo').files[0];
+    const handle = document.getElementById('f-handle').value.trim();
+
+    let photo_url = null;
+    if (photoFile) {
+      const ext = photoFile.name.split('.').pop().toLowerCase();
+      const path = `${(handle || 'creator')}_${Date.now()}.${ext}`;
+      const { error: upErr } = await sb.storage.from('creator-photos').upload(path, photoFile, { upsert: false });
+      if (upErr) {
+        showFormMsg('error', '사진 업로드 실패: ' + upErr.message);
+        submit.disabled = false; submit.textContent = '저장 →';
+        return;
+      }
+      const { data: pubData } = sb.storage.from('creator-photos').getPublicUrl(path);
+      photo_url = pubData.publicUrl;
+    }
+
+    const payload = {
+      name: document.getElementById('f-name').value.trim(),
+      handle: handle || null,
+      platform: document.getElementById('f-platform').value,
+      profile_url: document.getElementById('f-url').value.trim() || null,
+      category: document.getElementById('f-category').value.trim() || null,
+      emoji: document.getElementById('f-emoji').value.trim() || '✨',
+      display_order: parseInt(document.getElementById('f-order').value) || 100,
+      is_active: document.getElementById('f-active').checked,
+      updated_at: new Date().toISOString()
+    };
+    if (photo_url) payload.photo_url = photo_url;
+
+    let error;
+    if (editId) {
+      ({ error } = await sb.from('creators').update(payload).eq('id', editId));
+    } else {
+      ({ error } = await sb.from('creators').insert(payload));
+    }
+    submit.disabled = false; submit.textContent = '저장 →';
+    if (error) { showFormMsg('error', '저장 실패: ' + error.message); return; }
+    showFormMsg('success', editId ? '수정 완료' : '등록 완료');
+    resetForm();
+    loadCreators();
+  });
+
+  // 초기 로드
+  loadCreators();
+})();
+</script>
+
+</body>
+</html>

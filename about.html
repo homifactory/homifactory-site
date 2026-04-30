@@ -108,26 +108,48 @@
       from { transform: translateX(0); }
       to   { transform: translateX(calc(-50% - 12px)); }
     }
-    .creator-card {
+    a.creator-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
       flex-shrink: 0;
       width: 220px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .creator-card:hover { transform: translateY(-6px); border-color: var(--pink); }
+    a.creator-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+      box-shadow: 0 12px 32px -10px rgba(253,1,81,0.25);
+    }
     .creator-photo {
       width: 100%; aspect-ratio: 4/5;
       display: flex; align-items: center; justify-content: center;
       font-size: 72px;
       position: relative; overflow: hidden;
     }
+    .creator-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
     .creator-photo::after {
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 50%);
       pointer-events: none;
+    }
+    /* 호버 시 외부 링크 아이콘 표시 */
+    a.creator-card .creator-info { position: relative; }
+    a.creator-card .creator-info::after {
+      content: '↗';
+      position: absolute; top: 14px; right: 14px;
+      font-size: 14px; color: var(--pink);
+      opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    }
+    a.creator-card:hover .creator-info::after {
+      opacity: 1; transform: translate(2px, -2px);
     }
     .creator-info {
       padding: 14px 16px 18px;
@@ -337,29 +359,8 @@
     <p class="creators-sub">호미팩토리와 함께 성장하는 크리에이터들 — 댄스·뷰티·푸드·라이프스타일·트래블까지 다양한 카테고리</p>
   </div>
   <div class="creators-marquee">
-    <div class="creators-track">
-      <!-- 1차 세트 (10명) -->
-      <div class="creator-card"><div class="creator-photo">✨</div><div class="creator-info"><div class="creator-name">Creator 01</div><div class="creator-handle">@dance_studio</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🌸</div><div class="creator-info"><div class="creator-name">Creator 02</div><div class="creator-handle">@beauty_log</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🎤</div><div class="creator-info"><div class="creator-name">Creator 03</div><div class="creator-handle">@vocal_kim</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🍽️</div><div class="creator-info"><div class="creator-name">Creator 04</div><div class="creator-handle">@food_diary</div></div></div>
-      <div class="creator-card"><div class="creator-photo">📸</div><div class="creator-info"><div class="creator-name">Creator 05</div><div class="creator-handle">@daily_frame</div></div></div>
-      <div class="creator-card"><div class="creator-photo">💃</div><div class="creator-info"><div class="creator-name">Creator 06</div><div class="creator-handle">@move_it</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🎨</div><div class="creator-info"><div class="creator-name">Creator 07</div><div class="creator-handle">@art_lab</div></div></div>
-      <div class="creator-card"><div class="creator-photo">✈️</div><div class="creator-info"><div class="creator-name">Creator 08</div><div class="creator-handle">@travel_jay</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🏋️</div><div class="creator-info"><div class="creator-name">Creator 09</div><div class="creator-handle">@fit_routine</div></div></div>
-      <div class="creator-card"><div class="creator-photo">👗</div><div class="creator-info"><div class="creator-name">Creator 10</div><div class="creator-handle">@fashion_pick</div></div></div>
-      <!-- 2차 세트 (동일 10명, 무한 루프용 복제) -->
-      <div class="creator-card"><div class="creator-photo">✨</div><div class="creator-info"><div class="creator-name">Creator 01</div><div class="creator-handle">@dance_studio</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🌸</div><div class="creator-info"><div class="creator-name">Creator 02</div><div class="creator-handle">@beauty_log</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🎤</div><div class="creator-info"><div class="creator-name">Creator 03</div><div class="creator-handle">@vocal_kim</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🍽️</div><div class="creator-info"><div class="creator-name">Creator 04</div><div class="creator-handle">@food_diary</div></div></div>
-      <div class="creator-card"><div class="creator-photo">📸</div><div class="creator-info"><div class="creator-name">Creator 05</div><div class="creator-handle">@daily_frame</div></div></div>
-      <div class="creator-card"><div class="creator-photo">💃</div><div class="creator-info"><div class="creator-name">Creator 06</div><div class="creator-handle">@move_it</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🎨</div><div class="creator-info"><div class="creator-name">Creator 07</div><div class="creator-handle">@art_lab</div></div></div>
-      <div class="creator-card"><div class="creator-photo">✈️</div><div class="creator-info"><div class="creator-name">Creator 08</div><div class="creator-handle">@travel_jay</div></div></div>
-      <div class="creator-card"><div class="creator-photo">🏋️</div><div class="creator-info"><div class="creator-name">Creator 09</div><div class="creator-handle">@fit_routine</div></div></div>
-      <div class="creator-card"><div class="creator-photo">👗</div><div class="creator-info"><div class="creator-name">Creator 10</div><div class="creator-handle">@fashion_pick</div></div></div>
+    <div class="creators-track" id="creatorsTrack">
+      <!-- DB에서 동적 렌더 — admin.html에서 추가/수정/삭제 -->
     </div>
   </div>
 </section>
@@ -455,5 +456,41 @@
 </footer>
 
 <script src="common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=1"></script>
+<script>
+/* about.html — DB에서 활성 크리에이터 가져와 마키 트랙에 렌더 */
+(async () => {
+  const track = document.getElementById('creatorsTrack');
+  if (!track || !window.HOMI) return;
+  const { sb } = window.HOMI;
+  const { data, error } = await sb
+    .from('creators')
+    .select('name,handle,platform,profile_url,photo_url,emoji')
+    .eq('is_active', true)
+    .order('display_order', { ascending: true });
+  if (error || !data || data.length === 0) {
+    track.innerHTML = '<p style="padding:40px;color:var(--muted);font-size:14px;">크리에이터를 불러올 수 없습니다.</p>';
+    return;
+  }
+  const escapeHtml = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function cardHtml(c) {
+    const url = c.profile_url || (c.handle ? `https://www.instagram.com/${c.handle}/` : '#');
+    const inner = c.photo_url
+      ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}">`
+      : escapeHtml(c.emoji || '✨');
+    return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="creator-card">
+      <div class="creator-photo">${inner}</div>
+      <div class="creator-info">
+        <div class="creator-name">${escapeHtml(c.name)}</div>
+        <div class="creator-handle">${c.handle ? '@'+escapeHtml(c.handle) : ''}</div>
+      </div>
+    </a>`;
+  }
+  // 무한 마키 루프용 — 같은 세트 2번 렌더
+  const html = data.map(cardHtml).join('') + data.map(cardHtml).join('');
+  track.innerHTML = html;
+})();
+</script>
 </body>
 </html>

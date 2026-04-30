@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로그인 | 호미팩토리</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css?v=20260425-10" />
+
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .login-shell {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 120px 20px 80px;
+      position: relative; overflow: hidden;
+    }
+    .login-shell::before {
+      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(circle 500px at 20% 30%, rgba(0,244,233,0.22), transparent 65%),
+        radial-gradient(circle 420px at 80% 70%, rgba(253,1,81,0.18), transparent 65%);
+      filter: blur(60px);
+      animation: loginBlob 28s ease-in-out infinite;
+    }
+    @keyframes loginBlob {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(30px, -20px) scale(1.05); }
+    }
+    .login-card {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      box-shadow: 0 12px 40px -12px rgba(37,37,37,0.15);
+    }
+    .login-eyebrow {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 12px; letter-spacing: 0.16em; color: var(--pink);
+      text-transform: uppercase; margin-bottom: 12px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .login-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--pink); }
+    .login-title {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-weight: 700; font-size: 32px; letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 8px; color: var(--text);
+    }
+    .login-sub { font-size: 13px; color: var(--text2); margin-bottom: 32px; line-height: 1.7; }
+    .login-form { display: flex; flex-direction: column; gap: 16px; }
+    .login-form label {
+      display: block;
+      font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 6px; font-weight: 600;
+    }
+    .login-form input {
+      width: 100%; padding: 12px 14px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 14px; font-family: var(--font-body);
+      outline: none; transition: border-color 0.2s;
+    }
+    .login-form input:focus { border-color: var(--pink); }
+    .login-submit {
+      width: 100%; margin-top: 8px;
+      padding: 14px 24px;
+      background: var(--pink); color: #fff;
+      border: none; border-radius: 100px;
+      font-family: var(--font-body); font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: filter 0.2s, transform 0.2s;
+    }
+    .login-submit:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .login-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .login-msg {
+      margin-top: 14px; padding: 10px 14px; border-radius: 8px;
+      font-size: 13px; line-height: 1.6;
+      display: none;
+    }
+    .login-msg.error { display: block; background: rgba(253,1,81,0.08); color: var(--pink); border: 1px solid rgba(253,1,81,0.25); }
+    .login-msg.info { display: block; background: rgba(0,244,233,0.1); color: #006d68; border: 1px solid rgba(0,244,233,0.3); }
+    .login-back {
+      margin-top: 24px; text-align: center;
+      font-size: 13px; color: var(--text2);
+    }
+    .login-back a { color: var(--pink); text-decoration: none; font-weight: 600; }
+    .login-back a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="assets/logo-symbol.png?v=2" alt="" />
+    </span>
+    <span class="brand-word">HOMI FACTORY</span>
+  </a>
+</nav>
+
+<main class="login-shell">
+  <div class="login-card">
+    <div class="login-eyebrow">Admin Login</div>
+    <h1 class="login-title">호미팩토리<br>관리자 로그인</h1>
+    <p class="login-sub">호미팩토리 직원 계정으로 로그인하시면 크리에이터 등록·수정 페이지로 이동합니다.</p>
+
+    <form class="login-form" id="loginForm" novalidate>
+      <div>
+        <label for="email">이메일</label>
+        <input id="email" type="email" autocomplete="email" required placeholder="hosung@homifactory.com">
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input id="password" type="password" autocomplete="current-password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="login-submit" id="loginSubmit">로그인 →</button>
+      <div class="login-msg" id="loginMsg"></div>
+    </form>
+
+    <div class="login-back">
+      <a href="index.html">← 메인으로 돌아가기</a>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=1"></script>
+<script>
+(async () => {
+  const { sb } = window.HOMI;
+  const form = document.getElementById('loginForm');
+  const submit = document.getElementById('loginSubmit');
+  const msg = document.getElementById('loginMsg');
+
+  // 이미 로그인 되어 있으면 admin으로 자동 이동
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    location.href = 'admin.html';
+    return;
+  }
+
+  function showMsg(type, text) {
+    msg.className = 'login-msg ' + type;
+    msg.textContent = text;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    if (!email || !password) return;
+
+    submit.disabled = true;
+    submit.textContent = '로그인 중...';
+    msg.className = 'login-msg';
+
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) {
+      submit.disabled = false;
+      submit.textContent = '로그인 →';
+      showMsg('error', '로그인 실패: ' + (error.message || '이메일 또는 비밀번호를 확인해주세요.'));
+      return;
+    }
+    showMsg('info', '로그인 성공! 관리자 페이지로 이동합니다…');
+    setTimeout(() => { location.href = 'admin.html'; }, 600);
+  });
+})();
+</script>
+
+</body>
+</html>
