@@ -16,11 +16,31 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-9" />
+  <link rel="stylesheet" href="style.css?v=20260425-10" />
 
   <style>
     /* ── ABOUT ONLY ── */
-    .about-hero .page-subtitle { max-width: 640px; }
+    .about-hero { position: relative; overflow: hidden; }
+    .about-hero .page-subtitle { max-width: 640px; position: relative; z-index: 1; }
+    .about-hero .page-header-inner { position: relative; z-index: 1; }
+    /* HERO 메시 블롭 (홈과 동일 무드) */
+    .about-hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(circle 600px at 12% 18%, rgba(0,244,233,0.32) 0%, transparent 65%),
+        radial-gradient(circle 520px at 88% 65%, rgba(253,1,81,0.28) 0%, transparent 65%),
+        radial-gradient(circle 460px at 60% 95%, rgba(0,244,233,0.22) 0%, transparent 65%);
+      filter: blur(60px);
+      animation: aboutBlob 30s ease-in-out infinite;
+    }
+    @keyframes aboutBlob {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(40px, 30px) scale(1.05); }
+      66%      { transform: translate(-30px, 40px) scale(0.95); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .about-hero::after { animation: none; }
+    }
 
     /* Story Section */
     .story-section { padding: 120px 48px; border-bottom: 1px solid var(--border); }
@@ -62,45 +82,75 @@
     }
     .value-card p { font-size: 13px; color: var(--text2); line-height: 1.9; }
 
-    /* Team */
-    .team-section { padding: 120px 48px; }
-    .team-inner { max-width: 1280px; margin: 0 auto; }
-    .team-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-      background: var(--border); border: 1px solid var(--border);
+    /* Creators — 가로 마키 스크롤 */
+    .creators-section { padding: 100px 0; overflow: hidden; }
+    .creators-header {
+      text-align: center; padding: 0 48px; margin-bottom: 56px;
+      max-width: 720px; margin-left: auto; margin-right: auto;
     }
-    .team-card {
-      background: var(--bg); padding: 48px 32px;
-      transition: background 0.3s;
+    .creators-header .sec-eyebrow { display: inline-flex; }
+    .creators-header .sec-title { margin-bottom: 16px; }
+    .creators-sub { font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+    .creators-marquee {
+      width: 100%; overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+    .creators-track {
+      display: flex; gap: 24px;
+      width: max-content;
+      animation: creatorMarquee 60s linear infinite;
+      will-change: transform;
+    }
+    .creators-track:hover { animation-play-state: paused; }
+    @keyframes creatorMarquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-50% - 12px)); }
+    }
+    .creator-card {
+      flex-shrink: 0;
+      width: 220px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .creator-card:hover { transform: translateY(-6px); border-color: var(--pink); }
+    .creator-photo {
+      width: 100%; aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
       position: relative; overflow: hidden;
     }
-    .team-card:hover { background: var(--surface); }
-    .team-card::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 0; height: 2px; background: var(--accent);
-      transition: width 0.4s ease;
+    .creator-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 50%);
+      pointer-events: none;
     }
-    .team-card:hover::before { width: 100%; }
-    .team-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: var(--surface2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 28px; color: var(--pink);
-      margin-bottom: 24px;
+    .creator-info {
+      padding: 14px 16px 18px;
+      text-align: left;
     }
-    .team-name {
-      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif; font-size: 22px; letter-spacing: 0.02em;
-      margin-bottom: 6px;
+    .creator-name {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 16px; font-weight: 700; color: var(--text);
+      margin-bottom: 2px;
     }
-    .team-role {
-      font-size: 11px; letter-spacing: 0.15em; color: var(--pink);
-      text-transform: uppercase; margin-bottom: 16px;
+    .creator-handle { font-size: 12px; color: var(--text2); }
+    /* 컬러풀 그라디언트 5종 (1n~5n) */
+    .creator-card:nth-child(5n+1) .creator-photo { background: linear-gradient(135deg, #c2faf6, #ffc5d4); }
+    .creator-card:nth-child(5n+2) .creator-photo { background: linear-gradient(135deg, #ffd9a8, #ffc5d4); }
+    .creator-card:nth-child(5n+3) .creator-photo { background: linear-gradient(135deg, #d8c8ff, #c2faf6); }
+    .creator-card:nth-child(5n+4) .creator-photo { background: linear-gradient(135deg, #ffc5d4, #d8c8ff); }
+    .creator-card:nth-child(5n+5) .creator-photo { background: linear-gradient(135deg, #c2faf6, #ffe9a3); }
+    @media (prefers-reduced-motion: reduce) {
+      .creators-track { animation: none; }
     }
-    .team-bio { font-size: 13px; color: var(--text2); line-height: 1.8; }
-    .team-card.founder::after {
-      content: 'CO-FOUNDER'; position: absolute; top: 24px; right: 24px;
-      font-size: 9px; letter-spacing: 0.2em; color: var(--muted);
-      padding: 3px 8px; border: 1px solid var(--border); border-radius: 2px;
+    @media (max-width: 768px) {
+      .creator-card { width: 180px; }
+      .creator-photo { font-size: 60px; }
     }
 
     /* Timeline */
@@ -214,8 +264,8 @@
       세상과 연결됩니다
     </h1>
     <p class="page-subtitle">
-      호미팩토리는 2025년 6월 설립된 종합 콘텐츠 에이전시입니다.
-      SNS 마케팅부터 TikTok 라이브, 아티스트 매니지먼트, 콘텐츠 제작까지 —
+      호미팩토리는 2025년 6월 설립된 종합 콘텐츠 에이전시입니다.<br>
+      SNS 마케팅부터 TikTok 라이브, 아티스트 매니지먼트, 콘텐츠 제작까지 —<br>
       브랜드와 크리에이터가 함께 성장하는 플랫폼을 만듭니다.
     </p>
   </div>
@@ -244,8 +294,8 @@
         브랜드가 실제로 움직이는 결과를 만듭니다.
       </p>
       <p>
-        우리는 유행을 쫓지 않습니다.
-        알고리즘, 크리에이터, 그리고 브랜드 — 세 축의 균형을 설계해
+        우리는 빠르게 변하는 트렌드를 누구보다 먼저 읽고, 누구보다 빠르게 적용합니다.<br>
+        알고리즘, 크리에이터, 그리고 브랜드 — 세 축의 균형을 설계해<br>
         <strong>지속가능한 바이럴</strong>을 만드는 것이 우리의 일입니다.
       </p>
     </div>
@@ -279,50 +329,37 @@
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team-section">
-  <div class="team-inner">
-    <div class="reveal">
-      <div class="sec-eyebrow">Our Team</div>
-      <div class="sec-title">호미팩토리 사람들</div>
-    </div>
-    <div class="team-grid">
-      <div class="team-card founder reveal">
-        <div class="team-avatar">YHS</div>
-        <div class="team-name">윤호성</div>
-        <div class="team-role">CEO · CTO</div>
-        <p class="team-bio">공동대표 & 기술 총괄. AI 모니터링 시스템, 자동화 파이프라인, 데이터 인프라를 설계합니다.</p>
-      </div>
-      <div class="team-card founder reveal">
-        <div class="team-avatar">BSB</div>
-        <div class="team-name">배수빈</div>
-        <div class="team-role">CEO · CMO</div>
-        <p class="team-bio">공동대표 & 마케팅 총괄. 브랜드 전략, 캠페인 기획, 크리에이티브 디렉션을 리드합니다.</p>
-      </div>
-      <div class="team-card founder reveal">
-        <div class="team-avatar">CSY</div>
-        <div class="team-name">최성용</div>
-        <div class="team-role">CEO · COO</div>
-        <p class="team-bio">공동대표 & 운영 총괄. 클라이언트 관리, 사업 개발, 팀 오퍼레이션 전반을 담당합니다.</p>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-avatar">SK</div>
-        <div class="team-name">Sena Kim</div>
-        <div class="team-role">Performance Lead</div>
-        <p class="team-bio">퍼포먼스 팀장. 광고 운영, KPI 분석, 리포팅 대시보드까지 — 숫자로 증명하는 결과를 만듭니다.</p>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-avatar">CHJ</div>
-        <div class="team-name">최홍주</div>
-        <div class="team-role">Management</div>
-        <p class="team-bio">매니지먼트팀 대리. 크리에이터·아티스트 계약, 스케줄링, 정산까지 파트너 관리를 책임집니다.</p>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-avatar">PYJ</div>
-        <div class="team-name">박영주</div>
-        <div class="team-role">Business Support</div>
-        <p class="team-bio">경영지원팀. 회계·세무·법인 서류·내부 운영을 담당하며 팀이 본업에 집중할 수 있게 돕습니다.</p>
-      </div>
+<!-- CREATORS — 가로 마키 스크롤 -->
+<section class="creators-section">
+  <div class="creators-header reveal">
+    <div class="sec-eyebrow">Our Creators</div>
+    <div class="sec-title">우리 크리에이터</div>
+    <p class="creators-sub">호미팩토리와 함께 성장하는 크리에이터들 — 댄스·뷰티·푸드·라이프스타일·트래블까지 다양한 카테고리</p>
+  </div>
+  <div class="creators-marquee">
+    <div class="creators-track">
+      <!-- 1차 세트 (10명) -->
+      <div class="creator-card"><div class="creator-photo">✨</div><div class="creator-info"><div class="creator-name">Creator 01</div><div class="creator-handle">@dance_studio</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🌸</div><div class="creator-info"><div class="creator-name">Creator 02</div><div class="creator-handle">@beauty_log</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🎤</div><div class="creator-info"><div class="creator-name">Creator 03</div><div class="creator-handle">@vocal_kim</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🍽️</div><div class="creator-info"><div class="creator-name">Creator 04</div><div class="creator-handle">@food_diary</div></div></div>
+      <div class="creator-card"><div class="creator-photo">📸</div><div class="creator-info"><div class="creator-name">Creator 05</div><div class="creator-handle">@daily_frame</div></div></div>
+      <div class="creator-card"><div class="creator-photo">💃</div><div class="creator-info"><div class="creator-name">Creator 06</div><div class="creator-handle">@move_it</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🎨</div><div class="creator-info"><div class="creator-name">Creator 07</div><div class="creator-handle">@art_lab</div></div></div>
+      <div class="creator-card"><div class="creator-photo">✈️</div><div class="creator-info"><div class="creator-name">Creator 08</div><div class="creator-handle">@travel_jay</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🏋️</div><div class="creator-info"><div class="creator-name">Creator 09</div><div class="creator-handle">@fit_routine</div></div></div>
+      <div class="creator-card"><div class="creator-photo">👗</div><div class="creator-info"><div class="creator-name">Creator 10</div><div class="creator-handle">@fashion_pick</div></div></div>
+      <!-- 2차 세트 (동일 10명, 무한 루프용 복제) -->
+      <div class="creator-card"><div class="creator-photo">✨</div><div class="creator-info"><div class="creator-name">Creator 01</div><div class="creator-handle">@dance_studio</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🌸</div><div class="creator-info"><div class="creator-name">Creator 02</div><div class="creator-handle">@beauty_log</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🎤</div><div class="creator-info"><div class="creator-name">Creator 03</div><div class="creator-handle">@vocal_kim</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🍽️</div><div class="creator-info"><div class="creator-name">Creator 04</div><div class="creator-handle">@food_diary</div></div></div>
+      <div class="creator-card"><div class="creator-photo">📸</div><div class="creator-info"><div class="creator-name">Creator 05</div><div class="creator-handle">@daily_frame</div></div></div>
+      <div class="creator-card"><div class="creator-photo">💃</div><div class="creator-info"><div class="creator-name">Creator 06</div><div class="creator-handle">@move_it</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🎨</div><div class="creator-info"><div class="creator-name">Creator 07</div><div class="creator-handle">@art_lab</div></div></div>
+      <div class="creator-card"><div class="creator-photo">✈️</div><div class="creator-info"><div class="creator-name">Creator 08</div><div class="creator-handle">@travel_jay</div></div></div>
+      <div class="creator-card"><div class="creator-photo">🏋️</div><div class="creator-info"><div class="creator-name">Creator 09</div><div class="creator-handle">@fit_routine</div></div></div>
+      <div class="creator-card"><div class="creator-photo">👗</div><div class="creator-info"><div class="creator-name">Creator 10</div><div class="creator-handle">@fashion_pick</div></div></div>
     </div>
   </div>
 </section>
@@ -360,26 +397,6 @@
         <div class="timeline-title">팀 확장 & 브랜드 리뉴얼</div>
         <div class="timeline-desc">퍼포먼스·매니지먼트·경영지원 팀 확장, 공식 도메인 homifactory.com 오픈.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- LEGAL / BUSINESS INFO -->
-<section class="info-section">
-  <div class="info-inner">
-    <div class="reveal">
-      <div class="sec-eyebrow">Company Info</div>
-      <div class="sec-title">법인 기본 정보</div>
-    </div>
-    <div class="info-grid">
-      <div class="info-row reveal"><div class="info-label">상호 (국문)</div><div class="info-value">호미 팩토리</div></div>
-      <div class="info-row reveal"><div class="info-label">상호 (영문)</div><div class="info-value">Homi Factory</div></div>
-      <div class="info-row reveal"><div class="info-label">대표자</div><div class="info-value">윤호성 · 배수빈 · 최성용 (공동대표)</div></div>
-      <div class="info-row reveal"><div class="info-label">사업자등록번호</div><div class="info-value">295-20-02749</div></div>
-      <div class="info-row reveal"><div class="info-label">개업일</div><div class="info-value">2025년 6월 5일</div></div>
-      <div class="info-row reveal"><div class="info-label">업태 / 종목</div><div class="info-value">정보통신업·서비스업 / 미디어콘텐츠창작업·광고 대행업</div></div>
-      <div class="info-row reveal"><div class="info-label">소재지</div><div class="info-value">경기도 용인시 처인구 금령로 23, 302-73호 (김량장동)</div></div>
-      <div class="info-row reveal"><div class="info-label">과세구분</div><div class="info-value">일반과세자 · 용인세무서</div></div>
     </div>
   </div>
 </section>
