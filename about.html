@@ -478,9 +478,10 @@
   const escapeHtml = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   function cardHtml(c) {
     const url = c.profile_url || (c.handle ? `https://www.instagram.com/${c.handle}/` : '#');
+    const fallback = escapeHtml(c.emoji || '✨');
     const inner = c.photo_url
-      ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}">`
-      : escapeHtml(c.emoji || '✨');
+      ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}" onerror="this.parentElement.innerHTML='${fallback}'">`
+      : fallback;
     return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="creator-card">
       <div class="creator-photo">${inner}</div>
       <div class="creator-info">

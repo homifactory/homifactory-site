@@ -49,28 +49,52 @@
     .creator-form h2 {
       font-family: var(--font-display); font-weight: 700;
       font-size: 20px; letter-spacing: -0.01em;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
+    }
+    .creator-form p.form-intro {
+      font-size: 13px; color: var(--text2); margin-bottom: 20px; line-height: 1.7;
     }
     .form-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
     .form-group label {
       font-size: 11px; letter-spacing: 0.1em; color: var(--muted);
       text-transform: uppercase; font-weight: 600;
     }
+    .form-group label .req { color: var(--pink); margin-left: 2px; }
     .form-group input,
     .form-group select,
     .form-group textarea {
-      width: 100%; padding: 10px 12px;
+      width: 100%; padding: 12px 14px;
       background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
       color: var(--text); font-size: 14px; font-family: var(--font-body);
       outline: none; transition: border-color 0.2s;
     }
     .form-group input:focus,
     .form-group select:focus { border-color: var(--pink); }
-    .form-group input[type=file] { padding: 8px; }
-    .form-group .full { grid-column: 1 / -1; }
+    .form-hint {
+      font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.5;
+    }
+    .form-preview {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px;
+      background: var(--bg); border: 1px dashed var(--border); border-radius: 12px;
+      min-height: 96px;
+    }
+    .form-preview .preview-photo {
+      width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(135deg, #c2faf6, #ffc5d4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; flex-shrink: 0;
+    }
+    .form-preview .preview-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .form-preview .preview-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
+    .form-preview .preview-text strong { color: var(--text); display: block; font-size: 14px; font-weight: 700; }
+    .form-preview .preview-text .h { color: var(--pink); font-size: 11px; }
+
     .form-actions {
       display: flex; gap: 12px; align-items: center; margin-top: 18px;
     }
@@ -156,8 +180,8 @@
     .loading { text-align: center; padding: 40px; color: var(--muted); font-size: 13px; }
 
     @media (max-width: 768px) {
-      .creators-table .col-cat,
-      .creators-table .col-order { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .creators-table .col-cat { display: none; }
     }
   </style>
 </head>
@@ -191,53 +215,130 @@
     </div>
   </div>
 
-  <!-- 추가 / 수정 폼 -->
+  <!-- 추가 / 수정 폼 (간소화 — 4개 필드만) -->
   <div class="creator-form">
     <h2 id="formTitle">+ 새 크리에이터 등록</h2>
+    <p class="form-intro">
+      이름·플랫폼·프로필 URL·카테고리만 입력하면 됩니다. 핸들과 프로필 사진은 URL에서 자동으로 가져옵니다.
+    </p>
     <form id="creatorForm">
       <input type="hidden" id="editId">
       <div class="form-grid">
         <div class="form-group">
-          <label for="f-name">이름 *</label>
+          <label for="f-name">이름 <span class="req">*</span></label>
           <input id="f-name" type="text" required placeholder="댄스 김씨">
         </div>
         <div class="form-group">
-          <label for="f-handle">핸들 (@ 제외)</label>
-          <input id="f-handle" type="text" placeholder="dance_kim">
-        </div>
-        <div class="form-group">
-          <label for="f-platform">플랫폼</label>
-          <select id="f-platform">
+          <label for="f-platform">플랫폼 <span class="req">*</span></label>
+          <select id="f-platform" required>
             <option value="instagram">Instagram</option>
             <option value="tiktok">TikTok</option>
             <option value="youtube">YouTube</option>
             <option value="other">기타</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="f-url">프로필 URL</label>
-          <input id="f-url" type="url" placeholder="https://www.instagram.com/...">
-        </div>
-        <div class="form-group">
-          <label for="f-category">카테고리</label>
-          <input id="f-category" type="text" placeholder="댄스 / 뷰티 / 푸드 …">
-        </div>
-        <div class="form-group">
-          <label for="f-emoji">이모지 (사진 없을 때)</label>
-          <input id="f-emoji" type="text" placeholder="✨" maxlength="4">
-        </div>
-        <div class="form-group">
-          <label for="f-order">정렬 순서 (작을수록 앞)</label>
-          <input id="f-order" type="number" value="100">
-        </div>
-        <div class="form-group">
-          <label for="f-photo">사진 업로드 (선택)</label>
-          <input id="f-photo" type="file" accept="image/*">
+        <div class="form-group full">
+          <label for="f-url">프로필 URL <span class="req">*</span></label>
+          <input id="f-url" type="url" required placeholder="https://www.instagram.com/dance_kim/">
+          <p class="form-hint">URL을 넣으면 핸들과 프로필 사진을 자동으로 가져옵니다 (unavatar.io).</p>
         </div>
         <div class="form-group full">
-          <label>
-            <input id="f-active" type="checkbox" checked> 활성 (체크 해제 시 사이트에서 숨김)
-          </label>
+          <label for="f-category">카테고리 <span class="req">*</span></label>
+          <select id="f-category" required>
+            <option value="">선택해주세요</option>
+            <optgroup label="라이프">
+              <option>일상·브이로그</option>
+              <option>라이프스타일</option>
+              <option>인테리어</option>
+              <option>홈리빙</option>
+              <option>가드닝·식물</option>
+              <option>육아·키즈</option>
+              <option>반려동물</option>
+            </optgroup>
+            <optgroup label="뷰티·패션">
+              <option>뷰티·메이크업</option>
+              <option>스킨케어</option>
+              <option>헤어</option>
+              <option>네일·아트</option>
+              <option>패션</option>
+              <option>스트릿 패션</option>
+              <option>액세서리·주얼리</option>
+            </optgroup>
+            <optgroup label="푸드">
+              <option>푸드·요리</option>
+              <option>먹방</option>
+              <option>맛집·외식</option>
+              <option>베이킹·디저트</option>
+              <option>홈카페</option>
+              <option>주류·칵테일</option>
+            </optgroup>
+            <optgroup label="여행·아웃도어">
+              <option>국내여행</option>
+              <option>해외여행</option>
+              <option>호캉스</option>
+              <option>캠핑·차박</option>
+              <option>등산·트레킹</option>
+              <option>레저·익스트림</option>
+            </optgroup>
+            <optgroup label="피트니스·헬스">
+              <option>피트니스·홈트</option>
+              <option>요가·필라테스</option>
+              <option>러닝·마라톤</option>
+              <option>다이어트</option>
+              <option>건강·웰빙</option>
+            </optgroup>
+            <optgroup label="엔터·문화">
+              <option>댄스</option>
+              <option>보컬·노래</option>
+              <option>음악·DJ</option>
+              <option>K-POP</option>
+              <option>아이돌·셀럽</option>
+              <option>코미디·개그</option>
+              <option>드라마·영화 리뷰</option>
+              <option>웹툰·만화</option>
+              <option>ASMR</option>
+            </optgroup>
+            <optgroup label="아트·취미">
+              <option>아트·일러스트</option>
+              <option>사진·필름</option>
+              <option>핸드메이드·DIY</option>
+              <option>캘리그래피</option>
+              <option>독서·서평</option>
+            </optgroup>
+            <optgroup label="비즈니스·지식">
+              <option>재테크·금융</option>
+              <option>부동산</option>
+              <option>창업·자영업</option>
+              <option>커리어·직장</option>
+              <option>자기계발</option>
+              <option>교육·학습</option>
+              <option>외국어·어학</option>
+            </optgroup>
+            <optgroup label="테크·게임">
+              <option>테크·IT</option>
+              <option>게임</option>
+              <option>모바일·앱 리뷰</option>
+              <option>자동차</option>
+            </optgroup>
+            <optgroup label="기타">
+              <option>리뷰·언박싱</option>
+              <option>유머·짤</option>
+              <option>이슈·뉴스</option>
+              <option>국가사업·공공</option>
+              <option>브랜드 협업 전문</option>
+              <option>기타</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- 미리보기 -->
+        <div class="form-preview" id="formPreview">
+          <div class="preview-photo" id="previewPhoto">✨</div>
+          <div class="preview-text">
+            <strong id="previewName">미리보기</strong>
+            <div class="h" id="previewHandle">@handle</div>
+            <div id="previewMeta">URL을 입력하면 자동 미리보기</div>
+          </div>
         </div>
       </div>
       <div class="form-actions">
@@ -264,20 +365,85 @@
 (async () => {
   const { sb } = window.HOMI;
 
-  // 1. 인증 체크 — 미로그인 시 login으로
+  // 1. 인증 체크
   const { data: { session } } = await sb.auth.getSession();
   if (!session) { location.href = 'login.html'; return; }
   document.getElementById('userEmail').textContent = session.user.email;
 
-  // 2. 로그아웃
   document.getElementById('logoutBtn').addEventListener('click', async () => {
     await sb.auth.signOut();
     location.href = 'login.html';
   });
 
-  // 3. 크리에이터 목록 로드 + 렌더
+  // ─── URL → 핸들·플랫폼 추출 ───
+  function extractHandle(url, platform) {
+    try {
+      const u = new URL(url);
+      const path = u.pathname.replace(/\/$/, '');
+      const parts = path.split('/').filter(Boolean);
+      if (platform === 'tiktok') {
+        return (parts[0] || '').replace('@', '');
+      }
+      if (platform === 'youtube') {
+        // /@handle 또는 /channel/UC... 또는 /c/name 또는 /user/name
+        if (parts[0] && parts[0].startsWith('@')) return parts[0].replace('@', '');
+        if (parts[0] === 'channel' || parts[0] === 'c' || parts[0] === 'user') return parts[1] || '';
+        return parts[0] || '';
+      }
+      // instagram, other
+      return parts[0] ? parts[0].replace('@', '') : '';
+    } catch { return ''; }
+  }
+
+  function detectPlatform(url) {
+    const u = (url || '').toLowerCase();
+    if (u.includes('instagram.com')) return 'instagram';
+    if (u.includes('tiktok.com')) return 'tiktok';
+    if (u.includes('youtube.com') || u.includes('youtu.be')) return 'youtube';
+    return null;
+  }
+
+  function buildPhotoUrl(platform, handle) {
+    if (!handle) return null;
+    const map = { instagram: 'instagram', tiktok: 'tiktok', youtube: 'youtube' };
+    const p = map[platform];
+    if (!p) return null;
+    // unavatar.io: profile photo by platform/handle, free, no key
+    return `https://unavatar.io/${p}/${encodeURIComponent(handle)}`;
+  }
+
+  // ─── 미리보기 갱신 ───
+  const elName = document.getElementById('f-name');
+  const elPlat = document.getElementById('f-platform');
+  const elUrl = document.getElementById('f-url');
+  const elCat = document.getElementById('f-category');
+  const pvPhoto = document.getElementById('previewPhoto');
+  const pvName = document.getElementById('previewName');
+  const pvHandle = document.getElementById('previewHandle');
+  const pvMeta = document.getElementById('previewMeta');
+
+  function updatePreview() {
+    const url = elUrl.value.trim();
+    const detected = detectPlatform(url);
+    if (detected && detected !== elPlat.value) elPlat.value = detected;
+    const handle = extractHandle(url, elPlat.value);
+    const photo = buildPhotoUrl(elPlat.value, handle);
+    pvName.textContent = elName.value.trim() || '미리보기';
+    pvHandle.textContent = handle ? '@' + handle : '@handle';
+    pvMeta.textContent = (elPlat.value ? elPlat.value.toUpperCase() : '') + (elCat.value ? ' · ' + elCat.value : '');
+    if (photo) {
+      pvPhoto.innerHTML = `<img src="${photo}" alt="" onerror="this.parentElement.innerHTML='✨'">`;
+    } else {
+      pvPhoto.textContent = '✨';
+    }
+  }
+  [elName, elPlat, elUrl, elCat].forEach(el => el.addEventListener('input', updatePreview));
+  elUrl.addEventListener('blur', updatePreview);
+
+  // ─── 목록 로드 ───
   const listEl = document.getElementById('creatorsList');
   const countEl = document.getElementById('listCount');
+  const escapeHtml = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   function showFormMsg(type, text) {
     const m = document.getElementById('formMsg');
@@ -286,19 +452,20 @@
     if (type === 'success') setTimeout(() => { m.className = 'form-msg'; m.textContent = ''; }, 3000);
   }
 
+  let cache = [];
   async function loadCreators() {
     listEl.innerHTML = '<div class="loading">불러오는 중…</div>';
     const { data, error } = await sb.from('creators').select('*').order('display_order', { ascending: true }).order('created_at', { ascending: false });
     if (error) { listEl.innerHTML = '<div class="loading">에러: ' + error.message + '</div>'; return; }
+    cache = data;
     countEl.textContent = `총 ${data.length}명`;
     if (data.length === 0) { listEl.innerHTML = '<div class="loading">아직 등록된 크리에이터가 없습니다.</div>'; return; }
 
     const rows = data.map(c => {
       const thumb = c.photo_url
-        ? `<img src="${c.photo_url}" alt="">`
-        : `<span>${c.emoji || '✨'}</span>`;
+        ? `<img src="${escapeHtml(c.photo_url)}" alt="" onerror="this.parentElement.innerHTML='${escapeHtml(c.emoji||'✨')}'">`
+        : `<span>${escapeHtml(c.emoji || '✨')}</span>`;
       const platformLabel = { instagram:'IG', tiktok:'TT', youtube:'YT', other:'—' }[c.platform] || '—';
-      const url = c.profile_url || '#';
       const activeBadge = c.is_active
         ? '<span class="badge active">활성</span>'
         : '<span class="badge inactive">숨김</span>';
@@ -306,11 +473,10 @@
         <tr data-id="${c.id}">
           <td class="col-thumb"><div class="thumb">${thumb}</div></td>
           <td>
-            <div class="name">${c.name || ''}</div>
-            <div class="handle">${c.handle ? '@'+c.handle : ''} · ${platformLabel}</div>
+            <div class="name">${escapeHtml(c.name || '')}</div>
+            <div class="handle">${c.handle ? '@' + escapeHtml(c.handle) : ''} · ${platformLabel}</div>
           </td>
-          <td class="col-cat">${c.category || ''}</td>
-          <td class="col-order">${c.display_order ?? '-'}</td>
+          <td class="col-cat">${escapeHtml(c.category || '')}</td>
           <td>${activeBadge}</td>
           <td>
             <div class="row-actions">
@@ -326,12 +492,11 @@
       <table class="creators-table">
         <thead><tr>
           <th></th><th>이름·핸들</th><th class="col-cat">카테고리</th>
-          <th class="col-order">순서</th><th>상태</th><th></th>
+          <th>상태</th><th></th>
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
 
-    // 액션 핸들러
     listEl.querySelectorAll('button[data-action]').forEach(btn => {
       btn.addEventListener('click', async (e) => {
         const tr = e.target.closest('tr');
@@ -343,19 +508,19 @@
           if (error) return alert('삭제 실패: ' + error.message);
           loadCreators();
         } else if (action === 'toggle') {
-          const c = data.find(x => x.id === id);
+          const c = cache.find(x => x.id === id);
           const { error } = await sb.from('creators').update({ is_active: !c.is_active }).eq('id', id);
           if (error) return alert('변경 실패: ' + error.message);
           loadCreators();
         } else if (action === 'edit') {
-          const c = data.find(x => x.id === id);
+          const c = cache.find(x => x.id === id);
           startEdit(c);
         }
       });
     });
   }
 
-  // 4. 폼 — 추가 또는 수정
+  // ─── 폼 — 추가 / 수정 ───
   const form = document.getElementById('creatorForm');
   const formTitle = document.getElementById('formTitle');
   const cancelBtn = document.getElementById('formCancel');
@@ -363,24 +528,21 @@
   function resetForm() {
     form.reset();
     document.getElementById('editId').value = '';
-    document.getElementById('f-active').checked = true;
-    document.getElementById('f-order').value = '100';
+    elPlat.value = 'instagram';
     formTitle.textContent = '+ 새 크리에이터 등록';
     cancelBtn.style.display = 'none';
+    updatePreview();
   }
 
   function startEdit(c) {
     document.getElementById('editId').value = c.id;
-    document.getElementById('f-name').value = c.name || '';
-    document.getElementById('f-handle').value = c.handle || '';
-    document.getElementById('f-platform').value = c.platform || 'instagram';
-    document.getElementById('f-url').value = c.profile_url || '';
-    document.getElementById('f-category').value = c.category || '';
-    document.getElementById('f-emoji').value = c.emoji || '';
-    document.getElementById('f-order').value = c.display_order ?? 100;
-    document.getElementById('f-active').checked = !!c.is_active;
+    elName.value = c.name || '';
+    elPlat.value = c.platform || 'instagram';
+    elUrl.value = c.profile_url || '';
+    elCat.value = c.category || '';
     formTitle.textContent = '✎ 수정 — ' + c.name;
     cancelBtn.style.display = 'inline-flex';
+    updatePreview();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -392,35 +554,30 @@
     submit.disabled = true; submit.textContent = '저장 중...';
 
     const editId = document.getElementById('editId').value;
-    const photoFile = document.getElementById('f-photo').files[0];
-    const handle = document.getElementById('f-handle').value.trim();
+    const url = elUrl.value.trim();
+    const platform = elPlat.value;
+    const handle = extractHandle(url, platform);
+    const photoUrl = buildPhotoUrl(platform, handle);
 
-    let photo_url = null;
-    if (photoFile) {
-      const ext = photoFile.name.split('.').pop().toLowerCase();
-      const path = `${(handle || 'creator')}_${Date.now()}.${ext}`;
-      const { error: upErr } = await sb.storage.from('creator-photos').upload(path, photoFile, { upsert: false });
-      if (upErr) {
-        showFormMsg('error', '사진 업로드 실패: ' + upErr.message);
-        submit.disabled = false; submit.textContent = '저장 →';
-        return;
-      }
-      const { data: pubData } = sb.storage.from('creator-photos').getPublicUrl(path);
-      photo_url = pubData.publicUrl;
+    // display_order: max + 10 (신규는 맨 뒤로)
+    let display_order = 100;
+    if (!editId) {
+      const { data: maxRow } = await sb.from('creators').select('display_order').order('display_order', { ascending: false }).limit(1).maybeSingle();
+      display_order = (maxRow?.display_order || 0) + 10;
     }
 
     const payload = {
-      name: document.getElementById('f-name').value.trim(),
+      name: elName.value.trim(),
       handle: handle || null,
-      platform: document.getElementById('f-platform').value,
-      profile_url: document.getElementById('f-url').value.trim() || null,
-      category: document.getElementById('f-category').value.trim() || null,
-      emoji: document.getElementById('f-emoji').value.trim() || '✨',
-      display_order: parseInt(document.getElementById('f-order').value) || 100,
-      is_active: document.getElementById('f-active').checked,
+      platform,
+      profile_url: url,
+      category: elCat.value.trim() || null,
+      photo_url: photoUrl,
+      emoji: '✨',
+      is_active: true,
       updated_at: new Date().toISOString()
     };
-    if (photo_url) payload.photo_url = photo_url;
+    if (!editId) payload.display_order = display_order;
 
     let error;
     if (editId) {
