@@ -240,7 +240,23 @@
         <div class="form-group full">
           <label for="f-url">프로필 URL <span class="req">*</span></label>
           <input id="f-url" type="url" required placeholder="https://www.instagram.com/dance_kim/">
-          <p class="form-hint">URL을 넣으면 핸들과 프로필 사진을 자동으로 가져옵니다 (unavatar.io).</p>
+          <p class="form-hint">URL을 넣으면 핸들이 자동으로 추출됩니다.</p>
+        </div>
+        <div class="form-group full">
+          <label for="f-photo-file">📷 사진 업로드 <span style="color:var(--muted);font-weight:400">(가장 안정적인 방법)</span></label>
+          <input id="f-photo-file" type="file" accept="image/*" style="padding:8px;">
+          <p class="form-hint">
+            JPG / PNG / WebP 등 이미지 파일 선택 → 자동으로 호미팩토리 서버에 업로드 → 영구 저장.<br>
+            정사각형 또는 4:5 비율 추천 (예: 800×800, 800×1000).
+          </p>
+        </div>
+        <div class="form-group full">
+          <label for="f-photo">또는 사진 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+          <input id="f-photo" type="url" placeholder="https://… (직접 호스팅한 이미지 URL)">
+          <p class="form-hint">
+            이미 어딘가에 호스팅된 사진이 있다면 URL을 붙여넣어도 됩니다.
+            <b>업로드와 URL 둘 다 비워두면</b> 자동으로 가져오기 시도 → 실패 시 ✨ 이모지 표시.
+          </p>
         </div>
         <div class="form-group full">
           <label for="f-category">카테고리 <span class="req">*</span></label>
@@ -405,11 +421,21 @@
 
   function buildPhotoUrl(platform, handle) {
     if (!handle) return null;
-    const map = { instagram: 'instagram', tiktok: 'tiktok', youtube: 'youtube' };
-    const p = map[platform];
-    if (!p) return null;
-    // unavatar.io: profile photo by platform/handle, free, no key
-    return `https://unavatar.io/${p}/${encodeURIComponent(handle)}`;
+    // unavatar.io 무료는 Instagram 중단 — TikTok/YouTube만 시도
+    if (platform === 'tiktok') return `https://unavatar.io/tiktok/${encodeURIComponent(handle)}`;
+    if (platform === 'youtube') return `https://unavatar.io/youtube/${encodeURIComponent(handle)}`;
+    return null;
+  }
+
+  // Microlink로 og:image 자동 추출 (Instagram 등 폴백)
+  async function fetchPhotoViaMicrolink(profileUrl) {
+    try {
+      const r = await fetch('https://api.microlink.io?url=' + encodeURIComponent(profileUrl));
+      if (!r.ok) return null;
+      const d = await r.json();
+      const img = d?.data?.image?.url || d?.data?.logo?.url;
+      return img || null;
+    } catch { return null; }
   }
 
   // ─── 미리보기 갱신 ───
@@ -417,6 +443,7 @@
   const elPlat = document.getElementById('f-platform');
   const elUrl = document.getElementById('f-url');
   const elCat = document.getElementById('f-category');
+  const elPhoto = document.getElementById('f-photo');
   const pvPhoto = document.getElementById('previewPhoto');
   const pvName = document.getElementById('previewName');
   const pvHandle = document.getElementById('previewHandle');
@@ -427,7 +454,10 @@
     const detected = detectPlatform(url);
     if (detected && detected !== elPlat.value) elPlat.value = detected;
     const handle = extractHandle(url, elPlat.value);
-    const photo = buildPhotoUrl(elPlat.value, handle);
+    // 우선순위: 수동 사진 URL > 플랫폼 자동(unavatar)
+    const manualPhoto = elPhoto.value.trim();
+    const autoPhoto = buildPhotoUrl(elPlat.value, handle);
+    const photo = manualPhoto || autoPhoto;
     pvName.textContent = elName.value.trim() || '미리보기';
     pvHandle.textContent = handle ? '@' + handle : '@handle';
     pvMeta.textContent = (elPlat.value ? elPlat.value.toUpperCase() : '') + (elCat.value ? ' · ' + elCat.value : '');
@@ -437,8 +467,22 @@
       pvPhoto.textContent = '✨';
     }
   }
-  [elName, elPlat, elUrl, elCat].forEach(el => el.addEventListener('input', updatePreview));
+  [elName, elPlat, elUrl, elCat, elPhoto].forEach(el => el.addEventListener('input', updatePreview));
   elUrl.addEventListener('blur', updatePreview);
+
+  // 파일 선택 즉시 미리보기에 표시
+  document.getElementById('f-photo-file').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        pvPhoto.innerHTML = `<img src="${ev.target.result}" alt="">`;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      updatePreview();
+    }
+  });
 
   // ─── 목록 로드 ───
   const listEl = document.getElementById('creatorsList');
@@ -529,6 +573,7 @@
     form.reset();
     document.getElementById('editId').value = '';
     elPlat.value = 'instagram';
+    document.getElementById('f-photo-file').value = '';
     formTitle.textContent = '+ 새 크리에이터 등록';
     cancelBtn.style.display = 'none';
     updatePreview();
@@ -540,6 +585,7 @@
     elPlat.value = c.platform || 'instagram';
     elUrl.value = c.profile_url || '';
     elCat.value = c.category || '';
+    elPhoto.value = c.photo_url || '';
     formTitle.textContent = '✎ 수정 — ' + c.name;
     cancelBtn.style.display = 'inline-flex';
     updatePreview();
@@ -557,7 +603,34 @@
     const url = elUrl.value.trim();
     const platform = elPlat.value;
     const handle = extractHandle(url, platform);
-    const photoUrl = buildPhotoUrl(platform, handle);
+
+    // 사진 URL 결정 — 우선순위:
+    // 1) 파일 업로드 (Supabase Storage)
+    // 2) 수동 입력 (사진 URL 필드)
+    // 3) 플랫폼 자동 (unavatar — TikTok/YouTube만)
+    // 4) Microlink로 og:image 자동 추출 (Instagram 등 폴백)
+    let photoUrl = null;
+    const photoFile = document.getElementById('f-photo-file').files[0];
+    if (photoFile) {
+      submit.textContent = '사진 업로드 중...';
+      const ext = (photoFile.name.split('.').pop() || 'jpg').toLowerCase();
+      const safeHandle = (handle || 'creator').replace(/[^a-zA-Z0-9_-]/g, '');
+      const path = `${safeHandle}_${Date.now()}.${ext}`;
+      const { error: upErr } = await sb.storage.from('creator-photos').upload(path, photoFile, { upsert: false });
+      if (upErr) {
+        showFormMsg('error', '사진 업로드 실패: ' + upErr.message);
+        submit.disabled = false; submit.textContent = '저장 →';
+        return;
+      }
+      const { data: pub } = sb.storage.from('creator-photos').getPublicUrl(path);
+      photoUrl = pub.publicUrl;
+    } else {
+      photoUrl = elPhoto.value.trim() || buildPhotoUrl(platform, handle) || null;
+      if (!photoUrl && url) {
+        submit.textContent = '사진 자동 가져오는 중...';
+        photoUrl = await fetchPhotoViaMicrolink(url);
+      }
+    }
 
     // display_order: max + 10 (신규는 맨 뒤로)
     let display_order = 100;
