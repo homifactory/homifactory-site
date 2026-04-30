@@ -73,7 +73,7 @@ python -m http.server 8000
 - **대표**: 윤호성 · 배수빈 · 최성용 (공동대표 3인)
 - **사업자등록번호**: 295-20-02749
 - **주소**: 경기도 용인시 처인구 금령로 23, 302-73호
-- **문의**: hosung@homifactory.com
+- **문의**: contact@homifactory.com
 
 ---
 
