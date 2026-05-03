@@ -1687,18 +1687,87 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(o => o.classList.remove('open'));
 });
 
-/* Form */
-document.getElementById('submitBtn').addEventListener('click', () => {
+/* ══════════════ FORMSUBMIT 연동 ══════════════ */
+/*
+ * FormSubmit.co AJAX 엔드포인트
+ *  - 첫 제출 시 contact@homifactory.com 으로 활성화 메일이 발송됩니다.
+ *    메일 안의 링크를 1회 클릭하면 이후 모든 제출이 자동 전달됩니다.
+ *  - _captcha: 'false' → reCAPTCHA 비활성화
+ *  - _template: 'table' → 표 형식 메일
+ *  - _subject  → 메일 제목 (폼별 커스텀)
+ *  - _replyto  → 답장 시 사용자 메일/전화로 회신 가능
+ */
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/contact@homifactory.com';
+
+async function sendFormSubmit(payload) {
+  const res = await fetch(FORMSUBMIT_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || (data.success && data.success !== 'true' && data.success !== true)) {
+    throw new Error(data.message || '전송 실패');
+  }
+  return data;
+}
+
+/* ─── 메인 문의 폼 ─── */
+document.getElementById('submitBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('submitBtn');
   const name = document.getElementById('f-name').value.trim();
   const contact = document.getElementById('f-contact').value.trim();
   if (!name || !contact) { alert('이름과 연락처는 필수입니다.'); return; }
-  document.getElementById('inquiryForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+
+  // 관심 서비스 (체크박스)
+  const services = Array.from(
+    document.querySelectorAll('#inquiryForm .service-check input[type=checkbox]:checked')
+  ).map(c => c.parentElement.querySelector('.check-label')?.textContent || c.value);
+
+  const budget = document.getElementById('f-budget').value || '';
+  const message = document.getElementById('f-message').value.trim();
+
+  // 버튼 잠금
+  const originalHTML = btn.innerHTML;
+  btn.style.pointerEvents = 'none';
+  btn.style.opacity = '0.6';
+  btn.innerHTML = '<span>전송 중...</span>';
+
+  try {
+    await sendFormSubmit({
+      _subject: '[호미팩토리] 메인 문의 — ' + name,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: contact,
+      '문의 유형': '메인 문의 (Contact)',
+      '이름/회사명': name,
+      '연락처': contact,
+      '관심 서비스': services.length ? services.join(', ') : '(선택 없음)',
+      '예산 규모': budget || '(미선택)',
+      '문의 내용': message || '(없음)',
+      '접수 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+    });
+    document.getElementById('inquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } catch (err) {
+    console.error('[Homi Factory] 메인 문의 전송 실패:', err);
+    alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나 contact@homifactory.com 으로 직접 메일을 보내주세요.');
+    btn.style.pointerEvents = '';
+    btn.style.opacity = '';
+    btn.innerHTML = originalHTML;
+  }
 });
 
-/* ══════════════ QUICK CTA FORMS ══════════════ */
+/* ─── Quick CTA 4개 모달 폼 ─── */
+const QFORM_SUBJECTS = {
+  quick:      '[호미팩토리] 30초 간편 문의',
+  free:       '[호미팩토리] 광고 제안 (기업)',
+  influencer: '[호미팩토리] 인플루언서 매칭 요청',
+  allin:      '[호미팩토리] 올인원 캠페인 제안'
+};
+
 document.querySelectorAll('.qform').forEach(form => {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // 필수 필드 검증
@@ -1706,30 +1775,70 @@ document.querySelectorAll('.qform').forEach(form => {
     for (const field of required) {
       if (!field.value.trim()) {
         field.focus();
-        field.style.borderColor = 'var(--red)';
+        field.style.borderColor = 'var(--pink)';
         setTimeout(() => field.style.borderColor = '', 2000);
         alert('필수 항목을 모두 입력해주세요.');
         return;
       }
     }
 
-    // 데이터 수집 (추후 백엔드 연동 시 사용)
-    const data = { kind: form.dataset.kind };
+    const kind = form.dataset.kind;
+    const submitBtn = form.querySelector('.qform-submit');
+    const originalText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '전송 중...';
+    }
+
+    // 폼 데이터 → 한국어 키로 변환
+    const labelMap = {
+      name: '담당자명', company: '회사/브랜드명', role: '직책/부서',
+      contact: '연락처', email: '이메일', message: '한 줄 요청',
+      industry: '업종', service: '관심/포함 서비스',
+      category: '타겟 카테고리', scale: '인플루언서 규모', goal: '캠페인 목적',
+      period: '캠페인 시기', budget: '예산 규모', stage: '브랜드 단계',
+      start: '희망 시작일', duration: '운영 기간',
+      kpi: '캠페인 목표/KPI', notes: '추가 요청사항', context: '현재 상황/목표'
+    };
+    const collected = {};
     new FormData(form).forEach((v, k) => {
-      if (data[k]) {
-        data[k] = Array.isArray(data[k]) ? [...data[k], v] : [data[k], v];
+      const key = labelMap[k] || k;
+      if (collected[key]) {
+        collected[key] = Array.isArray(collected[key]) ? [...collected[key], v] : [collected[key], v];
       } else {
-        data[k] = v;
+        collected[key] = v;
       }
     });
-    console.log('[Homi Factory] 문의 접수:', data);
-    // TODO(2단계): /api/inquiry 엔드포인트로 POST, Slack/Notion 연동
+    Object.keys(collected).forEach(k => {
+      if (Array.isArray(collected[k])) collected[k] = collected[k].join(', ');
+    });
 
-    // 성공 UI 전환
-    form.style.display = 'none';
-    const kind = form.dataset.kind;
-    const success = document.getElementById('qsuccess-' + kind);
-    if (success) success.style.display = 'block';
+    const replyTo = collected['이메일'] || collected['연락처'] || '';
+    const nameForSubject = collected['담당자명'] || collected['회사/브랜드명'] || '';
+
+    const payload = {
+      _subject: QFORM_SUBJECTS[kind] + (nameForSubject ? ' — ' + nameForSubject : ''),
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: replyTo,
+      '문의 유형': QFORM_SUBJECTS[kind].replace('[호미팩토리] ', ''),
+      ...collected,
+      '접수 시각': new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+    };
+
+    try {
+      await sendFormSubmit(payload);
+      form.style.display = 'none';
+      const success = document.getElementById('qsuccess-' + kind);
+      if (success) success.style.display = 'block';
+    } catch (err) {
+      console.error('[Homi Factory] Quick CTA 전송 실패:', err);
+      alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나 contact@homifactory.com 으로 직접 메일을 보내주세요.');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    }
   });
 });
 
