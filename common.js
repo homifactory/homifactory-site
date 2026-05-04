@@ -74,3 +74,56 @@
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 })();
+
+/* ── ADMIN LOGIN CORNER BUTTON ──
+   상단 nav에서 '로그인' 항목을 제거하고, 우측 하단에 작고 은은한
+   '관리자 로그인' 버튼을 모든 일반 페이지에 자동 주입.
+   admin.html / login.html에서는 주입하지 않음. */
+(function(){
+  var path = location.pathname || '';
+  if (/login\.html|admin\.html|\/login$|\/admin$/.test(path)) return;
+  function inject(){
+    if (document.querySelector('.admin-login-corner')) return;
+    var btn = document.createElement('a');
+    btn.href = 'login.html';
+    btn.className = 'admin-login-corner';
+    btn.textContent = '관리자 로그인';
+    btn.setAttribute('aria-label', '관리자 로그인');
+    btn.style.cssText = [
+      'position:fixed',
+      'right:14px',
+      'bottom:14px',
+      'z-index:1000',
+      'padding:6px 11px',
+      'font-size:11px',
+      'font-weight:500',
+      'color:rgba(0,0,0,0.42)',
+      'background:rgba(255,255,255,0.7)',
+      'border:1px solid rgba(0,0,0,0.06)',
+      'border-radius:14px',
+      'text-decoration:none',
+      'backdrop-filter:blur(6px)',
+      '-webkit-backdrop-filter:blur(6px)',
+      'transition:opacity 0.2s ease, color 0.2s ease, transform 0.2s ease',
+      'opacity:0.5',
+      'letter-spacing:-0.01em',
+      'box-shadow:0 1px 4px rgba(0,0,0,0.04)'
+    ].join(';');
+    btn.addEventListener('mouseenter', function(){
+      btn.style.opacity = '1';
+      btn.style.color = 'var(--pink, #fd0151)';
+      btn.style.transform = 'translateY(-1px)';
+    });
+    btn.addEventListener('mouseleave', function(){
+      btn.style.opacity = '0.5';
+      btn.style.color = 'rgba(0,0,0,0.42)';
+      btn.style.transform = '';
+    });
+    document.body.appendChild(btn);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
