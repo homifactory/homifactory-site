@@ -1659,13 +1659,10 @@ window.addEventListener('scroll', () => {
   });
 });
 
-/* FAQ */
+/* FAQ — 각 항목 독립 토글 (다른 항목 자동 닫힘 없음) */
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
-    const item = q.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
+    q.parentElement.classList.toggle('open');
   });
 });
 
