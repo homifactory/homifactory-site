@@ -254,9 +254,16 @@
     .dept-desc {
       font-size: 13px; color: var(--text2);
       line-height: 1.78; margin: 0;
+      flex: 1 1 auto;
       min-height: 68px;
     }
-    .dept-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 4px; }
+    /* 태그 영역 — 모든 카드에서 동일 높이로 정렬 (2줄 기준) */
+    .dept-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin: 0 0 4px;
+      min-height: 56px;
+      align-content: flex-start;
+    }
     .dept-tag {
       font-size: 10.5px; letter-spacing: 0;
       padding: 4px 10px; border-radius: 999px;
