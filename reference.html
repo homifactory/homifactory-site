@@ -515,20 +515,41 @@
 
 <script src="common.js?v=2"></script>
 <script>
-  /* Reference Filter */
+  /* Reference Filter — URL hash 지원 (홈 dept-detail-btn에서 진입 가능) */
   const chips = document.querySelectorAll('.ref-chip');
   const cards = document.querySelectorAll('.ref-card');
+  const validTypes = ['all','sns','mgt','live','perf','content'];
+
+  function applyFilter(type, scroll) {
+    if (!validTypes.includes(type)) type = 'all';
+    chips.forEach(c => c.classList.toggle('active', c.dataset.type === type));
+    cards.forEach(card => {
+      const match = type === 'all' || card.dataset.type === type;
+      card.classList.toggle('hidden', !match);
+    });
+    if (scroll) {
+      const fb = document.querySelector('.ref-filter-bar');
+      if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
       const type = chip.dataset.type;
-      cards.forEach(card => {
-        const match = type === 'all' || card.dataset.type === type;
-        card.classList.toggle('hidden', !match);
-      });
+      history.replaceState(null, '', type === 'all' ? location.pathname + location.search : '#' + type);
+      applyFilter(type, false);
     });
   });
+
+  // 초기 hash 진입 처리
+  function fromHash() {
+    const h = (location.hash || '').replace('#', '').toLowerCase();
+    if (validTypes.includes(h) && h !== 'all') {
+      applyFilter(h, true);
+    }
+  }
+  fromHash();
+  window.addEventListener('hashchange', fromHash);
 </script>
 </body>
 </html>
