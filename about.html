@@ -9,7 +9,21 @@
   <meta property="og:description" content="공동대표 3인 체제의 종합 콘텐츠 에이전시, 호미팩토리" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://homifactory.com/about.html" />
+  <meta property="og:image" content="https://homifactory.com/og-image.png?v=1" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="호미팩토리 — 콘텐츠로 연결하고 성장한다" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="호미팩토리" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="회사소개 | 호미팩토리" />
+  <meta name="twitter:description" content="공동대표 3인 체제의 종합 콘텐츠 에이전시, 호미팩토리" />
+  <meta name="twitter:image" content="https://homifactory.com/og-image.png?v=1" />
   <link rel="canonical" href="https://homifactory.com/about.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -104,9 +118,79 @@
       will-change: transform;
     }
     .creators-track:hover { animation-play-state: paused; }
+    .creators-track.wheel-active { animation: none; transition: transform 0.15s ease-out; }
     @keyframes creatorMarquee {
       from { transform: translateX(0); }
       to   { transform: translateX(calc(-50% - 12px)); }
+    }
+
+    /* "전체 보기" 버튼 */
+    .creators-allbtn-wrap { text-align: center; margin-top: 36px; }
+    .creators-allbtn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border: 1px solid var(--border);
+      border-radius: 999px; background: #fff;
+      font-size: 13px; font-weight: 600; color: var(--text);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: -0.01em;
+    }
+    .creators-allbtn:hover {
+      border-color: var(--pink); color: var(--pink);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px -8px rgba(253,1,81,0.3);
+    }
+    .creators-allbtn .allbtn-arrow { transition: transform 0.2s ease; }
+    .creators-allbtn:hover .allbtn-arrow { transform: translateX(3px); }
+
+    /* 크리에이터 전체 모달 */
+    .cm-overlay {
+      position: fixed; inset: 0;
+      background: rgba(10,10,10,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      z-index: 2000; padding: 40px 20px;
+      opacity: 0; transition: opacity 0.25s ease;
+    }
+    .cm-overlay.open { display: flex; opacity: 1; }
+    .cm-modal {
+      background: #fff; border-radius: 24px;
+      width: 100%; max-width: 1080px;
+      max-height: 88vh; overflow: hidden;
+      display: flex; flex-direction: column;
+      box-shadow: 0 24px 80px -20px rgba(0,0,0,0.3);
+      transform: translateY(20px); transition: transform 0.3s ease;
+    }
+    .cm-overlay.open .cm-modal { transform: translateY(0); }
+    .cm-header {
+      padding: 28px 32px 20px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cm-eyebrow { font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .cm-title { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+    .cm-count { font-size: 13px; color: var(--text2); margin-left: 12px; font-weight: 500; }
+    .cm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      border: 1px solid var(--border); background: #fff;
+      font-size: 16px; cursor: pointer; color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .cm-close:hover { border-color: var(--pink); color: var(--pink); }
+    .cm-body { padding: 28px 32px 32px; overflow-y: auto; }
+    .cm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .cm-grid a.creator-card { width: 100%; }
+    .cm-empty { padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; }
+    @media (max-width: 600px) {
+      .cm-header { padding: 22px 20px 16px; }
+      .cm-body { padding: 22px 20px 28px; }
+      .cm-title { font-size: 20px; }
+      .cm-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     }
     a.creator-card {
       display: block;
@@ -363,7 +447,31 @@
       <!-- DB에서 동적 렌더 — admin.html에서 추가/수정/삭제 -->
     </div>
   </div>
+  <div class="creators-allbtn-wrap reveal">
+    <button type="button" class="creators-allbtn" id="creatorsAllBtn">
+      전체 크리에이터 보기 <span class="allbtn-arrow">→</span>
+    </button>
+  </div>
 </section>
+
+<!-- 크리에이터 전체 보기 모달 -->
+<div class="cm-overlay" id="creatorsModal" aria-hidden="true">
+  <div class="cm-modal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <div class="cm-header">
+      <div>
+        <div class="cm-eyebrow">Our Creators</div>
+        <div>
+          <span class="cm-title" id="cmTitle">전체 크리에이터</span>
+          <span class="cm-count" id="cmCount"></span>
+        </div>
+      </div>
+      <button type="button" class="cm-close" data-cm-close aria-label="닫기">✕</button>
+    </div>
+    <div class="cm-body">
+      <div class="cm-grid" id="cmGrid"></div>
+    </div>
+  </div>
+</div>
 
 <!-- TIMELINE -->
 <section class="timeline-section">
@@ -491,6 +599,59 @@
   // 무한 마키 루프용 — 같은 세트 2번 렌더
   const html = data.map(cardHtml).join('') + data.map(cardHtml).join('');
   track.innerHTML = html;
+
+  /* ── 전체 보기 모달 ── */
+  const allBtn = document.getElementById('creatorsAllBtn');
+  const modal = document.getElementById('creatorsModal');
+  const grid = document.getElementById('cmGrid');
+  const count = document.getElementById('cmCount');
+  if (allBtn && modal && grid) {
+    allBtn.addEventListener('click', () => {
+      grid.innerHTML = data.map(cardHtml).join('');
+      count.textContent = `(총 ${data.length}명)`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+    const closeModal = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    modal.querySelectorAll('[data-cm-close]').forEach(el => el.addEventListener('click', closeModal));
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  }
+
+  /* ── 마키 휠 좌우 스크롤 ── */
+  const marquee = document.querySelector('.creators-marquee');
+  if (marquee && track) {
+    let wheelX = 0;
+    let resetTimer = null;
+    marquee.addEventListener('wheel', (e) => {
+      // 가로 휠은 그대로 두고, 세로 휠을 가로 이동으로 전환
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      e.preventDefault();
+      wheelX -= e.deltaY * 0.6;
+      const halfWidth = track.scrollWidth / 2;
+      wheelX = Math.max(-halfWidth, Math.min(0, wheelX));
+      track.classList.add('wheel-active');
+      track.style.transform = `translateX(${wheelX}px)`;
+      // 일정 시간 휠이 멈추면 자동 마키 복귀
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        wheelX = 0;
+        track.classList.remove('wheel-active');
+        track.style.transform = '';
+      }, 2500);
+    }, { passive: false });
+    marquee.addEventListener('mouseleave', () => {
+      if (resetTimer) clearTimeout(resetTimer);
+      wheelX = 0;
+      track.classList.remove('wheel-active');
+      track.style.transform = '';
+    });
+  }
 })();
 </script>
 </body>
