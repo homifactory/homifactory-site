@@ -201,15 +201,19 @@
     .hero-desc { font-size:15px; color:var(--text2); line-height:1.9; max-width:380px; }
     .hero-desc strong { color:var(--text); font-weight:500; }
     /* HERO pitch — 큰 헤드라인 + 서브카피 */
-    .hero-pitch { flex: 1 1 auto; max-width: 920px; }
+    .hero-pitch { flex: 1 1 auto; max-width: 1080px; }
     .hero-headline {
       font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
-      font-size: clamp(22px, 2.4vw, 38px);
+      font-size: clamp(18px, 2vw, 32px);
       font-weight: 800;
-      line-height: 1.32;
+      line-height: 1.3;
       letter-spacing: -0.02em;
       color: var(--text);
       margin: 0 0 20px;
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .hero-headline { white-space: normal; }
     }
     .hero-headline .hl { color: var(--pink); }
     .hero-subdesc {
@@ -913,8 +917,7 @@
     <div class="hero-bottom">
       <div class="hero-pitch">
         <p class="hero-headline">
-          마케팅부터 콘텐츠 제작까지,<br>
-          <span class="hl">One Line</span>으로 연결하세요.
+          마케팅부터 콘텐츠 제작까지, <span class="hl">One Line</span>으로 연결하세요.
         </p>
         <p class="hero-subdesc">
           <strong>HOMI FACTORY</strong>는 마케팅 <strong>ALL-IN ONE 서비스</strong>, 개별 서비스, 아티스트 매니지먼트, 공연/행사 섭외, <strong>TIKTOK LIVE</strong>, 콘텐츠 제작까지 브랜드와 아티스트 및 크리에이터의 성장을 <strong>One Line으로 설계</strong>하여, <strong>데이터를 기반한 정량적 서비스</strong>를 전문적으로 제공드립니다.
