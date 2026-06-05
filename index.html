@@ -236,141 +236,224 @@
     .scroll-line { width:40px; height:1px; background:var(--muted); animation: scrollPulse 2s ease-in-out infinite; }
     @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
 
-    /* DEPT SECTIONS — 5열 카드 그리드 (dept별 색상 다양화) */
+    /* DEPT SECTIONS — 5개 사업부 탭 인터페이스 (dai.one 패턴) */
     .dept-wrap {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      align-items: stretch;
-      gap: 18px;
       padding: 100px 48px;
       max-width: 1400px;
       margin: 0 auto;
       border-top: 1px solid var(--border);
     }
-    .dept-item {
+    .dept-section-header { text-align: center; margin-bottom: 56px; }
+    .dept-section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 12px; letter-spacing: 0.24em; font-weight: 700;
+      color: var(--pink); text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .dept-section-eyebrow::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--pink);
+    }
+    .dept-section-title {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: clamp(28px, 3.5vw, 46px); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.25;
+      margin: 0 0 18px;
+    }
+    .dept-section-title .hl { color: var(--pink); }
+    .dept-section-sub {
+      font-size: 15px; color: var(--text2);
+      line-height: 1.85; max-width: 760px;
+      margin: 0 auto;
+    }
+    /* 탭 헤더 */
+    .dept-tabs {
+      display: flex; gap: 4px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .dept-tabs::-webkit-scrollbar { display: none; }
+    .dept-tab {
+      flex: 1 1 0; min-width: 130px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 18px 16px 22px;
+      background: transparent; border: none;
+      font-family: 'Pretendard','Noto Sans KR',sans-serif;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .dept-tab-num {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 11px; letter-spacing: 0.2em;
+      color: var(--muted); font-weight: 700;
+    }
+    .dept-tab-name {
+      font-size: 13.5px; font-weight: 700;
+      color: var(--text2); letter-spacing: -0.01em;
+    }
+    .dept-tab:hover .dept-tab-name { color: var(--text); }
+    .dept-tab.active { border-bottom-color: var(--pink); }
+    .dept-tab.active .dept-tab-num { color: var(--pink); }
+    .dept-tab.active .dept-tab-name { color: var(--text); font-weight: 800; }
+    /* dept 색상별 활성 */
+    .dept-tab[data-dept="1"].active { border-bottom-color: #008c8a; }
+    .dept-tab[data-dept="1"].active .dept-tab-num { color: #008c8a; }
+    .dept-tab[data-dept="2"].active { border-bottom-color: var(--pink); }
+    .dept-tab[data-dept="2"].active .dept-tab-num { color: var(--pink); }
+    .dept-tab[data-dept="3"].active { border-bottom-color: #e25555; }
+    .dept-tab[data-dept="3"].active .dept-tab-num { color: #e25555; }
+    .dept-tab[data-dept="4"].active { border-bottom-color: #6a4cb6; }
+    .dept-tab[data-dept="4"].active .dept-tab-num { color: #6a4cb6; }
+    .dept-tab[data-dept="5"].active { border-bottom-color: #a37a17; }
+    .dept-tab[data-dept="5"].active .dept-tab-num { color: #a37a17; }
+
+    /* 패널 */
+    .dept-panels { position: relative; }
+    .dept-panel {
+      display: none;
       background: #fff;
+      border-radius: 24px;
+      padding: 52px 48px;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      overflow: hidden;
-      transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
-      display: flex; flex-direction: column;
       position: relative;
       isolation: isolate;
+      overflow: hidden;
     }
-    .dept-item::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
-      opacity: 0; transition: opacity 0.35s ease;
+    .dept-panel.active { display: block; animation: deptFade 0.4s ease; }
+    @keyframes deptFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
     }
-    .dept-item:hover { transform: translateY(-6px); }
-    .dept-item:hover::before { opacity: 1; }
-    .dept-content {
-      padding: 32px 24px 28px;
-      display: flex; flex-direction: column; gap: 16px;
-      height: 100%;
+    .dept-panel::before {
+      content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.6;
     }
-    .dept-num {
+    .dept-panel[data-dept="1"]::before { background: linear-gradient(180deg, #e8fcfa 0%, #fff 60%); }
+    .dept-panel[data-dept="2"]::before { background: linear-gradient(180deg, #fff0f5 0%, #fff 60%); }
+    .dept-panel[data-dept="3"]::before { background: linear-gradient(180deg, #fff3f0 0%, #fff 60%); }
+    .dept-panel[data-dept="4"]::before { background: linear-gradient(180deg, #f5f0ff 0%, #fff 60%); }
+    .dept-panel[data-dept="5"]::before { background: linear-gradient(180deg, #fff7e3 0%, #fff 60%); }
+
+    .dept-panel-num {
       font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
-      font-size: 10.5px; letter-spacing: 0.2em; color: var(--muted);
-      margin: 0; font-weight: 700;
+      font-size: 11.5px; letter-spacing: 0.22em;
+      color: var(--pink); font-weight: 700;
+      margin-bottom: 18px; text-transform: uppercase;
     }
-    .dept-title {
+    .dept-panel[data-dept="1"] .dept-panel-num { color: #008c8a; }
+    .dept-panel[data-dept="3"] .dept-panel-num { color: #e25555; }
+    .dept-panel[data-dept="4"] .dept-panel-num { color: #6a4cb6; }
+    .dept-panel[data-dept="5"] .dept-panel-num { color: #a37a17; }
+    .dept-panel-title {
       font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
-      font-size: clamp(18px, 1.4vw, 24px); font-weight: 800;
-      line-height: 1.22; letter-spacing: -0.015em;
-      margin: 0;
+      font-size: clamp(28px, 3.5vw, 46px); font-weight: 800;
+      line-height: 1.2; letter-spacing: -0.025em;
+      margin: 0 0 24px;
     }
-    .dept-title .hl { color: var(--pink); }
-    .dept-desc {
-      font-size: 13px; color: var(--text2);
-      line-height: 1.78; margin: 0;
-      flex: 1 1 auto;
-      min-height: 68px;
+    .dept-panel-title .hl { color: var(--pink); }
+    .dept-panel[data-dept="1"] .dept-panel-title .hl { color: #008c8a; }
+    .dept-panel[data-dept="3"] .dept-panel-title .hl { color: #e25555; }
+    .dept-panel[data-dept="4"] .dept-panel-title .hl { color: #6a4cb6; }
+    .dept-panel[data-dept="5"] .dept-panel-title .hl { color: #a37a17; }
+    .dept-panel-desc {
+      font-size: 15.5px; color: var(--text);
+      line-height: 1.9; max-width: 760px;
+      margin: 0 0 28px;
     }
-    /* 태그 영역 — 모든 카드에서 동일 높이로 정렬 (2줄 기준) */
-    .dept-tags {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin: 0 0 4px;
-      min-height: 56px;
-      align-content: flex-start;
-    }
-    .dept-tag {
-      font-size: 10.5px; letter-spacing: 0;
-      padding: 4px 10px; border-radius: 999px;
+    .dept-panel-desc strong { color: var(--pink); font-weight: 700; }
+    .dept-panel[data-dept="1"] .dept-panel-desc strong { color: #008c8a; }
+    .dept-panel[data-dept="3"] .dept-panel-desc strong { color: #e25555; }
+    .dept-panel[data-dept="4"] .dept-panel-desc strong { color: #6a4cb6; }
+    .dept-panel[data-dept="5"] .dept-panel-desc strong { color: #a37a17; }
+    .dept-panel-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 36px; }
+    .dept-panel-tag {
+      padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; font-weight: 500;
       background: rgba(0,0,0,0.05); color: var(--text);
-      border: none;
-      white-space: nowrap;
-      font-weight: 500;
     }
-    .dept-detail-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      font-size: 12.5px; font-weight: 700; color: var(--text);
-      background: #fff; border: 1.5px solid var(--text);
-      padding: 11px 18px; border-radius: 999px;
-      cursor: pointer;
+    .dept-panel[data-dept="1"] .dept-panel-tag { background: rgba(0,170,170,0.1); color: #008080; }
+    .dept-panel[data-dept="2"] .dept-panel-tag { background: rgba(253,1,81,0.08); color: var(--pink); }
+    .dept-panel[data-dept="3"] .dept-panel-tag { background: rgba(255,107,107,0.1); color: #e25555; }
+    .dept-panel[data-dept="4"] .dept-panel-tag { background: rgba(140,100,255,0.1); color: #6a4cb6; }
+    .dept-panel[data-dept="5"] .dept-panel-tag { background: rgba(217,164,39,0.12); color: #a37a17; }
+    .dept-panel-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .dept-panel-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 999px;
+      font-size: 13.5px; font-weight: 700;
+      text-decoration: none;
       font-family: 'Pretendard','Noto Sans KR',sans-serif;
       transition: all 0.25s ease;
-      margin-top: auto; align-self: stretch;
-      width: 100%; letter-spacing: -0.01em;
-      text-decoration: none;
     }
+    .dept-panel-cta.primary { background: var(--text); color: #fff; border: 1.5px solid var(--text); }
+    .dept-panel-cta.primary:hover { background: var(--pink); border-color: var(--pink); transform: translateY(-2px); }
+    .dept-panel-cta.ghost { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
+    .dept-panel-cta.ghost:hover { border-color: var(--text); transform: translateY(-2px); }
+
+    /* legacy dept-item / dept-visual 숨김 */
     .dept-visual,
     .dept-visual-bg,
     .dept-visual-text,
-    .dept-icon-wrap { display: none !important; }
+    .dept-icon-wrap,
+    .dept-item { display: none !important; }
 
-    /* dept별 고유 색상 */
-    /* dept-1: Mint */
-    .dept-1 { border-color: rgba(0,170,170,0.18); }
-    .dept-1::before { background: linear-gradient(180deg, #e8fcfa 0%, #fff 100%); }
-    .dept-1:hover { border-color: rgba(0,170,170,0.4); box-shadow: 0 18px 42px -16px rgba(0,170,170,0.25); }
-    .dept-1 .dept-tag { background: rgba(0,170,170,0.1); color: #008080; }
-    .dept-1 .dept-detail-btn { border-color: #008c8a; color: #008c8a; }
-    .dept-1 .dept-detail-btn:hover { background: #008c8a; color: #fff; }
-
-    /* dept-2: Pink */
-    .dept-2 { border-color: rgba(253,1,81,0.18); }
-    .dept-2::before { background: linear-gradient(180deg, #fff0f5 0%, #fff 100%); }
-    .dept-2:hover { border-color: rgba(253,1,81,0.42); box-shadow: 0 18px 42px -16px rgba(253,1,81,0.25); }
-    .dept-2 .dept-tag { background: rgba(253,1,81,0.08); color: var(--pink); }
-    .dept-2 .dept-detail-btn { border-color: var(--pink); color: var(--pink); }
-    .dept-2 .dept-detail-btn:hover { background: var(--pink); color: #fff; }
-
-    /* dept-3: Coral */
-    .dept-3 { border-color: rgba(255,107,107,0.2); }
-    .dept-3::before { background: linear-gradient(180deg, #fff3f0 0%, #fff 100%); }
-    .dept-3:hover { border-color: rgba(255,107,107,0.45); box-shadow: 0 18px 42px -16px rgba(255,107,107,0.25); }
-    .dept-3 .dept-tag { background: rgba(255,107,107,0.1); color: #e25555; }
-    .dept-3 .dept-detail-btn { border-color: #e25555; color: #e25555; }
-    .dept-3 .dept-detail-btn:hover { background: #e25555; color: #fff; }
-
-    /* dept-4: Purple */
-    .dept-4 { border-color: rgba(140,100,255,0.18); }
-    .dept-4::before { background: linear-gradient(180deg, #f5f0ff 0%, #fff 100%); }
-    .dept-4:hover { border-color: rgba(140,100,255,0.4); box-shadow: 0 18px 42px -16px rgba(140,100,255,0.25); }
-    .dept-4 .dept-tag { background: rgba(140,100,255,0.1); color: #6a4cb6; }
-    .dept-4 .dept-detail-btn { border-color: #6a4cb6; color: #6a4cb6; }
-    .dept-4 .dept-detail-btn:hover { background: #6a4cb6; color: #fff; }
-
-    /* dept-5: Gold */
-    .dept-5 { border-color: rgba(217,164,39,0.22); }
-    .dept-5::before { background: linear-gradient(180deg, #fff7e3 0%, #fff 100%); }
-    .dept-5:hover { border-color: rgba(217,164,39,0.48); box-shadow: 0 18px 42px -16px rgba(217,164,39,0.3); }
-    .dept-5 .dept-tag { background: rgba(217,164,39,0.13); color: #946d10; }
-    .dept-5 .dept-detail-btn { border-color: #a37a17; color: #a37a17; }
-    .dept-5 .dept-detail-btn:hover { background: #a37a17; color: #fff; }
-
-    /* 반응형 */
-    @media (max-width: 1180px) {
-      .dept-wrap { grid-template-columns: repeat(3, 1fr); padding: 80px 24px; }
-      .dept-desc { min-height: 0; }
+    @media (max-width: 768px) {
+      .dept-wrap { padding: 60px 16px; }
+      .dept-tabs { gap: 2px; }
+      .dept-tab { padding: 14px 8px 16px; min-width: 100px; }
+      .dept-tab-name { font-size: 11.5px; }
+      .dept-panel { padding: 32px 22px; border-radius: 18px; }
     }
-    @media (max-width: 760px) {
-      .dept-wrap { grid-template-columns: repeat(2, 1fr); padding: 60px 16px; gap: 14px; }
-      .dept-content { padding: 26px 20px 22px; gap: 14px; }
+
+    /* HERO FLOATING TAGS (D1) — 떠다니는 부동 라벨 */
+    .hero-floating-tags {
+      position: absolute; inset: 0;
+      pointer-events: none; z-index: 2;
     }
-    @media (max-width: 440px) {
-      .dept-wrap { grid-template-columns: 1fr; }
+    .float-tag {
+      position: absolute;
+      display: inline-flex; align-items: center;
+      padding: 9px 16px; border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(253,1,81,0.22);
+      color: var(--pink);
+      font-size: 12.5px; font-weight: 600;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 26px -10px rgba(0,0,0,0.12);
+      white-space: nowrap;
+      animation: floatTag 5s ease-in-out infinite;
     }
+    .float-tag.tag-1 { top: 16%; left: 4%; animation-delay: 0s; }
+    .float-tag.tag-2 { top: 30%; right: 6%; animation-delay: 1.2s;
+      border-color: rgba(0,200,200,0.28); color: #008c8a; }
+    .float-tag.tag-3 { bottom: 28%; left: 6%; animation-delay: 2.4s; }
+    .float-tag.tag-4 { bottom: 18%; right: 4%; animation-delay: 0.6s;
+      border-color: rgba(0,200,200,0.28); color: #008c8a; }
+    @keyframes floatTag {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @media (max-width: 900px) {
+      .float-tag { font-size: 10.5px; padding: 6px 11px; }
+      .float-tag.tag-1, .float-tag.tag-3 { left: 12px; }
+      .float-tag.tag-2, .float-tag.tag-4 { right: 12px; }
+    }
+
+    /* FAQ 강화 (D13) — 라인 + 회전 아이콘 */
+    .faq-q { position: relative; transition: padding 0.3s ease; }
+    .faq-q::before {
+      content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      width: 3px; height: 0; background: var(--pink);
+      transition: height 0.3s ease;
+    }
+    .faq-item.open .faq-q::before { height: 60%; }
+    .faq-item.open .faq-q { padding-left: 20px; }
+    .faq-item.open .faq-icon { transform: rotate(135deg); }
 
     /* MODAL */
     .modal-overlay {
@@ -894,6 +977,13 @@
 <section class="hero" id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"><span class="blob-3"></span></div>
+  <!-- Floating Tags (D1) -->
+  <div class="hero-floating-tags" aria-hidden="true">
+    <span class="float-tag tag-1"># 5단계 마케팅 funnel</span>
+    <span class="float-tag tag-2"># 실시간 캠페인 관리</span>
+    <span class="float-tag tag-3"># 정량적 데이터 인사이트</span>
+    <span class="float-tag tag-4"># 종합 콘텐츠 에이전시</span>
+  </div>
   <div class="hero-content">
     <div class="hero-badge">
       <span class="live-dot"></span>
@@ -1013,94 +1103,127 @@
   </div>
 </div>
 
-<!-- 5 DEPARTMENTS -->
+<!-- 5 DEPARTMENTS — 탭 인터페이스 -->
 <div class="dept-wrap" id="dept-wrap">
-
-  <div class="dept-item dept-1 reveal">
-    <div class="dept-content">
-      <div class="dept-num">DEPARTMENT 01</div>
-      <div class="dept-title">SNS<br><span class="hl">마케팅</span></div>
-      <p class="dept-desc">음원 바이럴, 식당·의류 브랜드, 국가사업 홍보까지 —<br>플랫폼 알고리즘을 이해하는 팀이 유기적 확산을 설계합니다.</p>
-      <div class="dept-tags">
-        <span class="dept-tag">#음원바이럴</span><span class="dept-tag">#식당마케팅</span>
-        <span class="dept-tag">#국가사업</span><span class="dept-tag">#인스타그램</span>
-      </div>
-      <a class="dept-detail-btn" href="service.html?slug=marketing">자세히 보기 →</a>
-    </div>
-    <div class="dept-visual">
-      <div class="dept-visual-bg"><div class="dept-visual-text">SNS</div></div>
-      <div class="dept-icon-wrap">📣</div>
-    </div>
+  <div class="dept-section-header reveal">
+    <div class="dept-section-eyebrow">5 Departments</div>
+    <h2 class="dept-section-title">5개 사업부, <span class="hl">하나의 라인</span>으로 통합</h2>
+    <p class="dept-section-sub">
+      SNS 마케팅뿐만 아니라 매니지먼트·라이브·퍼포먼스·콘텐츠 제작까지 — 호미팩토리는 모든 사업부를 한 팀에서 통합 운영하는 <strong style="color:var(--text);font-weight:700;">종합 콘텐츠 에이전시</strong>입니다.
+    </p>
   </div>
 
-  <div class="dept-item dept-2 reveal">
-    <div class="dept-content">
-      <div class="dept-num">DEPARTMENT 02</div>
-      <div class="dept-title">크리에이터 &<br><span class="hl">아티스트 매니지먼트</span></div>
-      <p class="dept-desc">신인 발굴부터 기성 아티스트 채널 전략까지 —<br>콘텐츠 기획, 브랜드 협찬 연결, 스케줄 관리를 체계적으로 지원합니다.</p>
-      <div class="dept-tags">
-        <span class="dept-tag">#크리에이터발굴</span><span class="dept-tag">#채널전략</span>
-        <span class="dept-tag">#브랜드연결</span><span class="dept-tag">#아티스트육성</span>
-      </div>
-      <a class="dept-detail-btn" href="service.html?slug=mgt">자세히 보기 →</a>
-    </div>
-    <div class="dept-visual">
-      <div class="dept-visual-bg"><div class="dept-visual-text">MGT</div></div>
-      <div class="dept-icon-wrap">🎤</div>
-    </div>
+  <!-- 탭 헤더 -->
+  <div class="dept-tabs reveal" role="tablist">
+    <button class="dept-tab active" data-dept="1" data-target="dpanel-1" type="button" role="tab">
+      <span class="dept-tab-num">01</span>
+      <span class="dept-tab-name">SNS 마케팅</span>
+    </button>
+    <button class="dept-tab" data-dept="2" data-target="dpanel-2" type="button" role="tab">
+      <span class="dept-tab-num">02</span>
+      <span class="dept-tab-name">매니지먼트</span>
+    </button>
+    <button class="dept-tab" data-dept="3" data-target="dpanel-3" type="button" role="tab">
+      <span class="dept-tab-num">03</span>
+      <span class="dept-tab-name">TikTok 라이브</span>
+    </button>
+    <button class="dept-tab" data-dept="4" data-target="dpanel-4" type="button" role="tab">
+      <span class="dept-tab-num">04</span>
+      <span class="dept-tab-name">퍼포먼스 섭외</span>
+    </button>
+    <button class="dept-tab" data-dept="5" data-target="dpanel-5" type="button" role="tab">
+      <span class="dept-tab-num">05</span>
+      <span class="dept-tab-name">콘텐츠 제작</span>
+    </button>
   </div>
 
-  <div class="dept-item dept-3 reveal">
-    <div class="dept-content">
-      <div class="dept-num">DEPARTMENT 03</div>
-      <div class="dept-title">틱톡 라이브<br><span class="hl">에이전시</span></div>
-      <p class="dept-desc">TikTok Live 전문 운영 팀이 크리에이터 매칭, 라이브 커머스 전략, 실시간 운영까지 —<br>데이터 기반 라이브 수익화 시스템을 구축합니다.</p>
-      <div class="dept-tags">
-        <span class="dept-tag">#TikTokLive</span><span class="dept-tag">#라이브커머스</span>
-        <span class="dept-tag">#크리에이터매칭</span><span class="dept-tag">#수익화전략</span>
+  <!-- 탭 패널들 -->
+  <div class="dept-panels reveal">
+    <div class="dept-panel active" id="dpanel-1" data-dept="1" role="tabpanel">
+      <div class="dept-panel-num">DEPARTMENT 01</div>
+      <h3 class="dept-panel-title">단순 광고비 소진이 아닌,<br><span class="hl">알고리즘 설계</span>까지 함께합니다</h3>
+      <p class="dept-panel-desc">음원 바이럴, 식당·의류 브랜드, 국가사업 홍보까지 — 플랫폼 알고리즘을 이해하는 팀이 유기적 확산을 설계합니다. <strong>실시간으로 관리</strong>되는 캠페인 + <strong>정량적 데이터 인사이트</strong>로 진짜 바이럴을 만듭니다.</p>
+      <div class="dept-panel-tags">
+        <span class="dept-panel-tag">#음원바이럴</span>
+        <span class="dept-panel-tag">#식당마케팅</span>
+        <span class="dept-panel-tag">#국가사업</span>
+        <span class="dept-panel-tag">#인스타그램</span>
+        <span class="dept-panel-tag">#실시간 모니터링</span>
       </div>
-      <a class="dept-detail-btn" href="service.html?slug=live">자세히 보기 →</a>
+      <div class="dept-panel-cta-row">
+        <a href="service.html?slug=marketing" class="dept-panel-cta primary">자세히 보기 →</a>
+        <a href="reference.html#sns" class="dept-panel-cta ghost">레퍼런스 보기</a>
+      </div>
     </div>
-    <div class="dept-visual">
-      <div class="dept-visual-bg"><div class="dept-visual-text">LIVE</div></div>
-      <div class="dept-icon-wrap">🔴</div>
+
+    <div class="dept-panel" id="dpanel-2" data-dept="2" role="tabpanel">
+      <div class="dept-panel-num">DEPARTMENT 02</div>
+      <h3 class="dept-panel-title">단기 섭외가 아닌,<br><span class="hl">장기 파트너십</span>을 설계합니다</h3>
+      <p class="dept-panel-desc">신인 발굴부터 기성 아티스트 채널 전략까지 — 콘텐츠 기획·브랜드 협찬 연결·스케줄 관리를 <strong>한 팀</strong>에서 통합 운영합니다. 정산 투명성·기대치 관리·콘텐츠 자율성 — 5년·10년 함께 가는 관계.</p>
+      <div class="dept-panel-tags">
+        <span class="dept-panel-tag">#크리에이터발굴</span>
+        <span class="dept-panel-tag">#채널전략</span>
+        <span class="dept-panel-tag">#브랜드연결</span>
+        <span class="dept-panel-tag">#아티스트육성</span>
+        <span class="dept-panel-tag">#장기 파트너십</span>
+      </div>
+      <div class="dept-panel-cta-row">
+        <a href="service.html?slug=mgt" class="dept-panel-cta primary">자세히 보기 →</a>
+        <a href="reference.html#mgt" class="dept-panel-cta ghost">레퍼런스 보기</a>
+      </div>
+    </div>
+
+    <div class="dept-panel" id="dpanel-3" data-dept="3" role="tabpanel">
+      <div class="dept-panel-num">DEPARTMENT 03</div>
+      <h3 class="dept-panel-title">라이브뿐만 아니라,<br><span class="hl">데이터 수익화 시스템</span>까지</h3>
+      <p class="dept-panel-desc">TikTok Live 전문 운영 팀이 크리에이터 매칭부터 라이브 커머스 전략, <strong>실시간 운영</strong>까지 — 데이터 기반 라이브 수익화 시스템을 구축합니다. 첫 60초의 후크부터 다음 라이브 최적화까지.</p>
+      <div class="dept-panel-tags">
+        <span class="dept-panel-tag">#TikTokLive</span>
+        <span class="dept-panel-tag">#라이브커머스</span>
+        <span class="dept-panel-tag">#크리에이터매칭</span>
+        <span class="dept-panel-tag">#수익화전략</span>
+        <span class="dept-panel-tag">#실시간 운영</span>
+      </div>
+      <div class="dept-panel-cta-row">
+        <a href="service.html?slug=live" class="dept-panel-cta primary">자세히 보기 →</a>
+        <a href="reference.html#live" class="dept-panel-cta ghost">레퍼런스 보기</a>
+      </div>
+    </div>
+
+    <div class="dept-panel" id="dpanel-4" data-dept="4" role="tabpanel">
+      <div class="dept-panel-num">DEPARTMENT 04</div>
+      <h3 class="dept-panel-title">섭외만이 아닌,<br><span class="hl">행사 당일 운영</span>까지 책임집니다</h3>
+      <p class="dept-panel-desc">행사·기업 이벤트·브랜드 캠페인에 필요한 아티스트·퍼포머 섭외부터 <strong>리허설·기술 디렉팅·당일 운영</strong>까지 — 규모와 예산에 맞는 최적의 라인업을 제안합니다.</p>
+      <div class="dept-panel-tags">
+        <span class="dept-panel-tag">#아티스트섭외</span>
+        <span class="dept-panel-tag">#기업행사</span>
+        <span class="dept-panel-tag">#MC섭외</span>
+        <span class="dept-panel-tag">#공연기획</span>
+        <span class="dept-panel-tag">#당일 운영</span>
+      </div>
+      <div class="dept-panel-cta-row">
+        <a href="service.html?slug=perf" class="dept-panel-cta primary">자세히 보기 →</a>
+        <a href="reference.html#perf" class="dept-panel-cta ghost">레퍼런스 보기</a>
+      </div>
+    </div>
+
+    <div class="dept-panel" id="dpanel-5" data-dept="5" role="tabpanel">
+      <div class="dept-panel-num">DEPARTMENT 05</div>
+      <h3 class="dept-panel-title">콘텐츠 제작뿐만 아니라,<br><span class="hl">트렌드 분석</span>까지 함께</h3>
+      <p class="dept-panel-desc">숏폼 영상·캠페인 영상·SNS 카드뉴스·광고 소재까지 — 기획부터 편집까지 <strong>인하우스</strong>로 처리합니다. 외주 구조가 없기에 속도와 품질을 동시에 가져갑니다.</p>
+      <div class="dept-panel-tags">
+        <span class="dept-panel-tag">#숏폼영상</span>
+        <span class="dept-panel-tag">#캠페인영상</span>
+        <span class="dept-panel-tag">#카드뉴스</span>
+        <span class="dept-panel-tag">#광고소재</span>
+        <span class="dept-panel-tag">#인하우스</span>
+      </div>
+      <div class="dept-panel-cta-row">
+        <a href="service.html?slug=content" class="dept-panel-cta primary">자세히 보기 →</a>
+        <a href="reference.html#content" class="dept-panel-cta ghost">레퍼런스 보기</a>
+      </div>
     </div>
   </div>
-
-  <div class="dept-item dept-4 reveal">
-    <div class="dept-content">
-      <div class="dept-num">DEPARTMENT 04</div>
-      <div class="dept-title">퍼포먼스<br><span class="hl">아티스트 섭외</span></div>
-      <p class="dept-desc">행사, 기업 이벤트, 브랜드 캠페인에 필요한 아티스트·퍼포머 섭외 대행까지 —<br>규모와 예산에 맞는 최적의 라인업을 제안합니다.</p>
-      <div class="dept-tags">
-        <span class="dept-tag">#아티스트섭외</span><span class="dept-tag">#기업행사</span>
-        <span class="dept-tag">#MC섭외</span><span class="dept-tag">#공연기획</span>
-      </div>
-      <a class="dept-detail-btn" href="service.html?slug=perf">자세히 보기 →</a>
-    </div>
-    <div class="dept-visual">
-      <div class="dept-visual-bg"><div class="dept-visual-text">PERF</div></div>
-      <div class="dept-icon-wrap">🎭</div>
-    </div>
-  </div>
-
-  <div class="dept-item dept-5 reveal">
-    <div class="dept-content">
-      <div class="dept-num">DEPARTMENT 05</div>
-      <div class="dept-title">콘텐츠<br><span class="hl">제작</span></div>
-      <p class="dept-desc">숏폼 영상, 캠페인 영상, SNS 카드뉴스, 광고 소재까지 — 기획부터 편집까지 인하우스로 처리합니다.<br>트렌드를 앞서 읽는 크리에이티브 팀이 퀄리티를 보장합니다.</p>
-      <div class="dept-tags">
-        <span class="dept-tag">#숏폼영상</span><span class="dept-tag">#캠페인영상</span>
-        <span class="dept-tag">#카드뉴스</span><span class="dept-tag">#광고소재</span>
-      </div>
-      <a class="dept-detail-btn" href="service.html?slug=content">자세히 보기 →</a>
-    </div>
-    <div class="dept-visual">
-      <div class="dept-visual-bg"><div class="dept-visual-text">CONT</div></div>
-      <div class="dept-icon-wrap">🎬</div>
-    </div>
-  </div>
-
 </div>
 
 <!-- STATS -->
@@ -1755,6 +1878,15 @@ setTimeout(() => { document.querySelectorAll('.scramble').forEach(el => scramble
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     q.parentElement.classList.toggle('open');
+  });
+});
+
+/* DEPT TABS — 5개 사업부 탭 인터페이스 */
+document.querySelectorAll('.dept-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.target;
+    document.querySelectorAll('.dept-tab').forEach(t => t.classList.toggle('active', t === tab));
+    document.querySelectorAll('.dept-panel').forEach(p => p.classList.toggle('active', p.id === target));
   });
 });
 
