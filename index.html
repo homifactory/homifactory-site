@@ -200,6 +200,31 @@
     }
     .hero-desc { font-size:15px; color:var(--text2); line-height:1.9; max-width:380px; }
     .hero-desc strong { color:var(--text); font-weight:500; }
+    /* HERO pitch — 큰 헤드라인 + 서브카피 */
+    .hero-pitch { flex: 1 1 auto; max-width: 920px; }
+    .hero-headline {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: clamp(22px, 2.4vw, 38px);
+      font-weight: 800;
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0 0 20px;
+    }
+    .hero-headline .hl { color: var(--pink); }
+    .hero-subdesc {
+      font-size: 13.5px;
+      color: var(--text2);
+      line-height: 1.9;
+      margin: 0;
+      max-width: 880px;
+      letter-spacing: -0.005em;
+    }
+    .hero-subdesc strong { color: var(--text); font-weight: 700; }
+    @media (max-width: 768px) {
+      .hero-headline { font-size: 22px; margin-bottom: 14px; }
+      .hero-subdesc { font-size: 13px; line-height: 1.8; }
+    }
     .hero-scroll {
       display:flex; align-items:center; gap:12px;
       font-size:10px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase;
@@ -886,11 +911,15 @@
       </button>
     </div>
     <div class="hero-bottom">
-      <p class="hero-desc">
-        SNS 마케팅, 크리에이터 매니지먼트, TikTok 라이브,<br>
-        퍼포먼스 섭외, 콘텐츠 제작까지<br>
-        브랜드와 크리에이터의 성장을 함께 설계합니다.
-      </p>
+      <div class="hero-pitch">
+        <p class="hero-headline">
+          마케팅부터 콘텐츠 제작까지,<br>
+          <span class="hl">One Line</span>으로 연결하세요.
+        </p>
+        <p class="hero-subdesc">
+          <strong>HOMI FACTORY</strong>는 마케팅 <strong>ALL-IN ONE 서비스</strong>, 개별 서비스, 아티스트 매니지먼트, 공연/행사 섭외, <strong>TIKTOK LIVE</strong>, 콘텐츠 제작까지 브랜드와 아티스트 및 크리에이터의 성장을 <strong>One Line으로 설계</strong>하여, <strong>데이터를 기반한 정량적 서비스</strong>를 전문적으로 제공드립니다.
+        </p>
+      </div>
       <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
     </div>
   </div>
