@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사업부 | 호미팩토리</title>
+  <meta name="description" content="호미팩토리 사업부 — SNS 마케팅 · 매니지먼트 · TikTok 라이브 · 퍼포먼스 · 콘텐츠 제작" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://homifactory.com/service.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css?v=20260425-10" />
+
+  <style>
+    /* ===== HERO ===== */
+    .svc-hero {
+      padding: 100px 32px 80px;
+      max-width: 1200px; margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .svc-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 11.5px; letter-spacing: 0.24em; font-weight: 700;
+      color: var(--pink); text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .svc-eyebrow::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--pink);
+    }
+    .svc-hero-en {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: clamp(36px, 5.5vw, 76px); font-weight: 800;
+      line-height: 1.05; letter-spacing: -0.03em;
+      margin: 0 0 28px;
+      color: var(--text);
+    }
+    .svc-hero-en .hl { color: var(--pink); }
+    .svc-hero-ko {
+      font-size: clamp(15px, 1.6vw, 19px); font-weight: 500;
+      color: var(--text2); line-height: 1.85;
+      margin: 0 auto 56px; max-width: 800px;
+    }
+    .svc-hero-ko strong { color: var(--text); font-weight: 700; }
+    .svc-actions {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    }
+    .svc-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 999px;
+      font-size: 13.5px; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-family: 'Pretendard','Noto Sans KR',sans-serif;
+    }
+    .svc-btn-primary {
+      background: var(--text); color: #fff; border: 1.5px solid var(--text);
+    }
+    .svc-btn-primary:hover { background: var(--pink); border-color: var(--pink); transform: translateY(-2px); }
+    .svc-btn-ghost {
+      background: #fff; color: var(--text); border: 1.5px solid var(--border);
+    }
+    .svc-btn-ghost:hover { border-color: var(--text); transform: translateY(-2px); }
+
+    /* ===== QUOTE ===== */
+    .svc-quote-section {
+      padding: 80px 32px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .svc-quote-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .svc-quote-mark {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 88px; line-height: 0.5;
+      color: var(--pink); margin-bottom: 32px;
+    }
+    .svc-quote {
+      font-size: clamp(18px, 2vw, 24px); font-weight: 600;
+      color: var(--text); line-height: 1.75;
+      margin: 0 0 16px; letter-spacing: -0.01em;
+    }
+    .svc-quote-en {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 13px; color: var(--muted);
+      letter-spacing: 0.06em; font-weight: 500;
+    }
+
+    /* ===== 5단계 FUNNEL ===== */
+    .svc-funnel-section { padding: 100px 32px; max-width: 1200px; margin: 0 auto; }
+    .svc-funnel-header { text-align: center; margin-bottom: 64px; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .svc-funnel-header .sec-eyebrow { display: inline-flex; }
+    .svc-funnel-header .sec-title { margin-bottom: 14px; }
+    .svc-funnel-desc { font-size: 14px; color: var(--text2); line-height: 1.85; }
+    .svc-funnel-grid {
+      display: grid; gap: 20px;
+    }
+    .svc-step {
+      display: grid; grid-template-columns: 80px 1fr; gap: 28px;
+      padding: 32px 28px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .svc-step:hover {
+      transform: translateY(-3px);
+      border-color: var(--pink);
+      box-shadow: 0 16px 36px -16px rgba(253,1,81,0.18);
+    }
+    .svc-step-num {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 38px; font-weight: 900;
+      line-height: 1; color: var(--pink);
+      letter-spacing: -0.04em;
+    }
+    .svc-step-body { display: flex; flex-direction: column; gap: 10px; }
+    .svc-step-en {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 11.5px; letter-spacing: 0.18em; font-weight: 700;
+      color: var(--muted); text-transform: uppercase;
+    }
+    .svc-step-title {
+      font-size: 19px; font-weight: 800;
+      color: var(--text); letter-spacing: -0.015em;
+      margin: 0;
+    }
+    .svc-step-desc {
+      font-size: 14px; color: var(--text2);
+      line-height: 1.85; margin: 0;
+    }
+    .svc-step-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 6px;
+    }
+    .svc-step-tag {
+      font-size: 11px; padding: 4px 10px; border-radius: 999px;
+      background: rgba(0,0,0,0.05); color: var(--text2);
+      font-weight: 500;
+    }
+
+    /* ===== CTA ===== */
+    .svc-cta {
+      margin: 80px auto 100px;
+      max-width: 900px;
+      padding: 56px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--text) 0%, #2a2a2a 100%);
+      color: #fff;
+      border-radius: 28px;
+    }
+    .svc-cta-title {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: clamp(22px, 3vw, 32px); font-weight: 800;
+      line-height: 1.35; letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+    .svc-cta-desc {
+      font-size: 14.5px; color: rgba(255,255,255,0.7);
+      margin: 0 0 28px; line-height: 1.8;
+    }
+    .svc-cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; border-radius: 999px;
+      background: var(--pink); color: #fff;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .svc-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -16px rgba(253,1,81,0.55); }
+
+    /* ===== OTHER SERVICES ===== */
+    .svc-other {
+      max-width: 1200px; margin: 0 auto 100px;
+      padding: 0 32px;
+    }
+    .svc-other-label {
+      font-size: 11px; letter-spacing: 0.22em; font-weight: 700;
+      color: var(--muted); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .svc-other-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .svc-other-card {
+      display: block;
+      padding: 24px 22px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none; color: var(--text);
+      transition: all 0.25s ease;
+    }
+    .svc-other-card:hover { border-color: var(--pink); transform: translateY(-3px); }
+    .svc-other-en {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 11px; letter-spacing: 0.16em; font-weight: 700;
+      color: var(--pink); margin-bottom: 6px;
+    }
+    .svc-other-title { font-size: 14.5px; font-weight: 700; margin-bottom: 6px; }
+    .svc-other-arrow { font-size: 12px; color: var(--text2); margin-top: 10px; }
+
+    @media (max-width: 768px) {
+      .svc-hero { padding: 70px 20px 60px; }
+      .svc-funnel-section { padding: 70px 20px; }
+      .svc-step { grid-template-columns: 1fr; gap: 14px; padding: 24px 22px; }
+      .svc-cta { margin: 60px 20px 70px; padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="assets/logo-symbol.png?v=2" alt="" />
+    </span>
+    <span class="brand-word">HOMI FACTORY</span>
+  </a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="index.html#inquiry-section">문의</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="index.html#inquiry-section" class="nav-cta">문의하기</a>
+  </div>
+</nav>
+
+<main id="svcMain">
+  <div class="svc-hero"><div class="svc-eyebrow">LOADING</div></div>
+</main>
+
+<footer style="border-top:1px solid var(--border);padding:48px 32px;background:var(--surface);">
+  <div style="max-width:1280px;margin:0 auto;text-align:center;font-size:12.5px;color:var(--text2);line-height:1.7;">
+    <p>호미팩토리 | 대표: 윤호성·배수빈·최성용 | 경기도 용인시 처인구 금령로 23, 302-73호 | 사업자등록번호: 295-20-02749</p>
+    <p style="margin-top:6px;">© 2026 Homi Factory. All rights reserved. · <a href="privacy.html" style="color:var(--text2);text-decoration:none;">개인정보처리방침</a> · <a href="terms.html" style="color:var(--text2);text-decoration:none;">이용약관</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===== SERVICE DATA ===== */
+const SERVICES = {
+  'marketing': {
+    cat: 'DEPARTMENT 01',
+    en: 'Data-Driven<br><span class="hl">Social Marketing</span>',
+    ko: '<strong>호미팩토리 SNS팀</strong>은 데이터로 설계하는 콘텐츠 + 팬덤과 함께 확장되는 브랜딩을 만듭니다. 단순 광고비 소진이 아닌 진짜 바이럴 구조를 설계합니다.',
+    quoteKo: '소셜 미디어, 커뮤니티, 음원 플랫폼 데이터를 기반으로<br>팬덤의 소비 패턴과 트렌드를 분석하고 — 하나의 브랜드로 성장시킵니다.',
+    quoteEn: 'we analyze data to grow artists',
+    funnelEyebrow: 'OUR FUNNEL',
+    funnelTitle: '5단계 마케팅 솔루션',
+    funnelDesc: '데이터 기반으로 팬덤을 분석하고, 아티스트·브랜드의 단계에 맞춘 성장 전략을 설계합니다.',
+    steps: [
+      { num: '01', en: 'INSIGHT', title: '정확한 인사이트 제공', desc: '국내외 주요 채널 데이터를 기반으로 아티스트 벨류와 대중 반응을 분석. 그로스 마케팅 컨설팅까지.', tags: ['채널 분석','벨류 평가','대중 반응'] },
+      { num: '02', en: 'STRATEGY', title: '성장 로드맵 설계', desc: '아티스트 브랜딩과 팬덤 확장을 위한 최적의 전략을 설계합니다.', tags: ['브랜딩 메시지','콘텐츠 기획','팬덤 확장'] },
+      { num: '03', en: 'MANAGEMENT', title: '효율적인 마케팅 관리', desc: '마케팅 스케줄과 예산을 실시간으로 관리하여 ROI 기반 성과를 최적화합니다.', tags: ['스케줄','예산','ROI'] },
+      { num: '04', en: 'AMPLIFICATION', title: '팬덤 확장을 위한 콘텐츠 배포', desc: 'SNS·유튜브·틱톡 등 플랫폼별 맞춤 최적화 + 바이럴 마케팅·광고 운영.', tags: ['플랫폼 최적화','바이럴','광고 운영'] },
+      { num: '05', err:'', en: 'ACTIVATION', title: '팬덤으로 전환', desc: '팬들이 적극적으로 참여하고, 브랜드와 관계를 지속할 수 있도록 유도합니다.', tags: ['관계 지속','전환'] }
+    ]
+  },
+
+  'mgt': {
+    cat: 'DEPARTMENT 02',
+    en: 'Long-Term<br><span class="hl">Creator Partnership</span>',
+    ko: '<strong>호미팩토리 매니지먼트팀</strong>은 신인 발굴부터 기성 아티스트 채널 전략까지 — 콘텐츠 기획, 브랜드 협찬 연결, 스케줄 관리를 체계적으로 지원합니다.',
+    quoteKo: '크리에이터는 외주가 아니라 파트너입니다.<br>장기 성장을 함께 설계하며, 공정한 정산과 투명한 소통을 약속합니다.',
+    quoteEn: 'creators are partners, not vendors',
+    funnelEyebrow: 'OUR FUNNEL',
+    funnelTitle: '5단계 매니지먼트',
+    funnelDesc: '발굴부터 장기 파트너십까지 — 크리에이터의 성장 단계별로 필요한 모든 지원을 통합 제공합니다.',
+    steps: [
+      { num: '01', en: 'DISCOVERY', title: '잠재력 있는 크리에이터 발굴', desc: '데이터·콘텐츠 톤·잠재 팬덤을 기준으로 다음 시즌의 크리에이터를 먼저 발견합니다.', tags: ['스카우트','데이터 평가'] },
+      { num: '02', en: 'BRANDING', title: '채널 아이덴티티 설계', desc: '"내 채널은 누구에게 어떤 가치를 주는가?" — 초기에 명확히 답을 만듭니다.', tags: ['콘셉트','타깃 정의'] },
+      { num: '03', en: 'OPERATION', title: '일정·콘텐츠 운영 관리', desc: '주기적 업로드, 콘텐츠 톤 일관성, 크리에이터 컨디션까지 챙깁니다.', tags: ['스케줄링','콘텐츠 운영'] },
+      { num: '04', en: 'MONETIZATION', title: '협찬·라이브·자체 IP 수익화', desc: '브랜드 협찬부터 라이브 커머스, 자체 IP까지 — 채널 성숙도에 맞춘 수익화.', tags: ['협찬','라이브','IP'] },
+      { num: '05', en: 'PARTNERSHIP', title: '장기 파트너십', desc: '정산 투명성·기대치 관리·콘텐츠 자율성 — 5년·10년 같이 갈 수 있는 관계.', tags: ['장기 신뢰','정산 투명'] }
+    ]
+  },
+
+  'live': {
+    cat: 'DEPARTMENT 03',
+    en: 'Data-Driven<br><span class="hl">Live Commerce</span>',
+    ko: '<strong>호미팩토리 Live팀</strong>은 TikTok Live 전문 운영팀이 크리에이터 매칭, 라이브 커머스 전략, 실시간 운영까지 — 데이터 기반 라이브 수익화 시스템을 구축합니다.',
+    quoteKo: '라이브 오픈 직후 1분의 대본이 매출의 80%를 결정합니다.<br>대본 없이 들어가는 라이브는 매출의 절반을 버리는 라이브입니다.',
+    quoteEn: 'the first 60 seconds decides everything',
+    funnelEyebrow: 'OUR FUNNEL',
+    funnelTitle: '5단계 라이브 솔루션',
+    funnelDesc: '매칭부터 데이터 최적화까지 — 라이브 한 회를 1회성으로 끝내지 않고 시스템으로 만듭니다.',
+    steps: [
+      { num: '01', en: 'MATCHING', title: '크리에이터·상품 매칭', desc: '팔로워 규모가 아닌 시청자 구매 성향·장르 일치도를 기준으로 매칭.', tags: ['시청자 분석','장르 일치'] },
+      { num: '02', en: 'SCRIPTING', title: '첫 60초 후크 설계', desc: '0~10초 후크 → 11~30초 신뢰 → 31~60초 첫 시연 — 표준 시나리오 운영.', tags: ['대본','시나리오'] },
+      { num: '03', en: 'OPERATION', title: '실시간 채팅·이벤트 운영', desc: '채팅 관리·아이템 노출·증정 이벤트까지 라이브 전 과정 대행.', tags: ['실시간 운영','채팅 관리'] },
+      { num: '04', en: 'ANALYTICS', title: '시청 데이터 기반 피드백', desc: '시청 유지율·선물·전환 데이터로 다음 라이브 개선점을 도출합니다.', tags: ['유지율','전환'] },
+      { num: '05', en: 'OPTIMIZATION', title: '다음 라이브 전략 최적화', desc: '데이터에 기반해 상품·시간대·크리에이터 조합을 지속 최적화합니다.', tags: ['최적화','반복 개선'] }
+    ]
+  },
+
+  'perf': {
+    cat: 'DEPARTMENT 04',
+    en: 'Curated<br><span class="hl">Performance Casting</span>',
+    ko: '<strong>호미팩토리 퍼포먼스팀</strong>은 행사, 기업 이벤트, 브랜드 캠페인에 필요한 아티스트·퍼포머 섭외부터 행사 당일 운영까지 — 규모와 예산에 맞는 최적의 라인업을 제안합니다.',
+    quoteKo: '단순 섭외가 아닙니다.<br>행사의 목적을 기준으로 라인업을 큐레이션하고 — 당일까지 책임집니다.',
+    quoteEn: 'curated lineups, end-to-end run-show',
+    funnelEyebrow: 'OUR FUNNEL',
+    funnelTitle: '5단계 퍼포먼스 섭외',
+    funnelDesc: '클라이언트 브리프부터 행사 당일 운영까지 — 모든 과정을 한 팀에서 처리합니다.',
+    steps: [
+      { num: '01', en: 'BRIEF', title: '행사 성격·예산 분석', desc: '브랜드·타깃·예산을 정확히 파악하고 라인업 방향을 정합니다.', tags: ['타깃 분석','예산 설계'] },
+      { num: '02', en: 'CASTING', title: '아티스트·MC 라인업 제안', desc: '가수·배우·인플루언서·MC 풀에서 행사 맥락에 맞는 후보를 큐레이션.', tags: ['아티스트','MC','인플루언서'] },
+      { num: '03', en: 'CONTRACTING', title: '계약·일정 조율', desc: '저작권·초상권·일정 조정까지 — 클라이언트 부담을 최소화합니다.', tags: ['계약 대행','일정 조율'] },
+      { num: '04', en: 'PRODUCTION', title: '리허설·기술 디렉팅', desc: '음향·조명·동선까지 디렉팅하여 무대 퀄리티를 보장합니다.', tags: ['리허설','기술 디렉팅'] },
+      { num: '05', en: 'RUN-SHOW', title: '행사 당일 총괄 운영', desc: '진행·돌발 대응·마무리까지 — 당일 운영의 모든 책임을 가집니다.', tags: ['당일 운영','돌발 대응'] }
+    ]
+  },
+
+  'content': {
+    cat: 'DEPARTMENT 05',
+    en: 'End-to-End<br><span class="hl">Content Production</span>',
+    ko: '<strong>호미팩토리 콘텐츠팀</strong>은 숏폼 영상, 캠페인 영상, SNS 카드뉴스, 광고 소재까지 — 기획부터 편집까지 인하우스 크리에이티브 팀이 처리합니다. 트렌드를 앞서 읽는 팀이 퀄리티를 보장합니다.',
+    quoteKo: '외주 구조가 없기에 속도와 품질을 동시에 가져갑니다.<br>한 팀 안에서 기획·촬영·편집·배포까지 — 콘텐츠 흐름이 끊기지 않습니다.',
+    quoteEn: 'in-house, no outsourcing',
+    funnelEyebrow: 'OUR FUNNEL',
+    funnelTitle: '5단계 콘텐츠 제작',
+    funnelDesc: '콘셉트부터 배포까지 — 한 팀 안에서 콘텐츠 흐름을 끊김 없이 운영합니다.',
+    steps: [
+      { num: '01', en: 'CONCEPT', title: '콘셉트·기획', desc: '브랜드 가치와 타깃을 분석해 콘셉트와 메시지를 정의합니다.', tags: ['기획','콘셉트'] },
+      { num: '02', en: 'PRE-PRODUCTION', title: '시나리오·캐스팅·로케이션', desc: '대본·출연자·장소 — 촬영 전 모든 변수를 잡습니다.', tags: ['시나리오','캐스팅','로케이션'] },
+      { num: '03', en: 'PRODUCTION', title: '촬영', desc: '카메라·조명·음향 전문 인력이 인하우스로 직접 촬영합니다.', tags: ['촬영','연출'] },
+      { num: '04', en: 'POST-PRODUCTION', title: '편집·자막·디자인', desc: '플랫폼별 최적 편집 + 모션 그래픽·디자인까지 한 번에.', tags: ['편집','자막','모션'] },
+      { num: '05', en: 'DISTRIBUTION', title: '플랫폼별 최적화 배포', desc: 'TikTok·릴스·쇼츠 등 플랫폼별 사양에 맞춰 배포 최적화.', tags: ['플랫폼 최적화','배포'] }
+    ]
+  }
+};
+
+/* ===== ORDER FOR "OTHER" SECTION ===== */
+const ORDER = ['marketing','mgt','live','perf','content'];
+const LABELS = {
+  marketing: 'SNS 마케팅',
+  mgt: '크리에이터 & 아티스트 매니지먼트',
+  live: 'TikTok 라이브',
+  perf: '퍼포먼스 아티스트 섭외',
+  content: '콘텐츠 제작'
+};
+const EN_LABELS = {
+  marketing: 'SOCIAL MARKETING',
+  mgt: 'CREATOR MANAGEMENT',
+  live: 'TIKTOK LIVE',
+  perf: 'PERFORMANCE CASTING',
+  content: 'CONTENT PRODUCTION'
+};
+
+/* ===== RENDERER ===== */
+(function(){
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug') || 'marketing';
+  const svc = SERVICES[slug];
+  const main = document.getElementById('svcMain');
+
+  if (!svc) {
+    main.innerHTML = '<div class="svc-hero"><div class="svc-eyebrow">NOT FOUND</div><h1>사업부를 찾을 수 없습니다</h1><a href="index.html" class="svc-btn svc-btn-primary">홈으로</a></div>';
+    document.title = '사업부를 찾을 수 없습니다 | 호미팩토리';
+    return;
+  }
+
+  // 페이지 타이틀
+  const plainTitle = svc.en.replace(/<[^>]+>/g, ' ').replace(/\s+/g,' ').trim();
+  document.title = LABELS[slug] + ' | 호미팩토리';
+
+  // OTHER 카드 — 현재 슬러그 제외 4개
+  const others = ORDER.filter(s => s !== slug).map(s =>
+    '<a class="svc-other-card" href="service.html?slug=' + s + '">' +
+      '<div class="svc-other-en">' + EN_LABELS[s] + '</div>' +
+      '<div class="svc-other-title">' + LABELS[s] + '</div>' +
+      '<div class="svc-other-arrow">자세히 보기 →</div>' +
+    '</a>'
+  ).join('');
+
+  // 5단계 카드
+  const steps = svc.steps.map(s =>
+    '<div class="svc-step">' +
+      '<div class="svc-step-num">' + s.num + '</div>' +
+      '<div class="svc-step-body">' +
+        '<div class="svc-step-en">' + s.en + '</div>' +
+        '<h3 class="svc-step-title">' + s.title + '</h3>' +
+        '<p class="svc-step-desc">' + s.desc + '</p>' +
+        '<div class="svc-step-tags">' + s.tags.map(t => '<span class="svc-step-tag">#' + t + '</span>').join('') + '</div>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+
+  main.innerHTML =
+    '<section class="svc-hero">' +
+      '<div class="svc-eyebrow">' + svc.cat + '</div>' +
+      '<h1 class="svc-hero-en">' + svc.en + '</h1>' +
+      '<p class="svc-hero-ko">' + svc.ko + '</p>' +
+      '<div class="svc-actions">' +
+        '<a href="index.html#inquiry-section" class="svc-btn svc-btn-primary">문의하기 →</a>' +
+        '<a href="reference.html#' + slug + '" class="svc-btn svc-btn-ghost">레퍼런스 보기</a>' +
+      '</div>' +
+    '</section>' +
+    '<section class="svc-quote-section">' +
+      '<div class="svc-quote-inner">' +
+        '<div class="svc-quote-mark">"</div>' +
+        '<p class="svc-quote">' + svc.quoteKo + '</p>' +
+        '<div class="svc-quote-en">' + svc.quoteEn + '</div>' +
+      '</div>' +
+    '</section>' +
+    '<section class="svc-funnel-section">' +
+      '<div class="svc-funnel-header">' +
+        '<div class="sec-eyebrow">' + svc.funnelEyebrow + '</div>' +
+        '<h2 class="sec-title">' + svc.funnelTitle + '</h2>' +
+        '<p class="svc-funnel-desc">' + svc.funnelDesc + '</p>' +
+      '</div>' +
+      '<div class="svc-funnel-grid">' + steps + '</div>' +
+    '</section>' +
+    '<section class="svc-cta">' +
+      '<h2 class="svc-cta-title">' + LABELS[slug] + ',<br>호미팩토리와 함께 설계해보세요</h2>' +
+      '<p class="svc-cta-desc">데이터 기반의 정량적 서비스를 한 팀에서 통합 제공합니다.</p>' +
+      '<a href="index.html#inquiry-section" class="svc-cta-btn">문의하기 →</a>' +
+    '</section>' +
+    '<section class="svc-other">' +
+      '<div class="svc-other-label">OTHER DEPARTMENTS</div>' +
+      '<div class="svc-other-grid">' + others + '</div>' +
+    '</section>';
+})();
+</script>
+
+<script src="common.js?v=2"></script>
+</body>
+</html>
