@@ -455,6 +455,33 @@
     .faq-item.open .faq-q { padding-left: 20px; }
     .faq-item.open .faq-icon { transform: rotate(135deg); }
 
+    /* I18N (U15/F4) — 다국어 KR/EN 토글 */
+    .lang-en { display: none; }
+    html[lang="en"] .lang-ko { display: none; }
+    html[lang="en"] .lang-en { display: inline; }
+    html[lang="en"] h1.lang-en,
+    html[lang="en"] h2.lang-en,
+    html[lang="en"] h3.lang-en,
+    html[lang="en"] p.lang-en,
+    html[lang="en"] div.lang-en { display: block; }
+    .lang-toggle {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 7px 13px; border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--border);
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 11.5px; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-variant-numeric: tabular-nums;
+    }
+    .lang-toggle:hover { background: var(--text); color: #fff; border-color: var(--text); transform: translateY(-1px); }
+    .lang-toggle::before { content: '🌐'; font-size: 13px; }
+
     /* MODAL */
     .modal-overlay {
       position:fixed; inset:0; z-index:800; background:rgba(255,255,255,0.85);
@@ -955,13 +982,14 @@
     <span class="brand-word">HOMI FACTORY</span>
   </a>
   <div class="nav-center">
-    <a href="index.html" class="active">홈</a>
-    <a href="about.html">회사소개</a>
-    <a href="reference.html">레퍼런스</a>
-    <a href="#inquiry-section">문의</a>
+    <a href="index.html" class="active" data-ko="홈" data-en="Home">홈</a>
+    <a href="about.html" data-ko="회사소개" data-en="About">회사소개</a>
+    <a href="reference.html" data-ko="레퍼런스" data-en="Reference">레퍼런스</a>
+    <a href="#inquiry-section" data-ko="문의" data-en="Contact">문의</a>
   </div>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <a href="#" class="nav-cta" data-modal="modal-quick">광고 제안 받기</a>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button type="button" class="lang-toggle" id="langToggle" aria-label="언어 전환">KR</button>
+    <a href="#" class="nav-cta" data-modal="modal-quick" data-ko="광고 제안 받기" data-en="Get Proposal">광고 제안 받기</a>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -979,10 +1007,10 @@
   <div class="hero-glow"><span class="blob-3"></span></div>
   <!-- Floating Tags (D1) -->
   <div class="hero-floating-tags" aria-hidden="true">
-    <span class="float-tag tag-1"># 5단계 마케팅 funnel</span>
-    <span class="float-tag tag-2"># 실시간 캠페인 관리</span>
-    <span class="float-tag tag-3"># 정량적 데이터 인사이트</span>
-    <span class="float-tag tag-4"># 종합 콘텐츠 에이전시</span>
+    <span class="float-tag tag-1" data-ko="# 5단계 마케팅 funnel" data-en="# 5-Step Marketing Funnel"># 5단계 마케팅 funnel</span>
+    <span class="float-tag tag-2" data-ko="# 실시간 캠페인 관리" data-en="# Real-time Campaign Ops"># 실시간 캠페인 관리</span>
+    <span class="float-tag tag-3" data-ko="# 정량적 데이터 인사이트" data-en="# Quantitative Insights"># 정량적 데이터 인사이트</span>
+    <span class="float-tag tag-4" data-ko="# 종합 콘텐츠 에이전시" data-en="# Full-Service Content Agency"># 종합 콘텐츠 에이전시</span>
   </div>
   <div class="hero-content">
     <div class="hero-badge">
@@ -996,21 +1024,27 @@
     </h1>
     <div class="hero-cta-row">
       <button type="button" class="hero-main-cta" data-modal="modal-free">
-        <span>광고 제안 하기(기업 문의용)</span>
+        <span data-ko="광고 제안 하기(기업 문의용)" data-en="For Brands (Get Proposal)">광고 제안 하기(기업 문의용)</span>
         <span class="arrow">→</span>
       </button>
       <button type="button" class="hero-main-cta" data-modal="modal-quick">
-        <span>광고 제안 받기(크리에이터용)</span>
+        <span data-ko="광고 제안 받기(크리에이터용)" data-en="For Creators (Apply Now)">광고 제안 받기(크리에이터용)</span>
         <span class="arrow">→</span>
       </button>
     </div>
     <div class="hero-bottom">
       <div class="hero-pitch">
-        <p class="hero-headline">
+        <p class="hero-headline lang-ko">
           마케팅부터 콘텐츠 제작까지, <span class="hl">One Line</span>으로 연결하세요.
         </p>
-        <p class="hero-subdesc">
+        <p class="hero-headline lang-en">
+          From Marketing to Content Production, <span class="hl">Connect in One Line.</span>
+        </p>
+        <p class="hero-subdesc lang-ko">
           <strong>HOMI FACTORY</strong>는 마케팅 <strong>ALL-IN ONE 서비스</strong>, 개별 서비스, 아티스트 매니지먼트, 공연/행사 섭외, <strong>TIKTOK LIVE</strong>, 콘텐츠 제작까지 브랜드와 아티스트 및 크리에이터의 성장을 <strong>One Line으로 설계</strong>하여, <strong>데이터를 기반한 정량적 서비스</strong>를 전문적으로 제공드립니다.
+        </p>
+        <p class="hero-subdesc lang-en">
+          <strong>HOMI FACTORY</strong> integrates marketing <strong>ALL-IN ONE</strong>, artist management, live events, <strong>TIKTOK LIVE</strong>, and content production — designing brand and creator growth in <strong>One Line</strong> with <strong>data-driven, quantitative services</strong>.
         </p>
       </div>
       <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
@@ -1107,9 +1141,13 @@
 <div class="dept-wrap" id="dept-wrap">
   <div class="dept-section-header reveal">
     <div class="dept-section-eyebrow">5 Departments</div>
-    <h2 class="dept-section-title">5개 사업부, <span class="hl">하나의 라인</span>으로 통합</h2>
-    <p class="dept-section-sub">
+    <h2 class="dept-section-title lang-ko">5개 사업부, <span class="hl">하나의 라인</span>으로 통합</h2>
+    <h2 class="dept-section-title lang-en">5 Departments, <span class="hl">Unified into One Line</span></h2>
+    <p class="dept-section-sub lang-ko">
       SNS 마케팅뿐만 아니라 매니지먼트·라이브·퍼포먼스·콘텐츠 제작까지 — 호미팩토리는 모든 사업부를 한 팀에서 통합 운영하는 <strong style="color:var(--text);font-weight:700;">종합 콘텐츠 에이전시</strong>입니다.
+    </p>
+    <p class="dept-section-sub lang-en">
+      From SNS Marketing to Management, Live, Performance, and Content Production — HOMI FACTORY operates every department as one team. A <strong style="color:var(--text);font-weight:700;">full-service content agency</strong>.
     </p>
   </div>
 
@@ -1117,23 +1155,23 @@
   <div class="dept-tabs reveal" role="tablist">
     <button class="dept-tab active" data-dept="1" data-target="dpanel-1" type="button" role="tab">
       <span class="dept-tab-num">01</span>
-      <span class="dept-tab-name">SNS 마케팅</span>
+      <span class="dept-tab-name" data-ko="SNS 마케팅" data-en="SNS Marketing">SNS 마케팅</span>
     </button>
     <button class="dept-tab" data-dept="2" data-target="dpanel-2" type="button" role="tab">
       <span class="dept-tab-num">02</span>
-      <span class="dept-tab-name">매니지먼트</span>
+      <span class="dept-tab-name" data-ko="매니지먼트" data-en="Management">매니지먼트</span>
     </button>
     <button class="dept-tab" data-dept="3" data-target="dpanel-3" type="button" role="tab">
       <span class="dept-tab-num">03</span>
-      <span class="dept-tab-name">TikTok 라이브</span>
+      <span class="dept-tab-name" data-ko="TikTok 라이브" data-en="TikTok Live">TikTok 라이브</span>
     </button>
     <button class="dept-tab" data-dept="4" data-target="dpanel-4" type="button" role="tab">
       <span class="dept-tab-num">04</span>
-      <span class="dept-tab-name">퍼포먼스 섭외</span>
+      <span class="dept-tab-name" data-ko="퍼포먼스 섭외" data-en="Performance">퍼포먼스 섭외</span>
     </button>
     <button class="dept-tab" data-dept="5" data-target="dpanel-5" type="button" role="tab">
       <span class="dept-tab-num">05</span>
-      <span class="dept-tab-name">콘텐츠 제작</span>
+      <span class="dept-tab-name" data-ko="콘텐츠 제작" data-en="Content Production">콘텐츠 제작</span>
     </button>
   </div>
 
@@ -1151,8 +1189,8 @@
         <span class="dept-panel-tag">#실시간 모니터링</span>
       </div>
       <div class="dept-panel-cta-row">
-        <a href="service.html?slug=marketing" class="dept-panel-cta primary">자세히 보기 →</a>
-        <a href="reference.html#sns" class="dept-panel-cta ghost">레퍼런스 보기</a>
+        <a href="service.html?slug=marketing" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
+        <a href="reference.html#sns" class="dept-panel-cta ghost" data-ko="레퍼런스 보기" data-en="View References">레퍼런스 보기</a>
       </div>
     </div>
 
@@ -1168,8 +1206,8 @@
         <span class="dept-panel-tag">#장기 파트너십</span>
       </div>
       <div class="dept-panel-cta-row">
-        <a href="service.html?slug=mgt" class="dept-panel-cta primary">자세히 보기 →</a>
-        <a href="reference.html#mgt" class="dept-panel-cta ghost">레퍼런스 보기</a>
+        <a href="service.html?slug=mgt" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
+        <a href="reference.html#mgt" class="dept-panel-cta ghost" data-ko="레퍼런스 보기" data-en="View References">레퍼런스 보기</a>
       </div>
     </div>
 
@@ -1185,8 +1223,8 @@
         <span class="dept-panel-tag">#실시간 운영</span>
       </div>
       <div class="dept-panel-cta-row">
-        <a href="service.html?slug=live" class="dept-panel-cta primary">자세히 보기 →</a>
-        <a href="reference.html#live" class="dept-panel-cta ghost">레퍼런스 보기</a>
+        <a href="service.html?slug=live" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
+        <a href="reference.html#live" class="dept-panel-cta ghost" data-ko="레퍼런스 보기" data-en="View References">레퍼런스 보기</a>
       </div>
     </div>
 
@@ -1202,8 +1240,8 @@
         <span class="dept-panel-tag">#당일 운영</span>
       </div>
       <div class="dept-panel-cta-row">
-        <a href="service.html?slug=perf" class="dept-panel-cta primary">자세히 보기 →</a>
-        <a href="reference.html#perf" class="dept-panel-cta ghost">레퍼런스 보기</a>
+        <a href="service.html?slug=perf" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
+        <a href="reference.html#perf" class="dept-panel-cta ghost" data-ko="레퍼런스 보기" data-en="View References">레퍼런스 보기</a>
       </div>
     </div>
 
@@ -1219,8 +1257,8 @@
         <span class="dept-panel-tag">#인하우스</span>
       </div>
       <div class="dept-panel-cta-row">
-        <a href="service.html?slug=content" class="dept-panel-cta primary">자세히 보기 →</a>
-        <a href="reference.html#content" class="dept-panel-cta ghost">레퍼런스 보기</a>
+        <a href="service.html?slug=content" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
+        <a href="reference.html#content" class="dept-panel-cta ghost" data-ko="레퍼런스 보기" data-en="View References">레퍼런스 보기</a>
       </div>
     </div>
   </div>
@@ -1889,6 +1927,30 @@ document.querySelectorAll('.dept-tab').forEach(tab => {
     document.querySelectorAll('.dept-panel').forEach(p => p.classList.toggle('active', p.id === target));
   });
 });
+
+/* I18N (U15/F4) — KR/EN 다국어 토글 */
+(function(){
+  function applyLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-ko][data-en]').forEach(function(el){
+      var val = el.dataset[lang];
+      if (val) el.textContent = val;
+    });
+    var btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = lang === 'ko' ? 'KR' : 'EN';
+    try { localStorage.setItem('homi_lang', lang); } catch(e){}
+  }
+  var saved = 'ko';
+  try { saved = localStorage.getItem('homi_lang') || 'ko'; } catch(e){}
+  applyLang(saved);
+  var btn = document.getElementById('langToggle');
+  if (btn) {
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('lang') || 'ko';
+      applyLang(cur === 'ko' ? 'en' : 'ko');
+    });
+  }
+})();
 
 /* Modals */
 document.querySelectorAll('[data-modal]').forEach(btn => {
