@@ -2,6 +2,16 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Google Analytics 4 (GA4) — measurement ID 발급 후 'G-XXXXXXXXXX' 자리(2곳)만 교체 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>호미팩토리 | 콘텐츠 마케팅 · 크리에이터 에이전시</title>
   <meta name="description" content="호미팩토리는 SNS 마케팅, 크리에이터·아티스트 매니지먼트, TikTok 라이브 에이전시, 퍼포먼스 섭외, 콘텐츠 제작을 아우르는 종합 콘텐츠 에이전시입니다." />
@@ -630,7 +640,7 @@
     /* ── HERO CTA BUTTONS ── */
     .hero-cta-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;   /* 두 버튼 정확히 동일 폭 */
+      grid-template-columns: 1fr 1fr 1fr;   /* 세 버튼 정확히 동일 폭 */
       gap: 14px;
       max-width: 680px;                 /* 너무 넓어지지 않게 */
       margin-bottom: 44px;
@@ -658,8 +668,23 @@
       font-size: 18px;
     }
     .hero-main-cta:hover .arrow { transform: translateX(4px); }
+    /* U6 — 3번째 버튼은 ghost 스타일 (덜 강조) */
+    .hero-cta-ghost {
+      background: #fff !important; color: var(--text) !important;
+      border: 1.5px solid var(--border) !important;
+      text-decoration: none;
+    }
+    .hero-cta-ghost:hover {
+      background: var(--text) !important; color: #fff !important;
+      border-color: var(--text) !important;
+    }
+    @media (max-width: 900px) {
+      .hero-cta-row { grid-template-columns: 1fr 1fr; }
+      .hero-cta-row > :nth-child(3) { grid-column: 1 / -1; }
+    }
     @media (max-width: 640px) {
       .hero-cta-row { grid-template-columns: 1fr; max-width: 100%; }
+      .hero-cta-row > :nth-child(3) { grid-column: auto; }
       .hero-main-cta { padding: 16px 20px; font-size: 15px; }
     }
 
@@ -1031,6 +1056,10 @@
         <span data-ko="광고 제안 받기(크리에이터용)" data-en="For Creators (Apply Now)">광고 제안 받기(크리에이터용)</span>
         <span class="arrow">→</span>
       </button>
+      <a href="reference.html" class="hero-main-cta hero-cta-ghost">
+        <span data-ko="포트폴리오 보기" data-en="View Portfolio">포트폴리오 보기</span>
+        <span class="arrow">→</span>
+      </a>
     </div>
     <div class="hero-bottom">
       <div class="hero-pitch">
@@ -1179,14 +1208,16 @@
   <div class="dept-panels reveal">
     <div class="dept-panel active" id="dpanel-1" data-dept="1" role="tabpanel">
       <div class="dept-panel-num">DEPARTMENT 01</div>
-      <h3 class="dept-panel-title">단순 광고비 소진이 아닌,<br><span class="hl">알고리즘 설계</span>까지 함께합니다</h3>
-      <p class="dept-panel-desc">음원 바이럴, 식당·의류 브랜드, 국가사업 홍보까지 — 플랫폼 알고리즘을 이해하는 팀이 유기적 확산을 설계합니다. <strong>실시간으로 관리</strong>되는 캠페인 + <strong>정량적 데이터 인사이트</strong>로 진짜 바이럴을 만듭니다.</p>
+      <h3 class="dept-panel-title lang-ko">단순 광고비 소진이 아닌,<br><span class="hl">알고리즘 설계</span>까지 함께합니다</h3>
+      <h3 class="dept-panel-title lang-en">Not just ad spend —<br>we design <span class="hl">the algorithm</span> together</h3>
+      <p class="dept-panel-desc lang-ko">음원 바이럴, 식당·의류 브랜드, 국가사업 홍보까지 — 플랫폼 알고리즘을 이해하는 팀이 유기적 확산을 설계합니다. <strong>실시간으로 관리</strong>되는 캠페인 + <strong>정량적 데이터 인사이트</strong>로 진짜 바이럴을 만듭니다.</p>
+      <p class="dept-panel-desc lang-en">From music virality to F&amp;B brands, fashion, and government campaigns — a team that understands platform algorithms designs organic spread. <strong>Real-time campaign management</strong> + <strong>quantitative data insights</strong> create true virality.</p>
       <div class="dept-panel-tags">
-        <span class="dept-panel-tag">#음원바이럴</span>
-        <span class="dept-panel-tag">#식당마케팅</span>
-        <span class="dept-panel-tag">#국가사업</span>
-        <span class="dept-panel-tag">#인스타그램</span>
-        <span class="dept-panel-tag">#실시간 모니터링</span>
+        <span class="dept-panel-tag" data-ko="#음원바이럴" data-en="#MusicViral">#음원바이럴</span>
+        <span class="dept-panel-tag" data-ko="#식당마케팅" data-en="#F&amp;B Marketing">#식당마케팅</span>
+        <span class="dept-panel-tag" data-ko="#국가사업" data-en="#GovCampaign">#국가사업</span>
+        <span class="dept-panel-tag" data-ko="#인스타그램" data-en="#Instagram">#인스타그램</span>
+        <span class="dept-panel-tag" data-ko="#실시간 모니터링" data-en="#RealTime Monitoring">#실시간 모니터링</span>
       </div>
       <div class="dept-panel-cta-row">
         <a href="service.html?slug=marketing" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
@@ -1196,14 +1227,16 @@
 
     <div class="dept-panel" id="dpanel-2" data-dept="2" role="tabpanel">
       <div class="dept-panel-num">DEPARTMENT 02</div>
-      <h3 class="dept-panel-title">단기 섭외가 아닌,<br><span class="hl">장기 파트너십</span>을 설계합니다</h3>
-      <p class="dept-panel-desc">신인 발굴부터 기성 아티스트 채널 전략까지 — 콘텐츠 기획·브랜드 협찬 연결·스케줄 관리를 <strong>한 팀</strong>에서 통합 운영합니다. 정산 투명성·기대치 관리·콘텐츠 자율성 — 5년·10년 함께 가는 관계.</p>
+      <h3 class="dept-panel-title lang-ko">단기 섭외가 아닌,<br><span class="hl">장기 파트너십</span>을 설계합니다</h3>
+      <h3 class="dept-panel-title lang-en">Not one-time bookings —<br>we design <span class="hl">long-term partnerships</span></h3>
+      <p class="dept-panel-desc lang-ko">신인 발굴부터 기성 아티스트 채널 전략까지 — 콘텐츠 기획·브랜드 협찬 연결·스케줄 관리를 <strong>한 팀</strong>에서 통합 운영합니다. 정산 투명성·기대치 관리·콘텐츠 자율성 — 5년·10년 함께 가는 관계.</p>
+      <p class="dept-panel-desc lang-en">From new talent discovery to channel strategy for established artists — content planning, brand sponsorship, and scheduling all in <strong>one team</strong>. Transparent settlements, expectation management, and creative autonomy — partnerships that last 5 to 10 years.</p>
       <div class="dept-panel-tags">
-        <span class="dept-panel-tag">#크리에이터발굴</span>
-        <span class="dept-panel-tag">#채널전략</span>
-        <span class="dept-panel-tag">#브랜드연결</span>
-        <span class="dept-panel-tag">#아티스트육성</span>
-        <span class="dept-panel-tag">#장기 파트너십</span>
+        <span class="dept-panel-tag" data-ko="#크리에이터발굴" data-en="#CreatorScouting">#크리에이터발굴</span>
+        <span class="dept-panel-tag" data-ko="#채널전략" data-en="#ChannelStrategy">#채널전략</span>
+        <span class="dept-panel-tag" data-ko="#브랜드연결" data-en="#BrandSync">#브랜드연결</span>
+        <span class="dept-panel-tag" data-ko="#아티스트육성" data-en="#ArtistDevelopment">#아티스트육성</span>
+        <span class="dept-panel-tag" data-ko="#장기 파트너십" data-en="#LongTerm Partnership">#장기 파트너십</span>
       </div>
       <div class="dept-panel-cta-row">
         <a href="service.html?slug=mgt" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
@@ -1213,14 +1246,16 @@
 
     <div class="dept-panel" id="dpanel-3" data-dept="3" role="tabpanel">
       <div class="dept-panel-num">DEPARTMENT 03</div>
-      <h3 class="dept-panel-title">라이브뿐만 아니라,<br><span class="hl">데이터 수익화 시스템</span>까지</h3>
-      <p class="dept-panel-desc">TikTok Live 전문 운영 팀이 크리에이터 매칭부터 라이브 커머스 전략, <strong>실시간 운영</strong>까지 — 데이터 기반 라이브 수익화 시스템을 구축합니다. 첫 60초의 후크부터 다음 라이브 최적화까지.</p>
+      <h3 class="dept-panel-title lang-ko">라이브뿐만 아니라,<br><span class="hl">데이터 수익화 시스템</span>까지</h3>
+      <h3 class="dept-panel-title lang-en">Not just live —<br>a <span class="hl">data-driven monetization system</span></h3>
+      <p class="dept-panel-desc lang-ko">TikTok Live 전문 운영 팀이 크리에이터 매칭부터 라이브 커머스 전략, <strong>실시간 운영</strong>까지 — 데이터 기반 라이브 수익화 시스템을 구축합니다. 첫 60초의 후크부터 다음 라이브 최적화까지.</p>
+      <p class="dept-panel-desc lang-en">Our TikTok Live ops team handles creator matching, live commerce strategy, and <strong>real-time operations</strong> — building data-driven live monetization. From the first 60-second hook to next-stream optimization.</p>
       <div class="dept-panel-tags">
-        <span class="dept-panel-tag">#TikTokLive</span>
-        <span class="dept-panel-tag">#라이브커머스</span>
-        <span class="dept-panel-tag">#크리에이터매칭</span>
-        <span class="dept-panel-tag">#수익화전략</span>
-        <span class="dept-panel-tag">#실시간 운영</span>
+        <span class="dept-panel-tag" data-ko="#TikTokLive" data-en="#TikTokLive">#TikTokLive</span>
+        <span class="dept-panel-tag" data-ko="#라이브커머스" data-en="#LiveCommerce">#라이브커머스</span>
+        <span class="dept-panel-tag" data-ko="#크리에이터매칭" data-en="#CreatorMatching">#크리에이터매칭</span>
+        <span class="dept-panel-tag" data-ko="#수익화전략" data-en="#MonetizationStrategy">#수익화전략</span>
+        <span class="dept-panel-tag" data-ko="#실시간 운영" data-en="#RealTime Ops">#실시간 운영</span>
       </div>
       <div class="dept-panel-cta-row">
         <a href="service.html?slug=live" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
@@ -1230,14 +1265,16 @@
 
     <div class="dept-panel" id="dpanel-4" data-dept="4" role="tabpanel">
       <div class="dept-panel-num">DEPARTMENT 04</div>
-      <h3 class="dept-panel-title">섭외만이 아닌,<br><span class="hl">행사 당일 운영</span>까지 책임집니다</h3>
-      <p class="dept-panel-desc">행사·기업 이벤트·브랜드 캠페인에 필요한 아티스트·퍼포머 섭외부터 <strong>리허설·기술 디렉팅·당일 운영</strong>까지 — 규모와 예산에 맞는 최적의 라인업을 제안합니다.</p>
+      <h3 class="dept-panel-title lang-ko">섭외만이 아닌,<br><span class="hl">행사 당일 운영</span>까지 책임집니다</h3>
+      <h3 class="dept-panel-title lang-en">Beyond booking —<br>we run <span class="hl">the entire event day</span></h3>
+      <p class="dept-panel-desc lang-ko">행사·기업 이벤트·브랜드 캠페인에 필요한 아티스트·퍼포머 섭외부터 <strong>리허설·기술 디렉팅·당일 운영</strong>까지 — 규모와 예산에 맞는 최적의 라인업을 제안합니다.</p>
+      <p class="dept-panel-desc lang-en">From artist and performer booking for events, corporate gatherings, and brand campaigns to <strong>rehearsals, tech direction, and day-of execution</strong> — optimal lineups for any scale and budget.</p>
       <div class="dept-panel-tags">
-        <span class="dept-panel-tag">#아티스트섭외</span>
-        <span class="dept-panel-tag">#기업행사</span>
-        <span class="dept-panel-tag">#MC섭외</span>
-        <span class="dept-panel-tag">#공연기획</span>
-        <span class="dept-panel-tag">#당일 운영</span>
+        <span class="dept-panel-tag" data-ko="#아티스트섭외" data-en="#ArtistBooking">#아티스트섭외</span>
+        <span class="dept-panel-tag" data-ko="#기업행사" data-en="#CorporateEvent">#기업행사</span>
+        <span class="dept-panel-tag" data-ko="#MC섭외" data-en="#MCBooking">#MC섭외</span>
+        <span class="dept-panel-tag" data-ko="#공연기획" data-en="#ShowProduction">#공연기획</span>
+        <span class="dept-panel-tag" data-ko="#당일 운영" data-en="#DayOfOps">#당일 운영</span>
       </div>
       <div class="dept-panel-cta-row">
         <a href="service.html?slug=perf" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
@@ -1247,14 +1284,16 @@
 
     <div class="dept-panel" id="dpanel-5" data-dept="5" role="tabpanel">
       <div class="dept-panel-num">DEPARTMENT 05</div>
-      <h3 class="dept-panel-title">콘텐츠 제작뿐만 아니라,<br><span class="hl">트렌드 분석</span>까지 함께</h3>
-      <p class="dept-panel-desc">숏폼 영상·캠페인 영상·SNS 카드뉴스·광고 소재까지 — 기획부터 편집까지 <strong>인하우스</strong>로 처리합니다. 외주 구조가 없기에 속도와 품질을 동시에 가져갑니다.</p>
+      <h3 class="dept-panel-title lang-ko">콘텐츠 제작뿐만 아니라,<br><span class="hl">트렌드 분석</span>까지 함께</h3>
+      <h3 class="dept-panel-title lang-en">Beyond production —<br>powered by <span class="hl">trend analytics</span></h3>
+      <p class="dept-panel-desc lang-ko">숏폼 영상·캠페인 영상·SNS 카드뉴스·광고 소재까지 — 기획부터 편집까지 <strong>인하우스</strong>로 처리합니다. 외주 구조가 없기에 속도와 품질을 동시에 가져갑니다.</p>
+      <p class="dept-panel-desc lang-en">Short-form, campaign videos, SNS card news, and ad creatives — planning to editing handled <strong>in-house</strong>. No outsourcing means both speed and quality.</p>
       <div class="dept-panel-tags">
-        <span class="dept-panel-tag">#숏폼영상</span>
-        <span class="dept-panel-tag">#캠페인영상</span>
-        <span class="dept-panel-tag">#카드뉴스</span>
-        <span class="dept-panel-tag">#광고소재</span>
-        <span class="dept-panel-tag">#인하우스</span>
+        <span class="dept-panel-tag" data-ko="#숏폼영상" data-en="#ShortForm">#숏폼영상</span>
+        <span class="dept-panel-tag" data-ko="#캠페인영상" data-en="#CampaignVideo">#캠페인영상</span>
+        <span class="dept-panel-tag" data-ko="#카드뉴스" data-en="#CardNews">#카드뉴스</span>
+        <span class="dept-panel-tag" data-ko="#광고소재" data-en="#AdCreative">#광고소재</span>
+        <span class="dept-panel-tag" data-ko="#인하우스" data-en="#InHouse">#인하우스</span>
       </div>
       <div class="dept-panel-cta-row">
         <a href="service.html?slug=content" class="dept-panel-cta primary" data-ko="자세히 보기 →" data-en="Learn More →">자세히 보기 →</a>
@@ -1426,7 +1465,8 @@
           </span>
           <span class="brand-word">HOMI FACTORY</span>
         </div>
-        <p class="f-tagline">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
+        <p class="f-tagline lang-ko">콘텐츠로 연결하고<br>크리에이터와 함께 성장합니다.</p>
+        <p class="f-tagline lang-en">Connecting through content,<br>growing together with creators.</p>
         <div class="f-socials">
           <a class="f-social" href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" title="Instagram">📸</a>
           <a class="f-social" href="mailto:contact@homifactory.com" title="Email">✉</a>
@@ -1434,17 +1474,17 @@
       </div>
       <div class="f-col">
         <h4>Services</h4>
-        <a href="#dept-wrap">SNS 마케팅</a>
-        <a href="#dept-wrap">크리에이터 매니지먼트</a>
-        <a href="#dept-wrap">TikTok 라이브</a>
-        <a href="#dept-wrap">퍼포먼스 섭외</a>
-        <a href="#dept-wrap">콘텐츠 제작</a>
+        <a href="#dept-wrap" data-ko="SNS 마케팅" data-en="SNS Marketing">SNS 마케팅</a>
+        <a href="#dept-wrap" data-ko="크리에이터 매니지먼트" data-en="Creator Management">크리에이터 매니지먼트</a>
+        <a href="#dept-wrap" data-ko="TikTok 라이브" data-en="TikTok Live">TikTok 라이브</a>
+        <a href="#dept-wrap" data-ko="퍼포먼스 섭외" data-en="Performance Booking">퍼포먼스 섭외</a>
+        <a href="#dept-wrap" data-ko="콘텐츠 제작" data-en="Content Production">콘텐츠 제작</a>
       </div>
       <div class="f-col">
         <h4>Company</h4>
-        <a href="about.html">회사소개</a>
-        <a href="reference.html">레퍼런스</a>
-            <a href="#inquiry-section">문의하기</a>
+        <a href="about.html" data-ko="회사소개" data-en="About">회사소개</a>
+        <a href="reference.html" data-ko="레퍼런스" data-en="References">레퍼런스</a>
+            <a href="#inquiry-section" data-ko="문의하기" data-en="Contact Us">문의하기</a>
       </div>
       <div class="f-col">
         <h4>Contact</h4>
@@ -1454,7 +1494,7 @@
     </div>
     <div class="footer-bottom">
       <span>호미 팩토리 | 대표: 윤호성·배수빈·최성용 | 경기도 용인시 처인구 금령로 23, 302-73호 | 사업자등록번호: 295-20-02749 | © 2026 Homi Factory. All rights reserved.</span>
-      <div><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a></div>
+      <div><a href="privacy.html" data-ko="개인정보처리방침" data-en="Privacy Policy">개인정보처리방침</a><a href="terms.html" data-ko="이용약관" data-en="Terms of Service">이용약관</a></div>
     </div>
   </div>
 </footer>
