@@ -1,5 +1,5 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v2 · 2026-06-06 — Sprint 10 traffic logging */
+/* v3 · 2026-06-06 — Sprint 10 traffic logging (RPC) */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
@@ -143,17 +143,16 @@
   var device = /mobile|android|iphone|ipad/i.test(ua) ? 'mobile' : 'desktop';
   var lang = (navigator.language || '').slice(0, 8);
 
-  function sbInsert(table, row){
+  function sbRpc(fnName, args){
     try {
-      fetch(SB_URL + '/rest/v1/' + table, {
+      fetch(SB_URL + '/rest/v1/rpc/' + fnName, {
         method: 'POST',
         headers: {
           'apikey': SB_KEY,
           'Authorization': 'Bearer ' + SB_KEY,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(row),
+        body: JSON.stringify(args),
         keepalive: true
       }).catch(function(){});
     } catch(e){}
@@ -162,12 +161,12 @@
   function logPageView(){
     var key = 'pv_' + path;
     try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e){}
-    sbInsert('page_views', {
-      path: path,
-      referrer: document.referrer || null,
-      user_agent: ua.slice(0, 200),
-      device: device,
-      language: lang
+    sbRpc('log_page_view', {
+      p_path: path,
+      p_referrer: document.referrer || null,
+      p_user_agent: ua.slice(0, 200),
+      p_device: device,
+      p_language: lang
     });
   }
   if (document.readyState === 'loading') {
@@ -186,6 +185,6 @@
       (cta.className || '').split(/\s+/).filter(function(c){
         return /hero-main-cta|nav-cta|dept-panel-cta|modal-cta|form-submit|ref-card|blog-card|hero-cta-ghost/.test(c);
       })[0] || 'unknown';
-    sbInsert('cta_clicks', { path: path, cta_id: ctaId, cta_label: label });
+    sbRpc('log_cta_click', { p_path: path, p_cta_id: ctaId, p_cta_label: label });
   }, true);
 })();
