@@ -2,6 +2,15 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FN6KY4F9R8', { 'anonymize_ip': true });
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>회사소개 | 호미팩토리</title>
   <meta name="description" content="호미팩토리는 2025년 설립된 종합 콘텐츠 에이전시입니다. 공동대표 3인 체제와 6인의 전문 팀이 브랜드와 크리에이터의 성장을 설계합니다." />
@@ -870,113 +879,4 @@
       <div class="creator-photo">${inner}</div>
       <div class="creator-info">
         <div class="creator-name">${escapeHtml(c.name)}</div>
-        <div class="creator-handle">${c.handle ? '@'+escapeHtml(c.handle) : ''}</div>
-      </div>
-    </a>`;
-  }
-  // 무한 마키 루프용 — 같은 세트 2번 렌더
-  const html = data.map(cardHtml).join('') + data.map(cardHtml).join('');
-  track.innerHTML = html;
-
-  /* ── DOT NAV (about 페이지 사이드 인디케이터) ── */
-  (function initDotNav(){
-    const dotnav = document.getElementById('aboutDotNav');
-    if (!dotnav) return;
-    const sections = [
-      { sel: '.about-hero',       label: 'About' },
-      { sel: '.story-section',    label: 'Vision' },
-      { sel: '.slogan-section',   label: 'Slogan' },
-      { sel: '.diagram-section',  label: 'Operations' },
-      { sel: '.values-section',   label: 'Culture' },
-      { sel: '.creators-section', label: 'Creators' },
-      { sel: '.timeline-section', label: 'History' },
-    ];
-    const items = [];
-    sections.forEach(function(s){
-      const el = document.querySelector(s.sel);
-      if (!el) return;
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'about-dotnav-item';
-      btn.setAttribute('aria-label', s.label);
-      const tip = document.createElement('span');
-      tip.className = 'about-dotnav-tooltip';
-      tip.textContent = s.label;
-      btn.appendChild(tip);
-      btn.addEventListener('click', function(){
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-      dotnav.appendChild(btn);
-      items.push({ btn: btn, el: el });
-    });
-    if (items.length === 0) return;
-    // IntersectionObserver로 active 갱신
-    const io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) {
-          const found = items.findIndex(function(it){ return it.el === e.target; });
-          if (found >= 0) {
-            items.forEach(function(it, i){ it.btn.classList.toggle('active', i === found); });
-          }
-        }
-      });
-    }, { threshold: 0.4 });
-    items.forEach(function(it){ io.observe(it.el); });
-  })();
-
-  /* ── 전체 보기 모달 ── */
-  const allBtn = document.getElementById('creatorsAllBtn');
-  const modal = document.getElementById('creatorsModal');
-  const grid = document.getElementById('cmGrid');
-  const count = document.getElementById('cmCount');
-  if (allBtn && modal && grid) {
-    allBtn.addEventListener('click', () => {
-      grid.innerHTML = data.map(cardHtml).join('');
-      count.textContent = `(총 ${data.length}명)`;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    });
-    const closeModal = () => {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
-    modal.querySelectorAll('[data-cm-close]').forEach(el => el.addEventListener('click', closeModal));
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-  }
-
-  /* ── 마키 휠 좌우 스크롤 ── */
-  const marquee = document.querySelector('.creators-marquee');
-  if (marquee && track) {
-    let wheelX = 0;
-    let resetTimer = null;
-    marquee.addEventListener('wheel', (e) => {
-      // 가로 휠은 그대로 두고, 세로 휠을 가로 이동으로 전환
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      e.preventDefault();
-      wheelX -= e.deltaY * 0.6;
-      const halfWidth = track.scrollWidth / 2;
-      wheelX = Math.max(-halfWidth, Math.min(0, wheelX));
-      track.classList.add('wheel-active');
-      track.style.transform = `translateX(${wheelX}px)`;
-      // 일정 시간 휠이 멈추면 자동 마키 복귀
-      if (resetTimer) clearTimeout(resetTimer);
-      resetTimer = setTimeout(() => {
-        wheelX = 0;
-        track.classList.remove('wheel-active');
-        track.style.transform = '';
-      }, 2500);
-    }, { passive: false });
-    marquee.addEventListener('mouseleave', () => {
-      if (resetTimer) clearTimeout(resetTimer);
-      wheelX = 0;
-      track.classList.remove('wheel-active');
-      track.style.transform = '';
-    });
-  }
-})();
-</script>
-</body>
-</html>
+        <div class="c
