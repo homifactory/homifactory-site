@@ -247,6 +247,75 @@
     .ref-cat-perf { background: #e25555; }
     .ref-cat-content { background: #a37a17; }
 
+    /* 트래픽 통계 (Sprint 10) */
+    .traffic-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      margin-bottom: 20px;
+    }
+    .stat-cell {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 20px;
+    }
+    .stat-cell-label {
+      font-size: 11px; letter-spacing: 0.08em; color: var(--muted);
+      text-transform: uppercase; font-weight: 600; margin-bottom: 8px;
+    }
+    .stat-cell-num {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 32px; font-weight: 700; line-height: 1;
+      letter-spacing: -0.02em; color: var(--text);
+    }
+    .stat-cell-num .unit { font-size: 13px; color: var(--text2); font-weight: 500; margin-left: 4px; }
+    .stat-cell-sub { font-size: 11.5px; color: var(--text2); margin-top: 6px; }
+
+    .ga4-card {
+      background: linear-gradient(135deg, #fff4f8 0%, #e8fcfa 100%);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 22px 24px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .ga4-card-icon { font-size: 28px; }
+    .ga4-card-text { flex: 1; min-width: 220px; }
+    .ga4-card-text h4 {
+      font-family: var(--font-display); font-size: 16px; font-weight: 700;
+      margin-bottom: 4px; color: var(--text);
+    }
+    .ga4-card-text p { font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+    .ga4-card a.go {
+      padding: 10px 18px; background: var(--text); color: #fff;
+      border-radius: 100px; font-size: 12.5px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .ga4-card a.go:hover { background: var(--pink); transform: translateY(-1px); }
+
+    .traffic-section-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 14px; letter-spacing: 0.04em;
+      color: var(--text); margin: 28px 0 12px;
+      text-transform: uppercase;
+    }
+    .top-list {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 8px 0;
+    }
+    .top-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 18px; font-size: 13px;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-row:last-child { border-bottom: none; }
+    .top-row .top-rank {
+      font-family: 'Space Grotesk', monospace; font-size: 11px;
+      color: var(--muted); width: 22px;
+    }
+    .top-row .top-label { flex: 1; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .top-row .top-count { font-weight: 700; color: var(--pink); font-family: 'Space Grotesk', monospace; }
+
+    @media (max-width: 768px) {
+      .traffic-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* 데이터 뷰어 (Sprint 9) */
     .data-toolbar {
       display: flex; gap: 10px; align-items: center;
@@ -699,12 +768,61 @@ create policy "auth all references"
       </div>
     </div>
 
+    <!-- GA4 바로가기 카드 -->
+    <div class="ga4-card">
+      <div class="ga4-card-icon">📈</div>
+      <div class="ga4-card-text">
+        <h4>Google Analytics 4 — 실시간 정밀 분석</h4>
+        <p>방문자 위치·디바이스·세션 깊이·전환 등 풍부한 지표는 GA4 콘솔에서. (측정 ID: G-FN6KY4F9R8)</p>
+      </div>
+      <a class="go" href="https://analytics.google.com/analytics/web/#/p292034920/reports/realtime" target="_blank" rel="noopener">GA4 콘솔 열기 ↗</a>
+    </div>
+
+    <!-- 자체 로깅 통계 카드 4개 -->
+    <div class="traffic-grid">
+      <div class="stat-cell">
+        <div class="stat-cell-label">오늘 방문수</div>
+        <div class="stat-cell-num"><span id="stat-today">—</span><span class="unit">PV</span></div>
+        <div class="stat-cell-sub" id="stat-today-sub">집계 중…</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-label">7일 누적</div>
+        <div class="stat-cell-num"><span id="stat-7d">—</span><span class="unit">PV</span></div>
+        <div class="stat-cell-sub" id="stat-7d-sub">집계 중…</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-label">30일 누적</div>
+        <div class="stat-cell-num"><span id="stat-30d">—</span><span class="unit">PV</span></div>
+        <div class="stat-cell-sub" id="stat-30d-sub">집계 중…</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-label">7일 CTA 클릭</div>
+        <div class="stat-cell-num"><span id="stat-cta-7d">—</span><span class="unit">clicks</span></div>
+        <div class="stat-cell-sub" id="stat-cta-7d-sub">집계 중…</div>
+      </div>
+    </div>
+
+    <!-- TOP 페이지 + TOP CTA (2열) -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div>
+        <div class="traffic-section-title">TOP 10 페이지 (7일)</div>
+        <div class="top-list" id="topPages"><div class="loading">불러오는 중…</div></div>
+      </div>
+      <div>
+        <div class="traffic-section-title">TOP 10 CTA 클릭 (7일)</div>
+        <div class="top-list" id="topCta"><div class="loading">불러오는 중…</div></div>
+      </div>
+    </div>
+
+    <div class="traffic-section-title" style="margin-top:36px;">RAW 데이터 뷰어</div>
     <!-- 툴바: 테이블 선택 / 검색 / 정렬 / 새로고침 -->
     <div class="data-toolbar">
       <span class="toolbar-label">테이블</span>
       <select id="dataTable">
         <option value="creators">creators</option>
         <option value="references">references</option>
+        <option value="page_views">page_views</option>
+        <option value="cta_clicks">cta_clicks</option>
       </select>
       <input type="text" class="search-input" id="dataSearch" placeholder="🔍 키워드로 검색 (모든 텍스트 컬럼)">
       <span class="toolbar-label">페이지</span>
@@ -1209,6 +1327,16 @@ create policy "auth all references"
       cols: ['id','category','title','client','result_text','tags','image_url','is_active','display_order','created_at'],
       types: { id:'id', is_active:'bool', display_order:'num', created_at:'date', image_url:'img' },
       searchCols: ['title','client','result_text','tags','category']
+    },
+    page_views: {
+      cols: ['id','path','referrer','device','language','user_agent','created_at'],
+      types: { id:'id', created_at:'date' },
+      searchCols: ['path','referrer','device','language']
+    },
+    cta_clicks: {
+      cols: ['id','path','cta_id','cta_label','created_at'],
+      types: { id:'id', created_at:'date' },
+      searchCols: ['path','cta_id','cta_label']
     }
   };
 
@@ -1314,9 +1442,70 @@ create policy "auth all references"
     pager.style.display = totalPages > 1 ? '' : 'none';
   }
 
+  // ━━━━━━━━━━━━━ TRAFFIC STATS (Sprint 10) ━━━━━━━━━━━━━
+  function isoDaysAgo(n){
+    var d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate() - n);
+    return d.toISOString();
+  }
+  async function fetchCount(table, sinceIso){
+    var q = sb.from(table).select('id', { count: 'exact', head: true });
+    if (sinceIso) q = q.gte('created_at', sinceIso);
+    var r = await q;
+    return r.error ? null : (r.count || 0);
+  }
+  async function fetchTop(table, col, sinceIso, limit){
+    var r = await sb.from(table).select(col + ',created_at').gte('created_at', sinceIso).limit(2000);
+    if (r.error) return [];
+    var map = {};
+    (r.data || []).forEach(function(row){
+      var v = row[col] || '(none)';
+      map[v] = (map[v] || 0) + 1;
+    });
+    return Object.keys(map).map(function(k){ return { label: k, count: map[k] }; })
+      .sort(function(a,b){ return b.count - a.count; })
+      .slice(0, limit || 10);
+  }
+  async function loadTrafficStats(){
+    var todayIso = isoDaysAgo(0);
+    var d7 = isoDaysAgo(7);
+    var d30 = isoDaysAgo(30);
+    var pTodayPV = fetchCount('page_views', todayIso);
+    var p7dPV = fetchCount('page_views', d7);
+    var p30dPV = fetchCount('page_views', d30);
+    var p7dCTA = fetchCount('cta_clicks', d7);
+    var pTopPages = fetchTop('page_views', 'path', d7, 10);
+    var pTopCta = fetchTop('cta_clicks', 'cta_label', d7, 10);
+    var results = await Promise.all([pTodayPV, p7dPV, p30dPV, p7dCTA, pTopPages, pTopCta]);
+    var todayN = results[0], d7N = results[1], d30N = results[2], cta7 = results[3];
+    document.getElementById('stat-today').textContent = todayN === null ? '—' : todayN.toLocaleString();
+    document.getElementById('stat-7d').textContent = d7N === null ? '—' : d7N.toLocaleString();
+    document.getElementById('stat-30d').textContent = d30N === null ? '—' : d30N.toLocaleString();
+    document.getElementById('stat-cta-7d').textContent = cta7 === null ? '—' : cta7.toLocaleString();
+    var avg7 = d7N ? Math.round(d7N / 7) : 0;
+    document.getElementById('stat-today-sub').textContent = '오늘 자정~지금';
+    document.getElementById('stat-7d-sub').textContent = '일 평균 ' + avg7 + ' PV';
+    document.getElementById('stat-30d-sub').textContent = '월간 트렌드';
+    document.getElementById('stat-cta-7d-sub').textContent = 'CTA 버튼 클릭 합계';
+
+    function renderTop(elId, items, fmt){
+      var el = document.getElementById(elId);
+      if (!items || items.length === 0) { el.innerHTML = '<div class="loading">아직 데이터 없음 (방문 시작되면 표시)</div>'; return; }
+      el.innerHTML = items.map(function(it, i){
+        return '<div class="top-row">' +
+          '<span class="top-rank">' + (i+1) + '.</span>' +
+          '<span class="top-label">' + escapeHtml(fmt ? fmt(it.label) : it.label) + '</span>' +
+          '<span class="top-count">' + it.count.toLocaleString() + '</span>' +
+        '</div>';
+      }).join('');
+    }
+    renderTop('topPages', results[4]);
+    renderTop('topCta', results[5]);
+  }
+
   function initDataViewer(){
-    if (dvState.initialized) { dvLoad(); return; }
+    if (dvState.initialized) { dvLoad(); loadTrafficStats(); return; }
     dvState.initialized = true;
+    loadTrafficStats();
     document.getElementById('dataTable').addEventListener('change', function(e){
       dvState.table = e.target.value;
       dvState.sortCol = 'created_at'; dvState.sortDir = 'desc'; dvState.page = 0;

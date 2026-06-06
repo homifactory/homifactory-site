@@ -1,5 +1,5 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v1 · 2026-04-19 */
+/* v2 · 2026-06-06 — Sprint 10 traffic logging */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
@@ -126,4 +126,66 @@
   } else {
     inject();
   }
+})();
+
+/* ── TRAFFIC LOGGING (Sprint 10) ──
+   페이지 로드 → page_views 1건 insert (세션 중복 방지)
+   CTA 클릭 → cta_clicks insert
+   admin/login/봇 제외. */
+(function(){
+  var path = location.pathname || '/';
+  if (/login\.html|admin\.html|\/login$|\/admin$/.test(path)) return;
+  var ua = navigator.userAgent || '';
+  if (/bot|crawler|spider|preview|lighthouse|headless|pingdom/i.test(ua)) return;
+
+  var SB_URL = 'https://bcngbtwzuqtwtxaebftf.supabase.co';
+  var SB_KEY = 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
+  var device = /mobile|android|iphone|ipad/i.test(ua) ? 'mobile' : 'desktop';
+  var lang = (navigator.language || '').slice(0, 8);
+
+  function sbInsert(table, row){
+    try {
+      fetch(SB_URL + '/rest/v1/' + table, {
+        method: 'POST',
+        headers: {
+          'apikey': SB_KEY,
+          'Authorization': 'Bearer ' + SB_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(row),
+        keepalive: true
+      }).catch(function(){});
+    } catch(e){}
+  }
+
+  function logPageView(){
+    var key = 'pv_' + path;
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e){}
+    sbInsert('page_views', {
+      path: path,
+      referrer: document.referrer || null,
+      user_agent: ua.slice(0, 200),
+      device: device,
+      language: lang
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', logPageView);
+  } else {
+    logPageView();
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (!t || !t.closest) return;
+    var cta = t.closest('.nav-cta, .hero-main-cta, .hero-cta-ghost, .dept-panel-cta, .modal-cta, .form-submit, .ref-card, .blog-card, [data-cta]');
+    if (!cta) return;
+    var label = (cta.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+    var ctaId = cta.dataset.cta || cta.id ||
+      (cta.className || '').split(/\s+/).filter(function(c){
+        return /hero-main-cta|nav-cta|dept-panel-cta|modal-cta|form-submit|ref-card|blog-card|hero-cta-ghost/.test(c);
+      })[0] || 'unknown';
+    sbInsert('cta_clicks', { path: path, cta_id: ctaId, cta_label: label });
+  }, true);
 })();
