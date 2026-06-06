@@ -247,6 +247,96 @@
     .ref-cat-perf { background: #e25555; }
     .ref-cat-content { background: #a37a17; }
 
+    /* 데이터 뷰어 (Sprint 9) */
+    .data-toolbar {
+      display: flex; gap: 10px; align-items: center;
+      flex-wrap: wrap; margin-bottom: 16px;
+      padding: 14px 16px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+    }
+    .data-toolbar select, .data-toolbar input {
+      padding: 9px 12px; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 13px; font-family: var(--font-body);
+      outline: none;
+    }
+    .data-toolbar select { min-width: 140px; }
+    .data-toolbar .search-input { flex: 1; min-width: 200px; }
+    .data-toolbar .toolbar-label {
+      font-size: 11px; letter-spacing: 0.08em; color: var(--muted);
+      text-transform: uppercase; font-weight: 600;
+    }
+    .data-toolbar .right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+    .data-toolbar .refresh-btn {
+      padding: 8px 14px; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); color: var(--text2); font-size: 12px; cursor: pointer;
+      font-family: var(--font-body); transition: all 0.2s;
+    }
+    .data-toolbar .refresh-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+    .data-table-wrap {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .data-table-scroll { overflow-x: auto; }
+    .data-table {
+      width: 100%; border-collapse: collapse; min-width: 800px;
+    }
+    .data-table th, .data-table td {
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+      text-align: left; font-size: 12.5px; vertical-align: middle;
+      max-width: 280px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .data-table th {
+      background: var(--bg); position: sticky; top: 0; z-index: 2;
+      font-size: 10.5px; letter-spacing: 0.08em; color: var(--muted);
+      text-transform: uppercase; font-weight: 600;
+      cursor: pointer; user-select: none;
+    }
+    .data-table th:hover { color: var(--text); }
+    .data-table th.sorted-asc::after { content: ' ↑'; color: var(--pink); }
+    .data-table th.sorted-desc::after { content: ' ↓'; color: var(--pink); }
+    .data-table tbody tr { transition: background 0.15s; }
+    .data-table tbody tr:hover { background: rgba(0,0,0,0.02); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table td.cell-null { color: var(--muted); font-style: italic; }
+    .data-table td.cell-bool-true { color: #006d68; font-weight: 600; }
+    .data-table td.cell-bool-false { color: var(--muted); }
+    .data-table td.cell-id { font-family: 'Space Grotesk', monospace; font-size: 11px; color: var(--text2); }
+    .data-table td.cell-date { font-family: 'Space Grotesk', monospace; font-size: 11px; color: var(--text2); }
+    .data-table td .cell-img { width: 28px; height: 28px; border-radius: 4px; object-fit: cover; vertical-align: middle; }
+    .data-table td .cell-link { color: var(--pink); text-decoration: none; font-size: 11.5px; }
+    .data-table td .cell-link:hover { text-decoration: underline; }
+
+    .data-pager {
+      display: flex; gap: 8px; align-items: center; justify-content: center;
+      padding: 16px; border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .data-pager button {
+      padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+      background: var(--surface); color: var(--text2); font-size: 12px;
+      cursor: pointer; font-family: var(--font-body);
+    }
+    .data-pager button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .data-pager button:not(:disabled):hover { border-color: var(--pink); color: var(--pink); }
+    .data-pager .page-info { font-size: 12px; color: var(--text2); padding: 0 8px; }
+
+    .schema-info {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+      font-size: 12px; color: var(--text2);
+    }
+    .schema-info strong { color: var(--text); font-family: 'Space Grotesk', monospace; }
+    .schema-info .col-chip {
+      display: inline-block; padding: 3px 9px; border-radius: 100px;
+      background: var(--bg); border: 1px solid var(--border);
+      font-family: 'Space Grotesk', monospace; font-size: 10.5px;
+      margin: 2px 4px 2px 0;
+    }
+    .schema-info .col-chip .col-type { color: var(--muted); margin-left: 4px; font-size: 9.5px; }
+
     /* 테이블 없음 안내 */
     .setup-warn {
       background: rgba(253,1,81,0.06); border: 1px solid rgba(253,1,81,0.2);
@@ -294,7 +384,7 @@
         <button class="btn-logout" id="logoutBtnDash">로그아웃</button>
       </div>
     </div>
-    <div class="dash-grid">
+    <div class="dash-grid" style="grid-template-columns: repeat(3, 1fr);">
       <a href="#creators" class="dash-card">
         <div class="dash-card-icon">👥</div>
         <h3>크리에이터 관리</h3>
@@ -306,6 +396,12 @@
         <h3>레퍼런스 관리</h3>
         <p>레퍼런스 페이지에 표시되는 프로젝트·캠페인 카드를 등록·수정합니다.</p>
         <div class="dash-count">현재 등록: <strong id="refsCount">—</strong></div>
+      </a>
+      <a href="#data" class="dash-card">
+        <div class="dash-card-icon">📊</div>
+        <h3>데이터 뷰어</h3>
+        <p>Supabase DB의 모든 테이블 row를 검색·정렬·페이지징으로 미러링해서 봅니다.</p>
+        <div class="dash-count">테이블: <strong id="tablesCount">2개</strong></div>
       </a>
     </div>
   </div>
@@ -588,6 +684,60 @@ create policy "auth all references"
     </div>
   </div><!-- /section-references -->
 
+  <!-- ━━━━━━━━━━━━━ DATA VIEWER 섹션 ━━━━━━━━━━━━━ -->
+  <div class="admin-section" id="section-data" style="display:none;">
+    <button class="back-to-dash" onclick="location.hash=''">← 대시보드로</button>
+    <div class="admin-head">
+      <div>
+        <h1>데이터 뷰어</h1>
+        <p class="sub">Supabase DB의 모든 테이블 row를 미러링합니다. 읽기 전용 — 수정은 각 관리 화면에서.</p>
+      </div>
+      <div class="admin-user">
+        <span>로그인:</span>
+        <span class="who" id="userEmailData">—</span>
+        <button class="btn-logout" id="logoutBtnData">로그아웃</button>
+      </div>
+    </div>
+
+    <!-- 툴바: 테이블 선택 / 검색 / 정렬 / 새로고침 -->
+    <div class="data-toolbar">
+      <span class="toolbar-label">테이블</span>
+      <select id="dataTable">
+        <option value="creators">creators</option>
+        <option value="references">references</option>
+      </select>
+      <input type="text" class="search-input" id="dataSearch" placeholder="🔍 키워드로 검색 (모든 텍스트 컬럼)">
+      <span class="toolbar-label">페이지</span>
+      <select id="dataPageSize">
+        <option value="10">10건</option>
+        <option value="25" selected>25건</option>
+        <option value="50">50건</option>
+        <option value="100">100건</option>
+      </select>
+      <div class="right">
+        <button class="refresh-btn" id="dataRefresh">↻ 새로고침</button>
+      </div>
+    </div>
+
+    <!-- 스키마 정보 -->
+    <div class="schema-info" id="schemaInfo">
+      <div>테이블: <strong id="schemaName">—</strong> · <span id="schemaCount">—</span></div>
+      <div style="margin-top:8px;" id="schemaCols">—</div>
+    </div>
+
+    <!-- 테이블 -->
+    <div class="data-table-wrap">
+      <div class="data-table-scroll" id="dataTableScroll">
+        <div class="loading">불러오는 중…</div>
+      </div>
+      <div class="data-pager" id="dataPager" style="display:none;">
+        <button id="dataPagerPrev">← 이전</button>
+        <span class="page-info" id="dataPagerInfo">—</span>
+        <button id="dataPagerNext">다음 →</button>
+      </div>
+    </div>
+  </div><!-- /section-data -->
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -600,12 +750,12 @@ create policy "auth all references"
   const { data: { session } } = await sb.auth.getSession();
   if (!session) { location.href = 'login.html'; return; }
   document.getElementById('userEmail').textContent = session.user.email;
-  ['userEmailDash','userEmailRef'].forEach(function(id){
+  ['userEmailDash','userEmailRef','userEmailData'].forEach(function(id){
     var el = document.getElementById(id); if (el) el.textContent = session.user.email;
   });
 
   async function doLogout(){ await sb.auth.signOut(); location.href = 'login.html'; }
-  ['logoutBtn','logoutBtnDash','logoutBtnRef'].forEach(function(id){
+  ['logoutBtn','logoutBtnDash','logoutBtnRef','logoutBtnData'].forEach(function(id){
     var el = document.getElementById(id); if (el) el.addEventListener('click', doLogout);
   });
 
@@ -892,8 +1042,10 @@ create policy "auth all references"
       '': 'section-dashboard',
       '#': 'section-dashboard',
       '#creators': 'section-creators',
-      '#references': 'section-references'
+      '#references': 'section-references',
+      '#data': 'section-data'
     };
+    if (hash === '#data') { setTimeout(initDataViewer, 50); }
     var targetId = map[hash] || 'section-dashboard';
     document.querySelectorAll('.admin-section').forEach(function(s){
       s.style.display = s.id === targetId ? '' : 'none';
@@ -1044,6 +1196,152 @@ create policy "auth all references"
     resetRefForm();
     loadReferences();
   });
+
+  // ━━━━━━━━━━━━━ DATA VIEWER (Sprint 9) ━━━━━━━━━━━━━
+  // 테이블별 컬럼 + 검색 가능 컬럼 정의
+  var DATA_SCHEMAS = {
+    creators: {
+      cols: ['id','name','handle','platform','category','photo_url','is_active','display_order','created_at'],
+      types: { id:'id', is_active:'bool', display_order:'num', created_at:'date', photo_url:'img' },
+      searchCols: ['name','handle','platform','category']
+    },
+    references: {
+      cols: ['id','category','title','client','result_text','tags','image_url','is_active','display_order','created_at'],
+      types: { id:'id', is_active:'bool', display_order:'num', created_at:'date', image_url:'img' },
+      searchCols: ['title','client','result_text','tags','category']
+    }
+  };
+
+  var dvState = { table: 'creators', search: '', pageSize: 25, page: 0, sortCol: 'created_at', sortDir: 'desc', initialized: false };
+
+  function fmtCell(val, type){
+    if (val === null || val === undefined || val === '') return '<span class="cell-null">—</span>';
+    if (type === 'bool') return val
+      ? '<span class="cell-bool-true">✓ true</span>'
+      : '<span class="cell-bool-false">false</span>';
+    if (type === 'date') {
+      var d = new Date(val);
+      if (isNaN(d)) return escapeHtml(String(val));
+      return d.toISOString().replace('T',' ').slice(0,16);
+    }
+    if (type === 'id') return escapeHtml(String(val).slice(0,8)) + '…';
+    if (type === 'img') return '<img src="'+escapeHtml(val)+'" class="cell-img" onerror="this.style.display=\'none\'"> <a href="'+escapeHtml(val)+'" target="_blank" class="cell-link">view</a>';
+    var s = String(val);
+    if (s.length > 60) return escapeHtml(s.slice(0,57)) + '…';
+    return escapeHtml(s);
+  }
+  function cellClass(type){
+    if (type === 'id') return ' class="cell-id"';
+    if (type === 'date') return ' class="cell-date"';
+    return '';
+  }
+
+  async function dvLoad(){
+    var scroll = document.getElementById('dataTableScroll');
+    var pager = document.getElementById('dataPager');
+    var schemaName = document.getElementById('schemaName');
+    var schemaCount = document.getElementById('schemaCount');
+    var schemaCols = document.getElementById('schemaCols');
+
+    var schema = DATA_SCHEMAS[dvState.table];
+    schemaName.textContent = 'public.' + dvState.table;
+    schemaCols.innerHTML = schema.cols.map(function(c){
+      var t = schema.types[c] || 'text';
+      return '<span class="col-chip">' + c + '<span class="col-type">'+t+'</span></span>';
+    }).join('');
+
+    scroll.innerHTML = '<div class="loading">불러오는 중…</div>';
+    var q = sb.from(dvState.table).select('*', { count: 'exact' });
+    // 검색 — searchCols 중 하나라도 매치 (or 조건)
+    if (dvState.search && dvState.search.trim()){
+      var s = dvState.search.trim();
+      var orExpr = schema.searchCols.map(function(c){ return c + '.ilike.%' + s.replace(/[%,]/g,'') + '%'; }).join(',');
+      q = q.or(orExpr);
+    }
+    // 정렬
+    q = q.order(dvState.sortCol, { ascending: dvState.sortDir === 'asc' });
+    // 페이지징
+    var from = dvState.page * dvState.pageSize;
+    var to = from + dvState.pageSize - 1;
+    q = q.range(from, to);
+
+    var res = await q;
+    if (res.error){
+      scroll.innerHTML = '<div class="loading">에러: ' + escapeHtml(res.error.message) + '</div>';
+      pager.style.display = 'none';
+      schemaCount.textContent = '—';
+      return;
+    }
+    var rows = res.data || [];
+    var total = res.count != null ? res.count : rows.length;
+    schemaCount.textContent = '총 ' + total + ' rows';
+
+    if (rows.length === 0){
+      scroll.innerHTML = '<div class="loading">검색 결과 없음.</div>';
+      pager.style.display = 'none';
+      return;
+    }
+
+    // 헤더 — schema.cols 기준 (실제 row 키만 보장)
+    var thead = '<thead><tr>' + schema.cols.map(function(c){
+      var sortCls = c === dvState.sortCol ? (dvState.sortDir === 'asc' ? ' class="sorted-asc"' : ' class="sorted-desc"') : '';
+      return '<th'+sortCls+' data-col="'+c+'">'+c+'</th>';
+    }).join('') + '</tr></thead>';
+    var tbody = '<tbody>' + rows.map(function(r){
+      return '<tr>' + schema.cols.map(function(c){
+        var t = schema.types[c];
+        return '<td'+cellClass(t)+'>' + fmtCell(r[c], t) + '</td>';
+      }).join('') + '</tr>';
+    }).join('') + '</tbody>';
+    scroll.innerHTML = '<table class="data-table">' + thead + tbody + '</table>';
+
+    // 헤더 정렬 클릭
+    scroll.querySelectorAll('th[data-col]').forEach(function(th){
+      th.addEventListener('click', function(){
+        var col = th.dataset.col;
+        if (dvState.sortCol === col) { dvState.sortDir = dvState.sortDir === 'asc' ? 'desc' : 'asc'; }
+        else { dvState.sortCol = col; dvState.sortDir = 'asc'; }
+        dvState.page = 0;
+        dvLoad();
+      });
+    });
+
+    // 페이지징 UI
+    var totalPages = Math.max(1, Math.ceil(total / dvState.pageSize));
+    document.getElementById('dataPagerInfo').textContent = (dvState.page + 1) + ' / ' + totalPages + ' page  ·  ' + (from+1) + '~' + Math.min(to+1, total) + ' / ' + total;
+    document.getElementById('dataPagerPrev').disabled = dvState.page === 0;
+    document.getElementById('dataPagerNext').disabled = dvState.page >= totalPages - 1;
+    pager.style.display = totalPages > 1 ? '' : 'none';
+  }
+
+  function initDataViewer(){
+    if (dvState.initialized) { dvLoad(); return; }
+    dvState.initialized = true;
+    document.getElementById('dataTable').addEventListener('change', function(e){
+      dvState.table = e.target.value;
+      dvState.sortCol = 'created_at'; dvState.sortDir = 'desc'; dvState.page = 0;
+      dvLoad();
+    });
+    var searchTimer;
+    document.getElementById('dataSearch').addEventListener('input', function(e){
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(function(){
+        dvState.search = e.target.value;
+        dvState.page = 0;
+        dvLoad();
+      }, 300);
+    });
+    document.getElementById('dataPageSize').addEventListener('change', function(e){
+      dvState.pageSize = parseInt(e.target.value, 10);
+      dvState.page = 0;
+      dvLoad();
+    });
+    document.getElementById('dataRefresh').addEventListener('click', function(){ dvLoad(); });
+    document.getElementById('dataPagerPrev').addEventListener('click', function(){ if (dvState.page>0){dvState.page--; dvLoad();} });
+    document.getElementById('dataPagerNext').addEventListener('click', function(){ dvState.page++; dvLoad(); });
+    dvLoad();
+  }
+  // showSection이 #data일 때 initDataViewer 호출
 
   // 초기 로드
   loadCreators();
