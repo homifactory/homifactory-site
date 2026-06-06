@@ -187,6 +187,79 @@
       .form-grid { grid-template-columns: 1fr; }
       .creators-table .col-cat { display: none; }
     }
+
+    /* SPRINT 8 — 대시보드 메뉴 카드 */
+    .dash-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px; margin-top: 32px;
+    }
+    .dash-card {
+      display: block; cursor: pointer; text-decoration: none; color: inherit;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 32px;
+      transition: all 0.3s ease;
+      position: relative; overflow: hidden;
+    }
+    .dash-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--pink);
+      box-shadow: 0 20px 60px -20px rgba(253,1,81,0.2);
+    }
+    .dash-card::after {
+      content: '→'; position: absolute; right: 32px; top: 36px;
+      font-size: 24px; color: var(--muted);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .dash-card:hover::after { color: var(--pink); transform: translateX(6px); }
+    .dash-card-icon { font-size: 32px; margin-bottom: 18px; }
+    .dash-card h3 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 22px; letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .dash-card p { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
+    .dash-card .dash-count {
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 11px; letter-spacing: 0.08em;
+      color: var(--muted); text-transform: uppercase;
+    }
+    .dash-card .dash-count strong { color: var(--text); font-weight: 700; font-size: 13px; }
+    @media (max-width: 768px) { .dash-grid { grid-template-columns: 1fr; } }
+
+    /* 백 버튼 */
+    .back-to-dash {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--text2); text-decoration: none;
+      margin-bottom: 16px;
+      padding: 6px 14px; border-radius: 100px;
+      border: 1px solid var(--border); background: transparent;
+      cursor: pointer; font-family: var(--font-body);
+      transition: all 0.2s;
+    }
+    .back-to-dash:hover { border-color: var(--text2); color: var(--text); }
+
+    /* 레퍼런스 카테고리 닷 */
+    .ref-cat-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .ref-cat-sns { background: #00f4e9; }
+    .ref-cat-mgt { background: #6a4cb6; }
+    .ref-cat-live { background: #fd0151; }
+    .ref-cat-perf { background: #e25555; }
+    .ref-cat-content { background: #a37a17; }
+
+    /* 테이블 없음 안내 */
+    .setup-warn {
+      background: rgba(253,1,81,0.06); border: 1px solid rgba(253,1,81,0.2);
+      border-radius: 12px; padding: 20px 22px; margin-bottom: 20px;
+    }
+    .setup-warn h4 { font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--pink); }
+    .setup-warn p { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 12px; }
+    .setup-warn pre {
+      background: #1a1a1a; color: #e8e8e8; padding: 14px 16px;
+      border-radius: 8px; font-size: 11.5px; line-height: 1.6;
+      overflow-x: auto; font-family: 'Space Grotesk', monospace;
+      white-space: pre-wrap; word-break: break-word;
+    }
   </style>
 </head>
 <body>
@@ -207,6 +280,39 @@
 </nav>
 
 <main class="admin-shell">
+
+  <!-- ━━━━━━━━━━━━━ DASHBOARD 메인 화면 ━━━━━━━━━━━━━ -->
+  <div class="admin-section" id="section-dashboard">
+    <div class="admin-head">
+      <div>
+        <h1>관리자 대시보드</h1>
+        <p class="sub">관리할 항목을 선택하세요.</p>
+      </div>
+      <div class="admin-user">
+        <span>로그인:</span>
+        <span class="who" id="userEmailDash">—</span>
+        <button class="btn-logout" id="logoutBtnDash">로그아웃</button>
+      </div>
+    </div>
+    <div class="dash-grid">
+      <a href="#creators" class="dash-card">
+        <div class="dash-card-icon">👥</div>
+        <h3>크리에이터 관리</h3>
+        <p>회사소개 페이지에 표시되는 우리 크리에이터 카드를 등록·수정합니다.</p>
+        <div class="dash-count">현재 등록: <strong id="creatorsCount">—</strong></div>
+      </a>
+      <a href="#references" class="dash-card">
+        <div class="dash-card-icon">📁</div>
+        <h3>레퍼런스 관리</h3>
+        <p>레퍼런스 페이지에 표시되는 프로젝트·캠페인 카드를 등록·수정합니다.</p>
+        <div class="dash-count">현재 등록: <strong id="refsCount">—</strong></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━ CREATORS 섹션 ━━━━━━━━━━━━━ -->
+  <div class="admin-section" id="section-creators" style="display:none;">
+    <button class="back-to-dash" onclick="location.hash=''">← 대시보드로</button>
   <div class="admin-head">
     <div>
       <h1>크리에이터 관리</h1>
@@ -377,6 +483,111 @@
   <div id="creatorsList">
     <div class="loading">불러오는 중…</div>
   </div>
+  </div><!-- /section-creators -->
+
+  <!-- ━━━━━━━━━━━━━ REFERENCES 섹션 ━━━━━━━━━━━━━ -->
+  <div class="admin-section" id="section-references" style="display:none;">
+    <button class="back-to-dash" onclick="location.hash=''">← 대시보드로</button>
+    <div class="admin-head">
+      <div>
+        <h1>레퍼런스 관리</h1>
+        <p class="sub">레퍼런스 페이지에 표시되는 프로젝트·캠페인 카드를 등록·수정합니다.</p>
+      </div>
+      <div class="admin-user">
+        <span>로그인:</span>
+        <span class="who" id="userEmailRef">—</span>
+        <button class="btn-logout" id="logoutBtnRef">로그아웃</button>
+      </div>
+    </div>
+
+    <!-- DB 미설정 안내 (테이블 없을 때만 표시) -->
+    <div class="setup-warn" id="refSetupWarn" style="display:none;">
+      <h4>⚠️ Supabase 'references' 테이블이 아직 없어요</h4>
+      <p>호성님 Supabase 콘솔(SQL Editor)에서 아래 SQL을 한 번만 실행하시면 됩니다. 그 후 새로고침하면 폼이 활성화됩니다.</p>
+      <pre id="refSetupSql">create table if not exists public.references (
+  id uuid primary key default gen_random_uuid(),
+  category text not null check (category in ('sns','mgt','live','perf','content')),
+  title text not null,
+  client text,
+  result_text text,
+  tags text,
+  image_url text,
+  is_active boolean default true,
+  display_order int default 100,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+alter table public.references enable row level security;
+
+create policy "public read references"
+  on public.references for select using (true);
+
+create policy "auth all references"
+  on public.references for all
+  using (auth.role() = 'authenticated')
+  with check (auth.role() = 'authenticated');</pre>
+    </div>
+
+    <!-- 추가 / 수정 폼 -->
+    <div class="creator-form">
+      <h2 id="refFormTitle">+ 새 레퍼런스 등록</h2>
+      <p class="form-intro">카테고리·제목만 필수입니다. 클라이언트/결과/태그는 카드에 함께 표시됩니다.</p>
+      <form id="refForm">
+        <input type="hidden" id="refEditId">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="ref-category">카테고리 <span class="req">*</span></label>
+            <select id="ref-category" required>
+              <option value="">선택해주세요</option>
+              <option value="sns">SNS 마케팅</option>
+              <option value="mgt">크리에이터 매니지먼트</option>
+              <option value="live">TikTok 라이브</option>
+              <option value="perf">퍼포먼스 섭외</option>
+              <option value="content">콘텐츠 제작</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ref-client">클라이언트 <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="ref-client" type="text" placeholder="예: 외식·푸드 브랜드">
+          </div>
+          <div class="form-group full">
+            <label for="ref-title">제목 <span class="req">*</span></label>
+            <input id="ref-title" type="text" required placeholder="예: 푸드 브랜드 X — 인스타 캠페인 운영">
+          </div>
+          <div class="form-group full">
+            <label for="ref-result">결과 / 성과 <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="ref-result" type="text" placeholder="예: 참여수 +320% / 도달 25만+">
+          </div>
+          <div class="form-group full">
+            <label for="ref-tags">태그 <span style="color:var(--muted);font-weight:400">(쉼표 구분)</span></label>
+            <input id="ref-tags" type="text" placeholder="예: 인스타, 릴스, 국가사업">
+            <p class="form-hint">쉼표로 구분된 키워드는 카드 하단에 #태그 형태로 표시됩니다.</p>
+          </div>
+          <div class="form-group full">
+            <label for="ref-image">이미지 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="ref-image" type="url" placeholder="https://… 카드 썸네일 이미지">
+            <p class="form-hint">비워두면 카테고리별 기본 비주얼(그라데이션 + 카테고리명)이 표시됩니다.</p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-submit" id="refFormSubmit">저장 →</button>
+          <button type="button" class="btn-secondary" id="refFormCancel" style="display:none;">취소</button>
+          <div class="form-msg" id="refFormMsg"></div>
+        </div>
+      </form>
+    </div>
+
+    <!-- 목록 -->
+    <div class="list-head">
+      <h2>등록된 레퍼런스</h2>
+      <span class="list-count" id="refListCount">로딩 중…</span>
+    </div>
+    <div id="refList">
+      <div class="loading">불러오는 중…</div>
+    </div>
+  </div><!-- /section-references -->
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -389,10 +600,13 @@
   const { data: { session } } = await sb.auth.getSession();
   if (!session) { location.href = 'login.html'; return; }
   document.getElementById('userEmail').textContent = session.user.email;
+  ['userEmailDash','userEmailRef'].forEach(function(id){
+    var el = document.getElementById(id); if (el) el.textContent = session.user.email;
+  });
 
-  document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await sb.auth.signOut();
-    location.href = 'login.html';
+  async function doLogout(){ await sb.auth.signOut(); location.href = 'login.html'; }
+  ['logoutBtn','logoutBtnDash','logoutBtnRef'].forEach(function(id){
+    var el = document.getElementById(id); if (el) el.addEventListener('click', doLogout);
   });
 
   // ─── URL → 핸들·플랫폼 추출 ───
@@ -507,6 +721,8 @@
     if (error) { listEl.innerHTML = '<div class="loading">에러: ' + error.message + '</div>'; return; }
     cache = data;
     countEl.textContent = `총 ${data.length}명`;
+    var ccEl = document.getElementById('creatorsCount');
+    if (ccEl) ccEl.textContent = data.length + '명';
     if (data.length === 0) { listEl.innerHTML = '<div class="loading">아직 등록된 크리에이터가 없습니다.</div>'; return; }
 
     const rows = data.map(c => {
@@ -669,8 +885,169 @@
     loadCreators();
   });
 
+  // ━━━━━━━━━━━━━ HASH 라우터 ━━━━━━━━━━━━━
+  function showSection(){
+    var hash = location.hash;
+    var map = {
+      '': 'section-dashboard',
+      '#': 'section-dashboard',
+      '#creators': 'section-creators',
+      '#references': 'section-references'
+    };
+    var targetId = map[hash] || 'section-dashboard';
+    document.querySelectorAll('.admin-section').forEach(function(s){
+      s.style.display = s.id === targetId ? '' : 'none';
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  window.addEventListener('hashchange', showSection);
+  showSection();
+
+  // ━━━━━━━━━━━━━ REFERENCES CRUD ━━━━━━━━━━━━━
+  var refListEl = document.getElementById('refList');
+  var refCountEl = document.getElementById('refListCount');
+  var refsCountDash = document.getElementById('refsCount');
+  var refForm = document.getElementById('refForm');
+  var refSetupWarn = document.getElementById('refSetupWarn');
+  var refFormTitle = document.getElementById('refFormTitle');
+  var refCancelBtn = document.getElementById('refFormCancel');
+  var refCache = [];
+
+  var CATEGORY_LABEL = { sns: 'SNS 마케팅', mgt: '매니지먼트', live: 'TikTok 라이브', perf: '퍼포먼스 섭외', content: '콘텐츠 제작' };
+
+  function showRefMsg(type, text){
+    var m = document.getElementById('refFormMsg');
+    m.className = 'form-msg ' + type;
+    m.textContent = text;
+    if (type === 'success') setTimeout(function(){ m.className = 'form-msg'; m.textContent = ''; }, 3000);
+  }
+
+  async function loadReferences(){
+    refListEl.innerHTML = '<div class="loading">불러오는 중…</div>';
+    var res = await sb.from('references').select('*').order('display_order', { ascending: true }).order('created_at', { ascending: false });
+    if (res.error){
+      var msg = res.error.message || '';
+      // 테이블이 없는 경우 안내 (PostgREST 42P01 또는 message에 'relation' 포함)
+      if (msg.toLowerCase().includes('relation') || msg.includes('does not exist') || res.error.code === '42P01' || res.error.code === 'PGRST205'){
+        refSetupWarn.style.display = '';
+        refListEl.innerHTML = '<div class="loading">테이블 설정 필요 (위 SQL 실행 후 새로고침)</div>';
+        refCountEl.textContent = '—';
+        if (refsCountDash) refsCountDash.textContent = '설정 필요';
+        return;
+      }
+      refListEl.innerHTML = '<div class="loading">에러: ' + escapeHtml(msg) + '</div>';
+      return;
+    }
+    refSetupWarn.style.display = 'none';
+    refCache = res.data || [];
+    refCountEl.textContent = '총 ' + refCache.length + '건';
+    if (refsCountDash) refsCountDash.textContent = refCache.length + '건';
+    if (refCache.length === 0){
+      refListEl.innerHTML = '<div class="loading">아직 등록된 레퍼런스가 없습니다.</div>';
+      return;
+    }
+    var rows = refCache.map(function(r){
+      var dot = 'ref-cat-' + r.category;
+      var label = CATEGORY_LABEL[r.category] || r.category;
+      var badge = r.is_active ? '<span class="badge active">활성</span>' : '<span class="badge inactive">숨김</span>';
+      var thumb = r.image_url
+        ? '<img src="' + escapeHtml(r.image_url) + '" alt="" onerror="this.parentElement.innerHTML=\'📁\'">'
+        : '<span>📁</span>';
+      return '<tr data-id="' + r.id + '">' +
+        '<td class="col-thumb"><div class="thumb">' + thumb + '</div></td>' +
+        '<td>' +
+          '<div class="name">' + escapeHtml(r.title || '') + '</div>' +
+          '<div class="handle">' + (r.client ? escapeHtml(r.client) + ' · ' : '') +
+              '<span class="ref-cat-dot ' + dot + '"></span>' + escapeHtml(label) + '</div>' +
+        '</td>' +
+        '<td class="col-cat">' + escapeHtml(r.result_text || '') + '</td>' +
+        '<td>' + badge + '</td>' +
+        '<td><div class="row-actions">' +
+          '<button class="toggle" data-action="refToggle">' + (r.is_active ? '숨김' : '활성화') + '</button>' +
+          '<button class="edit" data-action="refEdit">수정</button>' +
+          '<button class="delete" data-action="refDelete">삭제</button>' +
+        '</div></td>' +
+      '</tr>';
+    }).join('');
+    refListEl.innerHTML = '<table class="creators-table">' +
+      '<thead><tr><th></th><th>제목·카테고리</th><th class="col-cat">결과</th><th>상태</th><th></th></tr></thead>' +
+      '<tbody>' + rows + '</tbody>' +
+    '</table>';
+    refListEl.querySelectorAll('button[data-action]').forEach(function(btn){
+      btn.addEventListener('click', async function(e){
+        var tr = e.target.closest('tr');
+        var id = tr.dataset.id;
+        var action = btn.dataset.action;
+        if (action === 'refDelete'){
+          if (!confirm('정말 삭제할까요? 되돌릴 수 없습니다.')) return;
+          var d = await sb.from('references').delete().eq('id', id);
+          if (d.error) return alert('삭제 실패: ' + d.error.message);
+          loadReferences();
+        } else if (action === 'refToggle'){
+          var r = refCache.find(function(x){ return x.id === id; });
+          var u = await sb.from('references').update({ is_active: !r.is_active, updated_at: new Date().toISOString() }).eq('id', id);
+          if (u.error) return alert('변경 실패: ' + u.error.message);
+          loadReferences();
+        } else if (action === 'refEdit'){
+          var r2 = refCache.find(function(x){ return x.id === id; });
+          startRefEdit(r2);
+        }
+      });
+    });
+  }
+
+  function resetRefForm(){
+    refForm.reset();
+    document.getElementById('refEditId').value = '';
+    refFormTitle.textContent = '+ 새 레퍼런스 등록';
+    refCancelBtn.style.display = 'none';
+  }
+  function startRefEdit(r){
+    document.getElementById('refEditId').value = r.id;
+    document.getElementById('ref-category').value = r.category || '';
+    document.getElementById('ref-client').value = r.client || '';
+    document.getElementById('ref-title').value = r.title || '';
+    document.getElementById('ref-result').value = r.result_text || '';
+    document.getElementById('ref-tags').value = r.tags || '';
+    document.getElementById('ref-image').value = r.image_url || '';
+    refFormTitle.textContent = '✎ 수정 — ' + (r.title || '');
+    refCancelBtn.style.display = 'inline-flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  refCancelBtn.addEventListener('click', resetRefForm);
+
+  refForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var submitBtn = document.getElementById('refFormSubmit');
+    submitBtn.disabled = true; submitBtn.textContent = '저장 중...';
+    var editId = document.getElementById('refEditId').value;
+    var payload = {
+      category: document.getElementById('ref-category').value,
+      client: document.getElementById('ref-client').value.trim() || null,
+      title: document.getElementById('ref-title').value.trim(),
+      result_text: document.getElementById('ref-result').value.trim() || null,
+      tags: document.getElementById('ref-tags').value.trim() || null,
+      image_url: document.getElementById('ref-image').value.trim() || null,
+      is_active: true,
+      updated_at: new Date().toISOString()
+    };
+    if (!editId){
+      var maxRow = await sb.from('references').select('display_order').order('display_order', { ascending: false }).limit(1).maybeSingle();
+      payload.display_order = ((maxRow.data && maxRow.data.display_order) || 0) + 10;
+    }
+    var res2;
+    if (editId) res2 = await sb.from('references').update(payload).eq('id', editId);
+    else res2 = await sb.from('references').insert(payload);
+    submitBtn.disabled = false; submitBtn.textContent = '저장 →';
+    if (res2.error){ showRefMsg('error', '저장 실패: ' + res2.error.message); return; }
+    showRefMsg('success', editId ? '수정 완료' : '등록 완료');
+    resetRefForm();
+    loadReferences();
+  });
+
   // 초기 로드
   loadCreators();
+  loadReferences();
 })();
 </script>
 
