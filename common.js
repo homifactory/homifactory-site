@@ -1,5 +1,48 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v6 · 2026-06-07 — Sprint 11 hot-fix: instant reveal + force hide about-dotnav */
+
+/* ── ABOUT 페이지 크리에이터 마키 fallback (Sprint 12) ──
+   about.html inline script가 race condition으로 실행 안 되는 경우 백업 렌더 */
+(function(){
+  if (!/about/.test(location.pathname)) return;
+  var attempts = 0;
+  function tryRender(){
+    attempts++;
+    var track = document.getElementById('creatorsTrack');
+    if (!track) { if (attempts < 30) setTimeout(tryRender, 200); return; }
+    if (track.children.length > 0) return; // 이미 렌더됨
+    if (!window.HOMI || !window.HOMI.sb) { if (attempts < 30) setTimeout(tryRender, 200); return; }
+    var sb = window.HOMI.sb;
+    sb.from('creators').select('name,handle,platform,profile_url,photo_url,emoji').eq('is_active', true).order('display_order', { ascending: true }).then(function(r){
+      if (!r.data || r.data.length === 0) {
+        track.innerHTML = '<p style="padding:40px;color:#aaa;font-size:14px;">크리에이터를 불러올 수 없습니다.</p>';
+        return;
+      }
+      if (track.children.length > 0) return; // 동시 렌더 방지
+      function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+      function cardHtml(c){
+        var url = c.profile_url || '#';
+        var fallback = esc(c.emoji || '✨');
+        var inner = c.photo_url
+          ? '<img src="'+esc(c.photo_url)+'" alt="'+esc(c.name)+'" onerror="this.parentElement.innerHTML=\''+fallback+'\'">'
+          : fallback;
+        var plat = (c.platform||'').toUpperCase();
+        return '<a href="'+esc(url)+'" target="_blank" rel="noopener" class="creator-card">'+
+          '<div class="creator-photo">'+inner+'</div>'+
+          '<div class="creator-name">'+esc(c.name)+'</div>'+
+          '<div class="creator-handle">@'+esc(c.handle||'')+' · '+plat+'</div>'+
+        '</a>';
+      }
+      track.innerHTML = r.data.map(cardHtml).join('') + r.data.map(cardHtml).join('');
+    }).catch(function(){});
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(tryRender, 500); });
+  } else {
+    setTimeout(tryRender, 500);
+  }
+})();
+
+/* v8 · 2026-06-07 — Sprint 12: about creator marquee fallback render */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
