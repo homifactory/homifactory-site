@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
 
+  <!-- Sprint 11 critical fix: about-dotnav 강제 hide (회색 띠 가림 문제) -->
+  <style id="hot-fix-dotnav">
+    .about-dotnav, #aboutDotNav { display: none !important; visibility: hidden !important; opacity: 0 !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  </style>
+
   <!-- Google Analytics 4 (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
   <script>
@@ -516,6 +522,8 @@
       opacity: 1; transform: translateY(-50%) translateX(-4px);
     }
     @media (max-width: 900px) { .about-dotnav { display: none; } }
+    /* Sprint 11 hot-fix: dotnav가 background+blur로 가로 띠 되어 콘텐츠 가림 — 전부 hide */
+    .about-dotnav { display: none !important; }
 
     /* CTA */
     .cta-section {
@@ -846,7 +854,7 @@
   </div>
 </footer>
 
-<script src="common.js?v=5"></script>
+<script src="common.js?v=6"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=1"></script>
 <script>
@@ -872,7 +880,4 @@
       ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}" onerror="this.parentElement.innerHTML='${fallback}'">`
       : fallback;
     return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="creator-card">
-      <div class="creator-photo">${inner}</div>
-      <div class="creator-info">
-        <div class="creator-name">${escapeHtml(c.name)}</div>
-        <div class="c                                  
+      <div class="creator-photo">${inner}
