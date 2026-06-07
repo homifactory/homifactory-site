@@ -1,5 +1,5 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v4 · 2026-06-07 — Sprint 11 reveal fix (inline !important + safety net) */
+/* v5 · 2026-06-07 — Sprint 11 hot-fix: instant reveal display */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
@@ -40,23 +40,27 @@
     });
   }
 
-  /* ── SCROLL REVEAL ── (Sprint 11 fix: inline + !important로 specificity override 강제) */
+  /* ── SCROLL REVEAL ── (Sprint 11 hot-fix: 즉시 표시 — UI 깨짐 완전 차단) */
   function revealEl(el){
     el.classList.add('visible');
     el.style.setProperty('opacity', '1', 'important');
     el.style.setProperty('transform', 'none', 'important');
   }
-  const ro = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { revealEl(e.target); ro.unobserve(e.target); }
-  }), { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-  // SAFETY NET — 1.5s 후 viewport 근처 reveal 강제 표시 (IO 미작동 대비)
-  setTimeout(function(){
-    document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 200) revealEl(el);
+  // 페이지 로드 즉시 모든 reveal 표시 (스크롤 fade-in 효과 포기, 대신 100% 표시 보장)
+  document.querySelectorAll('.reveal').forEach(revealEl);
+  // 동적 추가 element 대비 — MutationObserver
+  try {
+    var mo = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        m.addedNodes.forEach(function(n){
+          if (n.nodeType !== 1) return;
+          if (n.classList && n.classList.contains('reveal')) revealEl(n);
+          n.querySelectorAll && n.querySelectorAll('.reveal').forEach(revealEl);
+        });
+      });
     });
-  }, 1500);
+    mo.observe(document.body, { childList: true, subtree: true });
+  } catch(e){}
 
   /* ── COUNTER ── */
   function runCounter(el) {
