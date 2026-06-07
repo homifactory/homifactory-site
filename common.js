@@ -1,5 +1,5 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v3 · 2026-06-06 — Sprint 10 traffic logging (RPC) */
+/* v4 · 2026-06-07 — Sprint 11 reveal fix (inline !important + safety net) */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
@@ -40,11 +40,23 @@
     });
   }
 
-  /* ── SCROLL REVEAL ── */
+  /* ── SCROLL REVEAL ── (Sprint 11 fix: inline + !important로 specificity override 강제) */
+  function revealEl(el){
+    el.classList.add('visible');
+    el.style.setProperty('opacity', '1', 'important');
+    el.style.setProperty('transform', 'none', 'important');
+  }
   const ro = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
-  }), { threshold: 0.08 });
+    if (e.isIntersecting) { revealEl(e.target); ro.unobserve(e.target); }
+  }), { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  // SAFETY NET — 1.5s 후 viewport 근처 reveal 강제 표시 (IO 미작동 대비)
+  setTimeout(function(){
+    document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 200) revealEl(el);
+    });
+  }, 1500);
 
   /* ── COUNTER ── */
   function runCounter(el) {

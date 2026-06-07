@@ -468,17 +468,13 @@
       .dg-cluster { min-height: 0; padding: 30px 16px; }
     }
 
-    /* SCROLL-SNAP (soft) — about 페이지 전체 부드러운 페이지 단위 스크롤 */
+    /* SCROLL-SNAP 제거 (UI 깨짐 원인) — 부드러운 스크롤만 유지 */
     html { scroll-behavior: smooth; }
-    @media (min-width: 900px) {
-      html { scroll-snap-type: y proximity; }
-      .about-hero,
-      .story-section,
-      .slogan-section,
-      .diagram-section,
-      .values-section,
-      .creators-section,
-      .timeline-section { scroll-snap-align: start; scroll-snap-stop: normal; }
+    /* reveal 안전망 — IntersectionObserver 미동작 시 0.4s 후 강제 표시 */
+    .reveal { animation: revealFallback 0s linear 0.4s forwards; }
+    .reveal.visible { animation: none; }
+    @keyframes revealFallback {
+      to { opacity: 1; transform: none; }
     }
 
     /* DOT NAV — 우측 사이드 페이지 인디케이터 */
@@ -850,7 +846,7 @@
   </div>
 </footer>
 
-<script src="common.js?v=3"></script>
+<script src="common.js?v=4"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=1"></script>
 <script>
@@ -879,4 +875,4 @@
       <div class="creator-photo">${inner}</div>
       <div class="creator-info">
         <div class="creator-name">${escapeHtml(c.name)}</div>
-        <div class="c
+        <div class="c                                  
