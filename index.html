@@ -1910,7 +1910,7 @@
   </div>
 </div>
 
-<script src="common.js?v=5"></script>
+<script src="common.js?v=7"></script>
 <script>
 /* ── INDEX-ONLY SCRIPTS ── */
 /* Side dot nav */
@@ -1951,6 +1951,8 @@ function scramble(el) {
   }, 40);
 }
 setTimeout(() => { document.querySelectorAll('.scramble').forEach(el => scramble(el)); }, 400);
+// Sprint 11 safety: 2초 후 원래 텍스트 강제 — scramble JS가 stuck 되어도 안전
+setTimeout(() => { document.querySelectorAll('.scramble').forEach(el => { if (el.dataset.text) el.textContent = el.dataset.text; }); }, 2000);
 
 /* FAQ — 각 항목 독립 토글 (다른 항목 자동 닫힘 없음) */
 document.querySelectorAll('.faq-q').forEach(q => {

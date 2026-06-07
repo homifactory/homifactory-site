@@ -1,5 +1,5 @@
 /* ========= 호미팩토리 공통 JS ========= */
-/* v5 · 2026-06-07 — Sprint 11 hot-fix: instant reveal display */
+/* v6 · 2026-06-07 — Sprint 11 hot-fix: instant reveal + force hide about-dotnav */
 
 (function(){
   /* ── CUSTOM CURSOR ── */
@@ -39,6 +39,14 @@
       mnav.classList.toggle('open');
     });
   }
+
+  /* ── ABOUT DOTNAV 강제 hide (Sprint 11 — 콘텐츠 가리는 가로 띠 차단) ── */
+  document.querySelectorAll('.about-dotnav, #aboutDotNav').forEach(function(el){
+    el.style.setProperty('display', 'none', 'important');
+    el.style.setProperty('background', 'transparent', 'important');
+    el.style.setProperty('backdrop-filter', 'none', 'important');
+    el.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+  });
 
   /* ── SCROLL REVEAL ── (Sprint 11 hot-fix: 즉시 표시 — UI 깨짐 완전 차단) */
   function revealEl(el){
