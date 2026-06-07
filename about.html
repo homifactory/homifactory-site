@@ -861,7 +861,14 @@
 /* about.html — DB에서 활성 크리에이터 가져와 마키 트랙에 렌더 */
 (async () => {
   const track = document.getElementById('creatorsTrack');
-  if (!track || !window.HOMI) return;
+  if (!track) return;
+  // Sprint 12 fix: window.HOMI 정의될 때까지 대기 (supabase-config.js 비동기 로드 대비)
+  let tries = 0;
+  while (!window.HOMI && tries < 30) { await new Promise(r => setTimeout(r, 100)); tries++; }
+  if (!window.HOMI) {
+    track.innerHTML = '<p style="padding:40px;color:#aaa;font-size:14px;">크리에이터 데이터 로딩 실패 (Supabase 연결).</p>';
+    return;
+  }
   const { sb } = window.HOMI;
   const { data, error } = await sb
     .from('creators')
