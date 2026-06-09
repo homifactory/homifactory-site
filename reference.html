@@ -522,17 +522,18 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js?v=1"></script>
 <script src="common.js?v=8"></script>
 <script>
   /* Reference Filter — URL hash 지원 (홈 dept-detail-btn에서 진입 가능) */
   const chips = document.querySelectorAll('.ref-chip');
-  const cards = document.querySelectorAll('.ref-card');
   const validTypes = ['all','sns','mgt','live','perf','content'];
 
   function applyFilter(type, scroll) {
     if (!validTypes.includes(type)) type = 'all';
     chips.forEach(c => c.classList.toggle('active', c.dataset.type === type));
-    cards.forEach(card => {
+    document.querySelectorAll('.ref-card').forEach(card => {
       const match = type === 'all' || card.dataset.type === type;
       card.classList.toggle('hidden', !match);
     });
@@ -559,6 +560,60 @@
   }
   fromHash();
   window.addEventListener('hashchange', fromHash);
+
+  /* Sprint 13 — DB에서 활성 레퍼런스 가져와서 grid 맨 앞에 prepend */
+  (async () => {
+    let tries = 0;
+    while (!window.HOMI && tries < 30) { await new Promise(r => setTimeout(r, 100)); tries++; }
+    if (!window.HOMI || !window.HOMI.sb) return;
+    const sb = window.HOMI.sb;
+    const r = await sb.from('references').select('*').eq('is_active', true).order('display_order', { ascending: true });
+    if (r.error || !r.data || r.data.length === 0) return;
+    const grid = document.querySelector('.ref-grid');
+    if (!grid) return;
+    const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const typeLabel = { sns: 'SNS Marketing', mgt: 'Management', live: 'TikTok Live', perf: 'Performance', content: 'Content' };
+    const visualText = { sns: 'VIRAL', mgt: 'ARTIST', live: 'LIVE', perf: 'EVENT', content: 'STUDIO' };
+    function isVideo(url){ return /\.(mp4|webm|mov|m4v|ogv)(\?|$)/i.test(url||''); }
+    const cardsHtml = r.data.map(c => {
+      const t = c.category || 'sns';
+      let mediaHtml = '';
+      if (c.image_url) {
+        if (isVideo(c.image_url)) {
+          mediaHtml = `<video src="${esc(c.image_url)}" autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>`;
+        } else {
+          mediaHtml = `<img src="${esc(c.image_url)}" alt="${esc(c.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">`;
+        }
+      }
+      // tags → KPI 형태
+      let tagsHtml = '';
+      if (c.tags) {
+        const tagList = c.tags.split(/[,\s]+/).map(s => s.trim()).filter(Boolean).slice(0, 3);
+        if (tagList.length) {
+          tagsHtml = '<div class="ref-kpis">' + tagList.map(tag => `<div><div class="ref-kpi-num">#</div><div class="ref-kpi-label">${esc(tag)}</div></div>`).join('') + '</div>';
+        }
+      }
+      // result_text — desc로 표시
+      const descHtml = c.result_text ? `<p class="ref-desc">${esc(c.result_text)}</p>` : '';
+      return `<div class="ref-card type-${esc(t)}" data-type="${esc(t)}">
+        <div class="ref-visual" style="position:relative;overflow:hidden;">
+          ${mediaHtml}
+          <div class="ref-tag-over" style="position:relative;z-index:2;">${esc(typeLabel[t] || t)}</div>
+          ${mediaHtml ? '' : esc(visualText[t] || 'VIEW')}
+        </div>
+        <div class="ref-body">
+          ${c.client ? `<div class="ref-client">${esc(c.client)}</div>` : ''}
+          <h3 class="ref-title">${esc(c.title || '')}</h3>
+          ${descHtml}
+          ${tagsHtml}
+        </div>
+      </div>`;
+    }).join('');
+    grid.insertAdjacentHTML('afterbegin', cardsHtml);
+    // 현재 필터 재적용
+    const active = document.querySelector('.ref-chip.active');
+    if (active) applyFilter(active.dataset.type, false);
+  })();
 </script>
 </body>
 </html>

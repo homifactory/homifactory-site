@@ -730,8 +730,13 @@ create policy "auth all references"
             <p class="form-hint">쉼표로 구분된 키워드는 카드 하단에 #태그 형태로 표시됩니다.</p>
           </div>
           <div class="form-group full">
-            <label for="ref-image">이미지 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
-            <input id="ref-image" type="url" placeholder="https://… 카드 썸네일 이미지">
+            <label for="ref-image-file">📷 사진/영상 업로드 <span style="color:var(--muted);font-weight:400">(가장 안정적)</span></label>
+            <input id="ref-image-file" type="file" accept="image/*,video/*" style="padding:8px;">
+            <p class="form-hint">JPG / PNG / WebP / MP4 / WebM 등 → Supabase Storage에 자동 업로드 + 영구 저장.<br>업로드 시 아래 URL은 무시됩니다.</p>
+          </div>
+          <div class="form-group full">
+            <label for="ref-image">또는 미디어 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="ref-image" type="url" placeholder="https://… 직접 호스팅한 미디어 URL">
             <p class="form-hint">비워두면 카테고리별 기본 비주얼(그라데이션 + 카테고리명)이 표시됩니다.</p>
           </div>
         </div>
@@ -1291,13 +1296,37 @@ create policy "auth all references"
     var submitBtn = document.getElementById('refFormSubmit');
     submitBtn.disabled = true; submitBtn.textContent = '저장 중...';
     var editId = document.getElementById('refEditId').value;
+
+    // Sprint 13: 파일 업로드 처리 (우선순위: 파일 > URL)
+    var imageUrl = document.getElementById('ref-image').value.trim() || null;
+    var fileInput = document.getElementById('ref-image-file');
+    if (fileInput && fileInput.files && fileInput.files[0]) {
+      submitBtn.textContent = '미디어 업로드 중...';
+      var file = fileInput.files[0];
+      var ext = (file.name.split('.').pop() || 'jpg').toLowerCase();
+      var path = 'ref_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8) + '.' + ext;
+      var up = await sb.storage.from('reference-media').upload(path, file, { upsert: false, contentType: file.type });
+      if (up.error) {
+        var msg = up.error.message || '';
+        if (msg.toLowerCase().includes('bucket') && msg.toLowerCase().includes('not found')) {
+          showRefMsg('error', "Storage 'reference-media' 버킷이 없어요. Supabase 콘솔에서 한 번 SQL 실행 필요 (호성님께 안내됨)");
+        } else {
+          showRefMsg('error', '파일 업로드 실패: ' + msg);
+        }
+        submitBtn.disabled = false; submitBtn.textContent = '저장 →';
+        return;
+      }
+      var pub = sb.storage.from('reference-media').getPublicUrl(path);
+      imageUrl = pub.data.publicUrl;
+    }
+
     var payload = {
       category: document.getElementById('ref-category').value,
       client: document.getElementById('ref-client').value.trim() || null,
       title: document.getElementById('ref-title').value.trim(),
       result_text: document.getElementById('ref-result').value.trim() || null,
       tags: document.getElementById('ref-tags').value.trim() || null,
-      image_url: document.getElementById('ref-image').value.trim() || null,
+      image_url: imageUrl,
       is_active: true,
       updated_at: new Date().toISOString()
     };
