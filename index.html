@@ -465,6 +465,236 @@
     .faq-item.open .faq-q { padding-left: 20px; }
     .faq-item.open .faq-icon { transform: rotate(135deg); }
 
+    /* B1 — 시적·감성 슬로건 (brandtine 벤치마킹) */
+    .hero-slogan-en {
+      font-family: 'Instrument Serif', 'Bricolage Grotesque', serif;
+      font-style: italic;
+      font-size: clamp(16px, 1.8vw, 22px);
+      color: var(--pink);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+    }
+
+    /* B10 — Hero 미니 즉시 신청 폼 (hawaiilabel 벤치마킹) */
+    .hero-mini-form {
+      margin-top: 28px;
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      max-width: 720px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
+    }
+    .hero-mini-form .mini-eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--pink); font-weight: 700;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+    .hero-mini-form input, .hero-mini-form select {
+      flex: 1; min-width: 120px;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hero-mini-form input:focus, .hero-mini-form select:focus {
+      border-color: var(--pink);
+    }
+    .hero-mini-form button {
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: var(--text);
+      color: #fff;
+      border: none;
+      font-weight: 700; font-size: 13px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      font-family: var(--font-body);
+    }
+    .hero-mini-form button:hover { background: var(--pink); transform: translateY(-1px); }
+    @media (max-width: 700px) {
+      .hero-mini-form { flex-direction: column; align-items: stretch; padding: 16px; }
+      .hero-mini-form input, .hero-mini-form select, .hero-mini-form button { width: 100%; }
+    }
+
+    /* B6 — 지원 절차 4단계 시각화 (enccorp 벤치마킹) */
+    .process-wrap {
+      max-width: 1280px; margin: 0 auto;
+      padding: 100px 32px;
+      background: linear-gradient(180deg, transparent 0%, var(--surface) 50%, transparent 100%);
+    }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-top: 48px;
+      position: relative;
+    }
+    .process-step {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px 22px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .process-step:hover {
+      transform: translateY(-4px);
+      border-color: var(--pink);
+      box-shadow: 0 18px 50px -18px rgba(253,1,81,0.18);
+    }
+    .process-num {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mint), var(--pink));
+      color: #fff; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px; letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+    .process-step h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 17px; font-weight: 700;
+      letter-spacing: -0.01em; line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 12.5px; color: var(--text2);
+      line-height: 1.7;
+    }
+    .process-step .step-time {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10.5px; letter-spacing: 0.06em;
+      color: var(--pink); font-weight: 600;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-wrap { padding: 70px 16px; }
+    }
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    /* B14 — 협업 브랜드 로고 그리드 (onairmodel 벤치마킹) */
+    .brands-wrap {
+      max-width: 1280px; margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .brands-eyebrow {
+      text-align: center;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--pink); text-transform: uppercase;
+      font-weight: 700; margin-bottom: 14px;
+    }
+    .brands-title {
+      text-align: center;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(22px, 2.6vw, 30px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .brands-sub {
+      text-align: center; font-size: 13.5px; color: var(--text2);
+      margin-bottom: 40px; line-height: 1.7;
+    }
+    .brands-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+    }
+    .brand-cell {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 14px;
+      min-height: 92px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+    .brand-cell:hover {
+      border-color: var(--pink);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -12px rgba(253,1,81,0.15);
+    }
+    .brand-cell .brand-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .brand-cell .brand-cat {
+      display: block;
+      font-size: 9.5px; letter-spacing: 0.12em;
+      color: var(--muted); font-weight: 500;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    @media (max-width: 900px) { .brands-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 500px) { .brands-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* B13 — 시적 클로징 카피 (brandtine 벤치마킹) */
+    .closing-wrap {
+      max-width: 1080px; margin: 0 auto;
+      padding: 120px 32px;
+      text-align: center;
+      position: relative;
+    }
+    .closing-mark {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 80px;
+      color: var(--pink);
+      line-height: 1;
+      opacity: 0.18;
+      margin-bottom: 12px;
+    }
+    .closing-text {
+      font-family: 'Bricolage Grotesque','Pretendard', sans-serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.5;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .closing-text .hl {
+      background: linear-gradient(180deg, transparent 65%, rgba(253,1,81,0.18) 65%);
+      padding: 0 4px;
+    }
+    .closing-text .pink { color: var(--pink); }
+    .closing-sub {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(15px, 1.5vw, 19px);
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+    .closing-sign {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--muted); text-transform: uppercase;
+      font-weight: 700;
+    }
+    .closing-sign::before, .closing-sign::after {
+      content: ''; display: inline-block;
+      width: 40px; height: 1px; background: var(--border);
+    }
+    @media (max-width: 700px) {
+      .closing-wrap { padding: 80px 20px; }
+      .closing-mark { font-size: 56px; }
+    }
+
     /* T1 — 활동 플랫폼 아이콘 그리드 (trendwave 벤치마킹) */
     .platforms-wrap {
       max-width: 1280px; margin: 0 auto;
@@ -1240,8 +1470,28 @@
         <span class="arrow">→</span>
       </a>
     </div>
+
+    <!-- B10 — Hero 미니 즉시 신청 폼 (hawaiilabel 벤치마킹) -->
+    <form class="hero-mini-form" id="heroMiniForm" action="https://formsubmit.co/contact@homifactory.com" method="POST">
+      <span class="mini-eyebrow">⚡ 1분 즉시 신청</span>
+      <input type="text" name="name" placeholder="이름" required>
+      <input type="text" name="contact" placeholder="연락처 또는 이메일" required>
+      <select name="type" required>
+        <option value="">관심 분야</option>
+        <option value="brand">📃 브랜드 제휴</option>
+        <option value="creator">💌 크리에이터 합류</option>
+        <option value="live">🎙 TikTok Live</option>
+        <option value="other">기타</option>
+      </select>
+      <input type="hidden" name="_subject" value="[호미팩토리] 미니 폼 신청">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.homifactory.com/?sent=1">
+      <button type="submit">신청 →</button>
+    </form>
     <div class="hero-bottom">
       <div class="hero-pitch">
+        <p class="hero-slogan-en">— Where creators rise, brands resonate.</p>
         <p class="hero-headline lang-ko">
           마케팅부터 콘텐츠 제작까지, <span class="hl">One Line</span>으로 연결하세요.
         </p>
@@ -1678,6 +1928,62 @@
   </div>
 </div>
 
+<!-- B14 — 협업 브랜드 로고 그리드 (onairmodel 벤치마킹) -->
+<section class="brands-wrap reveal">
+  <div class="brands-eyebrow">● Trusted Partners</div>
+  <h2 class="brands-title">함께한 브랜드 & 파트너</h2>
+  <p class="brands-sub">패션·뷰티·F&amp;B·뮤직·IT·공공기관까지 다양한 산업에서 호미팩토리를 신뢰합니다.</p>
+  <div class="brands-grid">
+    <div class="brand-cell"><div><div class="brand-name">FASHION</div><span class="brand-cat">Apparel · Style</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">BEAUTY</div><span class="brand-cat">Cosmetic · Skin</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">F&amp;B</div><span class="brand-cat">Food · Beverage</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">MUSIC</div><span class="brand-cat">Label · Artist</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">IT</div><span class="brand-cat">App · Service</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">PUBLIC</div><span class="brand-cat">Gov · Campaign</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">TRAVEL</div><span class="brand-cat">Hotel · Place</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">LIFESTYLE</div><span class="brand-cat">Home · Living</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">E-COMMERCE</div><span class="brand-cat">Brand · Mall</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">ENTERTAIN</div><span class="brand-cat">Event · Show</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">EDUCATION</div><span class="brand-cat">EdTech · Class</span></div></div>
+    <div class="brand-cell"><div><div class="brand-name">WELLNESS</div><span class="brand-cat">Health · Fit</span></div></div>
+  </div>
+</section>
+
+<!-- B6 — 지원 절차 4단계 시각화 (enccorp 벤치마킹) -->
+<section class="process-wrap reveal">
+  <div class="dept-section-header">
+    <div class="dept-section-eyebrow">Application Process</div>
+    <h2 class="dept-section-title">신청부터 합류까지, <span class="hl">단 4단계</span></h2>
+    <p class="dept-section-sub">크리에이터 합류와 브랜드 제휴 모두 동일한 4단계로 빠르고 명확하게 진행됩니다.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <h4>지원 / 문의 접수</h4>
+      <p>홈페이지 폼·이메일·DM 등 편한 채널로 접수. 이름·연락처·관심분야만 알려주시면 됩니다.</p>
+      <span class="step-time">⏱ 1분 내외</span>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <h4>1차 검토 & 회신</h4>
+      <p>담당자가 지원 내용을 검토하고 영업일 기준 1~2일 내에 회신드립니다.</p>
+      <span class="step-time">⏱ 1~2 영업일</span>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <h4>미팅 · 통화</h4>
+      <p>방향성·예산·일정·기대치를 맞추는 1차 미팅 (온라인·오프라인 선택). 맞춤 제안서를 함께 검토합니다.</p>
+      <span class="step-time">⏱ 30~60분</span>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <h4>계약 · 시작</h4>
+      <p>합의된 조건으로 계약 체결 후 즉시 캠페인·활동 시작. 전담 담당자가 끝까지 함께합니다.</p>
+      <span class="step-time">🚀 바로 시작</span>
+    </div>
+  </div>
+</section>
+
 <!-- T3 — 분리형 CTA 카드 2개 (trendwave 벤치마킹) -->
 <section class="split-cta-wrap reveal">
   <div class="split-cta-grid">
@@ -1763,6 +2069,21 @@
 </div>
 
 <!-- FOOTER -->
+<!-- B13 — 시적 클로징 카피 (brandtine 벤치마킹) -->
+<section class="closing-wrap reveal">
+  <div class="closing-mark">"</div>
+  <div class="closing-text">
+    당신의 <span class="pink">시작부터</span> 함께하는 파트너,<br>
+    팬들과 함께 성장하며 세상에 <span class="hl">당신의 이름</span>을<br>
+    각인시키는 여정을 함께합니다.
+  </div>
+  <p class="closing-sub">
+    From the very first frame to viral fame —<br>
+    we design the journey where your name becomes the trend.
+  </p>
+  <div class="closing-sign">— HOMI FACTORY · CONTENT GROWTH ARCHITECTS</div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
