@@ -139,6 +139,46 @@
       to   { transform: translateX(calc(-50% - 12px)); }
     }
 
+    /* T4 — 마키 ↔ 그리드 토글 (trendwave 벤치마킹) */
+    .creators-view-toggle {
+      display: flex; justify-content: center; gap: 8px;
+      margin-bottom: 24px;
+    }
+    .view-toggle-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--border);
+      font-size: 12px; font-weight: 600; color: var(--text2);
+      cursor: pointer; transition: all 0.25s ease;
+      font-family: var(--font-body);
+      letter-spacing: -0.01em;
+    }
+    .view-toggle-btn:hover { border-color: var(--pink); color: var(--pink); }
+    .view-toggle-btn.active {
+      background: var(--text); color: #fff;
+      border-color: var(--text);
+    }
+    /* 그리드 모드 */
+    .creators-track.grid-mode {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: 16px !important;
+      width: 100% !important;
+      animation: none !important;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .creators-track.grid-mode .creator-card { width: 100% !important; flex-shrink: 1 !important; }
+    .creators-marquee.grid-mode {
+      -webkit-mask-image: none !important;
+              mask-image: none !important;
+      overflow: visible !important;
+    }
+    @media (max-width: 1100px) { .creators-track.grid-mode { grid-template-columns: repeat(4, 1fr) !important; } }
+    @media (max-width: 768px) { .creators-track.grid-mode { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; padding: 0 16px; } }
+    @media (max-width: 480px) { .creators-track.grid-mode { grid-template-columns: repeat(2, 1fr) !important; } }
+
     /* "전체 보기" 버튼 */
     .creators-allbtn-wrap { text-align: center; margin-top: 36px; }
     .creators-allbtn {
@@ -733,7 +773,11 @@
     <div class="sec-title">우리 크리에이터</div>
     <p class="creators-sub">호미팩토리와 함께 성장하는 크리에이터들 — 댄스·뷰티·푸드·라이프스타일·트래블까지 다양한 카테고리</p>
   </div>
-  <div class="creators-marquee">
+  <div class="creators-view-toggle reveal">
+    <button type="button" class="view-toggle-btn active" data-view="marquee" id="viewBtnMarquee">🌊 마키 보기</button>
+    <button type="button" class="view-toggle-btn" data-view="grid" id="viewBtnGrid">🔲 그리드 보기</button>
+  </div>
+  <div class="creators-marquee" id="creatorsMarquee">
     <div class="creators-track" id="creatorsTrack">
       <!-- DB에서 동적 렌더 — admin.html에서 추가/수정/삭제 -->
     </div>
@@ -887,4 +931,57 @@
       ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}" onerror="this.parentElement.innerHTML='${fallback}'">`
       : fallback;
     return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="creator-card">
-      <div class="creator-photo">${inner}
+      <div class="creator-photo">${inner}</div>
+      <div class="creator-name">${escapeHtml(c.name)}</div>
+      <div class="creator-handle">@${escapeHtml(c.handle||'')} · ${escapeHtml((c.platform||'').toUpperCase())}</div>
+    </a>`;
+  }
+  // 가로 마키 — 2번 복사 (무한 루프 효과)
+  track.innerHTML = data.map(cardHtml).join('') + data.map(cardHtml).join('');
+})();
+
+/* T4 — 마키 ↔ 그리드 토글 (trendwave 벤치마킹) */
+document.querySelectorAll('.view-toggle-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var view = btn.dataset.view;
+    document.querySelectorAll('.view-toggle-btn').forEach(function(b){
+      b.classList.toggle('active', b === btn);
+    });
+    var track = document.getElementById('creatorsTrack');
+    var marquee = document.getElementById('creatorsMarquee');
+    if (view === 'grid') {
+      track.classList.add('grid-mode');
+      marquee.classList.add('grid-mode');
+      // 그리드 모드일 때 카드 중복 제거 (마키용 복제 X)
+      var allCards = track.querySelectorAll('.creator-card');
+      var half = Math.floor(allCards.length / 2);
+      for (var i = allCards.length - 1; i >= half; i--) allCards[i].style.display = 'none';
+    } else {
+      track.classList.remove('grid-mode');
+      marquee.classList.remove('grid-mode');
+      track.querySelectorAll('.creator-card').forEach(function(c){ c.style.display = ''; });
+    }
+  });
+});
+
+/* 크리에이터 모달 토글 (전체 보기) */
+(function(){
+  var btn = document.getElementById('creatorsAllBtn');
+  var modal = document.getElementById('creatorsModal');
+  if (!btn || !modal) return;
+  btn.addEventListener('click', function(){
+    modal.classList.add('open');
+    modal.style.display = 'flex';
+    setTimeout(function(){ modal.style.opacity = '1'; }, 10);
+  });
+  modal.addEventListener('click', function(e){
+    if (e.target === modal || e.target.matches('[data-cm-close]') || e.target.closest('[data-cm-close]')) {
+      modal.style.opacity = '0';
+      setTimeout(function(){ modal.style.display = 'none'; modal.classList.remove('open'); }, 250);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
