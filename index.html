@@ -465,6 +465,120 @@
     .faq-item.open .faq-q { padding-left: 20px; }
     .faq-item.open .faq-icon { transform: rotate(135deg); }
 
+    /* Sprint 17 — 모바일 안전 보강 (390px 이하) */
+    @media (max-width: 640px) {
+      /* Hero 영역 */
+      .hero-floating-tags { display: none !important; }
+      .hero h1 {
+        font-size: clamp(44px, 13vw, 68px) !important;
+        line-height: 1.08 !important;
+        margin-bottom: 28px !important;
+      }
+      .hero-content { padding-left: 18px !important; padding-right: 18px !important; }
+      .hero-headline { font-size: 16px !important; line-height: 1.5 !important; }
+      .hero-subdesc { font-size: 12.5px !important; line-height: 1.7 !important; }
+      .hero-slogan-en { font-size: 14px !important; }
+
+      /* 미니 폼 */
+      .hero-mini-form {
+        padding: 14px !important; gap: 8px !important;
+        margin-top: 22px !important;
+      }
+      .hero-mini-form .mini-eyebrow {
+        text-align: center; margin: 0 0 4px 0 !important; width: 100%;
+      }
+      .hero-mini-form input,
+      .hero-mini-form select,
+      .hero-mini-form button {
+        padding: 12px 14px !important;
+        font-size: 13.5px !important;
+      }
+
+      /* 부동 태그 floating */
+      .float-tag { display: none !important; }
+
+      /* 섹션 padding 줄이기 */
+      .platforms-wrap, .lineup-wrap, .brands-wrap,
+      .process-wrap, .split-cta-wrap, .closing-wrap {
+        padding-left: 18px !important; padding-right: 18px !important;
+      }
+      .platforms-wrap { padding-top: 50px !important; padding-bottom: 20px !important; }
+      .lineup-wrap, .process-wrap, .brands-wrap { padding-top: 60px !important; padding-bottom: 60px !important; }
+      .split-cta-wrap, .closing-wrap { padding-top: 60px !important; padding-bottom: 60px !important; }
+
+      /* 헤더·제목 모바일 조정 */
+      .platforms-title, .brands-title {
+        font-size: 20px !important; line-height: 1.35 !important;
+      }
+      .platforms-sub, .brands-sub {
+        font-size: 13px !important;
+      }
+      .dept-section-title {
+        font-size: clamp(22px, 6vw, 30px) !important;
+        line-height: 1.25 !important;
+      }
+      .dept-section-sub {
+        font-size: 13px !important; padding: 0 8px !important;
+      }
+
+      /* 플랫폼 그리드 — 2열 강제 */
+      .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+      .platform-card { padding: 18px 10px !important; }
+      .platform-icon { width: 42px !important; height: 42px !important; font-size: 22px !important; margin-bottom: 8px !important; }
+      .platform-name { font-size: 12px !important; }
+      .platform-label { font-size: 9px !important; }
+
+      /* 콘텐츠 라인업 카드 */
+      .lineup-card { padding: 24px 20px !important; }
+      .lineup-card h3 { font-size: 17px !important; }
+      .lineup-card p { font-size: 13px !important; }
+
+      /* 브랜드 그리드 — 3열 */
+      .brands-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+      .brand-cell { padding: 16px 8px !important; min-height: 72px !important; }
+      .brand-cell .brand-name { font-size: 11.5px !important; letter-spacing: 0.02em !important; }
+      .brand-cell .brand-cat { font-size: 8.5px !important; }
+
+      /* 절차 4단계 — 1열 */
+      .process-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .process-step { padding: 20px 18px !important; }
+      .process-step h4 { font-size: 16px !important; }
+      .process-step p { font-size: 12.5px !important; }
+
+      /* 분리형 CTA */
+      .split-cta-card { padding: 32px 24px !important; }
+      .split-cta-card h3 { font-size: 22px !important; }
+      .split-cta-card p { font-size: 13px !important; }
+      .split-cta-emoji { font-size: 32px !important; margin-bottom: 12px !important; }
+
+      /* 클로징 */
+      .closing-mark { font-size: 48px !important; }
+      .closing-text { font-size: 21px !important; line-height: 1.5 !important; }
+      .closing-sub { font-size: 14px !important; margin-bottom: 26px !important; }
+      .closing-sign { font-size: 10px !important; gap: 8px !important; }
+      .closing-sign::before, .closing-sign::after { width: 24px !important; }
+
+      /* 모바일에서 dept tabs 배경 색 카드 형태 유지 */
+      .dept-tabs { padding: 0 8px !important; gap: 4px !important; }
+      .dept-tab { padding: 10px 4px 12px !important; min-width: auto !important; }
+      .dept-tab-num { font-size: 9.5px !important; }
+      .dept-tab-name { font-size: 11px !important; line-height: 1.3 !important; }
+
+      /* dept 패널 본문 */
+      .dept-panel { padding: 28px 20px !important; border-radius: 14px !important; }
+      .dept-panel-title { font-size: 22px !important; line-height: 1.3 !important; }
+      .dept-panel-desc { font-size: 14px !important; line-height: 1.8 !important; }
+
+      /* nav */
+      .nav-center { display: none !important; }
+      .lang-toggle { font-size: 10px !important; padding: 6px 10px !important; }
+      .nav-cta { font-size: 11.5px !important; padding: 8px 14px !important; }
+
+      /* FAQ */
+      .faq-q { font-size: 14px !important; }
+      .faq-a { font-size: 13px !important; }
+    }
+
     /* B1 — 시적·감성 슬로건 (brandtine 벤치마킹) */
     .hero-slogan-en {
       font-family: 'Instrument Serif', 'Bricolage Grotesque', serif;
