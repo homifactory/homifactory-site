@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="naver-site-verification" content="69642ce4418bf1a865979dc6bfa577e5e898088d" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FN6KY4F9R8', { 'anonymize_ip': true });
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>호미 크리에이터 지원하기 | Homi Factory</title>
+  <meta name="description" content="호미팩토리와 함께 성장할 크리에이터를 모집합니다. TikTok·Instagram·YouTube — 채널 전략부터 브랜드 협업까지 한 팀에서 통합 관리." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="호미 크리에이터 지원하기 | Homi Factory" />
+  <meta property="og:description" content="호미팩토리와 함께 성장할 크리에이터를 모집합니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://homifactory.com/apply.html" />
+  <meta property="og:image" content="https://homifactory.com/og-image.png?v=1" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="호미팩토리" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://homifactory.com/apply.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css?v=20260425-10" />
+
+  <style>
+    body { padding-top: 80px; background: var(--bg); }
+
+    /* HERO */
+    .apply-hero {
+      position: relative; overflow: hidden;
+      padding: 80px 32px 60px;
+      text-align: center;
+    }
+    .apply-hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(circle 500px at 18% 22%, rgba(0,244,233,0.32) 0%, transparent 60%),
+        radial-gradient(circle 460px at 82% 70%, rgba(253,1,81,0.28) 0%, transparent 60%);
+      filter: blur(50px);
+      animation: applyBlob 26s ease-in-out infinite;
+    }
+    @keyframes applyBlob {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%      { transform: translate(30px, 20px) scale(1.05); }
+    }
+    .apply-hero-inner { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+    .apply-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 999px;
+      background: rgba(253,1,81,0.08); color: var(--pink);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .apply-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--pink); animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .apply-title {
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: clamp(36px, 6vw, 72px); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.08;
+      margin-bottom: 22px;
+    }
+    .apply-title .hl { color: var(--pink); }
+    .apply-title .outline {
+      color: transparent; -webkit-text-stroke: 2px var(--text);
+    }
+    .apply-slogan-en {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: clamp(15px, 1.8vw, 22px);
+      color: var(--pink); letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    .apply-sub {
+      font-size: clamp(14px, 1.5vw, 17px);
+      color: var(--text2); line-height: 1.8;
+      max-width: 680px; margin: 0 auto;
+    }
+    .apply-sub strong { color: var(--text); font-weight: 700; }
+
+    /* BENEFITS */
+    .benefits-wrap {
+      max-width: 1080px; margin: 0 auto;
+      padding: 60px 32px;
+    }
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .benefit-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px 22px;
+      transition: all 0.3s ease;
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px); border-color: var(--pink);
+      box-shadow: 0 18px 50px -20px rgba(253,1,81,0.18);
+    }
+    .benefit-icon {
+      font-size: 30px; margin-bottom: 14px;
+      display: inline-block;
+    }
+    .benefit-card h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 17px; font-weight: 700;
+      letter-spacing: -0.01em; margin-bottom: 8px;
+    }
+    .benefit-card p {
+      font-size: 12.5px; color: var(--text2); line-height: 1.7;
+    }
+    @media (max-width: 880px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* PROCESS */
+    .apply-process-wrap {
+      max-width: 1080px; margin: 0 auto;
+      padding: 30px 32px 60px;
+    }
+    .apply-process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      position: relative;
+    }
+    .apply-step {
+      text-align: center;
+      padding: 24px 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .apply-step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mint), var(--pink));
+      color: #fff; font-weight: 700; font-size: 13px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    .apply-step h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 14px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .apply-step p {
+      font-size: 11.5px; color: var(--text2);
+      line-height: 1.6;
+    }
+    @media (max-width: 800px) {
+      .apply-process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* FORM */
+    .apply-form-wrap {
+      max-width: 720px; margin: 0 auto;
+      padding: 40px 32px 100px;
+    }
+    .apply-form-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 28px 80px -30px rgba(0,0,0,0.12);
+      border: 1px solid var(--border);
+    }
+    .apply-form-card h2 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(24px, 3.5vw, 34px); font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .apply-form-card .form-sub {
+      font-size: 13.5px; color: var(--text2);
+      line-height: 1.7; margin-bottom: 32px;
+    }
+    .apply-form-card .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      margin-bottom: 14px;
+    }
+    .apply-form-card .form-row.full { grid-template-columns: 1fr; }
+    .apply-form-card label {
+      display: block; font-size: 11px; letter-spacing: 0.12em;
+      color: var(--muted); font-weight: 600; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .apply-form-card label .req { color: var(--pink); }
+    .apply-form-card input,
+    .apply-form-card select,
+    .apply-form-card textarea {
+      width: 100%; padding: 13px 16px;
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--bg);
+      font-size: 14px; font-family: var(--font-body);
+      color: var(--text); outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .apply-form-card input:focus,
+    .apply-form-card select:focus,
+    .apply-form-card textarea:focus {
+      border-color: var(--pink); background: #fff;
+    }
+    .apply-form-card textarea {
+      min-height: 120px; resize: vertical; line-height: 1.6;
+    }
+    .apply-form-card .form-hint {
+      font-size: 11px; color: var(--muted); margin-top: 4px;
+    }
+    .apply-submit {
+      width: 100%; padding: 16px 24px;
+      background: var(--text); color: #fff;
+      border: none; border-radius: 999px;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      font-family: var(--font-body);
+      letter-spacing: 0.02em;
+      margin-top: 14px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .apply-submit:hover {
+      background: var(--pink); transform: translateY(-1px);
+    }
+    .apply-form-card .privacy-note {
+      font-size: 11px; color: var(--muted); margin-top: 18px;
+      text-align: center; line-height: 1.6;
+    }
+    .apply-form-card .privacy-note a { color: var(--pink); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .apply-hero { padding: 60px 18px 40px; }
+      .benefits-wrap, .apply-process-wrap, .apply-form-wrap { padding-left: 18px; padding-right: 18px; }
+      .apply-form-card { padding: 32px 22px; }
+      .apply-form-card .form-row { grid-template-columns: 1fr; }
+      .apply-process-grid { grid-template-columns: 1fr; }
+    }
+
+    /* FOOTER mini */
+    .apply-footer {
+      padding: 32px 18px; text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .apply-footer .links {
+      display: flex; justify-content: center; gap: 22px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .apply-footer .links a {
+      font-size: 12px; color: var(--text2); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .apply-footer .links a:hover { color: var(--pink); }
+    .apply-footer .copyright {
+      font-size: 10.5px; color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="assets/logo-symbol.png?v=2" alt="" />
+    </span>
+    <span class="brand-word">HOMI FACTORY</span>
+  </a>
+  <div class="nav-center">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="apply.html" class="active">크리에이터 지원</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="index.html#inquiry-section" class="nav-cta">브랜드 문의</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="apply-hero">
+  <div class="apply-hero-inner">
+    <div class="apply-eyebrow">JOIN HOMI · 호미 크리에이터 모집</div>
+    <p class="apply-slogan-en">— Where creators rise, brands resonate.</p>
+    <h1 class="apply-title">
+      당신의 콘텐츠로<br>
+      <span class="hl">세상을 덮을</span> 시간
+    </h1>
+    <p class="apply-sub">
+      <strong>장기 파트너십 · 실시간 매니지먼트 · 정량 데이터 인사이트</strong>까지 —<br>
+      호미팩토리는 단기 섭외가 아닌 <strong>크리에이터의 장기 성장</strong>을 함께 설계합니다.
+    </p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-wrap">
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🤝</div>
+      <h3>장기 파트너십</h3>
+      <p>단발성 캠페인이 아닌 5년·10년 함께 가는 채널 전략·콘텐츠 기획·브랜드 협찬 통합 운영.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📊</div>
+      <h3>데이터 인사이트</h3>
+      <p>플랫폼별 알고리즘 분석 + 매 콘텐츠 정량 리포트. 감으로 운영하지 않습니다.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <h3>실시간 매니지먼트</h3>
+      <p>전담 매니저가 24시간 실시간 모니터링. 라이브·이벤트·정산까지 한 팀에서.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💰</div>
+      <h3>다양한 수익화</h3>
+      <p>광고·브랜드 협찬·라이브 커머스·아티스트 섭외·콘텐츠 IP까지 다중 수익 채널.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="apply-process-wrap">
+  <div class="apply-process-grid">
+    <div class="apply-step">
+      <div class="apply-step-num">1</div>
+      <h4>지원서 제출</h4>
+      <p>아래 폼 작성<br>(약 1분)</p>
+    </div>
+    <div class="apply-step">
+      <div class="apply-step-num">2</div>
+      <h4>1차 검토</h4>
+      <p>채널·콘텐츠 검토<br>1~2 영업일</p>
+    </div>
+    <div class="apply-step">
+      <div class="apply-step-num">3</div>
+      <h4>화상 미팅</h4>
+      <p>방향성 협의<br>30~60분</p>
+    </div>
+    <div class="apply-step">
+      <div class="apply-step-num">4</div>
+      <h4>계약 · 시작</h4>
+      <p>전담 매니저 배정<br>🚀 바로 시작</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="apply-form-wrap" id="apply-form-section">
+  <div class="apply-form-card">
+    <h2>📝 호미 크리에이터 지원하기</h2>
+    <p class="form-sub">
+      간단한 정보만 입력해주세요. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.
+    </p>
+
+    <form action="https://formsubmit.co/contact@homifactory.com" method="POST">
+      <div class="form-row">
+        <div>
+          <label>이름 / 활동명 <span class="req">*</span></label>
+          <input type="text" name="name" required placeholder="홍길동 또는 채널명">
+        </div>
+        <div>
+          <label>나이 (선택)</label>
+          <input type="text" name="age" placeholder="만 20세">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>연락처 <span class="req">*</span></label>
+          <input type="text" name="phone" required placeholder="010-1234-5678">
+        </div>
+        <div>
+          <label>이메일 <span class="req">*</span></label>
+          <input type="email" name="email" required placeholder="email@example.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>TikTok 핸들 (선택)</label>
+          <input type="text" name="tiktok" placeholder="@your_tiktok">
+        </div>
+        <div>
+          <label>Instagram 핸들 (선택)</label>
+          <input type="text" name="instagram" placeholder="@your_ig">
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div>
+          <label>주력 카테고리 <span class="req">*</span></label>
+          <select name="category" required>
+            <option value="">선택해주세요</option>
+            <option>댄스</option>
+            <option>보컬·노래</option>
+            <option>음악·DJ</option>
+            <option>뷰티·메이크업</option>
+            <option>패션</option>
+            <option>푸드·요리</option>
+            <option>일상·브이로그</option>
+            <option>라이프스타일</option>
+            <option>트래블·여행</option>
+            <option>피트니스·헬스</option>
+            <option>리뷰·언박싱</option>
+            <option>코미디·예능</option>
+            <option>게임</option>
+            <option>기타 (자기소개에 작성)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div>
+          <label>현재 채널 팔로워 (선택)</label>
+          <input type="text" name="followers" placeholder="예: TikTok 12K, Instagram 3K, YouTube 800">
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div>
+          <label>자기소개 / 합류 이유 (선택)</label>
+          <textarea name="intro" placeholder="어떤 콘텐츠를 만들고 계시는지, 어떤 방향으로 성장하고 싶으신지 간단히 알려주세요. (200자 이내 추천)"></textarea>
+          <p class="form-hint">자세할수록 검토가 빨라집니다.</p>
+        </div>
+      </div>
+
+      <input type="hidden" name="_subject" value="[호미팩토리] 크리에이터 지원">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://homifactory.com/apply.html?sent=1">
+      <input type="hidden" name="source" value="apply.html">
+
+      <button type="submit" class="apply-submit">
+        지원서 제출하기 <span>→</span>
+      </button>
+
+      <p class="privacy-note">
+        제출하시면 <a href="privacy.html">개인정보처리방침</a>에 동의한 것으로 간주됩니다.
+      </p>
+    </form>
+  </div>
+</section>
+
+<footer class="apply-footer">
+  <div class="links">
+    <a href="index.html">홈</a>
+    <a href="about.html">회사소개</a>
+    <a href="reference.html">레퍼런스</a>
+    <a href="blog.html">블로그</a>
+    <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:contact@homifactory.com">contact@homifactory.com</a>
+  </div>
+  <div class="copyright">© 2026 HOMI FACTORY · CONTENT GROWTH ARCHITECTS</div>
+</footer>
+
+<script src="common.js?v=8"></script>
+<script>
+  // ?sent=1 이면 성공 메시지 표시
+  if (location.search.includes('sent=1')) {
+    var card = document.querySelector('.apply-form-card');
+    if (card) {
+      card.innerHTML = '<h2>🎉 지원 완료!</h2>' +
+        '<p class="form-sub">소중한 지원서가 호미팩토리에 도착했습니다. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.</p>' +
+        '<div style="margin-top:32px;text-align:center;">' +
+        '  <a href="index.html" style="display:inline-block;padding:14px 28px;background:var(--text);color:#fff;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;">호미팩토리 둘러보기 →</a>' +
+        '</div>';
+      // 페이지 상단으로 스크롤
+      window.scrollTo({ top: card.offsetTop - 100, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
