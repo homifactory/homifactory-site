@@ -337,12 +337,90 @@
     }
     .apply-form-card .privacy-note a { color: var(--pink); text-decoration: none; }
 
+    /* H3 — FORM TYPE TOGGLE (Creator / Agent) */
+    .form-type-toggle {
+      display: inline-flex;
+      padding: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      margin-bottom: 28px;
+      gap: 4px;
+    }
+    .form-type-btn {
+      padding: 10px 22px;
+      border: none;
+      background: transparent;
+      color: var(--text2);
+      font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .form-type-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .form-type-btn:not(.active):hover { color: var(--text); }
+    .form-pane { display: none; }
+    .form-pane.active { display: block; animation: paneFade 0.4s ease; }
+    @keyframes paneFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* H13 — KR/EN LANG TOGGLE (floating) */
+    .lang-toggle {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 950;
+      display: inline-flex;
+      padding: 4px;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      gap: 2px;
+    }
+    .lang-btn {
+      padding: 7px 14px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    /* H13 — language visibility */
+    [data-lang="en"] { display: none; }
+    html[lang="en"] [data-lang="ko"] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: inline; }
+    html[lang="en"] [data-lang="en"].block { display: block; }
+
     @media (max-width: 640px) {
       .apply-hero { padding: 60px 18px 40px; }
       .benefits-wrap, .apply-process-wrap, .apply-form-wrap { padding-left: 18px; padding-right: 18px; }
       .apply-form-card { padding: 32px 22px; }
       .apply-form-card .form-row { grid-template-columns: 1fr; }
       .apply-process-grid { grid-template-columns: 1fr; }
+      .form-type-btn { padding: 9px 16px; font-size: 12px; }
+      .lang-toggle { right: 12px; bottom: 12px; }
     }
 
     /* FOOTER mini */
@@ -376,13 +454,15 @@
     <span class="brand-word">HOMI FACTORY</span>
   </a>
   <div class="nav-center">
-    <a href="index.html">홈</a>
-    <a href="about.html">회사소개</a>
-    <a href="reference.html">레퍼런스</a>
-    <a href="apply.html" class="active">크리에이터 지원</a>
+    <a href="index.html"><span data-lang="ko">홈</span><span data-lang="en">Home</span></a>
+    <a href="about.html"><span data-lang="ko">회사소개</span><span data-lang="en">About</span></a>
+    <a href="reference.html"><span data-lang="ko">레퍼런스</span><span data-lang="en">Work</span></a>
+    <a href="apply.html" class="active"><span data-lang="ko">크리에이터 지원</span><span data-lang="en">Apply</span></a>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <a href="index.html#inquiry-section" class="nav-cta">브랜드 문의</a>
+    <a href="index.html#inquiry-section" class="nav-cta">
+      <span data-lang="ko">브랜드 문의</span><span data-lang="en">Brand Inquiry</span>
+    </a>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -390,15 +470,18 @@
 <!-- HERO -->
 <section class="apply-hero">
   <div class="apply-hero-inner">
-    <div class="apply-eyebrow">JOIN HOMI · 호미 크리에이터 모집</div>
+    <div class="apply-eyebrow">
+      <span data-lang="ko">JOIN HOMI · 호미 크리에이터 모집</span>
+      <span data-lang="en">JOIN HOMI · Creator & Partner Recruiting</span>
+    </div>
     <p class="apply-slogan-en">— Where creators rise, brands resonate.</p>
     <h1 class="apply-title">
-      당신의 콘텐츠로<br>
-      <span class="hl">세상을 덮을</span> 시간
+      <span data-lang="ko" class="block">당신의 콘텐츠로<br><span class="hl">세상을 덮을</span> 시간</span>
+      <span data-lang="en" class="block">Time to cover the world<br><span class="hl">with your content</span></span>
     </h1>
     <p class="apply-sub">
-      <strong>장기 파트너십 · 실시간 매니지먼트 · 정량 데이터 인사이트</strong>까지 —<br>
-      호미팩토리는 단기 섭외가 아닌 <strong>크리에이터의 장기 성장</strong>을 함께 설계합니다.
+      <span data-lang="ko"><strong>장기 파트너십 · 실시간 매니지먼트 · 정량 데이터 인사이트</strong>까지 —<br>호미팩토리는 단기 섭외가 아닌 <strong>크리에이터의 장기 성장</strong>을 함께 설계합니다.</span>
+      <span data-lang="en"><strong>Long-term partnership · 24/7 management · data-driven insights</strong> —<br>Homi Factory designs your <strong>multi-year creator growth</strong>, not one-off bookings.</span>
     </p>
   </div>
 </section>
@@ -407,69 +490,102 @@
 <section class="benefits-wrap">
   <div class="benefits-grid">
     <div class="benefit-card">
-      <div class="benefit-stat">24<span style="font-size:18px;">개월+</span></div>
+      <div class="benefit-stat">24<span style="font-size:18px;"><span data-lang="ko">개월+</span><span data-lang="en">mo+</span></span></div>
       <div class="benefit-icon">🤝</div>
-      <h3>장기 파트너십</h3>
-      <p>평균 계약 기간 <strong>24개월 이상</strong>. 단발성 캠페인이 아닌 5년·10년 함께 가는 채널 전략·콘텐츠 기획·브랜드 협찬 통합 운영.</p>
+      <h3><span data-lang="ko">장기 파트너십</span><span data-lang="en">Long-term Partnership</span></h3>
+      <p>
+        <span data-lang="ko">평균 계약 기간 <strong>24개월 이상</strong>. 단발성 캠페인이 아닌 5년·10년 함께 가는 채널 전략·콘텐츠 기획·브랜드 협찬 통합 운영.</span>
+        <span data-lang="en">Average contract <strong>24+ months</strong>. Not one-off — we co-build 5–10 year channel strategy, content roadmaps, and brand deals.</span>
+      </p>
     </div>
     <div class="benefit-card">
       <div class="benefit-stat">100<span style="font-size:18px;">%</span></div>
       <div class="benefit-icon">📊</div>
-      <h3>데이터 인사이트</h3>
-      <p>매 콘텐츠 <strong>100% 정량 리포트</strong> 제공. 플랫폼별 알고리즘 분석 + 시청자 패턴 인사이트. 감으로 운영하지 않습니다.</p>
+      <h3><span data-lang="ko">데이터 인사이트</span><span data-lang="en">Data Insights</span></h3>
+      <p>
+        <span data-lang="ko">매 콘텐츠 <strong>100% 정량 리포트</strong> 제공. 플랫폼별 알고리즘 분석 + 시청자 패턴 인사이트. 감으로 운영하지 않습니다.</span>
+        <span data-lang="en"><strong>100% quantitative reports</strong> on every piece. Platform algorithm analysis + viewer pattern insights — never run by gut.</span>
+      </p>
     </div>
     <div class="benefit-card">
       <div class="benefit-stat">24<span style="font-size:18px;">/7</span></div>
       <div class="benefit-icon">⚡</div>
-      <h3>실시간 매니지먼트</h3>
-      <p><strong>24시간 실시간 모니터링</strong>. 전담 매니저 1:1 응대. 라이브·이벤트·정산·트러블슈팅까지 한 팀에서 즉시 대응.</p>
+      <h3><span data-lang="ko">실시간 매니지먼트</span><span data-lang="en">24/7 Management</span></h3>
+      <p>
+        <span data-lang="ko"><strong>24시간 실시간 모니터링</strong>. 전담 매니저 1:1 응대. 라이브·이벤트·정산·트러블슈팅까지 한 팀에서 즉시 대응.</span>
+        <span data-lang="en"><strong>24/7 real-time monitoring</strong>. Dedicated 1:1 manager. Lives, events, payouts, and troubleshooting — one team, instant response.</span>
+      </p>
     </div>
     <div class="benefit-card">
       <div class="benefit-stat">5<span style="font-size:18px;">+</span></div>
       <div class="benefit-icon">💰</div>
-      <h3>다양한 수익화</h3>
-      <p><strong>5가지 이상 수익 채널</strong>: 광고·브랜드 협찬·라이브 커머스·아티스트 섭외·콘텐츠 IP. 단일 채널 의존 X.</p>
+      <h3><span data-lang="ko">다양한 수익화</span><span data-lang="en">Diversified Revenue</span></h3>
+      <p>
+        <span data-lang="ko"><strong>5가지 이상 수익 채널</strong>: 광고·브랜드 협찬·라이브 커머스·아티스트 섭외·콘텐츠 IP. 단일 채널 의존 X.</span>
+        <span data-lang="en"><strong>5+ revenue streams</strong>: ads, brand deals, live commerce, talent booking, and content IP. No single-channel dependency.</span>
+      </p>
     </div>
   </div>
 </section>
 
 <!-- H5 — DAY 1~14 ROADMAP -->
 <section class="roadmap-wrap">
-  <div class="roadmap-eyebrow">● 합류 14일 로드맵</div>
-  <h2 class="roadmap-title">14일이면, <span style="color:var(--pink);">첫 콘텐츠가 라이브</span>에 올라갑니다</h2>
-  <p class="roadmap-sub">계약 후 14일 안에 첫 정량 리포트까지 — 빠르고 명확한 합류 프로세스.</p>
+  <div class="roadmap-eyebrow">
+    <span data-lang="ko">● 합류 14일 로드맵</span>
+    <span data-lang="en">● 14-Day Onboarding Roadmap</span>
+  </div>
+  <h2 class="roadmap-title">
+    <span data-lang="ko">14일이면, <span style="color:var(--pink);">첫 콘텐츠가 라이브</span>에 올라갑니다</span>
+    <span data-lang="en">In 14 days, <span style="color:var(--pink);">your first content goes live</span></span>
+  </h2>
+  <p class="roadmap-sub">
+    <span data-lang="ko">계약 후 14일 안에 첫 정량 리포트까지 — 빠르고 명확한 합류 프로세스.</span>
+    <span data-lang="en">From contract to first quantitative report in 14 days — fast and transparent onboarding.</span>
+  </p>
   <div class="roadmap-track">
     <div class="roadmap-day">
       <div class="roadmap-dot">
         <div class="day-label">DAY</div>
         <div class="day-num">01</div>
       </div>
-      <h4>온보딩 · 매니저 매칭</h4>
-      <p>계약·전담 매니저 배정·채널 분석 시작</p>
+      <h4><span data-lang="ko">온보딩 · 매니저 매칭</span><span data-lang="en">Onboarding · Manager Match</span></h4>
+      <p>
+        <span data-lang="ko">계약·전담 매니저 배정·채널 분석 시작</span>
+        <span data-lang="en">Contract, dedicated manager, channel analysis kickoff</span>
+      </p>
     </div>
     <div class="roadmap-day">
       <div class="roadmap-dot">
         <div class="day-label">DAY</div>
         <div class="day-num">2-3</div>
       </div>
-      <h4>첫 캠페인 미팅</h4>
-      <p>방향성·콘텐츠 기획·플랫폼 전략 협의</p>
+      <h4><span data-lang="ko">첫 캠페인 미팅</span><span data-lang="en">First Campaign Meeting</span></h4>
+      <p>
+        <span data-lang="ko">방향성·콘텐츠 기획·플랫폼 전략 협의</span>
+        <span data-lang="en">Direction, content planning, and platform strategy</span>
+      </p>
     </div>
     <div class="roadmap-day">
       <div class="roadmap-dot">
         <div class="day-label">DAY</div>
         <div class="day-num">07</div>
       </div>
-      <h4>첫 콘텐츠 · 라이브</h4>
-      <p>제작 지원 + 첫 콘텐츠 게재 또는 라이브 시작</p>
+      <h4><span data-lang="ko">첫 콘텐츠 · 라이브</span><span data-lang="en">First Content · Live</span></h4>
+      <p>
+        <span data-lang="ko">제작 지원 + 첫 콘텐츠 게재 또는 라이브 시작</span>
+        <span data-lang="en">Production support + first post or live broadcast</span>
+      </p>
     </div>
     <div class="roadmap-day">
       <div class="roadmap-dot">
         <div class="day-label">DAY</div>
         <div class="day-num">14</div>
       </div>
-      <h4>첫 정량 리포트</h4>
-      <p>도달·참여·전환 데이터 + 다음 캠페인 설계</p>
+      <h4><span data-lang="ko">첫 정량 리포트</span><span data-lang="en">First Report</span></h4>
+      <p>
+        <span data-lang="ko">도달·참여·전환 데이터 + 다음 캠페인 설계</span>
+        <span data-lang="en">Reach, engagement, conversion + next campaign design</span>
+      </p>
     </div>
   </div>
 </section>
@@ -479,23 +595,34 @@
   <div class="apply-process-grid">
     <div class="apply-step">
       <div class="apply-step-num">1</div>
-      <h4>지원서 제출</h4>
-      <p>아래 폼 작성<br>(약 1분)</p>
+      <h4><span data-lang="ko">지원서 제출</span><span data-lang="en">S      <p>
+        <span data-lang="ko">아래 폼 작성<br>(약 1분)</span>
+        <span data-lang="en">Fill the form below<br>(~1 minute)</span>
+      </p>
     </div>
     <div class="apply-step">
       <div class="apply-step-num">2</div>
-      <h4>1차 검토</h4>
-      <p>채널·콘텐츠 검토<br>1~2 영업일</p>
+      <h4><span data-lang="ko">1차 검토</span><span data-lang="en">Initial Review</span></h4>
+      <p>
+        <span data-lang="ko">채널·콘텐츠 검토<br>1~2 영업일</span>
+        <span data-lang="en">Channel & content review<br>1–2 business days</span>
+      </p>
     </div>
     <div class="apply-step">
       <div class="apply-step-num">3</div>
-      <h4>화상 미팅</h4>
-      <p>방향성 협의<br>30~60분</p>
+      <h4><span data-lang="ko">화상 미팅</span><span data-lang="en">Video Meeting</span></h4>
+      <p>
+        <span data-lang="ko">방향성 협의<br>30~60분</span>
+        <span data-lang="en">Direction alignment<br>30–60 min</span>
+      </p>
     </div>
     <div class="apply-step">
       <div class="apply-step-num">4</div>
-      <h4>계약 · 시작</h4>
-      <p>전담 매니저 배정<br>🚀 바로 시작</p>
+      <h4><span data-lang="ko">계약 · 시작</span><span data-lang="en">Contract · Kickoff</span></h4>
+      <p>
+        <span data-lang="ko">전담 매니저 배정<br>🚀 바로 시작</span>
+        <span data-lang="en">Manager assigned<br>🚀 Go live</span>
+      </p>
     </div>
   </div>
 </section>
@@ -503,80 +630,125 @@
 <!-- FORM -->
 <section class="apply-form-wrap" id="apply-form-section">
   <div class="apply-form-card">
-    <h2>📝 호미 크리에이터 지원하기</h2>
-    <p class="form-sub">
-      간단한 정보만 입력해주세요. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.
+    <h2 id="formCardTitle">
+      <span data-lang="ko">📝 호미 크리에이터 지원하기</span>
+      <span data-lang="en">📝 Apply to Homi Factory</span>
+    </h2>
+    <p class="form-sub" id="formCardSub">
+      <span data-lang="ko">간단한 정보만 입력해주세요. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.</span>
+      <span data-lang="en">Just a few quick details. Our team will reach out within 1–2 business days.</span>
     </p>
 
+    <!-- H3 — TYPE TOGGLE -->
+    <div class="form-type-toggle" role="tablist" aria-label="지원 유형 선택">
+      <button type="button" class="form-type-btn active" data-pane="creator" role="tab" aria-selected="true">
+        <span data-lang="ko">👤 크리에이터 지원</span>
+        <span data-lang="en">👤 Creator</span>
+      </button>
+      <button type="button" class="form-type-btn" data-pane="agent" role="tab" aria-selected="false">
+        <span data-lang="ko">🏢 에이전트 · 기획사</span>
+        <span data-lang="en">🏢 Agency · Partner</span>
+      </button>
+    </div>
+
+    <!-- ========== CREATOR PANE ========== -->
+    <div class="form-pane active" id="pane-creator">
     <form action="https://formsubmit.co/contact@homifactory.com" method="POST">
       <div class="form-row">
         <div>
-          <label>이름 / 활동명 <span class="req">*</span></label>
+          <label>
+            <span data-lang="ko">이름 / 활동명</span><span data-lang="en">Name / Stage name</span>
+            <span class="req">*</span>
+          </label>
           <input type="text" name="name" required placeholder="홍길동 또는 채널명">
         </div>
         <div>
-          <label>나이 (선택)</label>
+          <label>
+            <span data-lang="ko">나이 (선택)</span><span data-lang="en">Age (optional)</span>
+          </label>
           <input type="text" name="age" placeholder="만 20세">
         </div>
       </div>
 
       <div class="form-row">
         <div>
-          <label>연락처 <span class="req">*</span></label>
+          <label>
+            <span data-lang="ko">연락처</span><span data-lang="en">Phone</span>
+            <span class="req">*</span>
+          </label>
           <input type="text" name="phone" required placeholder="010-1234-5678">
         </div>
         <div>
-          <label>이메일 <span class="req">*</span></label>
+          <label>
+            <span data-lang="ko">이메일</span><span data-lang="en">Email</span>
+            <span class="req">*</span>
+          </label>
           <input type="email" name="email" required placeholder="email@example.com">
         </div>
       </div>
 
       <div class="form-row">
         <div>
-          <label>TikTok 핸들 (선택)</label>
+          <label>
+            <span data-lang="ko">TikTok 핸들 (선택)</span><span data-lang="en">TikTok handle (optional)</span>
+          </label>
           <input type="text" name="tiktok" placeholder="@your_tiktok">
         </div>
         <div>
-          <label>Instagram 핸들 (선택)</label>
+          <label>
+            <span data-lang="ko">Instagram 핸들 (선택)</span><span data-lang="en">Instagram handle (optional)</span>
+          </label>
           <input type="text" name="instagram" placeholder="@your_ig">
         </div>
       </div>
 
       <div class="form-row full">
         <div>
-          <label>주력 카테고리 <span class="req">*</span></label>
+          <label>
+            <span data-lang="ko">주력 카테고리</span><span data-lang="en">Primary category</span>
+            <span class="req">*</span>
+          </label>
           <select name="category" required>
-            <option value="">선택해주세요</option>
-            <option>댄스</option>
-            <option>보컬·노래</option>
-            <option>음악·DJ</option>
-            <option>뷰티·메이크업</option>
-            <option>패션</option>
-            <option>푸드·요리</option>
-            <option>일상·브이로그</option>
-            <option>라이프스타일</option>
-            <option>트래블·여행</option>
-            <option>피트니스·헬스</option>
-            <option>리뷰·언박싱</option>
-            <option>코미디·예능</option>
-            <option>게임</option>
-            <option>기타 (자기소개에 작성)</option>
+            <option value="">선택해주세요 / Select</option>
+            <option>댄스 / Dance</option>
+            <option>보컬·노래 / Vocal·Song</option>
+            <option>음악·DJ / Music·DJ</option>
+            <option>뷰티·메이크업 / Beauty</option>
+            <option>패션 / Fashion</option>
+            <option>푸드·요리 / Food</option>
+            <option>일상·브이로그 / Vlog</option>
+            <option>라이프스타일 / Lifestyle</option>
+            <option>트래블·여행 / Travel</option>
+            <option>피트니스·헬스 / Fitness</option>
+            <option>리뷰·언박싱 / Review</option>
+            <option>코미디·예능 / Comedy</option>
+            <option>게임 / Gaming</option>
+            <option>기타 / Other</option>
           </select>
         </div>
       </div>
 
       <div class="form-row full">
         <div>
-          <label>현재 채널 팔로워 (선택)</label>
+          <label>
+            <span data-lang="ko">현재 채널 팔로워 (선택)</span>
+            <span data-lang="en">Current followers (optional)</span>
+          </label>
           <input type="text" name="followers" placeholder="예: TikTok 12K, Instagram 3K, YouTube 800">
         </div>
       </div>
 
       <div class="form-row full">
         <div>
-          <label>자기소개 / 합류 이유 (선택)</label>
+          <label>
+            <span data-lang="ko">자기소개 / 합류 이유 (선택)</span>
+            <span data-lang="en">Introduction / Why join? (optional)</span>
+          </label>
           <textarea name="intro" placeholder="어떤 콘텐츠를 만들고 계시는지, 어떤 방향으로 성장하고 싶으신지 간단히 알려주세요. (200자 이내 추천)"></textarea>
-          <p class="form-hint">자세할수록 검토가 빨라집니다.</p>
+          <p class="form-hint">
+            <span data-lang="ko">자세할수록 검토가 빨라집니다.</span>
+            <span data-lang="en">More detail = faster review.</span>
+          </p>
         </div>
       </div>
 
@@ -584,25 +756,166 @@
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://homifactory.com/apply.html?sent=1">
-      <input type="hidden" name="source" value="apply.html">
+      <input type="hidden" name="source" value="apply.html-creator">
+      <input type="hidden" name="form_type" value="creator">
 
       <button type="submit" class="apply-submit">
-        지원서 제출하기 <span>→</span>
+        <span data-lang="ko">지원서 제출하기</span><span data-lang="en">Submit Application</span>
+        <span>→</span>
       </button>
 
       <p class="privacy-note">
-        제출하시면 <a href="privacy.html">개인정보처리방침</a>에 동의한 것으로 간주됩니다.
+        <span data-lang="ko">제출하시면 <a href="privacy.html">개인정보처리방침</a>에 동의한 것으로 간주됩니다.</span>
+        <span data-lang="en">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>.</span>
       </p>
     </form>
+    </div>
+
+    <!-- ========== AGENT / AGENCY PANE ========== -->
+    <div class="form-pane" id="pane-agent">
+    <form action="https://formsubmit.co/contact@homifactory.com" method="POST">
+      <div class="form-row">
+        <div>
+          <label>
+            <span data-lang="ko">회사명 / 소속</span><span data-lang="en">Company / Org name</span>
+            <span class="req">*</span>
+          </label>
+          <input type="text" name="company" required placeholder="(주)호미파트너스 / Homi Partners Inc.">
+        </div>
+        <div>
+          <label>
+            <span data-lang="ko">담당자명</span><span data-lang="en">Contact name</span>
+            <span class="req">*</span>
+          </label>
+          <input type="text" name="contact_name" required placeholder="김담당 / John Doe">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>
+            <span data-lang="ko">직책 (선택)</span><span data-lang="en">Role (optional)</span>
+          </label>
+          <input type="text" name="role" placeholder="대표 / 매니저 / 디렉터">
+        </div>
+        <div>
+          <label>
+            <span data-lang="ko">회사 유형</span><span data-lang="en">Company type</span>
+            <span class="req">*</span>
+          </label>
+          <select name="company_type" required>
+            <option value="">선택해주세요 / Select</option>
+            <option>크리에이터 에이전시 / Creator Agency</option>
+            <option>MCN</option>
+            <option>연예 기획사 / Talent Agency</option>
+            <option>브랜드 / Brand</option>
+            <option>대행사 · 마케팅 / Marketing Agency</option>
+            <option>플랫폼 · 미디어 / Platform·Media</option>
+            <option>기타 / Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>
+            <span data-lang="ko">연락처</span><span data-lang="en">Phone</span>
+            <span class="req">*</span>
+          </label>
+          <input type="text" name="phone" required placeholder="010-1234-5678">
+        </div>
+        <div>
+          <label>
+            <span data-lang="ko">이메일</span><span data-lang="en">Email</span>
+            <span class="req">*</span>
+          </label>
+          <input type="email" name="email" required placeholder="biz@example.com">
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div>
+          <label>
+            <span data-lang="ko">제휴 희망 유형</span><span data-lang="en">Partnership type</span>
+            <span class="req">*</span>
+          </label>
+          <select name="partnership_type" required>
+            <option value="">선택해주세요 / Select</option>
+            <option>크리에이터 공동 매니지먼트 / Co-management</option>
+            <option>콘텐츠 제휴 (IP/공동제작) / Content Collab (IP)</option>
+            <option>브랜드 캠페인 / Brand Campaign</option>
+            <option>라이브 커머스 / Live Commerce</option>
+            <option>아티스트 섭외 / Talent Booking</option>
+            <option>플랫폼 파트너십 / Platform Partnership</option>
+            <option>기타 / Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>
+            <span data-lang="ko">소속 크리에이터 수 (선택)</span>
+            <span data-lang="en">Roster size (optional)</span>
+          </label>
+          <input type="text" name="roster_size" placeholder="예: 12명 / 12 creators">
+        </div>
+        <div>
+          <label>
+            <span data-lang="ko">회사 웹사이트 (선택)</span><span data-lang="en">Website (optional)</span>
+          </label>
+          <input type="text" name="website" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div>
+          <label>
+            <span data-lang="ko">제안 / 문의 내용</span><span data-lang="en">Proposal / Inquiry</span>
+            <span class="req">*</span>
+          </label>
+          <textarea name="proposal" required placeholder="제휴 배경 · 협업 규모 · 기대 효과 등을 자유롭게 적어주세요. (500자 이내 권장)"></textarea>
+          <p class="form-hint">
+            <span data-lang="ko">검토 후 영업일 기준 1~2일 안에 회신드립니다.</span>
+            <span data-lang="en">We respond within 1–2 business days.</span>
+          </p>
+        </div>
+      </div>
+
+      <input type="hidden" name="_subject" value="[호미팩토리] 에이전트·기획사 제휴 문의">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://homifactory.com/apply.html?sent=1">
+      <input type="hidden" name="source" value="apply.html-agent">
+      <input type="hidden" name="form_type" value="agent">
+
+      <button type="submit" class="apply-submit">
+        <span data-lang="ko">제휴 문의 보내기</span><span data-lang="en">Send Partnership Inquiry</span>
+        <span>→</span>
+      </button>
+
+      <p class="privacy-note">
+        <span data-lang="ko">제출하시면 <a href="privacy.html">개인정보처리방침</a>에 동의한 것으로 간주됩니다.</span>
+        <span data-lang="en">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>.</span>
+      </p>
+    </form>
+    </div>
+
   </div>
 </section>
 
+<!-- H13 — KR/EN LANG TOGGLE -->
+<div class="lang-toggle" role="group" aria-label="언어 선택">
+  <button type="button" class="lang-btn active" data-lang-btn="ko">KO</button>
+  <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+</div>
+
 <footer class="apply-footer">
   <div class="links">
-    <a href="index.html">홈</a>
-    <a href="about.html">회사소개</a>
-    <a href="reference.html">레퍼런스</a>
-    <a href="blog.html">블로그</a>
+    <a href="index.html"><span data-lang="ko">홈</span><span data-lang="en">Home</span></a>
+    <a href="about.html"><span data-lang="ko">회사소개</span><span data-lang="en">About</span></a>
+    <a href="reference.html"><span data-lang="ko">레퍼런스</span><span data-lang="en">Work</span></a>
+    <a href="blog.html"><span data-lang="ko">블로그</span><span data-lang="en">Blog</span></a>
     <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram</a>
     <a href="mailto:contact@homifactory.com">contact@homifactory.com</a>
   </div>
@@ -615,15 +928,64 @@
   if (location.search.includes('sent=1')) {
     var card = document.querySelector('.apply-form-card');
     if (card) {
-      card.innerHTML = '<h2>🎉 지원 완료!</h2>' +
-        '<p class="form-sub">소중한 지원서가 호미팩토리에 도착했습니다. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.</p>' +
+      var isEn = document.documentElement.lang === 'en';
+      card.innerHTML =
+        '<h2>' + (isEn ? '🎉 Submission complete!' : '🎉 지원 완료!') + '</h2>' +
+        '<p class="form-sub">' + (isEn
+          ? 'Your submission was received. Our team will reach out within 1–2 business days.'
+          : '소중한 지원서가 호미팩토리에 도착했습니다. 영업일 기준 1~2일 안에 담당자가 직접 연락드립니다.') + '</p>' +
         '<div style="margin-top:32px;text-align:center;">' +
-        '  <a href="index.html" style="display:inline-block;padding:14px 28px;background:var(--text);color:#fff;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;">호미팩토리 둘러보기 →</a>' +
-        '</div>';
-      // 페이지 상단으로 스크롤
+        '  <a href="index.html" style="display:inline-block;padding:14px 28px;background:var(--text);color:#fff;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;">' +
+        (isEn ? 'Explore Homi Factory →' : '호미팩토리 둘러보기 →') +
+        '</a></div>';
       window.scrollTo({ top: card.offsetTop - 100, behavior: 'smooth' });
     }
   }
+
+  // H3 — FORM TYPE TOGGLE (Creator / Agent)
+  (function(){
+    var btns = document.querySelectorAll('.form-type-btn');
+    var panes = document.querySelectorAll('.form-pane');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var target = btn.dataset.pane;
+        btns.forEach(function(b){
+          var on = (b === btn);
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panes.forEach(function(p){
+          p.classList.toggle('active', p.id === 'pane-' + target);
+        });
+        if (window.gtag) gtag('event', 'apply_form_toggle', { 'form_type': target });
+      });
+    });
+    if (location.search.includes('type=agent')) {
+      var agentBtn = document.querySelector('.form-type-btn[data-pane="agent"]');
+      if (agentBtn) agentBtn.click();
+    }
+  })();
+
+  // H13 — KR/EN LANG TOGGLE
+  (function(){
+    var html = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem('homi_lang'); } catch(e){}
+    if (saved === 'en' || saved === 'ko') html.setAttribute('lang', saved);
+    function applyLang(lang){
+      html.setAttribute('lang', lang);
+      try { localStorage.setItem('homi_lang', lang); } catch(e){}
+      document.querySelectorAll('.lang-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.langBtn === lang);
+      });
+      if (window.gtag) gtag('event', 'lang_toggle', { 'lang': lang });
+    }
+    var current = html.getAttribute('lang') || 'ko';
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.langBtn === current);
+      b.addEventListener('click', function(){ applyLang(b.dataset.langBtn); });
+    });
+  })();
 </script>
 
 </body>
