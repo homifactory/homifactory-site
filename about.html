@@ -140,6 +140,151 @@
       to   { transform: translateX(calc(-50% - 12px)); }
     }
 
+    /* H10 — 핵심 가치 3개 카드 (hypernetworks 벤치마킹) */
+    .corevalues-section {
+      padding: 120px 48px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .corevalues-inner { max-width: 1280px; margin: 0 auto; }
+    .corevalues-header {
+      text-align: center; margin-bottom: 56px;
+    }
+    .corevalues-eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--pink); text-transform: uppercase;
+      font-weight: 700; margin-bottom: 14px;
+    }
+    .corevalues-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .corevalues-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .corevalue-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: all 0.3s ease;
+      position: relative; overflow: hidden;
+    }
+    .corevalue-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+      box-shadow: 0 24px 60px -24px rgba(253,1,81,0.2);
+    }
+    .corevalue-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 56px; font-weight: 800;
+      letter-spacing: -0.04em; line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--pink);
+      margin-bottom: 24px;
+    }
+    .corevalue-card h3 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .corevalue-card .corevalue-en {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px; color: var(--pink);
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+    .corevalue-card p {
+      font-size: 14px; color: var(--text2);
+      line-height: 1.8;
+    }
+    @media (max-width: 900px) {
+      .corevalues-grid { grid-template-columns: 1fr; gap: 14px; }
+      .corevalues-section { padding: 80px 20px; }
+    }
+
+    /* H2 — 언론 보도 섹션 (hypernetworks 벤치마킹) */
+    .press-section {
+      padding: 120px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .press-inner { max-width: 1280px; margin: 0 auto; }
+    .press-header {
+      text-align: center; margin-bottom: 48px;
+    }
+    .press-eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--pink); text-transform: uppercase;
+      font-weight: 700; margin-bottom: 14px;
+    }
+    .press-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .press-sub {
+      font-size: 14px; color: var(--text2); line-height: 1.7;
+    }
+    .press-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .press-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+    }
+    .press-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--pink);
+      box-shadow: 0 18px 50px -20px rgba(253,1,81,0.18);
+    }
+    .press-media {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.16em;
+      color: var(--pink); font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .press-headline {
+      font-family: 'Bricolage Grotesque','Pretendard', sans-serif;
+      font-size: 16px; font-weight: 700;
+      letter-spacing: -0.01em; line-height: 1.45;
+      margin-bottom: 16px; flex: 1;
+    }
+    .press-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--muted);
+    }
+    .press-meta .press-arrow { color: var(--text2); transition: transform 0.2s; }
+    .press-card:hover .press-arrow { color: var(--pink); transform: translateX(3px); }
+    .press-placeholder-card {
+      grid-column: 1 / -1;
+      background: rgba(253,1,81,0.03);
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px; color: var(--muted);
+      line-height: 1.7;
+    }
+    .press-placeholder-card strong { color: var(--text); font-weight: 700; }
+    @media (max-width: 900px) {
+      .press-grid { grid-template-columns: 1fr; }
+      .press-section { padding: 80px 20px; }
+    }
+
     /* T4 — 마키 ↔ 그리드 토글 (trendwave 벤치마킹) */
     .creators-view-toggle {
       display: flex; justify-content: center; gap: 8px;
@@ -740,6 +885,36 @@
 </section>
 
 <!-- VALUES -->
+<!-- H10 — 핵심 가치 3개 카드 (hypernetworks 벤치마킹) -->
+<section class="corevalues-section reveal">
+  <div class="corevalues-inner">
+    <div class="corevalues-header">
+      <div class="corevalues-eyebrow">● Core Values</div>
+      <h2 class="corevalues-title">호미팩토리가 일하는 <span style="color:var(--pink);">세 가지 원칙</span></h2>
+    </div>
+    <div class="corevalues-grid">
+      <div class="corevalue-card">
+        <div class="corevalue-num">01</div>
+        <h3>지속 가능한 설계</h3>
+        <div class="corevalue-en">Sustainable Architecture</div>
+        <p>단기 캠페인이 아닌, <strong>5년·10년 함께 가는 장기 IP·자산</strong>을 설계합니다. 콘텐츠가 시간이 지날수록 가치가 누적되는 구조로 운영합니다.</p>
+      </div>
+      <div class="corevalue-card">
+        <div class="corevalue-num">02</div>
+        <h3>데이터 기반 의사결정</h3>
+        <div class="corevalue-en">Data-Driven Decision</div>
+        <p>감으로 운영하지 않습니다. 모든 전략은 <strong>측정 가능한 정량 지표</strong>로 검증하고, 매 캠페인마다 도달·참여·전환을 리포트로 공유합니다.</p>
+      </div>
+      <div class="corevalue-card">
+        <div class="corevalue-num">03</div>
+        <h3>생태계 중심 사고</h3>
+        <div class="corevalue-en">Ecosystem-Centric Approach</div>
+        <p>크리에이터·브랜드·파트너 모두가 윈윈하는 <strong>상생 구조</strong>를 설계합니다. 한 명만 성공하는 일회성 거래가 아닌, 함께 자라는 생태계입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="values-section">
   <div class="values-inner">
     <div class="reveal">
@@ -810,6 +985,25 @@
 </div>
 
 <!-- TIMELINE -->
+<!-- H2 — 언론 보도 (hypernetworks 벤치마킹) -->
+<section class="press-section reveal">
+  <div class="press-inner">
+    <div class="press-header">
+      <div class="press-eyebrow">● Press & Media</div>
+      <h2 class="press-title">호미팩토리, <span style="color:var(--pink);">미디어에 소개되다</span></h2>
+      <p class="press-sub">호미팩토리의 성장과 캠페인 사례가 다양한 매체에 소개되고 있습니다.</p>
+    </div>
+    <div class="press-grid">
+      <div class="press-placeholder-card">
+        <strong>📰 첫 보도자료를 준비 중입니다</strong><br>
+        호미팩토리의 성장 스토리·캠페인 사례가 곧 미디어에 게재됩니다. 보도자료 게재 시 이 영역에 매체 · 헤드라인 · 날짜 · 원문 링크로 자동 업데이트됩니다.
+        <br><br>
+        <span style="font-size:11px;color:var(--muted);">※ 보도 자료 문의: contact@homifactory.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="timeline-section">
   <div class="timeline-inner">
     <div class="reveal">
