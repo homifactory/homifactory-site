@@ -207,6 +207,70 @@
       .corevalues-section { padding: 80px 20px; }
     }
 
+    /* H14 — 사무실 위치 (Google Maps) */
+    .location-section {
+      padding: 100px 48px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .location-inner { max-width: 1280px; margin: 0 auto; }
+    .location-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px;
+      align-items: start;
+    }
+    .location-info .location-eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--pink); text-transform: uppercase;
+      font-weight: 700; margin-bottom: 14px;
+    }
+    .location-info h2 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .location-info .location-desc {
+      font-size: 14px; color: var(--text2); line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .location-info .info-row {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .location-info .info-row:last-child { border-bottom: none; }
+    .location-info .info-icon {
+      font-size: 18px; flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mint-soft), var(--pink-soft));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .location-info .info-label {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--muted); text-transform: uppercase;
+      font-weight: 700; margin-bottom: 4px;
+    }
+    .location-info .info-value {
+      font-size: 14px; color: var(--text); line-height: 1.5;
+    }
+    .location-info .info-value a { color: var(--pink); text-decoration: none; }
+    .location-map {
+      width: 100%; aspect-ratio: 4/3;
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 60px -24px rgba(0,0,0,0.12);
+    }
+    .location-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+    @media (max-width: 900px) {
+      .location-section { padding: 70px 20px; }
+      .location-grid { grid-template-columns: 1fr; gap: 32px; }
+      .location-map { aspect-ratio: 16/10; }
+    }
+
     /* H2 — 언론 보도 섹션 (hypernetworks 벤치마킹) */
     .press-section {
       padding: 120px 48px;
@@ -1041,6 +1105,56 @@
 </section>
 
 <!-- CTA -->
+<!-- H14 — 사무실 위치 (Google Maps) -->
+<section class="location-section reveal">
+  <div class="location-inner">
+    <div class="location-grid">
+      <div class="location-info">
+        <div class="location-eyebrow">● Where We Are</div>
+        <h2>호미팩토리<br><span style="color:var(--pink);">사무실 위치</span></h2>
+        <p class="location-desc">
+          용인 한숲시티에 위치한 호미팩토리. 미팅·촬영·기획 모든 작업이 한 공간에서 진행됩니다.
+        </p>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-value">경기도 용인시 처인구 금령로 23, 302-73호</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">✉</div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:contact@homifactory.com">contact@homifactory.com</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📸</div>
+          <div>
+            <div class="info-label">Instagram</div>
+            <div class="info-value"><a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">@homi_factory</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🏢</div>
+          <div>
+            <div class="info-label">Business</div>
+            <div class="info-value">사업자등록번호 295-20-02749</div>
+          </div>
+        </div>
+      </div>
+      <div class="location-map">
+        <iframe
+          src="https://www.google.com/maps?q=경기도+용인시+처인구+금령로+23&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-title">지금<br><span class="hl">이야기</span>를 시작하세요</h2>
@@ -1175,6 +1289,33 @@ document.querySelectorAll('.view-toggle-btn').forEach(function(btn){
       setTimeout(function(){ modal.style.display = 'none'; modal.classList.remove('open'); }, 250);
     }
   });
+})();
+
+/* Sprint 23 — 보도자료 동적 로드 (DB에서 가져와 press-grid 렌더) */
+(async () => {
+  let tries = 0;
+  while (!window.HOMI && tries < 30) { await new Promise(r => setTimeout(r, 100)); tries++; }
+  if (!window.HOMI) return;
+  const sb = window.HOMI.sb;
+  const r = await sb.from('press_releases').select('*').eq('is_active', true).order('display_order',{ascending:true}).order('date',{ascending:false});
+  if (r.error || !r.data || r.data.length === 0) return;  // 비어있으면 placeholder 유지
+  const grid = document.querySelector('.press-grid');
+  if (!grid) return;
+  const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function dateStr(d){ if (!d) return ''; try { return new Date(d).toLocaleDateString('ko-KR'); } catch(e){ return d; } }
+  const cards = r.data.map(p => {
+    const tag = p.url ? 'a' : 'div';
+    const href = p.url ? ` href="${esc(p.url)}" target="_blank" rel="noopener"` : '';
+    return `<${tag} class="press-card"${href}>
+      <div class="press-media">${esc(p.media || '')}</div>
+      <div class="press-headline">${esc(p.headline || '')}</div>
+      <div class="press-meta">
+        <span>${dateStr(p.date)}</span>
+        ${p.url ? '<span class="press-arrow">원문 →</span>' : ''}
+      </div>
+    </${tag}>`;
+  }).join('');
+  grid.innerHTML = cards;
 })();
 </script>
 

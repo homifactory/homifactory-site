@@ -453,7 +453,7 @@
         <button class="btn-logout" id="logoutBtnDash">로그아웃</button>
       </div>
     </div>
-    <div class="dash-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="dash-grid" style="grid-template-columns: repeat(2, 1fr);">
       <a href="#creators" class="dash-card">
         <div class="dash-card-icon">👥</div>
         <h3>크리에이터 관리</h3>
@@ -466,11 +466,17 @@
         <p>레퍼런스 페이지에 표시되는 프로젝트·캠페인 카드를 등록·수정합니다.</p>
         <div class="dash-count">현재 등록: <strong id="refsCount">—</strong></div>
       </a>
+      <a href="#press" class="dash-card">
+        <div class="dash-card-icon">📰</div>
+        <h3>보도자료 관리</h3>
+        <p>회사소개 페이지 언론 보도 섹션에 표시되는 보도자료를 등록·수정합니다.</p>
+        <div class="dash-count">현재 등록: <strong id="pressCount">—</strong></div>
+      </a>
       <a href="#data" class="dash-card">
         <div class="dash-card-icon">📊</div>
         <h3>데이터 뷰어</h3>
         <p>Supabase DB의 모든 테이블 row를 검색·정렬·페이지징으로 미러링해서 봅니다.</p>
-        <div class="dash-count">테이블: <strong id="tablesCount">2개</strong></div>
+        <div class="dash-count">테이블: <strong id="tablesCount">3개</strong></div>
       </a>
     </div>
   </div>
@@ -758,6 +764,66 @@ create policy "auth all references"
     </div>
   </div><!-- /section-references -->
 
+  <!-- ━━━━━━━━━━━━━ PRESS RELEASES 섹션 (Sprint 23) ━━━━━━━━━━━━━ -->
+  <div class="admin-section" id="section-press" style="display:none;">
+    <button class="back-to-dash" onclick="location.hash=''">← 대시보드로</button>
+    <div class="admin-head">
+      <div>
+        <h1>보도자료 관리</h1>
+        <p class="sub">회사소개 페이지 '언론 보도' 섹션에 표시되는 보도자료를 등록·수정합니다.</p>
+      </div>
+      <div class="admin-user">
+        <span>로그인:</span>
+        <span class="who" id="userEmailPress">—</span>
+        <button class="btn-logout" id="logoutBtnPress">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="creator-form">
+      <h2 id="pressFormTitle">+ 새 보도자료 등록</h2>
+      <p class="form-intro">매체명·헤드라인 필수. 날짜·원문 URL·썸네일 이미지는 선택.</p>
+      <form id="pressForm">
+        <input type="hidden" id="pressEditId">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="press-media">매체명 <span class="req">*</span></label>
+            <input id="press-media" type="text" required placeholder="예: 서울신문 · 스포츠서울 · 빅데이터뉴스">
+          </div>
+          <div class="form-group">
+            <label for="press-date">보도 날짜</label>
+            <input id="press-date" type="date">
+          </div>
+          <div class="form-group full">
+            <label for="press-headline">헤드라인 <span class="req">*</span></label>
+            <input id="press-headline" type="text" required placeholder="예: 호미팩토리, TikTok Live 시장에서 신흥 강자로 부상">
+          </div>
+          <div class="form-group full">
+            <label for="press-url">원문 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="press-url" type="url" placeholder="https://… 보도 기사 원문 링크">
+          </div>
+          <div class="form-group full">
+            <label for="press-image">썸네일 이미지 URL <span style="color:var(--muted);font-weight:400">(선택)</span></label>
+            <input id="press-image" type="url" placeholder="https://… 매체 로고 또는 기사 썸네일">
+            <p class="form-hint">비워두면 매체명 이니셜로 자동 표시됩니다.</p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-submit" id="pressFormSubmit">저장 →</button>
+          <button type="button" class="btn-secondary" id="pressFormCancel" style="display:none;">취소</button>
+          <div class="form-msg" id="pressFormMsg"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="list-head">
+      <h2>등록된 보도자료</h2>
+      <span class="list-count" id="pressListCount">로딩 중…</span>
+    </div>
+    <div id="pressList">
+      <div class="loading">불러오는 중…</div>
+    </div>
+  </div><!-- /section-press -->
+
   <!-- ━━━━━━━━━━━━━ DATA VIEWER 섹션 ━━━━━━━━━━━━━ -->
   <div class="admin-section" id="section-data" style="display:none;">
     <button class="back-to-dash" onclick="location.hash=''">← 대시보드로</button>
@@ -826,6 +892,7 @@ create policy "auth all references"
       <select id="dataTable">
         <option value="creators">creators</option>
         <option value="references">references</option>
+        <option value="press_releases">press_releases</option>
         <option value="page_views">page_views</option>
         <option value="cta_clicks">cta_clicks</option>
       </select>
@@ -873,12 +940,12 @@ create policy "auth all references"
   const { data: { session } } = await sb.auth.getSession();
   if (!session) { location.href = 'login.html'; return; }
   document.getElementById('userEmail').textContent = session.user.email;
-  ['userEmailDash','userEmailRef','userEmailData'].forEach(function(id){
+  ['userEmailDash','userEmailRef','userEmailData','userEmailPress'].forEach(function(id){
     var el = document.getElementById(id); if (el) el.textContent = session.user.email;
   });
 
   async function doLogout(){ await sb.auth.signOut(); location.href = 'login.html'; }
-  ['logoutBtn','logoutBtnDash','logoutBtnRef','logoutBtnData'].forEach(function(id){
+  ['logoutBtn','logoutBtnDash','logoutBtnRef','logoutBtnData','logoutBtnPress'].forEach(function(id){
     var el = document.getElementById(id); if (el) el.addEventListener('click', doLogout);
   });
 
@@ -1166,6 +1233,7 @@ create policy "auth all references"
       '#': 'section-dashboard',
       '#creators': 'section-creators',
       '#references': 'section-references',
+      '#press': 'section-press',
       '#data': 'section-data'
     };
     if (hash === '#data') { setTimeout(initDataViewer, 50); }
@@ -1366,6 +1434,11 @@ create policy "auth all references"
       cols: ['id','path','cta_id','cta_label','created_at'],
       types: { id:'id', created_at:'date' },
       searchCols: ['path','cta_id','cta_label']
+    },
+    press_releases: {
+      cols: ['id','media','headline','date','url','image_url','is_active','display_order','created_at'],
+      types: { id:'id', is_active:'bool', display_order:'num', created_at:'date', date:'date', image_url:'img' },
+      searchCols: ['media','headline','url']
     }
   };
 
@@ -1561,9 +1634,135 @@ create policy "auth all references"
   }
   // showSection이 #data일 때 initDataViewer 호출
 
+  // ━━━━━━━━━━━━━ PRESS RELEASES CRUD (Sprint 23) ━━━━━━━━━━━━━
+  var pressListEl = document.getElementById('pressList');
+  var pressCountEl = document.getElementById('pressListCount');
+  var pressCountDash = document.getElementById('pressCount');
+  var pressForm = document.getElementById('pressForm');
+  var pressFormTitle = document.getElementById('pressFormTitle');
+  var pressCancelBtn = document.getElementById('pressFormCancel');
+  var pressCache = [];
+
+  function showPressMsg(type, text){
+    var m = document.getElementById('pressFormMsg');
+    m.className = 'form-msg ' + type;
+    m.textContent = text;
+    if (type === 'success') setTimeout(function(){ m.className = 'form-msg'; m.textContent = ''; }, 3000);
+  }
+
+  async function loadPress(){
+    pressListEl.innerHTML = '<div class="loading">불러오는 중…</div>';
+    var res = await sb.from('press_releases').select('*').order('display_order',{ascending:true}).order('date',{ascending:false});
+    if (res.error){
+      pressListEl.innerHTML = '<div class="loading">에러: ' + escapeHtml(res.error.message) + '</div>';
+      return;
+    }
+    pressCache = res.data || [];
+    pressCountEl.textContent = '총 ' + pressCache.length + '건';
+    if (pressCountDash) pressCountDash.textContent = pressCache.length + '건';
+    if (pressCache.length === 0){
+      pressListEl.innerHTML = '<div class="loading">아직 등록된 보도자료가 없습니다.</div>';
+      return;
+    }
+    var rows = pressCache.map(function(r){
+      var badge = r.is_active ? '<span class="badge active">활성</span>' : '<span class="badge inactive">숨김</span>';
+      var thumb = r.image_url
+        ? '<img src="'+escapeHtml(r.image_url)+'" alt="" onerror="this.parentElement.innerHTML=\'📰\'">'
+        : '<span>📰</span>';
+      var dateStr = r.date ? new Date(r.date).toLocaleDateString('ko-KR') : '—';
+      return '<tr data-id="' + r.id + '">' +
+        '<td class="col-thumb"><div class="thumb">' + thumb + '</div></td>' +
+        '<td>' +
+          '<div class="name">' + escapeHtml(r.headline || '') + '</div>' +
+          '<div class="handle">' + escapeHtml(r.media || '') + ' · ' + dateStr + '</div>' +
+        '</td>' +
+        '<td class="col-cat">' + (r.url ? '<a href="'+escapeHtml(r.url)+'" target="_blank" rel="noopener" style="color:var(--pink);font-size:11px;">원문 →</a>' : '—') + '</td>' +
+        '<td>' + badge + '</td>' +
+        '<td><div class="row-actions">' +
+          '<button class="toggle" data-action="pressToggle">' + (r.is_active ? '숨김' : '활성화') + '</button>' +
+          '<button class="edit" data-action="pressEdit">수정</button>' +
+          '<button class="delete" data-action="pressDelete">삭제</button>' +
+        '</div></td>' +
+      '</tr>';
+    }).join('');
+    pressListEl.innerHTML = '<table class="creators-table">' +
+      '<thead><tr><th></th><th>헤드라인·매체</th><th class="col-cat">원문</th><th>상태</th><th></th></tr></thead>' +
+      '<tbody>' + rows + '</tbody>' +
+    '</table>';
+    pressListEl.querySelectorAll('button[data-action]').forEach(function(btn){
+      btn.addEventListener('click', async function(e){
+        var tr = e.target.closest('tr');
+        var id = tr.dataset.id;
+        var action = btn.dataset.action;
+        if (action === 'pressDelete'){
+          if (!confirm('정말 삭제할까요? 되돌릴 수 없습니다.')) return;
+          var d = await sb.from('press_releases').delete().eq('id', id);
+          if (d.error) return alert('삭제 실패: ' + d.error.message);
+          loadPress();
+        } else if (action === 'pressToggle'){
+          var r = pressCache.find(function(x){return x.id === id;});
+          var u = await sb.from('press_releases').update({is_active: !r.is_active, updated_at: new Date().toISOString()}).eq('id', id);
+          if (u.error) return alert('변경 실패: ' + u.error.message);
+          loadPress();
+        } else if (action === 'pressEdit'){
+          var r2 = pressCache.find(function(x){return x.id === id;});
+          startPressEdit(r2);
+        }
+      });
+    });
+  }
+
+  function resetPressForm(){
+    pressForm.reset();
+    document.getElementById('pressEditId').value = '';
+    pressFormTitle.textContent = '+ 새 보도자료 등록';
+    pressCancelBtn.style.display = 'none';
+  }
+  function startPressEdit(r){
+    document.getElementById('pressEditId').value = r.id;
+    document.getElementById('press-media').value = r.media || '';
+    document.getElementById('press-headline').value = r.headline || '';
+    document.getElementById('press-date').value = r.date || '';
+    document.getElementById('press-url').value = r.url || '';
+    document.getElementById('press-image').value = r.image_url || '';
+    pressFormTitle.textContent = '✎ 수정 — ' + (r.headline || '');
+    pressCancelBtn.style.display = 'inline-flex';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  pressCancelBtn.addEventListener('click', resetPressForm);
+
+  pressForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var submitBtn = document.getElementById('pressFormSubmit');
+    submitBtn.disabled = true; submitBtn.textContent = '저장 중...';
+    var editId = document.getElementById('pressEditId').value;
+    var payload = {
+      media: document.getElementById('press-media').value.trim(),
+      headline: document.getElementById('press-headline').value.trim(),
+      date: document.getElementById('press-date').value || null,
+      url: document.getElementById('press-url').value.trim() || null,
+      image_url: document.getElementById('press-image').value.trim() || null,
+      is_active: true,
+      updated_at: new Date().toISOString()
+    };
+    if (!editId){
+      var maxRow = await sb.from('press_releases').select('display_order').order('display_order',{ascending:false}).limit(1).maybeSingle();
+      payload.display_order = ((maxRow.data && maxRow.data.display_order) || 0) + 10;
+    }
+    var res2;
+    if (editId) res2 = await sb.from('press_releases').update(payload).eq('id', editId);
+    else res2 = await sb.from('press_releases').insert(payload);
+    submitBtn.disabled = false; submitBtn.textContent = '저장 →';
+    if (res2.error){ showPressMsg('error','저장 실패: '+res2.error.message); return; }
+    showPressMsg('success', editId ? '수정 완료' : '등록 완료');
+    resetPressForm();
+    loadPress();
+  });
+
   // 초기 로드
   loadCreators();
   loadReferences();
+  loadPress();
 })();
 </script>
 
