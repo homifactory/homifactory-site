@@ -102,6 +102,174 @@
     }
     .dot-nav-item:hover::before { opacity: 1; }
 
+    /* HERO — Dark Brand Slide (소개서 커버 스타일) */
+    .hero.hero-dark {
+      background: #0a0a0a;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-dark-radial {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 1200px 700px at 50% 42%, rgba(120,20,50,0.55) 0%, rgba(60,10,30,0.3) 40%, transparent 72%),
+        radial-gradient(ellipse 900px 500px at 50% 65%, rgba(80,10,35,0.35) 0%, transparent 70%);
+    }
+    .hero-dark-noise {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+    .hero-dark-accent-dot {
+      position: absolute;
+      right: 24%; top: 62%;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 24px rgba(0,244,233,0.45);
+      z-index: 1;
+      animation: dotPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.85); opacity: 0.75; }
+    }
+    .hero-eyebrow-dark {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+    .hero-h1-dark {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: clamp(56px, 8.2vw, 118px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: transparent;
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #a8a8a8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin: 0 auto 32px;
+      max-width: 1080px;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+    .hero-h1-dark .dot-pink {
+      color: var(--pink);
+      -webkit-text-fill-color: var(--pink);
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      display: inline-block;
+      transform: translateY(-4px);
+    }
+    .hero-lead-dark {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.7);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+    .hero-tagline-dark {
+      display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      margin-bottom: 56px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.65s;
+    }
+    .hero-tagline-dark .tagline-line {
+      width: 40px; height: 1px;
+      background: var(--pink);
+    }
+    .hero-tagline-dark .tagline-text {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .hero-cta-dark {
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.8s;
+    }
+    .hero-btn-primary-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 28px;
+      background: #fff; color: var(--text);
+      border: 1px solid #fff;
+      border-radius: 999px;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14.5px; font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-btn-primary-dark:hover {
+      background: var(--pink); color: #fff; border-color: var(--pink);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -10px rgba(253,1,81,0.55);
+    }
+    .hero-btn-primary-dark .arrow { transition: transform 0.25s ease; font-size: 16px; }
+    .hero-btn-primary-dark:hover .arrow { transform: translateX(4px); }
+    .hero-btn-ghost-dark {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 15px 22px;
+      background: transparent; color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14.5px; font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-btn-ghost-dark:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+    .hero-dark-scroll {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 10px; letter-spacing: 0.24em;
+      color: rgba(255,255,255,0.4);
+      opacity: 0; animation: fadeUp 1s ease forwards 1s;
+      z-index: 2;
+    }
+    .scroll-line-dark {
+      width: 1px; height: 44px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.5));
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+    @media (max-width: 640px) {
+      .hero.hero-dark { padding: 100px 20px; min-height: 88vh; }
+      .hero-eyebrow-dark { margin-bottom: 20px; letter-spacing: 0.3em; }
+      .hero-h1-dark { margin-bottom: 24px; letter-spacing: -0.02em; }
+      .hero-lead-dark { font-size: 14px; margin-bottom: 30px; }
+      .hero-tagline-dark { margin-bottom: 40px; }
+      .hero-tagline-dark .tagline-line { width: 24px; }
+      .hero-tagline-dark .tagline-text { font-size: 10.5px; letter-spacing: 0.2em; }
+      .hero-btn-primary-dark, .hero-btn-ghost-dark { padding: 13px 22px; font-size: 13.5px; }
+      .hero-dark-scroll { bottom: 24px; }
+      .hero-dark-accent-dot { right: 12%; top: 68%; width: 10px; height: 10px; }
+    }
+
+    /* Nav — hero-dark 위에 있을 때 어두운 톤 대응 */
+    body.at-hero-dark nav {
+      background: rgba(10,10,10,0.55);
+      backdrop-filter: blur(20px);
+      border-bottom-color: rgba(255,255,255,0.06);
+    }
+    body.at-hero-dark nav .nav-logo,
+    body.at-hero-dark nav .nav-center a { color: #fff; }
+    body.at-hero-dark nav .nav-center a.active { color: var(--pink); }
+    body.at-hero-dark nav .hamburger span { background: #fff; }
+
     /* HERO — 극도 미니멀 (shortt.kr 벤치마킹) */
     .hero {
       min-height: 100vh;
@@ -1905,31 +2073,37 @@
   <a href="#" data-modal="modal-quick">광고 제안 받기 →</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"><span class="blob-3"></span></div>
+<!-- HERO — Dark Brand Slide (소개서 커버 스타일) -->
+<section class="hero hero-dark" id="hero">
+  <div class="hero-dark-radial"></div>
+  <div class="hero-dark-noise"></div>
   <div class="hero-content hero-center">
-    <div class="hero-eyebrow-min">— ENTERTAINMENT ALL-IN-ONE GROUP</div>
-    <h1 class="hero-h1-min">
-      데이터로 설계하는<br>
-      <span class="hl">콘텐츠의 모든 순간</span>
+    <div class="hero-eyebrow-dark">HOMI FACTORY</div>
+    <h1 class="hero-h1-dark">
+      WE DESIGN<br>
+      EVERY MOMENT<span class="dot-pink">.</span>
     </h1>
-    <p class="hero-lead-min">
-      마케팅 · 매니지먼트 · 공연 · TikTok Live —<br>
-      4대 사업부가 하나의 팀으로 움직이는 호미팩토리
+    <p class="hero-lead-dark">
+      마케팅 · 매니지먼트 · 공연 · TikTok Live — 콘텐츠가 소비자와 만나는 모든 순간을<br>
+      데이터와 노하우로 설계합니다
     </p>
-    <div class="hero-cta-min">
-      <button type="button" class="hero-btn-primary" data-modal="modal-free">
+    <div class="hero-tagline-dark">
+      <span class="tagline-line"></span>
+      <span class="tagline-text">DATA-DRIVEN BY DESIGN</span>
+      <span class="tagline-line"></span>
+    </div>
+    <div class="hero-cta-min hero-cta-dark">
+      <button type="button" class="hero-btn-primary-dark" data-modal="modal-free">
         광고 제안 하기 <span class="arrow">→</span>
       </button>
-      <a href="#stats-hero" class="hero-btn-ghost-min">
+      <a href="#stats-hero" class="hero-btn-ghost-dark">
         더 알아보기
       </a>
     </div>
   </div>
-  <div class="hero-scroll-min">
-    <div class="scroll-line-min"></div>
+  <div class="hero-dark-accent-dot" aria-hidden="true"></div>
+  <div class="hero-dark-scroll">
+    <div class="scroll-line-dark"></div>
     <span>SCROLL</span>
   </div>
 </section>
@@ -3047,6 +3221,24 @@ document.querySelectorAll('.dept-tab').forEach(tab => {
     document.querySelectorAll('.dept-panel').forEach(p => p.classList.toggle('active', p.id === target));
   });
 });
+
+/* Nav on hero-dark — 스크롤 위치에 따라 nav 다크 톤 전환 */
+(function(){
+  const heroDark = document.querySelector('.hero.hero-dark');
+  if (!heroDark) return;
+  function checkHero(){
+    const rect = heroDark.getBoundingClientRect();
+    // Hero-dark가 nav 아래(68px)까지 걸쳐 있으면 다크 톤 적용
+    if (rect.bottom > 90) {
+      document.body.classList.add('at-hero-dark');
+    } else {
+      document.body.classList.remove('at-hero-dark');
+    }
+  }
+  checkHero();
+  window.addEventListener('scroll', checkHero, { passive: true });
+  window.addEventListener('resize', checkHero);
+})();
 
 /* I18N (U15/F4) — KR/EN 다국어 토글 */
 (function(){
