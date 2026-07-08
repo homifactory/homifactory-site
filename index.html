@@ -184,12 +184,85 @@
     }
     .hero-content { position:relative; z-index:1; max-width:1280px; margin:0 auto; width:100%; }
     .hero-badge {
-      display:inline-flex; align-items:center; gap:8px; margin-bottom:28px;
+      display:inline-flex; align-items:center; gap:8px; margin-bottom:22px;
       opacity:0; animation:fadeUp 0.6s ease forwards 0.2s;
     }
     .live-dot { width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 2s ease infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.75)} }
     .hero-badge span { font-size:11px; letter-spacing:0.2em; color: var(--pink); text-transform:uppercase; }
+
+    /* Hero — 4대 사업부 뱃지 스트립 */
+    .hero-dept-strip {
+      display: inline-flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+    .hero-dept-strip .dept-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 999px;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .hero-dept-strip .dept-chip .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--pink);
+    }
+    .hero-dept-strip .dept-chip:nth-child(1) .dot { background: #008c8a; }
+    .hero-dept-strip .dept-chip:nth-child(2) .dot { background: var(--pink); }
+    .hero-dept-strip .dept-chip:nth-child(3) .dot { background: #e25555; }
+    .hero-dept-strip .dept-chip:nth-child(4) .dot { background: #6a4cb6; }
+
+    /* Hero — 성과 지표 스트립 (3억+ / 2,600+ / 60+) */
+    .hero-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      max-width: 720px;
+      margin: 22px 0 32px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+    .hero-stat {
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-stat-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      color: var(--pink);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .hero-stat-sub {
+      font-size: 10px;
+      color: var(--text2);
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+    @media (max-width: 640px) {
+      .hero-dept-strip .dept-chip { padding: 6px 10px; font-size: 11px; }
+      .hero-stats-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .hero-stat { padding: 10px 8px; text-align: center; }
+      .hero-stat-num { font-size: 20px; }
+      .hero-stat-label { font-size: 11px; }
+      .hero-stat-sub { display: none; }
+    }
     .hero h1 {
       font-family:'Bricolage Grotesque', 'Pretendard', sans-serif;
       font-size:clamp(64px, 10vw, 140px);
@@ -1557,13 +1630,41 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="live-dot"></span>
-      <span>Content Agency · Homi Factory</span>
+      <span>Entertainment ALL-IN-ONE Group · Homi Factory</span>
     </div>
+
+    <!-- 4대 사업부 뱃지 스트립 -->
+    <div class="hero-dept-strip" aria-label="4대 사업부">
+      <span class="dept-chip"><span class="dot"></span>마케팅</span>
+      <span class="dept-chip"><span class="dot"></span>매니지먼트</span>
+      <span class="dept-chip"><span class="dot"></span>공연·퍼포먼스</span>
+      <span class="dept-chip"><span class="dot"></span>TikTok Live</span>
+    </div>
+
     <h1>
-      <span class="scramble" data-text="콘텐츠로">콘텐츠로</span><br>
-      <span class="line2 scramble" data-text="연결하고">연결하고</span><br>
-      <span class="outline scramble" data-text="성장한다">성장한다</span>
+      <span class="scramble" data-text="데이터로">데이터로</span><br>
+      <span class="line2 scramble" data-text="설계하는">설계하는</span><br>
+      <span class="outline scramble" data-text="모든 순간">모든 순간</span>
     </h1>
+
+    <!-- 성과 지표 스트립 (누적 3억+ / 인플루언서 2,600+ / 고객사 60+) -->
+    <div class="hero-stats-strip" aria-label="핵심 지표">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3억+</div>
+        <div class="hero-stat-label">누적 콘텐츠 조회수</div>
+        <div class="hero-stat-sub">CUMULATIVE VIEWS</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2,600+</div>
+        <div class="hero-stat-label">협업 인플루언서</div>
+        <div class="hero-stat-sub">CREATOR NETWORK</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">60+</div>
+        <div class="hero-stat-label">누적 고객사</div>
+        <div class="hero-stat-sub">CLIENTS &amp; PARTNERS</div>
+      </div>
+    </div>
     <div class="hero-cta-row">
       <button type="button" class="hero-main-cta" data-modal="modal-free">
         <span data-ko="광고 제안 하기(기업 문의용)" data-en="For Brands (Get Proposal)">광고 제안 하기(기업 문의용)</span>
@@ -1599,18 +1700,18 @@
     </form>
     <div class="hero-bottom">
       <div class="hero-pitch">
-        <p class="hero-slogan-en">— Where creators rise, brands resonate.</p>
+        <p class="hero-slogan-en">— WE DESIGN EVERY MOMENT. Data-Driven by Design.</p>
         <p class="hero-headline lang-ko">
-          마케팅부터 콘텐츠 제작까지, <span class="hl">One Line</span>으로 연결하세요.
+          <span class="hl">마케팅 · 매니지먼트 · 공연 · TikTok Live</span> —<br>4대 사업부가 하나의 팀으로 움직입니다.
         </p>
         <p class="hero-headline lang-en">
-          From Marketing to Content Production, <span class="hl">Connect in One Line.</span>
+          <span class="hl">Marketing · Management · Performance · TikTok Live</span> —<br>4 divisions moving as one team.
         </p>
         <p class="hero-subdesc lang-ko">
-          <strong>HOMI FACTORY</strong>는 마케팅 <strong>ALL-IN ONE 서비스</strong>, 개별 서비스, 아티스트 매니지먼트, 공연/행사 섭외, <strong>TIKTOK LIVE</strong>, 콘텐츠 제작까지 브랜드와 아티스트 및 크리에이터의 성장을 <strong>One Line으로 설계</strong>하여, <strong>데이터를 기반한 정량적 서비스</strong>를 전문적으로 제공드립니다.
+          <strong>HOMI FACTORY</strong>는 노하우와 데이터를 기반으로, 콘텐츠 산업 전방위를 아우르는 <strong>엔터테인먼트 ALL-IN-ONE 그룹</strong>입니다. 단발 캠페인이 아닌 <strong>고객사와 한 팀이 되어</strong> 콘텐츠가 소비자와 만나는 모든 순간을 설계합니다.
         </p>
         <p class="hero-subdesc lang-en">
-          <strong>HOMI FACTORY</strong> integrates marketing <strong>ALL-IN ONE</strong>, artist management, live events, <strong>TIKTOK LIVE</strong>, and content production — designing brand and creator growth in <strong>One Line</strong> with <strong>data-driven, quantitative services</strong>.
+          <strong>HOMI FACTORY</strong> is an <strong>entertainment ALL-IN-ONE group</strong> covering every corner of the content industry with know-how and data. Not one-off campaigns — <strong>we become one team with our clients</strong>, designing every moment your content meets its audience.
         </p>
       </div>
       <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
