@@ -315,6 +315,41 @@
       opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
     }
     .hero-h1-min .hl { color: var(--pink); }
+    .hero-h1-min .dot-pink {
+      color: var(--pink);
+      display: inline-block;
+    }
+    /* 영문 헤드라인 (WE DESIGN EVERY MOMENT) — 살짝 더 크고 tighter */
+    .hero-h1-min.hero-h1-en {
+      font-size: clamp(52px, 8vw, 108px);
+      letter-spacing: -0.045em;
+      line-height: 1.0;
+      max-width: 1000px;
+    }
+
+    /* Tagline light — DATA-DRIVEN BY DESIGN */
+    .hero-tagline-light {
+      display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      margin-bottom: 42px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+    .hero-tagline-light .tagline-line {
+      width: 40px; height: 1px;
+      background: var(--pink);
+    }
+    .hero-tagline-light .tagline-text {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 640px) {
+      .hero-tagline-light { margin-bottom: 28px; }
+      .hero-tagline-light .tagline-line { width: 24px; }
+      .hero-tagline-light .tagline-text { font-size: 10.5px; letter-spacing: 0.2em; }
+    }
     .hero-lead-min {
       font-size: 16px;
       line-height: 1.75;
@@ -2083,37 +2118,36 @@
   <a href="#" data-modal="modal-quick">광고 제안 받기 →</a>
 </div>
 
-<!-- HERO — Dark Brand Slide (소개서 커버 스타일) -->
-<section class="hero hero-dark" id="hero">
-  <div class="hero-dark-radial"></div>
-  <div class="hero-dark-noise"></div>
+<!-- HERO — 라이트 미니멀 + 소개서 커버 카피 -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"><span class="blob-3"></span></div>
   <div class="hero-content hero-center">
-    <div class="hero-eyebrow-dark">HOMI FACTORY</div>
-    <h1 class="hero-h1-dark">
+    <div class="hero-eyebrow-min">HOMI FACTORY</div>
+    <h1 class="hero-h1-min hero-h1-en">
       WE DESIGN<br>
       EVERY MOMENT<span class="dot-pink">.</span>
     </h1>
-    <p class="hero-lead-dark">
+    <p class="hero-lead-min">
       마케팅 · 매니지먼트 · 공연 · TikTok Live — 콘텐츠가 소비자와 만나는 모든 순간을<br>
       데이터와 노하우로 설계합니다
     </p>
-    <div class="hero-tagline-dark">
+    <div class="hero-tagline-light">
       <span class="tagline-line"></span>
       <span class="tagline-text">DATA-DRIVEN BY DESIGN</span>
       <span class="tagline-line"></span>
     </div>
-    <div class="hero-cta-min hero-cta-dark">
-      <button type="button" class="hero-btn-primary-dark" data-modal="modal-free">
+    <div class="hero-cta-min">
+      <button type="button" class="hero-btn-primary" data-modal="modal-free">
         광고 제안 하기 <span class="arrow">→</span>
       </button>
-      <a href="#stats-hero" class="hero-btn-ghost-dark">
+      <a href="#stats-hero" class="hero-btn-ghost-min">
         더 알아보기
       </a>
     </div>
   </div>
-  <div class="hero-dark-accent-dot" aria-hidden="true"></div>
-  <div class="hero-dark-scroll">
-    <div class="scroll-line-dark"></div>
+  <div class="hero-scroll-min">
+    <div class="scroll-line-min"></div>
     <span>SCROLL</span>
   </div>
 </section>
