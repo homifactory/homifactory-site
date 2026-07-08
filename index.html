@@ -102,10 +102,231 @@
     }
     .dot-nav-item:hover::before { opacity: 1; }
 
-    /* HERO */
+    /* HERO — 극도 미니멀 (shortt.kr 벤치마킹) */
     .hero {
-      min-height: 82vh; display:flex; flex-direction:column; justify-content:center;
-      padding: 96px 48px 80px; position:relative; overflow:hidden;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 100px 48px;
+      position: relative; overflow: hidden;
+    }
+    .hero-center {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow-min {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+    .hero-h1-min {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: clamp(40px, 6.4vw, 88px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      margin: 0 auto 36px;
+      max-width: 860px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
+    }
+    .hero-h1-min .hl { color: var(--pink); }
+    .hero-lead-min {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text2);
+      max-width: 520px;
+      margin: 0 auto 44px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+    .hero-cta-min {
+      display: flex; justify-content: center; align-items: center; gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.65s;
+    }
+    .hero-btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 28px;
+      background: var(--text); color: #fff;
+      border: 1px solid var(--text);
+      border-radius: 999px;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14.5px; font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-btn-primary:hover {
+      background: var(--pink); border-color: var(--pink);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -10px rgba(253,1,81,0.4);
+    }
+    .hero-btn-primary .arrow { transition: transform 0.25s ease; font-size: 16px; }
+    .hero-btn-primary:hover .arrow { transform: translateX(4px); }
+    .hero-btn-ghost-min {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 15px 22px;
+      background: transparent; color: var(--text);
+      border: 1px solid rgba(37,37,37,0.15);
+      border-radius: 999px;
+      font-family: 'Pretendard', sans-serif;
+      font-size: 14.5px; font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .hero-btn-ghost-min:hover {
+      border-color: rgba(37,37,37,0.35);
+      background: rgba(37,37,37,0.03);
+    }
+    .hero-scroll-min {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 10px; letter-spacing: 0.24em;
+      color: var(--muted);
+      opacity: 0; animation: fadeUp 1s ease forwards 1s;
+    }
+    .scroll-line-min {
+      width: 1px; height: 44px;
+      background: linear-gradient(180deg, transparent, var(--muted));
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 100px 20px; min-height: 88vh; }
+      .hero-eyebrow-min { margin-bottom: 24px; letter-spacing: 0.18em; }
+      .hero-h1-min { margin-bottom: 28px; }
+      .hero-lead-min { font-size: 15px; margin-bottom: 32px; }
+      .hero-btn-primary, .hero-btn-ghost-min { padding: 13px 22px; font-size: 13.5px; }
+      .hero-scroll-min { bottom: 24px; }
+    }
+
+    /* STATS HERO — hero 아래 지표 스트립 */
+    .stats-hero {
+      padding: 100px 48px 90px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-hero-inner { max-width: 1080px; margin: 0 auto; }
+    .stats-hero-header { text-align: center; margin-bottom: 60px; }
+    .stats-hero-eyebrow {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--pink);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    .stats-hero-title {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    .stats-hero-title .hl { color: var(--pink); }
+    .stats-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-hero-cell {
+      padding: 48px 32px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stats-hero-cell:last-child { border-right: none; }
+    .stats-hero-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .stats-hero-num .unit { color: var(--pink); }
+    .stats-hero-label {
+      font-size: 14px; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .stats-hero-sub {
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 720px) {
+      .stats-hero { padding: 70px 20px; }
+      .stats-hero-grid { grid-template-columns: 1fr; }
+      .stats-hero-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 20px; }
+      .stats-hero-cell:last-child { border-bottom: none; }
+    }
+
+    /* DEPT PREVIEW — 4개 사업부 미리보기 (칩 스트립) */
+    .dept-preview {
+      padding: 90px 48px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .dept-preview-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .dept-preview-strip {
+      display: inline-flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .dept-preview-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .dept-preview-chip:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -8px rgba(37,37,37,0.12);
+    }
+    .dept-preview-chip .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+    }
+    .dept-preview-lead {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text2);
+    }
+    .dept-preview-lead strong { color: var(--text); font-weight: 700; }
+    @media (max-width: 640px) {
+      .dept-preview { padding: 64px 20px; }
+      .dept-preview-lead { font-size: 14px; }
     }
     .hero-grid {
       position:absolute; inset:0; z-index:0;
@@ -1688,95 +1909,78 @@
 <section class="hero" id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"><span class="blob-3"></span></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="live-dot"></span>
-      <span>Entertainment ALL-IN-ONE Group · Homi Factory</span>
-    </div>
-
-    <!-- 4대 사업부 뱃지 스트립 -->
-    <div class="hero-dept-strip" aria-label="4대 사업부">
-      <span class="dept-chip"><span class="dot"></span>마케팅</span>
-      <span class="dept-chip"><span class="dot"></span>매니지먼트</span>
-      <span class="dept-chip"><span class="dot"></span>공연·퍼포먼스</span>
-      <span class="dept-chip"><span class="dot"></span>TikTok Live</span>
-    </div>
-
-    <h1>
-      <span class="scramble" data-text="데이터로">데이터로</span><br>
-      <span class="line2 scramble" data-text="설계하는">설계하는</span><br>
-      <span class="outline scramble" data-text="모든 순간">모든 순간</span>
+  <div class="hero-content hero-center">
+    <div class="hero-eyebrow-min">— ENTERTAINMENT ALL-IN-ONE GROUP</div>
+    <h1 class="hero-h1-min">
+      데이터로 설계하는<br>
+      <span class="hl">콘텐츠의 모든 순간</span>
     </h1>
-
-    <!-- 성과 지표 스트립 (누적 3억+ / 인플루언서 2,600+ / 고객사 60+) -->
-    <div class="hero-stats-strip" aria-label="핵심 지표">
-      <div class="hero-stat">
-        <div class="hero-stat-num">3억+</div>
-        <div class="hero-stat-label">누적 콘텐츠 조회수</div>
-        <div class="hero-stat-sub">CUMULATIVE VIEWS</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">2,600+</div>
-        <div class="hero-stat-label">협업 인플루언서</div>
-        <div class="hero-stat-sub">CREATOR NETWORK</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">60+</div>
-        <div class="hero-stat-label">누적 고객사</div>
-        <div class="hero-stat-sub">CLIENTS &amp; PARTNERS</div>
-      </div>
-    </div>
-    <div class="hero-cta-row">
-      <button type="button" class="hero-main-cta" data-modal="modal-free">
-        <span data-ko="광고 제안 하기(기업 문의용)" data-en="For Brands (Get Proposal)">광고 제안 하기(기업 문의용)</span>
-        <span class="arrow">→</span>
+    <p class="hero-lead-min">
+      마케팅 · 매니지먼트 · 공연 · TikTok Live —<br>
+      4대 사업부가 하나의 팀으로 움직이는 호미팩토리
+    </p>
+    <div class="hero-cta-min">
+      <button type="button" class="hero-btn-primary" data-modal="modal-free">
+        광고 제안 하기 <span class="arrow">→</span>
       </button>
-      <button type="button" class="hero-main-cta" data-modal="modal-quick">
-        <span data-ko="광고 제안 받기(크리에이터용)" data-en="For Creators (Apply Now)">광고 제안 받기(크리에이터용)</span>
-        <span class="arrow">→</span>
-      </button>
-      <a href="reference.html" class="hero-main-cta hero-cta-ghost">
-        <span data-ko="포트폴리오 보기" data-en="View Portfolio">포트폴리오 보기</span>
-        <span class="arrow">→</span>
+      <a href="#stats-hero" class="hero-btn-ghost-min">
+        더 알아보기
       </a>
     </div>
-
-    <!-- B10 — Hero 미니 즉시 신청 폼 (hawaiilabel 벤치마킹) -->
-    <form class="hero-mini-form" id="heroMiniForm" action="https://formsubmit.co/contact@homifactory.com" method="POST">
-      <span class="mini-eyebrow">⚡ 1분 즉시 신청</span>
-      <input type="text" name="name" placeholder="이름" required>
-      <input type="text" name="contact" placeholder="연락처 또는 이메일" required>
-      <select name="type" required>
-        <option value="">관심 분야</option>
-        <option value="brand">📃 브랜드 제휴</option>
-        <option value="creator">💌 크리에이터 합류</option>
-        <option value="live">🎙 TikTok Live</option>
-        <option value="other">기타</option>
-      </select>
-      <input type="hidden" name="_subject" value="[호미팩토리] 미니 폼 신청">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.homifactory.com/?sent=1">
-      <button type="submit">신청 →</button>
-    </form>
-    <div class="hero-bottom">
-      <div class="hero-pitch">
-        <p class="hero-slogan-en">— WE DESIGN EVERY MOMENT. Data-Driven by Design.</p>
-        <p class="hero-headline lang-ko">
-          <span class="hl">마케팅 · 매니지먼트 · 공연 · TikTok Live</span> —<br>4대 사업부가 하나의 팀으로 움직입니다.
-        </p>
-        <p class="hero-headline lang-en">
-          <span class="hl">Marketing · Management · Performance · TikTok Live</span> —<br>4 divisions moving as one team.
-        </p>
-        <p class="hero-subdesc lang-ko">
-          <strong>HOMI FACTORY</strong>는 노하우와 데이터를 기반으로, 콘텐츠 산업 전방위를 아우르는 <strong>엔터테인먼트 ALL-IN-ONE 그룹</strong>입니다. 단발 캠페인이 아닌 <strong>고객사와 한 팀이 되어</strong> 콘텐츠가 소비자와 만나는 모든 순간을 설계합니다.
-        </p>
-        <p class="hero-subdesc lang-en">
-          <strong>HOMI FACTORY</strong> is an <strong>entertainment ALL-IN-ONE group</strong> covering every corner of the content industry with know-how and data. Not one-off campaigns — <strong>we become one team with our clients</strong>, designing every moment your content meets its audience.
-        </p>
-      </div>
-      <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+    <div class="hero-scroll-min">
+      <div class="scroll-line-min"></div>
+      <span>SCROLL</span>
     </div>
+  </div>
+</section>
+
+<!-- STATS HERO — hero 아래 미니멀 지표 스트립 -->
+<section class="stats-hero" id="stats-hero">
+  <div class="stats-hero-inner">
+    <div class="stats-hero-header reveal">
+      <div class="stats-hero-eyebrow">— TRUSTED BY NUMBERS</div>
+      <h2 class="stats-hero-title">숫자로 증명하는 <span class="hl">호미팩토리</span></h2>
+    </div>
+    <div class="stats-hero-grid reveal">
+      <div class="stats-hero-cell">
+        <div class="stats-hero-num">3억<span class="unit">+</span></div>
+        <div class="stats-hero-label">누적 콘텐츠 조회수</div>
+        <div class="stats-hero-sub">CUMULATIVE VIEWS</div>
+      </div>
+      <div class="stats-hero-cell">
+        <div class="stats-hero-num">2,600<span class="unit">+</span></div>
+        <div class="stats-hero-label">협업 인플루언서</div>
+        <div class="stats-hero-sub">CREATOR NETWORK</div>
+      </div>
+      <div class="stats-hero-cell">
+        <div class="stats-hero-num">60<span class="unit">+</span></div>
+        <div class="stats-hero-label">누적 고객사</div>
+        <div class="stats-hero-sub">CLIENTS &amp; PARTNERS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4대 사업부 미리보기 (스크롤 후 등장) -->
+<section class="dept-preview" id="dept-preview">
+  <div class="dept-preview-inner">
+    <div class="dept-preview-strip reveal">
+      <a href="#dept-wrap" class="dept-preview-chip">
+        <span class="dot" style="background:#008c8a;"></span>마케팅
+      </a>
+      <a href="#dept-wrap" class="dept-preview-chip">
+        <span class="dot" style="background:var(--pink);"></span>매니지먼트
+      </a>
+      <a href="#dept-wrap" class="dept-preview-chip">
+        <span class="dot" style="background:#e25555;"></span>공연·퍼포먼스
+      </a>
+      <a href="#dept-wrap" class="dept-preview-chip">
+        <span class="dot" style="background:#6a4cb6;"></span>TikTok Live
+      </a>
+    </div>
+    <p class="dept-preview-lead reveal">
+      <strong>HOMI FACTORY</strong>는 노하우와 데이터를 기반으로, 콘텐츠 산업 전방위를 아우르는 <strong>엔터테인먼트 ALL-IN-ONE 그룹</strong>입니다. 단발 캠페인이 아닌 <strong>고객사와 한 팀이 되어</strong> 콘텐츠가 소비자와 만나는 모든 순간을 설계합니다.
+    </p>
   </div>
 </section>
 
