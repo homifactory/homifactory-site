@@ -150,11 +150,12 @@
       line-height: 1.02;
       letter-spacing: -0.03em;
       color: transparent;
-      background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #a8a8a8 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 45%, #c8c8c8 100%);
       -webkit-background-clip: text;
       background-clip: text;
       margin: 0 auto 32px;
       max-width: 1080px;
+      text-shadow: 0 4px 60px rgba(255,255,255,0.06);
       opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
     }
     .hero-h1-dark .dot-pink {
@@ -269,6 +270,15 @@
     body.at-hero-dark nav .nav-center a { color: #fff; }
     body.at-hero-dark nav .nav-center a.active { color: var(--pink); }
     body.at-hero-dark nav .hamburger span { background: #fff; }
+    body.at-hero-dark nav .nav-logo .brand-mark img {
+      filter: brightness(0) invert(1);
+    }
+    body.at-hero-dark .lang-toggle-btn,
+    body.at-hero-dark #langToggle {
+      background: rgba(255,255,255,0.08) !important;
+      color: #fff !important;
+      border-color: rgba(255,255,255,0.2) !important;
+    }
 
     /* HERO — 극도 미니멀 (shortt.kr 벤치마킹) */
     .hero {
