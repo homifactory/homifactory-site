@@ -72,149 +72,206 @@
       .about-hero::after { animation: none; }
     }
 
-    /* HOMI Name Meaning Section (from 2026 Company Profile) */
+    /* HOMI Name Meaning Section (Premium Minimal) */
     .homi-meaning-section {
-      padding: 100px 48px;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+      padding: 120px 48px;
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
     }
-    .homi-meaning-inner { max-width: 1180px; margin: 0 auto; }
-    .homi-meaning-header { text-align: center; margin-bottom: 60px; }
+    .homi-meaning-inner { max-width: 1080px; margin: 0 auto; }
+    .homi-meaning-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
     .homi-meaning-eyebrow {
-      display: inline-block;
-      padding: 8px 18px;
-      background: rgba(253,1,81,0.08);
-      color: var(--pink);
       font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      border-radius: 999px;
-      margin-bottom: 22px;
+      color: var(--pink);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .homi-meaning-eyebrow::before {
+      content: ''; width: 24px; height: 1px; background: var(--pink);
     }
     .homi-meaning-title {
       font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
-      font-size: clamp(30px, 4vw, 46px);
+      font-size: clamp(28px, 3.6vw, 44px);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       line-height: 1.15;
+      color: var(--text);
     }
     .homi-meaning-title .hl { color: var(--pink); }
-    .homi-meaning-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      margin-top: 40px;
-    }
-    .homi-meaning-row {
-      display: grid;
-      grid-template-columns: 90px 1fr 2.2fr;
-      gap: 30px;
-      align-items: center;
-      padding: 28px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .homi-meaning-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .homi-meaning-letter {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 72px;
-      font-weight: 800;
-      color: var(--pink);
-      line-height: 1;
-    }
-    .homi-meaning-label {
-      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.02em;
-    }
-    .homi-meaning-desc {
+    .homi-meaning-sub {
       font-size: 15px;
       color: var(--text2);
       line-height: 1.75;
     }
+    .homi-meaning-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .homi-meaning-row {
+      display: grid;
+      grid-template-columns: 100px 180px 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.2s ease;
+    }
+    .homi-meaning-row:hover {
+      padding-left: 12px;
+    }
+    .homi-meaning-letter {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .homi-meaning-row:hover .homi-meaning-letter {
+      color: var(--pink);
+    }
+    .homi-meaning-label {
+      font-family: 'Bricolage Grotesque', 'Pretendard', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .homi-meaning-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 520px;
+    }
     .homi-meaning-row.factory .homi-meaning-letter {
-      font-size: 30px;
+      font-size: 20px;
+      background: var(--text);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .homi-meaning-row.factory:hover .homi-meaning-letter {
       background: var(--pink);
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 999px;
-      display: inline-block;
-      width: auto;
     }
     @media (max-width: 720px) {
-      .homi-meaning-section { padding: 70px 20px; }
-      .homi-meaning-row { grid-template-columns: 60px 1fr; gap: 16px; }
+      .homi-meaning-section { padding: 80px 20px; }
+      .homi-meaning-header { grid-template-columns: 1fr; gap: 24px; }
+      .homi-meaning-row { grid-template-columns: 70px 1fr; gap: 16px; padding: 22px 0; }
       .homi-meaning-desc { grid-column: 1 / -1; padding-top: 4px; }
-      .homi-meaning-letter { font-size: 46px; }
-      .homi-meaning-label { font-size: 18px; }
+      .homi-meaning-letter { font-size: 42px; }
+      .homi-meaning-label { font-size: 16px; }
     }
 
-    /* Key Stats section (from deck: 조회수 3억+, 인플루언서 2,600+, 고객사 60+) */
+    /* Key Stats section (Premium Minimal Divider) */
     .keystats-section {
-      padding: 90px 48px;
+      padding: 100px 48px;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
     }
-    .keystats-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+    .keystats-inner { max-width: 1080px; margin: 0 auto; }
+    .keystats-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
     .keystats-eyebrow {
-      display: inline-block;
-      padding: 8px 18px;
-      background: rgba(253,1,81,0.08);
-      color: var(--pink);
       font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      border-radius: 999px;
+      color: var(--pink);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 10px;
       margin-bottom: 18px;
+    }
+    .keystats-eyebrow::before {
+      content: ''; width: 24px; height: 1px; background: var(--pink);
     }
     .keystats-title {
       font-family: 'Bricolage Grotesque','Pretendard',sans-serif;
-      font-size: clamp(28px, 3.4vw, 40px);
+      font-size: clamp(26px, 3.2vw, 40px);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       line-height: 1.15;
-      margin-bottom: 50px;
+      color: var(--text);
     }
     .keystats-title .hl { color: var(--pink); }
+    .keystats-note {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
     .keystats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .keystat-card {
-      padding: 44px 26px;
-      background: var(--surface);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
       border-radius: 20px;
-      transition: transform 0.25s, border-color 0.25s;
+      overflow: hidden;
     }
-    .keystat-card:hover { transform: translateY(-4px); border-color: rgba(253,1,81,0.35); }
+    .keystat-card {
+      padding: 44px 32px;
+      background: #fff;
+      transition: background 0.25s;
+      position: relative;
+    }
+    .keystat-card:hover { background: rgba(253,1,81,0.02); }
     .keystat-num {
       font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: clamp(42px, 5vw, 64px);
+      font-size: clamp(44px, 5.4vw, 64px);
       font-weight: 800;
-      color: var(--pink);
-      letter-spacing: -0.03em;
+      color: var(--text);
+      letter-spacing: -0.04em;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      display: inline-flex; align-items: baseline;
+    }
+    .keystat-num::after {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--pink);
+      margin-left: 8px;
+      transform: translateY(-6px);
     }
     .keystat-label {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .keystat-sub {
-      font-size: 12px;
-      color: var(--text2);
-      letter-spacing: 0.04em;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
     @media (max-width: 720px) {
-      .keystats-section { padding: 60px 20px; }
+      .keystats-section { padding: 70px 20px; }
+      .keystats-header { grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }
       .keystats-grid { grid-template-columns: 1fr; }
+      .keystat-card { padding: 32px 24px; }
     }
 
     /* Story Section */
@@ -1037,8 +1094,13 @@
 <section class="homi-meaning-section reveal">
   <div class="homi-meaning-inner">
     <div class="homi-meaning-header">
-      <div class="homi-meaning-eyebrow">● HOMI · 이름에 담은 다섯가지 의미</div>
-      <h2 class="homi-meaning-title">이름 하나에, <span class="hl">우리가 일하는 방식</span>이 담겨 있습니다</h2>
+      <div>
+        <div class="homi-meaning-eyebrow">HOMI · Brand Meaning</div>
+        <h2 class="homi-meaning-title">이름 하나에, <span class="hl">우리가 일하는 방식</span>이 담겨 있습니다</h2>
+      </div>
+      <p class="homi-meaning-sub">
+        HOMI FACTORY라는 이름은 우연이 아닙니다. 다섯 글자 하나하나에 우리가 콘텐츠를 다루는 원칙 — Hub·One-Team·Media·Insight·Factory가 담겨 있습니다.
+      </p>
     </div>
     <div class="homi-meaning-list">
       <div class="homi-meaning-row">
@@ -1073,8 +1135,13 @@
 <!-- KEY STATS (from 2026 Company Profile) -->
 <section class="keystats-section reveal">
   <div class="keystats-inner">
-    <div class="keystats-eyebrow">● Numbers That Matter</div>
-    <h2 class="keystats-title">숫자로 증명하는 <span class="hl">HOMI FACTORY</span></h2>
+    <div class="keystats-header">
+      <div>
+        <div class="keystats-eyebrow">Numbers That Matter</div>
+        <h2 class="keystats-title">숫자로 증명하는 <span class="hl">HOMI FACTORY</span></h2>
+      </div>
+      <div class="keystats-note">— 2026 · 누적 기준</div>
+    </div>
     <div class="keystats-grid">
       <div class="keystat-card">
         <div class="keystat-num">3억+</div>

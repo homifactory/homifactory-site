@@ -95,11 +95,15 @@
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
     }
     .ref-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
       overflow: hidden; cursor: pointer; position: relative;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .ref-card:hover { border-color: var(--pink); transform: translateY(-4px); }
+    .ref-card:hover {
+      border-color: rgba(37,37,37,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(37,37,37,0.15);
+    }
     .ref-visual {
       aspect-ratio: 16 / 9; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;

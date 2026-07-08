@@ -270,9 +270,9 @@
     }
     .apply-form-card {
       background: #fff;
-      border-radius: 24px;
-      padding: 48px 40px;
-      box-shadow: 0 28px 80px -30px rgba(0,0,0,0.12);
+      border-radius: 20px;
+      padding: 52px 44px;
+      box-shadow: 0 1px 2px rgba(37,37,37,0.03), 0 12px 40px -16px rgba(37,37,37,0.08);
       border: 1px solid var(--border);
     }
     .apply-form-card h2 {
@@ -290,25 +290,35 @@
     }
     .apply-form-card .form-row.full { grid-template-columns: 1fr; }
     .apply-form-card label {
-      display: block; font-size: 11px; letter-spacing: 0.12em;
-      color: var(--muted); font-weight: 600; text-transform: uppercase;
-      margin-bottom: 6px;
+      display: block; font-size: 12px; letter-spacing: 0.02em;
+      color: var(--text); font-weight: 600; text-transform: none;
+      margin-bottom: 8px;
     }
     .apply-form-card label .req { color: var(--pink); }
     .apply-form-card input,
     .apply-form-card select,
     .apply-form-card textarea {
-      width: 100%; padding: 13px 16px;
-      border: 1px solid var(--border); border-radius: 12px;
-      background: var(--bg);
+      width: 100%; padding: 12px 14px;
+      border: 1px solid var(--border); border-radius: 10px;
+      background: #fff;
       font-size: 14px; font-family: var(--font-body);
       color: var(--text); outline: none;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .apply-form-card input:hover,
+    .apply-form-card select:hover,
+    .apply-form-card textarea:hover {
+      border-color: rgba(37,37,37,0.25);
     }
     .apply-form-card input:focus,
     .apply-form-card select:focus,
     .apply-form-card textarea:focus {
-      border-color: var(--pink); background: #fff;
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(253,1,81,0.1);
+    }
+    .apply-form-card input::placeholder,
+    .apply-form-card textarea::placeholder {
+      color: var(--muted);
     }
     .apply-form-card textarea {
       min-height: 120px; resize: vertical; line-height: 1.6;
@@ -340,11 +350,11 @@
     /* H3 — FORM TYPE TOGGLE (Creator / Agent) */
     .form-type-toggle {
       display: inline-flex;
-      padding: 6px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      padding: 5px;
+      background: rgba(37,37,37,0.04);
+      border: 1px solid rgba(37,37,37,0.08);
       border-radius: 999px;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       gap: 4px;
     }
     .form-type-btn {
