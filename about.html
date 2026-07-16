@@ -1281,48 +1281,6 @@
   </div>
 </section>
 
-<!-- CREATORS — 가로 마키 스크롤 -->
-<section class="creators-section">
-  <div class="creators-header reveal">
-    <div class="sec-eyebrow">Our Creators</div>
-    <div class="sec-title">우리 크리에이터</div>
-    <p class="creators-sub">호미팩토리와 함께 성장하는 크리에이터들 — 댄스·뷰티·푸드·라이프스타일·트래블까지 다양한 카테고리</p>
-  </div>
-  <div class="creators-view-toggle reveal">
-    <button type="button" class="view-toggle-btn active" data-view="marquee" id="viewBtnMarquee">🌊 마키 보기</button>
-    <button type="button" class="view-toggle-btn" data-view="grid" id="viewBtnGrid">🔲 그리드 보기</button>
-  </div>
-  <div class="creators-marquee" id="creatorsMarquee">
-    <div class="creators-track" id="creatorsTrack">
-      <!-- DB에서 동적 렌더 — admin.html에서 추가/수정/삭제 -->
-    </div>
-  </div>
-  <div class="creators-allbtn-wrap reveal">
-    <button type="button" class="creators-allbtn" id="creatorsAllBtn">
-      전체 크리에이터 보기 <span class="allbtn-arrow">→</span>
-    </button>
-  </div>
-</section>
-
-<!-- 크리에이터 전체 보기 모달 -->
-<div class="cm-overlay" id="creatorsModal" aria-hidden="true">
-  <div class="cm-modal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
-    <div class="cm-header">
-      <div>
-        <div class="cm-eyebrow">Our Creators</div>
-        <div>
-          <span class="cm-title" id="cmTitle">전체 크리에이터</span>
-          <span class="cm-count" id="cmCount"></span>
-        </div>
-      </div>
-      <button type="button" class="cm-close" data-cm-close aria-label="닫기">✕</button>
-    </div>
-    <div class="cm-body">
-      <div class="cm-grid" id="cmGrid"></div>
-    </div>
-  </div>
-</div>
-
 <!-- TIMELINE -->
 <!-- H2 — 언론 보도 (hypernetworks 벤치마킹) -->
 <section class="press-section reveal">
@@ -1485,86 +1443,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=1"></script>
 <script>
-/* about.html — DB에서 활성 크리에이터 가져와 마키 트랙에 렌더 */
-(async () => {
-  const track = document.getElementById('creatorsTrack');
-  if (!track) return;
-  // Sprint 12 fix: window.HOMI 정의될 때까지 대기 (supabase-config.js 비동기 로드 대비)
-  let tries = 0;
-  while (!window.HOMI && tries < 30) { await new Promise(r => setTimeout(r, 100)); tries++; }
-  if (!window.HOMI) {
-    track.innerHTML = '<p style="padding:40px;color:#aaa;font-size:14px;">크리에이터 데이터 로딩 실패 (Supabase 연결).</p>';
-    return;
-  }
-  const { sb } = window.HOMI;
-  const { data, error } = await sb
-    .from('creators')
-    .select('name,handle,platform,profile_url,photo_url,emoji')
-    .eq('is_active', true)
-    .order('display_order', { ascending: true });
-  if (error || !data || data.length === 0) {
-    track.innerHTML = '<p style="padding:40px;color:var(--muted);font-size:14px;">크리에이터를 불러올 수 없습니다.</p>';
-    return;
-  }
-  const escapeHtml = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  function cardHtml(c) {
-    const url = c.profile_url || (c.handle ? `https://www.instagram.com/${c.handle}/` : '#');
-    const fallback = escapeHtml(c.emoji || '✨');
-    const inner = c.photo_url
-      ? `<img src="${escapeHtml(c.photo_url)}" alt="${escapeHtml(c.name)}" onerror="this.parentElement.innerHTML='${fallback}'">`
-      : fallback;
-    return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="creator-card">
-      <div class="creator-photo">${inner}</div>
-      <div class="creator-name">${escapeHtml(c.name)}</div>
-      <div class="creator-handle">@${escapeHtml(c.handle||'')} · ${escapeHtml((c.platform||'').toUpperCase())}</div>
-    </a>`;
-  }
-  // 가로 마키 — 2번 복사 (무한 루프 효과)
-  track.innerHTML = data.map(cardHtml).join('') + data.map(cardHtml).join('');
-})();
-
-/* T4 — 마키 ↔ 그리드 토글 (trendwave 벤치마킹) */
-document.querySelectorAll('.view-toggle-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var view = btn.dataset.view;
-    document.querySelectorAll('.view-toggle-btn').forEach(function(b){
-      b.classList.toggle('active', b === btn);
-    });
-    var track = document.getElementById('creatorsTrack');
-    var marquee = document.getElementById('creatorsMarquee');
-    if (view === 'grid') {
-      track.classList.add('grid-mode');
-      marquee.classList.add('grid-mode');
-      // 그리드 모드일 때 카드 중복 제거 (마키용 복제 X)
-      var allCards = track.querySelectorAll('.creator-card');
-      var half = Math.floor(allCards.length / 2);
-      for (var i = allCards.length - 1; i >= half; i--) allCards[i].style.display = 'none';
-    } else {
-      track.classList.remove('grid-mode');
-      marquee.classList.remove('grid-mode');
-      track.querySelectorAll('.creator-card').forEach(function(c){ c.style.display = ''; });
-    }
-  });
-});
-
-/* 크리에이터 모달 토글 (전체 보기) */
-(function(){
-  var btn = document.getElementById('creatorsAllBtn');
-  var modal = document.getElementById('creatorsModal');
-  if (!btn || !modal) return;
-  btn.addEventListener('click', function(){
-    modal.classList.add('open');
-    modal.style.display = 'flex';
-    setTimeout(function(){ modal.style.opacity = '1'; }, 10);
-  });
-  modal.addEventListener('click', function(e){
-    if (e.target === modal || e.target.matches('[data-cm-close]') || e.target.closest('[data-cm-close]')) {
-      modal.style.opacity = '0';
-      setTimeout(function(){ modal.style.display = 'none'; modal.classList.remove('open'); }, 250);
-    }
-  });
-})();
-
 /* Sprint 23 — 보도자료 동적 로드 (DB에서 가져와 press-grid 렌더) */
 (async () => {
   let tries = 0;
