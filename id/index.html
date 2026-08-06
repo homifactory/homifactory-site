@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FN6KY4F9R8', { 'anonymize_ip': true });
+  </script>
+
+  <title>HOMI FACTORY Indonesia · Entertainment ALL-IN-ONE Group</title>
+  <meta name="description" content="HOMI FACTORY Indonesia — Cabang resmi HOMI FACTORY. Marketing, Management, Performance, dan TikTok Live untuk pasar Indonesia. Infrastruktur viral K-POP terbesar di Indonesia." />
+  <meta name="keywords" content="HOMI FACTORY, Indonesia, K-POP marketing Indonesia, TikTok Live Indonesia, creator agency, live commerce Indonesia" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="HOMI FACTORY" />
+
+  <meta property="og:title" content="HOMI FACTORY Indonesia · Entertainment ALL-IN-ONE Group" />
+  <meta property="og:description" content="Cabang resmi HOMI FACTORY di Indonesia. Marketing · Management · Performance · TikTok Live." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://id.homifactory.com" />
+  <meta property="og:image" content="https://homifactory.com/og-image.png?v=1" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:site_name" content="HOMI FACTORY Indonesia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://id.homifactory.com/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f2f2f2;
+      --surface: #ffffff;
+      --border: #e0e0e0;
+      --text: #252525;
+      --text2: #555555;
+      --muted: #888888;
+      --pink: #fd0151;
+      --mint: #00f4e9;
+      --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--font-body); font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--pink); color: #fff; }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid var(--pink); outline-offset: 2px; border-radius: 6px;
+    }
+    [data-lang="en"] { display: none; }
+    html[lang="en"] [data-lang="id"] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: inline; }
+    html[lang="en"] [data-lang="en"].block { display: block; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(242,242,242,0.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 800;
+      letter-spacing: 0.04em; color: var(--text); text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-logo .brand-mark { width: 26px; height: 30px; display: inline-block; flex-shrink: 0; }
+    .nav-logo .brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-logo .id-badge {
+      font-size: 10px; font-weight: 700; color: var(--pink);
+      padding: 3px 7px; background: rgba(253,1,81,0.08); border-radius: 4px;
+      letter-spacing: 0.1em;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--text2);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle-btn {
+      padding: 6px 12px; background: transparent;
+      border: 1px solid var(--border); border-radius: 999px;
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      color: var(--text); cursor: pointer;
+      letter-spacing: 0.1em; transition: all 0.2s;
+    }
+    .lang-toggle-btn:hover { border-color: var(--text); }
+    .nav-cta {
+      padding: 10px 20px; background: var(--pink); color: #fff !important;
+      border-radius: 999px; font-weight: 700; font-size: 12px;
+      text-decoration: none; transition: filter 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    @media (max-width: 720px) {
+      nav { padding: 0 18px; }
+      .nav-links { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; padding: 100px 40px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(37,37,37,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,37,37,0.04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 90%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 90%);
+    }
+    .hero-glow {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(circle 480px at 20% 30%, rgba(0,244,233,0.18) 0%, transparent 70%),
+        radial-gradient(circle 520px at 80% 70%, rgba(253,1,81,0.15) 0%, transparent 70%);
+      filter: blur(30px);
+    }
+    .hero-content { max-width: 940px; position: relative; z-index: 1; width: 100%; }
+    .hero-eyebrow {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--pink); letter-spacing: 0.24em; text-transform: uppercase;
+      margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(44px, 7vw, 92px); line-height: 1.03;
+      letter-spacing: -0.035em; margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+    .hero h1 .hl { color: var(--pink); }
+    .hero-lead {
+      font-size: 16px; line-height: 1.75; color: var(--text2);
+      max-width: 560px; margin: 0 auto 36px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+    .hero-tagline {
+      display: inline-flex; align-items: center; gap: 14px; margin-bottom: 40px;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
+    }
+    .hero-tagline .line { width: 40px; height: 1px; background: var(--pink); }
+    .hero-tagline .text {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--pink); letter-spacing: 0.28em; text-transform: uppercase;
+    }
+    .hero-cta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease forwards 0.75s;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; background: var(--text); color: #fff;
+      border: 1px solid var(--text); border-radius: 999px;
+      font-family: var(--font-body); font-size: 14px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.25s, background 0.2s;
+    }
+    .btn-primary:hover {
+      background: #000; transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(37,37,37,0.3);
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 22px; background: transparent; color: var(--text);
+      border: 1px solid rgba(37,37,37,0.15); border-radius: 999px;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(37,37,37,0.35); background: rgba(37,37,37,0.03); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 10px; letter-spacing: 0.24em;
+      color: var(--muted); opacity: 0; animation: fadeUp 1s ease forwards 1s;
+    }
+    .hero-scroll .line {
+      width: 1px; height: 40px;
+      background: linear-gradient(180deg, transparent, var(--muted));
+    }
+
+    /* SECTION COMMON */
+    section { padding: 100px 40px; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .sec-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--pink); letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sec-eyebrow::before {
+      content: ''; width: 24px; height: 1px; background: var(--pink);
+    }
+    .sec-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(28px, 3.6vw, 46px);
+      letter-spacing: -0.03em; line-height: 1.15; color: var(--text);
+      margin-bottom: 20px;
+    }
+    .sec-title .hl { color: var(--pink); }
+    .sec-sub {
+      font-size: 16px; line-height: 1.75; color: var(--text2); max-width: 640px;
+    }
+
+    /* ABOUT */
+    .about-section { border-top: 1px solid var(--border); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start;
+    }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .about-body p {
+      font-size: 15px; color: var(--text2); line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .about-body p strong { color: var(--text); font-weight: 600; }
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+      margin-top: 32px; border-top: 1px solid var(--border);
+    }
+    .about-highlight {
+      display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+    .about-highlight .icon {
+      font-size: 24px; line-height: 1;
+    }
+    .about-highlight .content h4 {
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .about-highlight .content p {
+      font-size: 13.5px; color: var(--text2); line-height: 1.6;
+    }
+
+    /* STATS */
+    .stats-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .stats-header { text-align: center; margin-bottom: 48px; }
+    .stats-header .sec-eyebrow { justify-content: center; }
+    .stats-header .sec-eyebrow::before { display: none; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+    }
+    .stat-cell {
+      padding: 44px 28px; background: #fff; text-align: center;
+      transition: background 0.25s;
+    }
+    .stat-cell:hover { background: rgba(253,1,81,0.02); }
+    .stat-num {
+      font-family: var(--font-display); font-size: clamp(42px, 5.4vw, 64px);
+      font-weight: 800; color: var(--text); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 14px;
+      display: inline-flex; align-items: baseline;
+    }
+    .stat-num::after {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--pink); margin-left: 8px; transform: translateY(-6px);
+    }
+    .stat-label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .stat-sub {
+      font-size: 10.5px; color: var(--muted);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    @media (max-width: 720px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* SERVICES */
+    .services-section { border-top: 1px solid var(--border); }
+    .services-header { text-align: center; margin-bottom: 56px; }
+    .services-header .sec-eyebrow { justify-content: center; }
+    .services-header .sec-eyebrow::before { display: none; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
+    .service-card {
+      padding: 36px 32px; background: #fff;
+      border: 1px solid var(--border); border-radius: 20px;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37,37,37,0.15);
+      box-shadow: 0 12px 40px -12px rgba(37,37,37,0.1);
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--pink);
+    }
+    .service-card:nth-child(1)::before { background: #008c8a; }
+    .service-card:nth-child(3)::before { background: #e25555; }
+    .service-card:nth-child(4)::before { background: #6a4cb6; }
+    .service-num {
+      font-family: var(--font-display); font-size: 10.5px;
+      color: var(--pink); font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .service-num::before { content: ''; width: 20px; height: 1px; background: currentColor; }
+    .service-card:nth-child(1) .service-num { color: #008c8a; }
+    .service-card:nth-child(3) .service-num { color: #e25555; }
+    .service-card:nth-child(4) .service-num { color: #6a4cb6; }
+    .service-title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .service-desc {
+      font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 18px;
+    }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .service-tag {
+      padding: 5px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 500;
+      background: rgba(37,37,37,0.04);
+      border: 1px solid rgba(37,37,37,0.08);
+      color: var(--text2);
+    }
+
+    /* PORTFOLIO */
+    .portfolio-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .portfolio-header { text-align: center; margin-bottom: 48px; }
+    .portfolio-header .sec-eyebrow { justify-content: center; }
+    .portfolio-header .sec-eyebrow::before { display: none; }
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+    }
+    .portfolio-item {
+      padding: 28px 24px; background: #fff; border: 1px solid var(--border);
+      border-radius: 16px; text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px -12px rgba(37,37,37,0.15);
+    }
+    .portfolio-artist {
+      font-family: var(--font-display); font-size: 20px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .portfolio-project {
+      font-size: 13px; color: var(--pink); font-weight: 600;
+      letter-spacing: 0.02em; margin-bottom: 4px;
+    }
+    .portfolio-note {
+      font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em;
+    }
+
+    /* CONTACT */
+    .contact-section { border-top: 1px solid var(--border); background: var(--bg); }
+    .contact-inner {
+      max-width: 780px; margin: 0 auto; padding: 0;
+    }
+    .contact-header { text-align: center; margin-bottom: 40px; }
+    .contact-header .sec-eyebrow { justify-content: center; }
+    .contact-header .sec-eyebrow::before { display: none; }
+    .contact-form-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 20px; padding: 44px 40px;
+      box-shadow: 0 1px 2px rgba(37,37,37,0.03), 0 12px 40px -16px rgba(37,37,37,0.08);
+    }
+    .contact-form-card .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;
+    }
+    .contact-form-card .form-row.full { grid-template-columns: 1fr; }
+    @media (max-width: 640px) { .contact-form-card .form-row { grid-template-columns: 1fr; } }
+    .contact-form-card label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .contact-form-card label .req { color: var(--pink); }
+    .contact-form-card input,
+    .contact-form-card select,
+    .contact-form-card textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1px solid var(--border); border-radius: 10px;
+      background: #fff; font-size: 14px; font-family: var(--font-body);
+      color: var(--text); outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-form-card input:hover,
+    .contact-form-card select:hover,
+    .contact-form-card textarea:hover { border-color: rgba(37,37,37,0.25); }
+    .contact-form-card input:focus,
+    .contact-form-card select:focus,
+    .contact-form-card textarea:focus {
+      border-color: var(--pink); box-shadow: 0 0 0 3px rgba(253,1,81,0.1);
+    }
+    .contact-form-card textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+    .contact-submit {
+      width: 100%; padding: 15px 24px;
+      background: var(--text); color: #fff; border: none;
+      border-radius: 999px; font-family: var(--font-body);
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 8px;
+    }
+    .contact-submit:hover { background: var(--pink); transform: translateY(-2px); }
+    .contact-privacy {
+      font-size: 11px; color: var(--muted); text-align: center;
+      margin-top: 18px; line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 48px 40px 32px; border-top: 1px solid var(--border);
+      background: #fff; text-align: center;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px;
+      margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px; color: var(--text2); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--pink); }
+    .footer-copy {
+      font-size: 11.5px; color: var(--muted); letter-spacing: 0.03em;
+      line-height: 1.7;
+    }
+    .footer-copy a { color: inherit; text-decoration: none; }
+    .footer-copy a:hover { color: var(--pink); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo" aria-label="HOMI FACTORY Indonesia">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="https://homifactory.com/assets/logo-symbol.png?v=2" alt="" />
+    </span>
+    <span>HOMI FACTORY</span>
+    <span class="id-badge">ID</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about" data-lang="id">Tentang Kami</a>
+    <a href="#about" data-lang="en">About</a>
+    <a href="#services" data-lang="id">Layanan</a>
+    <a href="#services" data-lang="en">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact" data-lang="id">Kontak</a>
+    <a href="#contact" data-lang="en">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button type="button" class="lang-toggle-btn" id="langToggle" aria-label="Toggle language">EN</button>
+    <a href="#contact" class="nav-cta">
+      <span data-lang="id">Hubungi Kami</span>
+      <span data-lang="en">Contact Us</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">HOMI FACTORY INDONESIA</div>
+    <h1>
+      <span data-lang="id" class="block">Kami merancang<br><span class="hl">setiap momen.</span></span>
+      <span data-lang="en" class="block">We design<br><span class="hl">every moment.</span></span>
+    </h1>
+    <p class="hero-lead">
+      <span data-lang="id">Marketing · Management · Performance · TikTok Live — cabang resmi HOMI FACTORY di Indonesia, bergerak sebagai satu tim entertainment ALL-IN-ONE.</span>
+      <span data-lang="en">Marketing · Management · Performance · TikTok Live — the official Indonesian branch of HOMI FACTORY, moving as one entertainment ALL-IN-ONE team.</span>
+    </p>
+    <div class="hero-tagline">
+      <span class="line"></span>
+      <span class="text">DATA-DRIVEN BY DESIGN</span>
+      <span class="line"></span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <span data-lang="id">Hubungi Kami</span><span data-lang="en">Contact Us</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#about" class="btn-ghost">
+        <span data-lang="id">Pelajari Lebih</span><span data-lang="en">Learn More</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="sec-eyebrow">
+          <span data-lang="id">Cabang Indonesia</span>
+          <span data-lang="en">Indonesia Branch</span>
+        </div>
+        <h2 class="sec-title">
+          <span data-lang="id">Terdekat dengan pasar,<br><span class="hl">tetap terhubung global</span></span>
+          <span data-lang="en">Close to the market,<br><span class="hl">connected globally</span></span>
+        </h2>
+        <p class="sec-sub">
+          <span data-lang="id">HOMI FACTORY Indonesia adalah cabang resmi dari HOMI FACTORY Korea — dirancang untuk merek, agensi, dan kreator yang ingin masuk atau memperluas jangkauan di Indonesia dan Asia Tenggara.</span>
+          <span data-lang="en">HOMI FACTORY Indonesia is the official branch of HOMI FACTORY Korea — built for brands, agencies, and creators looking to enter or scale in Indonesia and Southeast Asia.</span>
+        </p>
+      </div>
+      <div class="about-body">
+        <p>
+          <span data-lang="id">Setelah bertahun-tahun menyalurkan konten K-POP Korea ke Tiongkok dan Asia Tenggara — <strong>PLAVE, Baekhyun, Doh Kyungsoo, ZEROBASEONE</strong>, dan lainnya — HOMI FACTORY resmi hadir di Indonesia pada 2026.</span>
+          <span data-lang="en">After years of channeling Korean K-POP content into China and Southeast Asia — <strong>PLAVE, Baekhyun, Doh Kyungsoo, ZEROBASEONE</strong>, and more — HOMI FACTORY officially arrived in Indonesia in 2026.</span>
+        </p>
+        <p>
+          <span data-lang="id">Di Indonesia, kami mengoperasikan <strong>infrastruktur viral K-POP terbesar</strong>, divisi <strong>Live Commerce</strong> khusus, tim PR lokal, serta operasi <strong>konser & fan meeting</strong> — semuanya di bawah satu tim.</span>
+          <span data-lang="en">In Indonesia we operate the <strong>largest K-POP viral infrastructure</strong>, a dedicated <strong>Live Commerce</strong> division, a local PR team, and full <strong>concert & fan meeting</strong> operations — all under one team.</span>
+        </p>
+        <div class="about-highlights">
+          <div class="about-highlight">
+            <div class="icon">🎤</div>
+            <div class="content">
+              <h4><span data-lang="id">Infrastruktur K-POP Terbesar</span><span data-lang="en">Largest K-POP Infrastructure</span></h4>
+              <p><span data-lang="id">Jaringan kreator, media, dan komunitas fandom K-POP terluas di Indonesia.</span><span data-lang="en">Widest network of creators, media, and K-POP fandom communities in Indonesia.</span></p>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="icon">📺</div>
+            <div class="content">
+              <h4><span data-lang="id">Divisi Live Commerce</span><span data-lang="en">Live Commerce Division</span></h4>
+              <p><span data-lang="id">Operasi TikTok Live Commerce end-to-end — dari perencanaan hingga penjualan real-time.</span><span data-lang="en">End-to-end TikTok Live Commerce operations — from planning to real-time sales.</span></p>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="icon">🎪</div>
+            <div class="content">
+              <h4><span data-lang="id">Konser & Fan Meeting</span><span data-lang="en">Concerts & Fan Meetings</span></h4>
+              <p><span data-lang="id">Perencanaan, promosi, dan operasi konser & fan meeting untuk artis Korea di Indonesia.</span><span data-lang="en">Planning, promotion, and operations for Korean artist concerts and fan meetings in Indonesia.</span></p>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="icon">🌏</div>
+            <div class="content">
+              <h4><span data-lang="id">Tim PR Lokal</span><span data-lang="en">Local PR Team</span></h4>
+              <p><span data-lang="id">Tim PR berpengalaman lokal untuk kampanye media, influencer, dan hubungan pemerintah.</span><span data-lang="en">Locally experienced PR team for media, influencer, and government relations campaigns.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-header">
+      <div class="sec-eyebrow">TRUSTED BY NUMBERS</div>
+      <h2 class="sec-title">
+        <span data-lang="id">Angka yang <span class="hl">berbicara</span></span>
+        <span data-lang="en">Numbers that <span class="hl">speak</span></span>
+      </h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">300M+</div>
+        <div class="stat-label"><span data-lang="id">Total Tampilan Konten</span><span data-lang="en">Cumulative Content Views</span></div>
+        <div class="stat-sub">CUMULATIVE VIEWS</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2,600+</div>
+        <div class="stat-label"><span data-lang="id">Jaringan Kreator</span><span data-lang="en">Creator Network</span></div>
+        <div class="stat-sub">CREATOR NETWORK</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">60+</div>
+        <div class="stat-label"><span data-lang="id">Klien & Partner</span><span data-lang="en">Clients &amp; Partners</span></div>
+        <div class="stat-sub">CLIENTS &amp; PARTNERS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="sec-eyebrow">4 DEPARTMENTS · ALL-IN-ONE</div>
+      <h2 class="sec-title">
+        <span data-lang="id">4 divisi, <span class="hl">satu tim</span></span>
+        <span data-lang="en">4 divisions, <span class="hl">one team</span></span>
+      </h2>
+      <p class="sec-sub" style="margin: 20px auto 0;">
+        <span data-lang="id">Marketing, Management, Performance, dan TikTok Live — dijalankan sebagai satu tim yang terintegrasi.</span>
+        <span data-lang="en">Marketing, Management, Performance, and TikTok Live — run as one integrated team.</span>
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">DEPARTMENT 01</div>
+        <h3 class="service-title">Marketing</h3>
+        <p class="service-desc">
+          <span data-lang="id">Kampanye K-POP, iklan merek/perusahaan, kampanye kreator global — strategi, riset pasar, dan eksekusi dalam satu tim.</span>
+          <span data-lang="en">K-POP campaigns, brand/corporate ads, global creator campaigns — strategy, market research, and execution in one team.</span>
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">#K-POP</span>
+          <span class="service-tag">#BrandAds</span>
+          <span class="service-tag">#GlobalTarget</span>
+          <span class="service-tag">#Viral</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">DEPARTMENT 02</div>
+        <h3 class="service-title">Management</h3>
+        <p class="service-desc">
+          <span data-lang="id">Manajemen kreator dan bisnis musik — dari pengembangan bakat hingga kontrak jangka panjang.</span>
+          <span data-lang="en">Creator management and music business — from talent development to long-term contracts.</span>
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">#CreatorMgmt</span>
+          <span class="service-tag">#Music</span>
+          <span class="service-tag">#TalentDev</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">DEPARTMENT 03</div>
+        <h3 class="service-title">Performance</h3>
+        <p class="service-desc">
+          <span data-lang="id">Booking artis/performer, konser & fan meeting, PR luar negeri, IP konten, komersial kreator, dan produksi in-house.</span>
+          <span data-lang="en">Artist/performer booking, concerts & fan meetings, overseas PR, IP content, creator commerce, and in-house production.</span>
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">#Concert</span>
+          <span class="service-tag">#FanMeeting</span>
+          <span class="service-tag">#OverseasPR</span>
+          <span class="service-tag">#IPContent</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">DEPARTMENT 04</div>
+        <h3 class="service-title">TikTok Live Commerce</h3>
+        <p class="service-desc">
+          <span data-lang="id">Operasi TikTok Live individu dan grup, komersial live Indonesia — pencocokan berbasis data, strategi, dan operasi real-time.</span>
+          <span data-lang="en">Solo &amp; group TikTok Live operations, Indonesia live commerce — data-driven matching, strategy, and real-time ops.</span>
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">#TikTokLive</span>
+          <span class="service-tag">#LiveCommerce</span>
+          <span class="service-tag">#Indonesia</span>
+          <span class="service-tag">#GroupLive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div class="sec-eyebrow">K-POP · PORTFOLIO</div>
+      <h2 class="sec-title">
+        <span data-lang="id">Kami telah menyalurkan <span class="hl">K-POP kelas dunia</span></span>
+        <span data-lang="en">We've channeled <span class="hl">world-class K-POP</span></span>
+      </h2>
+      <p class="sec-sub" style="margin: 20px auto 0;">
+        <span data-lang="id">Berbagai kampanye artis Korea yang telah kami jalankan untuk pasar Tiongkok, Asia Tenggara, dan global.</span>
+        <span data-lang="en">A selection of Korean artist campaigns we've delivered for the Chinese, Southeast Asian, and global markets.</span>
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-artist">PLAVE</div>
+        <div class="portfolio-project">China Anime #1</div>
+        <div class="portfolio-note">Virtual K-POP · China Expansion</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-artist">Baekhyun</div>
+        <div class="portfolio-project">FIGARO Shoot</div>
+        <div class="portfolio-note">Highest sales record</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-artist">Doh Kyungsoo</div>
+        <div class="portfolio-project">ARENA Shoot</div>
+        <div class="portfolio-note">Editorial · Fashion</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-artist">ZEROBASEONE</div>
+        <div class="portfolio-project">ARENE HOMME+ China</div>
+        <div class="portfolio-note">Cross-border campaign</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-artist">Welcome to KPOP</div>
+        <div class="portfolio-project"><span data-lang="id">Produksi Eksklusif</span><span data-lang="en">Exclusive Production</span></div>
+        <div class="portfolio-note">Korea Tourism Org · Show</div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-artist">300M+ Views</div>
+        <div class="portfolio-project">
+          <span data-lang="id">Rata-rata 3M+ per konten</span>
+          <span data-lang="en">Avg 3M+ per content</span>
+        </div>
+        <div class="portfolio-note">Short-form · K-POP Idols</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-header">
+        <div class="sec-eyebrow">
+          <span data-lang="id">Hubungi Kami</span>
+          <span data-lang="en">Contact Us</span>
+        </div>
+        <h2 class="sec-title">
+          <span data-lang="id">Mari kita <span class="hl">bicarakan proyek Anda</span></span>
+          <span data-lang="en">Let's <span class="hl">talk about your project</span></span>
+        </h2>
+        <p class="sec-sub" style="margin: 20px auto 0; text-align: center;">
+          <span data-lang="id">Kirim pesan dan tim kami akan menghubungi Anda dalam 1–2 hari kerja.</span>
+          <span data-lang="en">Send us a message and our team will get back within 1–2 business days.</span>
+        </p>
+      </div>
+
+      <div class="contact-form-card">
+        <form action="https://formsubmit.co/contact@homifactory.com" method="POST">
+          <div class="form-row">
+            <div>
+              <label>
+                <span data-lang="id">Nama</span><span data-lang="en">Name</span>
+                <span class="req">*</span>
+              </label>
+              <input type="text" name="name" required placeholder="John Doe">
+            </div>
+            <div>
+              <label>
+                <span data-lang="id">Perusahaan / Merek</span><span data-lang="en">Company / Brand</span>
+              </label>
+              <input type="text" name="company" placeholder="PT Company">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label>
+                Email<span class="req">*</span>
+              </label>
+              <input type="email" name="email" required placeholder="you@example.com">
+            </div>
+            <div>
+              <label>
+                <span data-lang="id">Telepon (WhatsApp)</span><span data-lang="en">Phone (WhatsApp)</span>
+              </label>
+              <input type="text" name="phone" placeholder="+62 ...">
+            </div>
+          </div>
+          <div class="form-row full">
+            <div>
+              <label>
+                <span data-lang="id">Jenis Kerjasama</span><span data-lang="en">Type of Partnership</span>
+                <span class="req">*</span>
+              </label>
+              <select name="partnership_type" required>
+                <option value="">— Select —</option>
+                <option>K-POP Marketing Campaign</option>
+                <option>Brand / Corporate Advertising</option>
+                <option>Creator Campaign (Indonesia)</option>
+                <option>TikTok Live Commerce</option>
+                <option>Concert / Fan Meeting</option>
+                <option>Talent Booking</option>
+                <option>Music / Album Marketing</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row full">
+            <div>
+              <label>
+                <span data-lang="id">Pesan</span><span data-lang="en">Message</span>
+                <span class="req">*</span>
+              </label>
+              <textarea name="message" required placeholder="Ceritakan tentang proyek Anda... / Tell us about your project..."></textarea>
+            </div>
+          </div>
+          <input type="hidden" name="_subject" value="[HOMI Indonesia] Business Inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://id.homifactory.com/?sent=1">
+          <input type="hidden" name="source" value="id.homifactory.com">
+          <button type="submit" class="contact-submit">
+            <span data-lang="id">Kirim Pesan</span><span data-lang="en">Send Message</span>
+            <span>→</span>
+          </button>
+          <p class="contact-privacy">
+            <span data-lang="id">Dengan mengirim formulir ini, Anda menyetujui kebijakan privasi kami.</span>
+            <span data-lang="en">By submitting this form, you agree to our privacy policy.</span>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#about" data-lang="id">Tentang</a>
+    <a href="#about" data-lang="en">About</a>
+    <a href="#services" data-lang="id">Layanan</a>
+    <a href="#services" data-lang="en">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact" data-lang="id">Kontak</a>
+    <a href="#contact" data-lang="en">Contact</a>
+    <a href="https://homifactory.com" target="_blank" rel="noopener">🇰🇷 Korea HQ</a>
+    <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:contact@homifactory.com">Email</a>
+  </div>
+  <div class="footer-copy">
+    HOMI FACTORY Indonesia · <span data-lang="id">Cabang resmi</span><span data-lang="en">Official branch</span> · <a href="https://homifactory.com">homifactory.com</a><br>
+    © 2026 HOMI FACTORY. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  /* Language toggle — Bahasa Indonesia (default) ↔ English */
+  (function(){
+    var html = document.documentElement;
+    var btn = document.getElementById('langToggle');
+    var saved = 'id';
+    try { saved = localStorage.getItem('homi_id_lang') || 'id'; } catch(e){}
+    function apply(lang){
+      html.setAttribute('lang', lang);
+      if (btn) btn.textContent = lang === 'id' ? 'EN' : 'ID';
+      try { localStorage.setItem('homi_id_lang', lang); } catch(e){}
+      if (window.gtag) gtag('event', 'lang_toggle', { lang: lang });
+    }
+    apply(saved);
+    if (btn) {
+      btn.addEventListener('click', function(){
+        apply(html.getAttribute('lang') === 'id' ? 'en' : 'id');
+      });
+    }
+  })();
+
+  /* Form submission success */
+  if (location.search.includes('sent=1')) {
+    var card = document.querySelector('.contact-form-card');
+    if (card) {
+      var isEn = document.documentElement.getAttribute('lang') === 'en';
+      card.innerHTML =
+        '<h3 style="font-size:22px;font-weight:700;margin-bottom:14px;">' +
+        (isEn ? '🎉 Message sent!' : '🎉 Pesan terkirim!') + '</h3>' +
+        '<p style="color:var(--text2);line-height:1.7;">' +
+        (isEn
+          ? 'Thank you for your inquiry. Our team will contact you within 1–2 business days.'
+          : 'Terima kasih atas pertanyaan Anda. Tim kami akan menghubungi Anda dalam 1–2 hari kerja.') +
+        '</p>';
+      window.scrollTo({ top: card.offsetTop - 100, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
