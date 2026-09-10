@@ -150,10 +150,10 @@ section{padding:120px 32px}
 .case-card{background:linear-gradient(135deg,#F9F9FB 0%,#F0F0F5 100%);border-radius:var(--radius-lg);padding:44px 40px;border:1px solid var(--line);position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
 .case-card::before{content:"준비 중";position:absolute;top:24px;right:24px;padding:6px 14px;background:rgba(188,39,71,.1);color:var(--primary);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.1em}
 .case-type{font-family:var(--font-en);font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
-.case-title{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:18px;line-height:1.35;opacity:.4}
-.case-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);opacity:.4}
-.case-meta span{padding-right:16px;border-right:1px solid var(--line)}
-.case-meta span:last-child{border-right:none}
+.case-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:16px;line-height:1.35;opacity:.5}
+.case-body{font-size:13px;color:var(--ink-2);line-height:1.9;opacity:.55}
+.case-label{display:inline-block;min-width:44px;font-family:var(--font-en);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-right:8px}
+.case-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);opacity:.4;margin-top:16px;font-family:var(--font-en);letter-spacing:.12em}
 .cases-note{margin-top:40px;text-align:center;color:var(--muted);font-size:14px}
 
 /* ─────────── CTA ─────────── */
@@ -217,6 +217,10 @@ section{padding:120px 32px}
 </head>
 <body>
 
+<!-- Renewal banner -->
+<div class="renewal-banner">현재 사이트 리뉴얼 진행 중입니다 · Homepage under renewal</div>
+<style>.renewal-banner{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0B0B0F;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;border-bottom:2px solid #BC2747;font-family:var(--font-kr)}.nav{top:40px!important}body{padding-top:40px}@media(max-width:600px){.renewal-banner{font-size:12px;padding:8px 12px}.nav{top:36px!important}body{padding-top:36px}}</style>
+
 <!-- ─────────── Nav ─────────── -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
@@ -225,14 +229,16 @@ section{padding:120px 32px}
       <span>HOMI FACTORY</span>
     </a>
     <div class="nav-menu">
-      <a href="#services">서비스</a>
+      <a href="/" class="active">홈</a>
       <a href="about.html">회사소개</a>
-      <a href="#contact">문의</a>
+      <a href="service.html">서비스</a>
+      <a href="contact.html">문의</a>
     </div>
     <div class="nav-right">
-      <div class="site-switch">
-        <a href="/" class="active">KR</a>
-        <a href="/id/">ID</a>
+      <div class="site-switch" title="사이트 전환">
+        <a href="/" class="active" title="호미 팩토리 (마케팅·프로모션)">HOMI</a>
+        <a href="#" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="호미 프로덕션 (영상 제작·스튜디오)">PROD</a>
+        <a href="/id/" title="호미 인도네시아 (크리에이터 에이전시)">ID</a>
       </div>
       <div class="lang-toggle">
         <button class="active" data-lang="ko">KR</button>
@@ -439,21 +445,25 @@ section{padding:120px 32px}
         <div>
           <div class="case-type">MUSIC · K-POP COMEBACK</div>
           <h3 class="case-title">K-pop 4인조 그룹 컴백 캠페인</h3>
+          <div class="case-body">
+            <span class="case-label">기간</span> 2026 · 4주<br>
+            <span class="case-label">실행</span> 틱톡 챌린지 · 숏폼 · 커뮤니티 시딩<br>
+            <span class="case-label">결과</span> 숏폼 누적 조회수 (준비 중)
+          </div>
         </div>
-        <div class="case-meta">
-          <span>2026 · 4주</span>
-          <span>틱톡 챌린지 · 숏폼 · 커뮤니티 시딩</span>
-        </div>
+        <div class="case-meta"><span>MARKETING AXIS</span></div>
       </div>
       <div class="case-card">
         <div>
           <div class="case-type">BEAUTY · PRODUCT LAUNCH</div>
           <h3 class="case-title">뷰티 브랜드 신제품 론칭</h3>
+          <div class="case-body">
+            <span class="case-label">기간</span> 2026 · 2주<br>
+            <span class="case-label">실행</span> 인플루언서 시딩 · 리뷰 콘텐츠<br>
+            <span class="case-label">결과</span> 리뷰 콘텐츠 도달수 (준비 중)
+          </div>
         </div>
-        <div class="case-meta">
-          <span>2026 · 2주</span>
-          <span>인플루언서 시딩 · 리뷰 콘텐츠</span>
-        </div>
+        <div class="case-meta"><span>MARKETING AXIS</span></div>
       </div>
     </div>
     <p class="cases-note">* 실제 사례 카드는 순차 오픈 예정입니다. 캠페인 상세는 견적 문의 시 자료로 제공됩니다.</p>
