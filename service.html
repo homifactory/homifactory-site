@@ -142,6 +142,25 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 .nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s;border-radius:0}
 .nav-menu-item .dropdown a:hover{background:var(--bg-2);color:var(--primary)}
 @media(max-width:900px){.nav-menu-item .dropdown{display:none}}
+
+/* Full-page scroll-snap card-news sections */
+html{scroll-snap-type:y mandatory;scroll-padding-top:0}
+.page-hero,.axis,.how,.cta{scroll-snap-align:start;scroll-snap-stop:normal;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.footer{scroll-snap-align:start}
+@media (max-width:900px){.page-hero,.axis,.how,.cta{min-height:auto;padding-top:100px;padding-bottom:100px}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal-2{transition-delay:.2s}
+.reveal-3{transition-delay:.35s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+.section-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:14px}
+.section-nav a{width:8px;height:8px;border-radius:50%;background:rgba(11,11,15,.25);transition:.25s;position:relative}
+.section-nav a:hover,.section-nav a.active{background:var(--primary);transform:scale(1.35)}
+.section-nav a::before{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink);white-space:nowrap;opacity:0;transition:.25s;pointer-events:none;background:#fff;padding:4px 10px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.section-nav a:hover::before{opacity:1;right:26px}
+@media(max-width:900px){.section-nav{display:none}}
 </style>
 </head>
 <body>
@@ -174,7 +193,16 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </nav>
 
-<section class="page-hero">
+<nav class="section-nav" aria-label="Section navigation">
+  <a href="#hero" data-label="OVERVIEW" class="active"></a>
+  <a href="#marketing" data-label="MARKETING"></a>
+  <a href="#global" data-label="GLOBAL PR"></a>
+  <a href="#production" data-label="PRODUCTION"></a>
+  <a href="#how" data-label="HOW WE WORK"></a>
+  <a href="#contact" data-label="CONTACT"></a>
+</nav>
+
+<section class="page-hero" id="hero">
   <div class="page-eyebrow">SERVICES · THREE AXES</div>
   <h1 class="page-title">우리가<br>일하는 <span class="hl">방식.</span></h1>
   <p class="page-sub">
@@ -185,7 +213,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 <!-- 축 1: 마케팅 -->
 <section class="axis" id="marketing">
-  <div class="axis-inner">
+  <div class="axis-inner reveal">
     <div>
       <div class="axis-num">AXIS 01</div>
       <div class="axis-title-en">MARKETING</div>
@@ -203,7 +231,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
       </ul>
       <a href="contact.html?type=marketing" class="axis-cta">견적 문의 →</a>
     </div>
-    <div class="axis-cases">
+    <div class="axis-cases reveal reveal-2">
       <div class="case-card">
         <div class="case-type">MUSIC · K-POP COMEBACK</div>
         <h3 class="case-title">K-pop 4인조 그룹 컴백 캠페인</h3>
@@ -225,7 +253,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 <!-- 축 2: 글로벌 마케팅 · PR -->
 <section class="axis" id="global">
-  <div class="axis-inner">
+  <div class="axis-inner reveal">
     <div>
       <div class="axis-num">AXIS 02</div>
       <div class="axis-title-en">GLOBAL MARKETING · PR</div>
@@ -243,7 +271,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
       </ul>
       <a href="contact.html?type=global" class="axis-cta">견적 문의 →</a>
     </div>
-    <div class="axis-cases">
+    <div class="axis-cases reveal reveal-2">
       <div class="case-card">
         <div class="case-type">ARTIST · GLOBAL TOUR PR</div>
         <h3 class="case-title">아티스트 월드 투어 홍보</h3>
@@ -265,7 +293,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
 <!-- 축 3: 콘텐츠 프로덕션 -->
 <section class="axis" id="production">
-  <div class="axis-inner">
+  <div class="axis-inner reveal">
     <div>
       <div class="axis-num">AXIS 03</div>
       <div class="axis-title-en">CONTENT PRODUCTION</div>
@@ -283,7 +311,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
       </ul>
       <a href="contact.html?type=production" class="axis-cta">제작·대관 문의 →</a>
     </div>
-    <div class="axis-cases">
+    <div class="axis-cases reveal reveal-2">
       <div class="case-card">
         <div class="case-type">BRAND FILM · LUXURY</div>
         <h3 class="case-title">럭셔리 브랜드 필름</h3>
@@ -303,7 +331,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </section>
 
-<section class="how">
+<section class="how" id="how">
   <div class="section-inner">
     <span class="eyebrow" style="text-align:center;display:block">HOW WE WORK</span>
     <h2 class="section-title">감이 아니라, <span class="hl">데이터.</span></h2>
@@ -311,7 +339,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
       시즌이 아니라 기간 단위로. 결과는 실시간으로 —
       브랜드 담당자가 답답하지 않도록 캠페인 전체를 투명하게 설계합니다.
     </p>
-    <div class="how-grid">
+    <div class="how-grid reveal reveal-2">
       <div class="how-card">
         <div class="how-icon">01</div>
         <h3 class="how-title">데이터 기반 전략 설계</h3>
@@ -331,8 +359,8 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </section>
 
-<section class="cta">
-  <div class="cta-inner">
+<section class="cta" id="contact">
+  <div class="cta-inner reveal">
     <h2 class="cta-title">시작할 <span class="hl">준비 되셨나요?</span></h2>
     <p class="cta-sub">프로젝트 개요와 목표를 알려주시면 2영업일 안에 담당자가 초기 제안 자료로 회신드립니다.</p>
     <div class="cta-btns">
@@ -392,5 +420,14 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
   </div>
 </footer>
 
+
+<script>
+const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, {threshold: 0.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const secIds = ['hero','marketing','global','production','how','contact'];
+const navLinks = document.querySelectorAll('.section-nav a');
+const navIo = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.id; const i = secIds.indexOf(id); navLinks.forEach((a,ai) => a.classList.toggle('active', ai === i)); } }); }, {threshold: 0.5});
+secIds.forEach(id => { const el = document.getElementById(id); if (el) navIo.observe(el); });
+</script>
 </body>
 </html>
