@@ -136,6 +136,15 @@ input,textarea,select{font:inherit;color:inherit}
 @keyframes slideDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
 .nav{animation:slideDown .7s cubic-bezier(.2,.8,.2,1) both}
 @media(prefers-reduced-motion:reduce){.nav{animation:none}}
+
+/* Services dropdown */
+.nav-menu-item{position:relative}
+.nav-menu-item .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:10px 0;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;margin-top:10px;z-index:100}
+.nav-menu-item:hover .dropdown,.nav-menu-item:focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.nav-menu-item .dropdown::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s;border-radius:0}
+.nav-menu-item .dropdown a:hover{background:var(--bg-2);color:var(--primary)}
+@media(max-width:900px){.nav-menu-item .dropdown{display:none}}
 </style>
 </head>
 <body>
@@ -150,7 +159,7 @@ input,textarea,select{font:inherit;color:inherit}
     <div class="nav-menu">
       <a href="/">홈</a>
       <a href="about.html">회사소개</a>
-      <a href="service.html">서비스</a>
+      <span class="nav-menu-item"><a href="service.html">서비스</a><div class="dropdown" role="menu"><a href="service.html#marketing">마케팅</a><a href="service.html#global">글로벌 마케팅·PR</a><a href="service.html#production">콘텐츠 프로덕션</a></div></span>
       <a href="contact.html" class="active">문의</a>
     </div>
     <div class="nav-right">

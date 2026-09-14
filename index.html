@@ -246,6 +246,15 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
 .section-nav a::before{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink);white-space:nowrap;opacity:0;transition:.25s;pointer-events:none;background:#fff;padding:4px 10px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
 .section-nav a:hover::before{opacity:1;right:26px}
 @media(max-width:900px){.section-nav{display:none}}
+
+/* Services dropdown */
+.nav-menu-item{position:relative}
+.nav-menu-item .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:10px 0;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;margin-top:10px;z-index:100}
+.nav-menu-item:hover .dropdown,.nav-menu-item:focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.nav-menu-item .dropdown::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s;border-radius:0}
+.nav-menu-item .dropdown a:hover{background:var(--bg-2);color:var(--primary)}
+@media(max-width:900px){.nav-menu-item .dropdown{display:none}}
 </style>
 </head>
 <body>
@@ -261,7 +270,7 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
     <div class="nav-menu">
       <a href="/" class="active">홈</a>
       <a href="about.html">회사소개</a>
-      <a href="service.html">서비스</a>
+      <span class="nav-menu-item"><a href="service.html">서비스</a><div class="dropdown" role="menu"><a href="service.html#marketing">마케팅</a><a href="service.html#global">글로벌 마케팅·PR</a><a href="service.html#production">콘텐츠 프로덕션</a></div></span>
       <a href="contact.html">문의</a>
     </div>
     <div class="nav-right">
