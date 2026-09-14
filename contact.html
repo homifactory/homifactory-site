@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>문의 · HOMI FACTORY</title>
-<meta name="description" content="브랜드 · 기획사 · 대행사 담당자님, 프로젝트 문의를 남겨주세요. 2영업일 안에 회신드립니다.">
+<meta name="description" content="브랜드의 성장을 함께 만들 파트너를 찾고 계시다면, 호미팩토리와 이야기 나눠보세요.">
 <meta property="og:title" content="문의 · HOMI FACTORY">
 <meta property="og:url" content="https://homifactory.com/contact.html">
-<meta property="og:image" content="https://homifactory.com/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="canonical" href="https://homifactory.com/contact.html">
@@ -17,318 +16,235 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 <style>
-:root{--primary:#BC2747;--primary-2:#E1274C;--primary-3:#8E1631;--ink:#0B0B0F;--ink-2:#3A3A42;--muted:#6B6B75;--line:#E7E7EC;--bg:#FFF;--bg-2:#F7F7F9;--bg-3:#0B0B0F;--radius:14px;--radius-lg:22px;--shadow:0 8px 28px rgba(0,0,0,.06);--font-en:'Inter',system-ui,sans-serif;--font-kr:'Noto Sans KR','Pretendard',system-ui,sans-serif}
+:root{--primary:#BC2747;--primary-2:#E1274C;--ink:#0B0B0F;--ink-2:#3A3A42;--muted:#6B6B75;--line:#E7E7EC;--bg:#FFF;--bg-2:#F7F7F9;--font-en:'Inter',system-ui,sans-serif;--font-kr:'Noto Sans KR','Pretendard',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-kr);color:var(--ink);background:#FFF;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-kr);color:var(--ink);background:#0B0B0F;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
-input,textarea,select{font:inherit;color:inherit}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.renewal-banner{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0B0B0F;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;border-bottom:2px solid #BC2747;font-family:var(--font-kr)}
+.nav{top:40px!important}
+body{padding-top:40px}
+@media(max-width:600px){.renewal-banner{font-size:12px;padding:8px 12px}.nav{top:36px!important}body{padding-top:36px}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,11,15,.75);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-en);font-weight:800;font-size:20px}
-.brand-mark{width:32px;height:32px;border-radius:6px;display:grid;place-items:center;overflow:hidden;flex-shrink:0}
-.brand-mark img{width:100%;height:100%;object-fit:contain}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-mark{width:32px;height:32px;overflow:hidden;line-height:0;flex-shrink:0;display:inline-block}
+.brand-mark img{width:175px;height:175px;max-width:none;margin-top:-72px;margin-left:-33px;display:block}
+.brand-text{font-family:'Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;color:#fff}
 .nav-menu{display:flex;gap:36px}
-.nav-menu a{font-size:15px;font-weight:500;color:var(--ink-2)}
-.nav-menu a:hover,.nav-menu a.active{color:var(--primary)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.site-switch{display:flex;gap:6px}
-.site-switch a{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line)}
-.site-switch a.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.site-switch a:hover{color:var(--primary);border-color:var(--primary)}
-.lang-toggle{display:flex;gap:2px;background:var(--bg-2);border-radius:999px;padding:3px}
-.lang-toggle button{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--muted);transition:.2s}
-.lang-toggle button.active{background:var(--ink);color:#fff}
-.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:6px}
-.nav-mobile-btn span{width:22px;height:2px;background:var(--ink);border-radius:2px}
-
-.page-hero{padding:180px 32px 80px;background:radial-gradient(ellipse at top,#FFEDF1 0%,#FFF 55%);text-align:center}
-.page-eyebrow{display:inline-block;padding:8px 18px;background:rgba(188,39,71,.08);color:var(--primary);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.14em;margin-bottom:24px}
-.page-title{font-family:var(--font-en);font-weight:900;font-size:clamp(48px,7vw,88px);line-height:1;letter-spacing:-.02em;margin-bottom:24px}
-.page-title .hl{color:var(--primary)}
-.page-sub{max-width:720px;margin:0 auto;font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);line-height:1.75}
-.page-sub strong{color:var(--ink);font-weight:700}
-
-.contact-wrap{padding:100px 32px}
-.contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:flex-start}
-
-.info-side .info-eyebrow{font-family:var(--font-en);font-size:12px;font-weight:700;color:var(--primary);letter-spacing:.16em;margin-bottom:16px;display:block;text-transform:uppercase}
-.info-side h2{font-family:var(--font-en);font-weight:900;font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-.02em;margin-bottom:24px;color:var(--ink)}
-.info-side h2 .hl{color:var(--primary)}
-.info-side p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px}
-
-.info-block{padding:24px;background:var(--bg-2);border-radius:var(--radius);margin-bottom:14px;display:flex;gap:16px;align-items:flex-start}
-.info-block .icon{width:40px;height:40px;background:var(--primary);color:#fff;border-radius:10px;display:grid;place-items:center;flex-shrink:0;font-family:var(--font-en);font-weight:900;font-size:14px}
-.info-block .info-body{flex:1}
-.info-block .info-label{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase;font-family:var(--font-en)}
-.info-block .info-value{font-size:16px;font-weight:700;color:var(--ink)}
-.info-block .info-value a{color:var(--primary)}
-.info-block .info-value small{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:4px}
-
-.form-side{background:var(--bg-2);border-radius:var(--radius-lg);padding:48px 44px}
-.form-side h3{font-size:22px;font-weight:800;margin-bottom:8px;color:var(--ink)}
-.form-side .form-sub{font-size:13px;color:var(--muted);margin-bottom:32px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:.02em}
-.form-group label .req{color:var(--primary);margin-left:2px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--ink);transition:.2s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(188,39,71,.1)}
-.form-group textarea{min-height:140px;resize:vertical;font-family:var(--font-kr)}
-.form-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);margin:20px 0 24px}
-.form-check input{margin-top:3px;width:16px;height:16px;accent-color:var(--primary);flex-shrink:0}
-.form-check a{color:var(--primary);text-decoration:underline}
-.form-submit{width:100%;padding:18px;background:var(--primary);color:#fff;border-radius:12px;font-weight:700;font-size:15px;letter-spacing:.02em;transition:.25s;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px}
-.form-submit:hover{background:var(--primary-3);transform:translateY(-2px);box-shadow:0 10px 24px rgba(188,39,71,.35)}
-.form-note{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}
-
-.faq{padding:100px 32px;background:var(--bg-2)}
-.faq-inner{max-width:900px;margin:0 auto}
-.faq-head{text-align:center;margin-bottom:56px}
-.faq-head .eyebrow{font-family:var(--font-en);font-size:12px;font-weight:700;color:var(--primary);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;display:block}
-.faq-head h2{font-family:var(--font-en);font-weight:900;font-size:clamp(32px,4vw,44px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:16px}
-.faq-head h2 .hl{color:var(--primary)}
-.faq-head p{color:var(--muted);font-size:15px}
-.faq-list{display:flex;flex-direction:column;gap:12px}
-.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
-.faq-item[open]{border-color:var(--primary);box-shadow:var(--shadow)}
-.faq-item summary{padding:24px 28px;cursor:pointer;font-weight:700;font-size:15px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;list-style:none;gap:16px}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";font-family:var(--font-en);font-weight:400;font-size:24px;color:var(--primary);transition:.2s}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item .faq-body{padding:0 28px 24px;font-size:14px;color:var(--ink-2);line-height:1.75}
-
-.footer{background:#050508;color:rgba(255,255,255,.7);padding:80px 32px 40px}
-.footer-inner{max-width:1280px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-.footer-brand{font-family:var(--font-en);font-weight:800;font-size:24px;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.footer-tag{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:24px;max-width:320px}
-.footer-social{display:flex;gap:10px}
-.footer-social a{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:50%;display:grid;place-items:center;font-family:var(--font-en);font-weight:700;font-size:11px}
-.footer-social a:hover{background:var(--primary);color:#fff}
-.footer-col h4{font-family:var(--font-en);font-size:12px;font-weight:700;color:#fff;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-col a{font-size:13px;color:rgba(255,255,255,.55)}
-.footer-info{font-size:12px;color:rgba(255,255,255,.45);line-height:1.9}
-.footer-info strong{color:rgba(255,255,255,.7);font-weight:600}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.35)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.5)}
-
-@media (max-width:900px){
-  .nav-menu,.site-switch,.lang-toggle{display:none}
-  .nav-mobile-btn{display:flex}
-  .nav-inner{padding:14px 20px}
-  .page-hero{padding:130px 20px 60px}
-  .contact-wrap,.faq{padding:70px 20px}
-  .contact-grid{grid-template-columns:1fr;gap:40px}
-  .form-side{padding:32px 24px}
-  .form-row{grid-template-columns:1fr;gap:0}
-  .footer{padding:60px 20px 30px}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-}
-@media (max-width:480px){.footer-top{grid-template-columns:1fr}}
-
-@keyframes slideDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
-.nav{animation:slideDown .7s cubic-bezier(.2,.8,.2,1) both}
-@media(prefers-reduced-motion:reduce){.nav{animation:none}}
-
-/* Services dropdown */
+.nav-menu a{font-size:15px;font-weight:500;color:rgba(255,255,255,.7)}
+.nav-menu a:hover,.nav-menu a.active{color:var(--primary-2)}
 .nav-menu-item{position:relative}
-.nav-menu-item .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:10px 0;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;margin-top:10px;z-index:100}
+.nav-menu-item::after{content:"";position:absolute;left:-30px;right:-30px;top:100%;height:22px}
+.nav-menu-item .dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.3);padding:10px 0;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;z-index:100}
 .nav-menu-item:hover .dropdown,.nav-menu-item:focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
 .nav-menu-item .dropdown::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line)}
-.nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s;border-radius:0}
+.nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s}
 .nav-menu-item .dropdown a:hover{background:var(--bg-2);color:var(--primary)}
-@media(max-width:900px){.nav-menu-item .dropdown{display:none}}
+.nav-right{display:flex;align-items:center;gap:14px}
+.site-switch{display:flex;gap:6px}
+.site-switch a{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15)}
+.site-switch a.active{background:#fff;color:var(--ink);border-color:#fff}
+.lang-toggle{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:999px;padding:3px}
+.lang-toggle button{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;color:rgba(255,255,255,.5)}
+.lang-toggle button.active{background:#fff;color:var(--ink)}
+.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:6px}
+.nav-mobile-btn span{width:22px;height:2px;background:#fff;border-radius:2px}
+.contact-hero{position:relative;min-height:100vh;padding:140px 32px 60px;color:#fff;overflow:hidden;isolation:isolate}
+.contact-hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 30%,#2a2a35 0%,#141420 50%,#050508 100%)}
+.contact-hero-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(188,39,71,.12) 0%,transparent 50%);pointer-events:none}
+.contact-hero-bg::after{content:"";position:absolute;inset:0;background:conic-gradient(from 180deg at 50% 50%,transparent 0deg,rgba(255,255,255,.02) 90deg,transparent 180deg,rgba(255,255,255,.02) 270deg,transparent 360deg);opacity:.4;pointer-events:none}
+.hero-decor{position:absolute;left:50%;top:35%;width:1200px;height:1200px;transform:translate(-50%,-50%);z-index:-1;pointer-events:none}
+.hero-decor::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
+.hero-decor::after{content:"";position:absolute;inset:80px;border-radius:50%;border:1px solid rgba(255,255,255,.04)}
+.hero-decor .ring3{position:absolute;inset:160px;border-radius:50%;border:1px solid rgba(255,255,255,.03)}
+.contact-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+.hero-title-block{padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:60px}
+.hero-title{font-family:var(--font-en);font-weight:900;font-size:clamp(38px,5vw,64px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;color:#fff}
+.hero-subtitle{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.65);line-height:1.65;max-width:640px}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start}
+.contact-form-wrap h3,.contact-info-wrap h3{font-family:var(--font-en);font-weight:800;font-size:22px;color:#fff;margin-bottom:32px;letter-spacing:-.01em;position:relative;padding-bottom:14px}
+.contact-form-wrap h3::after,.contact-info-wrap h3::after{content:"";position:absolute;bottom:0;left:0;width:36px;height:2px;background:var(--primary-2)}
+.form-field{margin-bottom:32px}
+.form-field label{display:block;font-family:var(--font-en);font-size:12px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.form-field label .req{color:var(--primary-2);margin-left:2px}
+.form-field input,.form-field textarea,.form-field select{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.2);color:#fff;font-family:var(--font-kr);font-size:15px;padding:10px 0;outline:none;transition:border-color .25s;resize:none}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-bottom-color:var(--primary-2)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.25)}
+.form-field textarea{min-height:100px;line-height:1.6}
+.form-field select option{background:#0B0B0F;color:#fff}
+.privacy-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:20px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.7;max-height:140px;overflow-y:auto;margin-top:8px}
+.privacy-box strong{color:rgba(255,255,255,.75);display:block;margin-top:8px;font-size:12.5px;font-weight:600}
+.privacy-box strong:first-child{margin-top:0}
+.privacy-check{display:flex;align-items:center;gap:10px;margin-top:16px;margin-bottom:32px;cursor:pointer;user-select:none}
+.privacy-check input{width:16px;height:16px;accent-color:var(--primary-2);cursor:pointer}
+.privacy-check span{font-size:13px;color:rgba(255,255,255,.75)}
+.submit-btn{display:block;width:100%;padding:20px;background:#fff;color:var(--ink);font-family:var(--font-en);font-weight:800;font-size:14px;letter-spacing:.16em;text-transform:uppercase;border-radius:999px;transition:.3s;cursor:pointer;border:none}
+.submit-btn:hover{background:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 12px 32px rgba(188,39,71,.4)}
+.info-list{margin-bottom:36px}
+.info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.info-row:last-child{border-bottom:none}
+.info-key{font-family:var(--font-en);font-size:12px;font-weight:700;color:var(--primary-2);letter-spacing:.12em;min-width:80px;padding-top:2px}
+.info-val{font-size:14px;color:rgba(255,255,255,.85);line-height:1.6;flex:1}
+.info-val a{color:#fff;transition:.2s}
+.info-val a:hover{color:var(--primary-2)}
+.info-val small{display:block;font-size:12px;color:rgba(255,255,255,.5);margin-top:4px}
+.map-embed{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);aspect-ratio:16/10;background:rgba(255,255,255,.04);position:relative}
+.map-embed iframe{width:100%;height:100%;border:0;filter:grayscale(.3) brightness(.9) contrast(1.05)}
+.footer{background:#050508;color:rgba(255,255,255,.7);padding:60px 32px 30px;margin-top:60px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:32px}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand-mark{display:inline-block;width:36px;height:36px;overflow:hidden;line-height:0}
+.footer-brand-mark img{width:197px;height:197px;max-width:none;margin-top:-81px;margin-left:-37px;display:block}
+.footer-brand-text{font-family:'Inter',sans-serif;font-weight:800;font-size:18px;letter-spacing:.02em;color:#fff}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.35);text-align:right}
+.footer-info{font-size:12px;color:rgba(255,255,255,.45);line-height:1.9;margin-top:20px}
+.footer-info strong{color:rgba(255,255,255,.7);font-weight:600}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal-1{transition-delay:.05s}
+.reveal-2{transition-delay:.18s}
+.reveal-3{transition-delay:.28s}
+.reveal-4{transition-delay:.38s}
+.reveal-5{transition-delay:.48s}
+.reveal-6{transition-delay:.58s}
+.reveal-7{transition-delay:.68s}
+.reveal-8{transition-delay:.78s}
+.hero-title,.hero-subtitle{opacity:0;transform:translateY(20px);animation:heroIn 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-subtitle{animation-delay:.25s}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.nav-menu,.site-switch,.lang-toggle{display:none}.nav-mobile-btn{display:flex}.nav-inner{padding:14px 20px}.contact-hero{padding:100px 20px 40px}.contact-grid{grid-template-columns:1fr;gap:60px}.hero-title-block{margin-bottom:40px}}
 </style>
 </head>
 <body>
 
-<!-- Renewal banner -->
 <div class="renewal-banner">현재 사이트 리뉴얼 진행 중입니다 · Homepage under renewal</div>
-<style>.renewal-banner{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0B0B0F;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;border-bottom:2px solid #BC2747;font-family:var(--font-kr)}.nav{top:40px!important}body{padding-top:40px}@media(max-width:600px){.renewal-banner{font-size:12px;padding:8px 12px}.nav{top:36px!important}body{padding-top:36px}}</style>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="brand" style="display:inline-flex;align-items:center;gap:10px"><span style="display:inline-block;width:32px;height:32px;overflow:hidden;line-height:0;flex-shrink:0"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" style="width:175px;height:175px;max-width:none;margin-top:-72px;margin-left:-33px;filter:invert(1);display:block" aria-hidden="true"></span><span style="font-family:'Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;color:var(--ink);white-space:nowrap">HOMI FACTORY</span></a>
+    <a href="/" class="brand"><span class="brand-mark"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" aria-hidden="true"></span><span class="brand-text">HOMI FACTORY</span></a>
     <div class="nav-menu">
       <a href="/">홈</a>
       <a href="about.html">회사소개</a>
-      <span class="nav-menu-item"><a href="service.html">서비스</a><div class="dropdown" role="menu"><a href="service.html#marketing">마케팅</a><a href="service.html#global">글로벌 마케팅·PR</a><a href="service.html#production">콘텐츠 프로덕션</a></div></span>
+      <span class="nav-menu-item"><a href="service-marketing.html">서비스</a><div class="dropdown" role="menu"><a href="service-marketing.html">마케팅</a><a href="service-global.html">글로벌 마케팅·PR</a><a href="service-production.html">콘텐츠 프로덕션</a></div></span>
       <a href="contact.html" class="active">문의</a>
     </div>
     <div class="nav-right">
       <div class="site-switch" title="사이트 전환">
-        <a href="/" class="active" title="호미 팩토리 (마케팅·프로모션)">HOMI</a>
-        <a href="#" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="호미 프로덕션 (영상 제작·스튜디오)">PROD</a>
-        <a href="/id/" title="호미 인도네시아 (크리에이터 에이전시)">ID</a>
+        <a href="/" class="active" title="호미 팩토리">HOMI</a>
+        <a href="#" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="호미 프로덕션">PROD</a>
+        <a href="/id/" title="호미 인도네시아">ID</a>
       </div>
       <div class="lang-toggle" title="언어 전환">
         <button class="active" data-lang="ko">KR</button>
-        <button data-lang="en" onclick="alert('English version coming soon. 영문 버전은 곧 오픈 예정입니다.'); return false;">EN</button>
+        <button data-lang="en" onclick="alert('English version coming soon.'); return false;">EN</button>
       </div>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<section class="page-hero">
-  <div class="page-eyebrow">CONTACT · LET'S TALK</div>
-  <h1 class="page-title">함께<br><span class="hl">시작할까요?</span></h1>
-  <p class="page-sub">
-    브랜드 · 기획사 · 대행사 담당자님, 프로젝트 개요와 목표를 알려주세요.<br>
-    <strong>2영업일 안에</strong> 담당자가 초기 제안 자료로 회신드립니다.
-  </p>
-</section>
+<section class="contact-hero">
+  <div class="contact-hero-bg"></div>
+  <div class="hero-decor"><div class="ring3"></div></div>
 
-<section class="contact-wrap">
-  <div class="contact-grid">
-    <div class="info-side">
-      <span class="info-eyebrow">GET IN TOUCH</span>
-      <h2>가장 <span class="hl">빠른 길.</span></h2>
-      <p>이메일 또는 전화, 아니면 오른쪽 폼으로 남겨주세요. 담당자가 직접 회신드립니다.</p>
-
-      <div class="info-block">
-        <div class="icon">@</div>
-        <div class="info-body">
-          <div class="info-label">EMAIL</div>
-          <div class="info-value">
-            <a href="mailto:support@homifactory.com">support@homifactory.com</a>
-            <small>제안·견적 · 파트너십 문의</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="icon">☎</div>
-        <div class="info-body">
-          <div class="info-label">PHONE</div>
-          <div class="info-value">
-            <a href="tel:01040262695">010-4026-2695</a>
-            <small>평일 10:00 – 19:00 (KST)</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="icon">◈</div>
-        <div class="info-body">
-          <div class="info-label">OFFICE</div>
-          <div class="info-value">
-            서울시 강남구 논현동
-            <small>주식회사 호미팩토리 · 사업자번호 519-88-02956</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="icon">ID</div>
-        <div class="info-body">
-          <div class="info-label">INDONESIA</div>
-          <div class="info-value">
-            <a href="/id/">homifactory.com/id/</a>
-            <small>인도네시아 지사 · 현지 크리에이터 에이전시</small>
-          </div>
-        </div>
-      </div>
+  <div class="contact-inner">
+    <div class="hero-title-block">
+      <h1 class="hero-title">Grow Together,<br>Grow Faster.</h1>
+      <p class="hero-subtitle">브랜드의 성장을 함께 만들 파트너를 찾고 계시다면, 호미팩토리와 이야기 나눠보세요.</p>
     </div>
 
-    <form class="form-side" action="https://formsubmit.co/support@homifactory.com" method="POST">
-      <h3>프로젝트 문의</h3>
-      <p class="form-sub">모든 항목은 담당자가 확인 후 회신드립니다.</p>
+    <div class="contact-grid">
 
-      <input type="hidden" name="_subject" value="[HOMI FACTORY] 신규 프로젝트 문의">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
-      <input type="hidden" name="_next" value="https://homifactory.com/contact.html?sent=1">
-      <input type="hidden" name="_template" value="table">
+      <div class="contact-form-wrap reveal reveal-1">
+        <h3>Send us a message</h3>
+        <form action="https://formsubmit.co/support@homifactory.com" method="POST" id="contactForm">
+          <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+          <input type="hidden" name="_subject" value="[HOMI FACTORY] 새로운 문의가 도착했습니다">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://homifactory.com/contact.html?sent=1">
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>회사명 <span class="req">*</span></label>
-          <input type="text" name="회사명" required placeholder="예: 브랜드컴퍼니">
+          <div class="form-field reveal reveal-2">
+            <label>Name <span class="req">*</span></label>
+            <input type="text" name="이름" required placeholder="담당자명 또는 회사명">
+          </div>
+
+          <div class="form-field reveal reveal-3">
+            <label>E-mail <span class="req">*</span></label>
+            <input type="email" name="이메일" required placeholder="you@company.com">
+          </div>
+
+          <div class="form-field reveal reveal-4">
+            <label>Contact <span class="req">*</span></label>
+            <input type="tel" name="연락처" required placeholder="010-0000-0000">
+          </div>
+
+          <div class="form-field reveal reveal-5">
+            <label>Inquiry Type</label>
+            <select name="문의유형">
+              <option value="마케팅">마케팅</option>
+              <option value="글로벌 PR">글로벌 마케팅·PR</option>
+              <option value="콘텐츠 프로덕션">콘텐츠 프로덕션</option>
+              <option value="크리에이터 지원">크리에이터 지원</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+
+          <div class="form-field reveal reveal-6">
+            <label>Inquiry <span class="req">*</span></label>
+            <textarea name="문의내용" required placeholder="프로젝트 목표, 예산 규모, 희망 일정 등을 자유롭게 남겨주세요."></textarea>
+          </div>
+
+          <div class="form-field reveal reveal-7">
+            <label>개인정보 수집 및 이용 동의</label>
+            <div class="privacy-box">
+              <strong>(주)호미팩토리(이하 '회사')</strong>는 「개인정보 보호법」에 따라 개인정보를 보호하고, 이와 관련한 고충을 신속하게 처리할 수 있도록 처리방침을 두고 있습니다.<br><br>
+              <strong>1. 수집 항목</strong>이름, 이메일, 연락처, 문의 내용<br>
+              <strong>2. 수집 목적</strong>문의 응대 및 상담 진행<br>
+              <strong>3. 보유 기간</strong>문의 응대 종료 후 1년간 보관 후 파기<br>
+              <strong>4. 동의 거부 권리</strong>동의를 거부할 권리가 있으며, 거부 시 문의 응대가 제한될 수 있습니다.
+            </div>
+            <label class="privacy-check">
+              <input type="checkbox" required>
+              <span>개인정보 수집 및 이용에 동의합니다.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn reveal reveal-8">Submit →</button>
+        </form>
+      </div>
+
+      <div class="contact-info-wrap reveal reveal-2">
+        <h3>Contact us</h3>
+        <div class="info-list">
+          <div class="info-row">
+            <div class="info-key">TEL</div>
+            <div class="info-val"><a href="tel:010-4026-2695">010-4026-2695</a></div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">EMAIL</div>
+            <div class="info-val">
+              <a href="mailto:support@homifactory.com">support@homifactory.com</a>
+              <small>문의 접수 · 담당자 자동 전달</small>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">OFFICE</div>
+            <div class="info-val">서울시 강남구 논현동<small>(주)호미팩토리 · 대표 윤호성 · 사업자번호 519-88-02956</small></div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">HOURS</div>
+            <div class="info-val">평일 10:00 – 19:00<small>주말·공휴일 문의는 이메일로 접수됩니다.</small></div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>담당자명 <span class="req">*</span></label>
-          <input type="text" name="담당자명" required placeholder="예: 홍길동">
+        <div class="map-embed reveal reveal-4">
+          <iframe src="https://www.google.com/maps?q=서울특별시+강남구+논현동&output=embed" loading="lazy"></iframe>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>이메일 <span class="req">*</span></label>
-          <input type="email" name="이메일" required placeholder="you@company.com">
-        </div>
-        <div class="form-group">
-          <label>연락처</label>
-          <input type="tel" name="연락처" placeholder="010-1234-5678">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>문의 유형 <span class="req">*</span></label>
-        <select name="문의유형" required>
-          <option value="">선택해주세요</option>
-          <option value="마케팅">마케팅 (퍼포먼스·바이럴·커뮤니티)</option>
-          <option value="글로벌PR">글로벌 마케팅·PR (해외·중국·인니)</option>
-          <option value="프로덕션">콘텐츠 프로덕션 (영상 제작·스튜디오)</option>
-          <option value="제휴">파트너십·제휴</option>
-          <option value="기타">기타</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>문의 내용 <span class="req">*</span></label>
-        <textarea name="내용" required placeholder="브랜드 · 프로젝트 개요 · 목표 · 희망 기간 · 예산 등을 알려주시면 더 정확한 회신이 가능합니다."></textarea>
-      </div>
-
-      <label class="form-check">
-        <input type="checkbox" required>
-        <span>개인정보 수집·이용에 동의합니다. 문의 응대 목적으로만 사용되며, 응대 완료 후 파기됩니다. <a href="privacy.html">자세히</a></span>
-      </label>
-
-      <button type="submit" class="form-submit">
-        문의 보내기
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-      <p class="form-note">* 2영업일 안에 <strong>support@homifactory.com</strong>에서 회신드립니다.</p>
-    </form>
-  </div>
-</section>
-
-<section class="faq">
-  <div class="faq-inner">
-    <div class="faq-head">
-      <span class="eyebrow">FAQ</span>
-      <h2>자주 묻는 <span class="hl">질문.</span></h2>
-      <p>답변이 없는 내용은 위 폼으로 문의해주세요.</p>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>회신은 얼마나 걸리나요?</summary>
-        <div class="faq-body">평일 기준 2영업일 안에 담당자가 직접 회신드립니다. 급한 건은 010-4026-2695로 전화 주세요.</div>
-      </details>
-      <details class="faq-item">
-        <summary>최소 캠페인 예산이 정해져 있나요?</summary>
-        <div class="faq-body">고정 최소 예산은 없습니다. 다만 규모에 맞는 실행 프레임을 제안하기 위해 예산 범위(대략)를 알려주시면 더 정확한 회신이 가능합니다.</div>
-      </details>
-      <details class="faq-item">
-        <summary>실적을 볼 수 있을까요?</summary>
-        <div class="faq-body">고객사 비공개 원칙에 따라 웹사이트에는 클라이언트명·로고를 노출하지 않습니다. 견적 문의 시 유형별 실적 자료를 별도로 전달드립니다.</div>
-      </details>
-      <details class="faq-item">
-        <summary>인도네시아 캠페인도 가능한가요?</summary>
-        <div class="faq-body">네. 인도네시아 지사(<a href="/id/">homifactory.com/id/</a>)와 협업해 현지 크리에이터 · 틱톡 라이브 커머스까지 진행합니다.</div>
-      </details>
-      <details class="faq-item">
-        <summary>영상 제작만 별도로 의뢰할 수 있나요?</summary>
-        <div class="faq-body">가능합니다. 자체 콘텐츠팀과 스튜디오로 브랜드 필름 · 뮤직비디오 · 숏폼 대량 제작까지 소화합니다. 문의 유형에서 '콘텐츠 프로덕션'을 선택해 주세요.</div>
-      </details>
     </div>
   </div>
 </section>
@@ -336,64 +252,33 @@ input,textarea,select{font:inherit;color:inherit}
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <div>
-        <div class="footer-brand" style="display:flex;align-items:center;gap:12px"><span style="display:inline-block;width:44px;height:44px;overflow:hidden;line-height:0;flex-shrink:0"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" style="width:241px;height:241px;max-width:none;margin-top:-99px;margin-left:-46px;display:block" aria-hidden="true"></span><span style="font-family:'Inter',sans-serif;font-weight:800;font-size:22px;letter-spacing:.02em;color:#fff;white-space:nowrap">HOMI FACTORY</span></div>
-        <p class="footer-tag">노하우와 데이터를 기반으로 콘텐츠 산업 전방위를 아우르는 엔터테인먼트 ALL-IN-ONE 그룹.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/homi_factory/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-          <a href="https://www.youtube.com/@homifactory" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
-          <a href="https://www.tiktok.com/@homi_factory" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-        </div>
+      <div class="footer-brand">
+        <span class="footer-brand-mark"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt=""></span>
+        <span class="footer-brand-text">HOMI FACTORY</span>
       </div>
-      <div class="footer-col">
-        <h4>MENU</h4>
-        <ul>
-          <li><a href="/">홈</a></li>
-          <li><a href="about.html">회사소개</a></li>
-          <li><a href="service.html">서비스</a></li>
-          <li><a href="contact.html">문의</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>SITES</h4>
-        <ul>
-          <li><a href="/">호미팩토리 (한국)</a></li>
-          <li><a href="/id/">호미 인도네시아</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>CONTACT</h4>
-        <div class="footer-info">
-          <strong>주식회사 호미팩토리</strong><br>
-          대표 · 윤호성<br>
-          사업자번호 · 519-88-02956<br>
-          서울시 강남구 논현동<br><br>
-          <strong>support@homifactory.com</strong><br>
-          010-4026-2695
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
       <div class="footer-copy">© 2026 HOMI FACTORY Inc. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="privacy.html">개인정보처리방침</a>
-        <a href="terms.html">이용약관</a>
-      </div>
+    </div>
+    <div class="footer-info">
+      <strong>주식회사 호미팩토리</strong> · 대표 윤호성 · 사업자번호 519-88-02956<br>
+      서울시 강남구 논현동 · <strong>support@homifactory.com</strong> · 010-4026-2695
     </div>
   </div>
 </footer>
 
 <script>
-// URL 쿼리로 문의 유형 preselect (예: contact.html?type=marketing)
-const params = new URLSearchParams(location.search);
-const type = params.get('type');
-if (type) {
-  const map = {marketing: '마케팅', global: '글로벌PR', production: '프로덕션'};
-  const sel = document.querySelector('select[name="문의유형"]');
-  if (sel && map[type]) sel.value = map[type];
-}
-if (params.get('sent') === '1') {
-  alert('문의가 접수됐습니다. 담당자가 2영업일 안에 회신드립니다.');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// URL param ?sent=1 → confirmation
+if (new URLSearchParams(location.search).get('sent') === '1') {
+  setTimeout(() => alert('문의가 정상적으로 접수되었습니다. 담당자가 2영업일 이내에 회신드리겠습니다.'), 300);
 }
 </script>
 </body>
