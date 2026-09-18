@@ -274,8 +274,18 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
 /* Hero fade-in (after typing) */
 .hero-fade{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .hero-fade.is-visible{opacity:1;transform:translateY(0)}
-.hero-tags.hero-fade{transition-delay:.18s}
-.hero-cta.hero-fade{transition-delay:.36s}
+.hero-tags.hero-fade{transition-delay:.32s}
+.hero-cta.hero-fade{transition-delay:.64s}
+
+
+/* Nav readability boost */
+.nav-inner{padding-top:18px!important;padding-bottom:18px!important}
+.brand-text{font-size:19px!important;letter-spacing:.02em!important}
+.nav-menu{gap:44px!important}
+.nav-menu a{font-size:17px!important;font-weight:600!important}
+.nav-menu-item .dropdown a{font-size:15px!important;padding:12px 24px!important}
+.site-switch a{font-size:13px!important;padding:7px 14px!important}
+.lang-toggle button{font-size:13px!important;padding:6px 14px!important}
 
 </style>
 </head>
@@ -692,9 +702,9 @@ document.querySelectorAll('.lang-toggle button').forEach(btn => {
     else setTimeout(() => {
       caret.classList.add('done');
       document.querySelectorAll('.hero-fade').forEach(el => el.classList.add('is-visible'));
-    }, 400);
+    }, 900);
   }
-  setTimeout(tick1, 250);
+  setTimeout(tick1, 500);
 })();
 </script>
 
