@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Work · HOMI MARKET</title>
+<meta name="description" content="브랜드의 성장을 만드는 ALL IN ONE 마케팅.">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
+<style>
+:root{--primary:#0066FF;--primary-2:#3388FF;--primary-3:#0052CC;--ink:#0B0B0F;--ink-2:#3A3A42;--muted:#6B6B75;--line:#E7E7EC;--bg:#FFF;--bg-2:#F7F7F9;--bg-3:#0B0B0F;--radius:14px;--radius-lg:22px;--shadow:0 8px 28px rgba(0,0,0,.06);--font-en:'Inter',system-ui,sans-serif;--font-kr:'Noto Sans KR','Pretendard',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-kr);color:var(--ink);background:#FFF;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;padding-bottom:80px}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.renewal-banner{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0B0B0F;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:600;border-bottom:2px solid var(--primary)}
+.nav{top:40px!important}body{padding-top:40px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand-mark{width:32px;height:32px;overflow:hidden;line-height:0;flex-shrink:0;display:inline-block}
+.brand-mark img{width:175px;height:175px;max-width:none;margin-top:-72px;margin-left:-33px;filter:invert(1);display:block}
+.brand-text{font-family:'Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;color:var(--ink);display:flex;align-items:baseline;gap:6px}
+.brand-text .sub{font-size:12px;color:var(--primary);font-weight:700;letter-spacing:.08em}
+.nav-menu{display:flex;gap:38px}
+.nav-menu a{font-size:16px;font-weight:600;color:var(--ink-2);transition:.2s;position:relative;padding:6px 0}
+.nav-menu a:hover,.nav-menu a.active{color:var(--primary)}
+.nav-menu a.active::after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--primary);border-radius:2px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-drop{position:relative}
+.lang-trigger{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-family:var(--font-en);font-size:13px;font-weight:700;cursor:pointer}
+.lang-trigger:hover{border-color:var(--primary);color:var(--primary)}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:8px 0;min-width:180px;opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;transition:.2s;z-index:110}
+.lang-drop:hover .lang-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.lang-menu a{display:block;padding:10px 20px;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.lang-menu a:hover{background:var(--bg-2);color:var(--primary)}
+.lang-menu a.active{color:var(--primary);font-weight:700}
+.prod-link{display:inline-flex;padding:9px 16px;background:var(--ink);color:#fff!important;border-radius:999px;font-family:var(--font-en);font-size:12.5px;font-weight:700;letter-spacing:.06em}
+.prod-link:hover{background:var(--primary)}
+.cta-nav-btn{display:inline-flex;padding:11px 22px;background:var(--primary);color:#fff!important;border-radius:999px;font-size:14px;font-weight:700;box-shadow:0 4px 16px rgba(0,102,255,.3);transition:.2s}
+.cta-nav-btn:hover{background:var(--primary-3);transform:translateY(-1px)}
+.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:6px}
+.nav-mobile-btn span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:90;background:#fff;border-top:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 -4px 20px rgba(0,0,0,.05);transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.bottom-bar.visible{transform:translateY(0)}
+.bottom-bar-msg{font-size:14.5px;font-weight:600;color:var(--ink)}
+.bottom-bar .cta-nav-btn{padding:12px 24px;font-size:14px}
+@media(max-width:900px){.nav-menu,.lang-drop,.prod-link,.cta-nav-btn{display:none}.nav-mobile-btn{display:flex}.nav-inner{padding:14px 20px}.bottom-bar{padding:12px 16px}.bottom-bar-msg{font-size:13px}}
+.footer{background:#050508;color:rgba(255,255,255,.7);padding:60px 32px 32px;margin-top:60px}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-brand-mark{display:inline-block;width:36px;height:36px;overflow:hidden;line-height:0}
+.footer-brand-mark img{width:197px;height:197px;max-width:none;margin-top:-81px;margin-left:-37px;display:block}
+.footer-brand-text{font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff}
+.footer-info{font-size:12px;line-height:1.85;color:rgba(255,255,255,.5)}
+.footer-info strong{color:rgba(255,255,255,.7)}
+.footer-links{display:flex;gap:20px;margin-top:12px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.5)}
+.footer-links a:hover{color:#fff}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+.page-hero{padding:140px 32px 80px;background:linear-gradient(180deg,#F7F7FF 0%,#FFF 100%);text-align:center}
+.page-hero-inner{max-width:900px;margin:0 auto}
+.page-eyebrow{display:inline-block;padding:6px 16px;background:rgba(0,102,255,.08);color:var(--primary);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:800;letter-spacing:.16em;margin-bottom:20px}
+.page-hero h1{font-size:clamp(34px,5vw,64px);font-weight:900;line-height:1.15;letter-spacing:-.03em;margin-bottom:20px}
+.page-hero h1 .hl{color:var(--primary)}
+.page-hero p{font-size:clamp(16px,1.6vw,20px);color:var(--ink-2);line-height:1.7;max-width:720px;margin:0 auto}
+section.sect{padding:80px 32px}
+.sect-inner{max-width:1200px;margin:0 auto}
+.step-list{display:flex;flex-direction:column;gap:24px;margin-top:40px}
+.step{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:32px 28px;background:#fff;border:1px solid var(--line);border-radius:20px;align-items:center}
+.step-num{font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.02em}
+.step h4{font-size:20px;font-weight:800;margin-bottom:10px}
+.step p{font-size:14.5px;color:var(--ink-2);line-height:1.7}
+.plan-sample{background:var(--bg-2);padding:60px 32px;border-radius:24px;margin-top:60px}
+.plan-sample h3{font-size:22px;font-weight:800;margin-bottom:24px;color:var(--primary)}
+.plan-sample .sample-row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.plan-sample .sample-row b{color:var(--ink);font-weight:700}
+.plan-sample .sample-row:last-child{border-bottom:none}
+@media(max-width:900px){.step{grid-template-columns:1fr;gap:12px;text-align:center}.plan-sample .sample-row{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<div class="renewal-banner">호미 MARKET 오픈 준비 중 · 브랜드의 성장을 만드는 ALL IN ONE 마케팅</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark"><img src="../assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" aria-hidden="true"></span><span class="brand-text">HOMI <span class="sub">MARKET</span></span></a>
+    <div class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="how-we-work.html" class="active">How We Work</a>
+      <a href="case.html">Case</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="global.html">Global</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-drop" title="Language">
+        <button class="lang-trigger"><span aria-hidden="true">🌐</span><span>KR</span><span>▾</span></button>
+        <div class="lang-menu"><a href="index.html" class="active">한국어 · KR</a><a href="#" onclick="alert('English 준비 중'); return false;">English · EN</a></div>
+      </div>
+      <a href="/#" class="prod-link" onclick="alert('호미 프로덕션 준비 중'); return false;">HOMI PRODUCTION →</a>
+      <a href="contact.html" class="cta-nav-btn">고민 상담하기</a>
+      <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow reveal">HOW WE WORK</div>
+    <h1 class="reveal">고민 · 진단 · 플랜 · 실행 · 활용 · 리포트<br><span class="hl">6단계로 함께합니다</span></h1>
+    <p class="reveal">배포로 끝나지 않습니다. 만든 콘텐츠를 어떻게 계속 굴릴지까지 함께 설계합니다.</p>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="sect-inner">
+    <div class="step-list">
+      <div class="step reveal"><div class="step-num">01</div><div><h4>고민 듣기</h4><p>브랜드가 지금 어떤 상황인지, 무엇이 가장 답답한지 먼저 듣습니다.</p></div></div>
+      <div class="step reveal"><div class="step-num">02</div><div><h4>진단</h4><p>SNS 화제성 · 팬덤 반응 · 경쟁 브랜드 포지션을 데이터로 진단합니다.</p></div></div>
+      <div class="step reveal"><div class="step-num">03</div><div><h4>맞춤 플랜 설계</h4><p>누구를 · 왜 · 어떤 채널로 쓸지, 콘텐츠 방향 · 일정 · 배포 후 활용까지 하나의 시나리오로.</p></div></div>
+      <div class="step reveal"><div class="step-num">04</div><div><h4>섭외 · 제작 · 배포</h4><p>12,000+ 협업 크리에이터 풀에서 이번 캠페인에 맞는 조합을 뽑아 실행합니다.</p></div></div>
+      <div class="step reveal"><div class="step-num">05</div><div><h4>콘텐츠 2차 활용 · 커머스 연계</h4><p>만든 콘텐츠를 광고 · 브랜드 자사 채널 · 커머스로 이어 붙여 효율을 배가합니다.</p></div></div>
+      <div class="step reveal"><div class="step-num">06</div><div><h4>성과 리포트 (Monitoring)</h4><p>실시간 대시보드와 정기 리포트로 진행 상황과 다음 액션을 함께 정리합니다.</p></div></div>
+    </div>
+
+    <div class="plan-sample reveal">
+      <h3>익명 플랜 샘플 · 뷰티 브랜드 신제품 론칭</h3>
+      <div class="sample-row"><b>고민</b><span>뷰티 브랜드가 신제품을 알리고 초기 후기를 확보해야 합니다.</span></div>
+      <div class="sample-row"><b>진단</b><span>타깃 20~35 여성, SNS 활동 중심. 경쟁 브랜드는 상시 리뷰 콘텐츠 강세.</span></div>
+      <div class="sample-row"><b>추천 크리에이터</b><span>스킨케어 리뷰 크리에이터 8명 · 라이프스타일 크리에이터 4명 (조합 이유: 후기 신뢰 + 일상 노출 균형)</span></div>
+      <div class="sample-row"><b>콘텐츠</b><span>사용기 3주 시리즈 + 언박싱 숏폼 + 챌린지 (3주간 순차 배포)</span></div>
+      <div class="sample-row"><b>2차 활용</b><span>제작 콘텐츠를 브랜드 SNS · 광고 소재 · 커머스 상세페이지로 재활용</span></div>
+      <div class="sample-row"><b>리포트</b><span>D-Day · D+7 · D+14 · 종합 리포트 4회</span></div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><span class="footer-brand-mark"><img src="../assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt=""></span><span class="footer-brand-text">HOMI MARKET</span></div>
+      <div class="footer-info"><strong>주식회사 호미팩토리</strong> · 대표 윤호성 · 사업자번호 519-88-02956<br>서울시 강남구 논현동 · <strong>support@homifactory.com</strong> · 010-4026-2695</div>
+      <div class="footer-links"><a href="/privacy.html">개인정보처리방침</a><a href="/">호미 팩토리 →</a><a href="#" onclick="alert('준비 중');return false;">호미 프로덕션 →</a></div>
+    </div>
+    <div class="footer-info" style="align-self:flex-end;text-align:right">© 2026 HOMI FACTORY Inc.<br>All rights reserved.</div>
+  </div>
+</footer>
+<div class="bottom-bar" id="bottomBar">
+  <div class="bottom-bar-msg">우리 브랜드에 맞는 플랜이 궁금하다면?</div>
+  <a href="contact.html" class="cta-nav-btn">고민 상담하기 →</a>
+</div>
+<script>
+const bb = document.getElementById('bottomBar');
+if (bb) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.6) bb.classList.add('visible');
+    else bb.classList.remove('visible');
+  });
+}
+const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
