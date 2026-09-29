@@ -304,6 +304,12 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
 .prod-link:hover{background:var(--primary);transform:translateY(-1px)}
 @media(max-width:900px){.lang-drop,.prod-link{display:none!important}}
 
+
+/* FR-COM-001 unified sibling brand link */
+.sibling-link{display:inline-flex;align-items:center;padding:9px 14px;background:transparent;color:var(--ink)!important;border:1px solid var(--line);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap;margin-left:4px}
+.sibling-link:hover{background:var(--ink);color:#fff!important;border-color:var(--ink);transform:translateY(-1px)}
+@media(max-width:900px){.sibling-link{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -335,7 +341,8 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
           <a href="/id/">Bahasa · ID</a>
         </div>
       </div>
-      <a href="#" class="prod-link" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="호미 프로덕션으로 이동">HOMI PRODUCTION →</a>
+      <a href="/market/" class="sibling-link" title="호미 MARKET으로 이동">HOMI MARKET →</a>
+      <a href="/production/" class="sibling-link" title="호미 프로덕션으로 이동">HOMI PRODUCTION →</a>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>

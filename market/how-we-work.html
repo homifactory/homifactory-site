@@ -83,6 +83,12 @@ section.sect{padding:80px 32px}
 .plan-sample .sample-row b{color:var(--ink);font-weight:700}
 .plan-sample .sample-row:last-child{border-bottom:none}
 @media(max-width:900px){.step{grid-template-columns:1fr;gap:12px;text-align:center}.plan-sample .sample-row{grid-template-columns:1fr;gap:6px}}
+
+/* FR-COM-001 unified sibling brand link */
+.sibling-link{display:inline-flex;align-items:center;padding:9px 14px;background:transparent;color:var(--ink)!important;border:1px solid var(--line);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap;margin-left:4px}
+.sibling-link:hover{background:var(--ink);color:#fff!important;border-color:var(--ink);transform:translateY(-1px)}
+@media(max-width:900px){.sibling-link{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -103,7 +109,8 @@ section.sect{padding:80px 32px}
         <button class="lang-trigger"><span aria-hidden="true">🌐</span><span>KR</span><span>▾</span></button>
         <div class="lang-menu"><a href="index.html" class="active">한국어 · KR</a><a href="#" onclick="alert('English 준비 중'); return false;">English · EN</a></div>
       </div>
-      <a href="/#" class="prod-link" onclick="alert('호미 프로덕션 준비 중'); return false;">HOMI PRODUCTION →</a>
+      <a href="/" class="sibling-link" title="호미 팩토리로 이동">HOMI FACTORY →</a>
+      <a href="/production/" class="sibling-link" title="호미 프로덕션으로 이동">HOMI PRODUCTION →</a>
       <a href="contact.html" class="cta-nav-btn">고민 상담하기</a>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>

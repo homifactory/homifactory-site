@@ -95,6 +95,12 @@ section.sect{padding:100px 32px}
 .form-submit{display:block;width:100%;padding:18px;background:var(--primary);color:#fff;font-size:15px;font-weight:800;border-radius:999px;transition:.2s;cursor:pointer;border:none}
 .form-submit:hover{background:var(--primary-3);transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,107,0,.3)}
 @media(max-width:900px){.type-select,.rental-only.show{grid-template-columns:1fr}}
+
+/* FR-COM-001 unified sibling brand link */
+.sibling-link{display:inline-flex;align-items:center;padding:9px 14px;background:transparent;color:var(--ink)!important;border:1px solid var(--line);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap;margin-left:4px}
+.sibling-link:hover{background:var(--ink);color:#fff!important;border-color:var(--ink);transform:translateY(-1px)}
+@media(max-width:900px){.sibling-link{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -110,7 +116,8 @@ section.sect{padding:100px 32px}
       <a href="contact.html" class="active">Contact</a>
     </div>
     <div class="nav-right">
-      <a href="/" class="parent-link">HOMI FACTORY →</a>
+      <a href="/" class="sibling-link" title="호미 팩토리로 이동">HOMI FACTORY →</a>
+      <a href="/market/" class="sibling-link" title="호미 MARKET으로 이동">HOMI MARKET →</a>
       <a href="contact.html" class="cta-nav-btn">문의하기</a>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
