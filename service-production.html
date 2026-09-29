@@ -174,6 +174,23 @@ body{padding-top:40px}
 .site-switch a{font-size:13px!important;padding:7px 14px!important}
 .lang-toggle button{font-size:13px!important;padding:6px 14px!important}
 
+
+/* Nav-right spec IA — lang dropdown + HOMI PRODUCTION link */
+.nav-right{display:flex!important;align-items:center!important;gap:20px!important}
+.lang-drop{position:relative}
+.lang-trigger{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-family:var(--font-en);font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;transition:.2s}
+.lang-trigger:hover{border-color:var(--primary);color:var(--primary)}
+.lang-globe{font-size:14px;line-height:1}
+.lang-caret{font-size:10px;opacity:.7}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:8px 0;min-width:180px;opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;transition:.2s;z-index:110}
+.lang-drop:hover .lang-menu,.lang-drop:focus-within .lang-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.lang-menu a{display:block;padding:10px 20px;font-size:13.5px;font-weight:500;color:var(--ink-2);white-space:nowrap;transition:.15s}
+.lang-menu a:hover{background:var(--bg-2);color:var(--primary)}
+.lang-menu a.active{color:var(--primary);font-weight:700}
+.prod-link{display:inline-flex;align-items:center;padding:10px 18px;background:var(--ink);color:#fff!important;border-radius:999px;font-family:var(--font-en);font-size:12.5px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap}
+.prod-link:hover{background:var(--primary);transform:translateY(-1px)}
+@media(max-width:900px){.lang-drop,.prod-link{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -190,15 +207,19 @@ body{padding-top:40px}
       <a href="contact.html">Contact</a>
     </div>
     <div class="nav-right">
-      <div class="site-switch" title="사이트 전환">
-        <a href="/" class="active" title="호미 팩토리">HOMI</a>
-        <a href="#" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="HOMI PRODUCTION">HOMI PROD</a>
-        <a href="/id/" title="호미 인도네시아">ID</a>
+      <div class="lang-drop" title="Language">
+        <button class="lang-trigger" type="button" aria-label="언어 선택">
+          <span class="lang-globe" aria-hidden="true">🌐</span>
+          <span class="lang-current">KR</span>
+          <span class="lang-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-menu" role="menu">
+          <a href="/" class="active">한국어 · KR</a>
+          <a href="#" onclick="alert('English version coming soon.'); return false;">English · EN</a>
+          <a href="/id/">Bahasa · ID</a>
+        </div>
       </div>
-      <div class="lang-toggle" title="언어 전환">
-        <button class="active" data-lang="ko">KR</button>
-        <button data-lang="en" onclick="alert('English version coming soon.'); return false;">EN</button>
-      </div>
+      <a href="#" class="prod-link" onclick="alert('호미 프로덕션 사이트는 준비 중입니다.'); return false;" title="호미 프로덕션으로 이동">HOMI PRODUCTION →</a>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
