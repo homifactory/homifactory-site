@@ -269,6 +269,120 @@ body{padding-top:48px}
 .hm-target{animation:hmPulse 1.8s ease-out 1}
 @keyframes hmPulse{0%{box-shadow:0 0 0 0 rgba(139,61,255,.55)}100%{box-shadow:0 0 0 14px rgba(139,61,255,0)}}
 </style>
+<style id="sd-css">
+/* FR-MKT-030 서비스 상세 공통 틀 (PDF v0.84 · 13/17/18) */
+.sd-in{max-width:1100px;margin:0 auto;padding:0 24px}
+.sd-hl{color:#8B3DFF}
+.sd-btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 30px;border-radius:12px;background:#8B3DFF;color:#fff!important;font-weight:700;font-size:16px;border:1px solid #8B3DFF;transition:.2s;white-space:nowrap}
+.sd-btn:hover{background:#7D2AE8}
+.sd-btn.ghost{background:#fff;color:#141318!important;border-color:#DDD8E4}
+.sd-btn.ghost:hover{border-color:#8B3DFF}
+.sd-btn.sm{padding:9px 16px;font-size:13.5px;border-radius:8px}
+.sd-hero{background:#F1EAFE;padding:132px 0 56px}
+.sd-crumb{font-size:13.5px;color:#55525C;margin-bottom:18px}.sd-crumb a{color:inherit}.sd-crumb b{color:#141318}
+.sd-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.sd-tab{padding:10px 18px;border-radius:999px;background:#fff;border:1px solid #DDD8E4;font-size:14px;font-weight:700;color:#141318}
+.sd-tab.on{background:#141318;border-color:#141318;color:#fff}
+.sd-h1{font-size:clamp(34px,5vw,48px);font-weight:800;letter-spacing:-.03em;color:#141318;margin-bottom:18px;line-height:1.2}
+.sd-lead{font-size:17px;line-height:1.75;color:#3A3A42;margin-bottom:32px}
+.sd-lead .sd-hl{font-weight:700}
+.sd-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sd-ask{margin:40px auto 0;max-width:900px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(40,20,80,.08);padding:12px 14px 12px 22px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.sd-ask-q{font-weight:700;font-size:15px;color:#141318}
+.sd-ask-b{display:flex;gap:8px;flex-shrink:0}
+.sd-ask[hidden]{display:none!important}
+.sd-ask.fixed{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);margin:0;width:calc(100% - 48px);z-index:90;animation:sdUp .25s ease-out}
+@keyframes sdUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
+.sd-sec{padding:84px 0}
+.sd-beige{background:#F4F2EE}
+.sd-eyebrow{font-size:14px;font-weight:700;color:#8B3DFF;margin-bottom:12px}
+.sd-h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.35;color:#141318;margin-bottom:14px}
+.sd-h2.c{text-align:center}
+.sd-desc{font-size:15.5px;color:#55525C;line-height:1.7}
+.sd-g2,.sd-g3,.sd-g4{display:grid;gap:18px;margin-top:40px}
+.sd-g2{grid-template-columns:repeat(2,1fr)}.sd-g3{grid-template-columns:repeat(3,1fr)}.sd-g4{grid-template-columns:repeat(4,1fr);gap:14px}
+.sd-card{background:#fff;border:1px solid #E8E4DE;border-radius:18px;padding:28px 26px}
+.sd-card .num{font-size:13px;font-weight:800;color:#8B3DFF;margin-bottom:12px}
+.sd-card h3,.sd-method h3,.sd-step3 h3,.sd-icard h3{font-size:20px;font-weight:800;letter-spacing:-.02em;color:#141318;margin-bottom:12px;line-height:1.4}
+.sd-card ul,.sd-step3 ul{list-style:disc;padding-left:18px;display:grid;gap:7px;font-size:14.5px;color:#3A3A42}
+.sd-card ul.chk{list-style:none;padding:0;font-weight:700;color:#141318}
+.sd-card ul.chk li::before{content:"✓";color:#8B3DFF;margin-right:8px;font-weight:800}
+.sd-card .when,.sd-method .when,.sd-step3 .when{font-size:13px;color:#55525C;margin-bottom:6px}
+.sd-card p{font-size:14.5px;color:#3A3A42;line-height:1.65;margin-top:16px}
+.sd-scale{background:#fff;border:1px solid #E8E4DE;border-radius:14px;padding:22px 24px}
+.sd-scale b{display:block;font-size:19px;font-weight:800;color:#141318;margin-bottom:4px}.sd-scale span{font-size:13.5px;color:#55525C}
+.sd-more{display:inline-block;margin-top:26px;font-size:14.5px;font-weight:700;color:#8B3DFF}
+.sd-more:hover{text-decoration:underline}
+.sd-bar{display:flex;height:40px;border-radius:9px;overflow:hidden;margin-top:6px}
+.sd-bar span{display:grid;place-items:center;padding:0 8px;font-size:12px;font-weight:700;color:#141318;white-space:nowrap;overflow:hidden;min-width:0}
+.sd-bar .m1{background:#8B3DFF;color:#fff}.sd-bar .m2{background:#A779FF;color:#fff}.sd-bar .m3{background:#C4A6FF}.sd-bar .m4{background:#E2D4FF}
+.sd-note{margin-top:20px;font-size:13.5px;color:#6B6B75}
+.sd-ctry{background:#fff;border:1px solid #E8E4DE;border-radius:12px;padding:16px 18px}
+.sd-ctry b{display:block;font-size:15.5px;font-weight:800;color:#141318;margin-bottom:4px}
+.sd-ctry b::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#FFC53D;margin-right:7px;vertical-align:2px}
+.sd-ctry.home{background:#F1EAFE;border-color:#D9C8FB}.sd-ctry.home b::before{background:#8B3DFF}
+.sd-ctry span{font-size:13px;color:#55525C}
+.sd-dark{background:#141414;color:#fff}
+.sd-drow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sd-drow+.sd-drow{margin-top:100px}
+.sd-dtxt .k{font-size:15px;color:#C8C5CE;margin-bottom:14px}
+.sd-dtxt h3{font-size:clamp(28px,3.6vw,38px);font-weight:800;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.sd-dtxt p{font-size:14.5px;color:#B3B0BA;line-height:1.75}
+.sd-check{display:inline-block;margin-top:22px;padding:10px 18px;border:1px solid #3A3940;border-radius:999px;background:#1E1D22;font-size:14px;font-weight:700}
+.sd-check i{color:#FFC53D;font-style:normal;margin-right:6px}
+.sd-steps{list-style:none;display:grid;gap:10px;margin:0;padding:0}
+.sd-steps li{display:flex;align-items:center;gap:20px;padding:17px 24px;border-radius:12px;background:#2A2930;color:#8E8B96;font-weight:700;font-size:16px}
+.sd-steps li.on{background:linear-gradient(90deg,#8B3DFF,#A35BFF);color:#fff}
+.sd-steps .n{width:14px;text-align:center;font-size:15px}
+.sd-steps .b{background:#fff;color:#8B3DFF;font-size:11px;font-weight:800;padding:2px 9px;border-radius:999px}
+.sd-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;margin-top:40px}
+.sd-flow .arr{align-self:center;color:#8B3DFF;font-style:normal;font-size:18px}
+.sd-step3{background:#fff;border:1px solid #E8E4DE;border-top:3px solid #8B3DFF;border-radius:18px;padding:28px 24px}
+.sd-step3 .s{font-size:13px;font-weight:800;color:#8B3DFF;margin-bottom:12px}
+.sd-step3 h3 em{font-style:normal;color:#8B3DFF}
+.sd-step3 .pill{display:inline-block;background:#F1EAFE;color:#8B3DFF;font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:8px;margin-bottom:12px}
+.sd-step3 p{font-size:14px;color:#3A3A42;line-height:1.65}
+.sd-method{background:#fff;border:1px solid #E8E4DE;border-radius:20px;padding:32px 28px}
+.sd-method h3{font-size:26px;margin-bottom:6px}
+.sd-method .sub{font-size:14px;color:#55525C;margin-bottom:22px}
+.sd-method .r,.sd-icard .r{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid #E8E4DE;font-size:14.5px}
+.sd-method .r span{font-weight:800;color:#141318}.sd-method .r b{font-weight:500;color:#3A3A42;line-height:1.65}
+.sd-icard{background:#fff;border:1px solid #E8E4DE;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.sd-icard .ph{height:156px;background:linear-gradient(135deg,#E9E2F7,#D9D2EA);position:relative}
+.sd-icard .ph span{position:absolute;left:16px;bottom:12px;font-size:34px;font-weight:800;color:#B79AF5;font-family:var(--font-en,Inter,sans-serif)}
+.sd-icard .bd{padding:26px 22px 28px}
+.sd-icard .lb{font-size:13px;font-weight:700;color:#8B3DFF;margin-bottom:8px}
+.sd-icard p{font-size:14px;color:#55525C;line-height:1.65;padding-bottom:16px;border-bottom:1px solid #E8E4DE}
+.sd-icard .r{display:block;padding:14px 0}
+.sd-icard .r:last-child{border-bottom:0;padding-bottom:0}
+.sd-icard .r span{display:block;font-size:12.5px;font-weight:700;color:#8B3DFF;margin-bottom:5px}
+.sd-icard .r b{font-size:14.5px;font-weight:800;color:#141318;line-height:1.5}
+.sd-icard .r a{color:inherit;text-decoration:underline}
+.sd-place{background:#fff;border:1px solid #E8E4DE;border-radius:14px;padding:18px 20px}
+.sd-place b{display:block;font-size:16px;font-weight:800;color:#141318;margin-bottom:5px}.sd-place i{color:#FFC53D;font-style:normal}
+.sd-place span{font-size:13px;color:#55525C}
+.sd-consult{text-align:center}
+.sd-cs{display:flex;align-items:center;justify-content:center;gap:28px;margin:40px 0 36px}
+.sd-cs>div{display:flex;flex-direction:column;gap:6px;min-width:180px}
+.sd-cs span{font-size:13px;color:#55525C}.sd-cs b{font-size:24px;font-weight:800;color:#141318}.sd-cs em{font-style:normal;font-size:13px;color:#55525C}
+.sd-cs i{flex:0 1 120px;height:1px;background:#DCD6CC}
+.sd-band{background:#141414;color:#fff;text-align:center;padding:84px 24px}
+.sd-band h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:28px}
+[id^="svc-"]{scroll-margin-top:150px}
+@media(max-width:900px){
+ .sd-hero{padding:120px 0 40px}
+ .sd-g3,.sd-g2,.sd-drow,.sd-flow{grid-template-columns:1fr}.sd-g4{grid-template-columns:1fr 1fr}
+ .sd-flow .arr{transform:rotate(90deg);justify-self:center}
+ .sd-drow{gap:32px}.sd-drow+.sd-drow{margin-top:64px}
+ .sd-sec{padding:64px 0}
+ .sd-ask{flex-direction:column;align-items:stretch;padding:14px}.sd-ask-b{justify-content:stretch}.sd-ask-b .sd-btn{flex:1}
+ .sd-ask.fixed .sd-ask-b .ghost{display:none}
+ .sd-ask.fixed{left:12px;right:88px;width:auto;bottom:16px;transform:none;animation:none;padding:10px 12px}
+ .sd-ask.fixed .sd-ask-q{font-size:13px}
+ .sd-cs{flex-direction:column;gap:18px}.sd-cs i{width:1px;height:20px;flex:none}
+}
+@media(max-width:520px){.sd-g4{grid-template-columns:1fr}.sd-method .r{grid-template-columns:1fr;gap:4px}}
+</style>
 </head><body>
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
@@ -291,104 +405,23 @@ body{padding-top:48px}
     </div>
   </div>
 </nav>
-<nav class="service-tabs" id="service-tabs">
-  <a href="/market/service-influencer.html" class="active">인플루언서 마케팅</a>
-  <a href="/market/service-visit.html">방문 프로모션</a>
-  <a href="/market/service-event.html">팝업·행사 운영</a>
-</nav>
-<section class="detail-hero">
-  <div class="detail-hero-inner">
-    <div class="detail-breadcrumb"><a href="/market/">홈</a><span class="divider">›</span><a href="/market/service-influencer.html">서비스 상세</a><span class="divider">›</span><span class="cur">인플루언서 마케팅</span></div>
+<main id="main">
+<section class="sd-hero">
+  <div class="sd-in">
+    <div class="sd-crumb"><a href="/market/service-influencer.html">서비스</a> › <b>인플루언서 마케팅</b></div>
+    <nav class="sd-tabs" aria-label="서비스"><a href="/market/service-influencer.html" class="sd-tab on" aria-current="page">인플루언서 마케팅</a><a href="/market/service-visit.html" class="sd-tab">방문 프로모션</a><a href="/market/service-event.html" class="sd-tab">팝업 및 행사 운영</a></nav>
+    <h1 class="sd-h1">인플루언서 마케팅</h1>
+    <p class="sd-lead">브랜드의 얼굴이 될 메가 인플루언서부터 일상 속 후기를 만드는 체험단까지.<br>나라와 규모를 <span class="sd-hl">목표에 맞게 조합</span>해 설계합니다.</p>
+    <div class="sd-ctas"><a href="/market/contact.html" class="sd-btn">무료 상담 받기</a><a href="/market/trend-report.html" class="sd-btn ghost">트렌드 리포트 확인하기</a></div>
+    <div class="sd-ask" id="sdAsk"><span class="sd-ask-q">우리 브랜드에 맞는 인플루언서 조합, 어느 나라부터 시작할까요?</span><span class="sd-ask-b"><a href="/market/contact.html" class="sd-btn sm">무료 상담 받기</a><a href="/market/trend-report.html" class="sd-btn sm ghost">트렌드 리포트 확인하기</a></span></div>
   </div>
-</section>
-
-<section class="detail-head">
-  <div class="detail-head-inner">
-    <h1>섭외에서 끝나지 않고,<br><span class="hl">기획이 담긴 시딩을 합니다</span></h1>
-    <p>제품의 맛대로 활동할 아니라 브랜드가 꺼 알리고 싶은 것에 맞게 콘텐츠를 다음 캠페인까지 이어 다룹니다.</p>
-    <div class="ctas">
-      <a href="/market/contact.html" class="main">무료 상담 받기 →</a>
-      <a href="/market/trend-report.html" class="sub">트렌드 리포트 확인하기</a>
-    </div>
-    <div class="quick-top"><span class="q">확인 필요</span><span class="msg">우리 브랜드에 맞는 인플루언서 조합, 어떻게 시작하면 좋을까요?</span><a href="/market/contact.html" class="btn">무료 상담 받기</a></div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">핵심 서비스 · FR-MKT-035</div>
-      <h2>섭외에서 끝나지 않고, 기획이 담긴 시딩을 합니다</h2>
-      <p>제품을 맡기는 것이 아니라 브랜드가 꺼 알리고 싶은 것에 맞게 콘텐츠를 다음 캠페인까지 이어 다룹니다.</p>
-    </div>
-    <div class="features-3">
-      <div class="feat"><h4>크리에이터 찾기·섭외</h4><ul><li>나나-규모 담당 관리·커뮤니티 성장</li><li>나-나-규모 담당 크리에이터 추천</li><li>나리에이터와 직접 계약 지원</li></ul></div><div class="feat"><h4>콘텐츠 기획·운영</h4><ul><li>콘텐츠 기획·브랜드 재공</li><li>현지 언어 디자인·광고 가능</li><li>제품 설명부터 브랜드까지 연결 관리</li></ul></div><div class="feat"><h4>성과 분석·리포트</h4><ul><li>콘텐츠별 분석 결과까지</li><li>조회수·구매 가능한 콘텐츠 분석까지</li><li>광고 콘텐츠 재사용 이력까지 다룬 리포트</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect gray">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">실행 분야 · 체험 단위까지</div>
-      <h2>목표에 맞는 규모로 섭외합니다</h2>
-      <p>규모별 역할이 다릅니다. 포뮬러 리포트 「실무자 요건이 아니라, 역할로 고르세요」 보기 →</p>
-    </div>
-    <div class="scale-grid">
-      <div class="scale-card" id="svc-mega"><div class="lbl">MEGA · 셀립</div><h4>메가 · 셀립</h4><p>브랜드의 얼굴로 쓰임</p></div><div class="scale-card" id="svc-macro"><div class="lbl">MACRO</div><h4>매크로</h4><p>노출·인지도 확대</p></div><div class="scale-card" id="svc-micro"><div class="lbl">MICRO</div><h4>마이크로</h4><p>일상 침투·공감형</p></div><div class="scale-card" id="svc-nano"><div class="lbl">NANO</div><h4>나노·체험단</h4><p>실사용 후기 다수</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">호미 MARKET의 인플루언서 전략 설계</div>
-      <h2>한 명이 아니라, 조합으로 설계합니다</h2>
-      <p>같은 메시지라도 목표에 따라 사용하는 인플루언서 조합이 달라집니다. 매 캠페인 가장 맞는 조합을 설계합니다.</p>
-    </div>
-    <div class="workflow">
-      <div class="wf"><div class="wf-head"><div class="num">01</div><h4>해외 첫 진출</h4></div><ul><li>소수 아티스트 · 시딩 중심</li><li>콘텐츠로 신뢰 쌓기</li><li>글로벌 활용 베이스 만들기</li></ul></div><div class="wf"><div class="wf-head"><div class="num">02</div><h4>신제품 론칭</h4></div><ul><li>화제성 아티스트 · 숏폼 중심</li><li>브랜드 콘텐츠 노출 극대화</li><li>구매 전환 포인트 설계</li></ul></div><div class="wf"><div class="wf-head"><div class="num">03</div><h4>팬·입점 전환</h4></div><ul><li>나노·마이크로 리뷰어 확대</li><li>사용자 콘텐츠 지속 생성</li><li>재방문·재구매 플로우</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect gray">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">직접 계약·관리 중 · 현지 상이 다룬 수치</div>
-      <h2>현지 본사·거점 1개 동기화</h2>
-    </div>
-    <div class="sync-table">
-      <div class="sync-head"><div>STEP</div><div>내용</div><div>시점</div></div>
-      <div class="sync-row"><div class="sync-step">01</div><div><h5>상담 요청 정리</h5><p>문의 접수·상담 종류·업무 정리</p></div><div class="time">D-7</div></div><div class="sync-row"><div class="sync-step">02</div><div><h5>전문 매니저 배치</h5><p>캠페인 커뮤·현지 언어 운영 지원</p></div><div class="time">D-5</div></div><div class="sync-row"><div class="sync-step">03</div><div><h5>현지 언어 운영 지원</h5><p>한국·중국·필리핀 등 매체 운영</p></div><div class="time">D-3</div></div><div class="sync-row"><div class="sync-step">04</div><div><h5>종합 리포트</h5><p>캠페인 데이터 종합</p></div><div class="time">D+14</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">진행 방식 · FR-MKT-059 · 상담 수치</div>
-      <h2>필요한 도움에 맞게, 두 가지 방식으로 진행합니다</h2>
-      <p>어떻게 하냐는 캠페인에 따라 다릅니다. 담당 매니저가 설계한 플랜과 커뮤 방식, 기준을 공유합니다.</p>
-    </div>
-    <div class="method-table">
-      <div class="method-head"><div>MICRO · 인플루언서 최대 20명 미만</div><div>MACRO · MEGA · 셀립이 포함된 캠페인</div></div>
-      <div class="method-row"><div><div class="k">제안자</div>시딩</div><div><div class="k">전략·기획 시딩</div></div></div><div class="method-row"><div><div class="k">커뮤 전환방식</div>일대일 콘텐츠 운영</div><div><div class="k">기획자 전용 매니저 상담 지원</div></div></div><div class="method-row"><div><div class="k">회서 커뮤</div>캠페인·방문·채널 매칭</div><div><div class="k">현지 언어 시작·공연 피드백 및 재공</div></div></div><div class="method-row"><div><div class="k">마치</div>전설 메시지로 비료 크리에이터 제공·반복</div><div><div class="k">기획자·커뮤 매칭의 심층 분석과 반영</div></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <h3>시작은 상담 <span class="hl">한 번</span>이면 됩니다</h3>
-  <div class="steps">
-    <div class="step"><div class="lbl">1단계</div><div class="nm">상담 신청</div></div>
-    <div class="step"><div class="lbl">2단계</div><div class="nm">온·오프라인 미팅</div></div>
-    <div class="step"><div class="lbl">3단계</div><div class="nm">맞춤 조합 제안</div></div>
-  </div>
-  <a href="/market/contact.html" class="main">무료 상담 받기</a>
-</section>
+</section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">핵심 서비스</div><h2 class="sd-h2">섭외에서 끝나지 않고, <span class="sd-hl">기획이 담긴 시딩</span>을 합니다</h2><p class="sd-desc">제품만 보내는 협찬이 아니라 브랜드가 꼭 알리고 싶은 한 가지를 콘텐츠에 담고, 반응이 좋은 콘텐츠는 다음 캠페인에 다시 씁니다.</p><div class="sd-g3"><div class="sd-card"><div class="num">01</div><h3>크리에이터 찾기·섭외</h3><ul><li>브랜드와 결이 맞는 국내외 크리에이터 찾기</li><li>나라·규모·채널별 추천안과 고른 이유</li><li>크리에이터와 직접 계약·지급</li></ul></div><div class="sd-card"><div class="num">02</div><h3>콘텐츠 기획·운영</h3><ul><li>브랜드 메시지를 담은 콘셉트와 가이드</li><li>현지 언어 담당의 문구·자막 검수</li><li>제품 발송부터 업로드까지 진행 관리</li></ul></div><div class="sd-card"><div class="num">03</div><h3>성과 분석·리포트</h3><ul><li>콘텐츠별 조회·반응 정리</li><li>반응이 가장 좋았던 콘텐츠 골라내기</li><li>광고·판매 채널로 이어갈 다음 단계 제안</li></ul></div></div></div></section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">셀럽부터 체험단까지</div><h2 class="sd-h2">목표에 맞는 <span class="sd-hl">규모</span>로 섭외합니다</h2><div class="sd-g4"><div class="sd-scale" id="svc-mega"><b>메가 · 셀럽</b><span>브랜드를 대표하는 얼굴</span></div><div class="sd-scale" id="svc-macro"><b>매크로</b><span>넓은 노출과 홍보</span></div><div class="sd-scale" id="svc-micro"><b>마이크로</b><span>일상 속 확산</span></div><div class="sd-scale" id="svc-nano"><b>나노 · 체험단</b><span>실사용 후기와 시딩</span></div></div><a class="sd-more" href="/market/trend-report.html">규모별 역할이 궁금하다면 — 트렌드 리포트 「팔로워 수가 아니라, 역할로 고르세요」 보기 →</a></div></section><section class="sd-sec sd-beige"><div class="sd-in"><div class="sd-eyebrow">호미 MARKET의 인플루언서 조합 설계</div><h2 class="sd-h2">한 명이 아니라, <span class="sd-hl">조합</span>으로 설계합니다</h2><p class="sd-desc">같은 예산이라도 목표에 따라 규모를 섞는 비율이 달라집니다. 목표를 먼저 듣고, 나라별로 가장 잘 맞는 조합을 제안합니다.</p><div class="sd-g3"><div class="sd-card"><div class="when">현지에 처음 브랜드를 알릴 때</div><h3>해외 첫 진출</h3><div class="sd-bar" role="img" aria-label="해외 첫 진출 비율 예시: 메가, 매크로, 마이크로, 나노·체험단"><span class="m1" style="flex:2 1 auto">메가</span><span class="m2" style="flex:3 1 auto">매크로</span><span class="m3" style="flex:3 1 auto">마이크로</span><span class="m4" style="flex:2 1 auto">나노·체험단</span></div><p>얼굴로 기억시키고, 넓게 노출한 뒤, 후기로 신뢰를 받칩니다</p></div><div class="sd-card"><div class="when">출시 시점에 크게 알려야 할 때</div><h3>신제품 런칭</h3><div class="sd-bar" role="img" aria-label="신제품 런칭 비율 예시: 매크로, 마이크로, 나노·체험단"><span class="m2" style="flex:2 1 auto">매크로</span><span class="m3" style="flex:2 1 auto">마이크로</span><span class="m4" style="flex:1 1 auto">나노·체험단</span></div><p>퀄리티 있는 콘텐츠로 노출을 키우고 일상 언급으로 이어갑니다</p></div><div class="sd-card"><div class="when">구매와 리뷰가 필요할 때</div><h3>판매·입점 전환</h3><div class="sd-bar" role="img" aria-label="판매·입점 전환 비율 예시: 마이크로, 나노·체험단"><span class="m3" style="flex:1 1 auto">마이크로</span><span class="m4" style="flex:2 1 auto">나노·체험단</span></div><p>여러 나라 동시 시딩으로 후기를 쌓고 구매 망설임을 줄입니다</p></div></div><p class="sd-note">막대는 비율 예시이며, 실제 조합은 상담 후 제안합니다.</p></div></section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">한국 본사 + 8개 거점</div><h2 class="sd-h2">나라마다 <span class="sd-hl">쓰는 채널</span>이 다릅니다</h2><p class="sd-desc">그 나라 소비자가 실제로 보는 곳에, 그 나라 크리에이터의 언어로 올립니다.</p><div class="sd-g4"><div class="sd-ctry home"><b>국내</b><span>인스타그램 · 유튜브 · 틱톡 · 블로그</span></div><div class="sd-ctry"><b>일본</b><span>인스타그램 · X · 유튜브 · 틱톡</span></div><div class="sd-ctry"><b>중국</b><span>샤오홍슈 · 더우인</span></div><div class="sd-ctry"><b>인도네시아</b><span>틱톡 · 인스타그램</span></div><div class="sd-ctry"><b>북미</b><span>유튜브 · 인스타그램 · 틱톡</span></div><div class="sd-ctry"><b>대만 · 홍콩</b><span>인스타그램 · 페이스북 · 유튜브</span></div><div class="sd-ctry"><b>필리핀</b><span>페이스북 · 틱톡</span></div><div class="sd-ctry"><b>인도</b><span>인스타그램 · 유튜브</span></div></div></div></section><section class="sd-sec sd-dark"><div class="sd-in"><div class="sd-drow"><div class="sd-dtxt"><div class="k">중간 단계 없이</div><h3>4만+ 크리에이터와<br>직접 계약합니다</h3><p>여러 에이전시를 거치지 않고 크리에이터와 직접 계약·지급합니다.<br>그래서 비용이 투명하고, 브랜드의 요청이 그대로 전달됩니다.</p><div class="sd-check"><i aria-hidden="true">✓</i> 콘텐츠 퀄리티와 실제 반응까지 확인한, 검증된 크리에이터</div></div><ol class="sd-steps"><li class=""><span class="n">1</span><span class="t">브랜드 목표 공유</span></li><li class="on"><span class="n">2</span><span class="t">나라·규모 조합 설계</span><span class="b">호미</span></li><li class="on"><span class="n">3</span><span class="t">현지 크리에이터 직접 섭외</span><span class="b">호미</span></li><li class=""><span class="n">4</span><span class="t">추천 이유와 데이터로 함께 선택</span></li><li class="on"><span class="n">5</span><span class="t">계약·지급까지 직접 관리</span><span class="b">호미</span></li></ol></div><div class="sd-drow"><div class="sd-dtxt"><div class="k">현지 반응 걱정은 덜고</div><h3>업로드 전,<br>함께 검수합니다</h3><p>현지 언어 담당이 문구·자막·문화적 표현까지 확인한 뒤 올립니다.<br>나라가 달라도 브랜드의 메시지는 같게.</p></div><ol class="sd-steps"><li class=""><span class="n">1</span><span class="t">콘텐츠 가이드 전달</span></li><li class="on"><span class="n">2</span><span class="t">초안 확인</span><span class="b">호미</span></li><li class="on"><span class="n">3</span><span class="t">현지 언어·문화 검수</span><span class="b">호미</span></li><li class=""><span class="n">4</span><span class="t">브랜드 최종 확인</span></li><li class="on"><span class="n">5</span><span class="t">업로드·결과 리포트</span><span class="b">호미</span></li></ol></div></div></section><section class="sd-sec sd-beige"><div class="sd-in"><div class="sd-eyebrow">시딩 캠페인 진행 절차</div><h2 class="sd-h2">기획부터 결과 리포트까지, <span class="sd-hl">3단계</span>로 진행합니다</h2><div class="sd-flow"><div class="sd-step3"><div class="s">STEP 1</div><h3>기획 — 나라·타깃·메시지 정하기</h3><ul><li>진출할 나라와 타깃 소비자 정리</li><li>브랜드 메시지와 콘텐츠 콘셉트 기획</li><li>현지에서 반응이 좋은 콘텐츠 조사</li></ul></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="s">STEP 2</div><h3>섭외 — 선택부터 업로드까지</h3><ul><li>추천안을 보며 크리에이터 함께 선택</li><li>제품 발송과 콘텐츠 가이드 전달</li><li>초안 검수 후 업로드까지 확인</li></ul></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="s">STEP 3</div><h3>분석 — 리포트와 다음 단계</h3><ul><li>조회·반응 등 콘텐츠 결과 정리</li><li>반응이 가장 좋았던 콘텐츠 골라내기</li><li>광고·판매 채널로 넓히는 방법 제안</li></ul></div></div></div></section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">진행 방식</div><h2 class="sd-h2">필요한 도움에 맞게, <span class="sd-hl">두 가지 방식</span>으로 진행합니다</h2><p class="sd-desc">비용에 따라 나뉘는 등급이 아닙니다. 어떤 방식이든 섭외부터 결과 리포트까지 같은 기준으로 챙깁니다.</p><div class="sd-g2"><div class="sd-method"><div class="when">함께할 크리에이터가 정해져 있다면</div><h3>시딩</h3><p class="sub">크리에이터는 직접 고르고, 실행은 호미가 맡습니다.</p><div class="r"><span>크리에이터</span><b>원하는 크리에이터를 브랜드가 직접 선택</b></div><div class="r"><span>호미가 하는 일</span><b>섭외·계약 · 제품 발송 · 업로드 확인 · 결과 리포트</b></div><div class="r"><span>이럴 때</span><b>알리고 싶은 메시지와 원하는 크리에이터가 분명할 때</b></div></div><div class="sd-method"><div class="when">어디서부터 할지 고민이라면</div><h3>전략·기획 시딩</h3><p class="sub">나라와 메시지를 정하는 일부터 함께합니다.</p><div class="r"><span>크리에이터</span><b>목표에 맞는 추천안과 고른 이유를 드리고 함께 결정</b></div><div class="r"><span>호미가 하는 일</span><b>나라·타깃·메시지 전략 · 콘텐츠 기획·가이드<br>현지 언어 검수 · 섭외 · 결과 리포트<br>다음 단계 제안까지</b></div><div class="r"><span>이럴 때</span><b>어느 나라, 어떤 크리에이터가 맞을지<br>함께 정하고 싶을 때</b></div></div></div><p class="sd-note">비용은 나라와 섭외 규모에 따라 달라 상담 후 견적으로 안내합니다.</p></div></section><section class="sd-sec sd-consult"><div class="sd-in">
+  <h2 class="sd-h2 c">시작은 <span class="sd-hl">상담 한 번</span>이면 됩니다</h2>
+  <div class="sd-cs"><div><span>1단계</span><b>상담 신청</b><em>의뢰서 또는 실시간 상담</em></div><i></i><div><span>2단계</span><b>온·오프라인 미팅</b><em>목표와 나라를 함께 정리</em></div><i></i><div><span>3단계</span><b>맞춤 조합 제안</b><em>나라·규모·채널 플랜</em></div></div>
+  <a href="/market/contact.html" class="sd-btn">무료 상담 받기</a>
+</div></section>
+<section class="sd-band"><h2>어떤 방식이 맞을지, 같이 정해요</h2><a href="/market/contact.html" class="sd-btn">무료 상담 받기</a></section>
+</main>
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -485,6 +518,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     el.classList.remove('hm-target'); void el.offsetWidth; el.classList.add('hm-target');
   }
   window.addEventListener('hashchange',land); window.addEventListener('load',land);
+})();
+</script>
+<script id="sd-js">
+/* 하단 고정 바 — 히어로의 질문 바가 화면 밖으로 나가면 아래에 고정 */
+(function(){
+  var a=document.getElementById('sdAsk'); if(!a||!('IntersectionObserver' in window)) return;
+  var f=a.cloneNode(true); f.id='sdAskFixed'; f.classList.add('fixed'); f.hidden=true; f.setAttribute('aria-hidden','true');
+  document.body.appendChild(f);
+  var band=document.querySelector('.sd-band');
+  var heroGone=false, bandIn=false;
+  function upd(){ f.hidden=!(heroGone&&!bandIn); }
+  new IntersectionObserver(function(e){ heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0; upd(); }).observe(a);
+  if(band) new IntersectionObserver(function(e){ bandIn=e[0].isIntersecting; upd(); }).observe(band);
 })();
 </script>
 </body></html>

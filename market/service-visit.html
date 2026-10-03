@@ -269,6 +269,120 @@ body{padding-top:48px}
 .hm-target{animation:hmPulse 1.8s ease-out 1}
 @keyframes hmPulse{0%{box-shadow:0 0 0 0 rgba(139,61,255,.55)}100%{box-shadow:0 0 0 14px rgba(139,61,255,0)}}
 </style>
+<style id="sd-css">
+/* FR-MKT-030 서비스 상세 공통 틀 (PDF v0.84 · 13/17/18) */
+.sd-in{max-width:1100px;margin:0 auto;padding:0 24px}
+.sd-hl{color:#8B3DFF}
+.sd-btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 30px;border-radius:12px;background:#8B3DFF;color:#fff!important;font-weight:700;font-size:16px;border:1px solid #8B3DFF;transition:.2s;white-space:nowrap}
+.sd-btn:hover{background:#7D2AE8}
+.sd-btn.ghost{background:#fff;color:#141318!important;border-color:#DDD8E4}
+.sd-btn.ghost:hover{border-color:#8B3DFF}
+.sd-btn.sm{padding:9px 16px;font-size:13.5px;border-radius:8px}
+.sd-hero{background:#F1EAFE;padding:132px 0 56px}
+.sd-crumb{font-size:13.5px;color:#55525C;margin-bottom:18px}.sd-crumb a{color:inherit}.sd-crumb b{color:#141318}
+.sd-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.sd-tab{padding:10px 18px;border-radius:999px;background:#fff;border:1px solid #DDD8E4;font-size:14px;font-weight:700;color:#141318}
+.sd-tab.on{background:#141318;border-color:#141318;color:#fff}
+.sd-h1{font-size:clamp(34px,5vw,48px);font-weight:800;letter-spacing:-.03em;color:#141318;margin-bottom:18px;line-height:1.2}
+.sd-lead{font-size:17px;line-height:1.75;color:#3A3A42;margin-bottom:32px}
+.sd-lead .sd-hl{font-weight:700}
+.sd-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.sd-ask{margin:40px auto 0;max-width:900px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(40,20,80,.08);padding:12px 14px 12px 22px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.sd-ask-q{font-weight:700;font-size:15px;color:#141318}
+.sd-ask-b{display:flex;gap:8px;flex-shrink:0}
+.sd-ask[hidden]{display:none!important}
+.sd-ask.fixed{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);margin:0;width:calc(100% - 48px);z-index:90;animation:sdUp .25s ease-out}
+@keyframes sdUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
+.sd-sec{padding:84px 0}
+.sd-beige{background:#F4F2EE}
+.sd-eyebrow{font-size:14px;font-weight:700;color:#8B3DFF;margin-bottom:12px}
+.sd-h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.35;color:#141318;margin-bottom:14px}
+.sd-h2.c{text-align:center}
+.sd-desc{font-size:15.5px;color:#55525C;line-height:1.7}
+.sd-g2,.sd-g3,.sd-g4{display:grid;gap:18px;margin-top:40px}
+.sd-g2{grid-template-columns:repeat(2,1fr)}.sd-g3{grid-template-columns:repeat(3,1fr)}.sd-g4{grid-template-columns:repeat(4,1fr);gap:14px}
+.sd-card{background:#fff;border:1px solid #E8E4DE;border-radius:18px;padding:28px 26px}
+.sd-card .num{font-size:13px;font-weight:800;color:#8B3DFF;margin-bottom:12px}
+.sd-card h3,.sd-method h3,.sd-step3 h3,.sd-icard h3{font-size:20px;font-weight:800;letter-spacing:-.02em;color:#141318;margin-bottom:12px;line-height:1.4}
+.sd-card ul,.sd-step3 ul{list-style:disc;padding-left:18px;display:grid;gap:7px;font-size:14.5px;color:#3A3A42}
+.sd-card ul.chk{list-style:none;padding:0;font-weight:700;color:#141318}
+.sd-card ul.chk li::before{content:"✓";color:#8B3DFF;margin-right:8px;font-weight:800}
+.sd-card .when,.sd-method .when,.sd-step3 .when{font-size:13px;color:#55525C;margin-bottom:6px}
+.sd-card p{font-size:14.5px;color:#3A3A42;line-height:1.65;margin-top:16px}
+.sd-scale{background:#fff;border:1px solid #E8E4DE;border-radius:14px;padding:22px 24px}
+.sd-scale b{display:block;font-size:19px;font-weight:800;color:#141318;margin-bottom:4px}.sd-scale span{font-size:13.5px;color:#55525C}
+.sd-more{display:inline-block;margin-top:26px;font-size:14.5px;font-weight:700;color:#8B3DFF}
+.sd-more:hover{text-decoration:underline}
+.sd-bar{display:flex;height:40px;border-radius:9px;overflow:hidden;margin-top:6px}
+.sd-bar span{display:grid;place-items:center;padding:0 8px;font-size:12px;font-weight:700;color:#141318;white-space:nowrap;overflow:hidden;min-width:0}
+.sd-bar .m1{background:#8B3DFF;color:#fff}.sd-bar .m2{background:#A779FF;color:#fff}.sd-bar .m3{background:#C4A6FF}.sd-bar .m4{background:#E2D4FF}
+.sd-note{margin-top:20px;font-size:13.5px;color:#6B6B75}
+.sd-ctry{background:#fff;border:1px solid #E8E4DE;border-radius:12px;padding:16px 18px}
+.sd-ctry b{display:block;font-size:15.5px;font-weight:800;color:#141318;margin-bottom:4px}
+.sd-ctry b::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#FFC53D;margin-right:7px;vertical-align:2px}
+.sd-ctry.home{background:#F1EAFE;border-color:#D9C8FB}.sd-ctry.home b::before{background:#8B3DFF}
+.sd-ctry span{font-size:13px;color:#55525C}
+.sd-dark{background:#141414;color:#fff}
+.sd-drow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sd-drow+.sd-drow{margin-top:100px}
+.sd-dtxt .k{font-size:15px;color:#C8C5CE;margin-bottom:14px}
+.sd-dtxt h3{font-size:clamp(28px,3.6vw,38px);font-weight:800;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
+.sd-dtxt p{font-size:14.5px;color:#B3B0BA;line-height:1.75}
+.sd-check{display:inline-block;margin-top:22px;padding:10px 18px;border:1px solid #3A3940;border-radius:999px;background:#1E1D22;font-size:14px;font-weight:700}
+.sd-check i{color:#FFC53D;font-style:normal;margin-right:6px}
+.sd-steps{list-style:none;display:grid;gap:10px;margin:0;padding:0}
+.sd-steps li{display:flex;align-items:center;gap:20px;padding:17px 24px;border-radius:12px;background:#2A2930;color:#8E8B96;font-weight:700;font-size:16px}
+.sd-steps li.on{background:linear-gradient(90deg,#8B3DFF,#A35BFF);color:#fff}
+.sd-steps .n{width:14px;text-align:center;font-size:15px}
+.sd-steps .b{background:#fff;color:#8B3DFF;font-size:11px;font-weight:800;padding:2px 9px;border-radius:999px}
+.sd-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;margin-top:40px}
+.sd-flow .arr{align-self:center;color:#8B3DFF;font-style:normal;font-size:18px}
+.sd-step3{background:#fff;border:1px solid #E8E4DE;border-top:3px solid #8B3DFF;border-radius:18px;padding:28px 24px}
+.sd-step3 .s{font-size:13px;font-weight:800;color:#8B3DFF;margin-bottom:12px}
+.sd-step3 h3 em{font-style:normal;color:#8B3DFF}
+.sd-step3 .pill{display:inline-block;background:#F1EAFE;color:#8B3DFF;font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:8px;margin-bottom:12px}
+.sd-step3 p{font-size:14px;color:#3A3A42;line-height:1.65}
+.sd-method{background:#fff;border:1px solid #E8E4DE;border-radius:20px;padding:32px 28px}
+.sd-method h3{font-size:26px;margin-bottom:6px}
+.sd-method .sub{font-size:14px;color:#55525C;margin-bottom:22px}
+.sd-method .r,.sd-icard .r{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid #E8E4DE;font-size:14.5px}
+.sd-method .r span{font-weight:800;color:#141318}.sd-method .r b{font-weight:500;color:#3A3A42;line-height:1.65}
+.sd-icard{background:#fff;border:1px solid #E8E4DE;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.sd-icard .ph{height:156px;background:linear-gradient(135deg,#E9E2F7,#D9D2EA);position:relative}
+.sd-icard .ph span{position:absolute;left:16px;bottom:12px;font-size:34px;font-weight:800;color:#B79AF5;font-family:var(--font-en,Inter,sans-serif)}
+.sd-icard .bd{padding:26px 22px 28px}
+.sd-icard .lb{font-size:13px;font-weight:700;color:#8B3DFF;margin-bottom:8px}
+.sd-icard p{font-size:14px;color:#55525C;line-height:1.65;padding-bottom:16px;border-bottom:1px solid #E8E4DE}
+.sd-icard .r{display:block;padding:14px 0}
+.sd-icard .r:last-child{border-bottom:0;padding-bottom:0}
+.sd-icard .r span{display:block;font-size:12.5px;font-weight:700;color:#8B3DFF;margin-bottom:5px}
+.sd-icard .r b{font-size:14.5px;font-weight:800;color:#141318;line-height:1.5}
+.sd-icard .r a{color:inherit;text-decoration:underline}
+.sd-place{background:#fff;border:1px solid #E8E4DE;border-radius:14px;padding:18px 20px}
+.sd-place b{display:block;font-size:16px;font-weight:800;color:#141318;margin-bottom:5px}.sd-place i{color:#FFC53D;font-style:normal}
+.sd-place span{font-size:13px;color:#55525C}
+.sd-consult{text-align:center}
+.sd-cs{display:flex;align-items:center;justify-content:center;gap:28px;margin:40px 0 36px}
+.sd-cs>div{display:flex;flex-direction:column;gap:6px;min-width:180px}
+.sd-cs span{font-size:13px;color:#55525C}.sd-cs b{font-size:24px;font-weight:800;color:#141318}.sd-cs em{font-style:normal;font-size:13px;color:#55525C}
+.sd-cs i{flex:0 1 120px;height:1px;background:#DCD6CC}
+.sd-band{background:#141414;color:#fff;text-align:center;padding:84px 24px}
+.sd-band h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:28px}
+[id^="svc-"]{scroll-margin-top:150px}
+@media(max-width:900px){
+ .sd-hero{padding:120px 0 40px}
+ .sd-g3,.sd-g2,.sd-drow,.sd-flow{grid-template-columns:1fr}.sd-g4{grid-template-columns:1fr 1fr}
+ .sd-flow .arr{transform:rotate(90deg);justify-self:center}
+ .sd-drow{gap:32px}.sd-drow+.sd-drow{margin-top:64px}
+ .sd-sec{padding:64px 0}
+ .sd-ask{flex-direction:column;align-items:stretch;padding:14px}.sd-ask-b{justify-content:stretch}.sd-ask-b .sd-btn{flex:1}
+ .sd-ask.fixed .sd-ask-b .ghost{display:none}
+ .sd-ask.fixed{left:12px;right:88px;width:auto;bottom:16px;transform:none;animation:none;padding:10px 12px}
+ .sd-ask.fixed .sd-ask-q{font-size:13px}
+ .sd-cs{flex-direction:column;gap:18px}.sd-cs i{width:1px;height:20px;flex:none}
+}
+@media(max-width:520px){.sd-g4{grid-template-columns:1fr}.sd-method .r{grid-template-columns:1fr;gap:4px}}
+</style>
 </head><body>
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
@@ -291,104 +405,23 @@ body{padding-top:48px}
     </div>
   </div>
 </nav>
-<nav class="service-tabs" id="service-tabs">
-  <a href="/market/service-influencer.html">인플루언서 마케팅</a>
-  <a href="/market/service-visit.html" class="active">방문 프로모션</a>
-  <a href="/market/service-event.html">팝업·행사 운영</a>
-</nav>
-<section class="detail-hero">
-  <div class="detail-hero-inner">
-    <div class="detail-breadcrumb"><a href="/market/">홈</a><span class="divider">›</span><a href="/market/service-influencer.html">서비스 상세</a><span class="divider">›</span><span class="cur">방문 프로모션</span></div>
+<main id="main">
+<section class="sd-hero">
+  <div class="sd-in">
+    <div class="sd-crumb"><a href="/market/service-influencer.html">서비스</a> › <b>방문 프로모션</b></div>
+    <nav class="sd-tabs" aria-label="서비스"><a href="/market/service-influencer.html" class="sd-tab">인플루언서 마케팅</a><a href="/market/service-visit.html" class="sd-tab on" aria-current="page">방문 프로모션</a><a href="/market/service-event.html" class="sd-tab">팝업 및 행사 운영</a></nav>
+    <h1 class="sd-h1">방문 프로모션</h1>
+    <p class="sd-lead">인플루언서가 직접 찾아와 매장과 브랜드를 현장에서 소개합니다.<br>동네 손님부터 <span class="sd-hl">한국을 찾는 외국인 손님</span>까지.</p>
+    <div class="sd-ctas"><a href="/market/contact.html" class="sd-btn">무료 상담 받기</a><a href="/market/trend-report.html" class="sd-btn ghost">트렌드 리포트 확인하기</a></div>
+    <div class="sd-ask" id="sdAsk"><span class="sd-ask-q">우리 매장, 어느 나라 손님에게 먼저 알릴까요?</span><span class="sd-ask-b"><a href="/market/contact.html" class="sd-btn sm">무료 상담 받기</a><a href="/market/trend-report.html" class="sd-btn sm ghost">트렌드 리포트 확인하기</a></span></div>
   </div>
-</section>
-
-<section class="detail-head">
-  <div class="detail-head-inner">
-    <h1>매장·팝업에<br><span class="hl">사람이 오게 만드는 설계</span></h1>
-    <p>오프라인 매장에 실제로 방문자가 오도록 지역·시간대·크리에이터 조합을 설계합니다.</p>
-    <div class="ctas">
-      <a href="/market/contact.html" class="main">무료 상담 받기 →</a>
-      <a href="/market/trend-report.html" class="sub">트렌드 리포트 확인하기</a>
-    </div>
-    <div class="quick-top"><span class="q">확인 필요</span><span class="msg">우리 매장에 어떤 방문객을 유치하면 좋을까요?</span><a href="/market/contact.html" class="btn">무료 상담 받기</a></div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">핵심 서비스 · FR-MKT-035</div>
-      <h2>매장·팝업·입점처에 사람이 오게 설계합니다</h2>
-      <p>동네·상권·관광지에 맞는 방문자가 오도록 지역·시간대·크리에이터 조합을 설계합니다.</p>
-    </div>
-    <div class="features-3">
-      <div class="feat"><h4>국내 매장·팝업</h4><ul><li>지역 크리에이터 섭외</li><li>방문 콘텐츠·리뷰</li><li>동네 상권 바이럴</li></ul></div><div class="feat"><h4>해외 인바운드</h4><ul><li>한국 방문 외국인 크리에이터</li><li>K-쇼핑·관광 콘텐츠</li><li>명동·강남·홍대 상권</li></ul></div><div class="feat"><h4>해외 현지 매장</h4><ul><li>현지 로컬 인플루언서</li><li>현지 매장·입점처 홍보</li><li>현지 쇼핑 콘텐츠</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect gray">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">실행 분야 · 체험 단위까지</div>
-      <h2>방문 유형별 전문 매니저</h2>
-      <p>규모별 역할이 다릅니다. 포뮬러 리포트 「실무자 요건이 아니라, 역할로 고르세요」 보기 →</p>
-    </div>
-    <div class="scale-grid" id="svc-overseas">
-      <div class="scale-card" id="svc-domestic"><div class="lbl">LOCAL</div><h4>로컬 크리에이터</h4><p>동네·상권 중심</p></div><div class="scale-card" id="svc-inbound"><div class="lbl">TOURIST</div><h4>관광객 유도</h4><p>해외 방문객 중심</p></div><div class="scale-card"><div class="lbl">LIFESTYLE</div><h4>라이프스타일</h4><p>매장 체험형 콘텐츠</p></div><div class="scale-card"><div class="lbl">REVIEW</div><h4>리뷰 중심</h4><p>방문 인증·후기</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">호미 MARKET의 인플루언서 전략 설계</div>
-      <h2>방문객 유형에 맞춘 조합 설계</h2>
-      <p>같은 메시지라도 목표에 따라 사용하는 인플루언서 조합이 달라집니다. 매 캠페인 가장 맞는 조합을 설계합니다.</p>
-    </div>
-    <div class="workflow">
-      <div class="wf"><div class="wf-head"><div class="num">01</div><h4>신규 매장 오픈</h4></div><ul><li>지역 로컬 크리에이터 집중</li><li>오픈 이벤트 기획</li><li>첫 방문 후기 확보</li></ul></div><div class="wf"><div class="wf-head"><div class="num">02</div><h4>시즌 팝업</h4></div><ul><li>한정 기간 최대 방문 설계</li><li>SNS 바이럴 + 방문 인증</li><li>대기줄 콘텐츠 활용</li></ul></div><div class="wf"><div class="wf-head"><div class="num">03</div><h4>해외 매장</h4></div><ul><li>현지 로컬 크리에이터</li><li>현지 언어·문화 맞춤</li><li>입점처 연계 홍보</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect gray">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">직접 계약·관리 중 · 현지 상이 다룬 수치</div>
-      <h2>방문 유도 플로우 일정 공유</h2>
-    </div>
-    <div class="sync-table">
-      <div class="sync-head"><div>STEP</div><div>내용</div><div>시점</div></div>
-      <div class="sync-row"><div class="sync-step">01</div><div><h5>지역 분석·크리에이터 매칭</h5><p>상권·동선·타깃 분석</p></div><div class="time">D-10</div></div><div class="sync-row"><div class="sync-step">02</div><div><h5>방문 콘텐츠 기획</h5><p>리뷰·브이로그·숏폼 조합</p></div><div class="time">D-5</div></div><div class="sync-row"><div class="sync-step">03</div><div><h5>방문 캠페인 운영</h5><p>실시간 모니터링·현장 지원</p></div><div class="time">D-Day</div></div><div class="sync-row"><div class="sync-step">04</div><div><h5>방문 리포트</h5><p>방문자 수·체류·재방문</p></div><div class="time">D+14</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sect">
-  <div class="sect-inner">
-    <div class="sect-head">
-      <div class="eyebrow">진행 방식 · FR-MKT-059 · 상담 수치</div>
-      <h2>방문 목표에 맞게 두 가지 방식으로</h2>
-      <p>어떻게 하냐는 캠페인에 따라 다릅니다. 담당 매니저가 설계한 플랜과 커뮤 방식, 기준을 공유합니다.</p>
-    </div>
-    <div class="method-table">
-      <div class="method-head"><div>MICRO · 인플루언서 최대 20명 미만</div><div>MACRO · MEGA · 셀립이 포함된 캠페인</div></div>
-      <div class="method-row"><div><div class="k">소규모 상권</div>지역 크리에이터 5~10명 집중</div><div><div class="k">광역 상권·관광지</div>크리에이터 20명 이상 분산</div></div><div class="method-row"><div><div class="k">콘텐츠 형식</div>리뷰·방문 인증·일상 노출</div><div><div class="k">콘텐츠 형식</div>기획 콘텐츠·시리즈·라이브</div></div><div class="method-row"><div><div class="k">측정 지표</div>방문자 수·체류 시간</div><div><div class="k">측정 지표</div>노출·바이럴·전환·재방문</div></div><div class="method-row"><div><div class="k">적합한 경우</div>동네 매장·소상공인</div><div><div class="k">적합한 경우</div>플래그십·팝업·브랜드 리뉴얼</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <h3>시작은 상담 <span class="hl">한 번</span>이면 됩니다</h3>
-  <div class="steps">
-    <div class="step"><div class="lbl">1단계</div><div class="nm">상담 신청</div></div>
-    <div class="step"><div class="lbl">2단계</div><div class="nm">온·오프라인 미팅</div></div>
-    <div class="step"><div class="lbl">3단계</div><div class="nm">맞춤 조합 제안</div></div>
-  </div>
-  <a href="/market/contact.html" class="main">무료 상담 받기</a>
-</section>
+</section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">방문 프로모션 3가지 방식</div><h2 class="sd-h2">손님이 있는 곳에 따라,<br><span class="sd-hl">누가 찾아갈지</span>가 달라집니다</h2><div class="sd-g3"><article class="sd-icard" id="svc-domestic"><div class="ph" aria-hidden="true"><span>01</span></div><div class="bd"><div class="lb">국내 인플루언서 방문</div><h3>동네와 상권의 손님에게</h3><p>지역·분야가 맞는 국내 인플루언서가 매장을 직접 찾아와 메뉴·서비스·공간을 경험하고 소개합니다.</p><div class="r"><span>이럴 때</span><b>오픈 초기 · 리뉴얼 · 새 메뉴·서비스 출시</b></div><div class="r"><span>결과물</span><b>숏폼 영상 · 피드 사진 · 블로그 후기</b></div><div class="r"><span>주요 채널</span><b>인스타그램 · 틱톡 · 블로그</b></div></div></article><article class="sd-icard" id="svc-inbound"><div class="ph" aria-hidden="true"><span>02</span></div><div class="bd"><div class="lb">해외 인플루언서 한국 방문</div><h3>한국을 찾는 외국인 손님에게</h3><p>일본·중화권·동남아 인플루언서가 한국 매장을 찾아와 자기 나라 말로 소개합니다. 여행 전 「가볼 곳」으로 저장되게 만듭니다.</p><div class="r"><span>이럴 때</span><b>외국인 관광객 유치 · 관광 상권 매장 · 면세·뷰티 매장</b></div><div class="r"><span>결과물</span><b>현지어 숏폼 · 방문 후기 · 지도 앱 저장 안내</b></div><div class="r"><span>주요 채널</span><b>샤오홍슈 · 인스타그램 · 틱톡 · 유튜브</b></div></div></article><article class="sd-icard" id="svc-overseas"><div class="ph" aria-hidden="true"><span>03</span></div><div class="bd"><div class="lb">해외 현지 매장 방문</div><h3>해외 매장·입점처의 현지 손님에게</h3><p>해외에 입점했거나 매장을 연 브랜드라면, 거점 8곳의 현지 인플루언서가 그 나라 매장을 찾아가 소개합니다.</p><div class="r"><span>이럴 때</span><b>해외 입점 직후 · 현지 매장 오픈 · 쇼룸</b></div><div class="r"><span>결과물</span><b>현지 방문 콘텐츠 · 매장 위치 안내</b></div><div class="r"><span>주요 채널</span><b>나라마다 다름(<a href="/market/service-influencer.html">인플루언서 마케팅</a> 참고)</b></div></div></article></div></div></section><section class="sd-sec sd-beige"><div class="sd-in"><div class="sd-eyebrow">이런 곳에 맞아요</div><h2 class="sd-h2">직접 와서 보고, 먹고, 경험해야 <span class="sd-hl">알 수 있는 곳</span></h2><div class="sd-g4"><div class="sd-place"><b><i aria-hidden="true">✦</i> 맛집 · 카페</b><span>메뉴와 분위기를 영상으로</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 뷰티 · 헤어 · 네일샵</b><span>시술 전후와 공간 경험</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 숙소 · 호텔</b><span>객실·뷰·서비스를 하루 일정으로</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 쇼룸 · 편집숍</b><span>직접 입어 보고 고르는 경험</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 체험 공간 · 클래스</b><span>참여하는 모습 그대로</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 관광지 · 축제</b><span>여행 코스 속 한 장면으로</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 면세점 · 뷰티 매장</b><span>외국인 쇼핑 동선 안에서</span></div><div class="sd-place"><b><i aria-hidden="true">✦</i> 지자체 명소</b><span>지역을 찾아올 이유 만들기</span></div></div></div></section><section class="sd-sec sd-dark"><div class="sd-in"><div class="sd-drow"><div class="sd-dtxt"><div class="k">외국인 손님이 찾아오는 매장으로</div><h3>여행 전에 이미<br>「가볼 곳」이 되게</h3><p>해외 인플루언서가 한국 매장을 방문해 자기 나라 말로 소개합니다.<br>한국에 오기 전에 저장해 두고, 와서 찾아오게 만듭니다.</p></div><ol class="sd-steps"><li class=""><span class="n">1</span><span class="t">매장과 타깃 나라 정하기</span></li><li class="on"><span class="n">2</span><span class="t">나라별 인플루언서 섭외</span><span class="b">호미</span></li><li class="on"><span class="n">3</span><span class="t">방문 일정·동선·통역 조율</span><span class="b">호미</span></li><li class=""><span class="n">4</span><span class="t">현장 방문·촬영</span></li><li class="on"><span class="n">5</span><span class="t">현지어 콘텐츠 검수·업로드</span><span class="b">호미</span></li></ol></div><div class="sd-drow"><div class="sd-dtxt"><div class="k">방문 당일, 현장까지</div><h3>처음 오는 인플루언서도<br>매장을 제대로 보도록</h3><p>방문 전 매장의 강점을 정리한 가이드를 전하고,<br>필요하면 현장에 함께 가서 촬영 포인트를 챙깁니다.</p></div><ol class="sd-steps"><li class="on"><span class="n">1</span><span class="t">매장 강점·촬영 포인트 정리</span><span class="b">호미</span></li><li class="on"><span class="n">2</span><span class="t">방문 전 가이드 전달</span><span class="b">호미</span></li><li class="on"><span class="n">3</span><span class="t">현장 동행·통역</span><span class="b">호미</span></li><li class=""><span class="n">4</span><span class="t">메뉴·서비스 경험</span></li><li class="on"><span class="n">5</span><span class="t">후기 업로드·결과 리포트</span><span class="b">호미</span></li></ol></div></div></section><section class="sd-sec sd-consult"><div class="sd-in">
+  <h2 class="sd-h2 c">시작은 <span class="sd-hl">상담 한 번</span>이면 됩니다</h2>
+  <div class="sd-cs"><div><span>1단계</span><b>상담 신청</b><em>의뢰서 또는 실시간 상담</em></div><i></i><div><span>2단계</span><b>온·오프라인 미팅</b><em>목표와 장소·나라를 함께 정리</em></div><i></i><div><span>3단계</span><b>맞춤 방문 플랜</b><em>누가 · 언제 · 어떤 콘텐츠</em></div></div>
+  <a href="/market/contact.html" class="sd-btn">무료 상담 받기</a>
+</div></section>
+<section class="sd-band"><h2>우리 매장에 누가 찾아가면 좋을지, 같이 정해요</h2><a href="/market/contact.html" class="sd-btn">무료 상담 받기</a></section>
+</main>
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -485,6 +518,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     el.classList.remove('hm-target'); void el.offsetWidth; el.classList.add('hm-target');
   }
   window.addEventListener('hashchange',land); window.addEventListener('load',land);
+})();
+</script>
+<script id="sd-js">
+/* 하단 고정 바 — 히어로의 질문 바가 화면 밖으로 나가면 아래에 고정 */
+(function(){
+  var a=document.getElementById('sdAsk'); if(!a||!('IntersectionObserver' in window)) return;
+  var f=a.cloneNode(true); f.id='sdAskFixed'; f.classList.add('fixed'); f.hidden=true; f.setAttribute('aria-hidden','true');
+  document.body.appendChild(f);
+  var band=document.querySelector('.sd-band');
+  var heroGone=false, bandIn=false;
+  function upd(){ f.hidden=!(heroGone&&!bandIn); }
+  new IntersectionObserver(function(e){ heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0; upd(); }).observe(a);
+  if(band) new IntersectionObserver(function(e){ bandIn=e[0].isIntersecting; upd(); }).observe(band);
 })();
 </script>
 </body></html>
