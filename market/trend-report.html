@@ -228,6 +228,76 @@ body{padding-top:48px}
 .hm-target{animation:hmPulse 1.8s ease-out 1}
 @keyframes hmPulse{0%{box-shadow:0 0 0 0 rgba(139,61,255,.55)}100%{box-shadow:0 0 0 14px rgba(139,61,255,0)}}
 </style>
+<style id="hc-css">
+/* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
+.hc-fab{position:fixed;right:24px;bottom:24px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
+.hc-fab:hover{transform:scale(1.06);background:#7D2AE8}
+.hc-fab:focus-visible{outline:3px solid #C4A6FF;outline-offset:3px}
+.hc-fab svg{width:26px;height:26px}
+.hc-fab .hc-x{display:none}.hc-fab[aria-expanded="true"] .hc-x{display:block}.hc-fab[aria-expanded="true"] .hc-b{display:none}
+.hc-badge{position:absolute;top:-2px;right:-2px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#FFC53D;color:#141414;font:800 11px/20px Inter,sans-serif;text-align:center}
+.hc-fab[aria-expanded="true"] .hc-badge,.hc-seen .hc-badge{display:none}
+.hc-panel{position:fixed;right:24px;bottom:96px;width:372px;max-height:min(640px,calc(100vh - 140px));display:flex;flex-direction:column;background:#F4F2EE;border-radius:26px;box-shadow:0 24px 60px rgba(20,10,40,.22);z-index:10010;overflow:hidden;font-family:'Noto Sans KR','Pretendard',sans-serif;color:#141414;opacity:0;visibility:hidden;transform:translateY(12px) scale(.98);transform-origin:bottom right;transition:opacity .2s,transform .2s,visibility .2s}
+.hc-panel.open{opacity:1;visibility:visible;transform:none}
+.hc-head{padding:22px 22px 14px;flex-shrink:0}
+.hc-top{display:flex;align-items:center;gap:10px}
+.hc-logo{width:32px;height:32px;border-radius:9px;background:#141414;color:#fff;display:grid;place-items:center;font:800 12px Inter,sans-serif;letter-spacing:-.02em;flex-shrink:0}
+.hc-name{font:800 19px Inter,'Noto Sans KR',sans-serif;letter-spacing:-.01em;flex:1}
+.hc-icon{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;color:#55525C}
+.hc-icon:hover{background:#E8E4DE}.hc-icon:focus-visible{outline:2px solid #8B3DFF}
+.hc-hours-t{all:unset;cursor:pointer;margin-top:8px;font-size:13px;color:#55525C}
+.hc-hours-t:hover{color:#141414}
+.hc-hours{margin-top:8px;padding:9px 12px;border-radius:9px;background:#E9E5DE;font-size:12.5px;color:#55525C}
+.hc-hours[hidden]{display:none}
+.hc-body{flex:1;overflow-y:auto;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px}
+.hc-card{background:#fff;border-radius:20px;padding:20px}
+.hc-who{display:flex;align-items:center;gap:8px;font:800 13px Inter,'Noto Sans KR',sans-serif;margin-bottom:14px}
+.hc-who .hc-logo{width:26px;height:26px;border-radius:50%;font-size:10px}
+.hc-greet{font-size:14px;line-height:1.75;color:#2A2930;white-space:pre-line}
+.hc-cta{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;margin-top:18px;padding:14px;border-radius:12px;background:#8B3DFF;color:#fff;text-align:center;font-weight:700;font-size:15px}
+.hc-cta:hover{background:#7D2AE8}.hc-cta:focus-visible{outline:3px solid #C4A6FF}
+.hc-cta[disabled]{opacity:.5;cursor:default}
+.hc-note{margin-top:12px;text-align:center;font-size:12px;color:#6B6B75}
+.hc-other{display:flex;align-items:center;gap:10px;padding:16px 20px}
+.hc-other b{flex:1;font-size:14px}
+.hc-rnd{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;transition:transform .15s}
+.hc-rnd:hover{transform:scale(1.06)}.hc-rnd:focus-visible{outline:2px solid #8B3DFF;outline-offset:2px}
+.hc-kakao{background:#FEE500;color:#3A1D1D}.hc-tel{background:#ECE9E4;color:#141414}
+.hc-info{font-size:12.5px;color:#55525C;background:#fff;border-radius:12px;padding:10px 14px;text-align:center}
+.hc-info a{color:#8B3DFF;font-weight:700}
+.hc-foot{text-align:center;font-size:11.5px;color:#8E8B96;padding:8px 0 12px;flex-shrink:0}
+/* 대화 화면 */
+.hc-msgs{display:flex;flex-direction:column;gap:8px}
+.hc-m{max-width:84%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.6;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.hc-m.bot{background:#fff;align-self:flex-start;border-top-left-radius:6px}
+.hc-m.me{background:#8B3DFF;color:#fff;align-self:flex-end;border-top-right-radius:6px}
+.hc-m.sys{align-self:center;background:none;color:#6B6B75;font-size:12px;padding:2px}
+.hc-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hc-chip{all:unset;cursor:pointer;padding:9px 14px;border-radius:999px;background:#fff;border:1px solid #DDD8E4;font-size:13.5px;font-weight:700}
+.hc-chip:hover,.hc-chip:focus-visible{border-color:#8B3DFF;color:#8B3DFF}
+.hc-form{background:#fff;border-radius:16px;padding:14px;display:grid;gap:8px;align-self:stretch}
+.hc-form input[type=text],.hc-form input[type=email],.hc-form input[type=tel]{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #DDD8E4;border-radius:10px;font:inherit;font-size:14px}
+.hc-form input:focus{outline:none;border-color:#8B3DFF}
+.hc-agree{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#55525C;line-height:1.55}
+.hc-agree input{margin-top:3px;accent-color:#8B3DFF}
+.hc-agree a{color:#8B3DFF;text-decoration:underline}
+.hc-err{font-size:12px;color:#D33}
+.hc-input{display:flex;gap:8px;padding:10px 12px 12px;background:#F4F2EE;flex-shrink:0;border-top:1px solid #E8E4DE}
+.hc-input textarea{flex:1;resize:none;height:44px;max-height:110px;padding:11px 14px;border:1px solid #DDD8E4;border-radius:14px;font:inherit;font-size:14px;background:#fff}
+.hc-input textarea:focus{outline:none;border-color:#8B3DFF}
+.hc-send{all:unset;cursor:pointer;width:44px;height:44px;border-radius:12px;background:#8B3DFF;color:#fff;display:grid;place-items:center;flex-shrink:0}
+.hc-send[disabled]{opacity:.4;cursor:default}
+.hc-input[hidden]{display:none}
+.hc-back{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;margin-left:-8px}
+.hc-back:hover{background:#E8E4DE}
+@media(max-width:600px){
+ .hc-fab{right:16px;bottom:16px;width:56px;height:56px}
+ .hc-panel{right:8px;left:8px;bottom:80px;width:auto;max-height:calc(100dvh - 96px);border-radius:22px}
+}
+body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibility:hidden}
+@media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
+@media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
+</style>
 </head><body>
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
@@ -321,7 +391,6 @@ body{padding-top:48px}
     </div>
   </div>
 </footer>
-<button class="channel-btn" onclick="alert('실시간 상담 창입니다. 준비 중');" title="실시간 상담">💬</button>
 <script>
 const io = new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');io.unobserve(x.target);}});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
@@ -374,6 +443,171 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     el.classList.remove('hm-target'); void el.offsetWidth; el.classList.add('hm-target');
   }
   window.addEventListener('hashchange',land); window.addEventListener('load',land);
+})();
+</script>
+<script id="hc-js">
+/* FR-MKT-032 실시간 상담 창 — 채널톡 가입 전 자체 위젯 */
+(function(){
+  var CFG={
+    channelKey:'',                     /* 채널톡 플러그인 키를 넣으면 채널톡으로 전환 */
+    kakaoUrl:'',                       /* 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxx/chat) — Q-41 */
+    phone:'010-4026-2695',
+    email:'support@homifactory.com',
+    endpoint:'https://formsubmit.co/ajax/support@homifactory.com',
+    open:10, close:22                  /* 운영시간 (KST) */
+  };
+  if(window.__hcLoaded) return; window.__hcLoaded=true;
+
+  if(CFG.channelKey){
+    (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
+      var s=document.createElement('script');s.async=true;s.src='https://cdn.channel.io/plugin/ch-plugin-web.js';document.head.appendChild(s);})();
+    window.ChannelIO('boot',{pluginKey:CFG.channelKey,language:'ko'});
+    return;
+  }
+
+  var TYPES=['인플루언서 마케팅','방문 프로모션','팝업·행사','기타'];
+  var KEY='hc-state-v1', st={};
+  try{ st=JSON.parse(sessionStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  st.msgs=st.msgs||[]; st.view=st.view||'home';
+  function save(){ try{ sessionStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
+
+  function kstHour(){ try{ return +new Intl.DateTimeFormat('en-GB',{hour:'2-digit',hour12:false,timeZone:'Asia/Seoul'}).format(new Date())%24; }catch(e){ return new Date().getHours(); } }
+  function inHours(){ var h=kstHour(); return h>=CFG.open && h<CFG.close; }
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  var I={
+    chat:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.4 1.3 4.6 3.4 6.1L4.6 21l4.2-2.3c1 .3 2.1.4 3.2.4 5.5 0 10-3.6 10-8.1S17.5 3 12 3z"/></svg>',
+    x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    xs:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    back:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+    kakao:'<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9l-.9 3.3c-.1.3.3.6.6.4l3.9-2.6c.4 0 .8.1 1.2.1 5 0 9-3.1 9-7S17 4 12 4z"/></svg>',
+    tel:'<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+    send:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+  };
+
+  var fab=document.createElement('button');
+  fab.type='button'; fab.className='hc-fab'+(st.seen?' hc-seen':''); fab.setAttribute('aria-label','실시간 상담 열기');
+  fab.setAttribute('aria-expanded','false'); fab.setAttribute('aria-controls','hc-panel');
+  fab.innerHTML='<span class="hc-b">'+I.chat+'</span><span class="hc-x">'+I.x+'</span><span class="hc-badge">1</span>';
+  var pn=document.createElement('div');
+  pn.className='hc-panel'; pn.id='hc-panel'; pn.setAttribute('role','dialog'); pn.setAttribute('aria-label','HOMI MARKET 실시간 상담');
+  document.body.appendChild(pn); document.body.appendChild(fab);
+
+  function head(back){
+    return '<div class="hc-head"><div class="hc-top">'+(back?'<button type="button" class="hc-back" data-a="home" aria-label="처음으로">'+I.back+'</button>':'')
+      +'<span class="hc-logo" aria-hidden="true">HM</span><span class="hc-name">HOMI MARKET</span>'
+      +'<button type="button" class="hc-icon" data-a="close" aria-label="상담 창 닫기">'+I.xs+'</button></div>'
+      +'<button type="button" class="hc-hours-t" data-a="hours" aria-expanded="'+(st.hours?'true':'false')+'">운영시간 보기 ›</button>'
+      +'<div class="hc-hours"'+(st.hours?'':' hidden')+'>평일 10:00 ~ 22:00 · 주말·공휴일 상담 가능</div></div>';
+  }
+  function home(){
+    var on=inHours();
+    var tel=st.telShown?'<div class="hc-info">전화 상담 <a href="tel:'+CFG.phone.replace(/-/g,'')+'">'+CFG.phone+'</a></div>':'';
+    var kk=st.kakaoMsg?'<div class="hc-info">카카오톡 채널을 준비하고 있어요. 지금은 <b>문의하기</b>로 남겨 주세요.</div>':'';
+    return head(false)+'<div class="hc-body">'
+      +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
+      +'<p class="hc-greet">안녕하세요, HOMI MARKET입니다 👋\n해외 진출·인플루언서 마케팅, 무엇이든\n편하게 물어보세요.\n\n상담 유형을 고르시면 담당자가\n안내해 드립니다.</p>'
+      +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'대화 이어가기 ›':'문의하기 ›')+'</button>'
+      +'<p class="hc-note">'+(on?'🕘 운영시간 안에 답변 드려요':'🌙 지금은 운영시간이 아니에요 · 연락처를 남기시면 다음 운영시간에 답변드려요')+'</p></div>'
+      +'<div class="hc-card hc-other"><b>다른 방법으로 문의</b>'
+      +'<button type="button" class="hc-rnd hc-kakao" data-a="kakao" aria-label="카카오톡으로 문의">'+I.kakao+'</button>'
+      +'<button type="button" class="hc-rnd hc-tel" data-a="tel" aria-label="전화로 문의">'+I.tel+'</button></div>'
+      +kk+tel+'</div><div class="hc-foot">HOMI MARKET 실시간 상담</div>';
+  }
+  function bubble(m){ return '<div class="hc-m '+m.r+'">'+esc(m.t)+'</div>'; }
+  function chat(){
+    var b='<div class="hc-msgs" aria-live="polite">'+st.msgs.map(bubble).join('');
+    if(!st.type) b+='<div class="hc-chips" role="group" aria-label="상담 유형">'+TYPES.map(function(t){return '<button type="button" class="hc-chip" data-t="'+esc(t)+'">'+esc(t)+'</button>';}).join('')+'</div>';
+    if(st.ask && !st.sent) b+='<form class="hc-form" data-f="1" novalidate>'
+      +'<input type="text" name="name" placeholder="성함 *" autocomplete="name" value="'+esc(st.name||'')+'" required>'
+      +'<input type="text" name="contact" placeholder="연락처 (전화 또는 이메일) *" autocomplete="email" value="'+esc(st.contact||'')+'" required>'
+      +'<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">'
+      +'<label class="hc-agree"><input type="checkbox" name="agree"><span>상담 답변을 위한 개인정보(성함·연락처·문의 내용) 수집·이용에 동의합니다. 상담 완료 후 1년 보관 · <a href="/market/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a></span></label>'
+      +'<div class="hc-err" role="alert"></div><button type="submit" class="hc-cta" style="margin-top:4px">보내기</button></form>';
+    b+='</div>';
+    var showInput=!!st.type && !(st.ask && !st.sent);
+    return head(true)+'<div class="hc-body">'+b+'</div>'
+      +'<form class="hc-input" data-i="1"'+(showInput?'':' hidden')+'><textarea rows="1" placeholder="메시지를 입력하세요" aria-label="메시지 입력"></textarea><button type="submit" class="hc-send" aria-label="보내기">'+I.send+'</button></form>';
+  }
+  function render(){
+    pn.innerHTML=st.view==='chat'?chat():home();
+    var body=pn.querySelector('.hc-body'); if(st.view==='chat'&&body) body.scrollTop=body.scrollHeight;
+  }
+  function push(r,t){ st.msgs.push({r:r,t:t}); save(); }
+  function setOpen(o,focus){
+    st.open=o; if(o){ st.seen=true; fab.classList.add('hc-seen'); }
+    pn.classList.toggle('open',o); fab.setAttribute('aria-expanded',o?'true':'false');
+    fab.setAttribute('aria-label',o?'실시간 상담 닫기':'실시간 상담 열기'); save();
+    if(o){ render(); if(focus){ var f=pn.querySelector('textarea:not([hidden]),.hc-cta,.hc-chip'); if(f) setTimeout(function(){f.focus();},60);} }
+    else if(focus) fab.focus();
+  }
+  function startChat(){
+    st.view='chat';
+    if(!st.msgs.length){ push('bot','안녕하세요, HOMI MARKET입니다 👋\n어떤 상담이 필요하신가요?'); }
+    save(); render();
+    var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
+  }
+  function send(payload){
+    return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });
+  }
+  function transcript(){ return st.msgs.filter(function(m){return m.r!=='sys';}).map(function(m){return (m.r==='me'?'고객: ':'HOMI: ')+m.t;}).join('\n'); }
+
+  fab.addEventListener('click',function(){ setOpen(!st.open,true); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&st.open) setOpen(false,true); });
+
+  pn.addEventListener('click',function(e){
+    var a=e.target.closest('[data-a]'), chip=e.target.closest('[data-t]');
+    if(chip){ st.type=chip.getAttribute('data-t'); push('me',st.type); push('bot',st.type+' 상담이시군요.\n궁금하신 점을 편하게 남겨 주세요. 제품·나라·일정 등 아는 만큼만 적어 주셔도 괜찮아요.'); render(); var ta=pn.querySelector('textarea'); if(ta) ta.focus(); return; }
+    if(!a) return;
+    var k=a.getAttribute('data-a');
+    if(k==='close') setOpen(false,true);
+    else if(k==='home'){ st.view='home'; save(); render(); }
+    else if(k==='hours'){ st.hours=!st.hours; save(); render(); }
+    else if(k==='start') startChat();
+    else if(k==='kakao'){ if(CFG.kakaoUrl){ window.open(CFG.kakaoUrl,'_blank','noopener'); } else { st.kakaoMsg=true; save(); render(); } }
+    else if(k==='tel'){ if(window.matchMedia('(pointer:coarse)').matches){ location.href='tel:'+CFG.phone.replace(/-/g,''); } else { st.telShown=true; save(); render(); } }
+  });
+
+  pn.addEventListener('keydown',function(e){
+    if(e.target.matches('.hc-input textarea') && e.key==='Enter' && !e.shiftKey && !e.isComposing){ e.preventDefault(); e.target.form.requestSubmit(); }
+  });
+
+  pn.addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target;
+    if(f.matches('[data-i]')){
+      var ta=f.querySelector('textarea'), v=ta.value.trim(); if(!v) return;
+      push('me',v);
+      if(!st.sent){
+        st.ask=true; push('bot',on()?'확인했어요. 답변 받으실 성함과 연락처를 남겨 주시면 담당자가 바로 연락드릴게요.':'지금은 운영시간이 아니에요. 성함과 연락처를 남겨 주시면 다음 운영시간에 먼저 연락드릴게요.');
+        save(); render(); var n=pn.querySelector('.hc-form input[name=name]'); if(n) n.focus();
+      } else {
+        save(); render();
+        send({_subject:'[HOMI MARKET 상담·추가] '+st.type+' · '+st.name,_template:'table','상담 유형':st.type,'성함':st.name,'연락처':st.contact,'추가 메시지':v,'페이지':location.href})
+          .then(function(){ push('sys','전달됐어요'); render(); })
+          .catch(function(){ push('sys','전송에 실패했어요. '+CFG.email+' 로 보내 주세요.'); render(); });
+      }
+      return;
+    }
+    if(f.matches('[data-f]')){
+      var name=f.name.value.trim(), contact=f.contact.value.trim(), err=f.querySelector('.hc-err'), btn=f.querySelector('button[type=submit]');
+      st.name=name; st.contact=contact; save();
+      if(f._honey.value) return;
+      if(!name||!contact){ err.textContent='성함과 연락처를 입력해 주세요.'; return; }
+      if(!/@/.test(contact) && contact.replace(/\D/g,'').length<9){ err.textContent='전화번호 또는 이메일 형식을 확인해 주세요.'; return; }
+      if(!f.agree.checked){ err.textContent='개인정보 수집·이용에 동의해 주세요.'; return; }
+      btn.disabled=true; btn.textContent='보내는 중…'; err.textContent='';
+      send({_subject:'[HOMI MARKET 상담] '+st.type+' · '+name,_template:'table','상담 유형':st.type,'성함':name,'연락처':contact,'대화 내용':transcript(),'운영시간 여부':on()?'운영시간 내':'운영시간 외','페이지':location.href})
+        .then(function(){ st.sent=true; push('bot','접수됐어요, '+name+'님. 운영시간(평일 10:00~22:00) 안에 담당자가 '+contact+' (으)로 연락드릴게요.\n더 전하실 내용이 있으면 이어서 남겨 주세요.'); render(); })
+        .catch(function(){ btn.disabled=false; btn.textContent='보내기'; err.innerHTML='전송에 실패했어요. 잠시 후 다시 시도하시거나 <a href="mailto:'+CFG.email+'">'+CFG.email+'</a> 로 보내 주세요.'; });
+    }
+  });
+  function on(){ return inHours(); }
+
+  /* 이전 버튼(alert) 제거 + 상태 복원 */
+  document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
+  render(); if(st.open) setOpen(true,false);
 })();
 </script>
 </body></html>
