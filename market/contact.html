@@ -150,7 +150,42 @@ body{padding-top:48px}
 .channel-btn{right:40px!important}
 
 </style>
-</head><body>
+<style id="v084-contact-form">
+.contact-wrap{display:grid;grid-template-columns:280px 1fr;gap:50px;max-width:1200px;margin:60px auto;padding:0 24px}
+.contact-left h1{font-size:38px;font-weight:800;line-height:1.3;color:#141414;margin-bottom:18px}
+.contact-left h1 em{color:#8B3DFF;font-style:normal}
+.contact-left p{color:#555;font-size:14.5px;line-height:1.7}
+.contact-right{background:#fff;border:1px solid #E6E0D6;border-radius:20px;padding:40px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.cf-row.single{grid-template-columns:1fr}
+.cf-row.triple{grid-template-columns:1fr 1fr 1fr}
+.cf-field label{display:block;font-size:13px;font-weight:700;color:#141414;margin-bottom:8px}
+.cf-field label .req{color:#8B3DFF}
+.cf-field label .opt{color:#888;font-weight:500;font-size:12px;margin-left:4px}
+.cf-field input, .cf-field textarea{width:100%;border:1px solid #E6E0D6;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#141414;background:#fff;font-family:inherit}
+.cf-field input:focus, .cf-field textarea:focus{outline:none;border-color:#8B3DFF;box-shadow:0 0 0 3px rgba(139,61,255,.12)}
+.cf-field textarea{resize:vertical;min-height:100px}
+.cf-sub{color:#8B3DFF;font-size:12px;margin-top:4px}
+.direction-radio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.direction-radio label{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #E6E0D6;border-radius:10px;cursor:pointer;font-weight:500;font-size:14px}
+.direction-radio input[type=radio]{accent-color:#8B3DFF}
+.direction-radio label.active{border-color:#8B3DFF;background:#F3ECFF}
+.country-chip-grid{display:flex;flex-wrap:wrap;gap:8px}
+.country-chip-grid .cc{padding:9px 16px;background:#fff;border:1px solid #E6E0D6;border-radius:999px;font-size:13.5px;cursor:pointer;color:#333;font-weight:500;transition:all .15s}
+.country-chip-grid .cc.active{background:#8B3DFF;color:#fff;border-color:#8B3DFF}
+.cf-privacy-box{background:#FAF7F2;border:1px solid #E6E0D6;border-radius:12px;padding:18px 20px;margin-top:14px}
+.cf-privacy-box h4{font-size:13px;font-weight:700;color:#141414;margin-bottom:10px}
+.cf-privacy-box ul{list-style:none;padding:0;margin:0;font-size:12.5px;color:#555;line-height:1.8}
+.cf-privacy-box ul li::before{content:'· ';color:#8B3DFF;font-weight:700}
+.cf-privacy-box ul li strong{background:#FFF0E6;color:#D97706;padding:1px 6px;border-radius:4px}
+.cf-agree{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14px;color:#333}
+.cf-agree input{accent-color:#8B3DFF;width:18px;height:18px}
+.cf-agree a{color:#8B3DFF;text-decoration:underline;font-weight:600}
+.cf-submit{width:100%;background:#8B3DFF;color:#fff;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:22px}
+.cf-submit:hover{background:#7D2AE8}
+.cf-footer-note{text-align:center;color:#999;font-size:12px;margin-top:12px}
+@media(max-width:900px){.contact-wrap{grid-template-columns:1fr}.cf-row,.cf-row.triple{grid-template-columns:1fr}.direction-radio{grid-template-columns:1fr}}
+</style></head><body>
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
   <a href="/market/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
@@ -199,153 +234,119 @@ body{padding-top:48px}
     <div class="page-breadcrumb">의뢰서</div>
   </div>
 </section>
-<section class="form-section">
-  <div class="form-section-inner">
-    <div class="form-side">
-      <div class="eyebrow">FR-MKT-013 · 인플루언서·상품 고르는 칸 없음 · 한·영 두 벌</div>
-      <h1>지금의 <span class="hl">고민</span>을<br>들려주세요</h1>
-      <p>어떤 서비스가 맞을지 몰라도 괜찮습니다. 브랜드의 목표를 함께 정리하고, 맞춤 전략으로 답해드립니다.</p>
-      <div class="hint">상담은 무료입니다. 진행 결정 전까지는 비용이 들지 않아요.</div>
-    </div>
 
-    <div class="form-wrap">
-      <form action="https://formsubmit.co/support@homifactory.com" method="POST">
-        <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
-        <input type="hidden" name="_subject" value="[HOMI MARKET 의뢰서] 새 상담 요청">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://homifactory.com/market/contact.html?sent=1">
+<section class="contact-section">
+<div class="contact-wrap">
+  <aside class="contact-left">
+    <h1>지금의 <em>고민</em>을<br>들려주세요</h1>
+    <p>어떤 서비스가 맞을지 몰라도 괜찮습니다.<br>브랜드의 목표를 함께 정리하고,<br>맞춤 전략으로 답해드립니다.</p>
+  </aside>
+  <div class="contact-right">
+    <form id="inquiryForm" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="[HOMI MARKET 의뢰서] 신규 상담 신청">
+      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://homifactory.com/market/thanks.html">
+      <input type="hidden" name="_template" value="table">
 
-        <div class="form-row">
-          <div class="form-field">
-            <label>브랜드·제품 <span class="req">*</span></label>
-            <input type="text" name="브랜드제품" required placeholder="예) 저자극 선크림 신제품">
-          </div>
-          <div class="form-field">
-            <label>브랜드 링크 <small>(선택)</small></label>
-            <input type="url" name="브랜드링크" placeholder="홈페이지·인스타그램 주소">
+      <div class="cf-row">
+        <div class="cf-field"><label>브랜드·제품 <span class="req">*</span></label><input name="브랜드·제품" required placeholder="예) 저자극 선크림 신제품"></div>
+        <div class="cf-field"><label>브랜드 링크 <span class="opt">(선택)</span></label><input name="브랜드 링크" placeholder="홈페이지 · 인스타그램 주소"></div>
+      </div>
+
+      <div class="cf-row single">
+        <div class="cf-field">
+          <label>방향 <span class="req">*</span> <span class="opt">— Home ⑦ 카드에서 오면 미리 선택됨</span></label>
+          <div class="direction-radio">
+            <label class="active"><input type="radio" name="방향" value="한국→세계" checked> 한국 → 세계</label>
+            <label><input type="radio" name="방향" value="세계→한국·아시아"> 세계 → 한국·아시아</label>
+            <label><input type="radio" name="방향" value="국내 시장"> 국내 시장</label>
           </div>
         </div>
+      </div>
 
-        <div class="form-field" style="margin-bottom:22px">
-          <label>방향 <span class="sub-note">— Home ⑦ 카드에서 오면 미리 선택됨</span></label>
-          <div class="radio-group">
-            <label class="radio-opt active"><input type="radio" name="방향" value="한국→세계" checked> 한국 → 세계</label>
-            <label class="radio-opt"><input type="radio" name="방향" value="세계→한국·아시아"> 세계 → 한국·아시아</label>
-            <label class="radio-opt"><input type="radio" name="방향" value="국내시장"> 국내 시장</label>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label>진출하려는 국가·시장 <span class="req">*</span></label>
+          <div class="cf-sub">(여러 개 선택 · 한국 + 거점 8곳 + 기타)</div>
+          <div class="country-chip-grid" id="countryChips">
+            <span class="cc" data-v="한국">한국</span><span class="cc" data-v="일본">일본</span><span class="cc" data-v="인도네시아">인도네시아</span><span class="cc" data-v="북미">북미</span><span class="cc" data-v="중국">중국</span><span class="cc" data-v="대만">대만</span><span class="cc" data-v="홍콩">홍콩</span><span class="cc" data-v="필리핀">필리핀</span><span class="cc" data-v="인도">인도</span><span class="cc" data-v="기타">기타·아직 모르겠어요</span>
           </div>
+          <input type="hidden" name="진출 국가·시장" id="countryHidden">
         </div>
+        <div class="cf-field"><label>현재 판매 채널 <span class="opt">(선택)</span></label><input name="현재 판매 채널" placeholder="예) 자사몰, 쿠팡, 아마존"></div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label>진출하려는 국가·시장 <span class="req">*</span> <small>(여러 개 선택 · 한국 + 거점 8곳 + 기타)</small></label>
-            <div class="chip-group" style="margin-top:4px">
-              <button type="button" class="chip-opt" data-country="한국">한국</button>
-              <button type="button" class="chip-opt" data-country="일본">일본</button>
-              <button type="button" class="chip-opt" data-country="인도네시아">인도네시아</button>
-              <button type="button" class="chip-opt" data-country="북미">북미</button>
-              <button type="button" class="chip-opt" data-country="중국">중국</button>
-              <button type="button" class="chip-opt" data-country="대만">대만</button>
-              <button type="button" class="chip-opt" data-country="홍콩">홍콩</button>
-              <button type="button" class="chip-opt" data-country="필리핀">필리핀</button>
-              <button type="button" class="chip-opt" data-country="인도">인도</button>
-              <button type="button" class="chip-opt" data-country="기타">기타·아직 모르겠어요</button>
-            </div>
-            <input type="hidden" name="진출국가" id="countryHidden" required>
-          </div>
-          <div class="form-field">
-            <label>현재 판매 채널 <small>(선택)</small></label>
-            <input type="text" name="판매채널" placeholder="예) 자사몰, 쿠팡, 아마존">
-          </div>
+      <div class="cf-row single">
+        <div class="cf-field"><label>지금 가장 큰 고민 <span class="req">*</span></label>
+          <textarea name="지금 가장 큰 고민" required placeholder="예) 인도네시아에 팔고 싶은데 어디서부터 시작할지 모르겠어요"></textarea>
         </div>
+      </div>
 
-        <div class="form-row single">
-          <div class="form-field">
-            <label>지금 가장 큰 고민 <span class="req">*</span></label>
-            <textarea name="고민" required placeholder="예) 인도네시아에 팔고 싶은데 어디서부터 시작할지 모르겠어요"></textarea>
-          </div>
+      <div class="cf-row single">
+        <div class="cf-field"><label>이루고 싶은 목표 <span class="req">*</span></label>
+          <textarea name="이루고 싶은 목표" required placeholder="예) 6개월 안에 인도네시아 20대 여성에게 알려지고 현지 판매 시작하기"></textarea>
         </div>
+      </div>
 
-        <div class="form-row single">
-          <div class="form-field">
-            <label>이루고 싶은 목표 <span class="req">*</span></label>
-            <textarea name="목표" required placeholder="예) 6개월 안에 인도네시아 20대 여성에게 알려지고 현지 판매 시작하기"></textarea>
-          </div>
-        </div>
+      <div class="cf-row">
+        <div class="cf-field"><label>원하는 시기</label><input name="원하는 시기" placeholder="예) 11월 출시에 맞춰"></div>
+        <div class="cf-field"><label>예산 범위 <span class="opt">(선택)</span></label><input name="예산 범위" placeholder="아직 모르면 비워두세요"></div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label>원하는 시기</label>
-            <input type="text" name="시기" placeholder="예) 11월 출시에 맞춰">
-          </div>
-          <div class="form-field">
-            <label>예산 범위 <small>(선택)</small></label>
-            <input type="text" name="예산" placeholder="아직 모르면 비워두세요">
-          </div>
-        </div>
+      <div class="cf-row triple">
+        <div class="cf-field"><label>이름 <span class="req">*</span></label><input name="이름" required></div>
+        <div class="cf-field"><label>연락처 <span class="req">*</span></label><input name="연락처" required></div>
+        <div class="cf-field"><label>이메일 <span class="req">*</span></label><input name="이메일" required type="email"></div>
+      </div>
 
-        <div class="form-row three">
-          <div class="form-field">
-            <label>이름 <span class="req">*</span></label>
-            <input type="text" name="이름" required>
-          </div>
-          <div class="form-field">
-            <label>연락처 <span class="req">*</span></label>
-            <input type="tel" name="연락처" required>
-          </div>
-          <div class="form-field">
-            <label>이메일 <span class="req">*</span></label>
-            <input type="email" name="이메일" required>
-          </div>
-        </div>
+      <div class="cf-privacy-box">
+        <h4>개인정보 수집·이용 안내</h4>
+        <ul>
+          <li>수집 목적: 상담 신청 접수, 맞춤 플랜 제안, 상담 연락</li>
+          <li>수집 항목: (필수) 이름, 연락처, 이메일, 브랜드·제품명, 상담 내용 / (선택) 브랜드 링크, 현재 판매 채널, 원하는 시기, 예산 범위</li>
+          <li>보유 기간: 상담 완료일로부터 <strong>1년</strong> (계약 체결 시 관계 법령에 따른 기간)</li>
+          <li>동의를 거부할 수 있으며, 거부하면 상담 신청이 어렵습니다. 선택 항목은 비워도 신청할 수 있습니다.</li>
+        </ul>
+      </div>
 
-        <div class="privacy-notice">
-          <strong>개인정보 수집·이용 안내</strong>
-          <ul>
-            <li>수집 목적: 상담 신청 접수, 맞춤 플랜 제안, 상담 연락</li>
-            <li>수집 항목: (필수) 이름, 연락처, 이메일, 브랜드·제품명, 상담 내용 / (선택) 브랜드 링크, 현재 판매 채널, 원하는 시기, 예산 범위</li>
-            <li>보유 기간: 상담 완료일로부터 <span class="highlight">[1년]</span> (계약 체결 시 관계 법령에 따른 기간)</li>
-            <li>동의를 거부할 수 있으며, 거부하면 상담 신청이 어렵습니다. 선택 항목은 비워도 신청할 수 있습니다.</li>
-          </ul>
-        </div>
-        <label class="form-check"><input type="checkbox" required><span>위 개인정보 수집·이용에 동의합니다 (필수) · <a href="/market/privacy.html">개인정보 처리방침 전문</a></span></label>
+      <label class="cf-agree">
+        <input type="checkbox" name="개인정보 동의" value="동의" required>
+        위 개인정보 수집·이용에 동의합니다 (필수) · <a href="/market/privacy.html">개인정보 처리방침 전문</a>
+      </label>
 
-        <button type="submit" class="form-submit">의뢰서 보내기</button>
-        <div class="form-sub-note">보내면 완료 안내가 뜨고, 담당자에게 이메일 알림이 가요 (FR-COM-008)</div>
-      </form>
-    </div>
+      <button type="submit" class="cf-submit">의뢰서 보내기</button>
+      <p class="cf-footer-note">보내면 완료 안내가 뜨고, 담당자에게 이메일 알림이 가요 (FR-COM-008)</p>
+    </form>
   </div>
+</div>
 </section>
 <script>
-// Chip toggle for countries
-const chips = document.querySelectorAll('.chip-opt');
-const hidden = document.getElementById('countryHidden');
-const selected = new Set();
-chips.forEach(c => c.addEventListener('click', () => {
-  const v = c.dataset.country;
-  if (selected.has(v)) { selected.delete(v); c.classList.remove('active'); }
-  else { selected.add(v); c.classList.add('active'); }
-  hidden.value = [...selected].join(', ');
-}));
-// Radio active state
-document.querySelectorAll('.radio-opt').forEach(r => r.addEventListener('click', () => {
-  document.querySelectorAll('.radio-opt').forEach(x => x.classList.remove('active'));
-  r.classList.add('active');
-}));
-// Preselect direction from URL
-const dir = new URLSearchParams(location.search).get('direction');
-if (dir) {
-  const map = {'korea-world':'한국→세계','world-korea':'세계→한국·아시아','domestic':'국내시장'};
-  const v = map[dir];
-  if (v) {
-    document.querySelectorAll('.radio-opt').forEach(r => {
-      const inp = r.querySelector('input');
-      if (inp && inp.value === v) { r.click(); }
+document.addEventListener('DOMContentLoaded', function(){
+  // Direction radio active state
+  document.querySelectorAll('.direction-radio label').forEach(l => {
+    l.addEventListener('click', function(){
+      document.querySelectorAll('.direction-radio label').forEach(x=>x.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  // Country chip multi-select
+  const chips = document.querySelectorAll('#countryChips .cc');
+  const hidden = document.getElementById('countryHidden');
+  function updateHidden(){
+    const vals = Array.from(document.querySelectorAll('#countryChips .cc.active')).map(c=>c.dataset.v);
+    hidden.value = vals.join(', ');
+  }
+  chips.forEach(c => c.addEventListener('click', function(){ this.classList.toggle('active'); updateHidden(); }));
+  // Preselect from URL ?direction=
+  const params = new URLSearchParams(location.search);
+  const dir = params.get('direction');
+  if (dir) {
+    document.querySelectorAll('.direction-radio input').forEach(r => {
+      if (r.value.includes(dir)) { r.checked = true; r.closest('label').click(); }
     });
   }
-}
-if (new URLSearchParams(location.search).get('sent') === '1') {
-  setTimeout(() => alert('의뢰서가 접수되었습니다. 담당자가 2영업일 이내 연락드리겠습니다.'), 300);
-}
+});
 </script>
 <footer class="footer">
   <div class="footer-inner">
