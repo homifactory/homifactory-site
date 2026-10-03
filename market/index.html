@@ -310,6 +310,22 @@ body{padding-top:48px}
 .shorts-nav .dot{width:8px;height:8px;border-radius:50%;background:#555}
 .shorts-nav .dot.active{background:#A866FF;width:22px;border-radius:4px}
 @media(max-width:900px){.shorts-grid{grid-template-columns:repeat(3,1fr)}.plan-grid{grid-template-columns:1fr 1fr}.plan-head h2{font-size:26px}}
+</style><style id="v084-home-pdf">
+/* Top banner spacing fix */
+.trend-banner{padding:12px 20px}
+nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
+/* Hero spacing */
+.hero, section.hero, [class*="hero-section"]{padding-top:100px !important;padding-bottom:70px !important}
+.hero h1, section.hero h1{margin-top:28px !important}
+/* Country chips - PDF style with purple dots */
+.country-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 22px;margin:36px auto 0 !important;max-width:900px}
+.country-chips .chip{padding:0;background:transparent !important;border:none !important;color:#333 !important;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.country-chips .chip::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:#8B3DFF}
+/* Sticky bottom bar refined - PDF rounded pill style */
+#stickyAsk{background:#fff;border:1px solid #E6E0D6;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:14px 20px;max-width:720px;margin:0 auto 16px;display:flex;align-items:center;gap:14px;left:50%;transform:translateX(-50%);bottom:20px;position:fixed}
+#stickyAsk .label{background:#141414;color:#fff;font-size:12px;padding:5px 10px;border-radius:999px;font-weight:700}
+#stickyAsk .text{flex:1;color:#555;font-size:14px}
+#stickyAsk .cta{background:#8B3DFF;color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
 </style></head><body>
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
@@ -702,8 +718,11 @@ const io = new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.t
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
-<div class="sticky-ask" id="stickyAsk">
-  <span class="badge">확인 필요</span>
+<div id="stickyAsk" style="display:none">
+  <span class="label">하단 고정 바</span>
+  <span class="text">우리 제품, 어느 나라에서 팔릴까요?</span>
+  <a href="/market/contact.html" class="cta">무료 상담 받기</a>
+</div>
   <span class="msg">우리 제품, 어느 나라에 팔릴까요?</span>
   <a href="/market/contact.html" class="btn">무료 상담 받기 →</a>
 </div>
