@@ -216,6 +216,16 @@ body{padding-top:48px}
   .network-grid{grid-template-columns:1fr;gap:40px}
   .final-cta{padding:70px 20px}
 }
+
+.sticky-ask{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(140px);z-index:150;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 12px 36px rgba(0,0,0,.14);padding:12px 14px 12px 22px;display:flex;align-items:center;gap:16px;max-width:calc(100vw - 40px);transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s;opacity:0;pointer-events:none}
+.sticky-ask.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.sticky-ask .badge{display:inline-flex;padding:4px 10px;background:var(--primary-light);color:var(--primary);border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.08em;white-space:nowrap}
+.sticky-ask .msg{font-size:14.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+.sticky-ask .btn{padding:12px 22px;background:var(--primary);color:#fff;border-radius:999px;font-size:13.5px;font-weight:800;transition:.2s;box-shadow:0 4px 16px rgba(123,44,255,.3);white-space:nowrap}
+.sticky-ask .btn:hover{background:var(--primary-3);transform:translateY(-1px)}
+.channel-btn{bottom:100px!important}
+@media(max-width:600px){.sticky-ask{padding:12px 14px;gap:10px;bottom:16px;right:16px;left:16px;transform:translateY(140px);border-radius:16px;flex-wrap:wrap;max-width:none}.sticky-ask.visible{transform:translateY(0)}.sticky-ask .msg{font-size:13px}.sticky-ask .btn{padding:10px 16px;font-size:12.5px}.channel-btn{bottom:140px!important}}
+
 </style>
 </head><body>
 <div class="trend-banner">
@@ -255,7 +265,6 @@ body{padding-top:48px}
     </div>
     <div class="nav-right">
       <div class="lang-drop" title="Language"><button class="lang-trigger"><span>🌐</span><span>KR / EN</span><span style="font-size:9px">▾</span></button><div class="lang-menu"><a href="#" class="active">한국어 · KR</a><a href="#" onclick="alert('English 준비 중');return false;">English · EN</a></div></div>
-      <a href="/" class="sibling-link">HOMI FACTORY ↗</a>
       <a href="/production/" class="sibling-link">HOMI PRODUCTION ↗</a>
       <a href="/market/contact.html" class="cta-nav-btn">무료 상담 받기</a>
       <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -266,7 +275,7 @@ body{padding-top:48px}
   <div class="hero-inner">
     <div class="hero-label">GLOBAL INFLUENCER MARKETING</div>
     <h1>고객사와 <span class="hl">한 팀</span>이 되어,<br>세계 시장까지 함께 갑니다</h1>
-    <p>연결에 멈추지 않습니다.<br>콘텐츠가 구매로 이어지는 순간까지.</p>
+    <p>연결에 멈추지 않습니다.<br>콘텐츠가 <span style="color:var(--primary);font-weight:800">구매로 이어지는 순간</span>까지.</p>
     <a href="/market/contact.html" class="big-cta">무료 상담 받기 →</a>
     <div class="region-chips">
       <span class="region-chip">한국 네트워크</span>
@@ -277,20 +286,12 @@ body{padding-top:48px}
       <span class="region-chip">대만</span>
       <span class="region-chip">홍콩</span>
       <span class="region-chip">필리핀</span>
-      <span class="region-chip">접점</span>
+      <span class="region-chip">인도</span>
     </div>
   </div>
 </section>
 
-<section class="quick-ask">
-  <div class="quick-ask-inner">
-    <div class="quick-ask-text">
-      <span class="quick-ask-badge">확인 필요</span>
-      <span class="quick-ask-msg">우리 제품, 어느 나라에 팔릴까요?</span>
-    </div>
-    <a href="/market/contact.html" class="cta">무료 상담 받기 →</a>
-  </div>
-</section>
+
 
 <section class="section gray">
   <div class="section-inner">
@@ -600,5 +601,23 @@ body{padding-top:48px}
 <script>
 const io = new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');io.unobserve(x.target);}});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<div class="sticky-ask" id="stickyAsk">
+  <span class="badge">확인 필요</span>
+  <span class="msg">우리 제품, 어느 나라에 팔릴까요?</span>
+  <a href="/market/contact.html" class="btn">무료 상담 받기 →</a>
+</div>
+<script>
+(function(){
+  const bar = document.getElementById('stickyAsk');
+  if (!bar) return;
+  let shown = false;
+  window.addEventListener('scroll', function(){
+    const trigger = window.innerHeight * 0.6;
+    if (window.scrollY > trigger && !shown){ bar.classList.add('visible'); shown = true; }
+    else if (window.scrollY <= trigger && shown){ bar.classList.remove('visible'); shown = false; }
+  }, {passive:true});
+})();
 </script>
 </body></html>
