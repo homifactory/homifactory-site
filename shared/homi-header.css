@@ -137,3 +137,6 @@ a.hh-col-title:focus-visible{outline:2px solid var(--hh-accent);outline-offset:2
 
 /* 모바일 메뉴가 열려 있는 동안 화면 위에 떠 있는 버튼·바 숨김 */
 html.hh-menu-open .hc-fab,html.hh-menu-open .hc-panel,html.hh-menu-open #stickyAsk,html.hh-menu-open #sdAskFixed{visibility:hidden}
+
+/* 화면에는 안 보이고 화면낭독기만 읽는 글자 (예: 「새 탭」 안내) */
+.hh-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

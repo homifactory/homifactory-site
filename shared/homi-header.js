@@ -51,8 +51,10 @@
         { key: 'how', label: 'How We Work', href: '/market/#how-we-work', spy: 'how-we-work' },
         { key: 'case', label: 'Case', href: '/market/#case', spy: 'case' }
       ],
-      langs: [{ code: 'KR', label: '한국어 · KR', href: '/market/' }],   /* 번역이 준비된 언어만 노출 (FR-COM-006) */
-      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/' }],
+      /* 언어: KR 이 기준. 다른 언어는 map 에 「한국어 주소 → 번역 주소」로 있는 페이지에서만 목록에 보인다 (FR-COM-006)
+         예) { code: 'EN', label: 'English · EN', map: { '/market/': '/en/market/', '/market/service-visit': '/en/market/service-visit' } } */
+      langs: [{ code: 'KR', label: '한국어 · KR' }],
+      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }],
       cta: { label: '무료 상담 받기', href: '/market/contact' }
     },
     factory: {
@@ -63,8 +65,8 @@
         { key: 'business', label: 'Business', href: '/service-marketing' },
         { key: 'contact', label: 'Contact', href: '/contact' }
       ],
-      langs: [{ code: 'KR', label: '한국어 · KR', href: '/' }, { code: 'ID', label: 'Bahasa · ID', href: '/id/' }],
-      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/' }]
+      langs: [{ code: 'KR', label: '한국어 · KR' }, { code: 'ID', label: 'Bahasa · ID', map: { '/': '/id/' } }],
+      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }]
     },
     production: {
       name: 'HOMI', sub: 'PRODUCTION', home: '/production/', logo: '/assets/logo-symbol.png',
@@ -74,13 +76,32 @@
         { key: 'studio', label: 'STUDIO', href: '/production/studio' },
         { key: 'contact', label: 'CONTACT', href: '/production/contact' }
       ],
-      langs: [{ code: 'KR', label: '한국어 · KR', href: '/production/' }],
+      langs: [{ code: 'KR', label: '한국어 · KR' }],
       siblings: [{ label: 'HOMI FACTORY', href: '/' }],
       cta: { label: '문의하기', href: '/production/contact' }
     }
   };
   var C = SITES[site] || SITES.market;
-  var lang = C.langs[0];
+
+  /* ── 언어: 지금 페이지의 각 언어 버전 주소 계산 (FR-COM-006) ── */
+  function norm(p) { p = p.replace(/\.html$/, '').replace(/\/index$/, '/'); return p.length > 1 ? p.replace(/\/$/, '') || '/' : p; }
+  var here = norm(location.pathname), base = here, baseHref = location.pathname, lang = C.langs[0];
+  C.langs.forEach(function (l) {
+    if (!l.map) return;
+    Object.keys(l.map).forEach(function (k) { if (norm(l.map[k]) === here) { base = norm(k); baseHref = k; lang = l; } });
+  });
+  var hash = /^#[\w-]+$/.test(location.hash) ? location.hash : '';
+  var langs = C.langs.map(function (l) {
+    if (!l.map) return { l: l, href: baseHref + hash };
+    var hit = Object.keys(l.map).filter(function (k) { return norm(k) === base; })[0];
+    return hit ? { l: l, href: l.map[hit] + hash } : null;
+  }).filter(Boolean);   /* 이 페이지 번역이 없는 언어는 목록에서 뺀다 */
+  function langLinks() {
+    return langs.map(function (x) {
+      var cur = x.l === lang;
+      return '<a href="' + x.href + '" hreflang="' + x.l.code.toLowerCase() + '"' + (cur ? ' aria-current="true"' : '') + '>' + esc(x.l.label) + '</a>';
+    });
+  }
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
@@ -105,9 +126,10 @@
   }).join('');
 
   var langHtml = '<div class="hh-lang"><button type="button" class="hh-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택, 현재 ' + lang.code + '">' + GLOBE +
-    '<span>' + C.langs.map(function (l) { return l.code; }).join(' / ') + '</span><span class="hh-caret" aria-hidden="true">▾</span></button>' +
-    '<ul class="hh-lang-menu">' + C.langs.map(function (l, i) { return '<li><a href="' + l.href + '"' + (i === 0 ? ' aria-current="true"' : '') + '>' + esc(l.label) + '</a></li>'; }).join('') + '</ul></div>';
-  var sibHtml = C.siblings.map(function (s) { return '<a class="hh-sib" href="' + s.href + '">' + esc(s.label) + ' <span aria-hidden="true">↗</span></a>'; }).join('');
+    '<span>' + lang.code + '</span><span class="hh-caret" aria-hidden="true">▾</span></button>' +
+    '<ul class="hh-lang-menu">' + langLinks().map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul></div>';
+  var sibHtml = C.siblings.map(function (s) { return '<a class="hh-sib" href="' + s.href + '"' + (s.newTab ? ' target="_blank" rel="noopener"' : '') + '>' + esc(s.label) +
+      ' <span aria-hidden="true">↗</span>' + (s.newTab ? '<span class="hh-sr">(새 탭)</span>' : '') + '</a>'; }).join('');
   var ctaHtml = C.cta ? '<a class="hh-cta" href="' + C.cta.href + '">' + esc(C.cta.label) + '</a>' : '';
 
   var panel = C.menu.map(function (it) {
@@ -117,7 +139,7 @@
     }
     return '<a class="hh-plink" data-key="' + it.key + '" href="' + it.href + '"><span>' + esc(it.label) + '</span></a>';
   }).join('') + '<div class="hh-pfoot"><div class="hh-plang" aria-label="언어">' +
-    C.langs.map(function (l, i) { return '<a href="' + l.href + '"' + (i === 0 ? ' aria-current="true"' : '') + '>' + esc(l.label) + '</a>'; }).join('') +
+    langLinks().join('') +
     '</div>' + sibHtml + ctaHtml + '</div>';
 
   slot.innerHTML =
@@ -180,13 +202,16 @@
 
   /* ── 드롭다운: 마우스 올림 · 클릭 · 키보드 · Esc (FR-COM-004) ── */
   function dropdown(wrap, trigger) {
-    var t;
+    var t, hold = false, byHover = false;
     function set(o) { wrap.classList.toggle('open', o); trigger.setAttribute('aria-expanded', o ? 'true' : 'false'); }
     if (window.matchMedia('(hover:hover)').matches) {
-      wrap.addEventListener('mouseenter', function () { clearTimeout(t); set(true); });
-      wrap.addEventListener('mouseleave', function () { t = setTimeout(function () { set(false); }, 140); });
+      wrap.addEventListener('mouseenter', function () { clearTimeout(t); if (!hold && !wrap.classList.contains('open')) { byHover = true; set(true); } });
+      wrap.addEventListener('mouseleave', function () { hold = false; byHover = false; t = setTimeout(function () { set(false); }, 140); });
     }
-    trigger.addEventListener('click', function (e) { e.preventDefault(); set(!wrap.classList.contains('open')); });
+    /* 하위 메뉴를 누르면 닫고 해당 페이지(카드)로 이동 — 같은 페이지 안 이동 때 메뉴가 카드를 가리지 않게 */
+    wrap.addEventListener('click', function (e) { if (e.target.closest('a')) { hold = true; set(false); } });
+    /* 마우스로 이미 펼쳐진 상태에서 누르면 닫지 않고 그대로 둔다 */
+    trigger.addEventListener('click', function (e) { e.preventDefault(); hold = false; if (byHover) { byHover = false; set(true); return; } set(!wrap.classList.contains('open')); });
     wrap.addEventListener('focusout', function (e) { if (!wrap.contains(e.relatedTarget)) set(false); });
     document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && wrap.classList.contains('open')) { set(false); trigger.focus(); } });
