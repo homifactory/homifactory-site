@@ -122,51 +122,6 @@ body{padding-top:48px}
 .channel-btn{right:40px!important}
 
 </style>
-<style id="hm-mega-css">
-/* FR-MKT-029 서비스 mega menu (PDF v0.84 · 12) */
-.nav .hm-svc{position:static;display:inline-flex;align-items:center}
-.nav .hm-trig{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:8px 0;font-size:17px;font-weight:600;color:#1B1A18;white-space:nowrap;position:relative;font-family:inherit;transition:color .2s}
-.nav .hm-trig:focus-visible{outline:2px solid #8B3DFF;outline-offset:4px;border-radius:4px}
-.nav .hm-caret{font-size:10px;transition:transform .2s;display:inline-block}
-.nav .hm-svc.open .hm-trig,.nav .hm-svc.active .hm-trig,.nav .hm-trig:hover{color:#8B3DFF}
-.nav .hm-svc.open .hm-caret{transform:rotate(180deg)}
-.nav .hm-svc.active .hm-trig{font-weight:700}
-.nav .hm-svc.active .hm-trig::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;background:#8B3DFF;border-radius:2px}
-.nav .hm-mega{position:absolute;top:100%;left:50%;width:min(960px,calc(100vw - 48px));transform:translate(-50%,-6px);padding-top:12px;opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:120}
-.nav .hm-svc.open .hm-mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
-.nav .hm-grid{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid #ECE8F3;border-radius:18px;box-shadow:0 24px 60px rgba(40,20,80,.12);padding:26px 0}
-.nav .hm-col{padding:0 30px;border-left:1px solid #E7E4EC}
-.nav .hm-col:first-child{border-left:0}
-.nav .hm-ct{font-size:13px;font-weight:600;color:#55525C;margin:0 0 14px;letter-spacing:-.01em}
-.nav .hm-mega a.hm-mi{display:flex!important;gap:14px;align-items:flex-start;padding:10px 10px!important;margin:0 -10px 4px;border-radius:12px;font-size:inherit!important;white-space:normal!important;color:inherit;transition:background .15s}
-.nav .hm-mega a.hm-mi::after{display:none!important}
-.nav .hm-mega a.hm-mi:hover,.nav .hm-mega a.hm-mi:focus-visible{background:#F7F2FF;outline:none}
-.nav .hm-ic{width:40px;height:40px;flex-shrink:0;border-radius:11px;background:#F1EAFE;color:#8B3DFF;display:grid;place-items:center}
-.nav .hm-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
-.nav .hm-lb{font-size:13px;font-weight:600;color:#8B3DFF;line-height:1.35}
-.nav .hm-gl{font-size:15px;font-weight:700;color:#141318;line-height:1.45;letter-spacing:-.02em;word-break:keep-all}
-/* mobile drawer — 눌러서 열림 */
-.hm-drawer{position:fixed;left:0;right:0;bottom:0;background:#fff;z-index:10001;overflow-y:auto;padding:12px 20px 40px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:.2s;border-top:1px solid #E7E4EC}
-.hm-drawer.open{opacity:1;visibility:visible;transform:none}
-.hm-drawer>a,.hm-drawer .hm-dtrig{all:unset;box-sizing:border-box;display:flex;width:100%;justify-content:space-between;align-items:center;padding:16px 4px;font-size:17px;font-weight:700;color:#141318;border-bottom:1px solid #F0EEF3;cursor:pointer;font-family:inherit}
-.hm-drawer .hm-dtrig[aria-expanded="true"]{color:#8B3DFF}
-.hm-drawer .hm-dtrig[aria-expanded="true"] .hm-caret{transform:rotate(180deg)}
-.hm-drawer .hm-caret{font-size:11px;transition:transform .2s}
-.hm-drawer .hm-dsub{display:none;padding:6px 0 10px}
-.hm-drawer .hm-dsub.open{display:block}
-.hm-drawer .hm-ct{font-size:12.5px;font-weight:600;color:#7A7682;margin:14px 4px 6px}
-.hm-drawer a.hm-mi{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;color:inherit;text-decoration:none}
-.hm-drawer .hm-ic{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#F1EAFE;color:#8B3DFF;display:grid;place-items:center}
-.hm-drawer .hm-tx{display:flex;flex-direction:column;gap:2px}
-.hm-drawer .hm-lb{font-size:12.5px;font-weight:600;color:#8B3DFF}
-.hm-drawer .hm-gl{font-size:15px;font-weight:700;color:#141318;line-height:1.4;word-break:keep-all}
-.hm-drawer .hm-dcta{all:unset;box-sizing:border-box;display:block;text-align:center;margin-top:20px;padding:15px;border-radius:999px;background:#8B3DFF;color:#fff;font-weight:700;cursor:pointer}
-@media(min-width:901px){.hm-drawer{display:none}}
-/* 서비스 페이지 앵커 착지 */
-[id^="svc-"]{scroll-margin-top:190px}
-.hm-target{animation:hmPulse 1.8s ease-out 1}
-@keyframes hmPulse{0%{box-shadow:0 0 0 0 rgba(139,61,255,.55)}100%{box-shadow:0 0 0 14px rgba(139,61,255,0)}}
-</style>
 <style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:24px;bottom:24px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -237,28 +192,15 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-</head><body>
+<style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261004">
+</head><body data-site="market" data-header="fixed">
 <div class="trend-banner">
   <span class="pill">✦ HOMI TREND REPORT 2026</span>
   <a href="/market/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
 </div>
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/market/" class="brand"><span class="brand-mark"><img src="../assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" aria-hidden="true"></span><span class="brand-text">HOMI <span class="sub">MARKET</span></span></a>
-    <div class="nav-menu">
-      <a href="/market/">Home</a>
-      <span class="hm-svc" data-fr="FR-MKT-029"><button type="button" class="hm-trig" aria-haspopup="true" aria-expanded="false" aria-controls="hm-mega">서비스 <span class="hm-caret" aria-hidden="true">▾</span></button><div class="hm-mega" id="hm-mega" role="menu"><div class="hm-grid"><div class="hm-col"><div class="hm-ct">인플루언서 마케팅</div><a href="/market/service-influencer.html#svc-mega" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><span class="hm-tx"><span class="hm-lb">메가 인플루언서·셀럽</span><span class="hm-gl">브랜드의 얼굴(모델)이 필요해요</span></span></a><a href="/market/service-influencer.html#svc-macro" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></span><span class="hm-tx"><span class="hm-lb">매크로 인플루언서</span><span class="hm-gl">브랜드의 화제성과 노출이 필요해요</span></span></a><a href="/market/service-influencer.html#svc-micro" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="hm-tx"><span class="hm-lb">마이크로 인플루언서</span><span class="hm-gl">일상 속에서 자연스럽게 퍼지게 하고 싶어요</span></span></a><a href="/market/service-influencer.html#svc-nano" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/><path d="m7.5 4.3 9 5.1"/></svg></span><span class="hm-tx"><span class="hm-lb">나노·체험단</span><span class="hm-gl">제품을 써본 실제 후기가 많이 필요해요</span></span></a></div><div class="hm-col"><div class="hm-ct">방문 프로모션</div><a href="/market/service-visit.html#svc-domestic" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M3 4h18l1 5a3 3 0 0 1-5 1 3 3 0 0 1-5 0 3 3 0 0 1-5 0 3 3 0 0 1-5-1z"/><path d="M10 20v-5h4v5"/></svg></span><span class="hm-tx"><span class="hm-lb">국내 인플루언서 방문</span><span class="hm-gl">동네·상권 손님에게 우리 매장을 알리고 싶어요</span></span></a><a href="/market/service-visit.html#svc-inbound" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span><span class="hm-tx"><span class="hm-lb">해외 인플루언서 한국 방문</span><span class="hm-gl">한국에 오는 외국인 손님을 매장으로 부르고 싶어요</span></span></a><a href="/market/service-visit.html#svc-overseas" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span class="hm-tx"><span class="hm-lb">해외 현지 매장 방문</span><span class="hm-gl">해외 매장·입점처를 현지 손님에게 알리고 싶어요</span></span></a></div><div class="hm-col"><div class="hm-ct">팝업 및 행사 운영</div><a href="/market/service-event.html#svc-popup" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span class="hm-tx"><span class="hm-lb">브랜드 팝업스토어</span><span class="hm-gl">팝업으로 브랜드를 직접 경험하게 하고 싶어요</span></span></a><a href="/market/service-event.html#svc-launch" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><span class="hm-tx"><span class="hm-lb">런칭·쇼케이스</span><span class="hm-gl">신제품 런칭을 크게 알리고 싶어요</span></span></a><a href="/market/service-event.html#svc-festival" class="hm-mi" role="menuitem"><span class="hm-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18"/><path d="M4 7l1.5-3h13L20 7"/><path d="M6 7v14M18 7v14"/><path d="M6 11h12"/><path d="M10 7v4M14 7v4"/></svg></span><span class="hm-tx"><span class="hm-lb">축제·페스티벌 부스</span><span class="hm-gl">행사 현장에서 고객을 직접 만나고 싶어요</span></span></a></div></div></div></span>
-      <a href="/market/#how-we-work">How We Work</a>
-      <a href="/market/#campaigns">Case</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-drop" title="Language"><button class="lang-trigger"><span>🌐</span><span>KR / EN</span><span style="font-size:9px">▾</span></button><div class="lang-menu"><a href="#" class="active">한국어 · KR</a><a href="#" onclick="alert('English 준비 중');return false;">English · EN</a></div></div>
-      <a href="/production/" class="sibling-link">HOMI PRODUCTION ↗</a>
-      <a href="/market/contact.html" class="cta-nav-btn">무료 상담 받기</a>
-      <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<header id="homi-header"></header>
+<script src="/shared/homi-header.js?v=20261004"></script>
 <section class="doc-hero">
   <h1>개인정보 처리방침</h1>
   <div class="meta"><span class="ver">v1.0 · 2026-10-02</span><span>시행일: 2026-10-02</span></div>
@@ -394,56 +336,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <script>
 const io = new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');io.unobserve(x.target);}});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
-<script id="hm-mega-js">
-/* FR-MKT-029: 데스크톱 hover 열림 · 터치/클릭 토글 · Esc 닫기 · 모바일 드로어 */
-(function(){
-  var svc=document.querySelector('.hm-svc'); if(!svc) return;
-  var trig=svc.querySelector('.hm-trig'), t;
-  function set(o){svc.classList.toggle('open',o);trig.setAttribute('aria-expanded',o?'true':'false');}
-  var hover=window.matchMedia('(hover:hover)').matches;
-  if(hover){
-    svc.addEventListener('mouseenter',function(){clearTimeout(t);set(true);});
-    svc.addEventListener('mouseleave',function(){t=setTimeout(function(){set(false);},140);});
-  }
-  trig.addEventListener('click',function(e){e.preventDefault();set(!svc.classList.contains('open'));});
-  svc.addEventListener('focusout',function(e){if(!svc.contains(e.relatedTarget))set(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){set(false);closeD();}});
-  document.addEventListener('click',function(e){if(!svc.contains(e.target))set(false);});
-
-  /* mobile drawer */
-  var btn=document.querySelector('.nav-mobile-btn'), nav=document.querySelector('nav.nav,nav'), d;
-  function closeD(){ if(d){d.classList.remove('open'); if(btn)btn.setAttribute('aria-expanded','false'); document.documentElement.style.overflow='';} }
-  if(btn&&nav){
-    d=document.createElement('div'); d.className='hm-drawer'; d.id='hm-drawer';
-    var cols=svc.querySelector('.hm-grid').innerHTML;
-    d.innerHTML='<a href="/market/">Home</a>'
-      +'<button type="button" class="hm-dtrig" aria-expanded="false">서비스 <span class="hm-caret">▾</span></button>'
-      +'<div class="hm-dsub">'+cols+'</div>'
-      +'<a href="/market/#how-we-work">How We Work</a><a href="/market/#campaigns">Case</a>'
-      +'<a href="/production/">HOMI PRODUCTION ↗</a>'
-      +'<a href="/market/contact.html" class="hm-dcta">무료 상담 받기</a>';
-    document.body.appendChild(d);
-    btn.setAttribute('aria-controls','hm-drawer'); btn.setAttribute('aria-expanded','false');
-    var dt=d.querySelector('.hm-dtrig'), ds=d.querySelector('.hm-dsub');
-    dt.addEventListener('click',function(){var o=!ds.classList.contains('open');ds.classList.toggle('open',o);dt.setAttribute('aria-expanded',o?'true':'false');});
-    btn.addEventListener('click',function(){
-      if(d.classList.contains('open')){closeD();return;}
-      d.style.top=Math.max(0,nav.getBoundingClientRect().bottom)+'px';
-      d.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.documentElement.style.overflow='hidden';
-    });
-    d.addEventListener('click',function(e){if(e.target.closest('a'))closeD();});
-  }
-
-  /* 해당 항목 위치로 이동 + 하이라이트 */
-  function land(){
-    var h=location.hash; if(!/^#svc-/.test(h)) return;
-    var el=document.getElementById(h.slice(1)); if(!el) return;
-    el.scrollIntoView({behavior:'smooth',block:'start'});
-    el.classList.remove('hm-target'); void el.offsetWidth; el.classList.add('hm-target');
-  }
-  window.addEventListener('hashchange',land); window.addEventListener('load',land);
-})();
 </script>
 <script id="hc-js">
 /* FR-MKT-032 실시간 상담 창 — 채널톡 가입 전 자체 위젯 */
