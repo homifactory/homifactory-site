@@ -51,9 +51,12 @@
         { key: 'how', label: 'How We Work', href: '/market/#how-we-work', spy: 'how-we-work' },
         { key: 'case', label: 'Case', href: '/market/#case', spy: 'case' }
       ],
-      /* 언어: KR 이 기준. 다른 언어는 map 에 「한국어 주소 → 번역 주소」로 있는 페이지에서만 목록에 보인다 (FR-COM-006)
-         예) { code: 'EN', label: 'English · EN', map: { '/market/': '/en/market/', '/market/service-visit': '/en/market/service-visit' } } */
-      langs: [{ code: 'KR', label: '한국어 · KR' }],
+      /* 언어: KR 이 기준. 번역 언어는 prefix(주소 앞에 붙는 경로) + pages(번역된 페이지, '*'=전부)
+         또는 map(「한국어 주소 → 번역 주소」)으로 지정. 그 페이지 번역이 없는 언어는 목록에 안 보인다 (FR-COM-006) */
+      langs: [{ code: 'KR', label: '한국어 · KR' },
+              { code: 'EN', label: 'English · EN', prefix: '/en', pages: '*' },
+              { code: 'JA', label: '日本語 · JA', prefix: '/ja', pages: '*' },
+              { code: 'ID', label: 'Bahasa Indonesia · ID', prefix: '/id', pages: '*' }],
       siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }],
       cta: { label: '무료 상담 받기', href: '/market/contact' }
     },
@@ -87,11 +90,15 @@
   function norm(p) { p = p.replace(/\.html$/, '').replace(/\/index$/, '/'); return p.length > 1 ? p.replace(/\/$/, '') || '/' : p; }
   var here = norm(location.pathname), base = here, baseHref = location.pathname, lang = C.langs[0];
   C.langs.forEach(function (l) {
+    if (l.prefix && location.pathname.indexOf(l.prefix + '/') === 0) {
+      lang = l; baseHref = location.pathname.slice(l.prefix.length); base = norm(baseHref);
+    }
     if (!l.map) return;
     Object.keys(l.map).forEach(function (k) { if (norm(l.map[k]) === here) { base = norm(k); baseHref = k; lang = l; } });
   });
   var hash = /^#[\w-]+$/.test(location.hash) ? location.hash : '';
   var langs = C.langs.map(function (l) {
+    if (l.prefix) return (l.pages === '*' || (l.pages || []).map(norm).indexOf(base) > -1) ? { l: l, href: l.prefix + baseHref + hash } : null;
     if (!l.map) return { l: l, href: baseHref + hash };
     var hit = Object.keys(l.map).filter(function (k) { return norm(k) === base; })[0];
     return hit ? { l: l, href: l.map[hit] + hash } : null;
@@ -103,13 +110,19 @@
     });
   }
 
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  /* 헤더 문구 번역 (번역 페이지에서 메뉴·버튼 글자) */
+  var I18N = {"EN":{"서비스":"Services","인플루언서 마케팅":"Influencer Marketing","방문 프로모션":"Visit Promotion","팝업 및 행사 운영":"Pop-ups & Events","메가 인플루언서·셀럽":"Mega Influencers & Celebrities","브랜드의 얼굴(모델)이 필요해요":"We need a face (model) for our brand","매크로 인플루언서":"Macro Influencers","브랜드의 화제성과 노출이 필요해요":"We need buzz and reach for our brand","마이크로 인플루언서":"Micro Influencers","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"We want it to spread naturally in everyday life","나노·체험단":"Nano & Product Testers","제품을 써본 실제 후기가 많이 필요해요":"We need lots of real reviews from people who’ve used the product","국내 인플루언서 방문":"Korean influencer visits","동네·상권 손님에게 우리 매장을 알리고 싶어요":"We want to reach customers in our neighborhood and local trade area","해외 인플루언서 한국 방문":"Foreign influencers visiting Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"We want to bring international visitors in Korea to our store","해외 현지 매장 방문":"Overseas local store visits","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"We want local customers to discover our overseas stores and retailers","브랜드 팝업스토어":"Brand pop-up stores","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"We want people to experience our brand firsthand through a pop-up","런칭·쇼케이스":"Launches · Showcases","신제품 런칭을 크게 알리고 싶어요":"We want to make a big splash with our new product launch","축제·페스티벌 부스":"Festival booths","행사 현장에서 고객을 직접 만나고 싶어요":"We want to meet customers in person at events","무료 상담 받기":"Free Consultation","메뉴 열기":"Open menu","메뉴 닫기":"Close menu","언어 선택, 현재":"Select language, current","언어":"Language","주 메뉴":"Main menu","모바일 메뉴":"Mobile menu","새 탭":"new tab"},"JA":{"서비스":"サービス","인플루언서 마케팅":"インフルエンサーマーケティング","방문 프로모션":"来店プロモーション","팝업 및 행사 운영":"ポップアップ・イベント運営","메가 인플루언서·셀럽":"メガインフルエンサー・セレブ","브랜드의 얼굴(모델)이 필요해요":"ブランドの顔（モデル）が欲しい","매크로 인플루언서":"マクロインフルエンサー","브랜드의 화제성과 노출이 필요해요":"ブランドの話題性と露出が欲しい","마이크로 인플루언서":"マイクロインフルエンサー","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"日常の中で自然に広めたい","나노·체험단":"ナノ・体験レビュアー","제품을 써본 실제 후기가 많이 필요해요":"商品を実際に使ったレビューをたくさん集めたい","국내 인플루언서 방문":"韓国インフルエンサーの来店","동네·상권 손님에게 우리 매장을 알리고 싶어요":"地元・商圏のお客様に自社の店舗を知ってほしい","해외 인플루언서 한국 방문":"海外インフルエンサーの韓国来店","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"韓国を訪れる海外のお客様を店舗に呼びたい","해외 현지 매장 방문":"海外現地店舗への来店","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"海外の店舗・出店先を現地のお客様に知ってほしい","브랜드 팝업스토어":"ブランドポップアップストア","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"ポップアップでブランドを直接体験してほしい","런칭·쇼케이스":"ローンチ・ショーケース","신제품 런칭을 크게 알리고 싶어요":"新商品のローンチを大々的に告知したい","축제·페스티벌 부스":"お祭り・フェスティバルブース","행사 현장에서 고객을 직접 만나고 싶어요":"イベント会場でお客様に直接会いたい","무료 상담 받기":"無料相談はこちら","메뉴 열기":"メニューを開く","메뉴 닫기":"メニューを閉じる","언어 선택, 현재":"言語を選択、現在","언어":"言語","주 메뉴":"メインメニュー","모바일 메뉴":"モバイルメニュー","새 탭":"新しいタブ"},"ID":{"서비스":"Layanan","인플루언서 마케팅":"Pemasaran Influencer","방문 프로모션":"Promosi Kunjungan","팝업 및 행사 운영":"Pop-up & Event","메가 인플루언서·셀럽":"Mega Influencer & Selebriti","브랜드의 얼굴(모델)이 필요해요":"Saya butuh wajah (model) untuk brand","매크로 인플루언서":"Influencer Makro","브랜드의 화제성과 노출이 필요해요":"Saya butuh gaung dan eksposur untuk brand","마이크로 인플루언서":"Influencer Mikro","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"Saya ingin brand menyebar alami dalam keseharian","나노·체험단":"Nano & Pengulas Produk","제품을 써본 실제 후기가 많이 필요해요":"Saya butuh banyak review nyata dari pemakai produk","국내 인플루언서 방문":"Kunjungan influencer Korea","동네·상권 손님에게 우리 매장을 알리고 싶어요":"Saya ingin memperkenalkan toko ke pelanggan di sekitar","해외 인플루언서 한국 방문":"Kunjungan influencer luar negeri ke Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"Saya ingin mengajak wisatawan asing di Korea datang ke toko","해외 현지 매장 방문":"Kunjungan ke toko di luar negeri","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"Saya ingin memperkenalkan toko & mitra ritel luar negeri ke pelanggan lokal","브랜드 팝업스토어":"Pop-up store brand","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"Saya ingin pelanggan merasakan brand secara langsung lewat pop-up","런칭·쇼케이스":"Launching · Showcase","신제품 런칭을 크게 알리고 싶어요":"Saya ingin peluncuran produk baru diketahui secara luas","축제·페스티벌 부스":"Booth festival & pameran","행사 현장에서 고객을 직접 만나고 싶어요":"Saya ingin bertemu pelanggan langsung di lokasi acara","무료 상담 받기":"Konsultasi Gratis","메뉴 열기":"Buka menu","메뉴 닫기":"Tutup menu","언어 선택, 현재":"Pilih bahasa, saat ini","언어":"Bahasa","주 메뉴":"Menu utama","모바일 메뉴":"Menu mobile","새 탭":"tab baru"}};
+  function T(s) { var d = I18N[lang.code]; return (d && d[s]) || s; }
+  function L(h) { return (lang.prefix && h.indexOf(C.home) === 0) ? lang.prefix + h : h; }   /* 같은 사이트 링크는 지금 언어로 */
+  document.documentElement.setAttribute('data-lang', lang.code.toLowerCase());
+
+  function esc(s) { return String(T(s)).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function megaCols(m) {
     return m.map(function (col) {
-      return '<div class="hh-col"><a class="hh-col-title" href="' + col.href + '">' + esc(col.title) + '</a>' +
+      return '<div class="hh-col"><a class="hh-col-title" href="' + L(col.href) + '">' + esc(col.title) + '</a>' +
         col.items.map(function (it) {
-          return '<a class="hh-mi" href="' + col.href + '#' + it[0] + '"><span class="hh-ic">' + svg(it[1]) + '</span>' +
+          return '<a class="hh-mi" href="' + L(col.href) + '#' + it[0] + '"><span class="hh-ic">' + svg(it[1]) + '</span>' +
             '<span class="hh-tx"><span class="hh-lb">' + esc(it[2]) + '</span><span class="hh-gl">' + esc(it[3]) + '</span></span></a>';
         }).join('') + '</div>';
     }).join('');
@@ -122,36 +135,36 @@
         esc(it.label) + ' <span class="hh-caret" aria-hidden="true">▾</span></button>' +
         '<div class="hh-mega" id="hh-mega"><div class="hh-mega-grid">' + megaCols(it.mega) + '</div></div></li>';
     }
-    return '<li><a class="hh-link" data-key="' + it.key + '" href="' + it.href + '">' + esc(it.label) + '</a></li>';
+    return '<li><a class="hh-link" data-key="' + it.key + '" href="' + L(it.href) + '">' + esc(it.label) + '</a></li>';
   }).join('');
 
-  var langHtml = '<div class="hh-lang"><button type="button" class="hh-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택, 현재 ' + lang.code + '">' + GLOBE +
+  var langHtml = '<div class="hh-lang"><button type="button" class="hh-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="' + esc('언어 선택, 현재') + ' ' + lang.code + '">' + GLOBE +
     '<span>' + lang.code + '</span><span class="hh-caret" aria-hidden="true">▾</span></button>' +
     '<ul class="hh-lang-menu">' + langLinks().map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul></div>';
   var sibHtml = C.siblings.map(function (s) { return '<a class="hh-sib" href="' + s.href + '"' + (s.newTab ? ' target="_blank" rel="noopener"' : '') + '>' + esc(s.label) +
-      ' <span aria-hidden="true">↗</span>' + (s.newTab ? '<span class="hh-sr">(새 탭)</span>' : '') + '</a>'; }).join('');
-  var ctaHtml = C.cta ? '<a class="hh-cta" href="' + C.cta.href + '">' + esc(C.cta.label) + '</a>' : '';
+      ' <span aria-hidden="true">↗</span>' + (s.newTab ? '<span class="hh-sr">(' + esc('새 탭') + ')</span>' : '') + '</a>'; }).join('');
+  var ctaHtml = C.cta ? '<a class="hh-cta" href="' + L(C.cta.href) + '">' + esc(C.cta.label) + '</a>' : '';
 
   var panel = C.menu.map(function (it) {
     if (it.mega) {
       return '<button type="button" class="hh-pacc" data-key="' + it.key + '" aria-expanded="false"><span class="hh-ptxt">' + esc(it.label) + '</span><span class="hh-caret" aria-hidden="true">▾</span></button>' +
         '<div class="hh-psub">' + megaCols(it.mega) + '</div>';
     }
-    return '<a class="hh-plink" data-key="' + it.key + '" href="' + it.href + '"><span>' + esc(it.label) + '</span></a>';
-  }).join('') + '<div class="hh-pfoot"><div class="hh-plang" aria-label="언어">' +
+    return '<a class="hh-plink" data-key="' + it.key + '" href="' + L(it.href) + '"><span>' + esc(it.label) + '</span></a>';
+  }).join('') + '<div class="hh-pfoot"><div class="hh-plang" aria-label="' + esc('언어') + '">' +
     langLinks().join('') +
     '</div>' + sibHtml + ctaHtml + '</div>';
 
   slot.innerHTML =
     '<div class="hh" data-site="' + site + '">' +
       '<div class="hh-in">' +
-        '<div class="hh-left"><a class="hh-logo" href="' + C.home + '" aria-label="' + C.name + ' ' + C.sub + ' Home">' +
+        '<div class="hh-left"><a class="hh-logo" href="' + L(C.home) + '" aria-label="' + C.name + ' ' + C.sub + ' Home">' +
           '<img src="' + C.logo + '" alt="" width="26" height="28"><span class="hh-logo-text">' + C.name + ' <span>' + C.sub + '</span></span></a></div>' +
-        '<nav class="hh-center" aria-label="주 메뉴"><ul class="hh-menu">' + center + '</ul></nav>' +
+        '<nav class="hh-center" aria-label="' + esc('주 메뉴') + '"><ul class="hh-menu">' + center + '</ul></nav>' +
         '<div class="hh-right">' + langHtml + sibHtml + ctaHtml +
-          '<button type="button" class="hh-burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="hh-panel"><span></span></button></div>' +
+          '<button type="button" class="hh-burger" aria-label="' + esc('메뉴 열기') + '" aria-expanded="false" aria-controls="hh-panel"><span></span></button></div>' +
       '</div>' +
-      '<nav class="hh-panel" id="hh-panel" aria-label="모바일 메뉴">' + panel + '</nav>' +
+      '<nav class="hh-panel" id="hh-panel" aria-label="' + esc('모바일 메뉴') + '">' + panel + '</nav>' +
     '</div>';
 
   var hh = slot.firstChild;
@@ -225,7 +238,7 @@
   var burger = hh.querySelector('.hh-burger'), pnl = hh.querySelector('.hh-panel');
   function setPanel(o) {
     pnl.classList.toggle('open', o); burger.setAttribute('aria-expanded', o ? 'true' : 'false');
-    burger.setAttribute('aria-label', o ? '메뉴 닫기' : '메뉴 열기');
+    burger.setAttribute('aria-label', T(o ? '메뉴 닫기' : '메뉴 열기'));
     document.documentElement.style.overflow = o ? 'hidden' : '';
     document.documentElement.classList.toggle('hh-menu-open', o);  /* 열려 있는 동안 떠 있는 버튼(상담 등) 숨김 */
     if (o) place();

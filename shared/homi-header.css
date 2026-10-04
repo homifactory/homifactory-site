@@ -140,3 +140,12 @@ html.hh-menu-open .hc-fab,html.hh-menu-open .hc-panel,html.hh-menu-open #stickyA
 
 /* 화면에는 안 보이고 화면낭독기만 읽는 글자 (예: 「새 탭」 안내) */
 .hh-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* 일본어 페이지: 한국어용 word-break:keep-all 이 일본어 줄바꿈을 막아 넘치지 않게 */
+html[lang="ja"] body, html[lang="ja"] body *{word-break:normal!important;line-break:strict;overflow-wrap:break-word}
+/* 번역 문구가 길어도 모바일 헤더에서 메뉴 버튼이 밀려나지 않게 */
+@media (max-width:900px){.hh-right{min-width:0}.hh-right .hh-cta{max-width:44vw;overflow:hidden;text-overflow:ellipsis}}
+/* 번역 페이지: 길어진 버튼 문구는 줄바꿈 허용 (모바일 가로 넘침 방지) */
+html:not([lang="ko"]) .sd-btn{white-space:normal;text-align:center}
+/* 모바일: 넓은 표는 표 안에서만 가로 스크롤 (화면 전체가 옆으로 밀리지 않게) — NFR-02 */
+@media (max-width:600px){body[data-site="market"] table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
