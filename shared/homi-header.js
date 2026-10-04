@@ -164,9 +164,7 @@
   /* Home 안의 구간 메뉴(How We Work·Case): 그 구간이 화면 위쪽에 와 있는 동안 밑줄 */
   var spies = C.menu.filter(function (m) { return m.spy; });
   if (page === 'home' && spies.length) {
-    var ticking = false;
     function spy() {
-      ticking = false;
       /* 헤더가 본문보다 먼저 그려지므로 구간은 매번 찾는다 */
       var spyEls = spies.map(function (m) { return { key: m.key, el: document.getElementById(m.spy) }; }).filter(function (s) { return s.el; });
       var line = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh-offset'), 10) || 0) + window.innerHeight * 0.3;
@@ -174,7 +172,7 @@
       spyEls.forEach(function (s) { var r = s.el.getBoundingClientRect(); if (r.top <= line && r.bottom > line) cur = s.key; });
       setCurrent(cur);
     }
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+    window.addEventListener('scroll', spy, { passive: true });   /* 계산이 가벼워 매 스크롤마다 바로 판정 */
     window.addEventListener('hashchange', spy);
     window.addEventListener('load', spy);
     document.addEventListener('DOMContentLoaded', spy);
