@@ -441,7 +441,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005e">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005f">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -453,15 +453,23 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/ja/market/trend-report.html">2026 グローバルマーケティング・トレンドレポート · 国別の戦略をまずチェック <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005e"></script>
-<section class="hero">
+<script src="/shared/homi-header.js?v=20261005f"></script>
+<section class="hero hv" id="hero">
+  <div class="hv-media" aria-hidden="true">
+    <img class="hv-poster" src="/assets/hero/market-hero-20261005-poster.jpg" alt="" fetchpriority="high" decoding="async">
+    <video class="hv-video" muted playsinline loop preload="none" tabindex="-1" disablepictureinpicture
+      data-webm="/assets/hero/market-hero-20261005-720p.webm" data-mp4="/assets/hero/market-hero-20261005-720p.mp4"
+      data-webm-m="/assets/hero/market-hero-20261005-720p.webm" data-mp4-m="/assets/hero/market-hero-20261005-720p.mp4"></video>
+    <div class="hv-shade"></div>
+  </div>
   <div class="hero-inner">
-    <div class="hero-label" style="background:#fff;border:1px solid #E6E0D6"><span style="color:#FFC53D;font-size:16px;line-height:1">✦</span>GLOBAL INFLUENCER MARKETING · 韓国 ⇄ 世界</div>
-    <div class="hero-badge"><span class="spark">✦</span>GLOBAL INFLUENCER MARKETING<span class="divider">·</span>韓国 ⇄ 世界</div>
-<h1>クライアントと<span class="hl">ワンチーム</span>になり、<br>世界市場まで共に進みます</h1>
-    <p>つなぐだけでは終わりません。<br>コンテンツが<span style="color:var(--primary);font-weight:800">購買につながる瞬間</span>まで。</p>
+    <h1>クライアントと<span class="hl">ワンチーム</span>になり、<br>世界市場まで共に進みます</h1>
+    <p>つなぐだけでは終わりません。コンテンツが<span style="color:var(--primary);font-weight:800">購買につながる瞬間</span>まで。</p>
     <a href="/ja/market/contact.html" class="big-cta">無料相談はこちら →</a>
-    <div class="country-network" style="margin-top:36px">
+  </div>
+</section>
+<section class="hv-network">
+    <div class="country-network">
       <div style="font-size:12px;color:var(--muted);margin-bottom:14px;letter-spacing:.1em;font-weight:600">現地ネットワーク</div>
       <div class="region-chips">
         <span class="region-chip hub"><span class="dot"></span>日本支社</span>
@@ -474,7 +482,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <span class="region-chip edge"><span class="dot"></span>インド</span>
       </div>
     </div>
-  </div>
 </section>
 
 
@@ -1015,6 +1022,34 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   /* 이전 버튼(alert) 제거 + 상태 복원 */
   document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
   render(); if(st.open) setOpen(true,false);
+})();
+</script>
+<script id="hv-js">
+/* FR-COM-015 히어로 배경 영상 — 정지 이미지 먼저, 영상은 페이지가 다 뜬 뒤 재생. 화면 밖·탭 숨김이면 일시정지.
+   「동작 줄이기」 설정·데이터 절약 모드는 정지 이미지만. 모바일은 data-*-m(720p) 사용 */
+(function(){
+  var v=document.querySelector('.hv-video'); if(!v) return;
+  var hero=v.closest('.hv');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var save=navigator.connection&&navigator.connection.saveData;
+  if(reduce||save){ hero.classList.add('hv-still'); return; }
+  var m=window.matchMedia&&matchMedia('(max-width:768px)').matches;
+  var visible=true, started=false;
+  function play(){ if(!started||!visible||document.hidden) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  function start(){
+    if(started) return; started=true;
+    [['webm','video/webm'],['mp4','video/mp4']].forEach(function(t){
+      var src=v.dataset[t[0]+(m?'M':'')]||v.dataset[t[0]]; if(!src) return;
+      var s=document.createElement('source'); s.src=src; s.type=t[1]; v.appendChild(s);
+    });
+    v.muted=true; v.setAttribute('muted',''); v.load(); play();
+  }
+  v.addEventListener('playing',function(){ hero.classList.add('hv-on'); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ visible=es[0].isIntersecting; visible?play():v.pause(); },{threshold:0.15}).observe(hero);
+  }
+  document.addEventListener('visibilitychange',function(){ document.hidden?v.pause():play(); });
+  if(document.readyState==='complete') start(); else window.addEventListener('load',start);
 })();
 </script>
 </body></html>
