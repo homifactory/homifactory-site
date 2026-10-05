@@ -208,7 +208,9 @@
       var spyEls = spies.map(function (m) { return { key: m.key, el: document.getElementById(m.spy) }; }).filter(function (s) { return s.el; });
       var line = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh-offset'), 10) || 0) + window.innerHeight * 0.3;
       var cur = 'home';
-      spyEls.forEach(function (s) { var r = s.el.getBoundingClientRect(); if (r.top <= line && r.bottom > line) cur = s.key; });
+      /* 구간이 겹쳐 쌓이는 화면(카드 스크롤)에서도 맞게: 그 높이에 실제로 보이는 구간 기준 */
+      var hit = document.elementFromPoint(window.innerWidth / 2, Math.min(line, window.innerHeight - 1));
+      spyEls.forEach(function (s) { if (hit && s.el.contains(hit)) cur = s.key; });
       setCurrent(cur);
     }
     window.addEventListener('scroll', spy, { passive: true });   /* 계산이 가벼워 매 스크롤마다 바로 판정 */
