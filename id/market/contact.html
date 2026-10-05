@@ -255,7 +255,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005b">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005c">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/contact">
@@ -267,7 +267,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/id/market/trend-report.html">Laporan Tren Pemasaran Global 2026 · Lihat dulu strategi untuk tiap negara <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005b"></script>
+<script src="/shared/homi-header.js?v=20261005c"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-breadcrumb">Formulir Brief Proyek</div>
@@ -286,8 +286,9 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <input type="hidden" name="언어" value="ID">
       <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://homifactory.com/id/market/thanks.html">
+      <input type="hidden" name="_next" value="https://homifactory.com/id/market/contact?sent=1">
       <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="cf-row">
         <div class="cf-field"><label>Brand · Produk <span class="req">*</span></label><input name="브랜드·제품" required placeholder="Contoh) Sunscreen baru rendah iritasi"></div>
@@ -296,7 +297,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
       <div class="cf-row single">
         <div class="cf-field">
-          <label>Arah <span class="req">*</span> <span class="opt">— otomatis terpilih jika datang dari kartu ⑦ di Home</span></label>
+          <label>Arah <span class="req">*</span></label>
           <div class="direction-radio">
             <label class="active"><input type="radio" name="방향" value="한국→세계" checked> Korea → Global</label>
             <label><input type="radio" name="방향" value="세계→한국·아시아"> Global → Korea & Asia</label>
@@ -308,7 +309,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="cf-row">
         <div class="cf-field">
           <label>Negara · pasar tujuan <span class="req">*</span></label>
-          <div class="cf-sub">(Boleh pilih lebih dari satu · Korea + 8 basis + lainnya)</div>
+          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
           <div class="country-chip-grid" id="countryChips">
             <span class="cc" data-v="한국">Korea</span><span class="cc" data-v="일본">Jepang</span><span class="cc" data-v="인도네시아">Indonesia</span><span class="cc" data-v="북미">Amerika Utara</span><span class="cc" data-v="중국">Tiongkok</span><span class="cc" data-v="대만">Taiwan</span><span class="cc" data-v="홍콩">Hong Kong</span><span class="cc" data-v="필리핀">Filipina</span><span class="cc" data-v="인도">India</span><span class="cc" data-v="기타">Lainnya · Belum tahu</span>
           </div>
@@ -330,14 +331,14 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
 
       <div class="cf-row">
-        <div class="cf-field"><label>Waktu yang diinginkan</label><input name="원하는 시기" placeholder="Contoh) Menyesuaikan peluncuran bulan November"></div>
+        <div class="cf-field"><label>Waktu yang diinginkan <span class="opt">(opsional)</span></label><input name="원하는 시기" placeholder="Contoh) Menyesuaikan peluncuran bulan November"></div>
         <div class="cf-field"><label>Kisaran anggaran <span class="opt">(opsional)</span></label><input name="예산 범위" placeholder="Kosongkan jika belum tahu"></div>
       </div>
 
       <div class="cf-row triple">
-        <div class="cf-field"><label>Nama <span class="req">*</span></label><input name="이름" required></div>
-        <div class="cf-field"><label>Kontak <span class="req">*</span></label><input name="연락처" required></div>
-        <div class="cf-field"><label>Email <span class="req">*</span></label><input name="이메일" required type="email"></div>
+        <div class="cf-field"><label>Nama <span class="req">*</span></label><input name="이름" required autocomplete="name"></div>
+        <div class="cf-field"><label>Kontak <span class="req">*</span></label><input name="연락처" required type="tel" autocomplete="tel" placeholder="Contoh: 010-1234-5678"></div>
+        <div class="cf-field"><label>Email <span class="req">*</span></label><input name="이메일" required type="email" autocomplete="email" placeholder="name@company.com"></div>
       </div>
 
       <div class="cf-privacy-box">
@@ -352,12 +353,20 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
       <label class="cf-agree">
         <input type="checkbox" name="개인정보 동의" value="동의" required>
-        Saya menyetujui pengumpulan dan penggunaan data pribadi di atas (wajib) · <a href="/id/market/privacy.html">Kebijakan Privasi selengkapnya</a>
+        Saya menyetujui pengumpulan dan penggunaan data pribadi di atas (wajib) · <a href="/id/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">Kebijakan Privasi selengkapnya ↗</a>
       </label>
 
+      <p class="cf-top-err" role="alert" hidden></p>
       <button type="submit" class="cf-submit">Kirim formulir brief</button>
-      <p class="cf-footer-note">Setelah dikirim, akan muncul notifikasi selesai dan tim kami menerima pemberitahuan email (FR-COM-008)</p>
+      <p class="cf-footer-note">Setelah Anda mengirim, konfirmasi penerimaan akan langsung ditampilkan, dan tim kami akan menghubungi Anda setelah meninjaunya.</p>
     </form>
+    <div id="cfDone" class="cf-done" tabindex="-1" hidden>
+      <div class="cf-done-ic" aria-hidden="true">✓</div>
+      <h3>Permohonan Anda telah diterima</h3>
+      <p>Tim kami akan meninjau informasi yang Anda kirimkan, lalu menghubungi Anda melalui telepon atau email pada jam operasional (hari kerja 10:00~22:00).</p>
+      <p>Untuk pertanyaan mendesak, silakan hubungi kami melalui telepon <a href="tel:01040262695">010-4026-2695</a>.</p>
+      <a href="/id/market/" class="cf-done-btn">Ke Beranda</a>
+    </div>
   </div>
 </div>
 </section>
@@ -388,46 +397,45 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 </script>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-col">
+<footer class="hf" id="homi-footer">
+  <div class="hf-in">
+    <div class="hf-top">
+      <div class="hf-col">
         <h5>Layanan</h5>
         <ul>
-          <li><a href="/id/market/service-influencer.html">Pemasaran Influencer</a></li>
-          <li><a href="/id/market/service-visit.html">Promosi Kunjungan</a></li>
-          <li><a href="/id/market/service-event.html">Pop-up & Event</a></li>
+          <li><a href="/id/market/service-influencer">Pemasaran Influencer</a></li>
+          <li><a href="/id/market/service-visit">Promosi Kunjungan</a></li>
+          <li><a href="/id/market/service-event">Pop-up & Event</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>Jelajahi</h5>
         <ul>
           <li><a href="/id/market/#how-we-work">How We Work</a></li>
-          <li><a href="/id/market/case.html">Studi Kasus Klien</a></li>
-          <li><a href="/id/market/trend-report.html">Laporan Tren</a></li>
+          <li><a href="/id/market/#case">Studi Kasus</a></li>
+          <li><a href="/id/market/trend-report">Laporan Tren</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>Perusahaan</h5>
         <ul>
-          <li><a href="/">HOMI FACTORY ↗</a></li>
-          <li><a href="/production/">HOMI PRODUCTION ↗</a></li>
-          <li><a href="/id/market/terms.html">Syarat Layanan</a></li>
-          <li><a href="/id/market/privacy.html">Kebijakan Privasi</a></li>
+          <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
+          <li><a href="/id/market/terms">Syarat Layanan</a></li>
+          <li><a href="/id/market/privacy" class="hf-privacy">Kebijakan Privasi</a></li>
         </ul>
       </div>
-      <div class="footer-col"></div>
-      <div class="footer-support">
+      <div class="hf-support">
         <h5>Layanan Pelanggan</h5>
-        <div class="hours">Hari kerja 10:00 ~ 22:00<br>(Konsultasi juga tersedia di akhir pekan & hari libur)</div>
-        <div class="mail">Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></div>
-        <div class="tel">Telepon · <strong>010-4026-2695</strong></div>
-        <a href="/id/market/contact.html" class="cta">Konsultasi Gratis</a>
+        <p class="hf-hours">Hari kerja 10:00 ~ 22:00 (konsultasi juga tersedia di akhir pekan & hari libur)</p>
+        <p>Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>Telepon · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
+        <a href="/id/market/contact" class="hf-cta">Dapatkan Konsultasi Gratis</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>HOMI FACTORY Co., Ltd. · No. Registrasi Usaha 581-87-03832 · No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160<br>Alamat: 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan (Nonhyeon-dong)</div>
-      <div>©2026 HOMI FACTORY Co., Ltd. All rights reserved</div>
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
 </footer>
@@ -598,6 +606,87 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   /* 이전 버튼(alert) 제거 + 상태 복원 */
   document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
   render(); if(st.open) setOpen(true,false);
+})();
+</script>
+<script id="cf-js">
+/* FR-COM-008·009 의뢰서 공통 동작 — 칸 아래 안내, 형식 검사, 동의 필수, 완료 안내, 이메일 알림(FormSubmit), 접수 기록(Make → 구글 시트), 스팸 방지(숨은 칸) */
+(function(){
+  var f=document.getElementById('inquiryForm'); if(!f) return;
+  var MAIL='https://formsubmit.co/ajax/support@homifactory.com';
+  var STORE='https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh';
+  f.noValidate=true;
+  var MSG={
+    req:'Kolom ini wajib diisi. Silakan masukkan isinya.',
+    country:'Silakan pilih setidaknya satu negara/pasar tujuan.',
+    phone:'Silakan periksa format nomor telepon. (Contoh: 010-1234-5678, +62 812 3456 7890)',
+    email:'Silakan periksa format email. (Contoh: name@company.com)',
+    agree:'Anda harus menyetujui pengumpulan dan penggunaan data pribadi untuk dapat mengajukan permohonan.',
+    top:'Silakan periksa kembali isian Anda. Perbaiki kolom yang ditandai, lalu Anda dapat langsung mengirimnya.',
+    sending:'Mengirim…',
+    fail:'Pengiriman gagal. Silakan coba lagi beberapa saat lagi atau kirimkan ke support@homifactory.com.'
+  };
+  function field(el){ return el.closest('.cf-field')||el.closest('.cf-agree')||el.parentNode; }
+  function setErr(el,msg){
+    var box=field(el), id=(el.name||el.id||'f').replace(/[^\w]/g,'')+'-err'+Math.random().toString(36).slice(2,6);
+    var p=box.querySelector(':scope > .cf-err');
+    if(!msg){ if(p) p.remove(); el.removeAttribute('aria-invalid'); box.classList.remove('is-invalid'); return true; }
+    if(!p){ p=document.createElement('p'); p.className='cf-err'; p.id=id; p.setAttribute('role','alert'); box.appendChild(p); }
+    p.textContent=msg; el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',p.id); box.classList.add('is-invalid'); return false;
+  }
+  var isEmail=function(v){ return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v); };
+  var isPhone=function(v){ var d=v.replace(/[\s\-().]/g,''); return /^\+?\d{9,15}$/.test(d); };
+  function check(el){
+    var v=(el.value||'').trim();
+    if(el.type==='checkbox') return setErr(el, el.checked?'':MSG.agree);
+    if(el.id==='countryHidden') return setErr(el, v?'':MSG.country);
+    if(el.required && !v) return setErr(el, MSG.req);
+    if(el.name==='연락처' && v && !isPhone(v)) return setErr(el, MSG.phone);
+    if(el.type==='email' && v && !isEmail(v)) return setErr(el, MSG.email);
+    return setErr(el,'');
+  }
+  var targets=[].slice.call(f.querySelectorAll('input[required],textarea[required],input[type=email]'));
+  var ch=document.getElementById('countryHidden'); if(ch && targets.indexOf(ch)<0) targets.splice(1,0,ch);
+  targets.forEach(function(el){
+    el.addEventListener('blur',function(){ if(el.value || el.getAttribute('aria-invalid')) check(el); });
+    el.addEventListener('input',function(){ if(el.getAttribute('aria-invalid')) check(el); });
+    el.addEventListener('change',function(){ if(el.getAttribute('aria-invalid')) check(el); });
+  });
+  document.querySelectorAll('#countryChips .cc').forEach(function(c){
+    c.setAttribute('role','checkbox'); c.setAttribute('tabindex','0'); c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false');
+    c.addEventListener('click',function(){ setTimeout(function(){ c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false'); if(ch.getAttribute('aria-invalid')) check(ch); },0); });
+    c.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); c.click(); } });
+  });
+  var topErr=f.querySelector('.cf-top-err');
+  function done(){
+    var ok=document.getElementById('cfDone'); if(!ok) return;
+    f.hidden=true; ok.hidden=false; ok.focus(); ok.scrollIntoView({block:'center'});
+  }
+  if(/[?&]sent=1/.test(location.search)) done();
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=targets.filter(function(el){ return !check(el); });
+    if(bad.length){ if(topErr){ topErr.textContent=MSG.top; topErr.hidden=false; } bad[0].focus(); if(bad[0].id==='countryHidden'){ var c0=document.querySelector('#countryChips .cc'); if(c0) c0.focus(); } return; }
+    if(topErr) topErr.hidden=true;
+    if(f._honey && f._honey.value){ done(); return; }   /* 스팸: 보내지 않고 끝낸 것처럼 */
+    var btn=f.querySelector('.cf-submit'), label=btn.textContent; btn.disabled=true; btn.textContent=MSG.sending;
+    var g=function(n){ var el=f.elements[n]; return el? (el.value||'').trim() : ''; };
+    var dirEl=f.querySelector('input[name="방향"]:checked');
+    var lang=g('언어')||'KR';
+    var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',
+      '언어':lang,'브랜드·제품':g('브랜드·제품'),'브랜드 링크':g('브랜드 링크'),'방향':dirEl?dirEl.value:'','진출 국가·시장':g('진출 국가·시장'),
+      '현재 판매 채널':g('현재 판매 채널'),'지금 가장 큰 고민':g('지금 가장 큰 고민'),'이루고 싶은 목표':g('이루고 싶은 목표'),
+      '원하는 시기':g('원하는 시기'),'예산 범위':g('예산 범위'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+    var row={lang:lang,brand:mail['브랜드·제품'],link:mail['브랜드 링크'],dir:mail['방향'],countries:mail['진출 국가·시장'],channel:mail['현재 판매 채널'],
+      concern:mail['지금 가장 큰 고민'],goal:mail['이루고 싶은 목표'],timing:mail['원하는 시기'],budget:mail['예산 범위'],
+      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
+    var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
+    var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
+    var s=post(STORE,row).then(function(){ return true; });
+    Promise.allSettled([a,s]).then(function(rs){
+      if(rs.some(function(x){ return x.status==='fulfilled'; })){ done(); }
+      else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
+    });
+  });
 })();
 </script>
 </body></html>

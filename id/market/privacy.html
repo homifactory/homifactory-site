@@ -193,7 +193,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005b">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005c">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/privacy">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/privacy">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/privacy">
@@ -205,137 +205,171 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/id/market/trend-report.html">Laporan Tren Pemasaran Global 2026 · Lihat dulu strategi untuk tiap negara <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005b"></script>
+<script src="/shared/homi-header.js?v=20261005c"></script>
 <section class="doc-hero">
   <h1>Kebijakan Privasi</h1>
   <p class="i18n-note" style="margin:12px 0 0;padding:10px 14px;border-radius:10px;background:#F3ECFF;color:#4A2A80;font-size:14px;line-height:1.6">Terjemahan ini disediakan sebagai referensi untuk membantu pemahaman. Jika terdapat perbedaan dengan naskah asli berbahasa Korea, naskah berbahasa Korea yang berlaku.</p>
-  <div class="meta"><span class="ver">v1.0 · 2026-10-02</span><span>Tanggal berlaku: 2026-10-02</span></div>
+  <div class="meta"><span class="ver">v1.1</span><span>Berlaku sejak 5 Oktober 2026 · HOMI FACTORY Co., Ltd.</span></div>
 </section>
-<section class="doc-section">
-  <p>HOMI FACTORY Co., Ltd. (selanjutnya disebut "Perusahaan") menetapkan dan mengumumkan Kebijakan Privasi berikut sesuai dengan 「Undang-Undang Perlindungan Informasi Pribadi」 Korea, untuk melindungi data pribadi pengguna serta menangani keluhan terkait secara cepat dan lancar.</p>
+<section class="doc-section pv">
+  <p>HOMI FACTORY Co., Ltd. (selanjutnya disebut "Perusahaan") menetapkan dan mengumumkan Kebijakan Privasi ini sesuai dengan Pasal 30 「Undang-Undang Perlindungan Informasi Pribadi」 untuk melindungi informasi pribadi subjek data serta menangani keluhan terkait secara cepat dan lancar. Kebijakan ini berlaku untuk situs web HOMI MARKET (https://homifactory.com/market) yang dioperasikan oleh Perusahaan.</p>
 
-  <h2>1. Data pribadi yang dikumpulkan dan cara pengumpulannya</h2>
-  <h3>A. Data yang dikumpulkan</h3>
-  <ul>
-    <li><strong>Data wajib</strong>: nama, kontak, email, nama brand/produk, isi konsultasi</li>
-    <li><strong>Data opsional</strong>: link brand, kanal penjualan saat ini, waktu yang diinginkan, kisaran anggaran, negara tujuan ekspansi</li>
-    <li><strong>Dikumpulkan otomatis</strong>: riwayat penggunaan layanan, log akses, cookie, alamat IP</li>
-  </ul>
-  <h3>B. Cara pengumpulan</h3>
-  <ul><li>Formulir permohonan konsultasi di website</li><li>Pertanyaan melalui email dan telepon</li><li>Dibuat dan dikumpulkan secara otomatis selama penggunaan layanan</li></ul>
+  <h2 id="pv-1">Pasal 1 (Tujuan Pemrosesan Informasi Pribadi)</h2>
+  <p>Perusahaan memproses informasi pribadi untuk tujuan-tujuan berikut. Informasi pribadi yang diproses tidak akan digunakan untuk tujuan selain yang disebutkan di bawah ini, dan apabila tujuan penggunaan berubah, Perusahaan akan mengambil langkah-langkah yang diperlukan, antara lain memperoleh persetujuan terpisah sesuai dengan Pasal 18 「Undang-Undang Perlindungan Informasi Pribadi」.</p>
+  <ol>
+    <li>Penerimaan dan pemrosesan permohonan konsultasi pemasaran (formulir permohonan): verifikasi isi permohonan, penyampaian usulan rencana pemasaran yang disesuaikan, komunikasi untuk pelaksanaan konsultasi, dan pemberitahuan hasil pemrosesan</li>
+    <li>Penanganan pertanyaan dan keluhan: verifikasi pertanyaan, komunikasi untuk penyelidikan fakta, dan pemberitahuan hasil pemrosesan</li>
+    <li>Statistik penggunaan situs web: peningkatan layanan melalui analisis kunjungan dan penggunaan (digunakan dalam bentuk statistik yang tidak dapat mengidentifikasi individu)</li>
+    <li>Konsultasi obrolan langsung (live chat): verifikasi dan tanggapan atas pertanyaan obrolan, serta pengelolaan riwayat konsultasi</li>
+  </ol>
 
-  <h2>2. Tujuan pengumpulan dan penggunaan data pribadi</h2>
-  <ul>
-    <li>Menerima permohonan konsultasi dan mengajukan rencana yang disesuaikan</li>
-    <li>Menghubungi Anda untuk keperluan konsultasi</li>
-    <li>Penyediaan layanan dan pelaksanaan kontrak</li>
-    <li>Analisis statistik dan peningkatan kualitas layanan</li>
-  </ul>
+  <h2 id="pv-2">Pasal 2 (Jenis Informasi Pribadi yang Diproses)</h2>
+  <ol>
+    <li>Formulir permohonan (permohonan Konsultasi Gratis) — Wajib: nama, kontak (nomor telepon), email, nama brand/produk, isi konsultasi (arah pelaksanaan, negara/pasar tujuan, kendala, target)<br>Opsional: link brand (alamat situs web/media sosial), kanal penjualan saat ini, waktu yang diinginkan, kisaran anggaran</li>
+    <li>Informasi yang dibuat dan dikumpulkan secara otomatis selama penggunaan situs web: alamat IP akses, cookie, tanggal dan waktu kunjungan, catatan penggunaan layanan, informasi browser dan perangkat</li>
+    <li>Konsultasi obrolan langsung — jenis konsultasi, isi konsultasi, serta nama dan kontak (nomor telepon atau email) untuk menerima tanggapan</li>
+  </ol>
+  <p class="pv-note">※ Pengguna diimbau untuk tidak mencantumkan informasi sensitif seperti nomor registrasi penduduk atau informasi kesehatan pada kolom isi konsultasi, dan Perusahaan tidak meminta informasi tersebut.</p>
 
-  <h2>3. Masa penyimpanan dan penggunaan data pribadi</h2>
-  <div class="box">
-    <strong>Prinsip</strong>: Data dimusnahkan tanpa penundaan setelah tujuan pengumpulan dan penggunaannya tercapai.<br><br>
-    <strong>Masa penyimpanan</strong>
-    <ul style="margin-top:8px">
-      <li>Data permohonan konsultasi: <strong>1 tahun</strong> sejak tanggal konsultasi selesai</li>
-      <li>Jika terjadi kontrak: sesuai jangka waktu menurut peraturan terkait (UU Perdagangan Elektronik Korea, dll.)</li>
-      <li>Catatan penyalahgunaan: 1 tahun</li>
-    </ul>
-  </div>
+  <h2 id="pv-3">Pasal 3 (Masa Pemrosesan dan Penyimpanan Informasi Pribadi)</h2>
+  <p>① Perusahaan memproses dan menyimpan informasi pribadi dalam jangka waktu penyimpanan dan penggunaan yang ditetapkan oleh peraturan perundang-undangan atau yang disetujui oleh subjek data pada saat pengumpulan informasi pribadi.</p>
+  <p>② Masa pemrosesan dan penyimpanan masing-masing informasi pribadi adalah sebagai berikut.</p>
+  <ol>
+    <li>Informasi formulir permohonan (permohonan konsultasi): 1 tahun sejak tanggal selesainya konsultasi. Namun, apabila konsultasi berlanjut menjadi kontrak, informasi tersebut disimpan selama jangka waktu yang ditetapkan oleh peraturan perundang-undangan terkait (「Kitab Undang-Undang Hukum Dagang (Korea)」, 「Undang-Undang Dasar Perpajakan Nasional」, dan lain-lain) untuk pelaksanaan kontrak dan penyelesaian sengketa terkait.</li>
+    <li>Catatan akses situs web: 3 bulan (「Undang-Undang Perlindungan Kerahasiaan Komunikasi」)</li>
+    <li>Catatan konsultasi obrolan langsung: 1 tahun sejak tanggal berakhirnya konsultasi</li>
+  </ol>
+  <p>③ Terlepas dari jangka waktu di atas, apabila sedang berlangsung penyidikan atau pemeriksaan terkait, informasi pribadi disimpan hingga penyidikan atau pemeriksaan tersebut selesai.</p>
 
-  <h2>4. Pemberian data pribadi kepada pihak ketiga</h2>
-  <p>Pada prinsipnya, Perusahaan tidak memberikan data pribadi pengguna kepada pihak luar, kecuali dalam hal-hal berikut.</p>
-  <ul><li>Jika pengguna telah memberikan persetujuan sebelumnya</li><li>Jika diwajibkan berdasarkan peraturan perundang-undangan</li></ul>
+  <h2 id="pv-4">Pasal 4 (Pemberian Informasi Pribadi kepada Pihak Ketiga)</h2>
+  <p>① Perusahaan memproses informasi pribadi subjek data hanya dalam lingkup tujuan yang dinyatakan dalam Pasal 1, dan memberikan informasi pribadi kepada pihak ketiga hanya dalam hal-hal yang termasuk dalam Pasal 17 dan Pasal 18 「Undang-Undang Perlindungan Informasi Pribadi」, seperti adanya persetujuan subjek data atau ketentuan khusus dalam undang-undang.</p>
+  <p>② Saat ini Perusahaan tidak memberikan informasi pribadi kepada pihak ketiga. Apabila dalam proses konsultasi atau pelaksanaan kampanye diperlukan pemberian informasi pribadi kepada mitra lokal di luar negeri dan pihak lainnya, Perusahaan akan terlebih dahulu memberitahukan penerima, tujuan pemberian, jenis informasi yang diberikan, serta masa penyimpanan dan penggunaannya, dan memperoleh persetujuan terpisah.</p>
 
-  <h2>5. Hak pengguna dan cara menggunakannya</h2>
-  <ul>
-    <li>Permintaan akses, koreksi, dan penghapusan data pribadi</li>
-    <li>Permintaan penghentian pemrosesan</li>
-    <li>Penarikan persetujuan</li>
-  </ul>
-  <p>Pengguna dapat mengajukan permintaan kapan saja melalui support@homifactory.com atau 010-4026-2695.</p>
+  <h2 id="pv-5">Pasal 5 (Alih Daya Pemrosesan Informasi Pribadi)</h2>
+  <p>① Untuk kelancaran pemrosesan informasi pribadi, Perusahaan mengalihdayakan pekerjaan pemrosesan informasi pribadi sebagai berikut.</p>
+  <div class="pv-table"><table>
+    <thead><tr><th>Penerima Alih Daya</th><th>Pekerjaan yang Dialihdayakan</th></tr></thead>
+    <tbody>
+      <tr><td>Vercel Inc.</td><td>Pengoperasian situs web (hosting)</td></tr>
+      <tr><td>FormSubmit</td><td>Pengiriman email notifikasi penerimaan formulir permohonan dan konsultasi obrolan langsung</td></tr>
+      <tr><td>Make(make.com)</td><td>Penerusan dan pencatatan data penerimaan formulir permohonan</td></tr>
+      <tr><td>Google LLC</td><td>Penyimpanan data penerimaan formulir permohonan (Google Spreadsheet)</td></tr>
+    </tbody>
+  </table></div>
+  <p>② Pada saat menandatangani kontrak alih daya, sesuai dengan Pasal 26 「Undang-Undang Perlindungan Informasi Pribadi」, Perusahaan mencantumkan dalam kontrak atau dokumen lainnya hal-hal mengenai larangan pemrosesan informasi pribadi di luar tujuan pelaksanaan pekerjaan yang dialihdayakan, langkah-langkah perlindungan teknis dan administratif, pembatasan alih daya lanjutan, pengelolaan dan pengawasan terhadap penerima alih daya, serta tanggung jawab termasuk ganti rugi, dan mengawasi apakah penerima alih daya memproses informasi pribadi dengan aman.</p>
+  <p>③ Apabila isi pekerjaan yang dialihdayakan atau penerima alih daya berubah, Perusahaan akan segera mengumumkannya melalui Kebijakan Privasi ini.</p>
 
-  <h2>6. Prosedur dan cara pemusnahan data pribadi</h2>
-  <ul>
-    <li><strong>Prosedur pemusnahan</strong>: dimusnahkan segera sesuai kebijakan internal setelah tujuan tercapai</li>
-    <li><strong>Cara pemusnahan</strong>: file elektronik dihapus permanen dengan cara yang tidak dapat dipulihkan; dokumen kertas dihancurkan atau dibakar</li>
-  </ul>
+  <h2 id="pv-6">Pasal 6 (Pemindahan Informasi Pribadi ke Luar Negeri)</h2>
+  <p>① Perusahaan memindahkan informasi pribadi ke luar negeri (alih daya pemrosesan dan penyimpanan) untuk analisis statistik penggunaan situs web sebagai berikut.</p>
+  <div class="pv-table"><table>
+    <thead><tr><th>Item</th><th>Rincian</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Penerima Pemindahan</th><td>Google LLC (kontak: https://support.google.com/analytics)</td></tr>
+      <tr><th scope="row">Negara Tujuan Pemindahan</th><td>Amerika Serikat</td></tr>
+      <tr><th scope="row">Waktu dan Cara Pemindahan</th><td>Dikirim melalui jaringan pada saat mengunjungi situs web</td></tr>
+      <tr><th scope="row">Jenis Informasi yang Dipindahkan</th><td>Pengenal cookie, riwayat kunjungan, informasi browser dan perangkat</td></tr>
+      <tr><th scope="row">Tujuan Pemindahan</th><td>Analisis statistik penggunaan situs web (Google Analytics)</td></tr>
+      <tr><th scope="row">Masa Penyimpanan dan Penggunaan</th><td>14 bulan (berdasarkan pengaturan masa retensi data Google Analytics)</td></tr>
+      <tr><th scope="row">Cara Menolak dan Akibatnya</th><td>Anda dapat menolak dengan memblokir penyimpanan cookie di browser atau memasang add-on pemblokir Google Analytics, dan penolakan tersebut tidak menimbulkan kerugian apa pun dalam penggunaan situs web maupun pengajuan permohonan konsultasi.</td></tr>
+    </tbody>
+  </table></div>
+  <p>② Kepada penerima alih daya dalam Pasal 5 yang memiliki server di luar negeri (Vercel Inc., FormSubmit, Make, Google LLC), item terkait sebagaimana dimaksud dalam Pasal 2 dikirim melalui jaringan pada saat Anda mengirim formulir permohonan atau konsultasi obrolan, dan disimpan selama masa penyimpanan sebagaimana dimaksud dalam Pasal 3. Apabila Anda tidak menghendaki pemindahan ke luar negeri, Anda dapat mengajukan permohonan konsultasi melalui email (support@homifactory.com) atau telepon (010-4026-2695) sebagai pengganti formulir permohonan.</p>
 
-  <h2>7. Penanggung jawab perlindungan data pribadi</h2>
-  <div class="box">
-    <strong>Penanggung jawab perlindungan data pribadi</strong><br>
-    Bagian: Tim Operasional · Email: support@homifactory.com · Telepon: 010-4026-2695
-  </div>
+  <h2 id="pv-7">Pasal 7 (Prosedur dan Metode Pemusnahan Informasi Pribadi)</h2>
+  <p>① Perusahaan akan segera memusnahkan informasi pribadi apabila informasi pribadi tersebut tidak lagi diperlukan, seperti karena berakhirnya masa penyimpanan atau tercapainya tujuan pemrosesan.</p>
+  <p>② Apabila informasi pribadi wajib terus disimpan berdasarkan peraturan perundang-undangan lain, informasi pribadi tersebut dipindahkan ke basis data (DB) terpisah atau disimpan di lokasi penyimpanan yang berbeda.</p>
+  <p>③ Informasi dalam bentuk file elektronik dihapus dengan metode teknis sehingga tidak dapat dipulihkan atau diputar ulang, dan dokumen kertas dimusnahkan dengan cara dihancurkan atau dibakar.</p>
 
-  <h2>8. Penggunaan cookie</h2>
-  <p>Perusahaan dapat menggunakan cookie untuk meningkatkan kualitas layanan, dan pengguna dapat menolak penyimpanan cookie melalui pengaturan browser.</p>
+  <h2 id="pv-8">Pasal 8 (Hak dan Kewajiban Subjek Data dan Perwakilan Hukumnya serta Cara Pelaksanaannya)</h2>
+  <p>① Subjek data dapat sewaktu-waktu menggunakan haknya terhadap Perusahaan, antara lain meminta akses, koreksi, penghapusan, dan penghentian pemrosesan informasi pribadi, serta menarik persetujuan.</p>
+  <p>② Hak tersebut dapat digunakan melalui surat tertulis, email, dan sebagainya, dan Perusahaan akan menindaklanjutinya tanpa penundaan (dalam waktu 10 hari sejak tanggal diterimanya permintaan).</p>
+  <p>③ Hak tersebut juga dapat digunakan melalui perwakilan, seperti perwakilan hukum subjek data atau pihak yang menerima kuasa. Dalam hal ini, surat kuasa sesuai dengan Formulir Lampiran No. 11 「Pemberitahuan tentang Metode Pemrosesan Informasi Pribadi」 wajib diserahkan.</p>
+  <p>④ Hak subjek data atas permintaan akses dan penghentian pemrosesan informasi pribadi dapat dibatasi berdasarkan Pasal 35 ayat (4) dan Pasal 37 ayat (2) 「Undang-Undang Perlindungan Informasi Pribadi」.</p>
+  <p>⑤ Permintaan koreksi dan penghapusan informasi pribadi tidak dapat diajukan untuk penghapusan apabila informasi pribadi tersebut secara tegas ditetapkan sebagai objek pengumpulan dalam peraturan perundang-undangan lain.</p>
+  <p>⑥ Perusahaan memverifikasi apakah pihak yang menggunakan hak tersebut adalah subjek data yang bersangkutan atau perwakilan yang sah.</p>
 
-  <h2>9. Perubahan Kebijakan Privasi</h2>
-  <p>Kebijakan ini berlaku sejak 2 Oktober 2026, dan setiap perubahan akan diumumkan 7 hari sebelum diberlakukan.</p>
+  <h2 id="pv-9">Pasal 9 (Informasi Pribadi Anak di Bawah Usia 14 Tahun)</h2>
+  <p>Situs web dan layanan konsultasi Perusahaan ditujukan bagi perwakilan perusahaan dan brand, dan Perusahaan tidak mengumpulkan informasi pribadi anak di bawah usia 14 tahun.</p>
+
+  <h2 id="pv-10">Pasal 10 (Langkah-Langkah Pengamanan Informasi Pribadi)</h2>
+  <p>Sesuai dengan Pasal 29 「Undang-Undang Perlindungan Informasi Pribadi」, Perusahaan mengambil langkah-langkah yang diperlukan untuk menjamin keamanan sebagai berikut.</p>
+  <ol>
+    <li>Langkah administratif: penyusunan dan pelaksanaan rencana pengelolaan internal, minimalisasi jumlah karyawan yang menangani informasi pribadi, serta pelatihan berkala</li>
+    <li>Langkah teknis: pengelolaan hak akses dan pengendalian akses ke sistem pemrosesan informasi pribadi, penyimpanan catatan akses serta pencegahan pemalsuan dan perubahan, enkripsi jalur transmisi (HTTPS), serta pemasangan dan pembaruan program keamanan</li>
+    <li>Langkah fisik: pengendalian akses masuk ke lokasi penyimpanan materi yang berisi informasi pribadi</li>
+  </ol>
+
+  <h2 id="pv-11">Pasal 11 (Pemasangan, Pengoperasian, dan Penolakan Perangkat Pengumpulan Informasi Pribadi Otomatis)</h2>
+  <p>① Perusahaan menggunakan cookie, yang menyimpan informasi penggunaan dan memanggilnya kembali dari waktu ke waktu, untuk menyediakan informasi yang sesuai bagi pengguna.</p>
+  <p>② Tujuan penggunaan cookie: analisis statistik kunjungan dan penggunaan (Google Analytics). Isi percakapan pada jendela konsultasi obrolan langsung disimpan sementara di penyimpanan sesi browser dan akan dihapus saat browser ditutup.</p>
+  <p>③ Pemasangan, pengoperasian, dan penolakan cookie: Anda dapat menolak penyimpanan cookie melalui pengaturan browser web (contoh: Chrome — Setelan &gt; Privasi dan keamanan &gt; Cookie pihak ketiga, Safari — Pengaturan &gt; Privasi).</p>
+  <p>④ Penolakan penyimpanan cookie tidak memengaruhi penggunaan situs web maupun pengajuan permohonan konsultasi.</p>
+
+  <h2 id="pv-12">Pasal 12 (Penanggung Jawab Perlindungan Informasi Pribadi dan Unit Penerima Permintaan Akses)</h2>
+  <p>Perusahaan bertanggung jawab secara menyeluruh atas pekerjaan yang berkaitan dengan pemrosesan informasi pribadi, dan untuk menangani keluhan subjek data serta memberikan pemulihan atas kerugian yang berkaitan dengan pemrosesan informasi pribadi, Perusahaan menunjuk unit perlindungan informasi pribadi dan penanganan keluhan sebagaimana tercantum di bawah ini. Subjek data dapat mengajukan permintaan akses informasi pribadi kepada unit di bawah ini.</p>
+  <div class="pv-table"><table>
+    <thead><tr><th>Kategori</th><th>Rincian</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Unit Penanggung Jawab Perlindungan Informasi Pribadi</th><td>Tim Layanan Pelanggan</td></tr>
+      <tr><th scope="row">Kontak</th><td>Telepon <a href="tel:01040262695">010-4026-2695</a> / Email <a href="mailto:support@homifactory.com">support@homifactory.com</a></td></tr>
+      <tr><th scope="row">Unit Penerimaan dan Pemrosesan Permintaan Akses</th><td>Tim Layanan Pelanggan (kontak sama seperti di atas)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="pv-13">Pasal 13 (Cara Pemulihan atas Pelanggaran Hak dan Kepentingan)</h2>
+  <p>Untuk memperoleh pemulihan atas pelanggaran informasi pribadi, subjek data dapat mengajukan permohonan penyelesaian sengketa atau konsultasi kepada lembaga-lembaga berikut.</p>
+  <ol>
+    <li>Personal Information Dispute Mediation Committee: (tanpa kode area) 1833-6972 (www.kopico.go.kr)</li>
+    <li>Personal Information Infringement Report Center (KISA): (tanpa kode area) 118 (privacy.kisa.or.kr)</li>
+    <li>Supreme Prosecutors’ Office: (tanpa kode area) 1301 (www.spo.go.kr)</li>
+    <li>Korean National Police Agency: (tanpa kode area) 182 (ecrm.police.go.kr)</li>
+  </ol>
+  <p>Pihak yang hak atau kepentingannya dilanggar akibat tindakan atau kelalaian kepala lembaga publik atas permintaan berdasarkan Pasal 35 (Akses), Pasal 36 (Koreksi dan Penghapusan), dan Pasal 37 (Penghentian Pemrosesan, dan lain-lain) 「Undang-Undang Perlindungan Informasi Pribadi」 dapat mengajukan banding administratif sebagaimana diatur dalam Undang-Undang Banding Administratif. (Central Administrative Appeals Commission: (tanpa kode area) 110, www.simpan.go.kr)</p>
+
+  <h2 id="pv-14">Pasal 14 (Perubahan Kebijakan Privasi)</h2>
+  <p>① Kebijakan Privasi ini berlaku sejak 5 Oktober 2026.</p>
+  <p>② Apabila terdapat penambahan, penghapusan, atau perubahan isi kebijakan ini, Perusahaan akan memberitahukannya melalui situs web sejak 7 hari sebelum perubahan tersebut berlaku, dan apabila terdapat perubahan penting terhadap hak subjek data, pemberitahuan dilakukan sejak 30 hari sebelumnya.</p>
 </section>
 
-<section class="legal-sec">
-<h3>7. Hak dan kewajiban subjek data serta cara menggunakannya</h3>
-<p>Pengguna dapat kapan saja melihat atau mengubah data pribadinya yang terdaftar, atau meminta pembatalan keanggotaan (penarikan persetujuan). Hak tersebut dapat digunakan melalui pengaturan di dalam layanan atau dengan mengirim permintaan ke <a href="mailto:support@homifactory.com">support@homifactory.com</a>, dan Perusahaan akan menindaklanjutinya tanpa penundaan.</p>
-<ul>
-<li>Permintaan akses data pribadi</li>
-<li>Permintaan koreksi jika terdapat kesalahan</li>
-<li>Permintaan penghapusan</li>
-<li>Permintaan penghentian pemrosesan</li>
-</ul>
-</section>
-<section class="legal-sec">
-<h3>8. Langkah-langkah pengamanan data pribadi</h3>
-<ul>
-<li>Langkah administratif: penyusunan dan pelaksanaan rencana pengelolaan internal, pelatihan karyawan secara berkala, dll.</li>
-<li>Langkah teknis: pengelolaan hak akses sistem pemrosesan data pribadi, pemasangan sistem kontrol akses, enkripsi data identifikasi unik, pemasangan program keamanan</li>
-<li>Langkah fisik: kontrol akses ke ruang server, ruang penyimpanan arsip, dll.</li>
-</ul>
-</section>
-<section class="legal-sec">
-<h3>9. Perubahan Kebijakan Privasi</h3>
-<p>Kebijakan Privasi ini berlaku sejak 1 Oktober 2026. Apabila terdapat penambahan, penghapusan, atau koreksi akibat perubahan peraturan maupun kebijakan, hal tersebut akan diberitahukan melalui pengumuman sejak 7 hari sebelum perubahan diberlakukan.</p>
-</section>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-col">
+<footer class="hf" id="homi-footer">
+  <div class="hf-in">
+    <div class="hf-top">
+      <div class="hf-col">
         <h5>Layanan</h5>
         <ul>
-          <li><a href="/id/market/service-influencer.html">Pemasaran Influencer</a></li>
-          <li><a href="/id/market/service-visit.html">Promosi Kunjungan</a></li>
-          <li><a href="/id/market/service-event.html">Pop-up & Event</a></li>
+          <li><a href="/id/market/service-influencer">Pemasaran Influencer</a></li>
+          <li><a href="/id/market/service-visit">Promosi Kunjungan</a></li>
+          <li><a href="/id/market/service-event">Pop-up & Event</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>Jelajahi</h5>
         <ul>
           <li><a href="/id/market/#how-we-work">How We Work</a></li>
-          <li><a href="/id/market/case.html">Studi Kasus Klien</a></li>
-          <li><a href="/id/market/trend-report.html">Laporan Tren</a></li>
+          <li><a href="/id/market/#case">Studi Kasus</a></li>
+          <li><a href="/id/market/trend-report">Laporan Tren</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>Perusahaan</h5>
         <ul>
-          <li><a href="/">HOMI FACTORY ↗</a></li>
-          <li><a href="/production/">HOMI PRODUCTION ↗</a></li>
-          <li><a href="/id/market/terms.html">Syarat Layanan</a></li>
-          <li><a href="/id/market/privacy.html">Kebijakan Privasi</a></li>
+          <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
+          <li><a href="/id/market/terms">Syarat Layanan</a></li>
+          <li><a href="/id/market/privacy" class="hf-privacy">Kebijakan Privasi</a></li>
         </ul>
       </div>
-      <div class="footer-col"></div>
-      <div class="footer-support">
+      <div class="hf-support">
         <h5>Layanan Pelanggan</h5>
-        <div class="hours">Hari kerja 10:00 ~ 22:00<br>(Konsultasi juga tersedia di akhir pekan & hari libur)</div>
-        <div class="mail">Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></div>
-        <div class="tel">Telepon · <strong>010-4026-2695</strong></div>
-        <a href="/id/market/contact.html" class="cta">Konsultasi Gratis</a>
+        <p class="hf-hours">Hari kerja 10:00 ~ 22:00 (konsultasi juga tersedia di akhir pekan & hari libur)</p>
+        <p>Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>Telepon · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
+        <a href="/id/market/contact" class="hf-cta">Dapatkan Konsultasi Gratis</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>HOMI FACTORY Co., Ltd. · No. Registrasi Usaha 581-87-03832 · No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160<br>Alamat: 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan (Nonhyeon-dong)</div>
-      <div>©2026 HOMI FACTORY Co., Ltd. All rights reserved</div>
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
 </footer>
