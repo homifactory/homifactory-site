@@ -255,7 +255,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005b">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005c">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/contact">
@@ -267,7 +267,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/market/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005b"></script>
+<script src="/shared/homi-header.js?v=20261005c"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-breadcrumb">의뢰서</div>
@@ -285,8 +285,9 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <input type="hidden" name="_subject" value="[HOMI MARKET 의뢰서] 신규 상담 신청">
       <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://homifactory.com/market/thanks.html">
+      <input type="hidden" name="_next" value="https://homifactory.com/market/contact?sent=1">
       <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="cf-row">
         <div class="cf-field"><label>브랜드·제품 <span class="req">*</span></label><input name="브랜드·제품" required placeholder="예) 저자극 선크림 신제품"></div>
@@ -295,7 +296,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
       <div class="cf-row single">
         <div class="cf-field">
-          <label>방향 <span class="req">*</span> <span class="opt">— Home ⑦ 카드에서 오면 미리 선택됨</span></label>
+          <label>방향 <span class="req">*</span></label>
           <div class="direction-radio">
             <label class="active"><input type="radio" name="방향" value="한국→세계" checked> 한국 → 세계</label>
             <label><input type="radio" name="방향" value="세계→한국·아시아"> 세계 → 한국·아시아</label>
@@ -307,7 +308,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="cf-row">
         <div class="cf-field">
           <label>진출하려는 국가·시장 <span class="req">*</span></label>
-          <div class="cf-sub">(여러 개 선택 · 한국 + 거점 8곳 + 기타)</div>
+          <div class="cf-sub">(여러 개 선택할 수 있어요)</div>
           <div class="country-chip-grid" id="countryChips">
             <span class="cc" data-v="한국">한국</span><span class="cc" data-v="일본">일본</span><span class="cc" data-v="인도네시아">인도네시아</span><span class="cc" data-v="북미">북미</span><span class="cc" data-v="중국">중국</span><span class="cc" data-v="대만">대만</span><span class="cc" data-v="홍콩">홍콩</span><span class="cc" data-v="필리핀">필리핀</span><span class="cc" data-v="인도">인도</span><span class="cc" data-v="기타">기타·아직 모르겠어요</span>
           </div>
@@ -329,14 +330,14 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
 
       <div class="cf-row">
-        <div class="cf-field"><label>원하는 시기</label><input name="원하는 시기" placeholder="예) 11월 출시에 맞춰"></div>
+        <div class="cf-field"><label>원하는 시기 <span class="opt">(선택)</span></label><input name="원하는 시기" placeholder="예) 11월 출시에 맞춰"></div>
         <div class="cf-field"><label>예산 범위 <span class="opt">(선택)</span></label><input name="예산 범위" placeholder="아직 모르면 비워두세요"></div>
       </div>
 
       <div class="cf-row triple">
-        <div class="cf-field"><label>이름 <span class="req">*</span></label><input name="이름" required></div>
-        <div class="cf-field"><label>연락처 <span class="req">*</span></label><input name="연락처" required></div>
-        <div class="cf-field"><label>이메일 <span class="req">*</span></label><input name="이메일" required type="email"></div>
+        <div class="cf-field"><label>이름 <span class="req">*</span></label><input name="이름" required autocomplete="name"></div>
+        <div class="cf-field"><label>연락처 <span class="req">*</span></label><input name="연락처" required type="tel" autocomplete="tel" placeholder="예) 010-1234-5678"></div>
+        <div class="cf-field"><label>이메일 <span class="req">*</span></label><input name="이메일" required type="email" autocomplete="email" placeholder="name@company.com"></div>
       </div>
 
       <div class="cf-privacy-box">
@@ -351,12 +352,20 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
       <label class="cf-agree">
         <input type="checkbox" name="개인정보 동의" value="동의" required>
-        위 개인정보 수집·이용에 동의합니다 (필수) · <a href="/market/privacy.html">개인정보 처리방침 전문</a>
+        위 개인정보 수집·이용에 동의합니다 (필수) · <a href="/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">개인정보 처리방침 전문 ↗</a>
       </label>
 
+      <p class="cf-top-err" role="alert" hidden></p>
       <button type="submit" class="cf-submit">의뢰서 보내기</button>
-      <p class="cf-footer-note">보내면 완료 안내가 뜨고, 담당자에게 이메일 알림이 가요 (FR-COM-008)</p>
+      <p class="cf-footer-note">보내 주시면 접수 완료 안내가 바로 표시되고, 담당자가 확인한 뒤 연락드립니다.</p>
     </form>
+    <div id="cfDone" class="cf-done" tabindex="-1" hidden>
+      <div class="cf-done-ic" aria-hidden="true">✓</div>
+      <h3>의뢰서가 접수되었습니다</h3>
+      <p>남겨 주신 내용을 담당자가 확인한 뒤, 운영시간(평일 10:00~22:00) 안에 연락처나 이메일로 연락드릴게요.</p>
+      <p>급한 문의는 전화 <a href="tel:01040262695">010-4026-2695</a> 로 연락 주세요.</p>
+      <a href="/market/" class="cf-done-btn">홈으로</a>
+    </div>
   </div>
 </div>
 </section>
@@ -387,46 +396,45 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 </script>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-col">
+<footer class="hf" id="homi-footer">
+  <div class="hf-in">
+    <div class="hf-top">
+      <div class="hf-col">
         <h5>서비스</h5>
         <ul>
-          <li><a href="/market/service-influencer.html">인플루언서 마케팅</a></li>
-          <li><a href="/market/service-visit.html">방문 프로모션</a></li>
-          <li><a href="/market/service-event.html">팝업 및 행사 운영</a></li>
+          <li><a href="/market/service-influencer">인플루언서 마케팅</a></li>
+          <li><a href="/market/service-visit">방문 프로모션</a></li>
+          <li><a href="/market/service-event">팝업 및 행사 운영</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>알아보기</h5>
         <ul>
           <li><a href="/market/#how-we-work">How We Work</a></li>
-          <li><a href="/market/case.html">고객 사례</a></li>
-          <li><a href="/market/trend-report.html">트렌드 리포트</a></li>
+          <li><a href="/market/#case">고객 사례</a></li>
+          <li><a href="/market/trend-report">트렌드 리포트</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="hf-col">
         <h5>회사</h5>
         <ul>
-          <li><a href="/">HOMI FACTORY ↗</a></li>
-          <li><a href="/production/">HOMI PRODUCTION ↗</a></li>
-          <li><a href="/market/terms.html">이용약관</a></li>
-          <li><a href="/market/privacy.html">개인정보처리방침</a></li>
+          <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
+          <li><a href="/market/terms">이용약관</a></li>
+          <li><a href="/market/privacy" class="hf-privacy">개인정보처리방침</a></li>
         </ul>
       </div>
-      <div class="footer-col"></div>
-      <div class="footer-support">
+      <div class="hf-support">
         <h5>고객 지원</h5>
-        <div class="hours">평일 10:00 ~ 22:00<br>(주말·공휴일 상담 가능)</div>
-        <div class="mail">이메일 · <a href="mailto:support@homifactory.com">support@homifactory.com</a></div>
-        <div class="tel">전화 · <strong>010-4026-2695</strong></div>
-        <a href="/market/contact.html" class="cta">무료 상담 받기</a>
+        <p class="hf-hours">평일 10:00 ~ 22:00 (주말·공휴일 상담 가능)</p>
+        <p>이메일 · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>전화 · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
+        <a href="/market/contact" class="hf-cta">무료 상담 받기</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>(주) 호미팩토리 · 사업자번호 581-87-03832 · 통신판매번호 제2026-서울강남-05160호<br>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</div>
-      <div>©2026 HOMI FACTORY Co., Ltd. All rights reserved</div>
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
 </footer>
@@ -597,6 +605,87 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   /* 이전 버튼(alert) 제거 + 상태 복원 */
   document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
   render(); if(st.open) setOpen(true,false);
+})();
+</script>
+<script id="cf-js">
+/* FR-COM-008·009 의뢰서 공통 동작 — 칸 아래 안내, 형식 검사, 동의 필수, 완료 안내, 이메일 알림(FormSubmit), 접수 기록(Make → 구글 시트), 스팸 방지(숨은 칸) */
+(function(){
+  var f=document.getElementById('inquiryForm'); if(!f) return;
+  var MAIL='https://formsubmit.co/ajax/support@homifactory.com';
+  var STORE='https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh';
+  f.noValidate=true;
+  var MSG={
+    req:'필수 항목이에요. 내용을 입력해 주세요.',
+    country:'진출하려는 국가·시장을 하나 이상 골라 주세요.',
+    phone:'전화번호 형식을 확인해 주세요. (예: 010-1234-5678, +62 812 3456 7890)',
+    email:'이메일 형식을 확인해 주세요. (예: name@company.com)',
+    agree:'개인정보 수집·이용에 동의해 주셔야 신청할 수 있어요.',
+    top:'입력 내용을 확인해 주세요. 표시된 칸을 고치면 바로 보낼 수 있어요.',
+    sending:'보내는 중…',
+    fail:'전송에 실패했어요. 잠시 후 다시 시도하시거나 support@homifactory.com 으로 보내 주세요.'
+  };
+  function field(el){ return el.closest('.cf-field')||el.closest('.cf-agree')||el.parentNode; }
+  function setErr(el,msg){
+    var box=field(el), id=(el.name||el.id||'f').replace(/[^\w]/g,'')+'-err'+Math.random().toString(36).slice(2,6);
+    var p=box.querySelector(':scope > .cf-err');
+    if(!msg){ if(p) p.remove(); el.removeAttribute('aria-invalid'); box.classList.remove('is-invalid'); return true; }
+    if(!p){ p=document.createElement('p'); p.className='cf-err'; p.id=id; p.setAttribute('role','alert'); box.appendChild(p); }
+    p.textContent=msg; el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',p.id); box.classList.add('is-invalid'); return false;
+  }
+  var isEmail=function(v){ return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v); };
+  var isPhone=function(v){ var d=v.replace(/[\s\-().]/g,''); return /^\+?\d{9,15}$/.test(d); };
+  function check(el){
+    var v=(el.value||'').trim();
+    if(el.type==='checkbox') return setErr(el, el.checked?'':MSG.agree);
+    if(el.id==='countryHidden') return setErr(el, v?'':MSG.country);
+    if(el.required && !v) return setErr(el, MSG.req);
+    if(el.name==='연락처' && v && !isPhone(v)) return setErr(el, MSG.phone);
+    if(el.type==='email' && v && !isEmail(v)) return setErr(el, MSG.email);
+    return setErr(el,'');
+  }
+  var targets=[].slice.call(f.querySelectorAll('input[required],textarea[required],input[type=email]'));
+  var ch=document.getElementById('countryHidden'); if(ch && targets.indexOf(ch)<0) targets.splice(1,0,ch);
+  targets.forEach(function(el){
+    el.addEventListener('blur',function(){ if(el.value || el.getAttribute('aria-invalid')) check(el); });
+    el.addEventListener('input',function(){ if(el.getAttribute('aria-invalid')) check(el); });
+    el.addEventListener('change',function(){ if(el.getAttribute('aria-invalid')) check(el); });
+  });
+  document.querySelectorAll('#countryChips .cc').forEach(function(c){
+    c.setAttribute('role','checkbox'); c.setAttribute('tabindex','0'); c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false');
+    c.addEventListener('click',function(){ setTimeout(function(){ c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false'); if(ch.getAttribute('aria-invalid')) check(ch); },0); });
+    c.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); c.click(); } });
+  });
+  var topErr=f.querySelector('.cf-top-err');
+  function done(){
+    var ok=document.getElementById('cfDone'); if(!ok) return;
+    f.hidden=true; ok.hidden=false; ok.focus(); ok.scrollIntoView({block:'center'});
+  }
+  if(/[?&]sent=1/.test(location.search)) done();
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=targets.filter(function(el){ return !check(el); });
+    if(bad.length){ if(topErr){ topErr.textContent=MSG.top; topErr.hidden=false; } bad[0].focus(); if(bad[0].id==='countryHidden'){ var c0=document.querySelector('#countryChips .cc'); if(c0) c0.focus(); } return; }
+    if(topErr) topErr.hidden=true;
+    if(f._honey && f._honey.value){ done(); return; }   /* 스팸: 보내지 않고 끝낸 것처럼 */
+    var btn=f.querySelector('.cf-submit'), label=btn.textContent; btn.disabled=true; btn.textContent=MSG.sending;
+    var g=function(n){ var el=f.elements[n]; return el? (el.value||'').trim() : ''; };
+    var dirEl=f.querySelector('input[name="방향"]:checked');
+    var lang=g('언어')||'KR';
+    var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',
+      '언어':lang,'브랜드·제품':g('브랜드·제품'),'브랜드 링크':g('브랜드 링크'),'방향':dirEl?dirEl.value:'','진출 국가·시장':g('진출 국가·시장'),
+      '현재 판매 채널':g('현재 판매 채널'),'지금 가장 큰 고민':g('지금 가장 큰 고민'),'이루고 싶은 목표':g('이루고 싶은 목표'),
+      '원하는 시기':g('원하는 시기'),'예산 범위':g('예산 범위'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+    var row={lang:lang,brand:mail['브랜드·제품'],link:mail['브랜드 링크'],dir:mail['방향'],countries:mail['진출 국가·시장'],channel:mail['현재 판매 채널'],
+      concern:mail['지금 가장 큰 고민'],goal:mail['이루고 싶은 목표'],timing:mail['원하는 시기'],budget:mail['예산 범위'],
+      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
+    var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
+    var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
+    var s=post(STORE,row).then(function(){ return true; });
+    Promise.allSettled([a,s]).then(function(rs){
+      if(rs.some(function(x){ return x.status==='fulfilled'; })){ done(); }
+      else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
+    });
+  });
 })();
 </script>
 </body></html>
