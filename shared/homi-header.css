@@ -213,3 +213,18 @@ body:has(#stickyAsk) .hf,body:has(#sdAskFixed) .hf{padding-bottom:128px}
 .cf-agree{display:block!important;position:relative;padding-left:30px;line-height:1.65;cursor:pointer}
 .cf-agree input[type=checkbox]{position:absolute;left:0;top:2px;margin:0}
 .cf-agree .cf-err{display:block;margin-top:6px}
+
+/* ── Home 히어로 배경 영상 (FR-COM-015) ── */
+section.hero.hv{position:relative;min-height:calc(100svh - var(--hh-ban,48px));display:flex;align-items:center;justify-content:center;padding:calc(var(--hh-offset,122px) - var(--hh-ban,48px) + 48px) 24px 72px!important;background:#141018!important;overflow:hidden;color:#fff}
+.hv-media{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hv-poster,.hv-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hv-video{opacity:0;transition:opacity .8s ease}
+.hv.hv-on .hv-video{opacity:1}
+.hv-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,8,24,.42) 0%,rgba(12,8,24,.48) 55%,rgba(12,8,24,.58) 100%)}
+section.hero.hv .hero-inner{position:relative;z-index:1;max-width:1000px}
+section.hero.hv h1{color:#fff;margin-top:0!important;text-shadow:0 2px 28px rgba(0,0,0,.28)}
+section.hero.hv h1 .hl{color:#C9A6FF}
+section.hero.hv p{color:rgba(255,255,255,.92);margin-bottom:36px;text-shadow:0 1px 16px rgba(0,0,0,.3)}
+section.hero.hv p span{color:#E2CCFF!important}
+.hv-network{padding:40px 24px 48px;text-align:center;background:#fff;border-bottom:1px solid #F0ECF6}
+@media (prefers-reduced-motion:reduce){.hv-video{display:none}}
