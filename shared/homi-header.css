@@ -149,3 +149,52 @@ html[lang="ja"] body, html[lang="ja"] body *{word-break:normal!important;line-br
 html:not([lang="ko"]) .sd-btn{white-space:normal;text-align:center}
 /* 모바일: 넓은 표는 표 안에서만 가로 스크롤 (화면 전체가 옆으로 밀리지 않게) — NFR-02 */
 @media (max-width:600px){body[data-site="market"] table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+
+/* ── 공통 푸터 (FR-COM-010) — 호미 팩토리·호미 MARKET 동일 표기 ── */
+.hf{background:#141414;color:rgba(255,255,255,.72);padding:64px 32px 32px;font-family:var(--hh-font,'Pretendard','Noto Sans KR',system-ui,sans-serif);-webkit-font-smoothing:antialiased}
+.hf *{box-sizing:border-box}
+.hf a{color:inherit;text-decoration:none}
+.hf-in{max-width:1280px;margin:0 auto}
+.hf-top{display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px;padding-bottom:40px}
+.hf h5{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.04em;margin:0 0 16px}
+.hf ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.hf-col a{font-size:14.5px;font-weight:700;color:#fff}
+.hf-col a:hover,.hf-col a:focus-visible{color:#C9A6FF}
+.hf-col a.hf-privacy{color:#C9A6FF;font-weight:800;text-decoration:underline;text-underline-offset:3px}   /* 개인정보처리방침: 다른 링크와 구분 (FR-COM-011) */
+.hf-support p{margin:0 0 10px;font-size:14px;line-height:1.6;color:rgba(255,255,255,.85)}
+.hf-support .hf-hours{font-weight:700;color:#fff}
+.hf-support a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.hf-cta{display:inline-flex!important;margin-top:8px;padding:12px 22px;border-radius:10px;background:#fff;color:#141414!important;text-decoration:none!important;font-size:14px;font-weight:800}
+.hf-cta:hover{background:#F3ECFF}
+.hf a:focus-visible{outline:2px solid #C9A6FF;outline-offset:3px;border-radius:4px}
+.hf-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:12.5px;line-height:1.8;color:rgba(255,255,255,.55)}
+.hf-bottom p{margin:0}
+.hf-biz span+span::before{content:" | ";color:rgba(255,255,255,.3)}
+.hf-copy{margin-top:4px!important}
+@media (max-width:900px){.hf{padding:48px 20px 28px}.hf-top{grid-template-columns:1fr 1fr;gap:28px}.hf-support{grid-column:1/-1}}
+@media (max-width:520px){.hf-biz span{display:block}.hf-biz span+span::before{content:none}}
+
+/* ── 의뢰서 공통 동작 (FR-COM-008·009) ── */
+.cf-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.cf-err{margin:6px 0 0;font-size:13px;font-weight:600;color:#D92D20;line-height:1.5}
+.is-invalid input,.is-invalid textarea,.is-invalid .country-chip-grid{border-color:#D92D20!important;box-shadow:0 0 0 3px rgba(217,45,32,.12)}
+.cf-agree.is-invalid{color:#D92D20}
+.cf-top-err{margin:14px 0 0;padding:12px 14px;border-radius:10px;background:#FEF3F2;color:#B42318;font-size:14px;font-weight:600}
+.country-chip-grid .cc:focus-visible{outline:2px solid #8B3DFF;outline-offset:2px}
+.cf-submit[disabled]{opacity:.6;cursor:progress}
+.cf-done{padding:56px 32px;text-align:center;border-radius:20px;background:#fff;border:1px solid #ECE8F3;outline:none}
+.cf-done-ic{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:#F3ECFF;color:#8B3DFF;display:grid;place-items:center;font-size:30px;font-weight:900}
+.cf-done h3{font-size:24px;font-weight:900;margin:0 0 12px;letter-spacing:-.02em}
+.cf-done p{font-size:15px;line-height:1.7;color:#55525C;margin:0 0 6px}
+.cf-done a{color:#8B3DFF;font-weight:700}
+.cf-done-btn{display:inline-flex;margin-top:18px;padding:12px 26px;border-radius:999px;background:#8B3DFF;color:#fff!important}
+
+/* ── 개인정보 처리방침 전문 (FR-COM-011) ── */
+.doc-section.pv ol{margin:10px 0 14px;padding-left:22px;font-size:14.5px;color:var(--ink-2,#3A3742);line-height:1.85}
+.doc-section.pv ol li{margin-bottom:6px}
+.doc-section.pv .pv-note{font-size:13.5px;color:#6B6773}
+.pv-table{overflow-x:auto;margin:14px 0}
+.pv-table table{margin:0;min-width:520px}
+.pv-table tbody th{background:#FAF9FC;width:30%;font-weight:700}
+/* 하단 고정 바(상담 유도)가 있는 페이지: 푸터 회사 정보가 바에 가리지 않게 */
+body:has(#stickyAsk) .hf,body:has(#sdAskFixed) .hf{padding-bottom:128px}
