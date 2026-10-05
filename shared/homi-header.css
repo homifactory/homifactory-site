@@ -198,3 +198,14 @@ html:not([lang="ko"]) .sd-btn{white-space:normal;text-align:center}
 .pv-table tbody th{background:#FAF9FC;width:30%;font-weight:700}
 /* 하단 고정 바(상담 유도)가 있는 페이지: 푸터 회사 정보가 바에 가리지 않게 */
 body:has(#stickyAsk) .hf,body:has(#sdAskFixed) .hf{padding-bottom:128px}
+
+/* 의뢰서 「방향」 선택: 공통 입력칸 폭(100%)이 라디오에도 걸려 글자가 여러 줄로 깨지던 문제 */
+.direction-radio input[type=radio]{width:18px!important;height:18px;flex:0 0 18px;margin:0;padding:0;border:0;box-shadow:none}
+.direction-radio label{justify-content:flex-start;line-height:1.4;min-height:48px}
+/* 고정 헤더 아래로 상단 경로(예: 「의뢰서」)가 가려지지 않게 */
+.page-hero:has(+ .contact-section){padding-top:calc(var(--hh-offset,122px) - var(--hh-ban,48px) + 28px)}
+.direction-radio{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important}
+/* 의뢰서: 상단 경로를 본문 왼쪽 선에 맞추고 아래 빈 공간 줄이기 */
+.page-hero:has(+ .contact-section){padding-bottom:0}
+.page-hero:has(+ .contact-section) .page-hero-inner{padding:0 24px}
+.page-hero + .contact-section .contact-wrap{margin-top:20px}

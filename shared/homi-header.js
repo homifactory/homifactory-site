@@ -176,6 +176,7 @@
     var ban = document.querySelector('.trend-banner,.renewal-banner');
     if (ban && getComputedStyle(ban).position === 'fixed') top = Math.max(0, Math.round(ban.getBoundingClientRect().bottom));
     hh.style.top = top + 'px';
+    document.documentElement.style.setProperty('--hh-ban', top + 'px');   /* 고정 배너 높이 — 페이지별 상단 여백 계산용 */
     if (fixed) { hh.style.position = 'fixed'; hh.style.left = '0'; hh.style.right = '0'; slot.style.minHeight = '0'; }
     var bottom = Math.round(hh.getBoundingClientRect().bottom);
     hh.style.setProperty('--hh-bottom', bottom + 'px');
