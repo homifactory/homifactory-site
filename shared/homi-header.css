@@ -24,7 +24,7 @@ html{scroll-padding-top:calc(var(--hh-h,72px) + 16px)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 
 /* ── 레이아웃: 로고 좌 · 메뉴 중앙 · 언어/형제 링크 우 ── */
-.hh{position:sticky;top:0;z-index:1000;background:var(--hh-bg);border-bottom:1px solid var(--hh-line);font-family:var(--hh-font);-webkit-font-smoothing:antialiased}
+.hh{position:sticky;top:0;z-index:1000;background:var(--hh-bg);border-bottom:1px solid var(--hh-line);font-family:var(--hh-font);color:var(--hh-ink);-webkit-font-smoothing:antialiased}
 .hh *{box-sizing:border-box}
 .hh a{text-decoration:none;color:inherit}
 .hh-in{max-width:1440px;height:var(--hh-h);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
