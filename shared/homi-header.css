@@ -209,3 +209,7 @@ body:has(#stickyAsk) .hf,body:has(#sdAskFixed) .hf{padding-bottom:128px}
 .page-hero:has(+ .contact-section){padding-bottom:0}
 .page-hero:has(+ .contact-section) .page-hero-inner{padding:0 24px}
 .page-hero + .contact-section .contact-wrap{margin-top:20px}
+/* 개인정보 동의 줄: 가로 배치(flex) 때문에 문장·링크·안내가 3칸으로 갈라지던 문제 → 문장 흐름 + 안내는 아래 줄 */
+.cf-agree{display:block!important;position:relative;padding-left:30px;line-height:1.65;cursor:pointer}
+.cf-agree input[type=checkbox]{position:absolute;left:0;top:2px;margin:0}
+.cf-agree .cf-err{display:block;margin-top:6px}
