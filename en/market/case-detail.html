@@ -202,7 +202,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005b">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005c">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/case-detail">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/case-detail">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/case-detail">
@@ -212,7 +212,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <body data-site="market" data-header="fixed">
 <div class="renewal-banner">HOMI MARKET is launching soon · ALL-IN-ONE marketing that grows your brand</div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005b"></script>
+<script src="/shared/homi-header.js?v=20261005c"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-eyebrow reveal">CASE · CHARACTER · IP</div>
@@ -254,14 +254,46 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     </div>
   </div>
 </section>
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand"><span class="footer-brand-mark"><img src="/assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt=""></span><span class="footer-brand-text">HOMI MARKET</span></div>
-      <div class="footer-info"><strong>HOMI FACTORY Co., Ltd.</strong> · Business Registration No. 581-87-03832 · Mail-Order Business Reg. No. 2026-Seoul Gangnam-05160<br>4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea · <strong>support@homifactory.com</strong> · 010-4026-2695</div>
-      <div class="footer-links"><a href="/privacy.html">Privacy Policy</a><a href="/">HOMI FACTORY →</a><a href="#" onclick="alert('Coming soon');return false;">HOMI PRODUCTION →</a></div>
+<footer class="hf" id="homi-footer">
+  <div class="hf-in">
+    <div class="hf-top">
+      <div class="hf-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/en/market/service-influencer">Influencer Marketing</a></li>
+          <li><a href="/en/market/service-visit">Visit Promotion</a></li>
+          <li><a href="/en/market/service-event">Pop-ups & Events</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="/en/market/#how-we-work">How We Work</a></li>
+          <li><a href="/en/market/#case">Client Cases</a></li>
+          <li><a href="/en/market/trend-report">Trend Report</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
+          <li><a href="/en/market/terms">Terms of Service</a></li>
+          <li><a href="/en/market/privacy" class="hf-privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="hf-support">
+        <h5>Customer support</h5>
+        <p class="hf-hours">Weekdays 10:00 ~ 22:00 (Weekends & holidays available)</p>
+        <p>Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>Phone · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
+        <a href="/en/market/contact" class="hf-cta">Get a Free Consultation</a>
+      </div>
     </div>
-    <div class="footer-info" style="align-self:flex-end;text-align:right">© 2026 HOMI FACTORY Inc.<br>All rights reserved.</div>
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>Business Reg. No. 581-87-03832</span><span>Mail-Order Business Reg. No. 2026-Seoul Gangnam-05160</span><span>Address: 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
+    </div>
   </div>
 </footer>
 <div class="bottom-bar" id="bottomBar">
