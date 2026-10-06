@@ -247,6 +247,8 @@ body{padding-top:48px}
 .sd-ask-b{display:flex;gap:8px;flex-shrink:0}
 .sd-ask[hidden]{display:none!important}
 .sd-ask.fixed{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);margin:0;width:calc(100% - 48px);z-index:90;animation:sdUp .25s ease-out}
+.sd-ask.fixed[hidden]{display:none}
+@media(min-width:601px){.sd-ask.fixed{bottom:28px;max-width:860px;border-radius:999px;border:1px solid #E6E0D6;padding:10px 12px 10px 26px}}
 @keyframes sdUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
 .sd-sec{padding:84px 0}
 .sd-beige{background:#F4F2EE}
@@ -504,7 +506,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   document.body.appendChild(f);
   var band=document.querySelector('.sd-band');
   var heroGone=false, bandIn=false;
-  function upd(){ f.hidden=!(heroGone&&!bandIn); }
+  function upd(){ f.hidden=!heroGone; }   /* Home처럼 끝까지 따라 내려옴 */
   new IntersectionObserver(function(e){ heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0; upd(); }).observe(a);
   if(band) new IntersectionObserver(function(e){ bandIn=e[0].isIntersecting; upd(); }).observe(band);
 })();
@@ -532,23 +534,37 @@ html.fp-on .fp-fill{display:flex;flex-direction:column;justify-content:center}
   function top(el){ return el.getBoundingClientRect().top+scrollY; }
   function layout(){
     off=parseInt(getComputedStyle(root).getPropertyValue('--hh-offset'),10)||0; ih=innerHeight;
-    blks.forEach(function(b){ b.style.minHeight=''; b.classList.remove('fp-fill'); });
+    blks.forEach(function(b){ b.style.minHeight=''; b.style.paddingTop=''; b.style.paddingBottom=''; b.classList.remove('fp-fill'); });
     var avail=ih-off; groups=[]; var pend=[];
+    function hsum(a){ return a.reduce(function(s,b){ return s+b.offsetHeight; },0); }
     blks.forEach(function(b,i){
+      var short=b.offsetHeight<avail*0.4, prevG=groups[groups.length-1];
+      /* 낮은 띠: 앞 화면에 같이 들어가면 앞에, 아니면 다음 구간과 한 화면으로 */
+      if(short && !pend.length && prevG && groups.length>1 && hsum(prevG)+b.offsetHeight<=avail){ prevG.push(b); return; }
       pend.push(b);
-      var short=b.offsetHeight<avail*0.4 && i<blks.length-1;    /* 낮은 띠는 다음 구간과 한 화면으로 */
-      if(!short){ groups.push(pend); pend=[]; }
+      if(!(short && i<blks.length-1)){ groups.push(pend); pend=[]; }
     });
     if(pend.length) groups.push(pend);
+    /* 아래 고정 바(상담 질문 바)가 가리는 높이 — 내용은 헤더 아래 ~ 고정 바 위 사이의 가운데에 */
+    var bar=document.getElementById('stickyAsk')||document.getElementById('sdAskFixed'), barSpace=0;
+    if(bar){ var bh=bar.getBoundingClientRect().height||64, bb=parseFloat(getComputedStyle(bar).bottom)||24; barSpace=Math.round(bh+bb+16); }
     groups.forEach(function(g,gi){
       var h=g.reduce(function(s,b){ return s+b.offsetHeight; },0), last=g[g.length-1];
-      var need=gi===0?Math.round(ih-top(g[0])-h):avail-h;         /* 첫 화면도 창 높이에 맞춤 */
-      if(need>0){ last.style.minHeight=(last.offsetHeight+need)+'px'; last.classList.add('fp-fill'); }
+      if(gi===0){ var need0=Math.round(ih-top(g[0])-h); if(need0>0){ last.style.minHeight=(last.offsetHeight+need0)+'px'; last.classList.add('fp-fill'); } return; }   /* 첫 화면도 창 높이에 맞춤 */
+      if(avail-h<=0) return;                                      /* 한 화면보다 긴 구간은 그대로 */
+      var prev=h-last.offsetHeight, cs=getComputedStyle(last), pt0=parseFloat(cs.paddingTop)||0, pb0=parseFloat(cs.paddingBottom)||0;
+      var c=last.offsetHeight-pt0-pb0, H=avail-prev, region=ih-barSpace-(off+prev);
+      var pt=Math.max(24,Math.round((region-c)/2)), pb=H-c-pt;
+      if(pb<16){ pt=Math.max(16,pt+pb-16); pb=H-c-pt; }
+      last.style.paddingTop=pt+'px'; last.style.paddingBottom=pb+'px'; last.style.minHeight=H+'px';
     });
     var maxY=Math.max(0,root.scrollHeight-ih);
     groups.forEach(function(g,gi){ g.doc=top(g[0]); g.top=gi===0?0:Math.min(maxY,Math.round(g.doc-off)); });
     groups.forEach(function(g,gi){ var nx=groups[gi+1], bottom=nx?nx.doc:root.scrollHeight; g.fin=Math.min(maxY,Math.max(g.top,Math.round(bottom-ih))); });
     buildDots(); sync();
+    /* 주소에 #구간 이 있으면(다른 페이지에서 Case 등을 눌러 들어온 경우) 높이 조정 뒤 다시 그 위치로 */
+    if(!moved && location.hash){ var t=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if(t){ var tg=groups.filter(function(g){ return g.some(function(b){ return b===t; }); })[0]; scrollTo(0,tg?tg.top:Math.max(0,top(t)-off-24)); sync(); } }
   }
   function idx(){ var y=scrollY+2, k=0; groups.forEach(function(g,i){ if(g.top<=y) k=i; }); return k; }
   function ease(t){ return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2; }
@@ -570,6 +586,7 @@ html.fp-on .fp-fill{display:flex;flex-direction:column;justify-content:center}
     }
     return false;
   }
+  var moved=false; ['wheel','touchstart','keydown','mousedown'].forEach(function(t){ window.addEventListener(t,function(){ moved=true; },{passive:true,capture:true}); });
   window.addEventListener('wheel',function(e){
     if(e.ctrlKey||root.classList.contains('hh-menu-open')||Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
     if(scrollableInside(e.target,e.deltaY)) return;
