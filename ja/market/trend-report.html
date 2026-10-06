@@ -185,14 +185,14 @@ body{padding-top:48px}
 </style>
 <style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
-.hc-fab{position:fixed;right:24px;bottom:24px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
+.hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
 .hc-fab:hover{transform:scale(1.06);background:#7D2AE8}
 .hc-fab:focus-visible{outline:3px solid #C4A6FF;outline-offset:3px}
 .hc-fab svg{width:26px;height:26px}
 .hc-fab .hc-x{display:none}.hc-fab[aria-expanded="true"] .hc-x{display:block}.hc-fab[aria-expanded="true"] .hc-b{display:none}
 .hc-badge{position:absolute;top:-2px;right:-2px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#FFC53D;color:#141414;font:800 11px/20px Inter,sans-serif;text-align:center}
 .hc-fab[aria-expanded="true"] .hc-badge,.hc-seen .hc-badge{display:none}
-.hc-panel{position:fixed;right:24px;bottom:96px;width:372px;max-height:min(640px,calc(100vh - 140px));display:flex;flex-direction:column;background:#F4F2EE;border-radius:26px;box-shadow:0 24px 60px rgba(20,10,40,.22);z-index:10010;overflow:hidden;font-family:'Noto Sans KR','Pretendard',sans-serif;color:#141414;opacity:0;visibility:hidden;transform:translateY(12px) scale(.98);transform-origin:bottom right;transition:opacity .2s,transform .2s,visibility .2s}
+.hc-panel{position:fixed;right:40px;bottom:104px;width:372px;max-height:min(640px,calc(100vh - 140px));display:flex;flex-direction:column;background:#F4F2EE;border-radius:26px;box-shadow:0 24px 60px rgba(20,10,40,.22);z-index:10010;overflow:hidden;font-family:'Noto Sans KR','Pretendard',sans-serif;color:#141414;opacity:0;visibility:hidden;transform:translateY(12px) scale(.98);transform-origin:bottom right;transition:opacity .2s,transform .2s,visibility .2s}
 .hc-panel.open{opacity:1;visibility:visible;transform:none}
 .hc-head{padding:22px 22px 14px;flex-shrink:0}
 .hc-top{display:flex;align-items:center;gap:10px}
@@ -221,6 +221,18 @@ body{padding-top:48px}
 .hc-info{font-size:12.5px;color:#55525C;background:#fff;border-radius:12px;padding:10px 14px;text-align:center}
 .hc-info a{color:#8B3DFF;font-weight:700}
 .hc-foot{text-align:center;font-size:11.5px;color:#8E8B96;padding:8px 0 12px;flex-shrink:0}
+.hc-tabs{display:flex;flex-shrink:0;background:#fff;border-top:1px solid #E8E4DC}
+.hc-tabs button{all:unset;box-sizing:border-box;flex:1;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 11px;font-size:11.5px;font-weight:600;color:#8E8B96}
+.hc-tabs button svg{width:20px;height:20px}
+.hc-tabs button[aria-current="page"]{color:#8B3DFF}
+.hc-tabs button:focus-visible{outline:2px solid #8B3DFF;outline-offset:-4px;border-radius:8px}
+.hc-set h4{font-size:13px;font-weight:700;margin:0 0 10px}
+.hc-langs{display:flex;flex-wrap:wrap;gap:8px}
+.hc-langs a{padding:7px 12px;border-radius:999px;border:1px solid #E1DCF0;font-size:13px;color:#141414;text-decoration:none}
+.hc-langs a[aria-current="true"]{background:#8B3DFF;border-color:#8B3DFF;color:#fff;font-weight:700}
+.hc-ghost{all:unset;cursor:pointer;font-size:13px;color:#55525C;text-decoration:underline;text-underline-offset:3px}
+@media(hover:none){html.hc-typing .hc-fab{opacity:0;pointer-events:none}}
+@media(max-width:600px){.hf-in{padding-bottom:64px}}
 /* 대화 화면 */
 .hc-msgs{display:flex;flex-direction:column;gap:8px}
 .hc-m{max-width:84%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.6;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
@@ -246,7 +258,7 @@ body{padding-top:48px}
 .hc-back{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;margin-left:-8px}
 .hc-back:hover{background:#E8E4DE}
 @media(max-width:600px){
- .hc-fab{right:16px;bottom:16px;width:56px;height:56px}
+ .hc-fab{right:20px;bottom:16px;width:56px;height:56px}
  .hc-panel{right:8px;left:8px;bottom:80px;width:auto;max-height:calc(100dvh - 96px);border-radius:22px}
 }
 body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibility:hidden}
@@ -361,7 +373,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
 
   var TYPES=['インフルエンサーマーケティング','来店プロモーション','ポップアップ・イベント','その他'];
-  var KEY='hc-state-v1-ja', st={};
+  var KEY='hc-state-v1', st={};
   try{ st=JSON.parse(sessionStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
   st.msgs=st.msgs||[]; st.view=st.view||'home';
   function save(){ try{ sessionStorage.setItem(KEY,JSON.stringify(st)); }catch(e){} }
@@ -406,7 +418,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       +'<div class="hc-card hc-other"><b>その他のお問い合わせ方法</b>'
       +'<button type="button" class="hc-rnd hc-kakao" data-a="kakao" aria-label="KakaoTalkで問い合わせる">'+I.kakao+'</button>'
       +'<button type="button" class="hc-rnd hc-tel" data-a="tel" aria-label="電話で問い合わせる">'+I.tel+'</button></div>'
-      +kk+tel+'</div><div class="hc-foot">HOMI MARKET チャット相談</div>';
+      +kk+tel+'</div>'+tabs('home');
+  }
+  function tabs(cur){
+    var T=[['home','ホーム','<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>'],['chat','チャット','<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>'],['set','設定','<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>']];
+    return '<nav class="hc-tabs" aria-label="相談ウィンドウのメニュー">'+T.map(function(t){ return '<button type="button" data-a="tab-'+t[0]+'"'+(t[0]===cur?' aria-current="page"':'')+'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+t[2]+'</svg>'+t[1]+'</button>'; }).join('')+'</nav>';
+  }
+  function settings(){
+    var langs=[].map.call(document.querySelectorAll('.hh-lang-menu a'),function(a){ return '<a href="'+a.getAttribute('href')+'"'+(a.getAttribute('aria-current')?' aria-current="true"':'')+' hreflang="'+(a.getAttribute('hreflang')||'')+'">'+esc(a.textContent)+'</a>'; }).join('');
+    return head(false)+'<div class="hc-body">'
+      +(langs?'<div class="hc-card hc-set"><h4>言語</h4><div class="hc-langs">'+langs+'</div></div>':'')
+      +'<div class="hc-card hc-set"><h4>営業時間</h4><p class="hc-note" style="text-align:left;margin:0">平日 10:00〜22:00 · 土日祝日もご相談いただけます<br>営業時間外のお問い合わせには、次の営業時間内にご返信します。</p></div>'
+      +'<div class="hc-card hc-set"><h4>チャット履歴</h4>'+(st.msgs.length?'<button type="button" class="hc-ghost" data-a="reset">このブラウザのチャット履歴を削除</button>':'<p class="hc-note" style="text-align:left;margin:0">まだチャット履歴はありません。</p>')+'</div>'
+      +'</div>'+tabs('set');
   }
   function bubble(m){ return '<div class="hc-m '+m.r+'">'+esc(m.t)+'</div>'; }
   function chat(){
@@ -421,10 +445,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     b+='</div>';
     var showInput=!!st.type && !(st.ask && !st.sent);
     return head(true)+'<div class="hc-body">'+b+'</div>'
-      +'<form class="hc-input" data-i="1"'+(showInput?'':' hidden')+'><textarea rows="1" placeholder="メッセージを入力してください" aria-label="メッセージ入力"></textarea><button type="submit" class="hc-send" aria-label="送信">'+I.send+'</button></form>';
+      +'<form class="hc-input" data-i="1"'+(showInput?'':' hidden')+'><textarea rows="1" placeholder="メッセージを入力してください" aria-label="メッセージ入力"></textarea><button type="submit" class="hc-send" aria-label="送信">'+I.send+'</button></form>'+tabs('chat');
   }
   function render(){
-    pn.innerHTML=st.view==='chat'?chat():home();
+    pn.innerHTML=st.view==='chat'?chat():st.view==='set'?settings():home();
     var body=pn.querySelector('.hc-body'); if(st.view==='chat'&&body) body.scrollTop=body.scrollHeight;
   }
   function push(r,t){ st.msgs.push({r:r,t:t}); save(); }
@@ -457,7 +481,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     if(!a) return;
     var k=a.getAttribute('data-a');
     if(k==='close') setOpen(false,true);
-    else if(k==='home'){ st.view='home'; save(); render(); }
+    else if(k==='home'||k==='tab-home'){ st.view='home'; save(); render(); }
+    else if(k==='tab-chat') startChat();
+    else if(k==='tab-set'){ st.view='set'; save(); render(); }
+    else if(k==='reset'){ st={msgs:[],view:'home',open:true,seen:true}; save(); render(); }
     else if(k==='hours'){ st.hours=!st.hours; save(); render(); }
     else if(k==='start') startChat();
     else if(k==='kakao'){ if(CFG.kakaoUrl){ window.open(CFG.kakaoUrl,'_blank','noopener'); } else { st.kakaoMsg=true; save(); render(); } }
@@ -500,6 +527,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   });
   function on(){ return inHours(); }
 
+  document.addEventListener('focusin',function(e){ if(e.target.matches('input,textarea,select')&&!pn.contains(e.target)) document.documentElement.classList.add('hc-typing'); });
+  document.addEventListener('focusout',function(e){ if(!pn.contains(e.target)) document.documentElement.classList.remove('hc-typing'); });
   /* 이전 버튼(alert) 제거 + 상태 복원 */
   document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
   render(); if(st.open) setOpen(true,false);
