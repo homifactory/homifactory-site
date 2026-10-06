@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260425-10" />
+  <link rel="stylesheet" href="/style.css?v=20260425-10" />
 
   <style>
     .nf-section {
@@ -116,20 +116,20 @@
 <div id="cursor-ring"></div>
 
 <nav>
-  <a href="index.html" class="nav-logo" aria-label="호미팩토리 홈">
+  <a href="/" class="nav-logo" aria-label="호미팩토리 홈">
     <span class="brand-mark" aria-hidden="true">
-      <img src="assets/logo-symbol.png?v=2" alt="" />
+      <img src="/assets/logo-symbol.png?v=2" alt="" />
     </span>
     <span class="brand-word">HOMI FACTORY</span>
   </a>
   <div class="nav-center">
-    <a href="index.html">홈</a>
-    <a href="about.html">회사소개</a>
-    <a href="reference.html">레퍼런스</a>
-    <a href="index.html#inquiry-section">문의</a>
+    <a href="/">홈</a>
+    <a href="/about">회사소개</a>
+    <a href="/about">레퍼런스</a>
+    <a href="/#inquiry-section">문의</a>
   </div>
   <div style="display:flex;align-items:center;gap:16px;">
-    <a href="index.html#inquiry-section" class="nav-cta">문의하기</a>
+    <a href="/#inquiry-section" class="nav-cta">문의하기</a>
   </div>
 </nav>
 
@@ -145,22 +145,49 @@
       홈으로 돌아가거나 아래 메뉴에서 다시 시작해보세요.
     </p>
     <div class="nf-actions">
-      <a href="index.html" class="nf-btn nf-btn-primary">홈으로 돌아가기 →</a>
-      <a href="index.html#inquiry-section" class="nf-btn nf-btn-ghost">문의하기</a>
+      <a href="/" class="nf-btn nf-btn-primary">홈으로 돌아가기 →</a>
+      <a href="/#inquiry-section" class="nf-btn nf-btn-ghost">문의하기</a>
     </div>
     <div class="nf-quick">
       <div class="nf-quick-label">Quick Links</div>
       <div class="nf-quick-links">
-        <a href="about.html">회사소개</a>
-        <a href="reference.html">레퍼런스</a>
-        <a href="reference.html#sns">SNS 마케팅</a>
-        <a href="reference.html#live">TikTok 라이브</a>
-        <a href="reference.html#content">콘텐츠 제작</a>
+        <a href="/about">회사소개</a>
+        <a href="/market/" data-nf="market">HOMI MARKET</a>
+        <a href="/service-marketing">SNS 마케팅</a>
+        <a href="/service-global">TikTok 라이브</a>
+        <a href="/service-production">콘텐츠 제작</a>
       </div>
     </div>
   </div>
 </main>
 
-<script src="common.js?v=8"></script>
+<script src="/common.js?v=8"></script>
+<script id="nf-site">
+/* FR-COM-013 — 404 를 사이트별로: 호미 프로덕션·호미 MARKET 주소에서 길을 잃으면 그 사이트 Home 으로 안내 */
+(function(){
+  var p=location.pathname, m=p.match(/^\/(en|ja|id)\/market(\/|$)/), lp=m?'/'+m[1]:'';
+  var site=/^\/production(\/|$)/.test(p)?'production':(m||/^\/market(\/|$)/.test(p))?'market':'';
+  if(!site) return;
+  var C={production:{t:'404 — 페이지를 찾을 수 없습니다 | HOMI PRODUCTION',brand:'HOMI PRODUCTION',home:'/production/',ask:'/production/contact',homeT:'HOMI PRODUCTION 홈으로 →',askT:'제작·대관 문의',
+      links:[['VISUAL WORKS','/production/'],['COMMERCIAL WORKS','/production/commercial-works'],['STUDIO','/production/studio'],['CONTACT','/production/contact']]},
+    market:{t:'404 — 페이지를 찾을 수 없습니다 | HOMI MARKET',brand:'HOMI MARKET',home:lp+'/market/',ask:lp+'/market/contact',homeT:'HOMI MARKET 홈으로 →',askT:'무료 상담 받기',
+      links:[['인플루언서 마케팅',lp+'/market/service-influencer'],['방문 프로모션',lp+'/market/service-visit'],['팝업 및 행사 운영',lp+'/market/service-event'],['트렌드 리포트',lp+'/market/trend-report']]}}[site];
+  document.title=C.t; document.body.classList.add('nf-'+site);
+  var q=function(s){return document.querySelector(s);};
+  q('.nav-logo').href=C.home; q('.brand-word').textContent=C.brand;
+  var nc=q('.nav-center'); if(nc) nc.innerHTML=C.links.map(function(l){return '<a href="'+l[1]+'">'+l[0]+'</a>';}).join('');
+  q('.nav-cta').href=C.ask; q('.nav-cta').textContent=C.askT;
+  q('.nf-btn-primary').href=C.home; q('.nf-btn-primary').textContent=C.homeT;
+  q('.nf-btn-ghost').href=C.ask; q('.nf-btn-ghost').textContent=C.askT;
+  q('.nf-quick-links').innerHTML=C.links.map(function(l){return '<a href="'+l[1]+'">'+l[0]+'</a>';}).join('');
+  if(site==='market') q('.nf-desc').innerHTML='찾으시던 페이지의 주소가 바뀌었거나 없어졌어요.<br>HOMI MARKET 홈으로 돌아가거나 아래 메뉴에서 다시 시작해 보세요.';
+  if(site==='production'){
+    q('.nf-desc').innerHTML='찾으시던 페이지의 주소가 바뀌었거나 없어졌어요.<br>작품 목록이나 스튜디오 안내에서 다시 시작해 보세요.';
+    var st=document.createElement('style');
+    st.textContent='body.nf-production{background:#0B0B0B!important;color:#fff}body.nf-production .nf-blob,body.nf-production #cursor,body.nf-production #cursor-ring{display:none}body.nf-production nav{background:#0B0B0B!important;border-color:rgba(255,255,255,.12)!important}body.nf-production nav a,body.nf-production .brand-word{color:#fff!important}body.nf-production .brand-mark img{filter:invert(1)}body.nf-production .nf-num{background:none;-webkit-text-fill-color:#fff;color:#fff}body.nf-production .nf-eyebrow{color:rgba(255,255,255,.55)}body.nf-production .nf-eyebrow::before{background:#fff}body.nf-production .nf-title{color:#fff}body.nf-production .nf-desc,body.nf-production .nf-quick-label,body.nf-production .nf-quick-links a{color:rgba(255,255,255,.65)!important}body.nf-production .nf-btn-primary,body.nf-production .nav-cta{background:#fff!important;color:#0B0B0B!important;border-color:#fff!important}body.nf-production .nf-btn-ghost{background:transparent!important;color:#fff!important;border:1px solid #fff!important}';
+    document.head.appendChild(st);
+  }
+})();
+</script>
 </body>
 </html>
