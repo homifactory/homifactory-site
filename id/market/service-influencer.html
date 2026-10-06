@@ -420,7 +420,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005i">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/service-influencer">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/service-influencer">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/service-influencer">
@@ -428,11 +428,11 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <link rel="alternate" hreflang="x-default" href="https://homifactory.com/market/service-influencer">
 </head><body data-site="market" data-header="fixed" data-page="service">
 <div class="trend-banner">
-  <span class="pill">✦ HOMI TREND REPORT 2026</span>
+  <span class="pill"><span class="star">✦</span> HOMI TREND REPORT 2026</span>
   <a href="/id/market/trend-report.html">Laporan Tren Pemasaran Global 2026 · Lihat dulu strategi untuk tiap negara <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005i"></script>
+<script src="/shared/homi-header.js?v=20261006a"></script>
 <main id="main">
 <section class="sd-hero">
   <div class="sd-in">
@@ -507,6 +507,106 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   function upd(){ f.hidden=!(heroGone&&!bandIn); }
   new IntersectionObserver(function(e){ heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0; upd(); }).observe(a);
   if(band) new IntersectionObserver(function(e){ bandIn=e[0].isIntersecting; upd(); }).observe(band);
+})();
+</script>
+<style id="fp-css">
+/* 한 화면씩 넘어가는 스크롤 (Home, 마우스 휠·키보드) — 다니엘프로젝트 방식 */
+html.fp-on{scroll-behavior:auto!important}
+html.fp-on .fp-fill{display:flex;flex-direction:column;justify-content:center}
+.fp-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:10px;padding:10px 6px;border-radius:999px;background:rgba(20,16,30,.18);backdrop-filter:blur(6px)}
+.fp-dots button{all:unset;cursor:pointer;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(20,16,30,.25);transition:transform .2s,background .2s}
+.fp-dots button:hover{transform:scale(1.35)}
+.fp-dots button[aria-current="true"]{background:#8B3DFF;box-shadow:0 0 0 2px #fff;transform:scale(1.25)}
+.fp-dots button:focus-visible{outline:2px solid #8B3DFF;outline-offset:3px}
+@media (max-width:900px),(hover:none){.fp-dots{display:none}}
+</style>
+<script id="fp-js">
+(function(){
+  var root=document.documentElement;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!matchMedia('(hover:hover) and (pointer:fine) and (min-width:901px)').matches) return;   /* 휴대폰·태블릿은 평소처럼 */
+  var blks=[].slice.call(document.querySelectorAll('body > section, body > .industry-strip, main > section'));
+  if(blks.length<3) return;
+  root.classList.add('fp-on');
+  var groups=[], off=0, ih=0, cur=0, busy=false, quietUntil=0, dots;
+  function top(el){ return el.getBoundingClientRect().top+scrollY; }
+  function layout(){
+    off=parseInt(getComputedStyle(root).getPropertyValue('--hh-offset'),10)||0; ih=innerHeight;
+    blks.forEach(function(b){ b.style.minHeight=''; b.classList.remove('fp-fill'); });
+    var avail=ih-off; groups=[]; var pend=[];
+    blks.forEach(function(b,i){
+      pend.push(b);
+      var short=b.offsetHeight<avail*0.4 && i<blks.length-1;    /* 낮은 띠는 다음 구간과 한 화면으로 */
+      if(!short){ groups.push(pend); pend=[]; }
+    });
+    if(pend.length) groups.push(pend);
+    groups.forEach(function(g,gi){
+      var h=g.reduce(function(s,b){ return s+b.offsetHeight; },0), last=g[g.length-1];
+      var need=gi===0?Math.round(ih-top(g[0])-h):avail-h;         /* 첫 화면도 창 높이에 맞춤 */
+      if(need>0){ last.style.minHeight=(last.offsetHeight+need)+'px'; last.classList.add('fp-fill'); }
+    });
+    var maxY=Math.max(0,root.scrollHeight-ih);
+    groups.forEach(function(g,gi){ g.doc=top(g[0]); g.top=gi===0?0:Math.min(maxY,Math.round(g.doc-off)); });
+    groups.forEach(function(g,gi){ var nx=groups[gi+1], bottom=nx?nx.doc:root.scrollHeight; g.fin=Math.min(maxY,Math.max(g.top,Math.round(bottom-ih))); });
+    buildDots(); sync();
+  }
+  function idx(){ var y=scrollY+2, k=0; groups.forEach(function(g,i){ if(g.top<=y) k=i; }); return k; }
+  function ease(t){ return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2; }
+  function go(y){
+    y=Math.max(0,Math.min(y,root.scrollHeight-ih)); var y0=scrollY, d=y-y0, t0=performance.now(), T=Math.min(900,Math.max(450,Math.abs(d)*0.6));
+    if(Math.abs(d)<2) return; busy=true;
+    (function step(now){ var p=Math.min(1,(now-t0)/T); scrollTo(0,y0+d*ease(p)); if(p<1) requestAnimationFrame(step); else { busy=false; quietUntil=performance.now()+180; sync(); } })(t0);
+  }
+  function move(dir){
+    var i=idx(), g=groups[i], y=scrollY, step=(ih-off)*0.85;   /* 한 화면보다 긴 구간은 끝까지 본 뒤 다음 화면으로 */
+    var small=(ih-off)*0.3;   /* 조금만 남은 경우는 따로 멈추지 않고 바로 다음 화면으로 */
+    if(dir>0){ if(g.fin-y>small) go(Math.min(y+step,g.fin)); else if(groups[i+1]) go(groups[i+1].top); else go(g.fin); }
+    else{ if(y-g.top>small) go(Math.max(g.top,y-step)); else if(y>g.top+4) go(g.top); else if(groups[i-1]){ var pg=groups[i-1]; go(pg.fin-pg.top>small?pg.fin:pg.top); } }
+  }
+  function scrollableInside(el,dy){
+    for(;el&&el!==document.body;el=el.parentElement){
+      var s=getComputedStyle(el); if(!/(auto|scroll)/.test(s.overflowY)||el.scrollHeight<=el.clientHeight) continue;
+      if(dy>0?el.scrollTop+el.clientHeight<el.scrollHeight-1:el.scrollTop>0) return true;
+    }
+    return false;
+  }
+  window.addEventListener('wheel',function(e){
+    if(e.ctrlKey||root.classList.contains('hh-menu-open')||Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    if(scrollableInside(e.target,e.deltaY)) return;
+    e.preventDefault();
+    var now=performance.now();
+    if(busy||now<quietUntil){ quietUntil=Math.max(quietUntil,now+(busy?0:120)); return; }   /* 트랙패드 관성 흡수 */
+    if(Math.abs(e.deltaY)<4) return;
+    move(e.deltaY>0?1:-1);
+  },{passive:false});
+  window.addEventListener('keydown',function(e){
+    var t=e.target; if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(t.tagName))) return;
+    var k=e.key, dir=(k==='PageDown'||(k===' '&&!e.shiftKey))?1:(k==='PageUp'||(k===' '&&e.shiftKey))?-1:0;
+    if(k==='Home'){ e.preventDefault(); go(0); return; } if(k==='End'){ e.preventDefault(); go(root.scrollHeight); return; }
+    if(!dir||busy) return; e.preventDefault(); move(dir);
+  });
+  function label(g){ var h=g[g.length-1].querySelector('h1,h2'); return h?h.textContent.replace(/\s+/g,' ').trim().slice(0,40):''; }
+  function buildDots(){
+    if(dots) dots.remove();
+    dots=document.createElement('nav'); dots.className='fp-dots'; dots.setAttribute('aria-label','Sections');
+    groups.forEach(function(g,i){ var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',(i+1)+'. '+label(g)); b.title=label(g); b.onclick=function(){ go(g.top); }; dots.appendChild(b); });
+    document.body.appendChild(dots);
+  }
+  function sync(){ var i=idx(); if(i===cur&&dots&&dots.querySelector('[aria-current]')) return; cur=i; if(dots) [].forEach.call(dots.children,function(b,k){ if(k===i) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); }); }
+  /* 같은 페이지 앵커(How We Work·Case)는 부드럽게 같은 방식으로 */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href*="#"]'); if(!a) return;
+    var u=new URL(a.href,location.href); if(u.pathname.replace(/\/$/,'')!==location.pathname.replace(/\/$/,'')||!u.hash) return;
+    var el=document.getElementById(decodeURIComponent(u.hash.slice(1))); if(!el||!el.closest('body > section, body > .industry-strip, main > section')) return;
+    e.preventDefault(); history.pushState(null,'',u.hash);
+    var g=groups.filter(function(g){ return g.some(function(b){ return b===el; }); })[0];   /* 구간이면 그 화면, 구간 안 카드면 카드 위치로 */
+    go(g?g.top:top(el)-off-24); window.dispatchEvent(new HashChangeEvent('hashchange'));
+  },true);
+  window.addEventListener('scroll',function(){ if(!busy) sync(); },{passive:true});
+  var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(layout,150); });
+  window.addEventListener('load',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  layout(); setTimeout(layout,1500);
 })();
 </script>
 <script id="hc-js">
