@@ -809,10 +809,8 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 ];
 (function(){
   var sec=document.getElementById('mkt-shorts'); if(!sec) return;
-  var preview=/[?&]shorts=preview/.test(location.search);
   var list=(window.HOMI_SHORTS||[]).filter(function(v){ return !v.hidden; });
-  if(!list.length && preview){ for(var i=0;i<8;i++) list.push({type:'ph'}); }
-  if(!list.length){ sec.hidden=true; return; }       /* 영상이 없으면 구간을 숨김 */
+  if(!list.length){ for(var i=0;i<8;i++) list.push({type:'ph'}); }   /* 영상 등록 전에는 빈 슬롯으로 자리를 보여 줌 */
   var track=sec.querySelector('.hs-track'), dots=sec.querySelector('.hs-dots'), vp=sec.querySelector('.hs-viewport');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, touch=matchMedia('(max-width:900px),(hover:none)').matches;
   function poster(v){ return v.poster||(v.type==='youtube'?'https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg':''); }
