@@ -1,0 +1,24 @@
+{
+  "_설명": "HOMI PRODUCTION 작품 목록 (FR-PRD-004·007·009). items 에 작품을 추가하면 사이트에 바로 나온다. section: visual | commercial. category: visual → mv(뮤직비디오) · film(아티스트 필름) · live(라이브·퍼포먼스) / commercial → ad(광고·브랜드 필름) · series(웹예능·시리즈) · short(숏폼·SNS 콘텐츠). url: 유튜브·비메오 주소(썸네일 자동). order: 작은 숫자가 앞(없으면 최신 공개일순). showClient:false 면 아티스트·고객사명을 숨김. hidden:true 면 숨김. featured: VISUAL WORKS 첫 화면 대표 작품의 id(1개). 예시는 _예시 참고.",
+  "_예시": {
+    "id": "sample-mv-01",
+    "section": "visual",
+    "category": "mv",
+    "title": "작품 제목",
+    "client": "아티스트 이름",
+    "showClient": true,
+    "date": "2026-05-01",
+    "url": "https://www.youtube.com/watch?v=XXXXXXXXXXX",
+    "roles": [
+      "기획",
+      "촬영",
+      "편집"
+    ],
+    "desc": "작품 설명 2~3줄",
+    "thumb": "",
+    "order": 1,
+    "hidden": false
+  },
+  "featured": null,
+  "items": []
+}
