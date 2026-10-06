@@ -278,34 +278,140 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 <header id="homi-header"></header>
 <script src="/shared/homi-header.js?v=20261006a"></script>
-<section class="tr-hero">
-  <div class="tr-hero-inner">
-    <div class="tr-eyebrow">✦ HOMI TREND REPORT 2026</div>
-    <h1>글로벌 마케팅 <span class="hl">트렌드 리포트</span></h1>
-    <p>나라별 전략을 먼저 확인하세요. 호미 MARKET이 직접 조사·정리한 글로벌 인플루언서 마케팅 리포트입니다.</p>
-  </div>
-</section>
-<section class="tr-section">
-  <div class="tr-section-inner">
-    <div class="tr-filter">
-      <button class="active">전체</button>
-      <button>글로벌 트렌드</button>
-      <button>인도네시아</button>
-      <button>일본</button>
-      <button>동남아</button>
-      <button>중국</button>
-      <button>북미</button>
-    </div>
-    <div class="tr-grid">
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover"><span class="tr-cover-tag">트렌드 리포트 2026</span><div class="tr-cover-num">01</div></div><div class="tr-card-body"><div class="cat">GLOBAL · 2026</div><h3>2026년, 무엇이 달라졌나 — 인플루언서 규모별 성과</h3><p>팔로워 수가 전부가 아닙니다. 메가·매크로·마이크로·나노 규모별 결과와 쓰는 법을 정리했습니다.</p><div class="meta"><span>2026.10 · 7분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover g2"><span class="tr-cover-tag">PICK</span><div class="tr-cover-num">02</div></div><div class="tr-card-body"><div class="cat">INDONESIA · 2026</div><h3>인도네시아 1억 명의 이웃 — 지금 인도네시아에 알리는 법</h3><p>인구 2.7억 중 SNS 활성 사용자 1억+. 로컬 플랫폼·크리에이터 생태계와 진입 전략을 정리했습니다.</p><div class="meta"><span>2026.10 · 7분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover g3"><div class="tr-cover-num">03</div></div><div class="tr-card-body"><div class="cat">GLOBAL · 2026</div><h3>같은 콘텐츠, 다른 채널 — 나라마다 쓰는 SNS가 다릅니다</h3><p>인스타·틱톡·유튜브는 기본, 지역별 로컬 플랫폼 활용법까지. 콘텐츠 리에디팅 가이드.</p><div class="meta"><span>2026.09 · 6분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover g4"><div class="tr-cover-num">04</div></div><div class="tr-card-body"><div class="cat">JAPAN · 2026</div><h3>해외 시딩, 보내기 전에 이것부터 — 일본 시장 진입 체크리스트</h3><p>지금 리뷰·바이럴, 리뷰어 확보까지. 한국 브랜드가 일본에서 자주 놓치는 포인트.</p><div class="meta"><span>2026.09 · 5분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover g5"><div class="tr-cover-num">05</div></div><div class="tr-card-body"><div class="cat">CHINA · 2026</div><h3>중국 KOL 시딩 — 샤오홍슈·웨이보·더우인 매칭 가이드</h3><p>플랫폼별 소비자 특성과 KOL 레벨별 운영 방식을 정리했습니다.</p><div class="meta"><span>2026.09 · 8분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
-      <a href="/market/trend-report-detail.html" class="tr-card"><div class="tr-cover g6"><div class="tr-cover-num">06</div></div><div class="tr-card-body"><div class="cat">SOUTHEAST ASIA · 2026</div><h3>동남아 라이브 커머스 성장률 — 왜 지금 해야 할까</h3><p>태국·베트남·필리핀 성장 지표와 커머스 연결 포인트를 정리했습니다.</p><div class="meta"><span>2026.08 · 6분 읽기</span><span class="arrow">글 읽기 →</span></div></div></a>
+<section class="trl-head">
+  <div class="trl-in">
+    <div class="trl-eyebrow"><span class="star">✦</span> HOMI TREND REPORT</div>
+    <h1>해외 진출 전에 읽는<br><span class="hl">글로벌 마케팅 리포트</span></h1>
+    <p>나라별 SNS·소비 트렌드, 인플루언서 고르는 법, 시딩·팝업 실무까지. 8개 거점의 현장 경험을 바탕으로 공개 자료를 정리합니다.</p>
+    <div class="trl-tools">
+      <div class="trl-chips" role="tablist" aria-label="분류">
+        <button type="button" class="on" data-cat="all" role="tab" aria-selected="true">전체</button>
+        <button type="button" data-cat="country" role="tab" aria-selected="false">나라별 트렌드</button>
+        <button type="button" data-cat="influencer" role="tab" aria-selected="false">인플루언서</button>
+        <button type="button" data-cat="offline" role="tab" aria-selected="false">팝업·오프라인</button>
+        <button type="button" data-cat="case" role="tab" aria-selected="false">업계 사례</button>
+      </div>
+      <label class="trl-search"><span class="sr">나라·키워드 검색</span><input type="search" id="trlQ" placeholder="나라·키워드 검색 (예: 인도네시아, 시딩)" autocomplete="off"></label>
     </div>
   </div>
 </section>
+<section class="trl-body">
+  <div class="trl-in">
+    <a class="trl-feat trl-item" data-cat="influencer" href="/market/trend-report-detail.html">
+      <div class="trl-img c1"><span>01</span></div>
+      <div class="trl-ftx">
+        <div class="trl-cat">인플루언서</div>
+        <h2>2026 인플루언서 규모별 성과 — 팔로워 수가 아니라, 역할로 고르세요</h2>
+        <ul class="trl-sum">
+          <li>팔로워가 적을수록 참여율은 높다 — 틱톡 나노 10.3%, 마이크로 8.7%, 미드티어 7.5%</li>
+          <li>동남아에서 메가 인플루언서의 영향력은 59%로 1년 새 7% 줄었다</li>
+          <li>그래도 답은 「작은 쪽」이 아니라 조합 — 규모마다 맡는 역할이 다르다</li>
+        </ul>
+        <div class="trl-meta"><span>2026.10 · 7분 읽기</span><span class="go">글 읽기 →</span></div>
+      </div>
+    </a>
+    <div class="trl-pick trl-item soon" data-cat="country" aria-disabled="true">
+      <div class="trl-img c2"><span>02</span></div>
+      <div class="trl-ptx">
+        <div class="trl-badge">HOMI PICK</div>
+        <div class="trl-cat">나라별 트렌드 · 인도네시아</div>
+        <h3>[인도네시아] 한 명의 스타보다 백 명의 이웃</h3>
+        <p>젊고 큰 시장, 크리에이터 링크로 사는 소비자. 도시·관심사별로 마이크로 크리에이터를 나눠 쓰는 법과 2026년 10월부터 달라지는 화장품 할랄 인증까지.</p>
+        <div class="trl-meta"><span>곧 공개</span></div>
+      </div>
+    </div>
+    <div class="trl-latest-h"><h2>최신 글</h2></div>
+    <div class="trl-grid" id="trlGrid">
+      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c3"><span>03</span></div><div class="trl-ctx"><div class="trl-cat">나라별 트렌드</div><h3>같은 콘텐츠, 다른 채널</h3><p>나라마다 소비자가 실제로 보는 채널이 다릅니다. 거점별 주력 채널을 한 표로.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c4"><span>04</span></div><div class="trl-ctx"><div class="trl-cat">나라별 트렌드 · 일본</div><h3>[일본] 수입 화장품 1위는 한국</h3><p>일본 수입 화장품 시장에서 한국 브랜드가 서 있는 자리와 진입 전에 볼 것들.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c5"><span>05</span></div><div class="trl-ctx"><div class="trl-cat">나라별 트렌드 · 인도네시아</div><h3>[인도네시아] 틱톡 커머스</h3><p>영상에서 바로 사는 소비자 — 틱톡 커머스로 판매까지 잇는 법.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+      <div class="trl-card trl-item soon" data-cat="influencer" aria-disabled="true"><div class="trl-img c6"><span>06</span></div><div class="trl-ctx"><div class="trl-cat">인플루언서</div><h3>해외 시딩, 보내기 전에</h3><p>제품을 보내기 전에 확인할 것들 — 가이드·통관·일정 체크리스트.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+      <div class="trl-card trl-item soon" data-cat="offline" aria-disabled="true"><div class="trl-img c7"><span>07</span></div><div class="trl-ctx"><div class="trl-cat">팝업·오프라인</div><h3>팝업은 세 번 알려야 합니다</h3><p>오픈 전 티저, 첫 주 현장 초청, 오픈 이후 후기 확산 — 시점별 인플루언서 배치.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+      <div class="trl-card trl-item soon" data-cat="case" aria-disabled="true"><div class="trl-img c8"><span>08</span></div><div class="trl-ctx"><div class="trl-cat">업계 사례</div><h3>[업계 사례] LA 팝업 3일 3만 명</h3><p>해외 팝업에 사람이 몰린 이유를 공개 자료로 짚어 봅니다.</p><div class="trl-meta"><span>곧 공개</span></div></div></div>
+    </div>
+    <p class="trl-empty" id="trlEmpty" hidden>찾는 글이 없어요. 다른 나라나 키워드로 찾아보세요.</p>
+    <div class="trl-more"><button type="button" id="trlMore">글 더 보기</button></div>
+  </div>
+</section>
+<section class="trl-cta">
+  <div class="trl-in">
+    <h2>우리 브랜드는 어느 나라, 어떤 채널부터?</h2>
+    <p>리포트에서 본 내용을 우리 브랜드에 맞춰 같이 정리해 드려요.</p>
+    <a class="trl-btn" href="/market/contact.html">무료 상담 받기</a>
+  </div>
+</section>
+<style id="trl-css">
+/* 트렌드 리포트 목록 (MKT-P11) — 흰 머리 · 분류 칩 · 검색 · 추천 글 · 호미 PICK · 최신 글 3열 */
+.trl-in{max-width:1160px;margin:0 auto;padding:0 24px}
+.trl-head{background:#fff;padding:calc(var(--hh-offset,122px) - var(--hh-ban,48px) + 56px) 0 36px;border-bottom:1px solid #E6E0D6}
+.trl-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;background:#F3ECFF;color:#8B3DFF;font-family:var(--font-en);font-size:12px;font-weight:800;letter-spacing:.12em}
+.trl-head h1{font-size:clamp(30px,4.4vw,46px);font-weight:800;line-height:1.25;letter-spacing:-.03em;color:#141414;margin:18px 0 14px}
+.trl-head h1 .hl{color:#8B3DFF}
+.trl-head p{color:#55525C;font-size:16px;line-height:1.7;max-width:720px}
+.trl-tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:30px}
+.trl-chips{display:flex;flex-wrap:wrap;gap:8px}
+.trl-chips button{all:unset;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid #E6E0D6;background:#fff;font-size:14px;font-weight:600;color:#141414}
+.trl-chips button.on{background:#8B3DFF;border-color:#8B3DFF;color:#fff}
+.trl-chips button:focus-visible,.trl-more button:focus-visible{outline:2px solid #8B3DFF;outline-offset:2px}
+.trl-search input{width:280px;max-width:100%;padding:11px 16px;border:1px solid #E6E0D6;border-radius:999px;font-size:14px;font-family:inherit;background:#FAF7F2}
+.trl-search input:focus{outline:2px solid #8B3DFF;outline-offset:1px;background:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.trl-body{padding:44px 0 72px;background:#fff}
+.trl-img{position:relative;background:#8B3DFF;border-radius:14px;overflow:hidden}
+.trl-img span{position:absolute;left:18px;bottom:12px;font-family:var(--font-en);font-weight:900;font-size:44px;letter-spacing:-.03em;color:rgba(255,255,255,.88)}
+.trl-img.c2{background:#141414}.trl-img.c3{background:#7D2AE8}.trl-img.c4{background:#141414}.trl-img.c5{background:#8B3DFF}.trl-img.c6{background:#F3ECFF}.trl-img.c6 span{color:#8B3DFF}.trl-img.c7{background:#7D2AE8}.trl-img.c8{background:#141414}
+.trl-cat{font-size:13px;font-weight:700;color:#8B3DFF;margin-bottom:8px}
+.trl-meta{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#8E8B96;margin-top:14px}
+.trl-meta .go{color:#8B3DFF;font-weight:700}
+.trl-feat{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding:26px;border:1px solid #E6E0D6;border-radius:20px;background:#FAF7F2;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.trl-feat:hover{border-color:#8B3DFF;box-shadow:0 12px 30px rgba(139,61,255,.12)}
+.trl-feat .trl-img{aspect-ratio:16/10}
+.trl-feat h2{font-size:clamp(22px,2.4vw,28px);font-weight:800;line-height:1.35;letter-spacing:-.02em;color:#141414}
+.trl-sum{margin:14px 0 0;padding-left:18px;color:#3A3A42;font-size:15px;line-height:1.75}
+.trl-pick{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;margin-top:22px;padding:20px;border:2px solid #FFC53D;border-radius:18px;background:#fff}
+.trl-pick .trl-img{aspect-ratio:16/10}
+.trl-badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#141414;color:#FFC53D;font-family:var(--font-en);font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:10px}
+.trl-pick h3{font-size:22px;font-weight:800;color:#141414;line-height:1.35}
+.trl-pick p,.trl-card p{color:#55525C;font-size:14.5px;line-height:1.7;margin-top:8px}
+.trl-latest-h{margin:48px 0 18px}
+.trl-latest-h h2{font-size:24px;font-weight:800;color:#141414}
+.trl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.trl-card{border:1px solid #E6E0D6;border-radius:16px;overflow:hidden;background:#fff;color:inherit;text-decoration:none;display:flex;flex-direction:column}
+.trl-card .trl-img{aspect-ratio:16/9;border-radius:0}
+.trl-ctx{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.trl-ctx .trl-meta{margin-top:auto;padding-top:14px}
+.trl-card h3{font-size:18px;font-weight:800;color:#141414;line-height:1.4}
+.soon{cursor:default}
+.soon .trl-meta span:first-child{display:inline-block;padding:3px 10px;border-radius:999px;background:#F3ECFF;color:#8B3DFF;font-weight:700}
+.trl-item.hide,.trl-card.more-hide{display:none}
+.trl-empty{text-align:center;color:#8E8B96;padding:30px 0}
+.trl-more{text-align:center;margin-top:30px}
+.trl-more button{all:unset;cursor:pointer;padding:13px 28px;border-radius:999px;border:1px solid #E6E0D6;font-weight:700;color:#141414;background:#fff}
+.trl-more button:hover{border-color:#8B3DFF;color:#8B3DFF}
+.trl-cta{background:#141414;color:#fff;text-align:center;padding:72px 0}
+.trl-cta h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+.trl-cta p{color:rgba(255,255,255,.75);margin:12px 0 26px}
+.trl-btn{display:inline-block;padding:16px 34px;border-radius:999px;background:#8B3DFF;color:#fff;font-weight:800;text-decoration:none}
+.trl-btn:hover{background:#7D2AE8}
+@media(max-width:900px){.trl-feat{grid-template-columns:1fr;padding:18px}.trl-pick{grid-template-columns:1fr}.trl-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.trl-grid{grid-template-columns:1fr}.trl-search input{width:100%}.trl-search{width:100%}}
+</style>
+<script id="trl-js">
+(function(){
+  var chips=document.querySelectorAll('.trl-chips button'), q=document.getElementById('trlQ'), more=document.getElementById('trlMore'), empty=document.getElementById('trlEmpty');
+  var items=[].slice.call(document.querySelectorAll('.trl-item')), cards=[].slice.call(document.querySelectorAll('#trlGrid .trl-card')), cat='all', showAll=false, FIRST=3;
+  function apply(){
+    var t=(q.value||'').trim().toLowerCase(), any=false, filtering=cat!=='all'||t;
+    items.forEach(function(el){ var ok=(cat==='all'||el.dataset.cat===cat)&&(!t||el.textContent.toLowerCase().indexOf(t)>-1); el.classList.toggle('hide',!ok); if(ok) any=true; });
+    var shown=0; cards.forEach(function(c){ if(c.classList.contains('hide')) return; shown++; c.classList.toggle('more-hide',!filtering&&!showAll&&shown>FIRST); });
+    more.parentNode.hidden=filtering||showAll||cards.length<=FIRST; empty.hidden=any;
+  }
+  chips.forEach(function(b){ b.addEventListener('click',function(){ cat=b.dataset.cat; chips.forEach(function(x){ var on=x===b; x.classList.toggle('on',on); x.setAttribute('aria-selected',on?'true':'false'); }); apply(); }); });
+  q.addEventListener('input',apply); more.addEventListener('click',function(){ showAll=true; apply(); });
+  apply();
+})();
+</script>
+
 <footer class="hf" id="homi-footer">
   <div class="hf-in">
     <div class="hf-top">
