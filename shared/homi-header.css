@@ -195,7 +195,7 @@ html:not([lang="ko"]) .sd-btn{white-space:normal;text-align:center}
 .doc-section.pv .pv-note{font-size:13.5px;color:#6B6773}
 .pv-table{overflow-x:auto;margin:14px 0}
 .pv-table table{margin:0;min-width:520px}
-.pv-table tbody th{background:#FAF9FC;width:30%;font-weight:700}
+.pv-table tbody th{background:#FAF7F2;width:30%;font-weight:700}
 /* 하단 고정 바(상담 유도)가 있는 페이지: 푸터 회사 정보가 바에 가리지 않게 */
 body:has(#stickyAsk) .hf,body:has(#sdAskFixed) .hf{padding-bottom:128px}
 
@@ -228,3 +228,29 @@ section.hero.hv p{color:rgba(255,255,255,.92);margin-bottom:36px;text-shadow:0 1
 section.hero.hv p span{color:#E2CCFF!important}
 .hv-network{padding:40px 24px 48px;text-align:center;background:#fff;border-bottom:1px solid #F0ECF6}
 @media (prefers-reduced-motion:reduce){.hv-video{display:none}}
+
+/* FR-MKT-034 히어로 글로벌 요소 — 영상 위 머리말 알약 + 현지 네트워크 줄 */
+section.hero.hv .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:0;color:#8B3DFF;font-size:13px;font-weight:800;letter-spacing:.04em;margin:0 0 26px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+section.hero.hv .hero-badge .spark{color:#FFC53D;font-size:14px}
+section.hero.hv .hero-badge .divider{color:#C9A6FF}
+section.hero.hv .country-network{margin-top:40px}
+section.hero.hv .cn-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.82);margin-bottom:12px}
+section.hero.hv .region-chips{margin-top:0;gap:8px}
+section.hero.hv .region-chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:7px 14px;font-size:13px}
+@media (max-width:600px){section.hero.hv .hero-badge{font-size:11px;padding:7px 12px;margin-bottom:18px}section.hero.hv .country-network{margin-top:28px}section.hero.hv .region-chip{padding:6px 11px;font-size:12px}}
+
+/* FR-MKT-033 색 사용 규칙 (MARKET 페이지만) — 보라 #8B3DFF·눌렀을 때 #7D2AE8·연보라 #F3ECFF, 노랑 #FFC53D는 작은 포인트만,
+   검정 #141414는 맨 위 띠 배너·맨 아래 상담 유도·푸터, 바탕은 그라데이션 없이, 카드 #FAF7F2, 선 #E6E0D6 */
+body[data-site="market"]{--primary:#8B3DFF;--primary-2:#7D2AE8;--primary-3:#7D2AE8;--primary-light:#F3ECFF;--line:#E6E0D6;--bg-2:#FAF7F2;--bg-3:#141414;--accent-yellow:#FFC53D}
+body[data-site="market"] .trend-banner,body[data-site="market"] .renewal-banner{background:#141414}
+body[data-site="market"] .star{color:#FFC53D}
+body[data-site="market"] .final-cta,body[data-site="market"] .tr-hero{background:#141414}
+body[data-site="market"] .cmp-col.ours{background:#F3ECFF}
+body[data-site="market"] .logo-card{background:#FAF7F2!important}
+body[data-site="market"] .camp-cover,body[data-site="market"] .tr-cover,body[data-site="market"] .tra-cover{background:#8B3DFF}
+body[data-site="market"] .camp-cover.g2,body[data-site="market"] .tr-cover.g2,body[data-site="market"] .tr-cover.g5{background:#141414}
+body[data-site="market"] .camp-cover.g3,body[data-site="market"] .tr-cover.g3,body[data-site="market"] .tr-cover.g4{background:#7D2AE8}
+body[data-site="market"] .tr-cover.g6{background:#F3ECFF}
+body[data-site="market"] .cta-strip{background:#F3ECFF}
+body[data-site="market"] .sd-steps li.on{background:#8B3DFF}
+body[data-site="market"] .sd-icard .ph{background:#F3ECFF}
