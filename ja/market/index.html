@@ -441,7 +441,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261005h">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261005i">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -453,7 +453,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/ja/market/trend-report.html">2026 グローバルマーケティング・トレンドレポート · 国別の戦略をまずチェック <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261005h"></script>
+<script src="/shared/homi-header.js?v=20261005i"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
     <img class="hv-poster" src="/assets/hero/market-hero-20261005-poster.jpg" alt="" fetchpriority="high" decoding="async">
@@ -582,7 +582,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <span class="section-eyebrow">BY THE NUMBERS</span>
       <h2>協業クリエイター <span class="hl">40,000+</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
+    <div class="stat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
       <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">40,000+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">協業クリエイター</div></div>
       <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">8<span style="font-size:28px">拠点</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">グローバル拠点</div></div>
       <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">45+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">2026年に共に歩んだブランド</div></div>
@@ -610,7 +610,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <h2>ブランドの<span class="hl">海外進出パートナー</span>になります</h2>
       <p>各分野の専門マネージャーが、戦略から実行まで伴走します。</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px">
+    <div class="mgr-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px">
       
       <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
         <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">01</div>
@@ -1024,66 +1024,107 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   render(); if(st.open) setOpen(true,false);
 })();
 </script>
-<style id="hs-css">
-/* 스크롤하면 다음 구간이 카드처럼 위로 겹쳐 올라오는 효과 (Home) */
-html.hs-on .hs-blk{position:sticky;top:var(--hs-top,0px);transform-origin:50% 0;will-change:transform}
-html.hs-on .hs-blk + .hs-blk{border-radius:28px 28px 0 0;box-shadow:0 -14px 36px rgba(20,10,40,.10)}
-html.hs-on .hs-blk.section,html.hs-on .hs-blk.hv-network,html.hs-on .hs-blk.industry-strip{overflow:hidden}
-html.hs-on .hs-dim{position:absolute;inset:0;background:#0B0B0F;opacity:0;pointer-events:none;z-index:60;border-radius:inherit}
-html.hs-on footer.hf{position:relative;border-radius:28px 28px 0 0}
+<style>@media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}.stat-grid>div{padding:24px 10px!important}.stat-grid>div>div:first-child{font-size:34px!important}}
+@media(max-width:900px){.mgr-grid{grid-template-columns:repeat(3,1fr)!important}}@media(max-width:560px){.mgr-grid{grid-template-columns:repeat(2,1fr)!important}}
 </style>
-<script id="hs-js">
+<style id="fp-css">
+/* 한 화면씩 넘어가는 스크롤 (Home, 마우스 휠·키보드) — 다니엘프로젝트 방식 */
+html.fp-on{scroll-behavior:auto!important}
+html.fp-on .fp-fill{display:flex;flex-direction:column;justify-content:center}
+.fp-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:10px;padding:10px 6px;border-radius:999px;background:rgba(20,16,30,.18);backdrop-filter:blur(6px)}
+.fp-dots button{all:unset;cursor:pointer;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(20,16,30,.25);transition:transform .2s,background .2s}
+.fp-dots button:hover{transform:scale(1.35)}
+.fp-dots button[aria-current="true"]{background:#8B3DFF;box-shadow:0 0 0 2px #fff;transform:scale(1.25)}
+.fp-dots button:focus-visible{outline:2px solid #8B3DFF;outline-offset:3px}
+@media (max-width:900px),(hover:none){.fp-dots{display:none}}
+</style>
+<script id="fp-js">
 (function(){
   var root=document.documentElement;
-  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!matchMedia('(hover:hover) and (pointer:fine) and (min-width:901px)').matches) return;   /* 휴대폰·태블릿은 평소처럼 */
   var blks=[].slice.call(document.querySelectorAll('body > section, body > .industry-strip'));
   if(blks.length<3) return;
-  var tops=[], nat=[], off=0, ih=0, ticking=false;
-  blks.forEach(function(b){
-    b.classList.add('hs-blk');
-    if(getComputedStyle(b).backgroundColor==='rgba(0, 0, 0, 0)') b.style.backgroundColor='#fff';
-    var d=document.createElement('div'); d.className='hs-dim'; d.setAttribute('aria-hidden','true'); b.appendChild(d); b._dim=d;
-  });
-  function measure(){
+  root.classList.add('fp-on');
+  var groups=[], off=0, ih=0, cur=0, busy=false, quietUntil=0, dots;
+  function top(el){ return el.getBoundingClientRect().top+scrollY; }
+  function layout(){
     off=parseInt(getComputedStyle(root).getPropertyValue('--hh-offset'),10)||0; ih=innerHeight;
-    root.classList.remove('hs-on');                       /* 고정 해제 상태에서 원래 위치 기록 */
-    nat=blks.map(function(b){ return b.getBoundingClientRect().top+scrollY; });
-    var hs=blks.map(function(b){ return b.offsetHeight; });
-    root.classList.add('hs-on');
-    tops=hs.map(function(h){ return Math.min(off, ih-h); });
-    blks.forEach(function(b,i){ b.style.setProperty('--hs-top', tops[i]+'px'); });
-    frame();
+    blks.forEach(function(b){ b.style.minHeight=''; b.classList.remove('fp-fill'); });
+    var avail=ih-off; groups=[]; var pend=[];
+    blks.forEach(function(b,i){
+      pend.push(b);
+      var short=b.offsetHeight<avail*0.4 && i<blks.length-1;    /* 낮은 띠는 다음 구간과 한 화면으로 */
+      if(!short){ groups.push(pend); pend=[]; }
+    });
+    if(pend.length) groups.push(pend);
+    groups.forEach(function(g,gi){
+      var h=g.reduce(function(s,b){ return s+b.offsetHeight; },0), last=g[g.length-1];
+      var need=gi===0?0:avail-h;                                  /* 첫 화면(히어로)은 그대로 */
+      if(need>0){ last.style.minHeight=(last.offsetHeight+need)+'px'; last.classList.add('fp-fill'); }
+    });
+    var maxY=Math.max(0,root.scrollHeight-ih);
+    groups.forEach(function(g,gi){ g.doc=top(g[0]); g.top=gi===0?0:Math.min(maxY,Math.round(g.doc-off)); });
+    groups.forEach(function(g,gi){ var nx=groups[gi+1], bottom=nx?nx.doc:root.scrollHeight; g.fin=Math.min(maxY,Math.max(g.top,Math.round(bottom-ih))); });
+    buildDots(); sync();
   }
-  function frame(){
-    ticking=false;
-    for(var i=0;i<blks.length;i++){
-      var p=0, nx=blks[i+1];
-      if(nx){ var t=nx.getBoundingClientRect().top, span=Math.max(1, ih-off); p=Math.min(1,Math.max(0,(ih-t)/span)); }
-      blks[i].style.transform=p>0?'scale('+(1-0.05*p).toFixed(4)+')':'';
-      blks[i]._dim.style.opacity=(0.42*p).toFixed(3);
+  function idx(){ var y=scrollY+2, k=0; groups.forEach(function(g,i){ if(g.top<=y) k=i; }); return k; }
+  function ease(t){ return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2; }
+  function go(y){
+    y=Math.max(0,Math.min(y,root.scrollHeight-ih)); var y0=scrollY, d=y-y0, t0=performance.now(), T=Math.min(900,Math.max(450,Math.abs(d)*0.6));
+    if(Math.abs(d)<2) return; busy=true;
+    (function step(now){ var p=Math.min(1,(now-t0)/T); scrollTo(0,y0+d*ease(p)); if(p<1) requestAnimationFrame(step); else { busy=false; quietUntil=performance.now()+180; sync(); } })(t0);
+  }
+  function move(dir){
+    var i=idx(), g=groups[i], y=scrollY, step=(ih-off)*0.85;   /* 한 화면보다 긴 구간은 끝까지 본 뒤 다음 화면으로 */
+    var small=(ih-off)*0.3;   /* 조금만 남은 경우는 따로 멈추지 않고 바로 다음 화면으로 */
+    if(dir>0){ if(g.fin-y>small) go(Math.min(y+step,g.fin)); else if(groups[i+1]) go(groups[i+1].top); else go(g.fin); }
+    else{ if(y-g.top>small) go(Math.max(g.top,y-step)); else if(y>g.top+4) go(g.top); else if(groups[i-1]){ var pg=groups[i-1]; go(pg.fin-pg.top>small?pg.fin:pg.top); } }
+  }
+  function scrollableInside(el,dy){
+    for(;el&&el!==document.body;el=el.parentElement){
+      var s=getComputedStyle(el); if(!/(auto|scroll)/.test(s.overflowY)||el.scrollHeight<=el.clientHeight) continue;
+      if(dy>0?el.scrollTop+el.clientHeight<el.scrollHeight-1:el.scrollTop>0) return true;
     }
+    return false;
   }
-  /* 원래 위치 기준으로 이동 (겹쳐 고정된 구간도 정확히 찾아가게) */
-  function natTop(el){
-    if(!el.closest('.hs-blk')) return null;
-    root.classList.remove('hs-on'); var y=el.getBoundingClientRect().top+scrollY; root.classList.add('hs-on');
-    return y;
+  window.addEventListener('wheel',function(e){
+    if(e.ctrlKey||root.classList.contains('hh-menu-open')||Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    if(scrollableInside(e.target,e.deltaY)) return;
+    e.preventDefault();
+    var now=performance.now();
+    if(busy||now<quietUntil){ quietUntil=Math.max(quietUntil,now+(busy?0:120)); return; }   /* 트랙패드 관성 흡수 */
+    if(Math.abs(e.deltaY)<4) return;
+    move(e.deltaY>0?1:-1);
+  },{passive:false});
+  window.addEventListener('keydown',function(e){
+    var t=e.target; if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(t.tagName))) return;
+    var k=e.key, dir=(k==='PageDown'||(k===' '&&!e.shiftKey))?1:(k==='PageUp'||(k===' '&&e.shiftKey))?-1:0;
+    if(k==='Home'){ e.preventDefault(); go(0); return; } if(k==='End'){ e.preventDefault(); go(root.scrollHeight); return; }
+    if(!dir||busy) return; e.preventDefault(); move(dir);
+  });
+  function label(g){ var h=g[g.length-1].querySelector('h1,h2'); return h?h.textContent.replace(/\s+/g,' ').trim().slice(0,40):''; }
+  function buildDots(){
+    if(dots) dots.remove();
+    dots=document.createElement('nav'); dots.className='fp-dots'; dots.setAttribute('aria-label','Sections');
+    groups.forEach(function(g,i){ var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',(i+1)+'. '+label(g)); b.title=label(g); b.onclick=function(){ go(g.top); }; dots.appendChild(b); });
+    document.body.appendChild(dots);
   }
+  function sync(){ var i=idx(); if(i===cur&&dots&&dots.querySelector('[aria-current]')) return; cur=i; if(dots) [].forEach.call(dots.children,function(b,k){ if(k===i) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); }); }
+  /* 같은 페이지 앵커(How We Work·Case)는 부드럽게 같은 방식으로 */
   document.addEventListener('click',function(e){
-    var a=e.target.closest('a[href*="#"]'); if(!a||e.defaultPrevented) return;
+    var a=e.target.closest('a[href*="#"]'); if(!a) return;
     var u=new URL(a.href,location.href); if(u.pathname.replace(/\/$/,'')!==location.pathname.replace(/\/$/,'')||!u.hash) return;
-    var el=document.getElementById(decodeURIComponent(u.hash.slice(1))); if(!el) return;
-    var y=natTop(el); if(y==null) return;
+    var el=document.getElementById(decodeURIComponent(u.hash.slice(1))); if(!el||!el.closest('body > section, body > .industry-strip')) return;
     e.preventDefault(); history.pushState(null,'',u.hash);
-    window.scrollTo({top:Math.max(0,y-off),behavior:'smooth'});
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    var g=groups.filter(function(g){ return g.some(function(b){ return b.contains(el); }); })[0];
+    go(g?g.top:top(el)-off); window.dispatchEvent(new HashChangeEvent('hashchange'));
   },true);
-  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } },{passive:true});
-  window.addEventListener('resize',measure);
-  window.addEventListener('load',measure);
-  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(measure);
-  measure();
-  setTimeout(measure,1500);
+  window.addEventListener('scroll',function(){ if(!busy) sync(); },{passive:true});
+  var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(layout,150); });
+  window.addEventListener('load',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  layout(); setTimeout(layout,1500);
 })();
 </script>
 <script id="hv-js">
