@@ -5,13 +5,15 @@
 <link rel="canonical" href="https://homifactory.com/production/contact">
 <meta property="og:type" content="website"><meta property="og:site_name" content="HOMI PRODUCTION">
 <meta property="og:title" content="CONTACT — HOMI PRODUCTION"><meta property="og:description" content="호미 프로덕션 제작·스튜디오 대관 문의. 뮤직비디오·아티스트 필름·광고·숏폼 제작과 강남 화이트 호리존 스튜디오 대관.">
-<meta property="og:url" content="https://homifactory.com/production/contact"><meta property="og:image" content="https://homifactory.com/og-image.png">
+<meta property="og:url" content="https://homifactory.com/production/contact"><meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://homifactory.com/production/og-production.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HOMI PRODUCTION — 영상 제작 · 스튜디오">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CONTACT — HOMI PRODUCTION"><meta name="twitter:description" content="호미 프로덕션 제작·스튜디오 대관 문의. 뮤직비디오·아티스트 필름·광고·숏폼 제작과 강남 화이트 호리존 스튜디오 대관."><meta name="twitter:image" content="https://homifactory.com/production/og-production.png">
 <meta name="theme-color" content="#0B0B0B">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
-<link rel="stylesheet" href="/production/prd.css?v=20261006p1">
+<link rel="stylesheet" href="/production/prd.css?v=20261006p2">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 </head><body data-site="production" data-page="contact" data-header="fixed">
@@ -26,7 +28,7 @@
 <aside class="p-contact-side" aria-label="연락처">
 <dl>
 <div><dt>EMAIL</dt><dd><a href="mailto:support@homifactory.com">support@homifactory.com</a></dd></div>
-<div><dt>TEL</dt><dd><a href="tel:010-4026-2695">010-4026-2695</a><br><span style="color:var(--p-muted);font-size:13px">평일 10:00 ~ 22:00</span></dd></div>
+<div><dt>TEL</dt><dd><a href="tel:010-4026-2695">010-4026-2695</a><br><span style="color:var(--p-muted);font-size:13px">평일 10:00 ~ 22:00 (주말·공휴일 상담 가능)</span></dd></div>
 <div><dt>STUDIO</dt><dd>서울 강남구 논현로150길 17 지하 2층<br><span style="color:var(--p-muted);font-size:13px">학동역 도보 약 10분</span></dd></div>
 </dl>
 </aside>
@@ -53,7 +55,7 @@
 <div class="p-f"><label for="f-use">촬영 내용</label><input type="text" id="f-use" name="촬영 내용" placeholder="예: 룩북, 유튜브, 라이브"></div>
 </div>
 <div class="p-f full"><label for="f-msg">문의 내용<em>*</em></label><textarea id="f-msg" name="문의 내용" required placeholder="어디에 쓰일 영상인지, 지금 고민하고 있는 것을 편하게 적어 주세요."></textarea></div>
-<div class="p-f full"><label class="p-agree"><input type="checkbox" name="개인정보 동의" value="동의" required><span>[필수] 문의 답변을 위해 이름·연락처·이메일을 수집·이용하는 데 동의합니다. 문의 처리 후 3년간 보관 후 파기합니다. <a href="/market/privacy" target="_blank" rel="noopener">개인정보처리방침</a></span></label></div>
+<div class="p-f full"><label class="p-agree"><input type="checkbox" name="개인정보 동의" value="동의" required><span>[필수] 문의 답변을 위해 이름·연락처·이메일과 문의 내용을 수집·이용하는 데 동의합니다. 문의 처리 완료일로부터 1년간 보관 후 파기합니다. <a href="/production/privacy" target="_blank" rel="noopener">개인정보처리방침</a></span></label></div>
 <div class="full"><button type="submit" class="p-btn solid" style="width:100%;height:56px;font-size:16px">문의 보내기</button></div>
 </form>
 <div class="p-done" id="p-done" tabindex="-1" hidden>
@@ -117,14 +119,20 @@
     var data={_subject:'[HOMI PRODUCTION '+type()+'] '+f.elements['이름'].value.trim(),_cc:f._cc.value,_template:'table',_captcha:'false','문의 유형':type()};
     fields().forEach(function(el){ if(el.type!=='checkbox') data[el.name]=(el.value||'').trim(); });
     data['개인정보 동의']='동의'; data['접수 페이지']=location.href;
-    fetch('https://formsubmit.co/ajax/support@homifactory.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-      .then(function(j){ if(j&&(j.success===false||j.success==='false')) throw 0; showDone(); })
+    /* 접수 기록(FR-COM-008 ⑥): MARKET 의뢰서와 같은 Make 웹훅 → 구글 시트「MKT_의뢰서접수」. 칸 이름이 MARKET 기준이라 아래처럼 맞춰 넣고, 방향 칸에 [PRODUCTION] 표시 */
+    var rent=type()==='대관 문의', v=function(n){ return data[n]||''; };
+    var row={lang:'KR',brand:v('회사·브랜드·아티스트'),link:v('참고 영상 링크'),dir:'[PRODUCTION] '+type(),countries:'',channel:rent?'스튜디오 대관':v('영상 종류'),
+      concern:v('문의 내용'),goal:rent?('인원 '+v('인원')+'명 · '+v('촬영 내용')):'',timing:rent?(v('희망 날짜')+' '+v('희망 시간')):v('희망 일정'),budget:'',
+      name:v('이름'),phone:v('연락처'),email:v('이메일'),page:location.href,hp:''};
+    var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw 0; return r; }); };
+    var mail=post('https://formsubmit.co/ajax/support@homifactory.com',data).then(function(r){ return r.json(); }).then(function(j){ if(j&&(j.success===false||j.success==='false')) throw 0; return true; });
+    var store=post('https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh',row);
+    Promise.allSettled([mail,store]).then(function(rs){ if(rs.some(function(x){ return x.status==='fulfilled'; })) showDone(); else throw 0; })
       .catch(function(){ btn.disabled=false; btn.textContent=label; top.innerHTML='전송에 실패했어요. 잠시 후 다시 시도하시거나 <a href="mailto:support@homifactory.com" style="text-decoration:underline">support@homifactory.com</a> 으로 보내 주세요.'; top.hidden=false; });
   });
 })();
 </script>
 </main>
 <footer class="p-foot" id="p-foot"></footer>
-<script src="/production/prd.js?v=20261006p1"></script>
+<script src="/production/prd.js?v=20261006p2"></script>
 </body></html>

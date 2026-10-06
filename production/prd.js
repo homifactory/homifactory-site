@@ -11,10 +11,10 @@
   /* ── 푸터 (FR-PRD-011) ── */
   var foot = document.getElementById('p-foot');
   if (foot) foot.innerHTML =
-    '<div class="p-wrap"><div class="l"><b>HOMI PRODUCTION</b> I 호미 프로덕션<br>' +
-    '이메일 <a href="mailto:support@homifactory.com">support@homifactory.com</a> · 스튜디오 서울 강남구 논현로150길 17 지하 2층<br>' +
-    '(주) 호미팩토리 · 사업자번호 581-87-03832 · 통신판매 제2026-서울강남-05160호 · 서울특별시 강남구 논현로142길 11, 4층<br>' +
-    '© 2026 HOMI FACTORY Co., Ltd. All rights reserved. · <a href="/market/privacy">개인정보처리방침</a></div>' +
+    '<div class="p-wrap"><div class="l"><b>HOMI PRODUCTION</b> I 호미 프로덕션 · 스튜디오 서울 강남구 논현로150길 17 지하 2층<br>' +
+    '<span class="sup">고객 지원 평일 10:00 ~ 22:00 (주말·공휴일 상담 가능) · 이메일 <a href="mailto:support@homifactory.com">support@homifactory.com</a> · 전화 <a href="tel:010-4026-2695">010-4026-2695</a></span><br>' +
+    '(주) 호미팩토리 | 사업자번호 581-87-03832 | 통신판매 번호 제2026-서울강남-05160호 | 주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)<br>' +
+    '©2026 HOMI FACTORY Co., Ltd. All rights reserved · <a href="/production/terms">이용약관</a> · <a class="pv" href="/production/privacy">개인정보처리방침</a></div>' +
     '<div class="r"><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a><a href="/market/" target="_blank" rel="noopener">HOMI MARKET ↗</a>' +
     '<div class="of">HOMI PRODUCTION OF HOMI FACTORY</div></div></div>';
 
