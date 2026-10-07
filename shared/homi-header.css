@@ -254,3 +254,29 @@ body[data-site="market"] .tr-cover.g6{background:#F3ECFF}
 body[data-site="market"] .cta-strip{background:#F3ECFF}
 body[data-site="market"] .sd-steps li.on{background:#8B3DFF}
 body[data-site="market"] .sd-icard .ph{background:#F3ECFF}
+
+/* ── 상단 띠 배너 (FR-MKT-026) — 모든 MARKET 페이지 공통 ── */
+body[data-site="market"] .trend-banner.tb{position:fixed;top:0;left:0;right:0;z-index:9999;background:#141414;color:#fff;padding:6px 20px;display:flex;justify-content:center;align-items:center;gap:0;text-align:left;font-family:var(--hh-font,'Pretendard',sans-serif)}
+body[data-site="market"] .trend-banner.tb[hidden]{display:none}
+.trend-banner.tb .tb-link{display:inline-flex;align-items:center;gap:16px;color:#fff;text-decoration:none;max-width:100%}
+.trend-banner.tb .tb-cover{flex:0 0 48px;width:48px;height:64px;transform:rotate(-6deg);box-shadow:0 6px 14px rgba(0,0,0,.45);border-radius:3px;overflow:hidden;transition:transform .25s}
+.trend-banner.tb .tb-cover svg,.trend-banner.tb .tb-cover img{display:block;width:100%;height:100%;object-fit:cover}
+.trend-banner.tb .tb-link:hover .tb-cover{transform:rotate(-2deg) translateY(-2px)}
+.trend-banner.tb .tb-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.trend-banner.tb .tb-small{font-family:var(--hh-font-en,'Inter',sans-serif);font-size:11px;font-weight:800;letter-spacing:.14em;color:#C9A6FF}
+.trend-banner.tb .tb-star{color:#FFC53D}
+.trend-banner.tb .tb-big{font-size:15px;font-weight:700;line-height:1.35}
+.trend-banner.tb .tb-bar{color:rgba(255,255,255,.35);padding:0 4px}
+.trend-banner.tb .tb-arrow{font-size:22px;line-height:1;color:#fff;transition:transform .2s}
+.trend-banner.tb .tb-link:hover .tb-big{color:#C9A6FF}
+.trend-banner.tb .tb-link:hover .tb-arrow{transform:translateX(3px)}
+.trend-banner.tb .tb-link:focus-visible{outline:2px solid #C9A6FF;outline-offset:4px;border-radius:6px}
+@media (max-width:600px){
+  body[data-site="market"] .trend-banner.tb{padding:6px 14px}
+  .trend-banner.tb .tb-link{gap:12px}
+  .trend-banner.tb .tb-cover{flex-basis:36px;width:36px;height:48px}
+  .trend-banner.tb .tb-small{font-size:9.5px;letter-spacing:.1em}
+  .trend-banner.tb .tb-big{font-size:13px}
+  .trend-banner.tb .tb-bar{display:none}
+  .trend-banner.tb .tb-sub{display:block;font-weight:600;color:rgba(255,255,255,.75);font-size:12px}
+}
