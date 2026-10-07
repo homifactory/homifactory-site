@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ko"><head><meta charset="UTF-8"><script id="lang-auto">/* FR-MKT-025 처음 들어온 방문자: 브라우저 언어로 자동 선택(한국어→KR, 일본어→JA, 인도네시아어→ID, 그 밖→EN). 한 번 정해지면 이후엔 🌐 버튼으로만 바뀜 */
+(function(){try{var K='homi_lang_auto';if(localStorage.getItem(K))return;localStorage.setItem(K,'1');
+if(/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent))return;
+var p=location.pathname,m=p.match(/^\/(en|ja|id)(\/market(?:\/.*)?)$/),cur=m?m[1]:'ko',rest=m?m[2]:p;if(rest.indexOf('/market')!==0)return;
+var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
+location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home · HOMI MARKET</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,6 +299,7 @@ body{padding-top:48px}
 .plan-step h3{font-size:19px;font-weight:800;color:#141414;margin-bottom:10px}
 .plan-step p{font-size:14px;color:#555;line-height:1.6}
 .industry-strip{padding:48px 24px;background:#fff;text-align:center;border-top:1px solid #F0EBE0}
+.strategy-section .industry-strip{background:transparent;border-top:0;padding:40px 24px 0;max-width:1200px;margin:0 auto}
 .industry-strip h3{font-size:18px;color:#333;margin-bottom:20px;font-weight:600}
 .industry-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1100px;margin:0 auto}
 .industry-chips .ic{padding:10px 18px;background:#F3ECFF;border:1px solid #D9C4FF;color:#5B2BB8;border-radius:999px;font-size:14px;font-weight:600}
@@ -496,7 +504,17 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 
-<section class="strategy-section" id="strategy-section">
+<!-- ② 고객사 로고 -->
+<section class="section gray">
+
+<div class="logo-marquee-wrap">
+  <div class="marquee-row left"><div class="logo-card">하츄핑·티니핑</div><div class="logo-card">DB손해보험</div><div class="logo-card">수원새빛인강</div><div class="logo-card">청담유식</div><div class="logo-card">성수 두다</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">하츄핑·티니핑</div><div class="logo-card">DB손해보험</div><div class="logo-card">수원새빛인강</div><div class="logo-card">청담유식</div><div class="logo-card">성수 두다</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div></div>
+  <div class="marquee-row right"><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div></div>
+</div>
+</section>
+
+<!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
+<section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> 실제 캠페인 사례로 증명된 결과</span>
@@ -530,7 +548,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-stat"><div class="num">91%</div><div class="lbl">재계약률<br>브랜드 성장 함께</div></div>
 </div>
 </div>
+<div class="industry-strip"><h3>소상공인부터 대기업까지, 다양한 업종의 브랜드와 함께해 왔습니다</h3>
+  <div class="industry-chips"><span class="ic">패션</span><span class="ic">F&amp;B·식품</span><span class="ic">건강기능식품</span><span class="ic">헬스케어</span><span class="ic">뷰티</span><span class="ic">여행</span><span class="ic">생활·건강</span><span class="ic">가전·디지털</span><span class="ic">금융·보험</span><span class="ic">캐릭터·IP</span></div>
+</div>
 </section>
+
+<!-- ④ 리스트가 아니라 플랜 -->
 <section class="plan-section" id="plan-section">
   <div class="plan-wrap">
     <div class="plan-head"><h2>리스트가 아니라,<br><em>팔리는 플랜</em>을 드립니다</h2><p style="margin-top:14px;color:#666">브랜드의 니즈와 목표에 맞춰, 4단계로 전략을 설계해 제안합니다</p></div>
@@ -539,77 +562,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="plan-step"><span class="num">02</span><h3>시장·타깃 고르기</h3><p>어느 나라, 어떤 소비자에게 맞설지 데이터 기반으로 선택합니다</p></div>
       <div class="plan-step"><span class="num">03</span><h3>방식·조합하기</h3><p>인플루언서·광고·커머스 중 가장 효과적인 조합을 설계합니다</p></div>
       <div class="plan-step"><span class="num">04</span><h3>성과 기준 세우기</h3><p>무엇을 성과로 볼지 함께 정하고 리포트까지 책임집니다</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="industry-strip"><h3>소상공인부터 대기업까지, 다양한 업종의 브랜드와 함께해 왔습니다</h3>
-  <div class="industry-chips"><span class="ic">패션</span><span class="ic">F&amp;B·식품</span><span class="ic">건강기능식품</span><span class="ic">헬스케어</span><span class="ic">뷰티</span><span class="ic">여행</span><span class="ic">생활·건강</span><span class="ic">가전·디지털</span><span class="ic">금융·보험</span><span class="ic">캐릭터·IP</span></div>
-</div>
-
-
-
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR CLIENTS · 10 CATEGORIES</span>
-      <h2>고객사 중 솔루션들</h2>
-      <p>브랜드의 분야와 목표에 맞춰, 한 고객 한 고객과 함께 결과를 만들어 왔습니다.</p>
-    </div>
-    </div>
-
-<div class="logo-marquee-wrap">
-  <div class="marquee-row left"><div class="logo-card">하츄핑·티니핑</div><div class="logo-card">DB손해보험</div><div class="logo-card">수원새빛인강</div><div class="logo-card">청담유식</div><div class="logo-card">성수 두다</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">하츄핑·티니핑</div><div class="logo-card">DB손해보험</div><div class="logo-card">수원새빛인강</div><div class="logo-card">청담유식</div><div class="logo-card">성수 두다</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[고객사 로고]</div></div>
-  <div class="marquee-row right"><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div><div class="logo-card">[해외 브랜드]</div><div class="logo-card">[고객사 로고]</div></div>
-</div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR DIFFERENCE</span>
-      <h2>결과로 말하는,<br><span class="hl">브랜드 맞춤형 전략 설계</span></h2>
-      <p>중요한 건 메시지의 크기가 아니라, 이번 IP를 어떤 플랜이 어떤 결과까지 만들었는지. 브랜드와 한 팀이 되어 처음부터 끝까지 함께 설계합니다.</p>
-    </div>
-    <div class="cmp reveal">
-      <div class="cmp-col">
-        <span class="cmp-lbl">IP · 뭣이든 알릴까</span>
-        <h3>부엇을 어디에서 알릴까</h3>
-        <ul><li>인플루언서 리스트를 전달</li><li>고르는 책임은 광고주에게</li><li>왜 이 사람인지 설명 없이 넘김</li></ul>
-      </div>
-      <div class="cmp-col ours">
-        <span class="cmp-lbl">PLAN · 어떻게 알릴까</span>
-        <h3>어떻게 알릴지부터 함께 짭니다</h3>
-        <ul><li>목표 진단부터 시작</li><li>인플루언서 조합·일정 설계</li><li>왜 이 조합인지 플랜과 함께 제안</li><li>RESULT · 뭣이던 남을까</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">BY THE NUMBERS</span>
-      <h2>협업 크리에이터 <span class="hl">40,000+</span></h2>
-    </div>
-    <div class="stat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">40,000+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">협업 크리에이터</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">8<span style="font-size:28px">곳</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">글로벌 거점</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">45+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">2026 함께한 브랜드</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">91<span style="font-size:28px">%</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">재계약률</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="how-we-work"><div class="section-inner"><div class="section-head reveal"><span class="section-eyebrow">4-STEP PLAN</span>
-      <h2>어떤 캠페인 · 사례든, <span class="hl">함께 설계합니다</span></h2>
-    </div>
-    <div class="plan-steps">
-      <div class="plan-step reveal"><div class="num">01 · 목표 정하기</div><h4>어느 나라, 누구에게, 왜</h4><p>브랜드가 원하는 것을 먼저 정리합니다.</p></div>
-      <div class="plan-step reveal"><div class="num">02 · 시장-타깃 고르기</div><h4>어느 나라 소비자에게</h4><p>지역별 소비자 특성 데이터로 타깃을 좁힙니다.</p></div>
-      <div class="plan-step reveal"><div class="num">03 · 방식 조합하기</div><h4>인플루언서 · 라이브 · 커머스</h4><p>목표에 맞는 조합을 설계합니다.</p></div>
-      <div class="plan-step reveal"><div class="num">04 · 성과 기준 세우기</div><h4>목표에 맞는 성공 기준</h4><p>리포트 지표를 사전에 정합니다.</p></div>
     </div>
   </div>
 </section>
@@ -885,7 +837,6 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <div class="num-tag">⑩ FINAL</div>
     <h2>해외 진출, 혼자 고민하지 마세요.<br><span class="hl">호미 MARKET</span>이 한 팀이 되어 드립니다</h2>
     <a href="/market/contact.html" class="big-cta">무료 상담 받기 →</a>
   </div>
