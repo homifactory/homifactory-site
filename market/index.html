@@ -1285,6 +1285,11 @@ window.HOMI_SITE_PENDING=1;
       var m=/\.(mp4|webm)(\?|$)/i.test(u)?'<video src="'+esc(u)+'" muted loop autoplay playsinline preload="metadata" aria-hidden="true"></video>':'<img src="'+esc(u)+'" alt="" loading="lazy" decoding="async">';
       var old=el.querySelector('img,svg,video'); var t=document.createElement('div'); t.innerHTML=m; var nw=t.firstChild;
       if(old) el.replaceChild(nw,old); else el.insertBefore(nw,el.firstChild); });
+    /* ① 히어로 배경 영상·첫 장면 사진 (관리자 「Home 사진·영상」) */
+    var hvv=document.querySelector('.hv-video'), hvp=document.querySelector('.hv-poster');
+    if(IM.hero_poster&&hvp){ hvp.src=IM.hero_poster; if(hvv) hvv.poster=IM.hero_poster; }
+    if(IM.hero_video&&hvv){ hvv.dataset.webm=''; hvv.dataset.webmM=''; hvv.dataset.mp4=IM.hero_video; hvv.dataset.mp4M=IM.hero_video;
+      if(hvv.querySelector('source')){ hvv.innerHTML='<source src="'+esc(IM.hero_video)+'" type="video/mp4">'; hvv.load(); var pp=hvv.play(); if(pp&&pp.catch) pp.catch(function(){}); } }
     /* ④ 사진 4장 */
     (d.planPhotos||[]).forEach(function(src,i){ if(!src) return; var ph=document.querySelector('.pl-ph[data-slot="'+i+'"]'); if(!ph) return;
       var im=ph.querySelector('img'); im.src=src; im.hidden=false; ph.classList.add('has-img'); });
