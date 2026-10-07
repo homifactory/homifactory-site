@@ -599,10 +599,10 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <script src="/shared/homi-header.js?v=20261007d"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
-    <img class="hv-poster" src="/assets/hero/market-hero-20261005-poster.jpg" alt="" fetchpriority="high" decoding="async">
+    <picture><source media="(max-width:768px)" srcset="/assets/hero/market-hero-20261007-poster-m.jpg"><img class="hv-poster" src="/assets/hero/market-hero-20261007-poster.jpg" alt="" fetchpriority="high" decoding="async"></picture>
     <video class="hv-video" muted playsinline loop preload="none" tabindex="-1" disablepictureinpicture
-      data-webm="/assets/hero/market-hero-20261005-720p.webm" data-mp4="/assets/hero/market-hero-20261005-720p.mp4"
-      data-webm-m="/assets/hero/market-hero-20261005-720p.webm" data-mp4-m="/assets/hero/market-hero-20261005-720p.mp4"></video>
+      data-webm="/assets/hero/market-hero-20261007-720p.webm" data-mp4="/assets/hero/market-hero-20261007-1080p.mp4"
+      data-webm-m="" data-mp4-m="/assets/hero/market-hero-20261007-9x16.mp4"></video>
     <div class="hv-shade"></div>
   </div>
   <div class="hero-inner">
@@ -1247,7 +1247,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   function start(){
     if(started) return; started=true;
     [['webm','video/webm'],['mp4','video/mp4']].forEach(function(t){
-      var src=v.dataset[t[0]+(m?'M':'')]||v.dataset[t[0]]; if(!src) return;
+      var k=t[0]+'M', src=(m&&(k in v.dataset))?v.dataset[k]:v.dataset[t[0]]; if(!src) return;
       var s=document.createElement('source'); s.src=src; s.type=t[1]; v.appendChild(s);
     });
     v.muted=true; v.setAttribute('muted',''); v.load(); play();
@@ -1287,7 +1287,7 @@ window.HOMI_SITE_PENDING=1;
       if(old) el.replaceChild(nw,old); else el.insertBefore(nw,el.firstChild); });
     /* ① 히어로 배경 영상·첫 장면 사진 (관리자 「Home 사진·영상」) */
     var hvv=document.querySelector('.hv-video'), hvp=document.querySelector('.hv-poster');
-    if(IM.hero_poster&&hvp){ hvp.src=IM.hero_poster; if(hvv) hvv.poster=IM.hero_poster; }
+    if(IM.hero_poster&&hvp){ var hps=hvp.parentNode.querySelector('source'); if(hps) hps.remove(); hvp.src=IM.hero_poster; if(hvv) hvv.poster=IM.hero_poster; }
     if(IM.hero_video&&hvv){ hvv.dataset.webm=''; hvv.dataset.webmM=''; hvv.dataset.mp4=IM.hero_video; hvv.dataset.mp4M=IM.hero_video;
       if(hvv.querySelector('source')){ hvv.innerHTML='<source src="'+esc(IM.hero_video)+'" type="video/mp4">'; hvv.load(); var pp=hvv.play(); if(pp&&pp.catch) pp.catch(function(){}); } }
     /* ④ 사진 4장 */
