@@ -174,30 +174,50 @@
       '<nav class="hh-panel" id="hh-panel" aria-label="' + esc('모바일 메뉴') + '">' + panel + '</nav>' +
     '</div>';
 
-  /* ── 상단 띠 배너 (FR-MKT-026): 모든 페이지 헤더 위 검정 띠 — 내용은 위 banner 설정 한 곳에서 ── */
-  var BN = C.banner;
+  /* ── 상단 띠 배너 (FR-MKT-026): 모든 페이지 헤더 위 검정 띠 — 기본값은 위 banner 설정, 관리자 저장값(/market/data/site.json)이 있으면 그걸로 ── */
+  var BN = C.banner, ban = null;
+  var LC = lang.code === 'KR' ? 'ko' : lang.code.toLowerCase();
+  function drawBanner(B) {
+    if (B.show === false) { ban.hidden = true; return; }
+    ban.hidden = false;
+    var COVER = '<svg viewBox="0 0 48 64" aria-hidden="true"><rect width="48" height="64" rx="3" fill="#8B3DFF"/>' +
+      '<g fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"><circle cx="24" cy="25" r="13"/><ellipse cx="24" cy="25" rx="6" ry="13"/><path d="M11 25h26M13 18.5h22M13 31.5h22"/></g>' +
+      '<circle cx="29.5" cy="20" r="1.9" fill="#FFC53D"/><circle cx="17.5" cy="28" r="1.6" fill="#FFC53D"/><circle cx="31" cy="31" r="1.6" fill="#FFC53D"/>' +
+      '<text x="5" y="47" textLength="38" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="4.4" fill="#fff">GLOBAL MARKETING</text>' +
+      '<text x="5" y="56" textLength="38" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="7" fill="#FFC53D">TREND 2026</text></svg>';
+    var big = B.big || ['', ''];
+    function tx(i) { return big.raw ? esc0(big.raw[i] || '') : esc(big[i] || ''); }
+    ban.innerHTML = '<a class="tb-link" href="' + esc0(L(B.href || C.banner.href)) + '">' +
+      '<span class="tb-cover">' + (B.cover ? '<img src="' + esc0(B.cover) + '" alt="" width="48" height="64">' : COVER) + '</span>' +
+      '<span class="tb-txt"><span class="tb-small"><span class="tb-star" aria-hidden="true">✦</span> ' + esc0(B.small || '') + '</span>' +
+      '<span class="tb-big">' + tx(0) + '<span class="tb-bar" aria-hidden="true"> | </span><span class="tb-sub">' + tx(1) + '</span></span></span>' +
+      '<span class="tb-arrow" aria-hidden="true">›</span></a>';
+  }
+  function esc0(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   if (BN) {
-    var ban = document.querySelector('.trend-banner');
+    ban = document.querySelector('.trend-banner');
     var banOld = ban && getComputedStyle(ban).position === 'fixed' ? ban.getBoundingClientRect().height : 0;
     if (!ban) { ban = document.createElement('div'); ban.className = 'trend-banner'; body.insertBefore(ban, body.firstChild); }
     ban.classList.add('tb');
-    if (BN.show === false) { ban.hidden = true; }
-    else {
-      var COVER = '<svg viewBox="0 0 48 64" aria-hidden="true"><rect width="48" height="64" rx="3" fill="#8B3DFF"/>' +
-        '<g fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"><circle cx="24" cy="25" r="13"/><ellipse cx="24" cy="25" rx="6" ry="13"/><path d="M11 25h26M13 18.5h22M13 31.5h22"/></g>' +
-        '<circle cx="29.5" cy="20" r="1.9" fill="#FFC53D"/><circle cx="17.5" cy="28" r="1.6" fill="#FFC53D"/><circle cx="31" cy="31" r="1.6" fill="#FFC53D"/>' +
-        '<text x="5" y="47" textLength="38" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="4.4" fill="#fff">GLOBAL MARKETING</text>' +
-        '<text x="5" y="56" textLength="38" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="7" fill="#FFC53D">TREND 2026</text></svg>';
-      ban.innerHTML = '<a class="tb-link" href="' + L(BN.href) + '">' +
-        '<span class="tb-cover">' + (BN.cover ? '<img src="' + BN.cover + '" alt="" width="48" height="64">' : COVER) + '</span>' +
-        '<span class="tb-txt"><span class="tb-small"><span class="tb-star" aria-hidden="true">✦</span> ' + BN.small + '</span>' +
-        '<span class="tb-big">' + esc(BN.big[0]) + '<span class="tb-bar" aria-hidden="true"> | </span><span class="tb-sub">' + esc(BN.big[1]) + '</span></span></span>' +
-        '<span class="tb-arrow" aria-hidden="true">›</span></a>';
-    }
+    drawBanner(BN);
     /* 배너 높이가 바뀐 만큼 본문을 내려 기존 여백을 그대로 유지 */
     var banNew = ban.hidden ? 0 : ban.getBoundingClientRect().height, banDelta = Math.round(banNew - banOld);
     document.documentElement.style.setProperty('--tb-d', banDelta + 'px');
     if (banDelta && body.getAttribute('data-tb') !== 'nocomp') body.style.paddingTop = (parseFloat(getComputedStyle(body).paddingTop) || 0) + banDelta + 'px';
+    /* 관리자 저장값 반영 (FR-MKT-027) — 이 언어 칸이 비어 있으면 기본 번역 유지 */
+    try {
+      fetch('/market' + '/data/site.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        if (!d || !d.banner) return;
+        var S = d.banner, B = { show: S.show, small: S.small || BN.small, href: S.href || BN.href, cover: S.cover || '' };
+        var bg = S.big && S.big[LC];
+        if (bg && (bg[0] || bg[1])) B.big = { raw: bg }; else B.big = BN.big;
+        var h0 = ban.getBoundingClientRect().height;
+        drawBanner(B);
+        var dh = Math.round((ban.hidden ? 0 : ban.getBoundingClientRect().height) - h0);
+        if (dh && body.getAttribute('data-tb') !== 'nocomp') body.style.paddingTop = (parseFloat(getComputedStyle(body).paddingTop) || 0) + dh + 'px';
+        if (typeof place === 'function') place();
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   var hh = slot.firstChild;
