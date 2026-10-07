@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ja"><head><meta charset="UTF-8"><script id="lang-auto">/* FR-MKT-025 처음 들어온 방문자: 브라우저 언어로 자동 선택(한국어→KR, 일본어→JA, 인도네시아어→ID, 그 밖→EN). 한 번 정해지면 이후엔 🌐 버튼으로만 바뀜 */
+(function(){try{var K='homi_lang_auto';if(localStorage.getItem(K))return;localStorage.setItem(K,'1');
+if(/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent))return;
+var p=location.pathname,m=p.match(/^\/(en|ja|id)(\/market(?:\/.*)?)$/),cur=m?m[1]:'ko',rest=m?m[2]:p;if(rest.indexOf('/market')!==0)return;
+var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
+location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トレンドレポート詳細 · HOMI MARKET</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -373,7 +380,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="trd-ask">
         <h2>自社ブランドは、どの国・どのチャネルから始めるべき？</h2>
         <p>目標に合った規模の組み合わせを一緒に決めます。</p>
-        <a href="/ja/market/contact.html" class="trl-btn">無料相談を申し込む</a>
+        <a href="/ja/market/contact.html" class="trl-btn">無料相談はこちら</a>
       </div>
     </aside>
   </div>
@@ -392,7 +399,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="trl-in">
     <h2>レポートの内容を自社ブランドに合わせて検討したい方へ</h2>
     <p>国と目標をお知らせいただければ、組み合わせから一緒に設計します。</p>
-    <a class="trl-btn" href="/ja/market/contact.html">無料相談を申し込む</a>
+    <a class="trl-btn" href="/ja/market/contact.html">無料相談はこちら</a>
   </div>
 </section>
 <style id="trd-css">
