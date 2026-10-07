@@ -397,6 +397,11 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .ind-row{display:flex;width:max-content;will-change:transform}
 .ind{display:inline-flex;align-items:center;font-size:16px;font-weight:600;color:#2A2A2A;white-space:nowrap;padding-right:22px;cursor:default}
 .ind::before{content:"✦";color:#FFC53D;font-size:12px;margin-right:22px}
+/* FR-MKT-008 ③ PLAN 안의 도구 */
+.plan-tools{margin-top:auto;padding-top:16px;border-top:1px dashed #E6E0D6}
+.strategy-card .svc-chips{margin-bottom:16px}
+.plan-tools .pt-k{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:4px}
+.plan-tools p{font-size:13px!important;color:#3a3732!important;line-height:1.6!important;margin:0!important}
 /* FR-MKT-018 ④ */
 .plan-section{background:#fff;margin-top:0}
 .pl-cmp{display:grid;grid-template-columns:minmax(0,.9fr) auto minmax(0,2.6fr);gap:22px;align-items:stretch}
@@ -651,6 +656,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <h3>どう伝えるか</h3>
 <p>目標達成に最も適した手法を<br>選び、組み合わせます</p>
 <div class="svc-chips"><span class="sc">インフルエンサー</span><span class="sc">来店プロモーション</span><span class="sc">ポップアップ</span><span class="sc">協賛</span><span class="sc">コンテンツ制作</span></div>
+<div class="plan-tools"><span class="pt-k">プランに組み込むツール</span><p>インフルエンサーのオーダーメイド起用（国内・海外）・海外インフルエンサー募集・現地販売チャネル連携・ポップアップ・オフライン・モニタリング</p></div>
 </div>
 <div class="strategy-card">
 <span class="kw">RESULT</span>
@@ -974,7 +980,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2>海外進出、ひとりで悩まないでください。<br><span class="hl">HOMI MARKET</span>がワンチームになります</h2>
+    <h2 data-k="final.t">海外進出、ひとりで悩まないでください。<br><span class="hl">HOMI MARKET</span>がワンチームになります</h2>
     <a href="/ja/market/contact.html" class="big-cta">無料相談はこちら →</a>
   </div>
 </section>
@@ -1026,7 +1032,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
 <div id="stickyAsk" class="">
-  <span class="text">自社の商品、どの国で売れるでしょうか？</span>
+  <span class="text" data-k="bar.t">自社の商品、どの国で売れるでしょうか？</span>
   <a href="/ja/market/contact.html" class="cta">無料相談はこちら</a>
 </div><script>
 (function(){
@@ -1034,7 +1040,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   if (!bar) return;
   let shown = false;
   window.addEventListener('scroll', function(){
-    const trigger = window.innerHeight * 0.6;
+    const hero = document.getElementById('hero');   /* FR-MKT-024 히어로를 지나면 표시 */
+    const trigger = hero ? Math.max(0, hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.4) : window.innerHeight * 0.6;
     if (window.scrollY > trigger && !shown){ bar.classList.add('visible'); shown = true; }
     else if (window.scrollY <= trigger && shown){ bar.classList.remove('visible'); shown = false; }
   }, {passive:true});
