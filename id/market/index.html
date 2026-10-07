@@ -266,6 +266,7 @@ body{padding-top:48px}
 
 
 /* 2-row client logo marquee */
+.logo-card img{display:block;max-height:34px;max-width:118px;width:auto;height:auto;object-fit:contain}
 .logo-marquee-wrap{margin-top:30px;padding:40px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
 .logo-marquee-wrap::before,.logo-marquee-wrap::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:5;pointer-events:none}
 .logo-marquee-wrap::before{left:0;background:linear-gradient(to right,#fff 0%,rgba(255,255,255,0) 100%)}
@@ -461,7 +462,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261007a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -473,7 +474,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/id/market/trend-report.html">Laporan Tren Pemasaran Global 2026 · Lihat dulu strategi untuk tiap negara <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261006a"></script>
+<script src="/shared/homi-header.js?v=20261007a"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
     <img class="hv-poster" src="/assets/hero/market-hero-20261005-poster.jpg" alt="" fetchpriority="high" decoding="async">
@@ -485,7 +486,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="hero-inner">
     <div class="hero-badge"><span class="spark">✦</span>GLOBAL INFLUENCER MARKETING<span class="divider">·</span>Korea ⇄ Dunia</div>
     <h1>Menjadi <span class="hl">satu tim</span> dengan klien,<br>melangkah bersama hingga ke pasar global</h1>
-    <p>Kami tidak berhenti di menghubungkan. Kami mendampingi hingga <span style="color:var(--primary);font-weight:800">konten berubah menjadi pembelian</span>.</p>
+    <p>Kami tidak berhenti di menghubungkan.<br>Kami mendampingi hingga konten berubah menjadi pembelian.</p>
     <a href="/id/market/contact.html" class="big-cta">Konsultasi Gratis →</a>
     <div class="country-network">
       <div class="cn-label">Jaringan lokal</div>
@@ -507,11 +508,37 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <!-- ② 고객사 로고 -->
 <section class="section gray">
 
-<div class="logo-marquee-wrap">
-  <div class="marquee-row left"><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div></div>
-  <div class="marquee-row right"><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div></div>
+<div class="logo-marquee-wrap" aria-label="Logo klien">
+  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">Hachuping · Teenieping</div><div class="logo-card" role="listitem">DB Insurance</div><div class="logo-card" role="listitem">Suwon Saebit Ingang</div><div class="logo-card" role="listitem">Cheongdam Yusik</div><div class="logo-card" role="listitem">Seongsu Duda</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div></div>
+  <div class="marquee-row right" role="list"><div class="logo-card" role="listitem">[Brand luar negeri]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Brand luar negeri]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Brand luar negeri]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Brand luar negeri]</div><div class="logo-card" role="listitem">[Logo klien]</div></div>
 </div>
 </section>
+<script id="lg-js">/* FR-MKT-017 고객사 로고 두 줄 — 윗줄은 왼쪽, 아랫줄은 오른쪽으로 끊김 없이. 로고 위에 마우스를 올리면 멈춤.
+   로고는 위 .marquee-row 안의 .logo-card 로 넣고 뺀다(이미지 로고는 img 태그, alt 에 브랜드명) */
+(function(){
+  var wrap=document.querySelector('.logo-marquee-wrap'); if(!wrap) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].forEach.call(wrap.querySelectorAll('.marquee-row'),function(row){
+    var src=[].slice.call(row.children), n=src.length; if(!n) return;
+    row.style.animation='none';
+    if(reduce) return;
+    var right=row.classList.contains('right'), x=0, period=0, hover=false, off=false, last=0;
+    function addSet(){ src.forEach(function(c){ var k=c.cloneNode(true); k.setAttribute('aria-hidden','true'); row.appendChild(k); }); }
+    function measure(){ var a=row.children[0], b=row.children[1];
+      var step=b?b.getBoundingClientRect().left-a.getBoundingClientRect().left:a.getBoundingClientRect().width+16;
+      period=step*n;   /* 한 바퀴 = 로고 수 × (폭+간격) → 마지막 로고 뒤에 첫 로고가 같은 간격으로 이어짐 */
+      var g=0; while(row.getBoundingClientRect().width<period+wrap.clientWidth+step*2 && g++<30) addSet(); }
+    function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
+      if(!hover&&!off&&!document.hidden&&period){ x=(x+dt*0.035)%period; row.style.transform='translateX('+(-(right?period-x:x))+'px)'; }
+      requestAnimationFrame(frame); }
+    row.addEventListener('mouseover',function(e){ hover=!!e.target.closest('.logo-card'); });
+    row.addEventListener('mouseleave',function(){ hover=false; });
+    new IntersectionObserver(function(e){ off=!e[0].isIntersecting; }).observe(wrap);
+    measure(); addEventListener('resize',measure); requestAnimationFrame(frame);
+  });
+})();
+</script>
+
 
 <!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
 <section class="strategy-section" id="how-we-work">
