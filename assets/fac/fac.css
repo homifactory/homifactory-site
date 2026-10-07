@@ -1,0 +1,97 @@
+/* HOMI FACTORY 공통 (FR-COM-001~016 중 팩토리 적용분)
+   공통 헤더·푸터(shared/homi-header.*)는 그대로 쓰고, 팩토리 색·톤만 여기서 덮어쓴다. */
+
+/* ── 헤더 색·톤 (FR-COM-001): 팩토리 대표색 #BC2747 ── */
+.hh[data-site="factory"]{--hh-accent:#BC2747;--hh-accent-hover:#8E1631;--hh-accent-soft:#FDECEF;--hh-line:#E7E7EC;--hh-muted:#6B6B75}
+.hh[data-site="factory"] .hh-logo img{width:24px}
+/* Business ▾ — 메뉴 바로 아래 작은 드롭다운 (FR-COM-004) */
+.hh[data-site="factory"] .hh-has-mega{position:relative}
+.hh[data-site="factory"] .hh-mega{position:absolute;left:50%;top:100%;width:240px}
+.hh[data-site="factory"] .hh-mega-grid{grid-template-columns:1fr;padding:8px;border-radius:14px;box-shadow:0 16px 40px rgba(11,11,15,.12)}
+.hh[data-site="factory"] .hh-mega .hh-col{padding:0;border:0}
+.hh[data-site="factory"] .hh-mega .hh-col-title{display:block;margin:0;padding:11px 14px;border-radius:9px;font-family:var(--hh-font-en);font-size:14.5px;font-weight:600;color:var(--hh-ink)}
+.hh[data-site="factory"] .hh-mega .hh-col-title:hover,.hh[data-site="factory"] .hh-mega .hh-col-title:focus-visible{background:var(--hh-accent-soft);color:var(--hh-accent);outline:none}
+.hh[data-site="factory"] .hh-mega .hh-col-title[aria-current="page"]{color:var(--hh-accent);font-weight:800}
+/* 모바일 패널 안 아코디언 하위 메뉴 (FR-COM-005) */
+.hh[data-site="factory"] .hh-psub .hh-col{margin-top:0}
+.hh[data-site="factory"] .hh-psub .hh-col-title{display:block;margin:0;padding:12px 8px;font-size:15.5px;font-weight:600;color:var(--hh-ink)}
+.hh[data-site="factory"] .hh-psub .hh-col-title[aria-current="page"]{color:var(--hh-accent);font-weight:800}
+
+/* ── 공통 푸터 (FR-COM-010·011) — MARKET 과 같은 틀, 강조색만 팩토리 ── */
+body[data-site="factory"] .hf-col a:hover,body[data-site="factory"] .hf-col a:focus-visible{color:#FF8FA6}
+body[data-site="factory"] .hf-col a.hf-privacy{color:#FF8FA6}
+body[data-site="factory"] .hf a:focus-visible{outline-color:#FF8FA6}
+body[data-site="factory"] .hf-cta:hover{background:#FDECEF}
+body[data-site="factory"] .hf-brand{display:flex;align-items:center;gap:10px;margin:0 0 28px;font-family:'Inter',sans-serif;font-weight:900;font-size:18px;letter-spacing:.02em;color:#fff}
+body[data-site="factory"] .hf-brand img{width:24px;height:auto;filter:invert(1)}
+
+/* ── 문의폼 공통 동작 (FR-COM-008·009) — 완료 화면 강조색 ── */
+body[data-site="factory"] .cf-done-ic{background:#FDECEF;color:#BC2747}
+body[data-site="factory"] .cf-done a{color:#BC2747}
+body[data-site="factory"] .cf-done-btn{background:#BC2747;color:#fff!important}
+body[data-site="factory"] .is-invalid select{border-color:#D92D20!important;box-shadow:0 0 0 3px rgba(217,45,32,.12)}
+body[data-site="factory"] .privacy-check.is-invalid{color:#D92D20}
+body[data-site="factory"] .privacy-box a{color:#BC2747;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* ── Home 히어로 배경 영상 (FR-COM-015) ── */
+.fac-hero{position:relative;min-height:100vh;min-height:100svh;display:grid!important;place-items:center;padding:140px 24px 96px!important;overflow:hidden;background:#0B0B0F!important;color:#fff;isolation:isolate}
+.fac-hero::before{display:none!important}
+/* 영상 준비 전·「동작 줄이기」·영상 실패 시 보이는 정지 화면 — 공연장 조명 느낌 */
+.fac-hero-media{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(60% 50% at 22% 18%,rgba(225,39,76,.42) 0%,transparent 62%),
+  radial-gradient(45% 40% at 80% 24%,rgba(255,255,255,.14) 0%,transparent 60%),
+  radial-gradient(70% 55% at 50% 100%,rgba(188,39,71,.38) 0%,transparent 65%),
+  linear-gradient(180deg,#16161C 0%,#0B0B0F 100%);background-size:cover;background-position:center}
+.fac-hero-media.has-poster{background-image:var(--fac-poster)}
+.fac-hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.fac-hero-media video.on{opacity:1}
+/* 영상 위 어두운 그라데이션 40~50% (④) */
+.fac-hero-dim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.40) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,.50) 100%)}
+.fac-hero-in{max-width:980px;width:100%;text-align:center}
+.fac-hero-eyebrow{display:inline-block;margin-bottom:26px;padding:8px 18px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.18em;color:#fff}
+.fac-hero h1{margin:0 0 24px!important;min-height:0!important;font-family:'Pretendard','Noto Sans KR',sans-serif;font-weight:900;font-size:clamp(26px,7.4vw,76px)!important;line-height:1.18!important;letter-spacing:-.035em!important;color:#fff;word-break:keep-all}
+.fac-hero h1 span{display:block}
+.fac-hero-sub{max-width:760px;margin:0 auto 40px;font-size:clamp(15px,1.7vw,19px);line-height:1.7;color:rgba(255,255,255,.88);word-break:keep-all}
+.fac-hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.fac-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 30px;border-radius:999px;font-size:16px;font-weight:800;white-space:nowrap;transition:background .15s,color .15s,transform .15s;text-decoration:none}
+.fac-btn-primary{background:#BC2747;color:#fff!important}
+.fac-btn-primary:hover{background:#E1274C;transform:translateY(-1px)}
+.fac-btn-ghost{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.75)}
+.fac-btn-ghost:hover{background:#fff;color:#0B0B0F!important}
+.fac-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.fac-hero-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.6)}
+@media (max-width:600px){
+  .fac-hero{padding:120px 20px 84px!important}
+  .fac-hero-cta{flex-direction:column;align-items:stretch;max-width:320px;margin:0 auto}
+  .fac-hero-scroll{display:none}
+}
+@media (prefers-reduced-motion:reduce){.fac-hero-media video{display:none}}
+/* 히어로 위 섹션 점 내비: 어두운 배경에서도 보이게 */
+.section-nav a{box-shadow:0 0 0 1px rgba(255,255,255,.4)}
+
+/* ── 처리방침·이용약관 (FR-COM-011·016) ── */
+body.fac-doc{margin:0;background:#fff;color:#0B0B0F;font-family:'Pretendard','Noto Sans KR',system-ui,sans-serif;line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased}
+body.fac-doc main{padding-top:var(--hh-offset,72px)}
+.fac-doc-wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.fac-doc-hero{padding:64px 0 28px;border-bottom:1px solid #E7E7EC;background:#F7F7F9}
+.fac-doc-eyebrow{margin:0;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#BC2747}
+.fac-doc-hero h1{margin:10px 0 0;font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:-.03em}
+.fac-doc-meta{display:flex;align-items:center;gap:12px;margin:14px 0 0;font-size:13px;color:#6B6B75}
+.fac-doc-meta span{padding:3px 10px;border:1px solid #C8C8D0;border-radius:999px;font-family:'Inter',sans-serif;font-size:11.5px;font-weight:700;color:#0B0B0F}
+.fac-doc-body{padding:36px 0 96px}
+.fac-doc-body>p,.fac-doc-body li{font-size:15px;color:#3A3A42;line-height:1.85}
+.fac-doc-body>p{margin:0 0 12px}
+.fac-doc-body h2{font-size:18px;font-weight:800;margin:40px 0 14px;padding-top:28px;border-top:1px solid #E7E7EC;scroll-margin-top:calc(var(--hh-offset,72px) + 16px)}
+.fac-doc-body ol{margin:10px 0 14px;padding-left:22px}
+.fac-doc-body li{margin-bottom:6px}
+.fac-doc-body a{color:#BC2747;text-decoration:underline;text-underline-offset:3px}
+.fac-note{font-size:13.5px!important;color:#6B6B75!important}
+.fac-toc{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px;padding:18px;border-radius:14px;background:#F7F7F9}
+.fac-toc a{padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #E7E7EC;font-size:13px;font-weight:600;color:#3A3A42!important;text-decoration:none!important}
+.fac-toc a:hover{border-color:#BC2747;color:#BC2747!important}
+.fac-tbl{overflow-x:auto;margin:14px 0}
+.fac-tbl table{width:100%;min-width:520px;border-collapse:collapse;font-size:14px}
+.fac-tbl th,.fac-tbl td{padding:12px 14px;border:1px solid #E7E7EC;text-align:left;vertical-align:top;line-height:1.7;color:#3A3A42}
+.fac-tbl thead th{background:#0B0B0F;color:#fff;font-weight:700}
+.fac-tbl tbody th{background:#F7F7F9;width:28%;font-weight:700;color:#0B0B0F}
+@media (max-width:600px){.fac-doc-hero{padding:44px 0 22px}}
