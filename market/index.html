@@ -451,6 +451,52 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 }
 @media(max-width:600px){.pl-usual,.pl-homi{padding:24px 18px}.pl-cards{gap:10px}.pl-band{font-size:12.5px;padding:9px 10px}}
 </style>
+<style id="r13-css">
+/* FR-MKT-020 ⑥ 우리가 다른 점 — 검정 바탕 */
+.pt6{background:#141414!important;color:#fff}
+.pt6 .section-head h2{color:#fff}
+.pt6 .section-head h2 .hl{color:#B98CFF!important}
+.pt6-list{display:grid;gap:22px;margin-top:20px;max-width:1080px;margin-left:auto;margin-right:auto}
+.pt6-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:44px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.pt6-row:last-child{border-bottom:0;padding-bottom:0}
+.pt6-lb{font-weight:900;font-size:12.5px;letter-spacing:.14em;color:#B98CFF;margin-bottom:10px}
+.pt6-txt h3{font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.35}
+.pt6-txt p{font-size:15px;color:#CFCAC1;line-height:1.7;margin-bottom:18px}
+.pt6-cta{display:inline-flex;align-items:center;padding:11px 20px;border-radius:999px;background:#FFC53D;color:#141414!important;font-weight:800;font-size:14px;transition:transform .2s,background .2s}
+.pt6-cta:hover{background:#FFD36B;transform:translateY(-2px)}
+.pt6-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.pt6-img{aspect-ratio:560/200;border-radius:16px;overflow:hidden;background:#1E1B26;position:relative}
+.pt6-img svg,.pt6-img img,.pt6-img video{display:block;width:100%;height:100%;object-fit:cover}
+/* FR-MKT-006 ⑦ 방향별 카드 */
+.dir-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
+.dir-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E6E0D6;border-radius:20px;padding:30px 26px}
+.dir-cat{font-size:12.5px;font-weight:800;color:#8B3DFF;letter-spacing:.04em}
+.dir-dir{font-size:22px;font-weight:800;color:#141414;margin:6px 0 6px}
+.dir-line{font-size:15px;color:#3a3732;margin-bottom:20px}
+.dir-how{font-size:12px;font-weight:800;color:#6B665E;letter-spacing:.06em;padding-top:16px;border-top:1px solid #E6E0D6;margin-bottom:10px}
+.dir-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px;flex:1}
+.dir-list li{position:relative;padding-left:26px;font-size:14px;color:#2A2A2A;line-height:1.55}
+.dir-list li::before{content:"";position:absolute;left:0;top:2px;width:17px;height:17px;border-radius:50%;background:#F3ECFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%238B3DFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.dir-cta{align-self:flex-start;display:inline-flex;padding:11px 18px;border-radius:999px;background:#8B3DFF;color:#fff!important;font-weight:800;font-size:14px;transition:background .2s}
+.dir-cta:hover{background:#7D2AE8}
+/* FR-MKT-021 ⑧ 범례 왼쪽 아래, 제목 3줄 */
+.network-text h2{font-size:clamp(26px,2.6vw,36px)!important}
+.map-legend{left:16px!important;right:auto!important}
+/* FR-MKT-022 ⑨ 사례 — 누르지 않는 카드, 좌우 넘김 */
+.campaign-slider{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(300px,calc((100% - 40px)/3));grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.campaign-slider .camp{scroll-snap-align:start;cursor:default}
+.campaign-slider .camp:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.camp-cover{background:#F3ECFF!important}
+.camp-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.camp-tag{background:rgba(20,20,20,.72)!important;backdrop-filter:none!important}
+.camp-body h3{font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.4}
+@media(max-width:900px){
+  .pt6-row{grid-template-columns:1fr;gap:18px}
+  .pt6-img{order:-1}
+  .dir-grid{grid-template-columns:1fr}
+  .campaign-slider{grid-auto-columns:82%}
+}
+</style>
 <style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -671,48 +717,73 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </div>
 </section>
 
-<section class="section">
+<section class="section pt6" id="points">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">3 POINTS</span>
       <h2>목표 달성까지, <span class="hl">든든한 서포터</span>가 되겠습니다</h2>
     </div>
-    <div class="pt-grid">
-      <div class="pt-card reveal"><div class="num">POINT 1</div><h4>목표에 맞는 전략을 먼저 제안합니다</h4><p>추천안과 그 이유를 먼저 드립니다. 광고주는 방향만 확인하시면 됩니다.</p><a href="/market/service-influencer.html" class="lnk">자세히 →</a></div>
-      <div class="pt-card reveal"><div class="num">POINT 2</div><h4>알리고 끝내지 않습니다</h4><p>콘텐츠 2차 활용 · 커머스 연결 · 후속 캠페인까지 이어 붙입니다.</p><a href="/market/how-we-work.html" class="lnk">자세히 →</a></div>
-      <div class="pt-card reveal"><div class="num">POINT 3</div><h4>숫자로 보여드립니다</h4><p>목표 대비 결과까지 실시간 대시보드와 리포트로 공유합니다.</p><a href="/market/case.html" class="lnk">자세히 →</a></div>
+    <div class="pt6-list">
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 1</div><h3 data-k="pt1.t">목표에 맞는 전략을 먼저 제안합니다</h3><p data-k="pt1.d">추천안과 그렇게 짠 이유까지 함께 드립니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
+        <div class="pt6-img" data-img="pt1"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<circle cx="150" cy="78" r="26" fill="#2E2940"/><path d="M104 168c4-36 24-56 46-56s42 20 46 56" fill="#2E2940"/>
+<g transform="rotate(-4 330 100)"><rect x="236" y="34" width="190" height="132" rx="10" fill="#F4F0FA"/>
+<rect x="254" y="54" width="70" height="10" rx="5" fill="#B98CFF"/><rect x="254" y="74" width="44" height="18" rx="9" fill="#E3D4FF"/><rect x="304" y="74" width="56" height="18" rx="9" fill="#E3D4FF"/><rect x="366" y="74" width="40" height="18" rx="9" fill="#E3D4FF"/>
+<rect x="254" y="104" width="154" height="44" rx="8" fill="#fff" stroke="#8B3DFF" stroke-width="2"/><rect x="266" y="116" width="96" height="7" rx="3.5" fill="#C9C2D6"/><rect x="266" y="130" width="120" height="7" rx="3.5" fill="#C9C2D6"/></g>
+<path d="M190 120c20-6 34-8 52-6" stroke="#B98CFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="470" cy="56" r="7" fill="#FFC53D"/><circle cx="494" cy="150" r="4" fill="#B98CFF"/></svg></div>
+      </div>
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 2</div><h3 data-k="pt2.t">알리고 끝내지 않습니다</h3><p data-k="pt2.d">현지 판매까지 연결합니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
+        <div class="pt6-img" data-img="pt2"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<rect x="60" y="30" width="86" height="148" rx="14" fill="#2E2940"/><rect x="68" y="44" width="70" height="114" rx="6" fill="#8B3DFF" opacity=".75"/><path d="M96 88l22 13-22 13z" fill="#fff"/>
+<path d="M164 104h60" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M220 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
+<rect x="244" y="52" width="130" height="104" rx="12" fill="#F4F0FA"/><rect x="244" y="52" width="130" height="24" rx="12" fill="#E3D4FF"/><rect x="258" y="88" width="42" height="42" rx="6" fill="#D9C4FF"/><rect x="308" y="90" width="52" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="106" width="36" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="122" width="44" height="12" rx="6" fill="#8B3DFF"/>
+<path d="M390 104h50" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M436 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
+<path d="M462 92l34-18 34 18v46l-34 18-34-18z" fill="#FFC53D"/><path d="M462 92l34 18 34-18M496 110v46" stroke="#1E1B26" stroke-width="2" fill="none" opacity=".35"/></svg></div>
+      </div>
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 3</div><h3 data-k="pt3.t">숫자로 보여드립니다</h3><p data-k="pt3.d">목표 대비 결과를 리포트로 정리해 드립니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
+        <div class="pt6-img" data-img="pt3"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<rect x="60" y="24" width="440" height="152" rx="12" fill="#F4F0FA"/>
+<path d="M90 150h380" stroke="#C9C2D6" stroke-width="2"/><path d="M90 82h380" stroke="#8B3DFF" stroke-width="2" stroke-dasharray="7 6"/>
+<rect x="120" y="104" width="44" height="46" rx="5" fill="#D9C4FF"/><rect x="190" y="92" width="44" height="58" rx="5" fill="#D9C4FF"/><rect x="260" y="74" width="44" height="76" rx="5" fill="#B98CFF"/><rect x="330" y="62" width="44" height="88" rx="5" fill="#8B3DFF"/><rect x="400" y="52" width="44" height="98" rx="5" fill="#8B3DFF"/>
+<circle cx="422" cy="40" r="7" fill="#FFC53D"/><path d="M142 98l70-12 70-20 70-14 70-10" stroke="#FFC53D" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section gray">
+<section class="section gray" id="directions">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">WHERE DO YOU WANT TO GO?</span>
-      <h2>어디로 가고 싶으세요?</h2>
+      <h2 data-k="dir.title">어디로 가고 싶으세요?</h2>
+      <p data-k="dir.lead">가고 싶은 방향만 골라 주세요. 나라·채널·방식은 목표에 맞춰 함께 설계합니다.</p>
     </div>
-    <div class="region-grid">
-      <a href="/market/service-influencer.html" class="region-card reveal">
-        <div class="flag">🌏</div>
-        <div class="r-eyebrow">한국 → 세계</div>
-        <h3>한국 브랜드의 글로벌 진출</h3>
-        <p>국내 브랜드를 해외 소비자에게 알리고 싶다면</p>
-        <ul><li>제품에 맞는 나라에서 바이럴 → SNS 바이럴</li><li>현지 커머스/오프라인 매장 입점·입점 지원</li><li>제품에 맞는 크리에이터 섭외·리뷰·추천</li></ul>
-      </a>
-      <a href="/market/service-visit.html" class="region-card reveal">
-        <div class="flag">🇰🇷</div>
-        <div class="r-eyebrow">세계 → 한국·아시아</div>
-        <h3>해외 브랜드의 한국·아시아 진출</h3>
-        <p>해외 브랜드를 한국 소비자에게 알리고 싶다면</p>
-        <ul><li>한국 아티스트 리뷰 등 등 크리에이터 활용</li><li>한국 SNS 광고·웨리즈·제품 리뷰 ·리워드 등</li><li>국내 오프라인 매장·이벤트 운영</li></ul>
-      </a>
-      <a href="/market/service-event.html" class="region-card reveal">
-        <div class="flag">🏠</div>
-        <div class="r-eyebrow">국내 시장</div>
-        <h3>국내 시장</h3>
-        <p>국내 매장·제품 · 서비스를 알리고 싶다면</p>
-        <ul><li>목적에 맞는 크리에이터를 상의하고 매칭</li><li>해당 분야 전문 콘텐츠·캠페인을 가능한 가격으로 직접 만듭니다</li><li>직접 접점을 넣고 다양한 상황에 맞게 제작합니다</li></ul>
-      </a>
+    <div class="dir-grid">
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d1.cat">해외 진출</div>
+        <h3 class="dir-dir" data-k="d1.dir">한국 → 세계</h3>
+        <p class="dir-line" data-k="d1.line">우리 제품, 해외에서 팔고 싶어요</p>
+        <div class="dir-how">호미가 하는 방법</div>
+        <ul class="dir-list"><li data-k="d1.m1">제품에 맞는 나라와 현지에서 쓰는 SNS부터 고르기</li><li data-k="d1.m2">지사·거점의 현지 크리에이터가 리뷰·시딩</li><li data-k="d1.m3">현지 쇼핑몰·라이브커머스로 판매까지 연결</li></ul>
+        <a class="dir-cta" href="/market/contact.html?direction=1">이 방향으로 상담하기 →</a>
+      </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d2.cat">한국 진입</div>
+        <h3 class="dir-dir" data-k="d2.dir">세계 → 한국·아시아</h3>
+        <p class="dir-line" data-k="d2.line">한국·아시아 시장에 들어오고 싶어요</p>
+        <div class="dir-how">호미가 하는 방법</div>
+        <ul class="dir-list"><li data-k="d2.m1">한국 소비자가 정보를 찾는 채널부터 진단</li><li data-k="d2.m2">국내 크리에이터 리뷰·체험단으로 신뢰 쌓기</li><li data-k="d2.m3">팝업·방문 체험으로 직접 써 보게 하기</li></ul>
+        <a class="dir-cta" href="/market/contact.html?direction=2">이 방향으로 상담하기 →</a>
+      </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d3.cat">국내 마케팅</div>
+        <h3 class="dir-dir" data-k="d3.dir">국내 시장</h3>
+        <p class="dir-line" data-k="d3.line">국내에서 제대로 알리고 싶어요</p>
+        <div class="dir-how">호미가 하는 방법</div>
+        <ul class="dir-list"><li data-k="d3.m1">목표에 맞게 메가부터 체험단까지 규모 조합</li><li data-k="d3.m2">매장 방문 프로모션·팝업·행사로 직접 만나기</li><li data-k="d3.m3">결과 리포트로 다음 캠페인까지 이어가기</li></ul>
+        <a class="dir-cta" href="/market/contact.html?direction=3">이 방향으로 상담하기 →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -722,7 +793,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     <div class="network-grid">
       <div class="network-text reveal">
         <div class="section-eyebrow">🌐 GLOBAL NETWORK</div>
-        <h2>일본과 인도네시아 지사를 거점으로 한, <span class="hl">해외 곳곳의 거점 네트워크</span></h2>
+        <h2>일본과 인도네시아 지사를<br>거점으로 한,<br><span class="hl">해외 곳곳의 거점 네트워크</span></h2>
         <p>나라별 인플루언서 규모와 판매 채널을 확인하세요.</p>
         <a href="/market/global.html" class="lnk">Global Network 보기 →</a>
       </div>
@@ -753,27 +824,26 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <text x="366" y="138" text-anchor="middle" font-weight="800" fill="#141414">한국 본사</text>
 <text x="454" y="174" text-anchor="start" font-weight="800" fill="#141414">일본 지사</text>
 <text x="258" y="443" text-anchor="start" font-weight="800" fill="#141414">인도네시아 지사</text>
-<text x="574" y="149" text-anchor="middle" font-weight="600" fill="#3A3A42">북미 →</text>
+<text x="592" y="149" text-anchor="end" font-weight="600" fill="#3A3A42">북미 →</text>
 <text x="291" y="142" text-anchor="end" font-weight="600" fill="#3A3A42">중국</text>
 <text x="344" y="249" text-anchor="start" font-weight="600" fill="#3A3A42">대만</text>
 <text x="278" y="267" text-anchor="end" font-weight="600" fill="#3A3A42">홍콩</text>
 <text x="341" y="316" text-anchor="start" font-weight="600" fill="#3A3A42">필리핀</text>
 <text x="67" y="240" text-anchor="middle" font-weight="600" fill="#3A3A42">인도</text>
 </g></svg>
-        <div class="map-legend"><span class="lg-hub">본사·지사</span><span class="lg-edge">거점</span></div>
+        <div class="map-legend"><span class="lg-hub">본사·지사</span><span class="lg-edge">거점 네트워크</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal"><span class="section-eyebrow">OUR CASE</span>
+<section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal">
       <h2>호미와 <span class="hl">함께한 캠페인</span></h2>
-      <p>좌우로 넘겨 사례를 확인하세요. 상세 Case 페이지에서 전체 내용을 보실 수 있습니다.</p>
     </div>
-    <div class="campaign-slider">
-      <a href="/market/case.html" class="camp reveal"><div class="camp-cover"><div class="camp-tags"><span class="camp-tag">국내</span><span class="camp-tag">캐릭터 IP</span></div></div><div class="camp-body"><h4>캐릭터 IP 바이럴 캠페인</h4><p>어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></a>
-      <a href="/market/case.html" class="camp reveal"><div class="camp-cover g2"><div class="camp-tags"><span class="camp-tag">인도네시아</span><span class="camp-tag">K-POP</span></div></div><div class="camp-body"><h4>K-POP 아티스트 현지 프로모션</h4><p>어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></a>
-      <a href="/market/case.html" class="camp reveal"><div class="camp-cover g3"><div class="camp-tags"><span class="camp-tag">국내</span><span class="camp-tag">F&B</span></div></div><div class="camp-body"><h4>F&B 브랜드 시즌 캠페인</h4><p>어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></a>
+    <div class="campaign-slider" tabindex="0" aria-label="사례 — 좌우로 넘겨 보세요">
+      <article class="camp reveal"><div class="camp-cover" data-img="c1"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c1.tag1">국내</span><span class="camp-tag" data-k="c1.tag2">캐릭터 IP</span></div></div><div class="camp-body"><h3 data-k="c1.name">하츄핑·티니핑</h3><p data-k="c1.text">어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></article>
+      <article class="camp reveal"><div class="camp-cover" data-img="c2"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c2.tag1">인도네시아</span><span class="camp-tag" data-k="c2.tag2">K-POP</span></div></div><div class="camp-body"><h3 data-k="c2.name">K-POP 아티스트 현지 프로모션</h3><p data-k="c2.text">어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></article>
+      <article class="camp reveal"><div class="camp-cover" data-img="c3"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c3.tag1">국내</span><span class="camp-tag" data-k="c3.tag2">F&amp;B</span></div></div><div class="camp-body"><h3 data-k="c3.name">청담유식</h3><p data-k="c3.text">어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></article>
     </div>
   </div>
 </section>
@@ -883,22 +953,21 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 })();
 </script>
 
-<section class="section">
+<section class="section" id="faq">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">FAQ</span>
       <h2>자주 묻는 질문</h2>
     </div>
     <div class="faq-list reveal">
-      <details class="faq-item" open><summary><span class="qtxt">상담과 플랜 제안에도 비용이 드나요?</span></summary><div class="ans">상담은 무료입니다. 브랜드의 목표와 상황을 듣고 어떤 나라, 어떤 방식이 맞을지 방향을 함께 정리해 드립니다. 진행을 결정하기 전까지는 비용이 들지 않습니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">예산이 크지 않아도 진행할 수 있나요?</span></summary><div class="ans">네. 캠페인 성격과 규모에 맞춰 최소 단위부터 설계합니다. 편하게 문의 주세요.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">인플루언서를 직접 고를 수 있나요?</span></summary><div class="ans">추천안을 먼저 드리고 함께 조율합니다. 선호하시는 크리에이터가 있다면 그 이유를 검토해 플랜에 반영합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">어느 나라에서 진행할 수 있나요?</span></summary><div class="ans">일본·인도네시아 지사와 중국·대만·홍콩·필리핀·북미 접점을 통해 운영합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">현지 쇼핑몰 입점이나 라이브커머스까지 연결해 주나요?</span></summary><div class="ans">네. 커머스 입점·라이브 커머스 운영까지 연결 가능한 파트너십을 보유하고 있습니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">광고 표기는 어떻게 하나요?</span></summary><div class="ans">각 나라의 광고 표기 규정(KFTC, FTC 등)에 맞춰 투명하게 운영합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">만든 콘텐츠를 우리 광고나 상세페이지에 써도 되나요?</span></summary><div class="ans">네. 2차 활용 범위를 사전에 협의해 저작권·초상권 사용권을 함께 확보합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">결과는 어떻게 확인하나요?</span></summary><div class="ans">실시간 대시보드 + 중간·종합 리포트로 공유합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">무엇을 준비하면 되나요?</span></summary><div class="ans">브랜드 · 제품 · 지금의 고민 · 목표만 알려주시면 됩니다. 나머지는 함께 정리해 드립니다.</div></details>
+      <details class="faq-item" open><summary><span class="qtxt" data-k="q1">상담과 플랜 제안에도 비용이 드나요?</span></summary><div class="ans" data-k="a1">상담은 무료입니다. 브랜드의 목표와 상황을 듣고 어떤 나라, 어떤 방식이 맞을지 방향을 함께 정리해 드립니다. 진행을 결정하기 전까지는 비용이 들지 않습니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q2">예산이 크지 않아도 진행할 수 있나요?</span></summary><div class="ans" data-k="a2">네. 중요한 건 예산의 크기보다 목표입니다. 정해진 예산 안에서 나라, 인플루언서 규모, 방식을 조정해 가장 효과적인 조합을 제안합니다. 정확한 비용은 상담 후 견적으로 안내합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q3">인플루언서를 직접 고를 수 있나요?</span></summary><div class="ans" data-k="a3">네. 시딩 방식은 원하는 크리에이터를 브랜드가 직접 고르시고, 전략·기획 시딩은 목표에 맞는 추천안과 고른 이유를 먼저 드린 뒤 함께 정합니다. 함께하고 싶은 크리에이터가 있다면 어느 방식이든 반영합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q4">어느 나라에서 진행할 수 있나요?</span></summary><div class="ans" data-k="a4">일본·인도네시아 지사를 중심으로 중국, 대만, 홍콩, 필리핀, 인도, 북미의 거점 네트워크와 함께 진행합니다. 그 밖의 나라는 상담에서 가능 여부를 확인해 드립니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q5">현지 쇼핑몰 입점이나 라이브커머스까지 연결해 주나요?</span></summary><div class="ans" data-k="a5">콘텐츠가 구매로 이어지도록 현지 쇼핑몰·라이브커머스 연결까지 함께 설계합니다. 입점 조건과 인증, 통관은 나라와 제품마다 달라 상담에서 먼저 확인합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q6">광고 표기는 어떻게 하나요?</span></summary><div class="ans" data-k="a6">나라마다 정해진 규칙에 맞춰 표기합니다. 한국은 「광고」, 일본은 #PR, 미국은 #ad처럼 크리에이터가 빠짐없이 표기하도록 안내하고 게시 후 확인합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q7">만든 콘텐츠를 우리 광고나 상세페이지에 써도 되나요?</span></summary><div class="ans" data-k="a7">크리에이터와 계약할 때 사용 범위와 기간을 미리 정합니다. 광고 소재나 상세페이지로 다시 쓸 계획이 있다면 상담 때 말씀해 주세요.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q8">결과는 어떻게 확인하나요?</span></summary><div class="ans" data-k="a8">처음 함께 정한 목표를 기준으로 노출, 반응, 판매 전환을 정리한 리포트를 드리고, 다음 캠페인 방향까지 함께 제안합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q9">무엇을 준비하면 되나요?</span></summary><div class="ans" data-k="a9">제품 소개 자료와 이루고 싶은 목표면 충분합니다. 어느 나라가 맞을지 몰라도 괜찮습니다. 의뢰서에 아는 만큼만 적어 주세요.</div></details>
     </div>
   </div>
 </section>
@@ -1316,6 +1385,14 @@ window.HOMI_SITE_PENDING=1;
     var h=d.hero&&d.hero[LC];
     if(h){ var h1=document.querySelector('.hero-inner h1'), p=document.querySelector('.hero-inner > p');
       if(h.title&&h1) h1.innerHTML=rich(h.title); if(h.desc&&p) p.innerHTML=rich(h.desc); }
+    /* 섹션 문구(data-k) · 이미지/영상(data-img) — ⑥ POINT · ⑦ 방향 카드 · ⑨ 사례 · ⑩ FAQ */
+    var T=(d.texts&&d.texts[LC])||{};
+    [].forEach.call(document.querySelectorAll('[data-k]'),function(el){ var v=T[el.getAttribute('data-k')]; if(v) el.innerHTML=rich(v); });
+    var IM=d.images||{};
+    [].forEach.call(document.querySelectorAll('[data-img]'),function(el){ var u=IM[el.getAttribute('data-img')]; if(!u) return;
+      var m=/\.(mp4|webm)(\?|$)/i.test(u)?'<video src="'+esc(u)+'" muted loop autoplay playsinline preload="metadata" aria-hidden="true"></video>':'<img src="'+esc(u)+'" alt="" loading="lazy" decoding="async">';
+      var old=el.querySelector('img,svg,video'); var t=document.createElement('div'); t.innerHTML=m; var nw=t.firstChild;
+      if(old) el.replaceChild(nw,old); else el.insertBefore(nw,el.firstChild); });
     /* ④ 사진 4장 */
     (d.planPhotos||[]).forEach(function(src,i){ if(!src) return; var ph=document.querySelector('.pl-ph[data-slot="'+i+'"]'); if(!ph) return;
       var im=ph.querySelector('img'); im.src=src; im.hidden=false; ph.classList.add('has-img'); });
