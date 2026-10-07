@@ -260,7 +260,7 @@
       var cur = 'home';
       /* 구간이 겹쳐 쌓이는 화면(카드 스크롤)에서도 맞게: 그 높이에 실제로 보이는 구간 기준 */
       var hit = document.elementFromPoint(window.innerWidth / 2, Math.min(line, window.innerHeight - 1));
-      spyEls.forEach(function (s) { if (hit && s.el.contains(hit)) cur = s.key; });
+      spyEls.forEach(function (s) { if (hit && (s.el.contains(hit) || (hit.closest && hit.closest('[data-spy="' + s.el.id + '"]')))) cur = s.key; });   /* 이어지는 화면(data-spy)도 같은 구간 */
       setCurrent(cur);
     }
     window.addEventListener('scroll', spy, { passive: true });   /* 계산이 가벼워 매 스크롤마다 바로 판정 */
