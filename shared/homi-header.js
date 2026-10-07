@@ -72,7 +72,13 @@
       menu: [
         { key: 'home', label: 'Home', href: '/' },
         { key: 'about', label: 'About us', href: '/about' },
-        { key: 'business', label: 'Business', href: '/service-marketing' },
+        /* Business ▾ 하위 4개 (FR-FAC-001) — 제목만 있는 칸 4개로 펼침 */
+        { key: 'business', label: 'Business', mega: [
+          { title: 'Marketing', href: '/service-marketing', items: [] },
+          { title: 'Global PR', href: '/service-global', items: [] },
+          { title: 'Content Production', href: '/service-production', items: [] },
+          { title: 'Monitoring Service', href: '/service-monitoring', items: [] }
+        ] },
         { key: 'contact', label: 'Contact', href: '/contact' }
       ],
       langs: [{ code: 'KR', label: '한국어 · KR' }, { code: 'ID', label: 'Bahasa · ID', map: { '/': '/id/' } }],
