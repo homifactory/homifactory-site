@@ -141,7 +141,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
   </section>
 
   <section class="card" aria-labelledby="h-txt">
-    <h2 id="h-txt">Home 문구 <span class="badge">⑥ ⑦ ⑨ ⑩</span></h2>
+    <h2 id="h-txt">Home 문구 <span class="badge">⑥ ⑦ ⑨ ⑩ ⑪ · 하단 바</span></h2>
     <p class="hint">지금 사이트에 나오는 문구가 들어 있습니다. 고친 칸만 저장됩니다. 강조색은 [대괄호], 줄바꿈은 그대로 반영.</p>
     <div id="txtList"><p class="hint">문구 불러오는 중…</p></div>
   </section>
@@ -249,15 +249,15 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
   $('mediaList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var k=t.dataset.k; D.images[k]=''; delete pending['md_'+k]; media(); });
 
   /* ── Home 문구: 사이트 페이지에서 data-k 문구를 읽어와 기본값으로 ── */
-  var GROUPS=[['pt','⑥ 우리가 다른 점'],['dir','⑦ 방향별 카드 — 제목'],['d1','⑦ 카드 1'],['d2','⑦ 카드 2'],['d3','⑦ 카드 3'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3'],['q','⑩ 자주 묻는 질문']];
+  var GROUPS=[['pt','⑥ 우리가 다른 점'],['dir','⑦ 방향별 카드 — 제목'],['d1','⑦ 카드 1'],['d2','⑦ 카드 2'],['d3','⑦ 카드 3'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3'],['q','⑩ 자주 묻는 질문'],['final','⑪ 마지막 한 마디'],['bar','하단 고정 바']];
   var NAMES={t:'제목',d:'설명',cat:'작은 분류',dir:'방향',line:'한 줄',m1:'방법 1',m2:'방법 2',m3:'방법 3',title:'제목',lead:'한 줄',tag1:'태그 1',tag2:'태그 2',name:'이름',text:'글 2~3줄'};
   var PAGE={};
   function toPlain(el){ var c=el.cloneNode(true); [].forEach.call(c.querySelectorAll('.hl'),function(h){ h.replaceWith('['+h.textContent+']'); }); [].forEach.call(c.querySelectorAll('br'),function(b){ b.replaceWith('\n'); }); return c.textContent.trim(); }
   function grab(lang){ var url=(lang==='ko'?'':'/'+lang)+'/market/';
     return fetch(url,{cache:'no-store'}).then(function(r){ return r.text(); }).then(function(h){ var doc=new DOMParser().parseFromString(h,'text/html'), o={keys:[]};
       [].forEach.call(doc.querySelectorAll('[data-k]'),function(el){ var k=el.getAttribute('data-k'); if(!(k in o)) o.keys.push(k); o[k]=toPlain(el); }); PAGE[lang]=o; }); }
-  function grp(k){ var m=k.match(/^(pt|dir|d\d|c\d|q|a)/); var g=m?m[1]:''; if(g==='a') g='q'; if(g==='pt') g='pt'; return g; }
-  function label(k){ var m; if((m=k.match(/^pt(\d)\.(\w+)$/))) return 'POINT '+m[1]+' '+NAMES[m[2]]; if((m=k.match(/^q(\d)$/))) return 'Q'+m[1]+' 질문'; if((m=k.match(/^a(\d)$/))) return 'Q'+m[1]+' 답변';
+  function grp(k){ var m=k.match(/^(pt|dir|d\d|c\d|q|a|final|bar)/); var g=m?m[1]:''; if(g==='a') g='q'; if(g==='pt') g='pt'; return g; }
+  function label(k){ var m; if(k==='final.t') return '문구'; if(k==='bar.t') return '바 문구'; if((m=k.match(/^pt(\d)\.(\w+)$/))) return 'POINT '+m[1]+' '+NAMES[m[2]]; if((m=k.match(/^q(\d)$/))) return 'Q'+m[1]+' 질문'; if((m=k.match(/^a(\d)$/))) return 'Q'+m[1]+' 답변';
     var p=k.split('.'); return NAMES[p[1]]||k; }
   function texts(){
     if(!PAGE.ko){ return; }
