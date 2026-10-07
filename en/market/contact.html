@@ -409,7 +409,10 @@ document.addEventListener('DOMContentLoaded', function(){
   // Preselect from URL ?direction=
   const params = new URLSearchParams(location.search);
   const dir = params.get('direction');
-  if (dir) {
+  if (/^[123]$/.test(dir||'')) {   /* Home ⑦ 방향 카드에서 들어옴: 1 한국→세계 · 2 세계→한국·아시아 · 3 국내 시장 */
+    const r = document.querySelectorAll('.direction-radio input')[+dir - 1];
+    if (r) { r.checked = true; r.closest('label').click(); }
+  } else if (dir) {
     document.querySelectorAll('.direction-radio input').forEach(r => {
       if (r.value.includes(dir)) { r.checked = true; r.closest('label').click(); }
     });
