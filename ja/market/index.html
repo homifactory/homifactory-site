@@ -823,34 +823,40 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   }
   list.forEach(function(v,i){ track.appendChild(card(v,i)); });
   var loop=!touch && !reduce && list.length>1;
-  if(loop) list.forEach(function(v,i){ track.appendChild(card(v,i,true)); });   /* 끊김 없이 흐르도록 한 벌 더 */
+  function addSet(){ list.forEach(function(v,i){ var c=card(v,i,true); track.appendChild(c); if(window.__hsIO) __hsIO.observe(c); }); }
+  if(loop) addSet();   /* 끊김 없이 흐르도록 복제 — 부족하면 measure()에서 더 붙임 */
   dots.innerHTML=list.map(function(){ return '<span></span>'; }).join('');
   /* 화면에 보일 때만 영상을 불러와 소리 없이 반복 재생 */
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var vd=e.target.querySelector('video'); if(!vd) return;
+  var io=window.__hsIO=new IntersectionObserver(function(es){ es.forEach(function(e){ var vd=e.target.querySelector('video'); if(!vd) return;
     if(e.isIntersecting){ if(!vd.src){ vd.src=vd.dataset.src; } var pr=vd.play(); if(pr&&pr.catch) pr.catch(function(){}); vd.onplaying=function(){ e.target.classList.add('on'); }; }
     else { vd.pause(); } }); },{root:null,threshold:0.25});
   track.querySelectorAll('.hs-card').forEach(function(c){ io.observe(c); });
-  /* 천천히 옆으로 흐름, 마우스를 올리면 멈춤 */
-  var x=0, paused=false, last=0, half=0, step=240;
-  function measure(){ var c=track.querySelector('.hs-card'); step=c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):240; half=loop?track.scrollWidth/2:0; }
+  /* 천천히 옆으로 흐름, 영상 카드 위에 마우스를 올릴 때만 멈춤 */
+  var x=0, last=0, half=0, step=240, st={hover:false,focus:false,off:false,modal:false};
+  function isPaused(){ return st.hover||st.focus||st.off||st.modal; }
+  function measure(){ var c=track.querySelector('.hs-card'); step=c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):240;
+    if(!loop){ half=0; return; }
+    half=step*list.length;   /* 한 바퀴 = 카드 수 × (카드 폭+간격) → 마지막 다음에 첫 카드가 정확히 이어짐 */
+    var g=0; while(track.scrollWidth<half+vp.clientWidth+step*2 && g++<20) addSet(); }
   function setDot(k){ [].forEach.call(dots.children,function(d,j){ d.classList.toggle('on',j===k); }); }
   function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
-    if(!paused&&!document.hidden){ x+=dt*0.028; if(half&&x>=half) x-=half; track.style.transform='translateX('+(-x)+'px)'; setDot(Math.floor((x+step/2)/step)%list.length); }
+    if(!isPaused()&&!document.hidden){ x+=dt*0.028; if(half&&x>=half) x-=half; track.style.transform='translateX('+(-x)+'px)'; setDot(Math.floor((x+step/2)/step)%list.length); }
     requestAnimationFrame(frame); }
   measure(); addEventListener('resize',measure); setDot(0);
-  if(loop){ sec.addEventListener('mouseenter',function(){ paused=true; }); sec.addEventListener('mouseleave',function(){ paused=false; });
-    sec.addEventListener('focusin',function(){ paused=true; }); sec.addEventListener('focusout',function(){ paused=false; });
-    new IntersectionObserver(function(e){ paused=!e[0].isIntersecting; }).observe(sec); requestAnimationFrame(frame); }
+  if(loop){ track.addEventListener('mouseover',function(e){ st.hover=!!e.target.closest('.hs-card'); });
+    track.addEventListener('mouseleave',function(){ st.hover=false; });
+    sec.addEventListener('focusin',function(){ st.focus=true; }); sec.addEventListener('focusout',function(){ st.focus=false; });
+    new IntersectionObserver(function(e){ st.off=!e[0].isIntersecting; }).observe(sec); requestAnimationFrame(frame); }
   else vp.addEventListener('scroll',function(){ setDot(Math.min(list.length-1,Math.round(vp.scrollLeft/step))); },{passive:true});
   /* 누르면 팝업에서 소리와 함께 재생 */
   var modal=document.getElementById('hsModal'), player=modal.querySelector('.hs-player'), opener=null;
-  function open(v,btn){ if(v.type==='ph') return; opener=btn; paused=true;
+  function open(v,btn){ if(v.type==='ph') return; opener=btn; st.modal=true;
     var h=''; if(v.type==='mp4') h='<video src="'+v.src+'" controls autoplay playsinline></video>';
     else if(v.type==='youtube') h='<iframe src="https://www.youtube.com/embed/'+v.id+'?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
     else if(v.type==='tiktok') h='<iframe src="https://www.tiktok.com/embed/v2/'+v.id+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/reel/'+v.id+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     player.innerHTML=h; modal.hidden=false; document.documentElement.style.overflow='hidden'; modal.querySelector('.hs-close').focus(); }
-  function close(){ modal.hidden=true; player.innerHTML=''; document.documentElement.style.overflow=''; paused=false; if(opener) opener.focus(); }
+  function close(){ modal.hidden=true; player.innerHTML=''; document.documentElement.style.overflow=''; st.modal=false; if(opener) opener.focus(); }
   track.addEventListener('click',function(e){ var c=e.target.closest('.hs-card'); if(c) open(list[+c.dataset.i],c); });
   modal.addEventListener('click',function(e){ if(e.target===modal||e.target.closest('.hs-close')) close(); });
   addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
