@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="UTF-8"><script id="lang-auto">/* FR-MKT-025 처음 들어온 방문자: 브라우저 언어로 자동 선택(한국어→KR, 일본어→JA, 인도네시아어→ID, 그 밖→EN). 한 번 정해지면 이후엔 🌐 버튼으로만 바뀜 */
+(function(){try{var K='homi_lang_auto';if(localStorage.getItem(K))return;localStorage.setItem(K,'1');
+if(/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent))return;
+var p=location.pathname,m=p.match(/^\/(en|ja|id)(\/market(?:\/.*)?)$/),cur=m?m[1]:'ko',rest=m?m[2]:p;if(rest.indexOf('/market')!==0)return;
+var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
+location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home · HOMI MARKET</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,6 +299,7 @@ body{padding-top:48px}
 .plan-step h3{font-size:19px;font-weight:800;color:#141414;margin-bottom:10px}
 .plan-step p{font-size:14px;color:#555;line-height:1.6}
 .industry-strip{padding:48px 24px;background:#fff;text-align:center;border-top:1px solid #F0EBE0}
+.strategy-section .industry-strip{background:transparent;border-top:0;padding:40px 24px 0;max-width:1200px;margin:0 auto}
 .industry-strip h3{font-size:18px;color:#333;margin-bottom:20px;font-weight:600}
 .industry-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1100px;margin:0 auto}
 .industry-chips .ic{padding:10px 18px;background:#F3ECFF;border:1px solid #D9C4FF;color:#5B2BB8;border-radius:999px;font-size:14px;font-weight:600}
@@ -478,7 +486,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     <div class="hero-badge"><span class="spark">✦</span>GLOBAL INFLUENCER MARKETING<span class="divider">·</span>Korea ⇄ World</div>
     <h1>We become <span class="hl">one team</span> with you,<br>all the way to global markets</h1>
     <p>We don’t stop at connecting. We go all the way to <span style="color:var(--primary);font-weight:800">the moment content turns into a purchase</span>.</p>
-    <a href="/en/market/contact.html" class="big-cta">Get a free consultation →</a>
+    <a href="/en/market/contact.html" class="big-cta">Free Consultation →</a>
     <div class="country-network">
       <div class="cn-label">Local network</div>
       <div class="region-chips">
@@ -496,7 +504,17 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 
-<section class="strategy-section" id="strategy-section">
+<!-- ② 고객사 로고 -->
+<section class="section gray">
+
+<div class="logo-marquee-wrap">
+  <div class="marquee-row left"><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Online Lectures</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Online Lectures</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div></div>
+  <div class="marquee-row right"><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div></div>
+</div>
+</section>
+
+<!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
+<section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> Results proven by real campaigns</span>
@@ -530,7 +548,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-stat"><div class="num">91%</div><div class="lbl">Renewal rate<br>Growing with our brands</div></div>
 </div>
 </div>
+<div class="industry-strip"><h3>From small businesses to large enterprises, we’ve worked with brands across many industries</h3>
+  <div class="industry-chips"><span class="ic">Fashion</span><span class="ic">F&amp;B · Food</span><span class="ic">Health supplements</span><span class="ic">Healthcare</span><span class="ic">Beauty</span><span class="ic">Travel</span><span class="ic">Living · Wellness</span><span class="ic">Electronics · Digital</span><span class="ic">Finance · Insurance</span><span class="ic">Character · IP</span></div>
+</div>
 </section>
+
+<!-- ④ 리스트가 아니라 플랜 -->
 <section class="plan-section" id="plan-section">
   <div class="plan-wrap">
     <div class="plan-head"><h2>Not a list —<br><em>a plan that sells</em></h2><p style="margin-top:14px;color:#666">We design and propose your strategy in 4 steps, built around your brand’s needs and goals</p></div>
@@ -539,77 +562,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="plan-step"><span class="num">02</span><h3>Choose market & target</h3><p>Choose which country and which consumers to target, based on data</p></div>
       <div class="plan-step"><span class="num">03</span><h3>Combine methods</h3><p>Design the most effective mix of influencers, ads, and commerce</p></div>
       <div class="plan-step"><span class="num">04</span><h3>Set success metrics</h3><p>Agree on what counts as success — and own the reporting</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="industry-strip"><h3>From small businesses to large enterprises, we’ve worked with brands across many industries</h3>
-  <div class="industry-chips"><span class="ic">Fashion</span><span class="ic">F&amp;B · Food</span><span class="ic">Health supplements</span><span class="ic">Healthcare</span><span class="ic">Beauty</span><span class="ic">Travel</span><span class="ic">Living · Wellness</span><span class="ic">Electronics · Digital</span><span class="ic">Finance · Insurance</span><span class="ic">Character · IP</span></div>
-</div>
-
-
-
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR CLIENTS · 10 CATEGORIES</span>
-      <h2>Solutions for our clients</h2>
-      <p>We’ve built results with each client, one at a time, around their field and goals.</p>
-    </div>
-    </div>
-
-<div class="logo-marquee-wrap">
-  <div class="marquee-row left"><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Online Lectures</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Online Lectures</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Client logo]</div></div>
-  <div class="marquee-row right"><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div><div class="logo-card">[Global brands]</div><div class="logo-card">[Client logo]</div></div>
-</div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR DIFFERENCE</span>
-      <h2>Strategy tailored to your brand,<br><span class="hl">proven by results</span></h2>
-      <p>What matters isn’t how loud the message is — it’s what results the plan delivered for this IP. We become one team with your brand and design everything together, start to finish.</p>
-    </div>
-    <div class="cmp reveal">
-      <div class="cmp-col">
-        <span class="cmp-lbl">IP · What to say</span>
-        <h3>What to say, and where</h3>
-        <ul><li>Hands over an influencer list</li><li>Leaves the choosing to the advertiser</li><li>No explanation of why these creators</li></ul>
-      </div>
-      <div class="cmp-col ours">
-        <span class="cmp-lbl">PLAN · How to say it</span>
-        <h3>We plan how to say it, together</h3>
-        <ul><li>Starts with a goal diagnosis</li><li>Designs the influencer mix and schedule</li><li>Proposes the plan with the reasons behind the mix</li><li>RESULT · What remains</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">BY THE NUMBERS</span>
-      <h2>Partner creators <span class="hl">40,000+</span></h2>
-    </div>
-    <div class="stat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">40,000+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">Partner creators</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">8<span style="font-size:28px"> hubs</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">Global hubs</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">45+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">Brands we worked with in 2026</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">91<span style="font-size:28px">%</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">Renewal rate</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="how-we-work"><div class="section-inner"><div class="section-head reveal"><span class="section-eyebrow">4-STEP PLAN</span>
-      <h2>Any campaign, any case — <span class="hl">we design it with you</span></h2>
-    </div>
-    <div class="plan-steps">
-      <div class="plan-step reveal"><div class="num">01 · Set goals</div><h4>Which country, who, and why</h4><p>We start by clarifying what your brand wants.</p></div>
-      <div class="plan-step reveal"><div class="num">02 · Choose market & target</div><h4>Which country’s consumers</h4><p>We narrow the target with regional consumer data.</p></div>
-      <div class="plan-step reveal"><div class="num">03 · Combine methods</div><h4>Influencers · Live · Commerce</h4><p>We design the mix that fits your goals.</p></div>
-      <div class="plan-step reveal"><div class="num">04 · Set success metrics</div><h4>Success criteria that match your goals</h4><p>We agree on report metrics up front.</p></div>
     </div>
   </div>
 </section>
@@ -885,9 +837,8 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <div class="num-tag">⑩ FINAL</div>
     <h2>Don’t figure out global expansion alone.<br><span class="hl">HOMI MARKET</span> will be your team</h2>
-    <a href="/en/market/contact.html" class="big-cta">Get a free consultation →</a>
+    <a href="/en/market/contact.html" class="big-cta">Free Consultation →</a>
   </div>
 </section>
 <footer class="hf" id="homi-footer">
@@ -923,7 +874,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
         <p class="hf-hours">Weekdays 10:00 ~ 22:00 (Weekends & holidays available)</p>
         <p>Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
         <p>Phone · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
-        <a href="/en/market/contact" class="hf-cta">Get a Free Consultation</a>
+        <a href="/en/market/contact" class="hf-cta">Free Consultation</a>
       </div>
     </div>
     <div class="hf-bottom">
@@ -939,7 +890,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 <div id="stickyAsk" class="">
   <span class="text">Which country will our product sell in?</span>
-  <a href="/en/market/contact.html" class="cta">Get a free consultation</a>
+  <a href="/en/market/contact.html" class="cta">Free Consultation</a>
 </div><script>
 (function(){
   const bar = document.getElementById('stickyAsk');
