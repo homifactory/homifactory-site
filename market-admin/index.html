@@ -135,8 +135,8 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     <div class="ph4" id="phList"></div>
   </section>
   <section class="card" aria-labelledby="h-media">
-    <h2 id="h-media">POINT · 사례 이미지/영상 <span class="badge">Home ⑥ ⑨</span></h2>
-    <p class="hint">⑥ POINT 이미지는 가로 560×200 비율(사진 또는 5~8초 반복 영상 MP4, 소리 없음). 글자·숫자·로고가 없는 실사로. ⑨ 사례 사진은 가로 16:10. 비우면 지금 그림이 나옵니다.</p>
+    <h2 id="h-media">Home 사진·영상 <span class="badge">① 히어로 · ⑥ POINT · ⑨ 사례</span></h2>
+    <p class="hint">① 히어로 배경 영상은 가로 16:9 MP4(40MB 이하, 소리 없이 반복 재생)와 첫 장면 사진을 함께 넣어 주세요. ⑥ POINT 이미지는 가로 560×200 비율(사진 또는 5~8초 반복 영상 MP4, 소리 없음). 글자·숫자·로고가 없는 실사로. ⑨ 사례 사진은 가로 16:10. 비우면 지금 그림이 나옵니다.</p>
     <div class="ph4" id="mediaList" style="grid-template-columns:repeat(3,1fr)"></div>
   </section>
 
@@ -240,10 +240,10 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
 
 
   /* ── ⑥ ⑨ 이미지·영상 ── */
-  var MEDIA=[['pt1','⑥ POINT 1 — 전략 제안'],['pt2','⑥ POINT 2 — 현지 판매 연결'],['pt3','⑥ POINT 3 — 결과 리포트'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3']];
+  var MEDIA=[['hero_video','① 히어로 배경 영상 — 가로 MP4, 24~30초, 소리 없음'],['hero_poster','① 히어로 첫 장면 사진 — 영상 뜨기 전·모바일 절약 모드'],['pt1','⑥ POINT 1 — 전략 제안'],['pt2','⑥ POINT 2 — 현지 판매 연결'],['pt3','⑥ POINT 3 — 결과 리포트'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3']];
   function media(){ D.images=D.images||{};
     $('mediaList').innerHTML=MEDIA.map(function(m){ var u=D.images[m[0]]||'', v=/\.(mp4|webm)(\?|$)/i.test(u)||/^blob:/.test(u)&&pending['md_'+m[0]]&&/^video/.test(pending['md_'+m[0]].type);
-      return '<div class="ph"><div class="im" style="aspect-ratio:'+(m[0][0]==='p'?'560/200':'16/10')+'">'+(u?(v?'<video src="'+esc(u)+'" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover"></video>':'<img src="'+esc(u)+'" alt="">'):'지금 그림')+'</div><div style="font-size:12.5px;font-weight:700;margin-bottom:6px">'+m[1]+'</div>'+
+      return '<div class="ph"><div class="im" style="aspect-ratio:'+(m[0][0]==='p'?'560/200':'16/10')+'">'+(u?(v||m[0]==='hero_video'?'<video src="'+esc(u)+'" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover"></video>':'<img src="'+esc(u)+'" alt="">'):'지금 그림')+'</div><div style="font-size:12.5px;font-weight:700;margin-bottom:6px">'+m[1]+'</div>'+
         '<label class="btn sm"><input type="file" data-k="'+m[0]+'" accept="image/png,image/jpeg,image/webp,video/mp4,video/webm" style="display:none">파일 고르기</label> <button class="btn sm" data-k="'+m[0]+'" type="button">비우기</button></div>'; }).join(''); }
   $('mediaList').addEventListener('change',function(e){ var t=e.target,k=t.dataset.k; if(t.files&&t.files[0]){ D.images[k]=fileUrl('md_'+k,t.files[0]); media(); } });
   $('mediaList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var k=t.dataset.k; D.images[k]=''; delete pending['md_'+k]; media(); });
@@ -276,7 +276,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
   Promise.all(['ko','en','ja','id'].map(function(l){ return grab(l).catch(function(){}); })).then(function(){ if(D) texts(); });
   function readB64(file){ return new Promise(function(ok,no){ var r=new FileReader(); r.onload=function(){ ok(String(r.result).split(',')[1]); }; r.onerror=no; r.readAsDataURL(file); }); }
   function safeName(f){ var ext=(f.name.match(/\.(png|svg|webp|jpe?g|mp4|webm)$/i)||['','png'])[1].toLowerCase(); return Date.now()+'-'+Math.random().toString(36).slice(2,7)+'.'+ext; }
-  function upload(file){ var lim=/^video/.test(file.type)?8:3; if(file.size>lim*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 '+lim+'MB를 넘습니다 — 줄여서 올려 주세요'));
+  function upload(file){ var lim=/^video/.test(file.type)?40:5; if(file.size>lim*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 '+lim+'MB를 넘습니다 — 줄여서 올려 주세요'));
     var path=UP+safeName(file);
     return readB64(file).then(function(c){ return gh(path,{method:'PUT',body:JSON.stringify({message:'admin: 이미지 업로드 '+file.name,content:c,branch:BR})}); })
       .then(function(r){ if(!r.ok) throw new Error('이미지 업로드 실패 ('+r.status+')'); return '/'+path; }); }
