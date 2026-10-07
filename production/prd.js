@@ -95,7 +95,6 @@
     box.innerHTML = opts.map(function (o) {
       return '<button type="button" data-cat="' + o[0] + '" aria-pressed="' + (o[0] === filter) + '">' + esc(o[1]) + '</button>';
     }).join('');
-    box.hidden = !list.length;
     box.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-cat]'); if (!b) return;
       filter = b.getAttribute('data-cat'); shown = FIRST;
@@ -137,8 +136,12 @@
   function renderFeatured() {
     var box = document.getElementById('p-feature'); if (!box) return;
     var w = all.filter(function (x) { return x.id === featuredId && x.section === 'visual'; })[0];
-    if (!w) { box.hidden = true; return; }
     box.hidden = false;
+    if (!w) {   /* 대표 작품이 아직 없어도 자리는 그대로 보여 준다 (FR-PRD-009) */
+      box.querySelector('.p-feature-box').innerHTML = '<div class="p-photo" style="position:absolute;inset:0"><span class="p-ph">대표 작품 영상<br>준비 중</span></div>';
+      box.querySelector('.p-feature-cap').innerHTML = '<h2>대표 작품</h2><p>관리자가 지정한 대표 작품 영상이 이곳에서 소리 없이 재생됩니다.</p>';
+      return;
+    }
     var frame = box.querySelector('.p-feature-box'), cap = box.querySelector('.p-feature-cap');
     var saveData = navigator.connection && navigator.connection.saveData;
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;

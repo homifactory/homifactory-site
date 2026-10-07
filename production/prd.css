@@ -27,6 +27,7 @@ img{display:block;max-width:100%}
 .hh[data-site="production"] .hh-right{display:none}
 .hh[data-site="production"] .hh-link{font-size:14px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.78)}
 .hh[data-site="production"] .hh-link:hover,.hh[data-site="production"] .hh-link.is-current{color:#fff}
+.hh[data-site="production"] .hh-link.is-current{font-weight:700}   /* 지금 페이지: 굵게 + 밑줄 */
 .hh[data-site="production"] .hh-logo-text{color:#fff;letter-spacing:.02em}
 /* 한국어만 — 언어·형제 링크·버튼은 숨김 (FR-PRD-001). 형제 링크는 푸터에 */
 .hh[data-site="production"] .hh-lang,.hh[data-site="production"] .hh-sib,.hh[data-site="production"] .hh-cta,.hh[data-site="production"] .hh-plang{display:none!important}

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
-<link rel="stylesheet" href="/production/prd.css?v=20261006p2">
+<link rel="stylesheet" href="/production/prd.css?v=20261006p3">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 </head><body data-site="production" data-page="studio" data-header="fixed">
@@ -22,7 +22,7 @@
 <main class="p-main" id="main">
 <section class="p-studio-top" aria-label="이 스튜디오에서 찍은 영상"><div class="p-wrap">
 <div class="p-studio-video" id="p-studio-video" data-yt="" data-title="" data-channel=""><div class="p-photo" data-photo="PRD-STU-01" style="position:absolute;inset:0"><span class="p-ph">PRD-STU-01<br>화이트 호리존 정면<br>사진 준비 중</span></div></div>
-<p class="p-studio-cap" id="p-studio-cap" hidden></p>
+<p class="p-studio-cap" id="p-studio-cap">이 스튜디오에서 찍은 영상 · 준비 중</p>
 </div></section>
 <section class="p-wrap p-studio-intro">
 <div>
@@ -70,7 +70,7 @@
   /* 영상 교체: 위 data-yt 에 유튜브 영상 ID, data-title·data-channel 에 제목·채널 (게재 확인 Q-63 전에는 비워 둠 → 사진만) */
   var box=document.getElementById('p-studio-video'), id=box.getAttribute('data-yt'); if(!id) return;
   var cap=document.getElementById('p-studio-cap'), t=box.getAttribute('data-title'), ch=box.getAttribute('data-channel');
-  cap.innerHTML='이 스튜디오에서 찍은 영상'+(t?' · <b></b>':'')+(ch?' · <span></span>':''); if(t) cap.querySelector('b').textContent=t; if(ch) cap.querySelector('span').textContent=ch; cap.hidden=false;
+  cap.innerHTML='이 스튜디오에서 찍은 영상'+(t?' · <b></b>':'')+(ch?' · <span></span>':''); if(t) cap.querySelector('b').textContent=t; if(ch) cap.querySelector('span').textContent=ch; 
   var save=navigator.connection&&navigator.connection.saveData, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, small=matchMedia('(max-width:640px)').matches;
   var base='https://www.youtube-nocookie.com/embed/'+id+'?playsinline=1&rel=0&modestbranding=1&autoplay=1';
   function play(sound){
@@ -86,5 +86,5 @@
 </script>
 </main>
 <footer class="p-foot" id="p-foot"></footer>
-<script src="/production/prd.js?v=20261006p2"></script>
+<script src="/production/prd.js?v=20261006p3"></script>
 </body></html>
