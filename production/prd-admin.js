@@ -31,6 +31,8 @@
       remove: function (id) { return sb.from('prd_works').delete().eq('id', id).then(ok); },
       clearFeatured: function (exceptId) { var q = sb.from('prd_works').update({ is_featured: false }).eq('is_featured', true); if (exceptId) q = q.neq('id', exceptId); return q.then(ok); },
       setOrder: function (pairs) { return Promise.all(pairs.map(function (p) { return sb.from('prd_works').update({ sort_order: p[1] }).eq('id', p[0]).then(ok); })); },
+      getSettings: function () { return sb.from('prd_settings').select('key,value').then(ok); },
+      saveSetting: function (key, value) { return sb.from('prd_settings').upsert({ key: key, value: value }).then(ok); },
       upload: function (file) {
         var path = Date.now() + '-' + file.name.replace(/[^\w.\-]/g, '_');
         return sb.storage.from('prd-thumbs').upload(path, file, { upsert: false, contentType: file.type }).then(ok)
@@ -39,7 +41,7 @@
     };
   }
   function mockApi() {
-    var rows = [], n = 0, s = null, cb = function () {};
+    var rows = [], n = 0, s = null, cb = function () {}, sets = {};
     return {
       session: function () { return Promise.resolve(s); }, onAuth: function (fn) { cb = fn; },
       login: function (email) { s = { user: { email: email } }; setTimeout(function () { cb(s); }, 10); return Promise.resolve(); },
@@ -54,6 +56,8 @@
       remove: function (id) { rows = rows.filter(function (r) { return r.id !== id; }); return Promise.resolve(); },
       clearFeatured: function (ex) { rows.forEach(function (r) { if (r.id !== ex) r.is_featured = false; }); return Promise.resolve(); },
       setOrder: function (pairs) { pairs.forEach(function (p) { rows.forEach(function (r) { if (r.id === p[0]) r.sort_order = p[1]; }); }); return Promise.resolve(); },
+      getSettings: function () { return Promise.resolve(Object.keys(sets).map(function (k) { return { key: k, value: sets[k] }; })); },
+      saveSetting: function (k, v) { sets[k] = v; return Promise.resolve(); },
       upload: function (file) { return Promise.resolve('data:' + file.type + ';base64,'); }
     };
   }
@@ -77,7 +81,66 @@
   var rows = [], filter = 'all', cur = null, msgT;
   function msg(t, bad) { var m = $('#a-msg'); m.textContent = t; m.className = 'a-msg' + (bad ? ' bad' : ''); m.hidden = false; clearTimeout(msgT); msgT = setTimeout(function () { m.hidden = true; }, 3500); }
 
-  function showView(v) { ['login', 'denied', 'app'].forEach(function (k) { $('#a-' + k).hidden = k !== v; }); }
+  var tab = 'works';
+  function showView(v) {
+    ['login', 'denied'].forEach(function (k) { $('#a-' + k).hidden = k !== v; });
+    $('#a-tabs').hidden = v !== 'app';
+    $('#a-app').hidden = !(v === 'app' && tab === 'works');
+    $('#a-set').hidden = !(v === 'app' && tab === 'set');
+  }
+
+  /* ── 사이트 설정 (FR-PRD-012 소개 문구 · FR-PRD-013 스튜디오 영상) — 값이 없으면 페이지 처음 문구·영상을 그대로 씀 ── */
+  var DEF = {
+    intro: { headline: '잘 만든 영상을 넘어,\n제 몫을 해내는 영상을 만듭니다',
+      paras: ['호미 프로덕션은 아티스트와 브랜드의 마케팅을 해 온 호미 팩토리의 제작팀입니다. 그래서 카메라를 들기 전에, 이 영상이 누구에게 닿아야 하는지부터 함께 정합니다.',
+        '기획부터 촬영·편집까지 한 팀이 맡고, 직접 운영하는 스튜디오에서 찍습니다. 완성된 뒤에는 크리에이터 네트워크와 일본·인도네시아 거점을 통해 영상이 닿을 곳까지 함께 설계합니다.',
+        '한 편을 만드는 데서 끝내지 않고, 그 한 편이 제 몫을 할 때까지 함께합니다.'],
+      chips: ['직접 운영하는 호리존 스튜디오', '아티스트·브랜드 마케팅에서 출발한 기획', '크리에이터·해외 거점과 이어지는 확산'] },
+    studio_video: { url: 'https://www.youtube.com/watch?v=UQrShy8I1EQ', title: '[Live Clip] ILHOON - closet (Feat. ZENE THE ZILLA) (One Take ver.)', channel: 'CPTZ' }
+  };
+  var sets = {};
+  function fillIntro(v) {
+    var f = $('#s-intro'); f.headline.value = v.headline || '';
+    ['p1', 'p2', 'p3'].forEach(function (k, i) { f[k].value = (v.paras || [])[i] || ''; });
+    ['c1', 'c2', 'c3'].forEach(function (k, i) { f[k].value = (v.chips || [])[i] || ''; });
+  }
+  function fillVid(v) { var f = $('#s-vid'); f.url.value = v.url || ''; f.title.value = v.title || ''; f.channel.value = v.channel || ''; vidPrev(); }
+  function vidPrev() {
+    var p = parse($('#s-vid').url.value), box = $('#s-vid-prev');
+    box.innerHTML = p && p.kind === 'yt' ? '<img alt="" src="https://i.ytimg.com/vi/' + p.id + '/hqdefault.jpg">' : '유튜브 링크를 넣으면 미리보기가 나와요';
+  }
+  function loadSettings() {
+    return api.getSettings().then(function (rs) {
+      sets = {}; (rs || []).forEach(function (r) { sets[r.key] = r.value; });
+      fillIntro(sets.intro || DEF.intro); fillVid(sets.studio_video || DEF.studio_video);
+    }).catch(function (e) { fillIntro(DEF.intro); fillVid(DEF.studio_video); msg('설정 불러오기 실패: ' + (e.message || e), true); });
+  }
+  function bindSettings() {
+    $('#a-tabs').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-tab]'); if (!b) return;
+      tab = b.dataset.tab; this.querySelectorAll('[data-tab]').forEach(function (x) { x.setAttribute('aria-selected', String(x === b)); });
+      showView('app'); if (tab === 'set') loadSettings();
+    });
+    document.querySelectorAll('[data-reset]').forEach(function (b) { b.addEventListener('click', function () {
+      if (b.dataset.reset === 'intro') fillIntro(DEF.intro); else fillVid(DEF.studio_video);
+      msg('처음 값으로 채웠어요. [저장]을 눌러야 반영됩니다.');
+    }); });
+    $('#s-vid').url.addEventListener('input', vidPrev);
+    $('#s-intro').addEventListener('submit', function (e) {
+      e.preventDefault(); var f = this, t = function (n) { return f[n].value.trim(); };
+      var v = { headline: t('headline'), paras: [t('p1'), t('p2'), t('p3')], chips: [t('c1'), t('c2'), t('c3')] };
+      api.saveSetting('intro', v).then(function () { sets.intro = v; msg('소개 문구를 저장했어요. 사이트에 바로 반영됩니다.'); })
+        .catch(function (er) { msg('저장 실패: ' + (er.message || er), true); });
+    });
+    $('#s-vid').addEventListener('submit', function (e) {
+      e.preventDefault(); var f = this, err = $('#s-url-err'), u = f.url.value.trim(), p = parse(u);
+      if (u && !(p && p.kind === 'yt')) { err.textContent = '유튜브 영상 링크를 넣어 주세요.'; f.url.focus(); return; }
+      err.textContent = '';
+      var v = { url: u, title: f.title.value.trim(), channel: f.channel.value.trim() };
+      api.saveSetting('studio_video', v).then(function () { sets.studio_video = v; msg(u ? '스튜디오 영상을 저장했어요. 사이트에 바로 반영됩니다.' : '링크를 비웠어요. 사이트에는 처음 영상이 나옵니다.'); })
+        .catch(function (er) { msg('저장 실패: ' + (er.message || er), true); });
+    });
+  }
   var lastKey;
   function boot(s) {
     var key = s ? s.user.email : '';
@@ -230,7 +293,7 @@
 
   /* 역할 체크박스 */
   $('#f-roles').innerHTML = ROLES.map(function (r) { return '<label class="a-chip"><input type="checkbox" name="roles" value="' + r + '"><span>' + r + '</span></label>'; }).join('');
-  bind();
+  bind(); bindSettings();
   if (mock) document.documentElement.classList.add('a-mock');
   api.onAuth(boot);
   api.session().then(boot);

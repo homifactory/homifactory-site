@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/production/prd.css?v=20261007p5">
+<link rel="stylesheet" href="/production/prd.css?v=20261007p6">
 <style>
 body{padding:0}
 .a-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid var(--p-line);position:sticky;top:0;background:var(--p-bg);z-index:5}
@@ -48,11 +48,17 @@ body{padding:0}
 .a-msg{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#0B0B0B;padding:12px 20px;font-size:14px;font-weight:700;z-index:20;max-width:90vw}
 .a-msg.bad{background:#FF8A8A}
 .a-help{font-size:12.5px;color:var(--p-muted);margin-top:6px}
+#a-tabs{display:flex;gap:4px;margin-right:auto;margin-left:24px} #a-tabs button{height:34px;padding:0 14px;font-size:13px;font-weight:700;color:var(--p-ink-2);border:1px solid transparent}
+#a-tabs button[aria-selected="true"]{color:#fff;border-color:var(--p-line-2)}
+.a-set{max-width:880px;margin:0 auto;padding:32px 28px 80px}
+.a-set h2{font-size:22px;font-weight:800} .a-set h3{font-size:17px;font-weight:800;margin:0 0 6px}
+.a-set section{border:1px solid var(--p-line);padding:24px;margin-top:24px} .a-set .p-form{margin-top:16px}
+.a-set textarea{min-height:90px} #s-vid-prev{aspect-ratio:16/9;max-width:360px;background:var(--p-bg-3);margin-top:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:12.5px;color:var(--p-muted)} #s-vid-prev img{width:100%;height:100%;object-fit:cover}
 html.a-mock .a-top::after{content:"점검 모드(저장 안 됨)";color:#FFD24A;font-size:12px}
-@media(max-width:900px){.a-wrap{grid-template-columns:1fr}.a-side{border-right:0;border-bottom:1px solid var(--p-line)}#a-list{max-height:40vh}.a-grid{grid-template-columns:1fr}.a-main{padding:22px 20px 60px}}
+@media(max-width:900px){#a-tabs{margin-left:8px}.a-top{flex-wrap:wrap}.a-wrap{grid-template-columns:1fr}.a-side{border-right:0;border-bottom:1px solid var(--p-line)}#a-list{max-height:40vh}.a-grid{grid-template-columns:1fr}.a-main{padding:22px 20px 60px}}
 </style>
 </head><body>
-<header class="a-top"><b>HOMI PRODUCTION · 작품 관리</b><div class="r"><span id="a-who"></span><a href="/production/" target="_blank" rel="noopener">사이트 보기 ↗</a></div></header>
+<header class="a-top"><b>HOMI PRODUCTION · 관리</b><nav id="a-tabs" role="tablist" aria-label="관리 메뉴" hidden><button type="button" role="tab" data-tab="works" aria-selected="true">작품 관리</button><button type="button" role="tab" data-tab="set" aria-selected="false">사이트 설정</button></nav><div class="r"><span id="a-who"></span><a href="/production/" target="_blank" rel="noopener">사이트 보기 ↗</a></div></header>
 
 <section id="a-login" class="a-box" hidden>
 <h1>담당자 로그인</h1>
@@ -99,7 +105,31 @@ html.a-mock .a-top::after{content:"점검 모드(저장 안 됨)";color:#FFD24A;
 </form>
 </main>
 </div>
+<div id="a-set" class="a-set" hidden>
+<h2>사이트 설정</h2>
+<p class="a-help">저장하면 사이트에 바로 반영됩니다. 칸을 비워 두면 처음 문구·영상이 그대로 나옵니다.</p>
+<section aria-labelledby="s-intro-h"><h3 id="s-intro-h">WHO WE ARE 소개 문구 <small style="font-weight:400;color:var(--p-muted)">VISUAL WORKS(첫 화면)</small></h3>
+<p class="a-help">「독보적인」 같은 과장 표현이나 확인되지 않은 숫자는 쓰지 않아요.</p>
+<form id="s-intro" class="p-form" novalidate>
+<div class="p-f full"><label for="s-h">제목 (줄바꿈 = 엔터)</label><textarea id="s-h" name="headline" style="min-height:70px"></textarea></div>
+<div class="p-f full"><label for="s-p1">문단 1</label><textarea id="s-p1" name="p1"></textarea></div>
+<div class="p-f full"><label for="s-p2">문단 2</label><textarea id="s-p2" name="p2"></textarea></div>
+<div class="p-f full"><label for="s-p3">마무리 한 줄 (굵게)</label><input type="text" id="s-p3" name="p3"></div>
+<div class="p-f"><label for="s-c1">강점 1</label><input type="text" id="s-c1" name="c1"></div>
+<div class="p-f"><label for="s-c2">강점 2</label><input type="text" id="s-c2" name="c2"></div>
+<div class="p-f"><label for="s-c3">강점 3</label><input type="text" id="s-c3" name="c3"></div>
+<div class="full a-actions" style="margin-top:6px"><button type="submit" class="p-btn solid">소개 문구 저장</button><button type="button" class="a-link" data-reset="intro">처음 문구로 채우기</button></div>
+</form></section>
+<section aria-labelledby="s-vid-h"><h3 id="s-vid-h">STUDIO 맨 위 영상</h3>
+<p class="a-help">이 스튜디오에서 찍은 유튜브 영상 링크. 소리 없이 반복 재생되고, 누르면 소리 켜고 처음부터 나옵니다. 모바일·영상이 뜨기 전에는 호리존 사진이 보입니다.</p>
+<form id="s-vid" class="p-form" novalidate>
+<div class="p-f full"><label for="s-url">유튜브 링크</label><input type="url" id="s-url" name="url" placeholder="https://www.youtube.com/watch?v=…"><p class="p-err" id="s-url-err"></p><div id="s-vid-prev"></div></div>
+<div class="p-f full"><label for="s-title">영상 제목</label><input type="text" id="s-title" name="title"></div>
+<div class="p-f"><label for="s-ch">채널</label><input type="text" id="s-ch" name="channel"></div>
+<div class="full a-actions" style="margin-top:6px"><button type="submit" class="p-btn solid">영상 저장</button><button type="button" class="a-link" data-reset="studio_video">처음 영상으로 채우기</button></div>
+</form></section>
+</div>
 <p id="a-msg" class="a-msg" role="status" hidden></p>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/production/prd-admin.js?v=20261007p5"></script>
+<script src="/production/prd-admin.js?v=20261007p6"></script>
 </body></html>

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
-<link rel="stylesheet" href="/production/prd.css?v=20261007p5">
+<link rel="stylesheet" href="/production/prd.css?v=20261007p6">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 </head><body data-site="production" data-page="studio" data-header="fixed">
@@ -21,7 +21,7 @@
 <script src="/shared/homi-header.js?v=20261006a"></script>
 <main class="p-main" id="main">
 <section class="p-studio-top" aria-label="이 스튜디오에서 찍은 영상"><div class="p-wrap">
-<div class="p-studio-video" id="p-studio-video" data-yt="" data-title="" data-channel=""><div class="p-photo" data-photo="PRD-STU-01" style="position:absolute;inset:0"><span class="p-ph">PRD-STU-01<br>화이트 호리존 정면<br>사진 준비 중</span></div></div>
+<div class="p-studio-video" id="p-studio-video" data-yt="UQrShy8I1EQ" data-title="[Live Clip] ILHOON - closet (Feat. ZENE THE ZILLA) (One Take ver.)" data-channel="CPTZ"><div class="p-photo" data-photo="PRD-STU-01" style="position:absolute;inset:0"><span class="p-ph">PRD-STU-01<br>화이트 호리존 정면<br>사진 준비 중</span></div></div>
 <p class="p-studio-cap" id="p-studio-cap">이 스튜디오에서 찍은 영상 · 준비 중</p>
 </div></section>
 <section class="p-wrap p-studio-intro">
@@ -66,10 +66,14 @@
 </div></section>
 <script>
 /* FR-PRD-013 스튜디오 영상 — 소리 없이 반복 재생, 누르면 소리 켜고 처음부터. 데이터 절약·동작 줄이기·작은 화면은 사진만 */
-(function(){
-  /* 영상 교체: 위 data-yt 에 유튜브 영상 ID, data-title·data-channel 에 제목·채널 (게재 확인 Q-63 전에는 비워 둠 → 사진만) */
-  var box=document.getElementById('p-studio-video'), id=box.getAttribute('data-yt'); if(!id) return;
-  var cap=document.getElementById('p-studio-cap'), t=box.getAttribute('data-title'), ch=box.getAttribute('data-channel');
+/* 기본값은 data-yt·data-title·data-channel. 관리자 「사이트 설정」에서 바꾸면 prd.js 가 window.prdStudio({yt,title,channel}) 로 다시 그린다 */
+window.prdStudio=function(cfg){
+  var box=document.getElementById('p-studio-video'); if(!box) return;
+  if(cfg){ if(cfg.yt===box.getAttribute('data-yt')&&cfg.title===box.getAttribute('data-title')&&cfg.channel===box.getAttribute('data-channel')) return;
+    box.setAttribute('data-yt',cfg.yt||''); box.setAttribute('data-title',cfg.title||''); box.setAttribute('data-channel',cfg.channel||'');
+    box.querySelectorAll('iframe,.p-feature-hit').forEach(function(e){ e.remove(); }); }
+  var id=box.getAttribute('data-yt'), cap=document.getElementById('p-studio-cap'); if(!id){ cap.textContent='이 스튜디오에서 찍은 영상 · 준비 중'; return; }
+  var t=box.getAttribute('data-title'), ch=box.getAttribute('data-channel');
   cap.innerHTML='이 스튜디오에서 찍은 영상'+(t?' · <b></b>':'')+(ch?' · <span></span>':''); if(t) cap.querySelector('b').textContent=t; if(ch) cap.querySelector('span').textContent=ch; 
   var save=navigator.connection&&navigator.connection.saveData, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, small=matchMedia('(max-width:640px)').matches;
   var base='https://www.youtube-nocookie.com/embed/'+id+'?playsinline=1&rel=0&modestbranding=1&autoplay=1';
@@ -80,11 +84,12 @@
   if(!(save||reduce||small)) play(false);
   var hit=document.createElement('button'); hit.type='button'; hit.className='p-feature-hit'; hit.setAttribute('aria-label','스튜디오 영상 소리 켜고 처음부터 재생');
   hit.innerHTML='<span class="p-sound">🔊 소리 켜고 보기</span>';
-  hit.addEventListener('click',function(){ hit.remove(); var ph=box.querySelector('.p-photo'); if(ph) ph.remove(); play(true); });
+  hit.addEventListener('click',function(){ hit.remove(); play(true); });
   box.appendChild(hit);
-})();
+};
+window.prdStudio();
 </script>
 </main>
 <footer class="p-foot" id="p-foot"></footer>
-<script src="/production/prd.js?v=20261007p5"></script>
+<script src="/production/prd.js?v=20261007p6"></script>
 </body></html>

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
-<link rel="stylesheet" href="/production/prd.css?v=20261007p5">
+<link rel="stylesheet" href="/production/prd.css?v=20261007p6">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 </head><body data-site="production" data-page="contact" data-header="fixed">
@@ -29,6 +29,7 @@
 <dl>
 <div><dt>EMAIL</dt><dd><a href="mailto:support@homifactory.com">support@homifactory.com</a></dd></div>
 <div><dt>TEL</dt><dd><a href="tel:010-4026-2695">010-4026-2695</a><br><span style="color:var(--p-muted);font-size:13px">평일 10:00 ~ 22:00 (주말·공휴일 상담 가능)</span></dd></div>
+<div><dt>KAKAOTALK</dt><dd>호미 프로덕션 카카오톡 채널<br><span style="color:var(--p-muted);font-size:13px">채널 준비 중 — 열리면 바로 연결해 드려요</span></dd></div>
 <div><dt>STUDIO</dt><dd>서울 강남구 논현로150길 17 지하 2층<br><span style="color:var(--p-muted);font-size:13px">학동역 도보 약 10분</span></dd></div>
 </dl>
 </aside>
@@ -45,14 +46,13 @@
 <div class="p-f"><label for="f-org">회사 · 브랜드 · 아티스트</label><input type="text" id="f-org" name="회사·브랜드·아티스트" autocomplete="organization"></div>
 <div class="p-f"><label for="f-tel">연락처<em>*</em></label><input type="tel" id="f-tel" name="연락처" required autocomplete="tel" placeholder="010-1234-5678"></div>
 <div class="p-f"><label for="f-mail">이메일<em>*</em></label><input type="email" id="f-mail" name="이메일" required autocomplete="email" placeholder="name@company.com"></div>
-<div class="p-f" data-for="production"><label for="f-kind">영상 종류</label><select id="f-kind" name="영상 종류"><option value="">선택해 주세요</option><option>뮤직비디오</option><option>아티스트 필름</option><option>광고·브랜드 필름</option><option>웹예능·시리즈</option><option>숏폼</option><option>기타</option></select></div>
-<div class="p-f" data-for="production"><label for="f-when">희망 일정</label><input type="text" id="f-when" name="희망 일정" placeholder="예: 11월 중순 촬영, 12월 초 공개"></div>
-<div class="p-f full" data-for="production"><label for="f-ref">참고 영상 링크</label><input type="url" id="f-ref" name="참고 영상 링크" placeholder="https://"></div>
+<div class="p-f"><label for="f-kind">영상 종류</label><select id="f-kind" name="영상 종류"><option value="">선택해 주세요</option><option>뮤직비디오</option><option>아티스트 필름</option><option>광고·브랜드 필름</option><option>웹예능·시리즈</option><option>숏폼</option><option>기타</option></select></div>
+<div class="p-f"><label for="f-when">희망 일정</label><input type="text" id="f-when" name="희망 일정" placeholder="예: 11월 중순 촬영, 12월 초 공개"></div>
+<div class="p-f full"><label for="f-ref">참고 영상 링크</label><input type="url" id="f-ref" name="참고 영상 링크" placeholder="https://"></div>
 <div class="p-rental" id="p-rental" hidden>
 <div class="p-f"><label for="f-date">희망 날짜<em>*</em></label><input type="date" id="f-date" name="희망 날짜"></div>
 <div class="p-f"><label for="f-time">희망 시간<em>*</em></label><input type="text" id="f-time" name="희망 시간" placeholder="예: 14:00 ~ 18:00 (4시간)"></div>
 <div class="p-f"><label for="f-ppl">인원<em>*</em></label><input type="number" id="f-ppl" name="인원" min="1" max="10" inputmode="numeric" placeholder="1~10명"><p class="hint">최대 10명까지 이용할 수 있어요.</p></div>
-<div class="p-f"><label for="f-use">촬영 내용</label><input type="text" id="f-use" name="촬영 내용" placeholder="예: 룩북, 유튜브, 라이브"></div>
 </div>
 <div class="p-f full"><label for="f-msg">문의 내용<em>*</em></label><textarea id="f-msg" name="문의 내용" required placeholder="어디에 쓰일 영상인지, 지금 고민하고 있는 것을 편하게 적어 주세요."></textarea></div>
 <div class="p-f full"><label class="p-agree"><input type="checkbox" name="개인정보 동의" value="동의" required><span>[필수] 문의 답변을 위해 이름·연락처·이메일과 문의 내용을 수집·이용하는 데 동의합니다. 문의 처리 완료일로부터 1년간 보관 후 파기합니다. <a href="/production/privacy" target="_blank" rel="noopener">개인정보처리방침</a></span></label></div>
@@ -79,7 +79,6 @@
     var r=type()==='대관 문의';
     rental.hidden=!r;
     RQ.forEach(function(n){ f.elements[n].required=r; if(!r) setErr(f.elements[n],''); });
-    f.querySelectorAll('[data-for="production"]').forEach(function(el){ el.hidden=r; });
   }
   var q=new URLSearchParams(location.search);
   if(q.get('type')==='rental') f.querySelector('input[value="대관 문의"]').checked=true;
@@ -122,7 +121,7 @@
     /* 접수 기록(FR-COM-008 ⑥): MARKET 의뢰서와 같은 Make 웹훅 → 구글 시트「MKT_의뢰서접수」. 칸 이름이 MARKET 기준이라 아래처럼 맞춰 넣고, 방향 칸에 [PRODUCTION] 표시 */
     var rent=type()==='대관 문의', v=function(n){ return data[n]||''; };
     var row={lang:'KR',brand:v('회사·브랜드·아티스트'),link:v('참고 영상 링크'),dir:'[PRODUCTION] '+type(),countries:'',channel:rent?'스튜디오 대관':v('영상 종류'),
-      concern:v('문의 내용'),goal:rent?('인원 '+v('인원')+'명 · '+v('촬영 내용')):'',timing:rent?(v('희망 날짜')+' '+v('희망 시간')):v('희망 일정'),budget:'',
+      concern:v('문의 내용'),goal:rent?('인원 '+v('인원')+'명'):'',timing:rent?(v('희망 날짜')+' '+v('희망 시간')):v('희망 일정'),budget:'',
       name:v('이름'),phone:v('연락처'),email:v('이메일'),page:location.href,hp:''};
     var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw 0; return r; }); };
     var mail=post('https://formsubmit.co/ajax/support@homifactory.com',data).then(function(r){ return r.json(); }).then(function(j){ if(j&&(j.success===false||j.success==='false')) throw 0; return true; });
@@ -134,5 +133,5 @@
 </script>
 </main>
 <footer class="p-foot" id="p-foot"></footer>
-<script src="/production/prd.js?v=20261007p5"></script>
+<script src="/production/prd.js?v=20261007p6"></script>
 </body></html>

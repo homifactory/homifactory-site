@@ -8,15 +8,50 @@
   var logo = document.querySelector('.hh[data-site="production"] .hh-logo img');
   if (logo) logo.src = '/assets/logo-symbol-white.png';
 
-  /* ── 푸터 (FR-PRD-011) ── */
+  /* ── 푸터 (FR-PRD-011) — 검정 바탕 한 줄: 왼쪽 이름·이메일·주소·Copyright·사업자·약관 / 오른쪽 링크 ── */
   var foot = document.getElementById('p-foot');
   if (foot) foot.innerHTML =
-    '<div class="p-wrap"><div class="l"><b>HOMI PRODUCTION</b> I 호미 프로덕션 · 스튜디오 서울 강남구 논현로150길 17 지하 2층<br>' +
-    '<span class="sup">고객 지원 평일 10:00 ~ 22:00 (주말·공휴일 상담 가능) · 이메일 <a href="mailto:support@homifactory.com">support@homifactory.com</a> · 전화 <a href="tel:010-4026-2695">010-4026-2695</a></span><br>' +
-    '(주) 호미팩토리 | 사업자번호 581-87-03832 | 통신판매 번호 제2026-서울강남-05160호 | 주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)<br>' +
-    '©2026 HOMI FACTORY Co., Ltd. All rights reserved · <a href="/production/terms">이용약관</a> · <a class="pv" href="/production/privacy">개인정보처리방침</a></div>' +
+    '<div class="p-wrap"><p class="l">' + [
+      '<b>HOMI PRODUCTION I 호미 프로덕션</b>',
+      '<a href="mailto:support@homifactory.com">support@homifactory.com</a>',
+      '스튜디오 서울 강남구 논현로150길 17 지하 2층',
+      '© 2026 HOMI FACTORY',
+      '',
+      '(주)호미팩토리 · 사업자 581-87-03832 · 통신판매 제2026-서울강남-05160호 · 본사 서울 강남구 논현로142길 11, 4층',
+      '<a href="/production/terms">이용약관</a>',
+      '<a class="pv" href="/production/privacy">개인정보처리방침</a>'
+    ].map(function (x) { return x ? '<span' + (x.indexOf('사업자') > -1 ? ' class="biz"' : '') + '>' + x + '</span>' : '<i class="br"></i>'; }).join('') + '</p>' +
     '<div class="r"><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a><a href="/market/" target="_blank" rel="noopener">HOMI MARKET ↗</a>' +
     '<div class="of">HOMI PRODUCTION OF HOMI FACTORY</div></div></div>';
+
+  var SB = 'https://bcngbtwzuqtwtxaebftf.supabase.co', SBK = 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
+  function sbGet(path) {
+    if (window.PRD_DB === false) return Promise.reject();
+    return fetch(SB + '/rest/v1/' + path, { headers: { apikey: SBK, Authorization: 'Bearer ' + SBK } }).then(function (r) { if (!r.ok) throw 0; return r.json(); });
+  }
+
+  /* ── 사이트 설정 (FR-PRD-012 WHO WE ARE 문구 · FR-PRD-013 스튜디오 영상) — 관리자에서 바꾼 값이 있으면 덮어씀, 없으면 페이지 기본값 ── */
+  function applyIntro(v) {
+    var h = document.querySelector('[data-set="intro-h"]'), b = document.getElementById('p-who-body');
+    if (!h || !b || !v) return;
+    if (v.headline) { h.textContent = ''; String(v.headline).split('\n').forEach(function (line, k) { if (k) h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(line)); }); }
+    var ps = b.querySelectorAll('p');
+    (v.paras || []).forEach(function (t, k) { if (ps[k] && t) ps[k].textContent = t; });
+    var chips = b.querySelectorAll('.p-chips-static span');
+    (v.chips || []).forEach(function (t, k) { if (chips[k] && t) chips[k].textContent = t; });
+  }
+  function ytId(u) { var m = String(u || '').match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/); return m ? m[1] : (/^[\w-]{11}$/.test(u || '') ? u : ''); }
+  if (document.querySelector('[data-set="intro-h"]') || document.getElementById('p-studio-video')) {
+    sbGet('prd_settings?select=key,value').then(function (rs) {
+      rs.forEach(function (r) {
+        if (r.key === 'intro') applyIntro(r.value);
+        if (r.key === 'studio_video' && r.value && window.prdStudio) {
+          var id = ytId(r.value.url);
+          if (id) window.prdStudio({ yt: id, title: r.value.title || '', channel: r.value.channel || '' });
+        }
+      });
+    }).catch(function () {});
+  }
 
   var listEl = document.getElementById('p-grid');
   if (!listEl) return;
@@ -71,11 +106,8 @@
   var all = [], list = [], featuredId = null, filter = 'all', shown = FIRST;
 
   /* 작품 데이터: 관리자 화면(Supabase prd_works)이 기준. 연결이 안 되거나 표가 아직 없으면 works.json 으로 대신 (FR-PRD-007) */
-  var SB = 'https://bcngbtwzuqtwtxaebftf.supabase.co', SBK = 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
   function fromDb() {
-    if (window.PRD_DB === false) return Promise.reject();
-    return fetch(SB + '/rest/v1/prd_works?select=*&hidden=eq.false&order=sort_order.asc,published_on.desc.nullslast', { headers: { apikey: SBK, Authorization: 'Bearer ' + SBK } })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    return sbGet('prd_works?select=*&hidden=eq.false&order=sort_order.asc,published_on.desc.nullslast')
       .then(function (rs) {
         if (!rs.length) throw 0;   /* 아직 한 건도 없으면 파일 쪽을 본다 */
         var f = rs.filter(function (r) { return r.is_featured; })[0];
