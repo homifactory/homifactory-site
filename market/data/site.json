@@ -42,8 +42,244 @@
    "desc": ""
   }
  },
- "logos": [],
- "industries": [],
+ "logos": [
+  {
+   "name": "하츄핑·티니핑",
+   "src": "/market/data/uploads/1791369578749-rrmq1.jpeg",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "DB손해보험",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "수원새빛인강",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "청담유식",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "성수 두다",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 1,
+   "hidden": false
+  },
+  {
+   "name": "[해외 브랜드]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[해외 브랜드]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[해외 브랜드]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[해외 브랜드]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  },
+  {
+   "name": "[고객사 로고]",
+   "src": "",
+   "row": 2,
+   "hidden": false
+  }
+ ],
+ "industries": [
+  {
+   "ko": "뷰티",
+   "en": "Beauty",
+   "ja": "ビューティー",
+   "id": "Kecantikan"
+  },
+  {
+   "ko": "패션",
+   "en": "Fashion",
+   "ja": "ファッション",
+   "id": "Fashion"
+  },
+  {
+   "ko": "F&B",
+   "en": "F&B",
+   "ja": "F&B",
+   "id": "F&B"
+  },
+  {
+   "ko": "식품",
+   "en": "Food",
+   "ja": "食品",
+   "id": "Makanan"
+  },
+  {
+   "ko": "건강기능식품",
+   "en": "Health supplements",
+   "ja": "健康食品",
+   "id": "Suplemen kesehatan"
+  },
+  {
+   "ko": "헬스케어",
+   "en": "Healthcare",
+   "ja": "ヘルスケア",
+   "id": "Layanan kesehatan"
+  },
+  {
+   "ko": "유아",
+   "en": "Baby & kids",
+   "ja": "ベビー・キッズ",
+   "id": "Ibu & anak"
+  },
+  {
+   "ko": "애견",
+   "en": "Pets",
+   "ja": "ペット",
+   "id": "Hewan peliharaan"
+  },
+  {
+   "ko": "생활·리빙",
+   "en": "Home & living",
+   "ja": "生活・リビング",
+   "id": "Rumah & gaya hidup"
+  },
+  {
+   "ko": "가전·테크",
+   "en": "Electronics & tech",
+   "ja": "家電・テック",
+   "id": "Elektronik & teknologi"
+  },
+  {
+   "ko": "유통·커머스",
+   "en": "Retail & commerce",
+   "ja": "流通・コマース",
+   "id": "Ritel & e-commerce"
+  },
+  {
+   "ko": "금융",
+   "en": "Finance",
+   "ja": "金融",
+   "id": "Keuangan"
+  },
+  {
+   "ko": "보험",
+   "en": "Insurance",
+   "ja": "保険",
+   "id": "Asuransi"
+  },
+  {
+   "ko": "교육",
+   "en": "Education",
+   "ja": "教育",
+   "id": "Pendidikan"
+  },
+  {
+   "ko": "캐릭터 IP",
+   "en": "Character IP",
+   "ja": "キャラクターIP",
+   "id": "IP karakter"
+  },
+  {
+   "ko": "K-POP·엔터",
+   "en": "K-POP & entertainment",
+   "ja": "K-POP・エンタメ",
+   "id": "K-POP & hiburan"
+  },
+  {
+   "ko": "게임",
+   "en": "Games",
+   "ja": "ゲーム",
+   "id": "Game"
+  },
+  {
+   "ko": "여행·호텔",
+   "en": "Travel & hotels",
+   "ja": "旅行・ホテル",
+   "id": "Wisata & hotel"
+  },
+  {
+   "ko": "스포츠",
+   "en": "Sports",
+   "ja": "スポーツ",
+   "id": "Olahraga"
+  },
+  {
+   "ko": "지자체·공공기관",
+   "en": "Local government & public",
+   "ja": "自治体・公共機関",
+   "id": "Pemerintah daerah & publik"
+  },
+  {
+   "ko": "축제·행사",
+   "en": "Festivals & events",
+   "ja": "祭り・イベント",
+   "id": "Festival & acara"
+  },
+  {
+   "ko": "오프라인 팝업",
+   "en": "Offline pop-ups",
+   "ja": "オフラインポップアップ",
+   "id": "Pop-up offline"
+  },
+  {
+   "ko": "공동구매",
+   "en": "Group buying",
+   "ja": "共同購入",
+   "id": "Pembelian grup"
+  }
+ ],
  "planPhotos": [
   "",
   "",
@@ -51,5 +287,11 @@
   ""
  ],
  "images": {},
- "texts": {}
+ "texts": {
+  "ko": {},
+  "en": {},
+  "ja": {},
+  "id": {}
+ },
+ "updatedAt": "2026-10-07T10:39:41.451Z"
 }
