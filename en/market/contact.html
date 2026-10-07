@@ -318,9 +318,9 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <div class="cf-field">
           <label>Direction <span class="req">*</span></label>
           <div class="direction-radio">
-            <label class="active"><input type="radio" name="방향" value="한국→세계" checked> Korea → World</label>
-            <label><input type="radio" name="방향" value="세계→한국·아시아"> World → Korea & Asia</label>
-            <label><input type="radio" name="방향" value="국내 시장"> Domestic (Korea)</label>
+            <label class="active"><input type="radio" name="방향" value="한국→세계" checked> Going global</label>
+            <label><input type="radio" name="방향" value="세계→한국·아시아"> Entering Korea &amp; Asia</label>
+            <label><input type="radio" name="방향" value="국내 시장"> Domestic</label>
           </div>
         </div>
       </div>
@@ -334,7 +334,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
           </div>
           <input type="hidden" name="진출 국가·시장" id="countryHidden">
         </div>
-        <div class="cf-field"><label>Current sales channels <span class="opt">(optional)</span></label><input name="현재 판매 채널" placeholder="e.g. Own online store, Coupang, Amazon"></div>
       </div>
 
       <div class="cf-row single">
@@ -349,7 +348,8 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         </div>
       </div>
 
-      <div class="cf-row">
+      <div class="cf-row triple">
+        <div class="cf-field"><label>Current sales channels <span class="opt">(optional)</span></label><input name="현재 판매 채널" placeholder="e.g. Own online store, Coupang, Amazon"></div>
         <div class="cf-field"><label>Preferred timing <span class="opt">(optional)</span></label><input name="원하는 시기" placeholder="e.g. In time for a November launch"></div>
         <div class="cf-field"><label>Budget range <span class="opt">(optional)</span></label><input name="예산 범위" placeholder="Leave blank if you’re not sure yet"></div>
       </div>
@@ -412,7 +412,11 @@ document.addEventListener('DOMContentLoaded', function(){
   if (/^[123]$/.test(dir||'')) {   /* Home ⑦ 방향 카드에서 들어옴: 1 한국→세계 · 2 세계→한국·아시아 · 3 국내 시장 */
     const r = document.querySelectorAll('.direction-radio input')[+dir - 1];
     if (r) { r.checked = true; r.closest('label').click(); }
-  } else if (dir) {
+  }
+  /* Global Network 카드에서 들어옴: ?country=jp,id … → 국가 칩 미리 선택 */
+  const CC={kr:0,jp:1,id:2,na:3,cn:4,tw:5,hk:6,ph:7,in:8};
+  (params.get('country')||'').split(',').forEach(function(c){ var k=CC[c.trim()]; if(k!==undefined && chips[k] && !chips[k].classList.contains('active')) chips[k].click(); });
+  if (false) {
     document.querySelectorAll('.direction-radio input').forEach(r => {
       if (r.value.includes(dir)) { r.checked = true; r.closest('label').click(); }
     });
