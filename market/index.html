@@ -1263,6 +1263,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script id="site-js">/* FR-MKT-027 관리자 저장값(/market/data/site.json) 반영 — 히어로 문구 · 고객사 로고 · 업종 줄 · ④ 사진.
    값이 비어 있으면 페이지에 들어 있는 기본 내용을 그대로 둔다(번역 페이지는 그 언어 칸이 비어 있으면 기본 번역 유지) */
 window.HOMI_SITE_PENDING=1;
+/* 관리자가 올린 이미지(data/uploads)는 배포가 끝나기 전에 열리면 브라우저가 「없음」을 오래 기억함 → 실패하면 주소 뒤에 값을 붙여 한 번 더 받기 */
+document.addEventListener('error',function(e){ var t=e.target; if(!t||(t.tagName!=='IMG'&&t.tagName!=='VIDEO')) return;
+  var u=t.getAttribute('src')||''; if(u.indexOf('data/uploads/')<0) return; var n=+(t.getAttribute('data-rt')||0); if(n>=3) return;
+  t.setAttribute('data-rt',n+1); setTimeout(function(){ t.src=u.split('?')[0]+'?r='+Date.now(); },n?4000:300); },true);
 (function(){
   var LC=(document.documentElement.lang||'ko').slice(0,2);
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
