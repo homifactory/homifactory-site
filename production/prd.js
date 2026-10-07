@@ -121,14 +121,18 @@
   /* ── 3열 그리드 + 더보기 ── */
   function renderGrid() {
     var v = visible(), more = document.getElementById('p-more');
-    if (!list.length) {
-      listEl.outerHTML = '<div class="p-empty" id="p-grid"><strong>작품을 준비하고 있습니다</strong>곧 ' + SECTION[section] + '를 이곳에서 보실 수 있어요.</div>';
-      listEl = document.getElementById('p-grid'); if (more) more.hidden = true; return;
+    if (!v.length) {   /* 작품이 아직 없어도 목록 틀(3열 16:9·제목·「아티스트 · 분류」·마우스 효과·더보기)은 그대로 보인다 */
+      var cats = filter === 'all' ? CATS[section].concat(CATS[section]) : CATS[section].filter(function (c) { return c[0] === filter; }).concat(CATS[section].filter(function (c) { return c[0] === filter; }), CATS[section].filter(function (c) { return c[0] === filter; }));
+      listEl.innerHTML = cats.map(function (c) {
+        return '<li><button type="button" class="p-card is-ph" aria-disabled="true" aria-label="' + esc(c[1]) + ' 작품 준비 중">' +
+          '<div class="p-thumb"><span class="p-ph-tx">' + esc(c[1]) + '<br>작품 준비 중</span>' +
+          '<span class="p-play" aria-hidden="true"><i></i>영상 보기 · 준비 중</span></div>' +
+          '<h3>작품 준비 중</h3><p class="p-meta">' + (section === 'commercial' ? '브랜드' : '아티스트') + ' · ' + esc(c[1]) + '</p></button></li>';
+      }).join('');
+      if (more) { more.hidden = false; var mb = more.querySelector('button'); mb.disabled = true; mb.classList.add('is-off'); mb.title = '작품이 ' + FIRST + '개를 넘으면 눌러서 더 볼 수 있어요'; }
+      return;
     }
-    if (!v.length) {
-      listEl.innerHTML = '<li class="p-empty" style="grid-column:1/-1"><strong>이 분류의 작품은 준비 중입니다</strong>다른 분류를 골라 보세요.</li>';
-      if (more) more.hidden = true; return;
-    }
+    if (more) { var mb2 = more.querySelector('button'); mb2.disabled = false; mb2.classList.remove('is-off'); mb2.removeAttribute('title'); }
     listEl.innerHTML = v.slice(0, shown).map(function (w) {
       return '<li><button type="button" class="p-card" data-id="' + esc(w.id) + '" aria-label="' + esc(w.title) + ' 영상 보기">' +
         '<div class="p-thumb"><img src="' + esc(thumbOf(w)) + '" alt="" loading="lazy" width="480" height="270" onerror="this.style.visibility=\'hidden\'">' +
@@ -138,7 +142,7 @@
     if (more) more.hidden = v.length <= shown;
   }
   listEl.addEventListener('click', function (e) {
-    var c = e.target.closest('.p-card'); if (c) openModal(c.getAttribute('data-id'), c);
+    var c = e.target.closest('.p-card'); if (c && !c.classList.contains('is-ph')) openModal(c.getAttribute('data-id'), c);
   });
   var moreBtn = document.querySelector('#p-more button');
   if (moreBtn) moreBtn.addEventListener('click', function () {

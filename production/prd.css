@@ -92,6 +92,10 @@ img{display:block;max-width:100%}
 .p-card h3{font-size:16px;font-weight:700;margin-top:14px;line-height:1.4}
 .p-card .p-meta{font-size:13px;color:var(--p-muted);margin-top:4px}
 .p-more{display:flex;justify-content:center;margin-top:48px}
+.p-card.is-ph{cursor:default}
+.p-card.is-ph .p-thumb{background:linear-gradient(135deg,#1A1A1A,#242424);display:flex;align-items:center;justify-content:center}
+.p-ph-tx{font-size:12px;letter-spacing:.12em;color:rgba(255,255,255,.35);text-align:center;line-height:1.7}
+.p-card.is-ph h3{color:var(--p-ink-2)}
 .p-empty{padding:72px 24px;border:1px dashed var(--p-line-2);text-align:center;color:var(--p-ink-2)}
 .p-empty strong{display:block;color:#fff;font-size:18px;margin-bottom:8px}
 
