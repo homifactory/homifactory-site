@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>작품 관리 — HOMI PRODUCTION</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/production/prd.css?v=20261007p4">
+<style>
+body{padding:0}
+.a-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid var(--p-line);position:sticky;top:0;background:var(--p-bg);z-index:5}
+.a-top b{font-family:var(--p-font-en);font-weight:900;letter-spacing:.02em}
+.a-top .r{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--p-muted)}
+.a-top a,.a-link{text-decoration:underline;text-underline-offset:3px;color:#fff;font-size:13px}
+.a-box{max-width:460px;margin:12vh auto;padding:40px;border:1px solid var(--p-line-2)}
+.a-box h1{font-size:24px;font-weight:800} .a-box p{color:var(--p-ink-2);font-size:14.5px;margin-top:10px;line-height:1.7}
+.a-box form{margin-top:22px;display:grid;gap:12px}
+.a-wrap{display:grid;grid-template-columns:380px 1fr;min-height:calc(100vh - 62px)}
+.a-side{border-right:1px solid var(--p-line);padding:20px;display:flex;flex-direction:column;gap:14px}
+.a-side-h{display:flex;align-items:center;justify-content:space-between}
+.a-side-h h2{font-size:16px;font-weight:800} .a-side-h span{font-size:13px;color:var(--p-muted)}
+#a-filter{display:flex;gap:6px} #a-filter button{flex:1;height:34px;border:1px solid var(--p-line-2);font-size:12.5px;font-weight:700;color:var(--p-ink-2)}
+#a-filter button[aria-pressed="true"]{background:#fff;color:#0B0B0B}
+.a-note{font-size:12px;color:var(--p-muted);line-height:1.6}
+#a-list{list-style:none;display:flex;flex-direction:column;gap:6px;overflow-y:auto}
+#a-list li{display:flex;align-items:center;gap:6px;border:1px solid var(--p-line);background:var(--p-bg-2)}
+#a-list li[aria-current="true"]{border-color:#fff} #a-list li.is-hidden{opacity:.55} #a-list li.dragging{opacity:.3}
+#a-list li.a-empty{padding:18px;font-size:13px;color:var(--p-muted);border-style:dashed;background:none}
+.a-grip{cursor:grab;padding:0 2px 0 8px;color:var(--p-muted);letter-spacing:-3px}
+.a-pick{flex:1;text-align:left;padding:10px 4px;min-width:0}
+.a-t{display:block;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.a-s{display:block;font-size:12px;color:var(--p-muted);margin-top:2px}
+.a-star{color:#FFD24A}
+.a-move{display:flex;flex-direction:column} .a-move button{width:28px;height:20px;font-size:9px;color:var(--p-muted)} .a-move button:hover{color:#fff}
+.a-main{padding:28px 36px 60px}
+.a-main h2{font-size:22px;font-weight:800;margin-bottom:22px}
+.a-grid{display:grid;grid-template-columns:1fr 300px;gap:32px}
+#a-thumb{aspect-ratio:16/9;background:var(--p-bg-3);display:flex;align-items:center;justify-content:center;text-align:center;font-size:12.5px;color:var(--p-muted);padding:12px;overflow:hidden}
+#a-thumb img{width:100%;height:100%;object-fit:cover}
+.p-f label.a-chip,.a-chip{display:inline-flex;margin:0 6px 6px 0;cursor:pointer;font-weight:400}
+.p-f label.a-check{display:flex;font-weight:400}
+.p-f label.p-btn{display:inline-flex;margin-bottom:0} .a-chip input{position:absolute;opacity:0}
+.a-chip span{padding:6px 12px;border:1px solid var(--p-line-2);border-radius:999px;font-size:13px;color:var(--p-ink-2)}
+.a-chip input:checked+span{background:#fff;color:#0B0B0B;border-color:#fff} .a-chip input:focus-visible+span{outline:2px solid #fff;outline-offset:2px}
+.a-check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:8px} .a-check input{width:18px;height:18px;accent-color:#fff}
+.a-actions{display:flex;gap:10px;align-items:center;margin-top:26px;flex-wrap:wrap}
+#a-del{color:#FF8A8A;border-color:#FF8A8A} #a-del:hover{background:#FF8A8A;color:#0B0B0B}
+.a-msg{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#0B0B0B;padding:12px 20px;font-size:14px;font-weight:700;z-index:20;max-width:90vw}
+.a-msg.bad{background:#FF8A8A}
+.a-help{font-size:12.5px;color:var(--p-muted);margin-top:6px}
+html.a-mock .a-top::after{content:"점검 모드(저장 안 됨)";color:#FFD24A;font-size:12px}
+@media(max-width:900px){.a-wrap{grid-template-columns:1fr}.a-side{border-right:0;border-bottom:1px solid var(--p-line)}#a-list{max-height:40vh}.a-grid{grid-template-columns:1fr}.a-main{padding:22px 20px 60px}}
+</style>
+</head><body>
+<header class="a-top"><b>HOMI PRODUCTION · 작품 관리</b><div class="r"><span id="a-who"></span><a href="/production/" target="_blank" rel="noopener">사이트 보기 ↗</a></div></header>
+
+<section id="a-login" class="a-box" hidden>
+<h1>담당자 로그인</h1>
+<p>등록된 담당자 이메일을 넣으면 로그인 링크를 메일로 보내 드려요. 비밀번호는 쓰지 않습니다.</p>
+<form id="a-login-form" class="p-f"><label for="a-email">이메일</label><input type="email" id="a-email" name="email" autocomplete="email" placeholder="name@homifactory.com" required><button type="submit" class="p-btn solid">로그인 링크 받기</button></form>
+<p id="a-login-msg" role="status"></p>
+</section>
+
+<section id="a-denied" class="a-box" hidden>
+<h1>관리 권한이 없어요</h1>
+<p><b id="a-denied-email"></b> 계정은 작품 관리 담당자로 등록되어 있지 않습니다. 담당자 등록이 필요하면 관리자에게 요청해 주세요.</p>
+<p><button type="button" class="p-btn" data-logout>다른 계정으로 로그인</button></p>
+</section>
+
+<div id="a-app" class="a-wrap" hidden>
+<aside class="a-side" aria-label="작품 목록">
+<div class="a-side-h"><h2>작품 목록 <span id="a-count"></span></h2><button type="button" class="p-btn solid" id="a-new" style="height:36px;padding:0 14px;font-size:13px">+ 새 작품</button></div>
+<div id="a-filter" role="group" aria-label="구분"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="visual" aria-pressed="false">VISUAL</button><button type="button" data-f="commercial" aria-pressed="false">COMMERCIAL</button></div>
+<p class="a-note">끌어서(또는 ▲▼) 순서를 바꾸면 사이트 순서도 그대로 바뀝니다. <span id="a-order-note">VISUAL·COMMERCIAL을 각각 골라 정렬하면 가장 정확합니다.</span> ★ = 첫 화면 대표 영상</p>
+<ul id="a-list"></ul>
+<p class="a-note" style="margin-top:auto"><button type="button" class="a-link" data-logout>로그아웃</button></p>
+</aside>
+<main class="a-main">
+<h2 id="a-form-h">새 작품 등록</h2>
+<form id="a-form" class="a-grid" novalidate>
+<div class="p-form" style="align-content:start">
+<div class="p-f full"><label for="f-url">영상 링크<em>*</em></label><input type="url" id="f-url" name="url" placeholder="https://www.youtube.com/watch?v=… 또는 https://vimeo.com/…" required><p class="p-err" id="f-url-err"></p></div>
+<fieldset class="p-f full" style="border:0"><legend class="lbl">구분<em>*</em></legend><div class="p-seg"><label><input type="radio" name="section" value="visual" checked><span>VISUAL WORKS</span></label><label><input type="radio" name="section" value="commercial"><span>COMMERCIAL WORKS</span></label></div></fieldset>
+<div class="p-f"><label for="f-cat">분류<em>*</em></label><select id="f-cat" name="category"></select></div>
+<div class="p-f"><label for="f-date">공개 날짜</label><input type="date" id="f-date" name="published_on"></div>
+<div class="p-f full"><label for="f-title">제목<em>*</em></label><input type="text" id="f-title" name="title" required></div>
+<div class="p-f full"><label for="f-client">아티스트 · 고객사명</label><input type="text" id="f-client" name="client"><label class="a-check"><input type="checkbox" name="show_client" checked> 사이트에 이름 표시</label><p class="a-help">고객사 영상은 게재 동의를 받은 뒤 공개해 주세요. 이름만 숨길 수도 있습니다.</p></div>
+<div class="p-f full"><span class="lbl">호미가 한 일</span><div id="f-roles"></div></div>
+<div class="p-f full"><label for="f-desc">설명 (2~3줄)</label><textarea id="f-desc" name="description" style="min-height:110px"></textarea></div>
+</div>
+<div>
+<div class="p-f"><span class="lbl">썸네일</span><div id="a-thumb"></div><p class="a-help" id="a-thumb-src"></p>
+<input type="hidden" name="thumb_url"><label class="p-btn" style="height:40px;font-size:13px;margin-top:10px;cursor:pointer">직접 올리기 (선택)<input type="file" id="f-file" accept="image/*" hidden></label>
+<button type="button" class="a-link" id="f-thumb-clear" style="margin-left:10px">자동으로 되돌리기</button></div>
+<label class="a-check" style="margin-top:22px"><input type="checkbox" name="is_featured"> ★ 대표 영상으로 지정 (VISUAL 1개만)</label>
+<label class="a-check"><input type="checkbox" name="hidden_"> 사이트에서 숨김</label>
+<div class="a-actions"><button type="submit" class="p-btn solid a-save">저장</button><button type="button" class="p-btn" id="a-del" hidden>삭제</button><a class="a-link" id="a-view" target="_blank" rel="noopener" hidden>사이트에서 보기 ↗</a></div>
+</div>
+</form>
+</main>
+</div>
+<p id="a-msg" class="a-msg" role="status" hidden></p>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/production/prd-admin.js?v=20261007p4"></script>
+</body></html>

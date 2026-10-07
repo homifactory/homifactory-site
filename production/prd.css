@@ -278,3 +278,5 @@ html.p-lock{overflow:hidden}
   .p-studio-video{width:calc(100% + 40px);margin:0 -20px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.p-btn.is-off{border-color:var(--p-line-2);color:var(--p-muted);cursor:not-allowed}
+.p-btn.is-off:hover{background:none;color:var(--p-muted)}

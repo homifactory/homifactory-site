@@ -70,7 +70,21 @@
 
   var all = [], list = [], featuredId = null, filter = 'all', shown = FIRST;
 
-  fetch('/production/works.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+  /* 작품 데이터: 관리자 화면(Supabase prd_works)이 기준. 연결이 안 되거나 표가 아직 없으면 works.json 으로 대신 (FR-PRD-007) */
+  var SB = 'https://bcngbtwzuqtwtxaebftf.supabase.co', SBK = 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
+  function fromDb() {
+    if (window.PRD_DB === false) return Promise.reject();
+    return fetch(SB + '/rest/v1/prd_works?select=*&hidden=eq.false&order=sort_order.asc,published_on.desc.nullslast', { headers: { apikey: SBK, Authorization: 'Bearer ' + SBK } })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (rs) {
+        if (!rs.length) throw 0;   /* 아직 한 건도 없으면 파일 쪽을 본다 */
+        var f = rs.filter(function (r) { return r.is_featured; })[0];
+        return { featured: f ? f.slug : null, items: rs.map(function (r) { return { id: r.slug, section: r.section, category: r.category, title: r.title,
+          client: r.client, showClient: r.show_client, date: r.published_on, url: r.url, roles: r.roles || [], desc: r.description, thumb: r.thumb_url, order: r.sort_order }; }) };
+      });
+  }
+  function fromFile() { return fetch('/production/works.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }); }
+  fromDb().catch(fromFile).then(function (data) {
     featuredId = data.featured || null;
     all = (data.items || []).filter(function (w) { return !w.hidden && w.id && parse(w.url); });
     all.forEach(function (w, i) { w._v = parse(w.url); w._i = i; });
