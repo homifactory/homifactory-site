@@ -451,6 +451,52 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 }
 @media(max-width:600px){.pl-usual,.pl-homi{padding:24px 18px}.pl-cards{gap:10px}.pl-band{font-size:12.5px;padding:9px 10px}}
 </style>
+<style id="r13-css">
+/* FR-MKT-020 ⑥ 우리가 다른 점 — 검정 바탕 */
+.pt6{background:#141414!important;color:#fff}
+.pt6 .section-head h2{color:#fff}
+.pt6 .section-head h2 .hl{color:#B98CFF!important}
+.pt6-list{display:grid;gap:22px;margin-top:20px;max-width:1080px;margin-left:auto;margin-right:auto}
+.pt6-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:44px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.1)}
+.pt6-row:last-child{border-bottom:0;padding-bottom:0}
+.pt6-lb{font-weight:900;font-size:12.5px;letter-spacing:.14em;color:#B98CFF;margin-bottom:10px}
+.pt6-txt h3{font-size:24px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.35}
+.pt6-txt p{font-size:15px;color:#CFCAC1;line-height:1.7;margin-bottom:18px}
+.pt6-cta{display:inline-flex;align-items:center;padding:11px 20px;border-radius:999px;background:#FFC53D;color:#141414!important;font-weight:800;font-size:14px;transition:transform .2s,background .2s}
+.pt6-cta:hover{background:#FFD36B;transform:translateY(-2px)}
+.pt6-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.pt6-img{aspect-ratio:560/200;border-radius:16px;overflow:hidden;background:#1E1B26;position:relative}
+.pt6-img svg,.pt6-img img,.pt6-img video{display:block;width:100%;height:100%;object-fit:cover}
+/* FR-MKT-006 ⑦ 방향별 카드 */
+.dir-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
+.dir-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E6E0D6;border-radius:20px;padding:30px 26px}
+.dir-cat{font-size:12.5px;font-weight:800;color:#8B3DFF;letter-spacing:.04em}
+.dir-dir{font-size:22px;font-weight:800;color:#141414;margin:6px 0 6px}
+.dir-line{font-size:15px;color:#3a3732;margin-bottom:20px}
+.dir-how{font-size:12px;font-weight:800;color:#6B665E;letter-spacing:.06em;padding-top:16px;border-top:1px solid #E6E0D6;margin-bottom:10px}
+.dir-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px;flex:1}
+.dir-list li{position:relative;padding-left:26px;font-size:14px;color:#2A2A2A;line-height:1.55}
+.dir-list li::before{content:"";position:absolute;left:0;top:2px;width:17px;height:17px;border-radius:50%;background:#F3ECFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%238B3DFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.dir-cta{align-self:flex-start;display:inline-flex;padding:11px 18px;border-radius:999px;background:#8B3DFF;color:#fff!important;font-weight:800;font-size:14px;transition:background .2s}
+.dir-cta:hover{background:#7D2AE8}
+/* FR-MKT-021 ⑧ 범례 왼쪽 아래, 제목 3줄 */
+.network-text h2{font-size:clamp(26px,2.6vw,36px)!important}
+.map-legend{left:16px!important;right:auto!important}
+/* FR-MKT-022 ⑨ 사례 — 누르지 않는 카드, 좌우 넘김 */
+.campaign-slider{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(300px,calc((100% - 40px)/3));grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.campaign-slider .camp{scroll-snap-align:start;cursor:default}
+.campaign-slider .camp:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.camp-cover{background:#F3ECFF!important}
+.camp-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.camp-tag{background:rgba(20,20,20,.72)!important;backdrop-filter:none!important}
+.camp-body h3{font-size:17px;font-weight:800;margin-bottom:8px;line-height:1.4}
+@media(max-width:900px){
+  .pt6-row{grid-template-columns:1fr;gap:18px}
+  .pt6-img{order:-1}
+  .dir-grid{grid-template-columns:1fr}
+  .campaign-slider{grid-auto-columns:82%}
+}
+</style>
 <style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -671,48 +717,73 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </div>
 </section>
 
-<section class="section">
+<section class="section pt6" id="points">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">3 POINTS</span>
       <h2>Hingga target tercapai, kami akan menjadi <span class="hl">pendukung yang andal</span></h2>
     </div>
-    <div class="pt-grid">
-      <div class="pt-card reveal"><div class="num">POINT 1</div><h4>Kami lebih dulu mengusulkan strategi yang sesuai target</h4><p>Kami memberikan rekomendasi beserta alasannya lebih dulu. Pengiklan cukup mengonfirmasi arahnya.</p><a href="/id/market/service-influencer.html" class="lnk">Selengkapnya →</a></div>
-      <div class="pt-card reveal"><div class="num">POINT 2</div><h4>Kami tidak berhenti di promosi</h4><p>Kami menyambungkannya ke pemanfaatan ulang konten, koneksi commerce, hingga kampanye lanjutan.</p><a href="/id/market/how-we-work.html" class="lnk">Selengkapnya →</a></div>
-      <div class="pt-card reveal"><div class="num">POINT 3</div><h4>Kami tunjukkan dalam angka</h4><p>Kami membagikan hasil dibandingkan target melalui dashboard real-time dan laporan.</p><a href="/id/market/case.html" class="lnk">Selengkapnya →</a></div>
+    <div class="pt6-list">
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 1</div><h3 data-k="pt1.t">Kami lebih dulu mengusulkan strategi yang sesuai target</h3><p data-k="pt1.d">Kami berikan rekomendasi beserta alasan di balik susunannya</p><a href="/id/market/contact.html" class="pt6-cta">Konsultasi Gratis →</a></div>
+        <div class="pt6-img" data-img="pt1"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<circle cx="150" cy="78" r="26" fill="#2E2940"/><path d="M104 168c4-36 24-56 46-56s42 20 46 56" fill="#2E2940"/>
+<g transform="rotate(-4 330 100)"><rect x="236" y="34" width="190" height="132" rx="10" fill="#F4F0FA"/>
+<rect x="254" y="54" width="70" height="10" rx="5" fill="#B98CFF"/><rect x="254" y="74" width="44" height="18" rx="9" fill="#E3D4FF"/><rect x="304" y="74" width="56" height="18" rx="9" fill="#E3D4FF"/><rect x="366" y="74" width="40" height="18" rx="9" fill="#E3D4FF"/>
+<rect x="254" y="104" width="154" height="44" rx="8" fill="#fff" stroke="#8B3DFF" stroke-width="2"/><rect x="266" y="116" width="96" height="7" rx="3.5" fill="#C9C2D6"/><rect x="266" y="130" width="120" height="7" rx="3.5" fill="#C9C2D6"/></g>
+<path d="M190 120c20-6 34-8 52-6" stroke="#B98CFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="470" cy="56" r="7" fill="#FFC53D"/><circle cx="494" cy="150" r="4" fill="#B98CFF"/></svg></div>
+      </div>
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 2</div><h3 data-k="pt2.t">Kami tidak berhenti di promosi</h3><p data-k="pt2.d">Kami hubungkan hingga penjualan lokal</p><a href="/id/market/contact.html" class="pt6-cta">Konsultasi Gratis →</a></div>
+        <div class="pt6-img" data-img="pt2"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<rect x="60" y="30" width="86" height="148" rx="14" fill="#2E2940"/><rect x="68" y="44" width="70" height="114" rx="6" fill="#8B3DFF" opacity=".75"/><path d="M96 88l22 13-22 13z" fill="#fff"/>
+<path d="M164 104h60" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M220 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
+<rect x="244" y="52" width="130" height="104" rx="12" fill="#F4F0FA"/><rect x="244" y="52" width="130" height="24" rx="12" fill="#E3D4FF"/><rect x="258" y="88" width="42" height="42" rx="6" fill="#D9C4FF"/><rect x="308" y="90" width="52" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="106" width="36" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="122" width="44" height="12" rx="6" fill="#8B3DFF"/>
+<path d="M390 104h50" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M436 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
+<path d="M462 92l34-18 34 18v46l-34 18-34-18z" fill="#FFC53D"/><path d="M462 92l34 18 34-18M496 110v46" stroke="#1E1B26" stroke-width="2" fill="none" opacity=".35"/></svg></div>
+      </div>
+      <div class="pt6-row reveal">
+        <div class="pt6-txt"><div class="pt6-lb">POINT 3</div><h3 data-k="pt3.t">Kami tunjukkan dalam angka</h3><p data-k="pt3.d">Kami rangkum hasil dibanding target dalam laporan</p><a href="/id/market/contact.html" class="pt6-cta">Konsultasi Gratis →</a></div>
+        <div class="pt6-img" data-img="pt3"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
+<rect x="60" y="24" width="440" height="152" rx="12" fill="#F4F0FA"/>
+<path d="M90 150h380" stroke="#C9C2D6" stroke-width="2"/><path d="M90 82h380" stroke="#8B3DFF" stroke-width="2" stroke-dasharray="7 6"/>
+<rect x="120" y="104" width="44" height="46" rx="5" fill="#D9C4FF"/><rect x="190" y="92" width="44" height="58" rx="5" fill="#D9C4FF"/><rect x="260" y="74" width="44" height="76" rx="5" fill="#B98CFF"/><rect x="330" y="62" width="44" height="88" rx="5" fill="#8B3DFF"/><rect x="400" y="52" width="44" height="98" rx="5" fill="#8B3DFF"/>
+<circle cx="422" cy="40" r="7" fill="#FFC53D"/><path d="M142 98l70-12 70-20 70-14 70-10" stroke="#FFC53D" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section gray">
+<section class="section gray" id="directions">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">WHERE DO YOU WANT TO GO?</span>
-      <h2>Ke mana Anda ingin melangkah?</h2>
+      <h2 data-k="dir.title">Ke mana Anda ingin melangkah?</h2>
+      <p data-k="dir.lead">Cukup pilih arah yang Anda tuju. Negara, kanal, dan pendekatan kami rancang bersama sesuai tujuan.</p>
     </div>
-    <div class="region-grid">
-      <a href="/id/market/service-influencer.html" class="region-card reveal">
-        <div class="flag">🌏</div>
-        <div class="r-eyebrow">Korea → Global</div>
-        <h3>Ekspansi global brand Korea</h3>
-        <p>Jika ingin memperkenalkan brand Korea kepada konsumen luar negeri</p>
-        <ul><li>Viral di negara yang cocok dengan produk → viral di SNS</li><li>Dukungan masuk ke commerce lokal / toko offline</li><li>Perekrutan kreator, review & rekomendasi yang sesuai produk</li></ul>
-      </a>
-      <a href="/id/market/service-visit.html" class="region-card reveal">
-        <div class="flag">🇰🇷</div>
-        <div class="r-eyebrow">Global → Korea & Asia</div>
-        <h3>Ekspansi brand luar negeri ke Korea & Asia</h3>
-        <p>Jika ingin memperkenalkan brand luar negeri kepada konsumen Korea</p>
-        <ul><li>Memanfaatkan kreator, termasuk review dari artis Korea</li><li>Iklan SNS Korea · seri konten · review produk · reward, dan lainnya</li><li>Operasional toko & event offline di Korea</li></ul>
-      </a>
-      <a href="/id/market/service-event.html" class="region-card reveal">
-        <div class="flag">🏠</div>
-        <div class="r-eyebrow">Pasar domestik Korea</div>
-        <h3>Pasar domestik Korea</h3>
-        <p>Jika ingin memperkenalkan toko, produk, atau layanan di Korea</p>
-        <ul><li>Berdiskusi dan mencocokkan kreator yang sesuai tujuan</li><li>Kami membuat sendiri konten & kampanye spesialis di bidangnya dengan harga terjangkau</li><li>Kami menciptakan titik temu langsung dan memproduksinya sesuai berbagai situasi</li></ul>
-      </a>
+    <div class="dir-grid">
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d1.cat">Ekspansi global</div>
+        <h3 class="dir-dir" data-k="d1.dir">Korea → Global</h3>
+        <p class="dir-line" data-k="d1.line">Kami ingin menjual produk di luar negeri</p>
+        <div class="dir-how">Cara HOMI</div>
+        <ul class="dir-list"><li data-k="d1.m1">Mulai dari memilih negara yang cocok dan media sosial yang dipakai di sana</li><li data-k="d1.m2">Kreator lokal dari kantor cabang dan hub kami melakukan review & seeding</li><li data-k="d1.m3">Hubungkan ke marketplace lokal dan live commerce hingga penjualan</li></ul>
+        <a class="dir-cta" href="/id/market/contact.html?direction=1">Konsultasi arah ini →</a>
+      </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d2.cat">Masuk ke Korea</div>
+        <h3 class="dir-dir" data-k="d2.dir">Global → Korea & Asia</h3>
+        <p class="dir-line" data-k="d2.line">Kami ingin masuk ke pasar Korea dan Asia</p>
+        <div class="dir-how">Cara HOMI</div>
+        <ul class="dir-list"><li data-k="d2.m1">Diagnosis kanal tempat konsumen Korea mencari informasi</li><li data-k="d2.m2">Bangun kepercayaan lewat review kreator Korea dan penguji produk</li><li data-k="d2.m3">Ajak orang mencoba langsung lewat pop-up dan kunjungan</li></ul>
+        <a class="dir-cta" href="/id/market/contact.html?direction=2">Konsultasi arah ini →</a>
+      </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat" data-k="d3.cat">Pemasaran domestik</div>
+        <h3 class="dir-dir" data-k="d3.dir">Pasar domestik Korea</h3>
+        <p class="dir-line" data-k="d3.line">Kami ingin dikenal dengan benar di Korea</p>
+        <div class="dir-how">Cara HOMI</div>
+        <ul class="dir-list"><li data-k="d3.m1">Kombinasikan skala dari mega influencer hingga penguji sesuai tujuan</li><li data-k="d3.m2">Bertemu pelanggan langsung lewat kunjungan toko, pop-up, dan acara</li><li data-k="d3.m3">Lanjutkan laporan hasil ke kampanye berikutnya</li></ul>
+        <a class="dir-cta" href="/id/market/contact.html?direction=3">Konsultasi arah ini →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -722,7 +793,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     <div class="network-grid">
       <div class="network-text reveal">
         <div class="section-eyebrow">🌐 GLOBAL NETWORK</div>
-        <h2>Berbasis cabang Jepang dan Indonesia, <span class="hl">jaringan basis di berbagai penjuru dunia</span></h2>
+        <h2>Berbasis kantor cabang<br>Jepang dan Indonesia,<br><span class="hl">jaringan hub di berbagai negara</span></h2>
         <p>Lihat skala influencer dan kanal penjualan di tiap negara.</p>
         <a href="/id/market/global.html" class="lnk">Lihat Global Network →</a>
       </div>
@@ -753,27 +824,26 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <text x="366" y="138" text-anchor="middle" font-weight="800" fill="#141414">Kantor pusat Korea</text>
 <text x="454" y="174" text-anchor="start" font-weight="800" fill="#141414">Cabang Jepang</text>
 <text x="258" y="443" text-anchor="start" font-weight="800" fill="#141414">Cabang Indonesia</text>
-<text x="574" y="149" text-anchor="middle" font-weight="600" fill="#3A3A42">Amerika Utara →</text>
+<text x="592" y="149" text-anchor="end" font-weight="600" fill="#3A3A42">Amerika Utara →</text>
 <text x="291" y="142" text-anchor="end" font-weight="600" fill="#3A3A42">Tiongkok</text>
 <text x="344" y="249" text-anchor="start" font-weight="600" fill="#3A3A42">Taiwan</text>
 <text x="278" y="267" text-anchor="end" font-weight="600" fill="#3A3A42">Hong Kong</text>
 <text x="341" y="316" text-anchor="start" font-weight="600" fill="#3A3A42">Filipina</text>
 <text x="67" y="240" text-anchor="middle" font-weight="600" fill="#3A3A42">India</text>
 </g></svg>
-        <div class="map-legend"><span class="lg-hub">Kantor pusat & cabang</span><span class="lg-edge">Jaringan hub</span></div>
+        <div class="map-legend"><span class="lg-hub">Kantor pusat &amp; cabang</span><span class="lg-edge">Jaringan hub</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal"><span class="section-eyebrow">OUR CASE</span>
+<section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal">
       <h2><span class="hl">Kampanye bersama</span> HOMI</h2>
-      <p>Geser ke kiri dan kanan untuk melihat studi kasus. Isi lengkapnya tersedia di halaman Case.</p>
     </div>
-    <div class="campaign-slider">
-      <a href="/id/market/case.html" class="camp reveal"><div class="camp-cover"><div class="camp-tags"><span class="camp-tag">Korea</span><span class="camp-tag">IP Karakter</span></div></div><div class="camp-body"><h4>Kampanye viral IP karakter</h4><p>Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></a>
-      <a href="/id/market/case.html" class="camp reveal"><div class="camp-cover g2"><div class="camp-tags"><span class="camp-tag">Indonesia</span><span class="camp-tag">K-POP</span></div></div><div class="camp-body"><h4>Promosi lokal artis K-POP</h4><p>Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></a>
-      <a href="/id/market/case.html" class="camp reveal"><div class="camp-cover g3"><div class="camp-tags"><span class="camp-tag">Korea</span><span class="camp-tag">F&B</span></div></div><div class="camp-body"><h4>Kampanye musiman brand F&B</h4><p>Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></a>
+    <div class="campaign-slider" tabindex="0" aria-label="Kasus — geser ke kiri atau kanan">
+      <article class="camp reveal"><div class="camp-cover" data-img="c1"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c1.tag1">Korea</span><span class="camp-tag" data-k="c1.tag2">IP karakter</span></div></div><div class="camp-body"><h3 data-k="c1.name">Hachuping · Teenieping</h3><p data-k="c1.text">Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></article>
+      <article class="camp reveal"><div class="camp-cover" data-img="c2"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c2.tag1">Indonesia</span><span class="camp-tag" data-k="c2.tag2">K-POP</span></div></div><div class="camp-body"><h3 data-k="c2.name">Promosi lokal artis K-POP</h3><p data-k="c2.text">Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></article>
+      <article class="camp reveal"><div class="camp-cover" data-img="c3"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c3.tag1">Korea</span><span class="camp-tag" data-k="c3.tag2">F&amp;B</span></div></div><div class="camp-body"><h3 data-k="c3.name">Cheongdam Yusik</h3><p data-k="c3.text">Deskripsi kampanye 2~3 baris — bebas diisi dari panel admin</p></div></article>
     </div>
   </div>
 </section>
@@ -883,22 +953,21 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 })();
 </script>
 
-<section class="section">
+<section class="section" id="faq">
   <div class="section-inner">
     <div class="section-head reveal">
-      <span class="section-eyebrow">FAQ</span>
       <h2>Pertanyaan yang Sering Diajukan</h2>
     </div>
     <div class="faq-list reveal">
-      <details class="faq-item" open><summary><span class="qtxt">Apakah konsultasi dan pengajuan rencana dikenakan biaya?</span></summary><div class="ans">Konsultasi gratis. Kami mendengarkan target dan situasi brand Anda, lalu bersama merumuskan arah: negara mana dan metode apa yang paling cocok. Tidak ada biaya sampai Anda memutuskan untuk melanjutkan.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Apakah bisa berjalan meski anggarannya tidak besar?</span></summary><div class="ans">Bisa. Kami merancang mulai dari unit terkecil sesuai karakter dan skala kampanye. Jangan ragu untuk menghubungi kami.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Bisakah saya memilih influencer sendiri?</span></summary><div class="ans">Kami memberikan rekomendasi terlebih dahulu lalu menyesuaikannya bersama Anda. Jika ada kreator pilihan Anda, kami meninjau alasannya dan memasukkannya ke dalam rencana.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Di negara mana saja kampanye bisa dijalankan?</span></summary><div class="ans">Kami beroperasi melalui cabang Jepang & Indonesia serta jaringan mitra di Tiongkok, Taiwan, Hong Kong, Filipina, dan Amerika Utara.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Apakah bisa sekaligus menghubungkan ke marketplace lokal atau live commerce?</span></summary><div class="ans">Bisa. Kami memiliki kemitraan yang dapat menghubungkan hingga masuk marketplace dan operasional live commerce.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Bagaimana dengan penandaan iklan (disclosure)?</span></summary><div class="ans">Kami menjalankannya secara transparan sesuai aturan penandaan iklan di tiap negara (KFTC, FTC, dll.).</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Bolehkah konten yang dibuat dipakai untuk iklan atau halaman detail produk kami?</span></summary><div class="ans">Boleh. Kami menyepakati cakupan pemanfaatan ulang sejak awal dan sekaligus mengamankan hak cipta serta hak penggunaan potret.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Bagaimana cara memantau hasilnya?</span></summary><div class="ans">Kami membagikannya melalui dashboard real-time + laporan tengah dan laporan akhir.</div></details>
-      <details class="faq-item"><summary><span class="qtxt">Apa yang perlu saya siapkan?</span></summary><div class="ans">Cukup beri tahu kami brand, produk, tantangan saat ini, dan target Anda. Sisanya kami rumuskan bersama.</div></details>
+      <details class="faq-item" open><summary><span class="qtxt" data-k="q1">Apakah konsultasi dan proposal rencana dikenakan biaya?</span></summary><div class="ans" data-k="a1">Konsultasi gratis. Kami mendengarkan target dan situasi brand Anda, lalu bersama merumuskan arah: negara mana dan metode apa yang paling cocok. Tidak ada biaya sampai Anda memutuskan untuk melanjutkan.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q2">Bisakah kami mulai meski anggaran tidak besar?</span></summary><div class="ans" data-k="a2">Ya. Yang penting bukan besarnya anggaran, tetapi tujuannya. Dalam anggaran yang ada, kami sesuaikan negara, skala influencer, dan pendekatan untuk mengusulkan kombinasi paling efektif. Biaya pasti kami sampaikan lewat penawaran setelah konsultasi.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q3">Bisakah kami memilih influencer sendiri?</span></summary><div class="ans" data-k="a3">Ya. Pada seeding, brand memilih kreator sendiri; pada seeding strategis, kami berikan rekomendasi dan alasannya terlebih dahulu, lalu memutuskan bersama. Jika ada kreator yang ingin Anda ajak, kami masukkan di metode mana pun.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q4">Di negara mana saja kampanye bisa dijalankan?</span></summary><div class="ans" data-k="a4">Kami bekerja berpusat pada kantor cabang Jepang dan Indonesia, bersama jaringan hub di Tiongkok, Taiwan, Hong Kong, Filipina, India, dan Amerika Utara. Untuk negara lain, kami cek kemungkinannya saat konsultasi.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q5">Apakah Anda menghubungkan kami ke marketplace lokal atau live commerce?</span></summary><div class="ans" data-k="a5">Agar konten berujung pembelian, kami rancang juga koneksi ke marketplace lokal dan live commerce. Syarat listing, sertifikasi, dan bea cukai berbeda per negara dan produk, jadi kami cek lebih dulu saat konsultasi.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q6">Bagaimana penandaan iklan dilakukan?</span></summary><div class="ans" data-k="a6">Kami ikuti aturan tiap negara — “광고” di Korea, #PR di Jepang, #ad di AS — memandu kreator agar selalu mencantumkannya, lalu memeriksa setelah diunggah.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q7">Bolehkah konten dipakai untuk iklan atau halaman produk kami?</span></summary><div class="ans" data-k="a7">Cakupan dan masa penggunaan kami tetapkan saat kontrak dengan kreator. Jika Anda berencana memakai ulang untuk iklan atau halaman produk, sampaikan saat konsultasi.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q8">Bagaimana kami melihat hasilnya?</span></summary><div class="ans" data-k="a8">Berdasarkan tujuan yang kita tetapkan di awal, kami berikan laporan jangkauan, respons, dan konversi penjualan, lalu mengusulkan arah kampanye berikutnya.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q9">Apa yang perlu kami siapkan?</span></summary><div class="ans" data-k="a9">Materi produk dan tujuan yang ingin dicapai sudah cukup. Tidak apa-apa jika belum tahu negara mana yang cocok. Isi formulir sebatas yang Anda ketahui.</div></details>
     </div>
   </div>
 </section>
@@ -1316,6 +1385,14 @@ window.HOMI_SITE_PENDING=1;
     var h=d.hero&&d.hero[LC];
     if(h){ var h1=document.querySelector('.hero-inner h1'), p=document.querySelector('.hero-inner > p');
       if(h.title&&h1) h1.innerHTML=rich(h.title); if(h.desc&&p) p.innerHTML=rich(h.desc); }
+    /* 섹션 문구(data-k) · 이미지/영상(data-img) — ⑥ POINT · ⑦ 방향 카드 · ⑨ 사례 · ⑩ FAQ */
+    var T=(d.texts&&d.texts[LC])||{};
+    [].forEach.call(document.querySelectorAll('[data-k]'),function(el){ var v=T[el.getAttribute('data-k')]; if(v) el.innerHTML=rich(v); });
+    var IM=d.images||{};
+    [].forEach.call(document.querySelectorAll('[data-img]'),function(el){ var u=IM[el.getAttribute('data-img')]; if(!u) return;
+      var m=/\.(mp4|webm)(\?|$)/i.test(u)?'<video src="'+esc(u)+'" muted loop autoplay playsinline preload="metadata" aria-hidden="true"></video>':'<img src="'+esc(u)+'" alt="" loading="lazy" decoding="async">';
+      var old=el.querySelector('img,svg,video'); var t=document.createElement('div'); t.innerHTML=m; var nw=t.firstChild;
+      if(old) el.replaceChild(nw,old); else el.insertBefore(nw,el.firstChild); });
     /* ④ 사진 4장 */
     (d.planPhotos||[]).forEach(function(src,i){ if(!src) return; var ph=document.querySelector('.pl-ph[data-slot="'+i+'"]'); if(!ph) return;
       var im=ph.querySelector('img'); im.src=src; im.hidden=false; ph.classList.add('has-img'); });
