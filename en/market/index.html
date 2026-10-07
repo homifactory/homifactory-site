@@ -357,6 +357,10 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 #stickyAsk .cta{background:#8B3DFF;color:#fff !important;padding:11px 20px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
 /* Logo marquee cards - PDF beige style */
 .logo-card{width:170px !important;height:68px !important;background:#FAF5EC !important;border:1px solid #E6E0D6 !important;border-radius:12px !important;display:flex !important;align-items:center !important;justify-content:center !important;flex-shrink:0;color:#4a4a4a;font-size:14px;font-weight:600;font-family:inherit}
+/* 로고 이미지가 들어간 칸은 바깥 박스 없이 로고만 (흰 배경 JPG도 바탕에 녹도록 multiply) */
+body[data-site] .logo-card.lc-img,.logo-card.lc-img{background:transparent !important;border-color:transparent !important}
+body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:transparent !important;border-color:transparent !important}
+.logo-card.lc-img img{max-height:44px;max-width:150px;mix-blend-mode:multiply}
 .marquee-row{display:flex;gap:16px;padding:8px 0}
 /* Marquee direction labels */
 .marquee-direction{display:flex;justify-content:space-between;max-width:1400px;margin:14px auto 0;padding:0 24px;color:#999;font-size:12px}
@@ -1302,7 +1306,7 @@ document.addEventListener('error',function(e){ var t=e.target; if(!t||(t.tagName
     var logos=(d.logos||[]).filter(function(l){ return !l.hidden&&(l.name||l.src); });
     if(logos.length){ [1,2].forEach(function(n){ var row=document.querySelector('.marquee-row.'+(n===1?'left':'right'));
       var list=logos.filter(function(l){ return (+l.row||1)===n; }); if(!row||!list.length) return;
-      row.innerHTML=list.map(function(l){ return '<div class="logo-card" role="listitem">'+(l.src?'<img src="'+esc(l.src)+'" alt="'+esc(l.name||'')+'" loading="lazy" decoding="async">':esc(nm(l.name)))+'</div>'; }).join(''); }); }
+      row.innerHTML=list.map(function(l){ return '<div class="logo-card'+(l.src?' lc-img':'')+'" role="listitem">'+(l.src?'<img src="'+esc(l.src)+'" alt="'+esc(l.name||'')+'" loading="lazy" decoding="async">':esc(nm(l.name)))+'</div>'; }).join(''); }); }
     /* 업종 줄 */
     var inds=(d.industries||[]).map(function(x){ return typeof x==='string'?x:(x[LC]||x.ko); }).filter(Boolean);
     var ir=document.querySelector('.ind-row');
