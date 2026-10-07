@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="id"><head><meta charset="UTF-8"><script id="lang-auto">/* FR-MKT-025 처음 들어온 방문자: 브라우저 언어로 자동 선택(한국어→KR, 일본어→JA, 인도네시아어→ID, 그 밖→EN). 한 번 정해지면 이후엔 🌐 버튼으로만 바뀜 */
+(function(){try{var K='homi_lang_auto';if(localStorage.getItem(K))return;localStorage.setItem(K,'1');
+if(/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent))return;
+var p=location.pathname,m=p.match(/^\/(en|ja|id)(\/market(?:\/.*)?)$/),cur=m?m[1]:'ko',rest=m?m[2]:p;if(rest.indexOf('/market')!==0)return;
+var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase().slice(0,2);
+var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
+location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home · HOMI MARKET</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,6 +299,7 @@ body{padding-top:48px}
 .plan-step h3{font-size:19px;font-weight:800;color:#141414;margin-bottom:10px}
 .plan-step p{font-size:14px;color:#555;line-height:1.6}
 .industry-strip{padding:48px 24px;background:#fff;text-align:center;border-top:1px solid #F0EBE0}
+.strategy-section .industry-strip{background:transparent;border-top:0;padding:40px 24px 0;max-width:1200px;margin:0 auto}
 .industry-strip h3{font-size:18px;color:#333;margin-bottom:20px;font-weight:600}
 .industry-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1100px;margin:0 auto}
 .industry-chips .ic{padding:10px 18px;background:#F3ECFF;border:1px solid #D9C4FF;color:#5B2BB8;border-radius:999px;font-size:14px;font-weight:600}
@@ -496,7 +504,17 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 
-<section class="strategy-section" id="strategy-section">
+<!-- ② 고객사 로고 -->
+<section class="section gray">
+
+<div class="logo-marquee-wrap">
+  <div class="marquee-row left"><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div></div>
+  <div class="marquee-row right"><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div></div>
+</div>
+</section>
+
+<!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
+<section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> Hasil yang terbukti lewat kampanye nyata</span>
@@ -530,7 +548,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-stat"><div class="num">91%</div><div class="lbl">Tingkat kontrak ulang<br>Tumbuh bersama brand</div></div>
 </div>
 </div>
+<div class="industry-strip"><h3>Dari UMKM hingga perusahaan besar, kami telah bekerja sama dengan brand dari berbagai industri</h3>
+  <div class="industry-chips"><span class="ic">Fashion</span><span class="ic">F&amp;B · Makanan</span><span class="ic">Suplemen Kesehatan</span><span class="ic">Healthcare</span><span class="ic">Kecantikan</span><span class="ic">Travel</span><span class="ic">Gaya Hidup · Kesehatan</span><span class="ic">Elektronik · Digital</span><span class="ic">Keuangan · Asuransi</span><span class="ic">Karakter · IP</span></div>
+</div>
 </section>
+
+<!-- ④ 리스트가 아니라 플랜 -->
 <section class="plan-section" id="plan-section">
   <div class="plan-wrap">
     <div class="plan-head"><h2>Bukan sekadar daftar,<br>kami memberi <em>rencana yang menjual</em></h2><p style="margin-top:14px;color:#666">Kami merancang dan mengusulkan strategi dalam 4 tahap, sesuai kebutuhan dan target brand Anda</p></div>
@@ -539,77 +562,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="plan-step"><span class="num">02</span><h3>Memilih pasar & target</h3><p>Memilih negara dan konsumen yang dituju berdasarkan data</p></div>
       <div class="plan-step"><span class="num">03</span><h3>Memadukan metode</h3><p>Merancang kombinasi paling efektif antara influencer, iklan, dan commerce</p></div>
       <div class="plan-step"><span class="num">04</span><h3>Menetapkan tolok ukur kinerja</h3><p>Menyepakati bersama apa yang dihitung sebagai hasil, dan bertanggung jawab hingga laporan</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="industry-strip"><h3>Dari UMKM hingga perusahaan besar, kami telah bekerja sama dengan brand dari berbagai industri</h3>
-  <div class="industry-chips"><span class="ic">Fashion</span><span class="ic">F&amp;B · Makanan</span><span class="ic">Suplemen Kesehatan</span><span class="ic">Healthcare</span><span class="ic">Kecantikan</span><span class="ic">Travel</span><span class="ic">Gaya Hidup · Kesehatan</span><span class="ic">Elektronik · Digital</span><span class="ic">Keuangan · Asuransi</span><span class="ic">Karakter · IP</span></div>
-</div>
-
-
-
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR CLIENTS · 10 CATEGORIES</span>
-      <h2>Solusi untuk klien kami</h2>
-      <p>Sesuai bidang dan target setiap brand, kami telah menciptakan hasil bersama satu per satu klien.</p>
-    </div>
-    </div>
-
-<div class="logo-marquee-wrap">
-  <div class="marquee-row left"><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">Hachuping · Teenieping</div><div class="logo-card">DB Insurance</div><div class="logo-card">Suwon Saebit Ingang</div><div class="logo-card">Cheongdam Yusik</div><div class="logo-card">Seongsu Duda</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Logo klien]</div></div>
-  <div class="marquee-row right"><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div><div class="logo-card">[Brand luar negeri]</div><div class="logo-card">[Logo klien]</div></div>
-</div>
-</section>
-
-<section class="section">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">OUR DIFFERENCE</span>
-      <h2>Bicara lewat hasil,<br><span class="hl">strategi yang dirancang khusus untuk brand Anda</span></h2>
-      <p>Yang penting bukan besarnya pesan, melainkan rencana apa yang membawa IP ini ke hasil seperti apa. Kami menjadi satu tim dengan brand Anda dan merancangnya bersama dari awal hingga akhir.</p>
-    </div>
-    <div class="cmp reveal">
-      <div class="cmp-col">
-        <span class="cmp-lbl">IP · Apa yang ingin disampaikan</span>
-        <h3>Apa yang disampaikan, dan di mana</h3>
-        <ul><li>Hanya menyerahkan daftar influencer</li><li>Tanggung jawab memilih ada di pengiklan</li><li>Diserahkan tanpa penjelasan mengapa orang ini dipilih</li></ul>
-      </div>
-      <div class="cmp-col ours">
-        <span class="cmp-lbl">PLAN · Bagaimana menyampaikannya</span>
-        <h3>Kami merancang bersama sejak dari cara menyampaikannya</h3>
-        <ul><li>Dimulai dari diagnosis target</li><li>Merancang kombinasi & jadwal influencer</li><li>Mengusulkan alasan di balik kombinasi, lengkap dengan rencananya</li><li>RESULT · Apa yang tersisa</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gray">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">BY THE NUMBERS</span>
-      <h2>Kreator kolaborasi <span class="hl">40,000+</span></h2>
-    </div>
-    <div class="stat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">40,000+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">Kreator kolaborasi</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">8<span style="font-size:28px"> basis</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">Basis global</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">45+</div><div style="font-size:13px;color:var(--muted);margin-top:8px">Brand yang bermitra di 2026</div></div>
-      <div class="reveal" style="padding:36px 20px;background:#fff;border-radius:18px;border:1px solid var(--line)"><div style="font-family:var(--font-en);font-weight:900;font-size:44px;color:var(--primary);letter-spacing:-.03em">91<span style="font-size:28px">%</span></div><div style="font-size:13px;color:var(--muted);margin-top:8px">Tingkat kontrak ulang</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="how-we-work"><div class="section-inner"><div class="section-head reveal"><span class="section-eyebrow">4-STEP PLAN</span>
-      <h2>Kampanye atau kasus apa pun, <span class="hl">kami rancang bersama</span></h2>
-    </div>
-    <div class="plan-steps">
-      <div class="plan-step reveal"><div class="num">01 · Menentukan target</div><h4>Negara mana, untuk siapa, dan mengapa</h4><p>Kami merumuskan dulu apa yang diinginkan brand.</p></div>
-      <div class="plan-step reveal"><div class="num">02 · Memilih pasar & target</div><h4>Konsumen di negara mana</h4><p>Kami mempersempit target dengan data karakteristik konsumen per wilayah.</p></div>
-      <div class="plan-step reveal"><div class="num">03 · Memadukan metode</div><h4>Influencer · Live · Commerce</h4><p>Kami merancang kombinasi yang sesuai dengan target.</p></div>
-      <div class="plan-step reveal"><div class="num">04 · Menetapkan tolok ukur kinerja</div><h4>Kriteria keberhasilan sesuai target</h4><p>Kami menetapkan indikator laporan sejak awal.</p></div>
     </div>
   </div>
 </section>
@@ -885,7 +837,6 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <div class="num-tag">⑩ FINAL</div>
     <h2>Ekspansi global, jangan dipikirkan sendirian.<br><span class="hl">HOMI MARKET</span> siap menjadi satu tim dengan Anda</h2>
     <a href="/id/market/contact.html" class="big-cta">Konsultasi Gratis →</a>
   </div>
@@ -923,7 +874,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
         <p class="hf-hours">Hari kerja 10:00 ~ 22:00 (konsultasi juga tersedia di akhir pekan & hari libur)</p>
         <p>Email · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
         <p>Telepon · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
-        <a href="/id/market/contact" class="hf-cta">Dapatkan Konsultasi Gratis</a>
+        <a href="/id/market/contact" class="hf-cta">Konsultasi Gratis</a>
       </div>
     </div>
     <div class="hf-bottom">
