@@ -1,0 +1,53 @@
+{
+ "_설명": "HOMI MARKET 관리자 저장값 — /market-admin/ 화면에서 고친다. 빈 값은 페이지 기본 내용을 그대로 쓴다.",
+ "banner": {
+  "show": true,
+  "small": "HOMI TREND REPORT 2026",
+  "big": {
+   "ko": [
+    "2026 글로벌 마케팅 트렌드 리포트",
+    "나라별 전략을 먼저 확인하세요"
+   ],
+   "en": [
+    "",
+    ""
+   ],
+   "ja": [
+    "",
+    ""
+   ],
+   "id": [
+    "",
+    ""
+   ]
+  },
+  "href": "/market/trend-report.html",
+  "cover": ""
+ },
+ "hero": {
+  "ko": {
+   "title": "고객사와 [한 팀]이 되어,\n세계 시장까지 함께 갑니다",
+   "desc": "연결에서 멈추지 않습니다.\n콘텐츠가 구매로 이어지는 순간까지."
+  },
+  "en": {
+   "title": "",
+   "desc": ""
+  },
+  "ja": {
+   "title": "",
+   "desc": ""
+  },
+  "id": {
+   "title": "",
+   "desc": ""
+  }
+ },
+ "logos": [],
+ "industries": [],
+ "planPhotos": [
+  "",
+  "",
+  "",
+  ""
+ ]
+}
