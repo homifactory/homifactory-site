@@ -189,7 +189,7 @@
     box.hidden = false;
     if (!w) {   /* 대표 작품이 아직 없어도 자리는 그대로 보여 준다 (FR-PRD-009) */
       box.querySelector('.p-feature-box').innerHTML = '<div class="p-photo" style="position:absolute;inset:0"><span class="p-ph">대표 작품 영상<br>준비 중</span></div>';
-      box.querySelector('.p-feature-cap').innerHTML = '<h2>대표 작품</h2><p>관리자가 지정한 대표 작품 영상이 이곳에서 소리 없이 재생됩니다.</p>';
+      box.querySelector('.p-feature-cap').innerHTML = '';
       return;
     }
     var frame = box.querySelector('.p-feature-box'), cap = box.querySelector('.p-feature-cap');
