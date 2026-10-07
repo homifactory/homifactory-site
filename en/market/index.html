@@ -397,6 +397,11 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .ind-row{display:flex;width:max-content;will-change:transform}
 .ind{display:inline-flex;align-items:center;font-size:16px;font-weight:600;color:#2A2A2A;white-space:nowrap;padding-right:22px;cursor:default}
 .ind::before{content:"✦";color:#FFC53D;font-size:12px;margin-right:22px}
+/* FR-MKT-008 ③ PLAN 안의 도구 */
+.plan-tools{margin-top:auto;padding-top:16px;border-top:1px dashed #E6E0D6}
+.strategy-card .svc-chips{margin-bottom:16px}
+.plan-tools .pt-k{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:4px}
+.plan-tools p{font-size:13px!important;color:#3a3732!important;line-height:1.6!important;margin:0!important}
 /* FR-MKT-018 ④ */
 .plan-section{background:#fff;margin-top:0}
 .pl-cmp{display:grid;grid-template-columns:minmax(0,.9fr) auto minmax(0,2.6fr);gap:22px;align-items:stretch}
@@ -651,6 +656,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <h3>How to say it</h3>
 <p>We pick and combine the methods<br>that best fit your goals</p>
 <div class="svc-chips"><span class="sc">Influencers</span><span class="sc">Visit Promotion</span><span class="sc">Pop-ups</span><span class="sc">Sponsorship</span><span class="sc">Content production</span></div>
+<div class="plan-tools"><span class="pt-k">Tools that go into the plan</span><p>Tailored influencer casting (Korea &amp; overseas) · Overseas influencer recruitment · Local sales channel connection · Pop-ups &amp; offline · Monitoring</p></div>
 </div>
 <div class="strategy-card">
 <span class="kw">RESULT</span>
@@ -974,7 +980,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2>Don’t figure out global expansion alone.<br><span class="hl">HOMI MARKET</span> will be your team</h2>
+    <h2 data-k="final.t">Don’t figure out global expansion alone.<br><span class="hl">HOMI MARKET</span> will be your team</h2>
     <a href="/en/market/contact.html" class="big-cta">Free Consultation →</a>
   </div>
 </section>
@@ -1026,7 +1032,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
 <div id="stickyAsk" class="">
-  <span class="text">Which country will our product sell in?</span>
+  <span class="text" data-k="bar.t">Which country will our product sell in?</span>
   <a href="/en/market/contact.html" class="cta">Free Consultation</a>
 </div><script>
 (function(){
@@ -1034,7 +1040,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   if (!bar) return;
   let shown = false;
   window.addEventListener('scroll', function(){
-    const trigger = window.innerHeight * 0.6;
+    const hero = document.getElementById('hero');   /* FR-MKT-024 히어로를 지나면 표시 */
+    const trigger = hero ? Math.max(0, hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.4) : window.innerHeight * 0.6;
     if (window.scrollY > trigger && !shown){ bar.classList.add('visible'); shown = true; }
     else if (window.scrollY <= trigger && shown){ bar.classList.remove('visible'); shown = false; }
   }, {passive:true});
