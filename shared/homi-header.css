@@ -259,9 +259,11 @@ body[data-site="market"] .sd-icard .ph{background:#F3ECFF}
 body[data-site="market"] .trend-banner.tb{position:fixed;top:0;left:0;right:0;z-index:9999;background:#141414;color:#fff;padding:6px 20px;display:flex;justify-content:center;align-items:center;gap:0;text-align:left;font-family:var(--hh-font,'Pretendard',sans-serif)}
 body[data-site="market"] .trend-banner.tb[hidden]{display:none}
 .trend-banner.tb .tb-link{display:inline-flex;align-items:center;gap:16px;color:#fff;text-decoration:none;max-width:100%}
-.trend-banner.tb .tb-cover{flex:0 0 48px;width:48px;height:64px;transform:rotate(-6deg);box-shadow:0 6px 14px rgba(0,0,0,.45);border-radius:3px;overflow:hidden;transition:transform .25s}
-.trend-banner.tb .tb-cover svg,.trend-banner.tb .tb-cover img{display:block;width:100%;height:100%;object-fit:cover}
-.trend-banner.tb .tb-link:hover .tb-cover{transform:rotate(-2deg) translateY(-2px)}
+.trend-banner.tb .tb-cover{position:relative;flex:0 0 48px;width:48px;height:64px;margin:0 6px 0 2px;transform:rotate(-9deg);transition:transform .25s}
+/* 뒤에 한 장 더 겹친 종이 — 검정 띠 위에서도 기울기·두께가 보이도록 */
+.trend-banner.tb .tb-cover::before{content:"";position:absolute;inset:0;border-radius:3px;background:#E9E1F7;transform:rotate(11deg) translate(6px,1px);box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.trend-banner.tb .tb-cover svg,.trend-banner.tb .tb-cover img{position:relative;display:block;width:100%;height:100%;object-fit:cover;border-radius:3px;box-shadow:3px 4px 8px rgba(0,0,0,.75),0 0 16px rgba(139,61,255,.6),inset 0 0 0 1px rgba(255,255,255,.2)}
+.trend-banner.tb .tb-link:hover .tb-cover{transform:rotate(-4deg) translateY(-2px)}
 .trend-banner.tb .tb-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
 .trend-banner.tb .tb-small{font-family:var(--hh-font-en,'Inter',sans-serif);font-size:11px;font-weight:800;letter-spacing:.14em;color:#C9A6FF}
 .trend-banner.tb .tb-star{color:#FFC53D}
