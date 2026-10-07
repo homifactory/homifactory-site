@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>HOMI MARKET 관리자</title>
+<link rel="icon" href="/assets/logo-symbol.png">
+<style>
+:root{--p:#8B3DFF;--p2:#7D2AE8;--pl:#F3ECFF;--ink:#141414;--mute:#6B665E;--line:#E6E0D6;--bg:#FAF7F2;--ok:#16A34A;--err:#DC2626}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:14px;line-height:1.55}
+header{position:sticky;top:0;z-index:20;background:#141414;color:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.02em}
+header h1 span{color:#C9A6FF}
+header .sp{flex:1}
+header a{color:#C9A6FF;font-size:13px;text-decoration:none}
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13.5px;background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn:hover{border-color:var(--p);color:var(--p)}
+.btn.pri{background:var(--p);color:#fff;border-color:var(--p)}
+.btn.pri:hover{background:var(--p2);color:#fff}
+.btn.sm{padding:5px 10px;font-size:12px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn:focus-visible{outline:2px solid var(--p);outline-offset:2px}
+main{max-width:1040px;margin:0 auto;padding:24px 20px 120px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;margin-bottom:18px}
+.card h2{font-size:17px;margin:0 0 4px;font-weight:800}
+.card .hint{color:var(--mute);font-size:13px;margin:0 0 16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.f{display:block;font-size:12.5px;font-weight:700;color:#3a3732;margin:10px 0 5px}
+input[type=text],input[type=password],textarea,select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:58px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--pl);border-color:var(--p)}
+details.tr{margin-top:10px;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;background:#FCFBF8}
+details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--mute)}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chk{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.list{display:grid;gap:8px}
+.it{display:grid;grid-template-columns:72px 1fr 110px auto;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.it.off{opacity:.5}
+.it .pv{width:72px;height:40px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:11px;color:var(--mute);text-align:center}
+.it .pv img{max-width:64px;max-height:32px;object-fit:contain}
+.it .ops{display:flex;gap:4px;flex-wrap:wrap}
+.ind-it{grid-template-columns:1fr auto}
+.ind-it .tr4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.ph4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ph{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff}
+.ph .im{aspect-ratio:4/5;border-radius:10px;background:var(--pl);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--p);font-weight:800;margin-bottom:8px}
+.ph .im img{width:100%;height:100%;object-fit:cover}
+.cov{display:flex;gap:14px;align-items:center}
+.cov .im{width:48px;height:64px;border-radius:3px;background:var(--p);overflow:hidden;transform:rotate(-9deg);box-shadow:3px 4px 8px rgba(0,0,0,.35);flex:0 0 48px}
+.cov .im img{width:100%;height:100%;object-fit:cover}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+#msg{font-weight:700;font-size:13.5px}
+#msg.ok{color:var(--ok)}#msg.err{color:var(--err)}
+.tok{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tok input{width:280px;background:#222;border-color:#333;color:#fff}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--pl);color:var(--p2);font-size:11.5px;font-weight:700}
+.add{margin-top:12px;padding:12px;border:1px dashed #D9C4FF;border-radius:12px;background:#FCFAFF}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:760px){.grid2,.ph4{grid-template-columns:1fr 1fr}.it{grid-template-columns:60px 1fr;}.it .ops{grid-column:1/-1}.ind-it .tr4{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>HOMI MARKET <span>관리자</span></h1>
+  <div class="sp"></div>
+  <div class="tok">
+    <label for="tk" class="sr">GitHub 저장 키</label>
+    <input id="tk" type="password" placeholder="저장 키(GitHub 토큰) 붙여넣기" autocomplete="off">
+    <button class="btn sm" id="tkSave" type="button">키 기억</button>
+    <span id="tkState" style="font-size:12px;color:#bbb"></span>
+  </div>
+  <a href="/market/" target="_blank" rel="noopener">사이트 열기 ↗</a>
+</header>
+<main>
+  <div class="card" style="background:#FCFAFF;border-color:#D9C4FF">
+    <h2>사용 방법</h2>
+    <p class="hint" style="margin:0">고친 뒤 아래 <b>[저장하기]</b>를 누르면 사이트 저장소에 바로 올라가고, <b>1~2분 뒤</b> 4개 언어 Home에 반영됩니다.
+    영어·일본어·인도네시아어 칸은 비워 두면 기존 번역이 그대로 나옵니다(한국어를 바꿨다면 번역 칸도 같이 채워 주세요).
+    저장하려면 오른쪽 위에 저장 키가 필요합니다 — 키는 이 컴퓨터 브라우저에만 기억됩니다.</p>
+  </div>
+
+  <section class="card" aria-labelledby="h-logo">
+    <h2 id="h-logo">고객사 로고 <span class="badge">Home ②</span></h2>
+    <p class="hint">PNG·SVG 파일과 브랜드명을 넣고, 윗줄(왼쪽으로 흐름)·아랫줄(오른쪽으로 흐름)을 고릅니다. ↑↓로 순서, 「숨기기」로 잠시 빼기. 파일이 없으면 브랜드명이 글자로 나옵니다.</p>
+    <div class="list" id="logoList"></div>
+    <div class="add">
+      <div class="row">
+        <input type="file" id="lgFile" accept="image/png,image/svg+xml,image/webp,image/jpeg" style="max-width:240px">
+        <input type="text" id="lgName" placeholder="브랜드명 (필수)" style="max-width:220px">
+        <select id="lgRow" style="max-width:150px"><option value="1">윗줄</option><option value="2">아랫줄</option></select>
+        <button class="btn pri sm" id="lgAdd" type="button">+ 로고 추가</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-ban">
+    <h2 id="h-ban">상단 띠 배너 <span class="badge">모든 페이지</span></h2>
+    <p class="hint">작은 줄 · 큰 줄(두 부분) · 링크 · 노출 여부 · 표지 이미지(세로 3:4, 비우면 기본 「글로벌 지도형」).</p>
+    <label class="chk"><input type="checkbox" id="bnShow"> 배너 보이기</label>
+    <div class="grid2">
+      <div><label class="f" for="bnSmall">작은 줄</label><input type="text" id="bnSmall"></div>
+      <div><label class="f" for="bnHref">누르면 이동할 주소</label><input type="text" id="bnHref"></div>
+      <div><label class="f" for="bnBig0">큰 줄 앞부분 (한국어)</label><input type="text" id="bnBig0"></div>
+      <div><label class="f" for="bnBig1">큰 줄 뒷부분 (한국어)</label><input type="text" id="bnBig1"></div>
+    </div>
+    <details class="tr"><summary>번역 (영어 · 일본어 · 인도네시아어) — 비우면 기존 번역</summary><div id="bnTr" class="grid2"></div></details>
+    <label class="f">표지 이미지</label>
+    <div class="cov"><div class="im" id="bnCovPv"></div>
+      <input type="file" id="bnCov" accept="image/png,image/jpeg,image/webp,image/svg+xml">
+      <button class="btn sm" id="bnCovClr" type="button">기본 표지로</button></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-hero">
+    <h2 id="h-hero">히어로 문구 <span class="badge">Home ①</span></h2>
+    <p class="hint">줄바꿈은 그대로 반영됩니다. 강조색으로 보일 말은 [대괄호]로 감싸 주세요. 예) 고객사와 [한 팀]이 되어,</p>
+    <div class="grid2">
+      <div><label class="f" for="hrT">헤드라인 (한국어)</label><textarea id="hrT"></textarea></div>
+      <div><label class="f" for="hrD">설명 (한국어)</label><textarea id="hrD"></textarea></div>
+    </div>
+    <details class="tr"><summary>번역 (영어 · 일본어 · 인도네시아어) — 비우면 기존 번역</summary><div id="hrTr" class="grid2"></div></details>
+  </section>
+
+  <section class="card" aria-labelledby="h-ind">
+    <h2 id="h-ind">업종 줄 <span class="badge">Home ③</span></h2>
+    <p class="hint">「소상공인부터 대기업까지…」 아래 흐르는 업종 이름. 번역 칸이 비면 한국어가 그대로 나옵니다.</p>
+    <div class="list" id="indList"></div>
+    <div class="add"><div class="row"><input type="text" id="indNew" placeholder="업종 이름 (한국어)" style="max-width:260px"><button class="btn pri sm" id="indAdd" type="button">+ 업종 추가</button></div></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-ph">
+    <h2 id="h-ph">전략 설계 4단계 사진 <span class="badge">Home ④</span></h2>
+    <p class="hint">세로 4:5 사진 권장. 비우면 연보라 바탕 + 아이콘.</p>
+    <div class="ph4" id="phList"></div>
+  </section>
+</main>
+<div class="bar">
+  <span id="msg" role="status" aria-live="polite">불러오는 중…</span>
+  <button class="btn" id="reload" type="button">다시 불러오기</button>
+  <button class="btn pri" id="save" type="button">저장하기</button>
+</div>
+<script>
+(function(){
+  var REPO='homifactory/homifactory-site', BR='main', PATH='market/data/site.json', UP='market/data/uploads/';
+  var LANGS=[['en','영어'],['ja','일본어'],['id','인도네시아어']];
+  var STEPS=['01 목표 정하기','02 시장·타깃 고르기','03 방식 조합하기','04 성과 기준 세우기'];
+  var DEF_LOGOS=[['하츄핑·티니핑',1],['DB손해보험',1],['수원새빛인강',1],['청담유식',1],['성수 두다',1],['[고객사 로고]',1],['[고객사 로고]',1],['[고객사 로고]',1],
+    ['[해외 브랜드]',2],['[고객사 로고]',2],['[해외 브랜드]',2],['[고객사 로고]',2],['[해외 브랜드]',2],['[고객사 로고]',2],['[해외 브랜드]',2],['[고객사 로고]',2]];
+  var DEF_IND='뷰티|패션|F&B|식품|건강기능식품|헬스케어|유아|애견|생활·리빙|가전·테크|유통·커머스|금융|보험|교육|캐릭터 IP|K-POP·엔터|게임|여행·호텔|스포츠|지자체·공공기관|축제·행사|오프라인 팝업|공동구매'.split('|');
+  var DEF_IND_ROWS=[{"ko": "뷰티", "en": "Beauty", "ja": "ビューティー", "id": "Kecantikan"}, {"ko": "패션", "en": "Fashion", "ja": "ファッション", "id": "Fashion"}, {"ko": "F&B", "en": "F&B", "ja": "F&B", "id": "F&B"}, {"ko": "식품", "en": "Food", "ja": "食品", "id": "Makanan"}, {"ko": "건강기능식품", "en": "Health supplements", "ja": "健康食品", "id": "Suplemen kesehatan"}, {"ko": "헬스케어", "en": "Healthcare", "ja": "ヘルスケア", "id": "Layanan kesehatan"}, {"ko": "유아", "en": "Baby & kids", "ja": "ベビー・キッズ", "id": "Ibu & anak"}, {"ko": "애견", "en": "Pets", "ja": "ペット", "id": "Hewan peliharaan"}, {"ko": "생활·리빙", "en": "Home & living", "ja": "生活・リビング", "id": "Rumah & gaya hidup"}, {"ko": "가전·테크", "en": "Electronics & tech", "ja": "家電・テック", "id": "Elektronik & teknologi"}, {"ko": "유통·커머스", "en": "Retail & commerce", "ja": "流通・コマース", "id": "Ritel & e-commerce"}, {"ko": "금융", "en": "Finance", "ja": "金融", "id": "Keuangan"}, {"ko": "보험", "en": "Insurance", "ja": "保険", "id": "Asuransi"}, {"ko": "교육", "en": "Education", "ja": "教育", "id": "Pendidikan"}, {"ko": "캐릭터 IP", "en": "Character IP", "ja": "キャラクターIP", "id": "IP karakter"}, {"ko": "K-POP·엔터", "en": "K-POP & entertainment", "ja": "K-POP・エンタメ", "id": "K-POP & hiburan"}, {"ko": "게임", "en": "Games", "ja": "ゲーム", "id": "Game"}, {"ko": "여행·호텔", "en": "Travel & hotels", "ja": "旅行・ホテル", "id": "Wisata & hotel"}, {"ko": "스포츠", "en": "Sports", "ja": "スポーツ", "id": "Olahraga"}, {"ko": "지자체·공공기관", "en": "Local government & public", "ja": "自治体・公共機関", "id": "Pemerintah daerah & publik"}, {"ko": "축제·행사", "en": "Festivals & events", "ja": "祭り・イベント", "id": "Festival & acara"}, {"ko": "오프라인 팝업", "en": "Offline pop-ups", "ja": "オフラインポップアップ", "id": "Pop-up offline"}, {"ko": "공동구매", "en": "Group buying", "ja": "共同購入", "id": "Pembelian grup"}];
+  var D=null, SHA=null, pending={}, $=function(id){return document.getElementById(id);};
+  function msg(t,c){ var m=$('msg'); m.textContent=t; m.className=c||''; }
+  function b64(str){ return btoa(unescape(encodeURIComponent(str))); }
+  function unb64(s){ return decodeURIComponent(escape(atob(s.replace(/\n/g,'')))); }
+  function tok(){ try{ return localStorage.getItem('hm_gh_token')||''; }catch(e){ return ''; } }
+  function gh(path,opt){ opt=opt||{}; opt.headers=Object.assign({'Accept':'application/vnd.github+json'},opt.headers||{}); var t=tok(); if(t) opt.headers.Authorization='Bearer '+t;
+    return fetch('https://api.github.com/repos/'+REPO+'/contents/'+path+(opt.method?'':'?ref='+BR),opt); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function normalize(d){ d=d||{}; d.banner=d.banner||{}; var b=d.banner; if(b.show===undefined) b.show=true; b.big=b.big||{}; ['ko','en','ja','id'].forEach(function(l){ b.big[l]=b.big[l]||['','']; });
+    d.hero=d.hero||{}; ['ko','en','ja','id'].forEach(function(l){ d.hero[l]=d.hero[l]||{title:'',desc:''}; });
+    if(!d.logos||!d.logos.length) d.logos=DEF_LOGOS.map(function(x){ return {name:x[0],src:'',row:x[1],hidden:false}; });
+    if(!d.industries||!d.industries.length) d.industries=JSON.parse(JSON.stringify(DEF_IND_ROWS));
+    d.industries=d.industries.map(function(x){ return typeof x==='string'?{ko:x,en:'',ja:'',id:''}:x; });
+    d.planPhotos=(d.planPhotos||[]).concat(['','','','']).slice(0,4); return d; }
+  function load(){
+    msg('불러오는 중…'); pending={};
+    var p=tok()? gh(PATH).then(function(r){ if(!r.ok) throw new Error('키 확인 필요 ('+r.status+')'); return r.json(); }).then(function(j){ SHA=j.sha; return JSON.parse(unb64(j.content)); })
+             : fetch('/market/data/site.json',{cache:'no-store'}).then(function(r){ return r.json(); });
+    p.then(function(d){ D=normalize(d); render(); msg(tok()?'불러왔습니다 — 고친 뒤 [저장하기]':'읽기 전용 — 저장하려면 오른쪽 위에 저장 키를 넣어 주세요', tok()?'':'err'); })
+     .catch(function(e){ msg('불러오지 못했습니다: '+e.message,'err'); });
+  }
+  function bindVal(el,get,set){ el.value=get(); el.addEventListener('input',function(){ set(el.value); }); }
+  function fileUrl(key,file){ pending[key]=file; return URL.createObjectURL(file); }
+  function render(){
+    var b=D.banner;
+    $('bnShow').checked=b.show!==false; $('bnShow').onchange=function(){ b.show=$('bnShow').checked; };
+    bindVal($('bnSmall'),function(){return b.small||'';},function(v){b.small=v;});
+    bindVal($('bnHref'),function(){return b.href||'';},function(v){b.href=v;});
+    bindVal($('bnBig0'),function(){return b.big.ko[0];},function(v){b.big.ko[0]=v;});
+    bindVal($('bnBig1'),function(){return b.big.ko[1];},function(v){b.big.ko[1]=v;});
+    $('bnTr').innerHTML=LANGS.map(function(l){ return '<div><label class="f">'+l[1]+' 앞부분</label><input type="text" data-l="'+l[0]+'" data-i="0"></div><div><label class="f">'+l[1]+' 뒷부분</label><input type="text" data-l="'+l[0]+'" data-i="1"></div>'; }).join('');
+    [].forEach.call($('bnTr').querySelectorAll('input'),function(el){ var l=el.dataset.l,i=+el.dataset.i; bindVal(el,function(){return b.big[l][i]||'';},function(v){b.big[l][i]=v;}); });
+    covPv();
+    $('bnCov').onchange=function(){ var f=this.files[0]; if(!f) return; b.cover=fileUrl('cover',f); covPv(); };
+    $('bnCovClr').onclick=function(){ b.cover=''; delete pending.cover; covPv(); };
+    var h=D.hero;
+    bindVal($('hrT'),function(){return h.ko.title;},function(v){h.ko.title=v;});
+    bindVal($('hrD'),function(){return h.ko.desc;},function(v){h.ko.desc=v;});
+    $('hrTr').innerHTML=LANGS.map(function(l){ return '<div><label class="f">'+l[1]+' 헤드라인</label><textarea data-l="'+l[0]+'" data-k="title"></textarea></div><div><label class="f">'+l[1]+' 설명</label><textarea data-l="'+l[0]+'" data-k="desc"></textarea></div>'; }).join('');
+    [].forEach.call($('hrTr').querySelectorAll('textarea'),function(el){ var l=el.dataset.l,k=el.dataset.k; bindVal(el,function(){return h[l][k]||'';},function(v){h[l][k]=v;}); });
+    logos(); inds(); photos();
+  }
+  function covPv(){ var c=D.banner.cover; $('bnCovPv').innerHTML=c?'<img src="'+esc(c)+'" alt="">':'<svg viewBox="0 0 48 64" width="48" height="64"><rect width="48" height="64" fill="#8B3DFF"/><circle cx="24" cy="25" r="13" fill="none" stroke="#fff" stroke-opacity=".6"/><text x="5" y="56" font-size="7" font-weight="900" fill="#FFC53D">TREND 2026</text></svg>'; }
+  function mv(arr,i,d){ var j=i+d; if(j<0||j>=arr.length) return; var t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+  function logos(){
+    var L=D.logos;
+    $('logoList').innerHTML=L.map(function(l,i){ return '<div class="it'+(l.hidden?' off':'')+'"><div class="pv">'+(l.src?'<img src="'+esc(l.src)+'" alt="">':esc(l.name))+'</div>'+
+      '<input type="text" data-i="'+i+'" data-k="name" value="'+esc(l.name)+'" aria-label="브랜드명">'+
+      '<select data-i="'+i+'" data-k="row" aria-label="줄"><option value="1"'+(+l.row!==2?' selected':'')+'>윗줄</option><option value="2"'+(+l.row===2?' selected':'')+'>아랫줄</option></select>'+
+      '<div class="ops"><button class="btn sm" data-a="up" data-i="'+i+'" type="button" aria-label="위로">↑</button><button class="btn sm" data-a="dn" data-i="'+i+'" type="button" aria-label="아래로">↓</button>'+
+      '<label class="btn sm"><input type="file" data-a="img" data-i="'+i+'" accept="image/png,image/svg+xml,image/webp,image/jpeg" style="display:none">파일</label>'+
+      '<button class="btn sm" data-a="hide" data-i="'+i+'" type="button">'+(l.hidden?'보이기':'숨기기')+'</button><button class="btn sm" data-a="del" data-i="'+i+'" type="button">삭제</button></div></div>'; }).join('');
+  }
+  $('logoList').addEventListener('input',function(e){ var t=e.target,i=+t.dataset.i; if(t.dataset.k==='name') D.logos[i].name=t.value; });
+  $('logoList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i;
+    if(t.dataset.k==='row'){ D.logos[i].row=+t.value; }
+    if(t.dataset.a==='img'&&t.files[0]){ D.logos[i].src=fileUrl('logo'+i+'_'+Date.now(),t.files[0]); D.logos[i].__k=Object.keys(pending).pop(); logos(); } });
+  $('logoList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i,a=t.dataset.a,L=D.logos;
+    if(a==='up') mv(L,i,-1); else if(a==='dn') mv(L,i,1); else if(a==='hide') L[i].hidden=!L[i].hidden; else if(a==='del'){ if(!confirmDel(L[i].name)) return; L.splice(i,1); } logos(); });
+  function confirmDel(n){ return window.confirm('「'+n+'」 로고를 목록에서 뺄까요? (저장해야 사이트에 반영)'); }
+  $('lgAdd').onclick=function(){ var n=$('lgName').value.trim(), f=$('lgFile').files[0]; if(!n){ msg('브랜드명을 넣어 주세요','err'); $('lgName').focus(); return; }
+    var l={name:n,src:'',row:+$('lgRow').value,hidden:false}; if(f){ var k='logoN'+Date.now(); l.src=fileUrl(k,f); l.__k=k; }
+    D.logos.push(l); $('lgName').value=''; $('lgFile').value=''; logos(); msg('추가했습니다 — [저장하기]를 눌러야 사이트에 반영됩니다'); };
+  function inds(){
+    $('indList').innerHTML=D.industries.map(function(x,i){ return '<div class="it ind-it"><div class="tr4">'+['ko','en','ja','id'].map(function(l){ return '<input type="text" data-i="'+i+'" data-l="'+l+'" value="'+esc(x[l]||'')+'" placeholder="'+({ko:'한국어',en:'영어',ja:'일본어',id:'인니어'})[l]+'" aria-label="'+l+'">'; }).join('')+'</div>'+
+      '<div class="ops"><button class="btn sm" data-a="up" data-i="'+i+'" type="button" aria-label="위로">↑</button><button class="btn sm" data-a="dn" data-i="'+i+'" type="button" aria-label="아래로">↓</button><button class="btn sm" data-a="del" data-i="'+i+'" type="button">삭제</button></div></div>'; }).join('');
+  }
+  $('indList').addEventListener('input',function(e){ var t=e.target; D.industries[+t.dataset.i][t.dataset.l]=t.value; });
+  $('indList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i,a=t.dataset.a;
+    if(a==='up') mv(D.industries,i,-1); else if(a==='dn') mv(D.industries,i,1); else if(a==='del') D.industries.splice(i,1); inds(); });
+  $('indAdd').onclick=function(){ var v=$('indNew').value.trim(); if(!v) return; D.industries.push({ko:v,en:'',ja:'',id:''}); $('indNew').value=''; inds(); };
+  function photos(){
+    $('phList').innerHTML=D.planPhotos.map(function(src,i){ return '<div class="ph"><div class="im">'+(src?'<img src="'+esc(src)+'" alt="">':'아이콘')+'</div><div style="font-size:12.5px;font-weight:700;margin-bottom:6px">'+STEPS[i]+'</div>'+
+      '<label class="btn sm"><input type="file" data-i="'+i+'" accept="image/png,image/jpeg,image/webp" style="display:none">사진 고르기</label> <button class="btn sm" data-i="'+i+'" type="button">비우기</button></div>'; }).join('');
+  }
+  $('phList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i; if(t.files&&t.files[0]){ D.planPhotos[i]=fileUrl('ph'+i,t.files[0]); photos(); } });
+  $('phList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i; D.planPhotos[i]=''; delete pending['ph'+i]; photos(); });
+
+  function readB64(file){ return new Promise(function(ok,no){ var r=new FileReader(); r.onload=function(){ ok(String(r.result).split(',')[1]); }; r.onerror=no; r.readAsDataURL(file); }); }
+  function safeName(f){ var ext=(f.name.match(/\.(png|svg|webp|jpe?g)$/i)||['','png'])[1].toLowerCase(); return Date.now()+'-'+Math.random().toString(36).slice(2,7)+'.'+ext; }
+  function upload(file){ if(file.size>3*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 3MB를 넘습니다 — 줄여서 올려 주세요'));
+    var path=UP+safeName(file);
+    return readB64(file).then(function(c){ return gh(path,{method:'PUT',body:JSON.stringify({message:'admin: 이미지 업로드 '+file.name,content:c,branch:BR})}); })
+      .then(function(r){ if(!r.ok) throw new Error('이미지 업로드 실패 ('+r.status+')'); return '/'+path; }); }
+  $('save').onclick=function(){
+    if(!tok()){ msg('저장 키가 없습니다 — 오른쪽 위에 넣고 [키 기억]','err'); $('tk').focus(); return; }
+    var btn=this; btn.disabled=true; msg('이미지 올리는 중…');
+    var out=JSON.parse(JSON.stringify(D)), jobs=[];
+    function up(file,apply){ jobs.push(upload(file).then(apply)); }
+    if(pending.cover) up(pending.cover,function(u){ out.banner.cover=u; });
+    D.logos.forEach(function(l,i){ if(l.__k&&pending[l.__k]) up(pending[l.__k],function(u){ out.logos[i].src=u; }); });
+    D.planPhotos.forEach(function(s,i){ if(pending['ph'+i]) up(pending['ph'+i],function(u){ out.planPhotos[i]=u; }); });
+    Promise.all(jobs).then(function(){
+      out.logos.forEach(function(l){ delete l.__k; if(/^blob:/.test(l.src)) l.src=''; });
+      if(/^blob:/.test(out.banner.cover||'')) out.banner.cover='';
+      out.updatedAt=new Date().toISOString();
+      msg('저장하는 중…');
+      return gh(PATH,{method:'PUT',body:JSON.stringify({message:'admin: Home·배너 설정 변경',content:b64(JSON.stringify(out,null,1)),sha:SHA,branch:BR})});
+    }).then(function(r){ if(r.status===409) throw new Error('다른 곳에서 먼저 저장됐습니다 — [다시 불러오기] 후 다시 고쳐 주세요'); if(!r.ok) throw new Error('저장 실패 ('+r.status+')'); return r.json(); })
+    .then(function(j){ SHA=j.content.sha; pending={}; D=normalize(out); render(); msg('저장 완료 — 1~2분 뒤 사이트에 반영됩니다','ok'); })
+    .catch(function(e){ msg(e.message,'err'); }).then(function(){ btn.disabled=false; });
+  };
+  $('reload').onclick=load;
+  $('tk').value=tok(); $('tkState').textContent=tok()?'키 기억됨':'';
+  $('tkSave').onclick=function(){ try{ localStorage.setItem('hm_gh_token',$('tk').value.trim()); }catch(e){} $('tkState').textContent=$('tk').value.trim()?'키 기억됨':''; load(); };
+  load();
+})();
+</script>
+</body>
+</html>
