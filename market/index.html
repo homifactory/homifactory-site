@@ -380,7 +380,78 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .strategy-stat .num{font-size:34px;font-weight:800;color:#8B3DFF;line-height:1}
 .strategy-stat .lbl{font-size:13px;color:#666;margin-top:8px;line-height:1.5}
 @media(max-width:900px){.strategy-grid{grid-template-columns:1fr}.strategy-stats{grid-template-columns:1fr 1fr}}
-</style><style id="hc-css">
+</style><style id="r12-css">
+/* FR-MKT-028 ③ */
+.strategy-card{display:flex;flex-direction:column}
+.strategy-badge{background:#fff;color:#8B3DFF;border-color:#D9C4FF}
+.strategy-badge .star{color:#FFC53D}
+.strategy-stat .st-k{font-size:13px;font-weight:700;color:#141414;margin-bottom:10px}
+.strategy-stat .num{font-variant-numeric:tabular-nums}
+.strategy-stat .num .u{font-size:.62em;margin-left:2px}
+.strategy-stat .lbl{max-width:220px;margin:10px auto 0}
+.strategy-section .industry-strip h3{color:#8B3DFF;font-weight:700;font-size:17px}
+.ind-tk{position:relative;overflow:hidden;border-top:1px solid #E6E0D6;border-bottom:1px solid #E6E0D6;padding:16px 0;max-width:1200px;margin:0 auto}
+.ind-tk::before,.ind-tk::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.ind-tk::before{left:0;background:linear-gradient(to right,#FAF7F2,rgba(250,247,242,0))}
+.ind-tk::after{right:0;background:linear-gradient(to left,#FAF7F2,rgba(250,247,242,0))}
+.ind-row{display:flex;width:max-content;will-change:transform}
+.ind{display:inline-flex;align-items:center;font-size:16px;font-weight:600;color:#2A2A2A;white-space:nowrap;padding-right:22px;cursor:default}
+.ind::before{content:"✦";color:#FFC53D;font-size:12px;margin-right:22px}
+/* FR-MKT-018 ④ */
+.plan-section{background:#fff;margin-top:0}
+.pl-cmp{display:grid;grid-template-columns:minmax(0,.9fr) auto minmax(0,2.6fr);gap:22px;align-items:stretch}
+.pl-usual,.pl-homi{border-radius:20px;padding:30px 28px}
+.pl-usual{background:#FAF7F2;border:1px solid #E6E0D6}
+.pl-homi{background:#fff;border:2px solid #8B3DFF;box-shadow:0 14px 36px rgba(139,61,255,.10)}
+.pl-tag{display:inline-block;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;background:#E6E0D6;color:#555;margin-bottom:14px}
+.pl-tag.on{background:#8B3DFF;color:#fff}
+.pl-usual h3{font-size:19px;font-weight:800;color:#555;line-height:1.45;margin-bottom:20px}
+.pl-homi h3{font-size:22px;font-weight:800;color:#141414;line-height:1.45}
+.pl-homi h3 em{font-style:normal;color:#8B3DFF}
+.pl-sub{font-size:15px;color:#555;margin:8px 0 22px}
+.pl-dim{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.pl-dim li{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:#fff;border:1px dashed #D8D1C4;color:#9A948A;font-size:14.5px;font-weight:600}
+.pl-dim b{font-size:12px;color:#B8B1A6;font-weight:800}
+.pl-vs{align-self:center;font-weight:900;font-size:14px;color:#B8B1A6;letter-spacing:.1em}
+.pl-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pl-card{margin:0}
+.pl-ph{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#F3ECFF;display:flex;align-items:center;justify-content:center}
+.pl-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pl-ph.has-img .pl-ico{display:none}
+.pl-ico svg{width:44px;height:44px;fill:none;stroke:#8B3DFF;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:34px}
+.pl-band{position:absolute;left:0;right:0;bottom:0;background:#141414;color:#fff;font-size:14px;font-weight:800;padding:11px 12px;display:flex;align-items:center;gap:8px}
+.pl-band b{color:#FFC53D;font-size:13px}
+.pl-card figcaption{font-size:13.5px;color:#555;line-height:1.55;margin-top:10px}
+/* FR-MKT-019 ⑤ */
+.hp-head{text-align:center}
+.hp-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:30px;row-gap:34px;margin-top:44px}
+.hp-step{position:relative;grid-row:1;background:#fff;border:1px solid #E6E0D6;border-radius:16px;padding:24px 18px}
+.hp-step:not(:nth-child(5))::after{content:"›";position:absolute;right:-22px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:700;color:#B8B1A6}
+.hp-key{border:2px solid #8B3DFF;box-shadow:0 10px 26px rgba(139,61,255,.12)}
+.hp-n{display:block;font-weight:900;font-size:13px;color:#8B3DFF;letter-spacing:.08em;margin-bottom:10px}
+.hp-step h3{font-size:16.5px;font-weight:800;color:#141414;margin-bottom:8px}
+.hp-step p{font-size:13.5px;color:#555;line-height:1.6}
+.hp-pills,.hp-roles{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.hp-pills span,.hp-roles span{padding:4px 9px;border-radius:999px;background:#F3ECFF;color:#5B2BB8;border:1px solid #D9C4FF;font-size:11.5px;font-weight:600}
+.hp-team{grid-row:2;grid-column:2/span 3;position:relative;background:#fff;border:1px solid #D9C4FF;border-radius:16px;padding:22px 24px}
+.hp-team::before{content:"";position:absolute;bottom:100%;left:calc((100% - 60px)/6);width:2px;height:34px;background:#8B3DFF;transform:translateX(-1px)}
+.hp-team-t{font-size:16px;font-weight:800;color:#141414;margin-bottom:6px}
+.hp-team-t .star{color:#FFC53D}
+.hp-team p{font-size:14px;color:#555;line-height:1.6}
+.hp-roles span{font-size:12.5px;padding:5px 11px}
+@media(max-width:1100px){.pl-cmp{grid-template-columns:1fr}.pl-vs{justify-self:center}}
+@media(max-width:900px){
+  .pl-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hp-grid{grid-template-columns:1fr;row-gap:26px}
+  .hp-step,.hp-team{grid-row:auto;grid-column:auto}
+  .hp-step:nth-child(1){order:1}.hp-step:nth-child(2){order:2}.hp-team{order:3}.hp-step:nth-child(3){order:4}.hp-step:nth-child(4){order:5}.hp-step:nth-child(5){order:6}
+  .hp-step:not(:nth-child(5))::after{content:"›";right:auto;left:50%;top:auto;bottom:-24px;transform:translateX(-50%) rotate(90deg)}
+  .hp-key::after{display:none}
+  .hp-team::before{left:50%;height:26px}
+}
+@media(max-width:600px){.pl-usual,.pl-homi{padding:24px 18px}.pl-cards{gap:10px}.pl-band{font-size:12.5px;padding:9px 10px}}
+</style>
+<style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
 .hc-fab:hover{transform:scale(1.06);background:#7D2AE8}
@@ -462,7 +533,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007b">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261007c">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -474,7 +545,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/market/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007b"></script>
+<script src="/shared/homi-header.js?v=20261007c"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
     <img class="hv-poster" src="/assets/hero/market-hero-20261005-poster.jpg" alt="" fetchpriority="high" decoding="async">
@@ -513,31 +584,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="marquee-row right" role="list"><div class="logo-card" role="listitem">[해외 브랜드]</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[해외 브랜드]</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[해외 브랜드]</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[해외 브랜드]</div><div class="logo-card" role="listitem">[고객사 로고]</div></div>
 </div>
 </section>
-<script id="lg-js">/* FR-MKT-017 고객사 로고 두 줄 — 윗줄은 왼쪽, 아랫줄은 오른쪽으로 끊김 없이. 로고 위에 마우스를 올리면 멈춤.
-   로고는 위 .marquee-row 안의 .logo-card 로 넣고 뺀다(이미지 로고는 img 태그, alt 에 브랜드명) */
-(function(){
-  var wrap=document.querySelector('.logo-marquee-wrap'); if(!wrap) return;
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  [].forEach.call(wrap.querySelectorAll('.marquee-row'),function(row){
-    var src=[].slice.call(row.children), n=src.length; if(!n) return;
-    row.style.animation='none';
-    if(reduce) return;
-    var right=row.classList.contains('right'), x=0, period=0, hover=false, off=false, last=0;
-    function addSet(){ src.forEach(function(c){ var k=c.cloneNode(true); k.setAttribute('aria-hidden','true'); row.appendChild(k); }); }
-    function measure(){ var a=row.children[0], b=row.children[1];
-      var step=b?b.getBoundingClientRect().left-a.getBoundingClientRect().left:a.getBoundingClientRect().width+16;
-      period=step*n;   /* 한 바퀴 = 로고 수 × (폭+간격) → 마지막 로고 뒤에 첫 로고가 같은 간격으로 이어짐 */
-      var g=0; while(row.getBoundingClientRect().width<period+wrap.clientWidth+step*2 && g++<30) addSet(); }
-    function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
-      if(!hover&&!off&&!document.hidden&&period){ x=(x+dt*0.035)%period; row.style.transform='translateX('+(-(right?period-x:x))+'px)'; }
-      requestAnimationFrame(frame); }
-    row.addEventListener('mouseover',function(e){ hover=!!e.target.closest('.logo-card'); });
-    row.addEventListener('mouseleave',function(){ hover=false; });
-    new IntersectionObserver(function(e){ off=!e[0].isIntersecting; }).observe(wrap);
-    measure(); addEventListener('resize',measure); requestAnimationFrame(frame);
-  });
-})();
-</script>
 
 
 <!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
@@ -552,8 +598,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-card">
 <span class="kw">IP</span>
 <h3>무엇을 알릴까</h3>
-<p>브랜드의 이야기와 목표를 먼저 듣고,<br>그 뒤에서 가장 강한 메시지를 찾습니다</p>
-<div class="svc-chips"><span class="sc">인플루언서</span><span class="sc">방문 프로모션</span><span class="sc">팝업</span><span class="sc">협찬</span><span class="sc">콘텐츠 제작</span></div>
+<p>브랜드의 이야기와 목표를 먼저 듣고,<br>그 위에서 가장 강한 메시지를 찾습니다</p>
 </div>
 <div class="strategy-card">
 <span class="kw">PLAN</span>
@@ -565,66 +610,62 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw">RESULT</span>
 <h3>무엇이 남을까</h3>
 <p>처음 세운 목표를 기준으로<br>인지도·판매·콘텐츠 성과를 숫자로 확인하고,<br>다음 캠페인 전략까지 이어갑니다</p>
-<div class="svc-chips"><span class="sc">실시간 리포트</span><span class="sc">KPI 분석</span><span class="sc">다음 액션 제안</span></div>
 </div>
 </div>
 <div class="strategy-stats">
-<div class="strategy-stat"><div class="num">40,000+</div><div class="lbl">월간 크리에이티브<br>퍼포먼스 라이브 중계 라이브</div></div>
-<div class="strategy-stat"><div class="num">8곳</div><div class="lbl">글로벌 거점<br>일본·인도네시아 지사 포함</div></div>
-<div class="strategy-stat"><div class="num">45+</div><div class="lbl">2026 함께한 브랜드<br>글로벌 진출 파트너</div></div>
-<div class="strategy-stat"><div class="num">91%</div><div class="lbl">재계약률<br>브랜드 성장 함께</div></div>
+<div class="strategy-stat"><div class="st-k">협업 크리에이터</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">콘텐츠 퀄리티와 실제 반응까지 확인한 크리에이터</div></div>
+<div class="strategy-stat"><div class="st-k">글로벌 거점</div><div class="num"><span class="cu" data-to="8">8</span><span class="u">곳</span></div><div class="lbl">일본·인도네시아 지사를 시작으로 세계 각국의 네트워크</div></div>
+<div class="strategy-stat"><div class="st-k">2026 함께한 브랜드</div><div class="num"><span class="cu" data-to="45">45</span>+</div><div class="lbl">브랜드마다 전담 팀을 꾸려 한 곳 한 곳 제대로</div></div>
+<div class="strategy-stat"><div class="st-k">재계약률</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">브랜드의 성장을 함께 지켜보는 조력자가 되겠습니다</div></div>
 </div>
 </div>
 <div class="industry-strip"><h3>소상공인부터 대기업까지, 다양한 업종의 브랜드와 함께해 왔습니다</h3>
-  <div class="industry-chips"><span class="ic">패션</span><span class="ic">F&amp;B·식품</span><span class="ic">건강기능식품</span><span class="ic">헬스케어</span><span class="ic">뷰티</span><span class="ic">여행</span><span class="ic">생활·건강</span><span class="ic">가전·디지털</span><span class="ic">금융·보험</span><span class="ic">캐릭터·IP</span></div>
+  <div class="ind-tk"><div class="ind-row" role="list"><span class="ind" role="listitem">뷰티</span><span class="ind" role="listitem">패션</span><span class="ind" role="listitem">F&amp;B</span><span class="ind" role="listitem">식품</span><span class="ind" role="listitem">건강기능식품</span><span class="ind" role="listitem">헬스케어</span><span class="ind" role="listitem">유아</span><span class="ind" role="listitem">애견</span><span class="ind" role="listitem">생활·리빙</span><span class="ind" role="listitem">가전·테크</span><span class="ind" role="listitem">유통·커머스</span><span class="ind" role="listitem">금융</span><span class="ind" role="listitem">보험</span><span class="ind" role="listitem">교육</span><span class="ind" role="listitem">캐릭터 IP</span><span class="ind" role="listitem">K-POP·엔터</span><span class="ind" role="listitem">게임</span><span class="ind" role="listitem">여행·호텔</span><span class="ind" role="listitem">스포츠</span><span class="ind" role="listitem">지자체·공공기관</span><span class="ind" role="listitem">축제·행사</span><span class="ind" role="listitem">오프라인 팝업</span><span class="ind" role="listitem">공동구매</span></div></div>
 </div>
 </section>
 
 <!-- ④ 리스트가 아니라 플랜 -->
 <section class="plan-section" id="plan-section">
   <div class="plan-wrap">
-    <div class="plan-head"><h2>리스트가 아니라,<br><em>팔리는 플랜</em>을 드립니다</h2><p style="margin-top:14px;color:#666">브랜드의 니즈와 목표에 맞춰, 4단계로 전략을 설계해 제안합니다</p></div>
-    <div class="plan-grid">
-      <div class="plan-step"><span class="num">01</span><h3>목표 정하기</h3><p>인지도·판매·브랜딩 중 무엇을 우선할지 명확히 정의합니다</p></div>
-      <div class="plan-step"><span class="num">02</span><h3>시장·타깃 고르기</h3><p>어느 나라, 어떤 소비자에게 맞설지 데이터 기반으로 선택합니다</p></div>
-      <div class="plan-step"><span class="num">03</span><h3>방식·조합하기</h3><p>인플루언서·광고·커머스 중 가장 효과적인 조합을 설계합니다</p></div>
-      <div class="plan-step"><span class="num">04</span><h3>성과 기준 세우기</h3><p>무엇을 성과로 볼지 함께 정하고 리포트까지 책임집니다</p></div>
+    <div class="plan-head"><h2>리스트가 아니라,<br><em>팔리는 플랜</em>을 드립니다</h2></div>
+    <div class="pl-cmp">
+      <div class="pl-usual">
+        <span class="pl-tag">보통의 방식</span>
+        <h3>리스트만 받고, 고르는 건 고객 몫</h3>
+        <ol class="pl-dim"><li><b>01</b>인플루언서 목록 받기</li><li><b>02</b>고객이 직접 고르기</li><li><b>03</b>결과는 알아서</li></ol>
+      </div>
+      <div class="pl-vs" aria-hidden="true">VS</div>
+      <div class="pl-homi">
+        <span class="pl-tag on">호미 MARKET</span>
+        <h3>브랜드의 니즈와 목표에 맞춰, <em>4단계로 전략을 설계해 제안합니다</em></h3>
+        <p class="pl-sub">어느 나라, 누구를, 왜 — 판매까지 브랜드와 한 팀으로 갑니다</p>
+        <div class="pl-cards">
+      <figure class="pl-card"><div class="pl-ph" data-slot="0"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>01</b>목표 정하기</div></div><figcaption>인지도·판매·입점 중 무엇을 이룰지 먼저 정합니다</figcaption></figure>
+      <figure class="pl-card"><div class="pl-ph" data-slot="1"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>02</b>시장·타깃 고르기</div></div><figcaption>어느 나라, 어떤 소비자에게 닿을지 고릅니다</figcaption></figure>
+      <figure class="pl-card"><div class="pl-ph" data-slot="2"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><path d="M17 13v8M13 17h8"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>03</b>방식 조합하기</div></div><figcaption>인플루언서·팝업·협찬·콘텐츠 제작을 목표에 맞게 선택합니다</figcaption></figure>
+      <figure class="pl-card"><div class="pl-ph" data-slot="3"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>04</b>성과 기준 세우기</div></div><figcaption>무엇을 숫자로 확인할지 처음부터 약속합니다</figcaption></figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section gray">
+<section class="section gray hp-section" id="partner">
   <div class="section-inner">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">6-STEP PROCESS</span>
+    <div class="section-head reveal hp-head">
       <h2>브랜드의 <span class="hl">해외 진출 파트너</span>가 되어 드리겠습니다</h2>
-      <p>해당 분야 전문 매니저가 전략부터 실행까지 함께합니다.</p>
+      <p>고민을 들려주시면, 해당 분야 전문 매니저가 전략부터 현지 실행까지 함께합니다.<br>브랜드 담당자는 중요한 결정에만 집중하실 수 있도록.</p>
     </div>
-    <div class="mgr-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px">
-      
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">01</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">상담 니즈 파악</div>
-      </div>
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">02</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">전문 매니저 배치</div>
-      </div>
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">03</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">맞춤 전략 제안</div>
-      </div>
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">04</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">커뮤 방식 결정</div>
-      </div>
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">05</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">진행-결과 리포트</div>
-      </div>
-      <div class="reveal" style="padding:20px 16px;background:#fff;border-radius:14px;border:1px solid var(--line);text-align:center">
-        <div style="font-family:var(--font-en);font-weight:900;font-size:12px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">06</div>
-        <div style="font-size:13.5px;font-weight:700;color:var(--ink)">재계약 · 확장</div>
+    <div class="hp-grid">
+      <div class="hp-step"><span class="hp-n">01</span><h3>상담·니즈 파악</h3><p>고민·목표·진출 국가를 먼저 충분히 듣습니다</p></div>
+      <div class="hp-step hp-key"><span class="hp-n">02</span><h3>전문 매니저 배치</h3><p>업종·국가에 맞는 전담 매니저가 붙습니다</p></div>
+      <div class="hp-step"><span class="hp-n">03</span><h3>맞춤 전략 제안</h3><p>목표에 맞는 나라·타깃·방향을 설계해 제안합니다</p></div>
+      <div class="hp-step"><span class="hp-n">04</span><h3>캠페인 방식 결정</h3><p>목표에 맞는 캠페인 방식과 견적을 함께 정합니다</p><div class="hp-pills"><span>인플루언서</span><span>방문 프로모션</span><span>팝업</span><span>협찬</span><span>콘텐츠 제작</span></div></div>
+      <div class="hp-step"><span class="hp-n">05</span><h3>진행·결과 리포트</h3><p>콘텐츠를 함께 확인하고 성과를 숫자로 보고</p></div>
+      <div class="hp-team">
+        <div class="hp-team-t"><span class="star">✦</span> 해당 분야 전문 인력 배치</div>
+        <p>브랜드의 업종과 진출 국가에 맞춰, 그 분야 경험이 있는 매니저와 현지 언어 담당을 한 팀으로 붙입니다</p>
+        <div class="hp-roles"><span>업종 전문 매니저</span><span>현지 언어 담당</span><span>콘텐츠 PD</span><span>인플루언서 섭외 담당</span></div>
       </div>
     </div>
   </div>
@@ -1256,6 +1297,82 @@ html.fp-on .fp-fill{display:flex;flex-direction:column;justify-content:center}
   }
   document.addEventListener('visibilitychange',function(){ document.hidden?v.pause():play(); });
   if(document.readyState==='complete') start(); else window.addEventListener('load',start);
+})();
+</script>
+<script id="site-js">/* FR-MKT-027 관리자 저장값(/market/data/site.json) 반영 — 히어로 문구 · 고객사 로고 · 업종 줄 · ④ 사진.
+   값이 비어 있으면 페이지에 들어 있는 기본 내용을 그대로 둔다(번역 페이지는 그 언어 칸이 비어 있으면 기본 번역 유지) */
+window.HOMI_SITE_PENDING=1;
+(function(){
+  var LC=(document.documentElement.lang||'ko').slice(0,2);
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function rich(s){ return esc(s).replace(/\[(.+?)\]/g,'<span class="hl">$1</span>').replace(/\n/g,'<br>'); }
+  var PH={'[\uace0\uac1d\uc0ac \ub85c\uace0]':{en:'[Client logo]',ja:'[クライアントロゴ]',id:'[Logo klien]'},'[\ud574\uc678 \ube0c\ub79c\ub4dc]':{en:'[Global brands]',ja:'[海外ブランド]',id:'[Brand luar negeri]'}};
+  function nm(n){ return (PH[n]&&PH[n][LC])||n; }
+  function done(){ if(!window.HOMI_SITE_PENDING) return; window.HOMI_SITE_PENDING=0; if(window.HMLoopStart) HMLoopStart(); }
+  fetch('/market'+'/data/site.json',{cache:'no-store'}).then(function(r){ return r.ok?r.json():null; }).then(function(d){
+    if(!d) return;
+    var late=!window.HOMI_SITE_PENDING;
+    /* 히어로 문구 */
+    var h=d.hero&&d.hero[LC];
+    if(h){ var h1=document.querySelector('.hero-inner h1'), p=document.querySelector('.hero-inner > p');
+      if(h.title&&h1) h1.innerHTML=rich(h.title); if(h.desc&&p) p.innerHTML=rich(h.desc); }
+    /* ④ 사진 4장 */
+    (d.planPhotos||[]).forEach(function(src,i){ if(!src) return; var ph=document.querySelector('.pl-ph[data-slot="'+i+'"]'); if(!ph) return;
+      var im=ph.querySelector('img'); im.src=src; im.hidden=false; ph.classList.add('has-img'); });
+    if(late) return;   /* 이미 흐르기 시작했으면 로고·업종은 다음 방문 때 반영 */
+    /* 고객사 로고 */
+    var logos=(d.logos||[]).filter(function(l){ return !l.hidden&&(l.name||l.src); });
+    if(logos.length){ [1,2].forEach(function(n){ var row=document.querySelector('.marquee-row.'+(n===1?'left':'right'));
+      var list=logos.filter(function(l){ return (+l.row||1)===n; }); if(!row||!list.length) return;
+      row.innerHTML=list.map(function(l){ return '<div class="logo-card" role="listitem">'+(l.src?'<img src="'+esc(l.src)+'" alt="'+esc(l.name||'')+'" loading="lazy" decoding="async">':esc(nm(l.name)))+'</div>'; }).join(''); }); }
+    /* 업종 줄 */
+    var inds=(d.industries||[]).map(function(x){ return typeof x==='string'?x:(x[LC]||x.ko); }).filter(Boolean);
+    var ir=document.querySelector('.ind-row');
+    if(inds.length&&ir) ir.innerHTML=inds.map(function(t){ return '<span class="ind" role="listitem">'+esc(t)+'</span>'; }).join('');
+  }).catch(function(){}).then(done);
+  setTimeout(done,1500);
+})();
+</script>
+<script id="lg-js">/* 끊김 없이 흐르는 줄 공통 — FR-MKT-017 고객사 로고(윗줄 왼쪽·아랫줄 오른쪽), FR-MKT-028 업종 줄(왼쪽)
+   한 바퀴 = 항목 수 × (폭+간격), 화면 폭만큼 자동 복제 → 마지막 뒤에 첫 항목이 같은 간격으로 이어짐. 항목 위에 마우스를 올리면 멈춤 */
+window.HMLoop=function(row,wrap,item,speed){
+  if(!row||!wrap||row.__hm) return; row.__hm=1;
+  var src=[].slice.call(row.children), n=src.length; if(!n) return;
+  row.style.animation='none';
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var right=row.classList.contains('right'), x=0, period=0, hover=false, off=false, last=0;
+  function addSet(){ src.forEach(function(c){ var k=c.cloneNode(true); k.setAttribute('aria-hidden','true'); row.appendChild(k); }); }
+  function measure(){ var a=row.children[0], b=row.children[1];
+    var step=b?b.getBoundingClientRect().left-a.getBoundingClientRect().left:a.getBoundingClientRect().width;
+    period=step*n; var g=0; while(row.getBoundingClientRect().width<period+wrap.clientWidth+step*2 && g++<40) addSet(); }
+  function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
+    if(!hover&&!off&&!document.hidden&&period){ x=(x+dt*speed)%period; row.style.transform='translateX('+(-(right?period-x:x))+'px)'; }
+    requestAnimationFrame(frame); }
+  row.addEventListener('mouseover',function(e){ hover=!!e.target.closest(item); });
+  row.addEventListener('mouseleave',function(){ hover=false; });
+  new IntersectionObserver(function(e){ off=!e[0].isIntersecting; }).observe(wrap);
+  measure(); addEventListener('resize',measure); requestAnimationFrame(frame);
+};
+window.HMLoopStart=function(){
+  var lw=document.querySelector('.logo-marquee-wrap');
+  if(lw) [].forEach.call(lw.querySelectorAll('.marquee-row'),function(r){ HMLoop(r,lw,'.logo-card',0.035); });
+  var tk=document.querySelector('.ind-tk'); if(tk) HMLoop(tk.querySelector('.ind-row'),tk,'.ind',0.03);
+};
+/* 관리자 설정(site.json)을 먼저 반영한 뒤 흐르기 시작 — 설정을 못 불러오면 0.8초 뒤 기본 내용으로 시작 */
+if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중이면 site-js 가 다 읽은 뒤(최대 1.5초) 시작 */
+</script>
+<script id="r12-js">/* ③ 숫자 올라가는 애니메이션 */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.strategy-stat .cu')); if(!els.length) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+  function run(el){ var to=+el.getAttribute('data-to'), t0=null, d=1400;
+    function f(t){ if(!t0) t0=t; var k=Math.min(1,(t-t0)/d), e=1-Math.pow(1-k,3); el.textContent=fmt(Math.round(to*e)); if(k<1) requestAnimationFrame(f); }
+    requestAnimationFrame(f); }
+  if(reduce||!('IntersectionObserver' in window)) return;
+  els.forEach(function(el){ el.textContent='0'; });
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.unobserve(e.target); run(e.target); } }); },{threshold:.4});
+  els.forEach(function(el){ io.observe(el); });
 })();
 </script>
 </body></html>
