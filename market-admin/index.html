@@ -134,6 +134,17 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     <p class="hint">세로 4:5 사진 권장. 비우면 연보라 바탕 + 아이콘.</p>
     <div class="ph4" id="phList"></div>
   </section>
+  <section class="card" aria-labelledby="h-media">
+    <h2 id="h-media">POINT · 사례 이미지/영상 <span class="badge">Home ⑥ ⑨</span></h2>
+    <p class="hint">⑥ POINT 이미지는 가로 560×200 비율(사진 또는 5~8초 반복 영상 MP4, 소리 없음). 글자·숫자·로고가 없는 실사로. ⑨ 사례 사진은 가로 16:10. 비우면 지금 그림이 나옵니다.</p>
+    <div class="ph4" id="mediaList" style="grid-template-columns:repeat(3,1fr)"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-txt">
+    <h2 id="h-txt">Home 문구 <span class="badge">⑥ ⑦ ⑨ ⑩</span></h2>
+    <p class="hint">지금 사이트에 나오는 문구가 들어 있습니다. 고친 칸만 저장됩니다. 강조색은 [대괄호], 줄바꿈은 그대로 반영.</p>
+    <div id="txtList"><p class="hint">문구 불러오는 중…</p></div>
+  </section>
 </main>
 <div class="bar">
   <span id="msg" role="status" aria-live="polite">불러오는 중…</span>
@@ -162,7 +173,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     if(!d.logos||!d.logos.length) d.logos=DEF_LOGOS.map(function(x){ return {name:x[0],src:'',row:x[1],hidden:false}; });
     if(!d.industries||!d.industries.length) d.industries=JSON.parse(JSON.stringify(DEF_IND_ROWS));
     d.industries=d.industries.map(function(x){ return typeof x==='string'?{ko:x,en:'',ja:'',id:''}:x; });
-    d.planPhotos=(d.planPhotos||[]).concat(['','','','']).slice(0,4); return d; }
+    d.planPhotos=(d.planPhotos||[]).concat(['','','','']).slice(0,4); d.images=d.images||{}; d.texts=d.texts||{}; return d; }
   function load(){
     msg('불러오는 중…'); pending={};
     var p=tok()? gh(PATH).then(function(r){ if(!r.ok) throw new Error('키 확인 필요 ('+r.status+')'); return r.json(); }).then(function(j){ SHA=j.sha; return JSON.parse(unb64(j.content)); })
@@ -189,7 +200,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     bindVal($('hrD'),function(){return h.ko.desc;},function(v){h.ko.desc=v;});
     $('hrTr').innerHTML=LANGS.map(function(l){ return '<div><label class="f">'+l[1]+' 헤드라인</label><textarea data-l="'+l[0]+'" data-k="title"></textarea></div><div><label class="f">'+l[1]+' 설명</label><textarea data-l="'+l[0]+'" data-k="desc"></textarea></div>'; }).join('');
     [].forEach.call($('hrTr').querySelectorAll('textarea'),function(el){ var l=el.dataset.l,k=el.dataset.k; bindVal(el,function(){return h[l][k]||'';},function(v){h[l][k]=v;}); });
-    logos(); inds(); photos();
+    logos(); inds(); photos(); media(); texts();
   }
   function covPv(){ var c=D.banner.cover; $('bnCovPv').innerHTML=c?'<img src="'+esc(c)+'" alt="">':'<svg viewBox="0 0 48 64" width="48" height="64"><rect width="48" height="64" fill="#8B3DFF"/><circle cx="24" cy="25" r="13" fill="none" stroke="#fff" stroke-opacity=".6"/><text x="5" y="56" font-size="7" font-weight="900" fill="#FFC53D">TREND 2026</text></svg>'; }
   function mv(arr,i,d){ var j=i+d; if(j<0||j>=arr.length) return; var t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
@@ -227,9 +238,45 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
   $('phList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i; if(t.files&&t.files[0]){ D.planPhotos[i]=fileUrl('ph'+i,t.files[0]); photos(); } });
   $('phList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i; D.planPhotos[i]=''; delete pending['ph'+i]; photos(); });
 
+
+  /* ── ⑥ ⑨ 이미지·영상 ── */
+  var MEDIA=[['pt1','⑥ POINT 1 — 전략 제안'],['pt2','⑥ POINT 2 — 현지 판매 연결'],['pt3','⑥ POINT 3 — 결과 리포트'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3']];
+  function media(){ D.images=D.images||{};
+    $('mediaList').innerHTML=MEDIA.map(function(m){ var u=D.images[m[0]]||'', v=/\.(mp4|webm)(\?|$)/i.test(u)||/^blob:/.test(u)&&pending['md_'+m[0]]&&/^video/.test(pending['md_'+m[0]].type);
+      return '<div class="ph"><div class="im" style="aspect-ratio:'+(m[0][0]==='p'?'560/200':'16/10')+'">'+(u?(v?'<video src="'+esc(u)+'" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover"></video>':'<img src="'+esc(u)+'" alt="">'):'지금 그림')+'</div><div style="font-size:12.5px;font-weight:700;margin-bottom:6px">'+m[1]+'</div>'+
+        '<label class="btn sm"><input type="file" data-k="'+m[0]+'" accept="image/png,image/jpeg,image/webp,video/mp4,video/webm" style="display:none">파일 고르기</label> <button class="btn sm" data-k="'+m[0]+'" type="button">비우기</button></div>'; }).join(''); }
+  $('mediaList').addEventListener('change',function(e){ var t=e.target,k=t.dataset.k; if(t.files&&t.files[0]){ D.images[k]=fileUrl('md_'+k,t.files[0]); media(); } });
+  $('mediaList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var k=t.dataset.k; D.images[k]=''; delete pending['md_'+k]; media(); });
+
+  /* ── Home 문구: 사이트 페이지에서 data-k 문구를 읽어와 기본값으로 ── */
+  var GROUPS=[['pt','⑥ 우리가 다른 점'],['dir','⑦ 방향별 카드 — 제목'],['d1','⑦ 카드 1'],['d2','⑦ 카드 2'],['d3','⑦ 카드 3'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3'],['q','⑩ 자주 묻는 질문']];
+  var NAMES={t:'제목',d:'설명',cat:'작은 분류',dir:'방향',line:'한 줄',m1:'방법 1',m2:'방법 2',m3:'방법 3',title:'제목',lead:'한 줄',tag1:'태그 1',tag2:'태그 2',name:'이름',text:'글 2~3줄'};
+  var PAGE={};
+  function toPlain(el){ var c=el.cloneNode(true); [].forEach.call(c.querySelectorAll('.hl'),function(h){ h.replaceWith('['+h.textContent+']'); }); [].forEach.call(c.querySelectorAll('br'),function(b){ b.replaceWith('\n'); }); return c.textContent.trim(); }
+  function grab(lang){ var url=(lang==='ko'?'':'/'+lang)+'/market/';
+    return fetch(url,{cache:'no-store'}).then(function(r){ return r.text(); }).then(function(h){ var doc=new DOMParser().parseFromString(h,'text/html'), o={keys:[]};
+      [].forEach.call(doc.querySelectorAll('[data-k]'),function(el){ var k=el.getAttribute('data-k'); if(!(k in o)) o.keys.push(k); o[k]=toPlain(el); }); PAGE[lang]=o; }); }
+  function grp(k){ var m=k.match(/^(pt|dir|d\d|c\d|q|a)/); var g=m?m[1]:''; if(g==='a') g='q'; if(g==='pt') g='pt'; return g; }
+  function label(k){ var m; if((m=k.match(/^pt(\d)\.(\w+)$/))) return 'POINT '+m[1]+' '+NAMES[m[2]]; if((m=k.match(/^q(\d)$/))) return 'Q'+m[1]+' 질문'; if((m=k.match(/^a(\d)$/))) return 'Q'+m[1]+' 답변';
+    var p=k.split('.'); return NAMES[p[1]]||k; }
+  function texts(){
+    if(!PAGE.ko){ return; }
+    D.texts=D.texts||{}; ['ko','en','ja','id'].forEach(function(l){ D.texts[l]=D.texts[l]||{}; });
+    var keys=PAGE.ko.keys.slice().sort(function(a,b){ function o(k){ var g=grp(k); var gi=GROUPS.findIndex(function(x){return x[0]===g;}); var n=+((k.match(/\d+/)||[0])[0]); return gi*1000+(k[0]==='q'||k[0]==='a'?n*2+(k[0]==='a'?1:0):PAGE.ko.keys.indexOf(k)); } return o(a)-o(b); });
+    var html='', cur='';
+    keys.forEach(function(k){ var g=grp(k); if(g!==cur){ if(cur) html+='</div>'; cur=g; var G=GROUPS.find(function(x){return x[0]===g;}); html+='<h3 style="font-size:14.5px;margin:18px 0 8px">'+(G?G[1]:g)+'</h3><div class="list">'; }
+      var ko=D.texts.ko[k]||PAGE.ko[k]||'', long=(PAGE.ko[k]||'').length>40;
+      html+='<div class="it ind-it" style="grid-template-columns:150px 1fr"><div style="font-size:12.5px;font-weight:700;color:#3a3732">'+label(k)+'</div><div>'+
+        (long?'<textarea data-k="'+k+'" data-l="ko">'+esc(ko)+'</textarea>':'<input type="text" data-k="'+k+'" data-l="ko" value="'+esc(ko)+'">')+
+        '<details class="tr"><summary>번역</summary><div class="grid2" style="grid-template-columns:1fr">'+LANGS.map(function(L){ var v=D.texts[L[0]][k]||(PAGE[L[0]]&&PAGE[L[0]][k])||''; return '<div><label class="f">'+L[1]+'</label>'+(long?'<textarea data-k="'+k+'" data-l="'+L[0]+'">'+esc(v)+'</textarea>':'<input type="text" data-k="'+k+'" data-l="'+L[0]+'" value="'+esc(v)+'">')+'</div>'; }).join('')+'</div></details></div></div>'; });
+    if(cur) html+='</div>';
+    $('txtList').innerHTML=html; }
+  $('txtList').addEventListener('input',function(e){ var t=e.target, k=t.dataset.k, l=t.dataset.l; if(!k) return;
+    var def=PAGE[l]&&PAGE[l][k]; if(t.value===def||t.value==='') delete D.texts[l][k]; else D.texts[l][k]=t.value; });
+  Promise.all(['ko','en','ja','id'].map(function(l){ return grab(l).catch(function(){}); })).then(function(){ if(D) texts(); });
   function readB64(file){ return new Promise(function(ok,no){ var r=new FileReader(); r.onload=function(){ ok(String(r.result).split(',')[1]); }; r.onerror=no; r.readAsDataURL(file); }); }
-  function safeName(f){ var ext=(f.name.match(/\.(png|svg|webp|jpe?g)$/i)||['','png'])[1].toLowerCase(); return Date.now()+'-'+Math.random().toString(36).slice(2,7)+'.'+ext; }
-  function upload(file){ if(file.size>3*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 3MB를 넘습니다 — 줄여서 올려 주세요'));
+  function safeName(f){ var ext=(f.name.match(/\.(png|svg|webp|jpe?g|mp4|webm)$/i)||['','png'])[1].toLowerCase(); return Date.now()+'-'+Math.random().toString(36).slice(2,7)+'.'+ext; }
+  function upload(file){ var lim=/^video/.test(file.type)?8:3; if(file.size>lim*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 '+lim+'MB를 넘습니다 — 줄여서 올려 주세요'));
     var path=UP+safeName(file);
     return readB64(file).then(function(c){ return gh(path,{method:'PUT',body:JSON.stringify({message:'admin: 이미지 업로드 '+file.name,content:c,branch:BR})}); })
       .then(function(r){ if(!r.ok) throw new Error('이미지 업로드 실패 ('+r.status+')'); return '/'+path; }); }
@@ -241,9 +288,11 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     if(pending.cover) up(pending.cover,function(u){ out.banner.cover=u; });
     D.logos.forEach(function(l,i){ if(l.__k&&pending[l.__k]) up(pending[l.__k],function(u){ out.logos[i].src=u; }); });
     D.planPhotos.forEach(function(s,i){ if(pending['ph'+i]) up(pending['ph'+i],function(u){ out.planPhotos[i]=u; }); });
+    Object.keys(D.images||{}).forEach(function(k){ if(pending['md_'+k]) up(pending['md_'+k],function(u){ out.images[k]=u; }); });
     Promise.all(jobs).then(function(){
       out.logos.forEach(function(l){ delete l.__k; if(/^blob:/.test(l.src)) l.src=''; });
       if(/^blob:/.test(out.banner.cover||'')) out.banner.cover='';
+      Object.keys(out.images||{}).forEach(function(k){ if(/^blob:/.test(out.images[k])) out.images[k]=''; });
       out.updatedAt=new Date().toISOString();
       msg('저장하는 중…');
       return gh(PATH,{method:'PUT',body:JSON.stringify({message:'admin: Home·배너 설정 변경',content:b64(JSON.stringify(out,null,1)),sha:SHA,branch:BR})});
