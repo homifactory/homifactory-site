@@ -7,7 +7,8 @@ var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').t
 var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
 location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laporan Tren · HOMI MARKET</title>
+<title>Pendaftaran Kreator · HOMI MARKET</title>
+<meta name="description" content="HOMI MARKET mencari kreator untuk bergabung dalam kampanye brand. Jika ada kampanye yang sesuai dengan kategori Anda, kami akan menghubungi Anda lebih dulu.">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -89,83 +90,50 @@ body{padding-top:48px}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.is-visible{opacity:1;transform:translateY(0)}
 
-.tr-hero{padding:70px 32px 50px;background:linear-gradient(180deg,#0B0B0F 0%,#2d1340 100%);color:#fff;position:relative;overflow:hidden}
-.tr-hero::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(139,61,255,.3) 0%,transparent 60%)}
-.tr-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.tr-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(139,61,255,.3);color:#B494FF;border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:800;letter-spacing:.14em;margin-bottom:20px}
-.tr-hero h1{font-size:clamp(32px,4.5vw,54px);font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;color:#fff}
-.tr-hero h1 .hl{color:#B494FF}
-.tr-hero p{font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;max-width:720px}
-.tr-section{padding:60px 32px 100px}
-.tr-section-inner{max-width:1200px;margin:0 auto}
-.tr-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
-.tr-filter button{padding:9px 18px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:.2s}
-.tr-filter button:hover,.tr-filter button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-.tr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.tr-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;display:block}
-.tr-card:hover{border-color:var(--primary);transform:translateY(-6px);box-shadow:0 14px 36px rgba(139,61,255,.1)}
-.tr-cover{aspect-ratio:16/10;position:relative;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%)}
-.tr-cover.g2{background:linear-gradient(135deg,#0B0B0F 0%,#2d1340 100%)}
-.tr-cover.g3{background:linear-gradient(135deg,#5B14CC 0%,#1A0B2E 100%)}
-.tr-cover.g4{background:linear-gradient(135deg,#9B5BFF 0%,#5B14CC 100%)}
-.tr-cover.g5{background:linear-gradient(135deg,#0B0B0F 0%,#5B14CC 100%)}
-.tr-cover.g6{background:linear-gradient(135deg,#F3EDFF 0%,#C8B0FF 100%)}
-.tr-cover-tag{position:absolute;top:16px;left:16px;padding:5px 12px;background:#FFBB00;color:var(--ink);border-radius:4px;font-family:var(--font-en);font-size:10.5px;font-weight:800;letter-spacing:.08em}
-.tr-cover-num{position:absolute;bottom:20px;left:20px;font-family:var(--font-en);font-weight:900;font-size:22px;color:#fff;letter-spacing:-.02em}
-.tr-cover.g6 .tr-cover-num{color:var(--primary-3)}
-.tr-card-body{padding:24px 24px}
-.tr-card-body .cat{font-family:var(--font-en);font-size:10.5px;font-weight:800;color:var(--primary);letter-spacing:.14em;margin-bottom:10px;text-transform:uppercase}
-.tr-card-body h3{font-size:17px;font-weight:800;margin-bottom:10px;line-height:1.4}
-.tr-card-body p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.tr-card-body .meta{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--muted)}
-.tr-card-body .meta .arrow{color:var(--primary);font-weight:700}
-@media(max-width:900px){.tr-grid{grid-template-columns:1fr}}
-
-/* Detail page */
-.tra-hero{padding:60px 32px 40px}
-.tra-hero-inner{max-width:900px;margin:0 auto}
-.tra-breadcrumb{font-size:12px;color:var(--muted);margin-bottom:14px}
-.tra-breadcrumb a{color:var(--muted)}
-.tra-eyebrow{display:inline-block;padding:5px 12px;background:var(--primary-light);color:var(--primary);border-radius:999px;font-family:var(--font-en);font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:16px}
-.tra-hero h1{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.3;letter-spacing:-.02em;margin-bottom:16px}
-.tra-hero p{font-size:16px;color:var(--ink-2);line-height:1.7;margin-bottom:16px}
-.tra-meta{display:flex;gap:16px;font-size:13px;color:var(--muted);align-items:center;padding-top:14px;border-top:1px solid var(--line)}
-.tra-meta .copy-btn{margin-left:auto;padding:6px 12px;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer}
-
-.tra-cover{max-width:900px;margin:30px auto;aspect-ratio:16/9;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-3) 100%);border-radius:22px;position:relative;overflow:hidden;display:grid;place-items:center}
-.tra-cover-tag{position:absolute;top:20px;right:20px;padding:5px 12px;background:#FFBB00;color:var(--ink);border-radius:4px;font-family:var(--font-en);font-size:11px;font-weight:800;letter-spacing:.08em}
-.tra-cover-num{position:absolute;bottom:20px;left:20px;font-family:var(--font-en);font-weight:900;font-size:28px;color:#fff;letter-spacing:-.02em;background:rgba(0,0,0,.3);padding:6px 14px;border-radius:8px}
-
-.tra-section{padding:30px 32px 80px;max-width:900px;margin:0 auto}
-.tra-section .summary{background:var(--bg-2);padding:28px 32px;border-radius:16px;border-left:4px solid var(--primary);margin-bottom:40px}
-.tra-section .summary h3{font-size:13.5px;font-weight:800;color:var(--primary);margin-bottom:14px;letter-spacing:.08em}
-.tra-section .summary ul{list-style:none;font-size:14.5px;color:var(--ink);line-height:1.9}
-.tra-section .summary li{padding-left:16px;position:relative}
-.tra-section .summary li::before{content:"•";position:absolute;left:0;color:var(--primary);font-weight:800}
-
-.tra-section h2{font-size:22px;font-weight:800;margin:40px 0 16px;letter-spacing:-.01em}
-.tra-section h2:first-of-type{margin-top:0}
-.tra-section h3.inline{font-size:16.5px;font-weight:700;margin:24px 0 10px;color:var(--primary)}
-.tra-section p{font-size:15px;color:var(--ink-2);line-height:1.85;margin-bottom:14px}
-.tra-section strong{color:var(--ink)}
-.tra-section .highlight{display:inline-block;padding:1px 6px;background:#FFF2A8;color:var(--ink);border-radius:3px;font-weight:700}
-.tra-section table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;background:#fff;border-radius:12px;overflow:hidden}
-.tra-section th{padding:12px 16px;background:var(--primary-light);color:var(--primary);font-weight:800;text-align:left;font-size:12.5px}
-.tra-section td{padding:12px 16px;border-top:1px solid var(--line);line-height:1.6;vertical-align:top}
-.tra-section .checklist{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin:24px 0}
-.tra-section .checklist h4{font-size:15px;font-weight:800;margin-bottom:14px;color:var(--primary)}
-.tra-section .checklist label{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:14px;color:var(--ink-2);line-height:1.6}
-.tra-section .checklist input{margin-top:4px;accent-color:var(--primary)}
-.tra-section .sources{background:var(--bg-2);padding:20px 24px;border-radius:12px;font-size:12.5px;color:var(--muted);line-height:1.85}
-.tra-section .sources strong{display:block;color:var(--ink);margin-bottom:8px;font-size:13px}
-.tra-section .sources li{padding-left:16px;position:relative;list-style:none}
-.tra-section .sources li::before{content:"•";position:absolute;left:0;color:var(--primary)}
-
-.related-section{padding:60px 32px;background:var(--bg-2)}
-.related-inner{max-width:1200px;margin:0 auto}
-.related-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
-.related-head h2{font-size:22px;font-weight:800}
-.related-head a{color:var(--primary);font-size:13px;font-weight:700}
+.page-hero{padding:60px 32px 20px}
+.page-hero-inner{max-width:1200px;margin:0 auto}
+.page-breadcrumb{font-size:12px;color:var(--muted);margin-bottom:14px}
+.page-breadcrumb a{color:var(--muted)}
+.page-breadcrumb a:hover{color:var(--primary)}
+.form-section{padding:40px 32px 100px}
+.form-section-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.8fr;gap:60px}
+.form-side .eyebrow{display:inline-block;padding:5px 12px;background:var(--primary-light);color:var(--primary);border-radius:999px;font-family:var(--font-en);font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:20px}
+.form-side h1{font-size:clamp(32px,3.8vw,48px);font-weight:900;line-height:1.2;letter-spacing:-.02em;margin-bottom:24px}
+.form-side h1 .hl{color:var(--primary)}
+.form-side p{font-size:15px;color:var(--ink-2);line-height:1.75}
+.form-side .hint{margin-top:20px;padding:12px 16px;background:var(--primary-light);border-radius:12px;font-size:12.5px;color:var(--primary);font-weight:600}
+.form-wrap{background:#fff;padding:48px 44px;border:1px solid var(--line);border-radius:24px;box-shadow:0 8px 32px rgba(0,0,0,.04)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+.form-row.single{grid-template-columns:1fr}
+.form-row.three{grid-template-columns:1fr 1fr 1fr}
+.form-field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.form-field label .req{color:var(--primary)}
+.form-field label small{font-size:11.5px;color:var(--muted);font-weight:500;margin-left:4px}
+.form-field label .sub-note{font-size:11px;color:var(--muted);font-weight:400;margin-left:4px}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:10px;font-family:var(--font-kr);font-size:14px;background:#fff;outline:none;transition:border .2s}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(139,61,255,.1)}
+.form-field textarea{min-height:110px;resize:vertical;line-height:1.6}
+.radio-group{display:flex;gap:10px;flex-wrap:wrap}
+.radio-opt{display:flex;align-items:center;gap:8px;padding:12px 18px;border:1px solid var(--line);border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;color:var(--ink-2);background:#fff;flex:1;min-width:140px}
+.radio-opt:hover{border-color:var(--primary)}
+.radio-opt input{margin:0;accent-color:var(--primary)}
+.radio-opt.active{border-color:var(--primary);background:var(--primary-light);color:var(--primary)}
+.chip-group{display:flex;gap:8px;flex-wrap:wrap}
+.chip-opt{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;color:var(--ink-2);background:#fff}
+.chip-opt:hover{border-color:var(--primary)}
+.chip-opt.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.privacy-notice{background:var(--bg-2);padding:18px 20px;border-radius:12px;font-size:12.5px;color:var(--ink-2);line-height:1.75;margin-bottom:14px}
+.privacy-notice strong{color:var(--ink);display:block;margin-bottom:6px;font-size:13px}
+.privacy-notice ul{margin-top:6px;padding-left:18px;list-style:disc}
+.privacy-notice .highlight{display:inline-block;padding:1px 7px;background:#FFF2A8;color:var(--ink);border-radius:3px;font-weight:700}
+.form-check{display:flex;align-items:center;gap:10px;margin-top:14px;margin-bottom:24px;cursor:pointer}
+.form-check input{width:16px;height:16px;accent-color:var(--primary)}
+.form-check span{font-size:13.5px;color:var(--ink-2)}
+.form-check a{color:var(--primary);text-decoration:underline;font-weight:600}
+.form-submit{display:block;width:100%;padding:20px;background:var(--primary);color:#fff;font-size:16px;font-weight:800;border-radius:999px;transition:.2s;cursor:pointer;border:none;box-shadow:0 8px 24px rgba(139,61,255,.3)}
+.form-submit:hover{background:var(--primary-3);transform:translateY(-1px);box-shadow:0 12px 32px rgba(139,61,255,.4)}
+.form-sub-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:12px}
+@media(max-width:900px){.form-section-inner{grid-template-columns:1fr;gap:40px}.form-row,.form-row.three{grid-template-columns:1fr}.form-wrap{padding:32px 24px}}
 
 /* FR-MKT-001 nav typography */
 .nav-menu > a, .nav-menu .menu-item > a{font-weight:600!important;color:#1B1A18!important}
@@ -190,7 +158,43 @@ body{padding-top:48px}
 .channel-btn{right:40px!important}
 
 </style>
-<style id="hc-css">
+<style id="v084-contact-form">
+.contact-wrap{display:grid;grid-template-columns:280px 1fr;gap:50px;max-width:1200px;margin:60px auto;padding:0 24px}
+.contact-left h1{font-size:38px;font-weight:800;line-height:1.3;color:#141414;margin-bottom:18px}
+.contact-left h1 em{color:#8B3DFF;font-style:normal}
+.contact-left p{color:#555;font-size:14.5px;line-height:1.7}
+.contact-right{background:#fff;border:1px solid #E6E0D6;border-radius:20px;padding:40px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.cf-row.single{grid-template-columns:1fr}
+.cf-row.triple{grid-template-columns:1fr 1fr 1fr}
+.cf-field label{display:block;font-size:13px;font-weight:700;color:#141414;margin-bottom:8px}
+.cf-field label .req{color:#8B3DFF}
+.cf-field label .opt{color:#888;font-weight:500;font-size:12px;margin-left:4px}
+.cf-field input, .cf-field textarea{width:100%;border:1px solid #E6E0D6;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#141414;background:#fff;font-family:inherit}
+.cf-field input:focus, .cf-field textarea:focus{outline:none;border-color:#8B3DFF;box-shadow:0 0 0 3px rgba(139,61,255,.12)}
+.cf-field textarea{resize:vertical;min-height:100px}
+.cf-sub{color:#8B3DFF;font-size:12px;margin-top:4px}
+.direction-radio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.direction-radio label{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #E6E0D6;border-radius:10px;cursor:pointer;font-weight:500;font-size:14px}
+.direction-radio input[type=radio]{accent-color:#8B3DFF}
+.direction-radio label.active{border-color:#8B3DFF;background:#F3ECFF}
+.country-chip-grid{display:flex;flex-wrap:wrap;gap:8px}
+.country-chip-grid .cc{padding:9px 16px;background:#fff;border:1px solid #E6E0D6;border-radius:999px;font-size:13.5px;cursor:pointer;color:#333;font-weight:500;transition:all .15s}
+.country-chip-grid .cc.active{background:#8B3DFF;color:#fff;border-color:#8B3DFF}
+.cf-privacy-box{background:#FAF7F2;border:1px solid #E6E0D6;border-radius:12px;padding:18px 20px;margin-top:14px}
+.cf-privacy-box h4{font-size:13px;font-weight:700;color:#141414;margin-bottom:10px}
+.cf-privacy-box ul{list-style:none;padding:0;margin:0;font-size:12.5px;color:#555;line-height:1.8}
+.cf-privacy-box ul li::before{content:'· ';color:#8B3DFF;font-weight:700}
+.cf-privacy-box ul li strong{background:#FFF0E6;color:#D97706;padding:1px 6px;border-radius:4px}
+.cf-agree{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14px;color:#333}
+.cf-agree input{accent-color:#8B3DFF;width:18px;height:18px}
+.cf-agree a{color:#8B3DFF;text-decoration:underline;font-weight:600}
+.cr-form select{width:100%;padding:13px 14px;border:1px solid #E6E0D6;border-radius:10px;font:inherit;font-size:14.5px;background:#fff;color:#141414}
+.cf-submit{width:100%;background:#8B3DFF;color:#fff;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:22px}
+.cf-submit:hover{background:#7D2AE8}
+.cf-footer-note{text-align:center;color:#999;font-size:12px;margin-top:12px}
+@media(max-width:900px){.contact-wrap{grid-template-columns:1fr}.cf-row,.cf-row.triple{grid-template-columns:1fr}.direction-radio{grid-template-columns:1fr}}
+</style><style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
 .hc-fab:hover{transform:scale(1.06);background:#7D2AE8}
@@ -273,11 +277,11 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/trend-report">
-<link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/trend-report">
-<link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/trend-report">
-<link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/trend-report">
-<link rel="alternate" hreflang="x-default" href="https://homifactory.com/market/trend-report">
+<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/creator">
+<link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/creator">
+<link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/creator">
+<link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/creator">
+<link rel="alternate" hreflang="x-default" href="https://homifactory.com/market/creator">
 </head><body data-site="market" data-header="fixed">
 <div class="trend-banner">
   <span class="pill"><span class="star">✦</span> HOMI TREND REPORT 2026</span>
@@ -285,138 +289,114 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 <header id="homi-header"></header>
 <script src="/shared/homi-header.js?v=20261008a"></script>
-<section class="trl-head">
-  <div class="trl-in">
-    <div class="trl-eyebrow"><span class="star">✦</span> HOMI TREND REPORT</div>
-    <h1>Dibaca sebelum ekspansi ke luar negeri<br><span class="hl">Laporan Pemasaran Global</span></h1>
-    <p>Tren media sosial dan konsumsi per negara, cara memilih influencer, hingga praktik seeding dan pop-up. Kami merangkum data publik berdasarkan pengalaman lapangan di 8 hub.</p>
-    <div class="trl-tools">
-      <div class="trl-chips" role="tablist" aria-label="Kategori">
-        <button type="button" class="on" data-cat="all" role="tab" aria-selected="true">Semua</button>
-        <button type="button" data-cat="country" role="tab" aria-selected="false">Tren per negara</button>
-        <button type="button" data-cat="influencer" role="tab" aria-selected="false">Influencer</button>
-        <button type="button" data-cat="offline" role="tab" aria-selected="false">Pop-up & offline</button>
-      </div>
-      <label class="trl-search"><span class="sr">Cari negara atau kata kunci</span><input type="search" id="trlQ" placeholder="Cari negara atau kata kunci (contoh: Indonesia, seeding)" autocomplete="off"></label>
-    </div>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">Pendaftaran Kreator</div>
   </div>
 </section>
-<section class="trl-body">
-  <div class="trl-in">
-    <a class="trl-feat trl-item" data-cat="influencer" href="/id/market/trend-report-detail.html">
-      <div class="trl-img c1"><span>01</span></div>
-      <div class="trl-ftx">
-        <div class="trl-cat">Influencer</div>
-        <h2>Kinerja influencer berdasarkan skala 2026 — pilih berdasarkan peran, bukan jumlah pengikut</h2>
-        <ul class="trl-sum">
-          <li>Makin sedikit pengikut, makin tinggi engagement rate — TikTok Nano 10,3%, Mikro 8,7%, Mid-tier 7,5%</li>
-          <li>Di Asia Tenggara, pengaruh influencer Mega berada di 59%, turun 7% dalam setahun</li>
-          <li>Namun jawabannya bukan "yang kecil", melainkan kombinasi — tiap skala punya peran berbeda</li>
-        </ul>
-        <div class="trl-meta"><span>2026.10 · 7 menit baca</span><span class="go">Baca →</span></div>
-      </div>
-    </a>
-    <div class="trl-pick trl-item soon" data-cat="country" aria-disabled="true">
-      <div class="trl-img c2"><span>02</span></div>
-      <div class="trl-ptx">
-        <div class="trl-badge">HOMI PICK</div>
-        <div class="trl-cat">Tren per negara · Indonesia</div>
-        <h3>[Indonesia] Seratus tetangga, bukan satu bintang</h3>
-        <p>Pasar muda dan besar, konsumen yang belanja lewat tautan kreator. Cara membagi kreator Mikro per kota dan minat, hingga sertifikasi halal kosmetik yang berubah mulai Oktober 2026.</p>
-        <div class="trl-meta"><span>Segera hadir</span></div>
-      </div>
-    </div>
-    <div class="trl-latest-h"><h2>Artikel terbaru</h2></div>
-    <div class="trl-grid" id="trlGrid">
-      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c3"><span>03</span></div><div class="trl-ctx"><div class="trl-cat">Tren per negara</div><h3>Konten sama, kanal berbeda</h3><p>Kanal yang benar-benar dilihat konsumen berbeda di tiap negara. Kanal utama tiap hub dalam satu tabel.</p><div class="trl-meta"><span>Segera hadir</span></div></div></div>
-      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c4"><span>04</span></div><div class="trl-ctx"><div class="trl-cat">Tren per negara · Jepang</div><h3>[Jepang] Korea nomor 1 untuk kosmetik impor</h3><p>Posisi brand Korea di pasar kosmetik impor Jepang dan hal yang perlu dicek sebelum masuk.</p><div class="trl-meta"><span>Segera hadir</span></div></div></div>
-      <div class="trl-card trl-item soon" data-cat="country" aria-disabled="true"><div class="trl-img c5"><span>05</span></div><div class="trl-ctx"><div class="trl-cat">Tren per negara · Indonesia</div><h3>[Indonesia] TikTok commerce</h3><p>Konsumen yang langsung membeli dari video — cara menyambungkan hingga penjualan lewat TikTok commerce.</p><div class="trl-meta"><span>Segera hadir</span></div></div></div>
-      <div class="trl-card trl-item soon" data-cat="influencer" aria-disabled="true"><div class="trl-img c6"><span>06</span></div><div class="trl-ctx"><div class="trl-cat">Influencer</div><h3>Seeding luar negeri: sebelum mengirim</h3><p>Hal yang perlu dicek sebelum mengirim produk — checklist panduan, bea cukai, dan jadwal.</p><div class="trl-meta"><span>Segera hadir</span></div></div></div>
-      <div class="trl-card trl-item soon" data-cat="offline" aria-disabled="true"><div class="trl-img c7"><span>07</span></div><div class="trl-ctx"><div class="trl-cat">Pop-up & offline</div><h3>Pop-up harus diumumkan tiga kali</h3><p>Teaser sebelum buka, undangan ke lokasi di minggu pertama, penyebaran ulasan setelah buka — penempatan influencer per tahap.</p><div class="trl-meta"><span>Segera hadir</span></div></div></div>
-    </div>
-    <p class="trl-empty" id="trlEmpty" hidden>Artikel tidak ditemukan. Coba negara atau kata kunci lain.</p>
-    <div class="trl-more"><button type="button" id="trlMore">Lihat artikel lainnya</button></div>
-  </div>
-</section>
-<section class="trl-cta">
-  <div class="trl-in">
-    <h2>Brand kami mulai dari negara dan kanal mana?</h2>
-    <p>Kami bantu merangkum isi laporan agar sesuai dengan brand Anda.</p>
-    <a class="trl-btn" href="/id/market/contact.html">Konsultasi Gratis</a>
-  </div>
-</section>
-<style id="trl-css">
-/* 트렌드 리포트 목록 (MKT-P11) — 흰 머리 · 분류 칩 · 검색 · 추천 글 · 호미 PICK · 최신 글 3열 */
-.trl-in{max-width:1160px;margin:0 auto;padding:0 24px}
-.trl-head{background:#fff;padding:calc(var(--hh-offset,122px) - var(--hh-ban,48px) + 56px) 0 36px;border-bottom:1px solid #E6E0D6}
-.trl-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;background:#F3ECFF;color:#8B3DFF;font-family:var(--font-en);font-size:12px;font-weight:800;letter-spacing:.12em}
-.trl-head h1{font-size:clamp(30px,4.4vw,46px);font-weight:800;line-height:1.25;letter-spacing:-.03em;color:#141414;margin:18px 0 14px}
-.trl-head h1 .hl{color:#8B3DFF}
-.trl-head p{color:#55525C;font-size:16px;line-height:1.7;max-width:720px}
-.trl-tools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:30px}
-.trl-chips{display:flex;flex-wrap:wrap;gap:8px}
-.trl-chips button{all:unset;cursor:pointer;padding:9px 16px;border-radius:999px;border:1px solid #E6E0D6;background:#fff;font-size:14px;font-weight:600;color:#141414}
-.trl-chips button.on{background:#8B3DFF;border-color:#8B3DFF;color:#fff}
-.trl-chips button:focus-visible,.trl-more button:focus-visible{outline:2px solid #8B3DFF;outline-offset:2px}
-.trl-search input{width:280px;max-width:100%;padding:11px 16px;border:1px solid #E6E0D6;border-radius:999px;font-size:14px;font-family:inherit;background:#FAF7F2}
-.trl-search input:focus{outline:2px solid #8B3DFF;outline-offset:1px;background:#fff}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.trl-body{padding:44px 0 72px;background:#fff}
-.trl-img{position:relative;background:#8B3DFF;border-radius:14px;overflow:hidden}
-.trl-img span{position:absolute;left:18px;bottom:12px;font-family:var(--font-en);font-weight:900;font-size:44px;letter-spacing:-.03em;color:rgba(255,255,255,.88)}
-.trl-img.c2{background:#141414}.trl-img.c3{background:#7D2AE8}.trl-img.c4{background:#141414}.trl-img.c5{background:#8B3DFF}.trl-img.c6{background:#F3ECFF}.trl-img.c6 span{color:#8B3DFF}.trl-img.c7{background:#7D2AE8}.trl-img.c8{background:#141414}
-.trl-cat{font-size:13px;font-weight:700;color:#8B3DFF;margin-bottom:8px}
-.trl-meta{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#8E8B96;margin-top:14px}
-.trl-meta .go{color:#8B3DFF;font-weight:700}
-.trl-feat{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding:26px;border:1px solid #E6E0D6;border-radius:20px;background:#FAF7F2;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s}
-.trl-feat:hover{border-color:#8B3DFF;box-shadow:0 12px 30px rgba(139,61,255,.12)}
-.trl-feat .trl-img{aspect-ratio:16/10}
-.trl-feat h2{font-size:clamp(22px,2.4vw,28px);font-weight:800;line-height:1.35;letter-spacing:-.02em;color:#141414}
-.trl-sum{margin:14px 0 0;padding-left:18px;color:#3A3A42;font-size:15px;line-height:1.75}
-.trl-pick{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;margin-top:22px;padding:20px;border:2px solid #FFC53D;border-radius:18px;background:#fff}
-.trl-pick .trl-img{aspect-ratio:16/10}
-.trl-badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#141414;color:#FFC53D;font-family:var(--font-en);font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:10px}
-.trl-pick h3{font-size:22px;font-weight:800;color:#141414;line-height:1.35}
-.trl-pick p,.trl-card p{color:#55525C;font-size:14.5px;line-height:1.7;margin-top:8px}
-.trl-latest-h{margin:48px 0 18px}
-.trl-latest-h h2{font-size:24px;font-weight:800;color:#141414}
-.trl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.trl-card{border:1px solid #E6E0D6;border-radius:16px;overflow:hidden;background:#fff;color:inherit;text-decoration:none;display:flex;flex-direction:column}
-.trl-card .trl-img{aspect-ratio:16/9;border-radius:0}
-.trl-ctx{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
-.trl-ctx .trl-meta{margin-top:auto;padding-top:14px}
-.trl-card h3{font-size:18px;font-weight:800;color:#141414;line-height:1.4}
-.soon{cursor:default}
-.soon .trl-meta span:first-child{display:inline-block;padding:3px 10px;border-radius:999px;background:#F3ECFF;color:#8B3DFF;font-weight:700}
-.trl-item.hide,.trl-card.more-hide{display:none}
-.trl-empty{text-align:center;color:#8E8B96;padding:30px 0}
-.trl-more{text-align:center;margin-top:30px}
-.trl-more button{all:unset;cursor:pointer;padding:13px 28px;border-radius:999px;border:1px solid #E6E0D6;font-weight:700;color:#141414;background:#fff}
-.trl-more button:hover{border-color:#8B3DFF;color:#8B3DFF}
-.trl-cta{background:#141414;color:#fff;text-align:center;padding:72px 0}
-.trl-cta h2{font-size:clamp(24px,3vw,32px);font-weight:800}
-.trl-cta p{color:rgba(255,255,255,.75);margin:12px 0 26px}
-.trl-btn{display:inline-block;padding:16px 34px;border-radius:999px;background:#8B3DFF;color:#fff;font-weight:800;text-decoration:none}
-.trl-btn:hover{background:#7D2AE8}
-@media(max-width:900px){.trl-feat{grid-template-columns:1fr;padding:18px}.trl-pick{grid-template-columns:1fr}.trl-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.trl-grid{grid-template-columns:1fr}.trl-search input{width:100%}.trl-search{width:100%}}
-</style>
-<script id="trl-js">
-(function(){
-  var chips=document.querySelectorAll('.trl-chips button'), q=document.getElementById('trlQ'), more=document.getElementById('trlMore'), empty=document.getElementById('trlEmpty');
-  var items=[].slice.call(document.querySelectorAll('.trl-item')), cards=[].slice.call(document.querySelectorAll('#trlGrid .trl-card')), cat='all', showAll=false, FIRST=3;
-  function apply(){
-    var t=(q.value||'').trim().toLowerCase(), any=false, filtering=cat!=='all'||t;
-    items.forEach(function(el){ var ok=(cat==='all'||el.dataset.cat===cat)&&(!t||el.textContent.toLowerCase().indexOf(t)>-1); el.classList.toggle('hide',!ok); if(ok) any=true; });
-    var shown=0; cards.forEach(function(c){ if(c.classList.contains('hide')) return; shown++; c.classList.toggle('more-hide',!filtering&&!showAll&&shown>FIRST); });
-    more.parentNode.hidden=filtering||showAll||cards.length<=FIRST; empty.hidden=any;
-  }
-  chips.forEach(function(b){ b.addEventListener('click',function(){ cat=b.dataset.cat; chips.forEach(function(x){ var on=x===b; x.classList.toggle('on',on); x.setAttribute('aria-selected',on?'true':'false'); }); apply(); }); });
-  q.addEventListener('input',apply); more.addEventListener('click',function(){ showAll=true; apply(); });
-  apply();
-})();
-</script>
 
+<!-- FR-MKT-042 · IA MKT-P13 크리에이터 지원 — 입구는 상단 바 하나. 접수 내용은 메일(support@) + 접수 기록(Make → 구글 시트, 방향 칸 「크리에이터 지원」)으로 들어가 관리자 「크리에이터 DB」에서 봄 -->
+<section class="contact-section">
+<div class="contact-wrap">
+  <aside class="contact-left">
+    <h1>Kami mencari <em>kreator</em><br>untuk berkolaborasi dengan brand</h1>
+    <p>Jika ada kampanye brand yang sesuai dengan kategori dan negara Anda,<br>tim kami akan menghubungi Anda lebih dulu.<br>Ini bukan kontrak eksklusif — kita berkolaborasi per kampanye.</p>
+  </aside>
+  <div class="contact-right">
+    <form id="inquiryForm" class="cr-form" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="[HOMI MARKET 크리에이터 지원·ID] 신규 지원">
+      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://homifactory.com/id/market/creator?sent=1">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="cf-row">
+        <div class="cf-field"><label>Nama kreator <span class="req">*</span></label><input name="활동명" required placeholder="Nama yang Anda gunakan di channel"></div>
+        <div class="cf-field"><label>Link channel utama <span class="req">*</span></label><input name="대표 채널 링크" required placeholder="https://instagram.com/…"></div>
+      </div>
+
+      <div class="cf-row single">
+        <div class="cf-field">
+          <label>Platform utama <span class="req">*</span></label>
+          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
+          <div class="country-chip-grid cr-chips" data-target="platformHidden">
+            <span class="cc" data-v="인스타그램">Instagram</span><span class="cc" data-v="틱톡">TikTok</span><span class="cc" data-v="유튜브">YouTube</span><span class="cc" data-v="블로그">Blog</span><span class="cc" data-v="샤오홍슈">Xiaohongshu</span><span class="cc" data-v="기타">Lainnya</span>
+          </div>
+          <input type="hidden" name="플랫폼" id="platformHidden" data-req="1">
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <div class="cf-field"><label>Jumlah followers <span class="req">*</span></label>
+          <select name="팔로워 규모" required>
+            <option value="">Silakan pilih</option>
+            <option value="1만 미만">Di bawah 10 ribu</option>
+            <option value="1만~10만">10 ribu~100 ribu</option>
+            <option value="10만~50만">100 rb–500 rb</option>
+            <option value="50만~100만">500 rb–1 jt</option>
+            <option value="100만 이상">1 juta ke atas</option>
+          </select>
+        </div>
+        <div class="cf-field"><label>Negara aktivitas <span class="req">*</span></label>
+          <select name="활동 나라" required>
+            <option value="">Silakan pilih</option>
+            <option value="한국">Korea</option><option value="일본">Jepang</option><option value="인도네시아">Indonesia</option><option value="북미">Amerika Utara</option><option value="중국">Tiongkok</option><option value="대만">Taiwan</option><option value="홍콩">Hong Kong</option><option value="필리핀">Filipina</option><option value="인도">India</option><option value="기타">Lainnya</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cf-row single">
+        <div class="cf-field">
+          <label>Kategori konten <span class="req">*</span></label>
+          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
+          <div class="country-chip-grid cr-chips" data-target="categoryHidden">
+            <span class="cc" data-v="뷰티">Kecantikan</span><span class="cc" data-v="패션">Fashion</span><span class="cc" data-v="푸드">Kuliner</span><span class="cc" data-v="여행">Travel</span><span class="cc" data-v="라이프스타일">Gaya Hidup</span><span class="cc" data-v="헬스·운동">Kesehatan & Olahraga</span><span class="cc" data-v="육아">Parenting</span><span class="cc" data-v="반려동물">Hewan Peliharaan</span><span class="cc" data-v="테크">Teknologi</span><span class="cc" data-v="기타">Lainnya</span>
+          </div>
+          <input type="hidden" name="카테고리" id="categoryHidden" data-req="1">
+        </div>
+      </div>
+
+      <div class="cf-row single">
+        <div class="cf-field"><label>Tentang Anda <span class="opt">(opsional)</span></label>
+          <textarea name="자기소개" placeholder="Contoh: Saya biasanya mengunggah video pendek rutinitas kecantikan sebagai pekerja kantoran usia 20-an. Tuliskan brand yang pernah bekerja sama dengan Anda, jika ada."></textarea>
+        </div>
+      </div>
+
+      <div class="cf-row triple">
+        <div class="cf-field"><label>Nama <span class="req">*</span></label><input name="이름" required autocomplete="name"></div>
+        <div class="cf-field"><label>Kontak <span class="req">*</span></label><input name="연락처" required type="tel" autocomplete="tel" placeholder="Contoh: 010-1234-5678"></div>
+        <div class="cf-field"><label>Email <span class="req">*</span></label><input name="이메일" required type="email" autocomplete="email" placeholder="name@example.com"></div>
+      </div>
+
+      <div class="cf-privacy-box">
+        <h4>Informasi pengumpulan & penggunaan data pribadi</h4>
+        <ul>
+          <li>Tujuan pengumpulan: menerima pendaftaran kreator, menghubungi Anda untuk pencocokan kampanye</li>
+          <li>Data yang dikumpulkan: (wajib) nama kreator, link channel utama, platform, jumlah followers, negara aktivitas, kategori konten, nama, kontak, email / (opsional) tentang Anda</li>
+          <li>Masa penyimpanan: <strong>1 tahun</strong> sejak tanggal pendaftaran (jika kita bekerja sama dalam kampanye, selama periode yang ditetapkan peraturan terkait setelah kontrak berakhir); segera dihapus jika Anda memintanya</li>
+          <li>Anda berhak menolak memberikan persetujuan, namun pendaftaran tidak dapat diproses jika Anda menolak. Kolom opsional boleh dikosongkan.</li>
+        </ul>
+      </div>
+
+      <label class="cf-agree">
+        <input type="checkbox" name="개인정보 동의" value="동의" required>
+        Saya menyetujui pengumpulan dan penggunaan data pribadi di atas (wajib) · <a href="/id/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">Kebijakan Privasi selengkapnya ↗</a>
+      </label>
+
+      <p class="cf-top-err" role="alert" hidden></p>
+      <button type="submit" class="cf-submit">Daftar</button>
+      <p class="cf-footer-note">Setelah Anda mengirim, konfirmasi penerimaan akan langsung ditampilkan, dan tim kami akan menghubungi Anda jika ada kampanye yang cocok.</p>
+    </form>
+    <div id="cfDone" class="cf-done" tabindex="-1" hidden>
+      <div class="cf-done-ic" aria-hidden="true">✓</div>
+      <h3>Pendaftaran kreator Anda telah diterima</h3>
+      <p>Jika ada kampanye yang sesuai dengan kategori dan negara Anda, kami akan menghubungi Anda lebih dulu melalui kontak atau email yang Anda berikan.</p>
+      <a href="/id/market/" class="cf-done-btn">Ke Beranda</a>
+    </div>
+  </div>
+</div>
+</section>
 <footer class="hf" id="homi-footer">
   <div class="hf-in">
     <div class="hf-top">
@@ -652,6 +632,90 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   /* 이전 버튼(alert) 제거 + 상태 복원 */
   document.querySelectorAll('.channel-btn').forEach(function(b){ b.remove(); });
   render(); if(st.open) setOpen(true,false);
+})();
+</script>
+<script id="cf-js">
+/* FR-MKT-042 크리에이터 지원 — 칸 검사·동의 필수·완료 안내, 메일(FormSubmit) + 접수 기록(Make → 구글 시트, 방향 칸 「크리에이터 지원」으로 구분) */
+(function(){
+  var f=document.getElementById('inquiryForm'); if(!f) return;
+  var MAIL='https://formsubmit.co/ajax/support@homifactory.com';
+  var STORE='https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh';
+  f.noValidate=true;
+  var MSG={req:'Kolom ini wajib diisi. Silakan masukkan isinya.',pick:'Silakan pilih minimal satu.',sel:'Silakan pilih salah satu.',
+    phone:'Silakan periksa format nomor telepon. (Contoh: 010-1234-5678, +62 812 3456 7890)',email:'Silakan periksa format email Anda. (contoh: name@example.com)',
+    url:'Silakan periksa alamat channel Anda. (contoh: https://instagram.com/…)',agree:'Anda perlu menyetujui pengumpulan dan penggunaan data pribadi untuk mendaftar.',
+    top:'Silakan periksa kembali isian Anda. Perbaiki kolom yang ditandai, lalu Anda dapat langsung mengirimnya.',sending:'Mengirim…',
+    fail:'Pengiriman gagal. Silakan coba lagi beberapa saat lagi atau kirimkan ke support@homifactory.com.'};
+  function field(el){ return el.closest('.cf-field')||el.closest('.cf-agree')||el.parentNode; }
+  function setErr(el,msg){
+    var box=field(el), p=box.querySelector(':scope > .cf-err');
+    if(!msg){ if(p) p.remove(); el.removeAttribute('aria-invalid'); box.classList.remove('is-invalid'); return true; }
+    if(!p){ p=document.createElement('p'); p.className='cf-err'; p.id='e'+Math.random().toString(36).slice(2,8); p.setAttribute('role','alert'); box.appendChild(p); }
+    p.textContent=msg; el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',p.id); box.classList.add('is-invalid'); return false;
+  }
+  var isEmail=function(v){ return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v); };
+  var isPhone=function(v){ var d=v.replace(/[\s\-().]/g,''); return /^\+?\d{9,15}$/.test(d); };
+  var isUrl=function(v){ return /^(https?:\/\/)?[\w-]+(\.[\w-]+)+(\/\S*)?$/i.test(v)||/^@[\w.]{2,}$/.test(v); };
+  function check(el){
+    var v=(el.value||'').trim();
+    if(el.type==='checkbox') return setErr(el, el.checked?'':MSG.agree);
+    if(el.getAttribute('data-req')) return setErr(el, v?'':MSG.pick);
+    if(el.tagName==='SELECT') return setErr(el, v?'':MSG.sel);
+    if(el.required && !v) return setErr(el, MSG.req);
+    if(el.name==='연락처' && v && !isPhone(v)) return setErr(el, MSG.phone);
+    if(el.type==='email' && v && !isEmail(v)) return setErr(el, MSG.email);
+    if(el.name==='Link channel utama' && v && !isUrl(v)) return setErr(el, MSG.url);
+    return setErr(el,'');
+  }
+  var targets=[].slice.call(f.querySelectorAll('input[required],textarea[required],select[required],input[type=email],input[data-req]'));
+  targets.sort(function(a,b){ return a.compareDocumentPosition(b)&2?1:-1; });
+  targets.forEach(function(el){
+    ['blur','input','change'].forEach(function(ev){ el.addEventListener(ev,function(){ if(ev==='blur'?(el.value||el.getAttribute('aria-invalid')):el.getAttribute('aria-invalid')) check(el); }); });
+  });
+  [].forEach.call(f.querySelectorAll('.cr-chips'),function(g){
+    var hid=document.getElementById(g.getAttribute('data-target'));
+    [].forEach.call(g.querySelectorAll('.cc'),function(c){
+      c.setAttribute('role','checkbox'); c.setAttribute('tabindex','0'); c.setAttribute('aria-checked','false');
+      c.addEventListener('click',function(){ c.classList.toggle('active'); c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false');
+        hid.value=[].map.call(g.querySelectorAll('.cc.active'),function(x){ return x.getAttribute('data-v'); }).join(', ');
+        if(hid.getAttribute('aria-invalid')) check(hid); });
+      c.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); c.click(); } });
+    });
+  });
+  var topErr=f.querySelector('.cf-top-err');
+  function done(){ var ok=document.getElementById('cfDone'); if(!ok) return; f.hidden=true; ok.hidden=false; ok.focus(); ok.scrollIntoView({block:'center'}); }
+  if(/[?&]sent=1/.test(location.search)) done();
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=targets.filter(function(el){ return !check(el); });
+    if(bad.length){ if(topErr){ topErr.textContent=MSG.top; topErr.hidden=false; }
+      var b0=bad[0]; if(b0.type==='hidden'){ var g=f.querySelector('[data-target="'+b0.id+'"] .cc'); if(g) g.focus(); } else b0.focus(); return; }
+    if(topErr) topErr.hidden=true;
+    if(f._honey && f._honey.value){ done(); return; }
+    var btn=f.querySelector('.cf-submit'), label=btn.textContent; btn.disabled=true; btn.textContent=MSG.sending;
+    var g=function(n){ var el=f.elements[n]; return el? (el.value||'').trim() : ''; };
+    var lang=(document.documentElement.lang||'ko').slice(0,2).toUpperCase(); if(lang==='KO') lang='KR';
+    var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',
+      'Kategori':'Pendaftaran Kreator','언어':lang,'Nama kreator':g('Nama kreator'),'Link channel utama':g('Link channel utama'),'Platform':g('Platform'),'Jumlah followers':g('Jumlah followers'),
+      'Negara aktivitas':g('Negara aktivitas'),'Kategori':g('Kategori'),'Tentang Anda':g('Tentang Anda'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+    /* 접수 기록은 상담 신청서와 같은 시트 — 칸을 맞춰 보내고 「방향」 칸을 「크리에이터 지원」으로 구분 */
+    var row={lang:lang,brand:'[Kreator] '+mail['Nama kreator'],link:mail['Link channel utama'],dir:'Pendaftaran Kreator',countries:mail['Negara aktivitas'],
+      channel:mail['Platform']+' · '+mail['Jumlah followers'],concern:mail['Kategori'],goal:mail['Tentang Anda'],timing:'',budget:'',
+      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
+    var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
+    var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
+    var s=post(STORE,row).then(function(){ return true; });
+    /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
+    var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_creators',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({handle:mail['Nama kreator'],channel_url:mail['Link channel utama'],platforms:arr(mail['Platform']),followers:mail['Jumlah followers'],country:mail['Negara aktivitas'],
+        categories:arr(mail['Kategori']),intro:mail['Tentang Anda']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
+    Promise.allSettled([a,s,db]).then(function(rs){
+      if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
+      else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
+    });
+  });
 })();
 </script>
 </body></html>
