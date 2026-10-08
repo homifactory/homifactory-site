@@ -418,7 +418,8 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
 .team-section .strategy-head p{font-size:16px;color:#3A3A42;font-weight:600;word-break:keep-all}
-.team-section .strategy-stats{margin-top:0;background:#FAF7F2}
+.team-section .strategy-stats{margin-top:0;background:#FAF7F2;grid-template-columns:repeat(3,1fr);max-width:960px;margin-left:auto;margin-right:auto}
+@media(max-width:900px){.team-section .strategy-stats{grid-template-columns:1fr}}
 .team-section .ind-tk::before{background:linear-gradient(to right,#fff,rgba(255,255,255,0))}
 .team-section .ind-tk::after{background:linear-gradient(to left,#fff,rgba(255,255,255,0))}
 .strategy-stat .lbl b{color:#8B3DFF;font-weight:800}
@@ -610,7 +611,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -622,7 +623,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/en/market/trend-report.html">2026 Global Marketing Trend Report · See country-by-country strategies first <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
     <picture><source media="(max-width:768px)" srcset="/assets/hero/market-hero-20261007-poster-m.jpg"><img class="hv-poster" src="/assets/hero/market-hero-20261007-poster.jpg" alt="" fetchpriority="high" decoding="async"></picture>
@@ -669,7 +670,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> How we work</span>
 <h2>Strategy tailored to your brand,<br><em>proven by results</em></h2>
-<p>What matters isn’t the size of your budget — it’s which IP, which plan, and which results.<br>We become one team with your brand and design everything together, start to finish.</p>
+<p>What matters isn’t the size of the budget, but which IP, which plan, and what results you aim for.<br>We design it with your brand from start to finish.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
@@ -693,19 +694,18 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 </section>
 
-<!-- ③-2 한 팀으로 만든 결과 · 숫자 4개 + 업종 줄 — FR-MKT-028·041 -->
+<!-- ③-2 카테고리별로 검증한 크리에이터 · 숫자 3개 + 업종 줄 — FR-MKT-028·041 (v143: 「한 팀」은 히어로에만, 재계약률 카드 삭제) -->
 <section class="strategy-section team-section" id="team-result">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> Results we built as one team</span>
-<h2>We work as <em>one team</em> with your brand</h2>
+<span class="strategy-badge"><span class="star">✦</span> Results we built together</span>
+<h2>We work with <em>vetted creators</em> in every category</h2>
 <p>For every brand category, we directly manage and connect the creators who deliver the best results</p>
 </div>
 <div class="strategy-stats">
 <div class="strategy-stat"><div class="st-k">Partner creators</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">Full network · <b>12,000+</b> under direct contract, managed by category</div></div>
 <div class="strategy-stat"><div class="st-k">Global hubs</div><div class="num"><span class="cu" data-to="8">8</span><span class="u"> hubs</span></div><div class="lbl">A worldwide network, starting with our Japan and Indonesia offices</div></div>
 <div class="strategy-stat hl"><div class="st-k">Brands we worked with in 2026</div><div class="num"><span class="cu" data-to="62">62</span>+</div><div class="lbl">Brands whose challenges we heard and whose goals we set together</div></div>
-<div class="strategy-stat"><div class="st-k">Renewal rate</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">Share of brands that come back after working with us once</div></div>
 </div>
 </div>
 <div class="industry-strip"><h3>Whatever the industry, we plan in your brand’s own language</h3>
@@ -713,36 +713,10 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 </section>
 
-<!-- ④ 리스트가 아니라 플랜 -->
-<section class="plan-section" id="plan-section">
-  <div class="plan-wrap">
-    <div class="plan-head"><h2>Not a list —<br><em>a plan that sells</em></h2></div>
-    <div class="pl-cmp">
-      <div class="pl-usual">
-        <span class="pl-tag">The usual way</span>
-        <h3>You get a list — and the choosing is left to you</h3>
-        <ol class="pl-dim"><li><b>01</b>Receive an influencer list</li><li><b>02</b>Pick them yourself</li><li><b>03</b>Results are up to you</li></ol>
-      </div>
-      <div class="pl-vs" aria-hidden="true">VS</div>
-      <div class="pl-homi">
-        <span class="pl-tag on">HOMI MARKET</span>
-        <h3>Built around your brand’s needs and goals, <em>we design and propose your strategy on 4 criteria</em></h3>
-        <p class="pl-sub">Which country, whom, and why — we go all the way to sales as one team with your brand</p>
-        <div class="pl-cards">
-      <figure class="pl-card"><div class="pl-ph" data-slot="0"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>01</b>Set the goal</div></div><figcaption>First decide what to achieve: awareness, sales, or retail entry</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="1"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>02</b>Choose market &amp; target</div></div><figcaption>Choose which country and which consumers to reach</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="2"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><path d="M17 13v8M13 17h8"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>03</b>Combine the methods</div></div><figcaption>Pick influencers, pop-ups, sponsorships and content production to fit the goal</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="3"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>04</b>Set success criteria</div></div><figcaption>Agree from day one on what we will measure in numbers</figcaption></figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section gray hp-section" id="partner">
   <div class="section-inner">
     <div class="section-head reveal hp-head">
-      <h2>Let us be your brand’s <span class="hl">global expansion partner</span></h2>
+      <h2>A <span class="hl">dedicated manager</span> for each industry and country</h2>
       <p>Tell us your challenge, and a manager specialized in your field will work with you from strategy to local execution.<br>So your brand team can focus only on the decisions that matter.</p>
     </div>
     <div class="hp-grid">
@@ -760,43 +734,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </div>
 </section>
 
-<section class="section pt6" id="points">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <h2>Until you hit your goals, <span class="hl">we’ve got your back</span></h2>
-    </div>
-    <div class="pt6-list">
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 1</div><h3 data-k="pt1.t">We propose the strategy that fits your goals first</h3><p data-k="pt1.d">We hand you our recommendation together with the reasons behind it</p><a href="/en/market/contact.html" class="pt6-cta">Free Consultation →</a></div>
-        <div class="pt6-img" data-img="pt1"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<circle cx="150" cy="78" r="26" fill="#2E2940"/><path d="M104 168c4-36 24-56 46-56s42 20 46 56" fill="#2E2940"/>
-<g transform="rotate(-4 330 100)"><rect x="236" y="34" width="190" height="132" rx="10" fill="#F4F0FA"/>
-<rect x="254" y="54" width="70" height="10" rx="5" fill="#B98CFF"/><rect x="254" y="74" width="44" height="18" rx="9" fill="#E3D4FF"/><rect x="304" y="74" width="56" height="18" rx="9" fill="#E3D4FF"/><rect x="366" y="74" width="40" height="18" rx="9" fill="#E3D4FF"/>
-<rect x="254" y="104" width="154" height="44" rx="8" fill="#fff" stroke="#8B3DFF" stroke-width="2"/><rect x="266" y="116" width="96" height="7" rx="3.5" fill="#C9C2D6"/><rect x="266" y="130" width="120" height="7" rx="3.5" fill="#C9C2D6"/></g>
-<path d="M190 120c20-6 34-8 52-6" stroke="#B98CFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="470" cy="56" r="7" fill="#FFC53D"/><circle cx="494" cy="150" r="4" fill="#B98CFF"/></svg></div>
-      </div>
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 2</div><h3 data-k="pt2.t">We don’t stop at awareness</h3><p data-k="pt2.d">We connect all the way to local sales</p><a href="/en/market/contact.html" class="pt6-cta">Free Consultation →</a></div>
-        <div class="pt6-img" data-img="pt2"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<rect x="60" y="30" width="86" height="148" rx="14" fill="#2E2940"/><rect x="68" y="44" width="70" height="114" rx="6" fill="#8B3DFF" opacity=".75"/><path d="M96 88l22 13-22 13z" fill="#fff"/>
-<path d="M164 104h60" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M220 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
-<rect x="244" y="52" width="130" height="104" rx="12" fill="#F4F0FA"/><rect x="244" y="52" width="130" height="24" rx="12" fill="#E3D4FF"/><rect x="258" y="88" width="42" height="42" rx="6" fill="#D9C4FF"/><rect x="308" y="90" width="52" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="106" width="36" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="122" width="44" height="12" rx="6" fill="#8B3DFF"/>
-<path d="M390 104h50" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M436 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
-<path d="M462 92l34-18 34 18v46l-34 18-34-18z" fill="#FFC53D"/><path d="M462 92l34 18 34-18M496 110v46" stroke="#1E1B26" stroke-width="2" fill="none" opacity=".35"/></svg></div>
-      </div>
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 3</div><h3 data-k="pt3.t">We show you the numbers</h3><p data-k="pt3.d">We report results against the goal we set</p><a href="/en/market/contact.html" class="pt6-cta">Free Consultation →</a></div>
-        <div class="pt6-img" data-img="pt3"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<rect x="60" y="24" width="440" height="152" rx="12" fill="#F4F0FA"/>
-<path d="M90 150h380" stroke="#C9C2D6" stroke-width="2"/><path d="M90 82h380" stroke="#8B3DFF" stroke-width="2" stroke-dasharray="7 6"/>
-<rect x="120" y="104" width="44" height="46" rx="5" fill="#D9C4FF"/><rect x="190" y="92" width="44" height="58" rx="5" fill="#D9C4FF"/><rect x="260" y="74" width="44" height="76" rx="5" fill="#B98CFF"/><rect x="330" y="62" width="44" height="88" rx="5" fill="#8B3DFF"/><rect x="400" y="52" width="44" height="98" rx="5" fill="#8B3DFF"/>
-<circle cx="422" cy="40" r="7" fill="#FFC53D"/><path d="M142 98l70-12 70-20 70-14 70-10" stroke="#FFC53D" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gray" id="directions">
+<section class="section" id="directions">
   <div class="section-inner">
     <div class="section-head reveal">
       <h2 data-k="dir.title">Where do you want to go?</h2>
@@ -881,7 +819,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 <section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal">
-      <h2><span class="hl">Campaigns</span> with HOMI</h2>
+      <h2>Client <span class="hl">cases</span></h2>
     </div>
     <div class="campaign-slider" tabindex="0" aria-label="Cases — swipe left or right">
       <article class="camp reveal"><div class="camp-cover" data-img="c1"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c1.tag1">Korea</span><span class="camp-tag" data-k="c1.tag2">Character IP</span></div></div><div class="camp-body"><h3 data-k="c1.name">Hachuping · Teenieping</h3><p data-k="c1.text">2–3 lines about the campaign — freely editable in the admin</p></div></article>
@@ -1010,14 +948,14 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
       <details class="faq-item"><summary><span class="qtxt" data-k="q6">How do you handle ad disclosure?</span></summary><div class="ans" data-k="a6">We follow each country’s rules — “광고” in Korea, #PR in Japan, #ad in the US — guide creators to label every post, and check after publishing.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q7">Can we use the content in our own ads or product pages?</span></summary><div class="ans" data-k="a7">We agree on the scope and period of use when contracting with creators. If you plan to reuse content for ads or product pages, let us know during the consultation.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q8">How do we see the results?</span></summary><div class="ans" data-k="a8">Based on the goal we set together at the start, we report on reach, engagement and sales conversion, and propose the direction for your next campaign.</div></details>
-      <details class="faq-item"><summary><span class="qtxt" data-k="q9">What do we need to prepare?</span></summary><div class="ans" data-k="a9">Product materials and the goal you want to reach are enough. It’s fine if you don’t know which country fits. Just fill in what you know on the request form.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q9">What do we need to prepare?</span></summary><div class="ans" data-k="a9">Your product materials and the goals you want to achieve are all we need. It’s fine if you’re not sure which country fits yet. Just fill in the consultation request form with what you know.</div></details>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2 data-k="final.t">Don’t figure out global expansion alone.<br><span class="hl">HOMI MARKET</span> will be your team</h2>
+    <h2 data-k="final.t">Which country to start with —<br><span class="hl">we decide together in consultation</span></h2>
     <a href="/en/market/contact.html" class="big-cta">Free Consultation →</a>
   </div>
 </section>
@@ -1144,7 +1082,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">Our KakaoTalk channel is coming soon. For now, please reach us via <b>Contact us</b>.</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">Hello, this is HOMI MARKET 👋\nGlobal expansion, influencer marketing —\nask us anything.\n\nPick a topic and our team\nwill guide you.</p>'
+      +'<p class="hc-greet">Hello, this is HOMI MARKET.\nWe help with global expansion and\ninfluencer marketing consultations.\n\nChoose a consultation type and our team\nwill guide you.</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'Continue chat ›':'Contact us ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 We reply during business hours':'🌙 We’re currently outside business hours · Leave your contact and we’ll reply when we’re back')+'</p></div>'
       +'<div class="hc-card hc-other"><b>Other ways to reach us</b>'
@@ -1193,11 +1131,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET 👋\nWhat can we help you with?'); }
+    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET.\nWhat can we help you with?'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[Live chat] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });

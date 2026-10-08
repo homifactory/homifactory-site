@@ -281,7 +281,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/trend-report-detail">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/trend-report-detail">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/trend-report-detail">
@@ -293,7 +293,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/en/market/trend-report.html">2026 Global Marketing Trend Report · See country-by-country strategies first <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="trd-head">
   <div class="trd-in">
     <nav class="trd-crumb" aria-label="Breadcrumb"><a href="/en/market/trend-report.html">Trend Report</a> › <span>Influencers</span></nav>
@@ -310,8 +310,8 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="trd-summary">
         <h2>TL;DR in 3 lines</h2>
         <ul>
-          <li>Fewer followers, higher engagement — TikTok Nano 10.3%, Micro 8.7%, Mid-tier 7.5%</li>
-          <li>In Southeast Asia, Mega influencer influence stands at 59%, down 7% from a year ago</li>
+          <li>Fewer followers, higher engagement — TikTok nano 10.3%, micro 8.7%, mid-tier 7.5% (2024)</li>
+          <li>In Southeast Asia, mega influencers’ influence stands at 59%, down 7% from a year earlier (2024)</li>
           <li>Still, the answer isn't "go small" but the mix — each tier plays a different role</li>
         </ul>
       </div>
@@ -622,7 +622,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">Our KakaoTalk channel is coming soon. For now, please reach us via <b>Contact us</b>.</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">Hello, this is HOMI MARKET 👋\nGlobal expansion, influencer marketing —\nask us anything.\n\nPick a topic and our team\nwill guide you.</p>'
+      +'<p class="hc-greet">Hello, this is HOMI MARKET.\nWe help with global expansion and\ninfluencer marketing consultations.\n\nChoose a consultation type and our team\nwill guide you.</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'Continue chat ›':'Contact us ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 We reply during business hours':'🌙 We’re currently outside business hours · Leave your contact and we’ll reply when we’re back')+'</p></div>'
       +'<div class="hc-card hc-other"><b>Other ways to reach us</b>'
@@ -671,11 +671,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET 👋\nWhat can we help you with?'); }
+    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET.\nWhat can we help you with?'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[Live chat] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });

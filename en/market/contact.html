@@ -7,7 +7,7 @@ var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'').t
 var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
 location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project brief · HOMI MARKET</title>
+<title>Consultation Request Form · HOMI MARKET</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -274,7 +274,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/contact">
@@ -286,10 +286,10 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/en/market/trend-report.html">2026 Global Marketing Trend Report · See country-by-country strategies first <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-breadcrumb">Project brief</div>
+    <div class="page-breadcrumb">Consultation Request Form</div>
   </div>
 </section>
 
@@ -301,7 +301,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </aside>
   <div class="contact-right">
     <form id="inquiryForm" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="[HOMI MARKET 의뢰서·EN] 신규 상담 신청">
+      <input type="hidden" name="_subject" value="[HOMI MARKET 상담 신청서·EN] 신규 상담 신청">
       <input type="hidden" name="언어" value="EN">
       <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
@@ -376,12 +376,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </label>
 
       <p class="cf-top-err" role="alert" hidden></p>
-      <button type="submit" class="cf-submit">Send project brief</button>
+      <button type="submit" class="cf-submit">Send consultation request</button>
       <p class="cf-footer-note">Once you submit, you’ll see a confirmation right away, and our team will contact you after reviewing it.</p>
     </form>
     <div id="cfDone" class="cf-done" tabindex="-1" hidden>
       <div class="cf-done-ic" aria-hidden="true">✓</div>
-      <h3>Your project brief has been received</h3>
+      <h3>Your consultation request has been received</h3>
       <p>Our team will review your submission and contact you by phone or email during business hours (weekdays 10:00~22:00).</p>
       <p>For urgent inquiries, please call <a href="tel:01040262695">010-4026-2695</a>.</p>
       <a href="/en/market/" class="cf-done-btn">Back to Home</a>
@@ -529,7 +529,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">Our KakaoTalk channel is coming soon. For now, please reach us via <b>Contact us</b>.</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">Hello, this is HOMI MARKET 👋\nGlobal expansion, influencer marketing —\nask us anything.\n\nPick a topic and our team\nwill guide you.</p>'
+      +'<p class="hc-greet">Hello, this is HOMI MARKET.\nWe help with global expansion and\ninfluencer marketing consultations.\n\nChoose a consultation type and our team\nwill guide you.</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'Continue chat ›':'Contact us ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 We reply during business hours':'🌙 We’re currently outside business hours · Leave your contact and we’ll reply when we’re back')+'</p></div>'
       +'<div class="hc-card hc-other"><b>Other ways to reach us</b>'
@@ -578,11 +578,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET 👋\nWhat can we help you with?'); }
+    if(!st.msgs.length){ push('bot','Hello, this is HOMI MARKET.\nWhat can we help you with?'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[Live chat] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });
@@ -652,7 +661,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 <script id="cf-js">
-/* FR-COM-008·009 의뢰서 공통 동작 — 칸 아래 안내, 형식 검사, 동의 필수, 완료 안내, 이메일 알림(FormSubmit), 접수 기록(Make → 구글 시트), 스팸 방지(숨은 칸) */
+/* FR-COM-008·009 상담 신청서 공통 동작 — 칸 아래 안내, 형식 검사, 동의 필수, 완료 안내, 이메일 알림(FormSubmit), 접수 기록(Make → 구글 시트), 스팸 방지(숨은 칸) */
 (function(){
   var f=document.getElementById('inquiryForm'); if(!f) return;
   var MAIL='https://formsubmit.co/ajax/support@homifactory.com';
@@ -725,7 +734,12 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
     var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
     var s=post(STORE,row).then(function(){ return true; });
-    Promise.allSettled([a,s]).then(function(rs){
+    /* 통합 관리자 문의함(Supabase com_inquiries) — FR-COM-019 */
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'inquiry',name:row.name,phone:row.phone,email:row.email,summary:row.brand,lang:lang,page:row.page,
+        data:{'브랜드 링크':row.link,'방향':row.dir,'진출 국가·시장':row.countries,'지금 가장 큰 고민':row.concern,'이루고 싶은 목표':row.goal,'현재 판매 채널':row.channel,'원하는 시기':row.timing,'예산 범위':row.budget}})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
+    Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })){ done(); }
       else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
     });
