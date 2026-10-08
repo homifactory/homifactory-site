@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/about">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/about">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/about">
@@ -221,21 +221,21 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <link rel="alternate" hreflang="x-default" href="https://homifactory.com/market/about">
 </head>
 <body data-site="market" data-header="fixed" data-tb="nocomp">
-<div class="renewal-banner">호미 MARKET 오픈 준비 중 · 브랜드의 성장을 만드는 ALL IN ONE 마케팅</div>
+<div class="renewal-banner">HOMI MARKET 오픈 준비 중 · 브랜드의 성장을 만드는 ALL IN ONE 마케팅</div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-eyebrow reveal">ABOUT</div>
     <h1 class="reveal">브랜드의 성장을 만드는<br><span style="color:var(--primary)">ALL IN ONE 마케팅</span> 팀</h1>
-    <p class="reveal">한 고객 한 고객과 함께 만든 결과가 오늘의 호미 MARKET을 만들었습니다.</p>
+    <p class="reveal">한 고객 한 고객과 함께 만든 결과가 오늘의 HOMI MARKET을 만들었습니다.</p>
   </div>
 </section>
 <section class="sect">
   <div class="sect-inner">
     <div class="about-block reveal">
       <h3>WHO WE ARE</h3>
-      <h2>호미 MARKET은 브랜드의 마케팅 팀입니다</h2>
+      <h2>HOMI MARKET은 브랜드의 마케팅 팀입니다</h2>
       <p>인플루언서 리스트를 파는 회사가 아니라, <strong>고민을 듣고 목표를 이룰 플랜을 함께 설계하는 팀</strong>입니다. 배포로 끝내지 않고, 만든 콘텐츠를 커머스 · 광고 · 브랜드 채널로 이어 붙이는 것까지 함께합니다.</p>
     </div>
     <div class="about-block reveal">
@@ -367,7 +367,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">카카오톡 채널을 준비하고 있어요. 지금은 <b>문의하기</b>로 남겨 주세요.</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">안녕하세요, HOMI MARKET입니다 👋\n해외 진출·인플루언서 마케팅, 무엇이든\n편하게 물어보세요.\n\n상담 유형을 고르시면 담당자가\n안내해 드립니다.</p>'
+      +'<p class="hc-greet">안녕하세요, HOMI MARKET입니다.\n해외 진출·인플루언서 마케팅 상담을\n도와드립니다.\n\n상담 유형을 고르시면 담당자가\n안내해 드립니다.</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'대화 이어가기 ›':'문의하기 ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 운영시간 안에 답변 드려요':'🌙 지금은 운영시간이 아니에요 · 연락처를 남기시면 다음 운영시간에 답변드려요')+'</p></div>'
       +'<div class="hc-card hc-other"><b>다른 방법으로 문의</b>'
@@ -416,11 +416,20 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','안녕하세요, HOMI MARKET입니다 👋\n어떤 상담이 필요하신가요?'); }
+    if(!st.msgs.length){ push('bot','안녕하세요, HOMI MARKET입니다.\n어떤 상담이 필요하신가요?'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[실시간 상담] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });

@@ -418,7 +418,8 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
 .team-section .strategy-head p{font-size:16px;color:#3A3A42;font-weight:600;word-break:keep-all}
-.team-section .strategy-stats{margin-top:0;background:#FAF7F2}
+.team-section .strategy-stats{margin-top:0;background:#FAF7F2;grid-template-columns:repeat(3,1fr);max-width:960px;margin-left:auto;margin-right:auto}
+@media(max-width:900px){.team-section .strategy-stats{grid-template-columns:1fr}}
 .team-section .ind-tk::before{background:linear-gradient(to right,#fff,rgba(255,255,255,0))}
 .team-section .ind-tk::after{background:linear-gradient(to left,#fff,rgba(255,255,255,0))}
 .strategy-stat .lbl b{color:#8B3DFF;font-weight:800}
@@ -610,7 +611,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/">
@@ -622,7 +623,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/market/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="hero hv" id="hero">
   <div class="hv-media" aria-hidden="true">
     <picture><source media="(max-width:768px)" srcset="/assets/hero/market-hero-20261007-poster-m.jpg"><img class="hv-poster" src="/assets/hero/market-hero-20261007-poster.jpg" alt="" fetchpriority="high" decoding="async"></picture>
@@ -669,7 +670,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> 우리가 일하는 방식</span>
 <h2>결과로 말하는,<br><em>브랜드 맞춤형 전략 설계</em></h2>
-<p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br>브랜드와 한 팀이 되어 처음부터 끝까지 함께 설계합니다.</p>
+<p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br>처음부터 끝까지 브랜드와 함께 설계합니다.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
@@ -693,19 +694,18 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 </section>
 
-<!-- ③-2 한 팀으로 만든 결과 · 숫자 4개 + 업종 줄 — FR-MKT-028·041 -->
+<!-- ③-2 카테고리별로 검증한 크리에이터 · 숫자 3개 + 업종 줄 — FR-MKT-028·041 (v143: 「한 팀」은 히어로에만, 재계약률 카드 삭제) -->
 <section class="strategy-section team-section" id="team-result">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> 한 팀으로 만든 결과</span>
-<h2>브랜드와 <em>한 팀</em>이 되어 일합니다</h2>
+<span class="strategy-badge"><span class="star">✦</span> 함께 만든 결과</span>
+<h2>카테고리별로 <em>검증한 크리에이터</em>와 일합니다</h2>
 <p>브랜드 카테고리마다 가장 효율이 좋은 크리에이터를 직접 관리하고 연결합니다</p>
 </div>
 <div class="strategy-stats">
 <div class="strategy-stat"><div class="st-k">협업 크리에이터</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">전체 네트워크 · 그중 <b>12,000+</b> 명과 직접 계약해 카테고리별로 관리</div></div>
 <div class="strategy-stat"><div class="st-k">글로벌 거점</div><div class="num"><span class="cu" data-to="8">8</span><span class="u">곳</span></div><div class="lbl">일본·인도네시아 지사를 시작으로 세계 각국의 네트워크</div></div>
 <div class="strategy-stat hl"><div class="st-k">2026 함께한 브랜드</div><div class="num"><span class="cu" data-to="62">62</span>+</div><div class="lbl">고민을 듣고, 목표를 함께 세운 브랜드</div></div>
-<div class="strategy-stat"><div class="st-k">재계약률</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">한 번 함께한 브랜드가 다시 찾는 비율</div></div>
 </div>
 </div>
 <div class="industry-strip"><h3>어떤 업종이든, 그 브랜드의 언어로 기획합니다</h3>
@@ -713,36 +713,10 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 </section>
 
-<!-- ④ 리스트가 아니라 플랜 -->
-<section class="plan-section" id="plan-section">
-  <div class="plan-wrap">
-    <div class="plan-head"><h2>리스트가 아니라,<br><em>팔리는 플랜</em>을 드립니다</h2></div>
-    <div class="pl-cmp">
-      <div class="pl-usual">
-        <span class="pl-tag">보통의 방식</span>
-        <h3>리스트만 받고, 고르는 건 고객 몫</h3>
-        <ol class="pl-dim"><li><b>01</b>인플루언서 목록 받기</li><li><b>02</b>고객이 직접 고르기</li><li><b>03</b>결과는 알아서</li></ol>
-      </div>
-      <div class="pl-vs" aria-hidden="true">VS</div>
-      <div class="pl-homi">
-        <span class="pl-tag on">호미 MARKET</span>
-        <h3>브랜드의 니즈와 목표에 맞춰, <em>4가지 기준으로 전략을 설계해 제안합니다</em></h3>
-        <p class="pl-sub">어느 나라, 누구를, 왜 — 판매까지 브랜드와 한 팀으로 갑니다</p>
-        <div class="pl-cards">
-      <figure class="pl-card"><div class="pl-ph" data-slot="0"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>01</b>목표 정하기</div></div><figcaption>인지도·판매·입점 중 무엇을 이룰지 먼저 정합니다</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="1"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>02</b>시장·타깃 고르기</div></div><figcaption>어느 나라, 어떤 소비자에게 닿을지 고릅니다</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="2"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><path d="M17 13v8M13 17h8"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>03</b>방식 조합하기</div></div><figcaption>인플루언서·팝업·협찬·콘텐츠 제작을 목표에 맞게 선택합니다</figcaption></figure>
-      <figure class="pl-card"><div class="pl-ph" data-slot="3"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>04</b>성과 기준 세우기</div></div><figcaption>무엇을 숫자로 확인할지 처음부터 약속합니다</figcaption></figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section gray hp-section" id="partner">
   <div class="section-inner">
     <div class="section-head reveal hp-head">
-      <h2>브랜드의 <span class="hl">해외 진출 파트너</span>가 되어 드리겠습니다</h2>
+      <h2>업종·국가별 <span class="hl">전담 매니저</span>가 맡습니다</h2>
       <p>고민을 들려주시면, 해당 분야 전문 매니저가 전략부터 현지 실행까지 함께합니다.<br>브랜드 담당자는 중요한 결정에만 집중하실 수 있도록.</p>
     </div>
     <div class="hp-grid">
@@ -760,43 +734,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </div>
 </section>
 
-<section class="section pt6" id="points">
-  <div class="section-inner">
-    <div class="section-head reveal">
-      <h2>목표 달성까지, <span class="hl">든든한 서포터</span>가 되겠습니다</h2>
-    </div>
-    <div class="pt6-list">
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 1</div><h3 data-k="pt1.t">목표에 맞는 전략을 먼저 제안합니다</h3><p data-k="pt1.d">추천안과 그렇게 짠 이유까지 함께 드립니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
-        <div class="pt6-img" data-img="pt1"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<circle cx="150" cy="78" r="26" fill="#2E2940"/><path d="M104 168c4-36 24-56 46-56s42 20 46 56" fill="#2E2940"/>
-<g transform="rotate(-4 330 100)"><rect x="236" y="34" width="190" height="132" rx="10" fill="#F4F0FA"/>
-<rect x="254" y="54" width="70" height="10" rx="5" fill="#B98CFF"/><rect x="254" y="74" width="44" height="18" rx="9" fill="#E3D4FF"/><rect x="304" y="74" width="56" height="18" rx="9" fill="#E3D4FF"/><rect x="366" y="74" width="40" height="18" rx="9" fill="#E3D4FF"/>
-<rect x="254" y="104" width="154" height="44" rx="8" fill="#fff" stroke="#8B3DFF" stroke-width="2"/><rect x="266" y="116" width="96" height="7" rx="3.5" fill="#C9C2D6"/><rect x="266" y="130" width="120" height="7" rx="3.5" fill="#C9C2D6"/></g>
-<path d="M190 120c20-6 34-8 52-6" stroke="#B98CFF" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="470" cy="56" r="7" fill="#FFC53D"/><circle cx="494" cy="150" r="4" fill="#B98CFF"/></svg></div>
-      </div>
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 2</div><h3 data-k="pt2.t">알리고 끝내지 않습니다</h3><p data-k="pt2.d">현지 판매까지 연결합니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
-        <div class="pt6-img" data-img="pt2"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<rect x="60" y="30" width="86" height="148" rx="14" fill="#2E2940"/><rect x="68" y="44" width="70" height="114" rx="6" fill="#8B3DFF" opacity=".75"/><path d="M96 88l22 13-22 13z" fill="#fff"/>
-<path d="M164 104h60" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M220 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
-<rect x="244" y="52" width="130" height="104" rx="12" fill="#F4F0FA"/><rect x="244" y="52" width="130" height="24" rx="12" fill="#E3D4FF"/><rect x="258" y="88" width="42" height="42" rx="6" fill="#D9C4FF"/><rect x="308" y="90" width="52" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="106" width="36" height="8" rx="4" fill="#C9C2D6"/><rect x="308" y="122" width="44" height="12" rx="6" fill="#8B3DFF"/>
-<path d="M390 104h50" stroke="#B98CFF" stroke-width="3" stroke-dasharray="6 6" fill="none"/><path d="M436 96l10 8-10 8" stroke="#B98CFF" stroke-width="3" fill="none"/>
-<path d="M462 92l34-18 34 18v46l-34 18-34-18z" fill="#FFC53D"/><path d="M462 92l34 18 34-18M496 110v46" stroke="#1E1B26" stroke-width="2" fill="none" opacity=".35"/></svg></div>
-      </div>
-      <div class="pt6-row reveal">
-        <div class="pt6-txt"><div class="pt6-lb">POINT 3</div><h3 data-k="pt3.t">숫자로 보여드립니다</h3><p data-k="pt3.d">목표 대비 결과를 리포트로 정리해 드립니다</p><a href="/market/contact.html" class="pt6-cta">무료 상담 받기 →</a></div>
-        <div class="pt6-img" data-img="pt3"><svg viewBox="0 0 560 200" aria-hidden="true"><rect width="560" height="200" fill="#1E1B26"/>
-<rect x="60" y="24" width="440" height="152" rx="12" fill="#F4F0FA"/>
-<path d="M90 150h380" stroke="#C9C2D6" stroke-width="2"/><path d="M90 82h380" stroke="#8B3DFF" stroke-width="2" stroke-dasharray="7 6"/>
-<rect x="120" y="104" width="44" height="46" rx="5" fill="#D9C4FF"/><rect x="190" y="92" width="44" height="58" rx="5" fill="#D9C4FF"/><rect x="260" y="74" width="44" height="76" rx="5" fill="#B98CFF"/><rect x="330" y="62" width="44" height="88" rx="5" fill="#8B3DFF"/><rect x="400" y="52" width="44" height="98" rx="5" fill="#8B3DFF"/>
-<circle cx="422" cy="40" r="7" fill="#FFC53D"/><path d="M142 98l70-12 70-20 70-14 70-10" stroke="#FFC53D" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section gray" id="directions">
+<section class="section" id="directions">
   <div class="section-inner">
     <div class="section-head reveal">
       <h2 data-k="dir.title">어디로 가고 싶으세요?</h2>
@@ -881,7 +819,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 <section class="section" id="case"><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal">
-      <h2>호미와 <span class="hl">함께한 캠페인</span></h2>
+      <h2>고객 <span class="hl">사례</span></h2>
     </div>
     <div class="campaign-slider" tabindex="0" aria-label="사례 — 좌우로 넘겨 보세요">
       <article class="camp reveal"><div class="camp-cover" data-img="c1"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c1.tag1">국내</span><span class="camp-tag" data-k="c1.tag2">캐릭터 IP</span></div></div><div class="camp-body"><h3 data-k="c1.name">하츄핑·티니핑</h3><p data-k="c1.text">어떤 캠페인이었는지 2~3줄 — 관리자에서 자유롭게 입력</p></div></article>
@@ -1010,14 +948,14 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
       <details class="faq-item"><summary><span class="qtxt" data-k="q6">광고 표기는 어떻게 하나요?</span></summary><div class="ans" data-k="a6">나라마다 정해진 규칙에 맞춰 표기합니다. 한국은 「광고」, 일본은 #PR, 미국은 #ad처럼 크리에이터가 빠짐없이 표기하도록 안내하고 게시 후 확인합니다.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q7">만든 콘텐츠를 우리 광고나 상세페이지에 써도 되나요?</span></summary><div class="ans" data-k="a7">크리에이터와 계약할 때 사용 범위와 기간을 미리 정합니다. 광고 소재나 상세페이지로 다시 쓸 계획이 있다면 상담 때 말씀해 주세요.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q8">결과는 어떻게 확인하나요?</span></summary><div class="ans" data-k="a8">처음 함께 정한 목표를 기준으로 노출, 반응, 판매 전환을 정리한 리포트를 드리고, 다음 캠페인 방향까지 함께 제안합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt" data-k="q9">무엇을 준비하면 되나요?</span></summary><div class="ans" data-k="a9">제품 소개 자료와 이루고 싶은 목표면 충분합니다. 어느 나라가 맞을지 몰라도 괜찮습니다. 의뢰서에 아는 만큼만 적어 주세요.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q9">무엇을 준비하면 되나요?</span></summary><div class="ans" data-k="a9">제품 소개 자료와 이루고 싶은 목표면 충분합니다. 어느 나라가 맞을지 몰라도 괜찮습니다. 상담 신청서에 아는 만큼만 적어 주세요.</div></details>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="final-cta-inner">
-    <h2 data-k="final.t">해외 진출, 혼자 고민하지 마세요.<br><span class="hl">호미 MARKET</span>이 한 팀이 되어 드립니다</h2>
+    <h2 data-k="final.t">어느 나라부터 시작할지,<br><span class="hl">상담에서 함께 정합니다</span></h2>
     <a href="/market/contact.html" class="big-cta">무료 상담 받기 →</a>
   </div>
 </section>
@@ -1144,7 +1082,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">카카오톡 채널을 준비하고 있어요. 지금은 <b>문의하기</b>로 남겨 주세요.</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">안녕하세요, HOMI MARKET입니다 👋\n해외 진출·인플루언서 마케팅, 무엇이든\n편하게 물어보세요.\n\n상담 유형을 고르시면 담당자가\n안내해 드립니다.</p>'
+      +'<p class="hc-greet">안녕하세요, HOMI MARKET입니다.\n해외 진출·인플루언서 마케팅 상담을\n도와드립니다.\n\n상담 유형을 고르시면 담당자가\n안내해 드립니다.</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'대화 이어가기 ›':'문의하기 ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 운영시간 안에 답변 드려요':'🌙 지금은 운영시간이 아니에요 · 연락처를 남기시면 다음 운영시간에 답변드려요')+'</p></div>'
       +'<div class="hc-card hc-other"><b>다른 방법으로 문의</b>'
@@ -1193,11 +1131,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','안녕하세요, HOMI MARKET입니다 👋\n어떤 상담이 필요하신가요?'); }
+    if(!st.msgs.length){ push('bot','안녕하세요, HOMI MARKET입니다.\n어떤 상담이 필요하신가요?'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[실시간 상담] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });
