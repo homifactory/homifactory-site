@@ -282,3 +282,13 @@ html.p-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .p-btn.is-off{border-color:var(--p-line-2);color:var(--p-muted);cursor:not-allowed}
 .p-btn.is-off:hover{background:none;color:var(--p-muted)}
+/* STUDIO 사진 크게 보기 */
+.p-zoom{display:block;width:100%;height:100%;padding:0;border:0;cursor:zoom-in}
+.p-zoom img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.p-zoom:hover img{opacity:.88} .p-zoom:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.p-studio-video .p-photo img{width:100%;height:100%;object-fit:cover}
+.p-lb{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 20px 24px}
+.p-lb[hidden]{display:none}
+.p-lb img{max-width:min(1400px,100%);max-height:calc(100vh - 130px);object-fit:contain}
+.p-lb-cap{margin-top:12px;font-size:13.5px;color:var(--p-ink-2)}
+.p-lb-x{position:absolute;top:14px;right:18px;width:44px;height:44px;font-size:22px;color:#fff}
