@@ -3,6 +3,10 @@
    ② 문의폼 공통 동작 + 스팸 방지 (FR-COM-008·009)
    ③ Home 히어로 배경 영상 (FR-COM-015) */
 (function () {
+  /* 어두운 머리줄: 흰색 심볼 로고로 바꿔 끼움 */
+  function whiteLogo(){var im=document.querySelector('.hh[data-site="factory"] .hh-logo img');if(im&&im.src.indexOf('logo-symbol-white')<0){im.src='/assets/logo-symbol-white.png';return true}return !!im}
+  if(!whiteLogo()){document.addEventListener('DOMContentLoaded',whiteLogo);setTimeout(whiteLogo,600)}
+
   'use strict';
 
   /* ── ① 지금 보고 있는 Business 하위 페이지 ── */

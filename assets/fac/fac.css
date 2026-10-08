@@ -27,7 +27,8 @@ body.fx :focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 
 /* ── 헤더: 공통 컴포넌트를 검정·흰 글씨·라임으로 (FR-COM-001) ── */
 .hh[data-site="factory"]{--hh-bg:#0B0B0D;--hh-ink:#FFFFFF;--hh-muted:rgba(255,255,255,.6);--hh-line:rgba(255,255,255,.08);--hh-accent:#D7FF3C;--hh-accent-hover:#C6F02A;--hh-accent-soft:#1C1C22;--hh-on-accent:#0B0B0D}
-.hh[data-site="factory"] .hh-logo img{display:none}
+.hh[data-site="factory"] .hh-logo{gap:10px}
+.hh[data-site="factory"] .hh-logo img{display:block;width:24px;height:auto;content:url(/assets/logo-symbol-white.png)}
 .hh[data-site="factory"] .hh-logo-text{font-family:var(--fe);font-size:17px;font-weight:900;letter-spacing:.14em;color:#fff}
 .hh[data-site="factory"] .hh-link{font-size:14px;font-weight:600;color:rgba(255,255,255,.72)}
 .hh[data-site="factory"] .hh-link:hover,.hh[data-site="factory"] .hh-link.is-current{color:#fff}
@@ -222,7 +223,7 @@ body.fx :focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 .x-side dt{font-family:var(--fe);font-size:11.5px;font-weight:800;letter-spacing:.24em;color:var(--lime)}
 .x-side dd{margin:6px 0 0;font-size:15.5px;font-weight:600}
 .x-map{margin-top:30px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--k1);border:1px solid var(--ln)}
-.x-map iframe{width:100%;height:100%;border:0;filter:grayscale(.9) invert(.92) contrast(.9)}
+.x-map iframe{width:100%;height:100%;border:0}
 /* 공통 의뢰서 동작 스타일 덮어쓰기 (어두운 바탕) */
 body.fx .cf-err{color:#FF7A6B}
 body.fx .is-invalid input,body.fx .is-invalid textarea{border-color:#FF7A6B!important;box-shadow:none}
