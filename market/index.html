@@ -395,9 +395,6 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .strategy-stat .num{font-variant-numeric:tabular-nums}
 .strategy-stat .num .u{font-size:.62em;margin-left:2px}
 .strategy-stat .lbl{max-width:220px;margin:10px auto 0}
-/* FR-MKT-028 · Q-68 숫자 카드 아래 한 줄 */
-.strategy-note{text-align:center;margin:22px auto 0;max-width:760px;text-wrap:balance;font-size:15px;line-height:1.7;color:#3A3A42;font-weight:600;word-break:keep-all}
-@media(max-width:600px){.strategy-note{font-size:14px;padding:0 6px}}
 .strategy-section .industry-strip h3{color:#8B3DFF;font-weight:700;font-size:17px}
 .ind-tk{position:relative;overflow:hidden;border-top:1px solid #E6E0D6;border-bottom:1px solid #E6E0D6;padding:16px 0;max-width:1200px;margin:0 auto}
 .ind-tk::before,.ind-tk::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
@@ -409,6 +406,26 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 /* FR-MKT-008 ③ PLAN 안의 도구 */
 .plan-tools{margin-top:auto;padding-top:16px;border-top:1px dashed #E6E0D6}
 .strategy-card .svc-chips{margin-bottom:16px}
+/* ③-1 IP→PLAN→RESULT 원 아이콘 흐름 */
+.strategy-card{position:relative;text-align:center;align-items:center}
+.strategy-card .kw-ic{width:72px;height:72px;border-radius:50%;background:#F3ECFF;border:1px solid #D9C4FF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.strategy-card .kw-ic svg{width:32px;height:32px;fill:none;stroke:#8B3DFF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.strategy-card .svc-chips{justify-content:center}
+.strategy-card .plan-tools{text-align:left;align-self:stretch}
+@media(min-width:901px){.strategy-card:not(:last-child)::after{content:"";position:absolute;right:-17px;top:70px;width:14px;height:14px;border-top:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+@media(max-width:900px){.strategy-card:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-15px;width:12px;height:12px;margin-left:-6px;border-bottom:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+/* ③-2 한 팀으로 만든 결과 */
+.team-section{background:#fff}
+.team-section .strategy-head{margin-bottom:36px}
+.team-section .strategy-head p{font-size:16px;color:#3A3A42;font-weight:600;word-break:keep-all}
+.team-section .strategy-stats{margin-top:0;background:#FAF7F2}
+.team-section .ind-tk::before{background:linear-gradient(to right,#fff,rgba(255,255,255,0))}
+.team-section .ind-tk::after{background:linear-gradient(to left,#fff,rgba(255,255,255,0))}
+.strategy-stat .lbl b{color:#8B3DFF;font-weight:800}
+.strategy-stat.hl{background:#8B3DFF;border-radius:16px;padding:22px 14px;margin:-22px 0;box-shadow:0 14px 30px rgba(139,61,255,.28)}
+.strategy-stat.hl .st-k,.strategy-stat.hl .num{color:#fff}
+.strategy-stat.hl .lbl{color:rgba(255,255,255,.88)}
+@media(max-width:900px){.strategy-stat.hl{margin:0}}
 .plan-tools .pt-k{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:4px}
 .plan-tools p{font-size:13px!important;color:#3a3732!important;line-height:1.6!important;margin:0!important}
 /* FR-MKT-018 ④ */
@@ -646,42 +663,52 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 
-<!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
+<!-- ③-1 우리가 일하는 방식 · IP→PLAN→RESULT (How We Work 이동 위치) — FR-MKT-028 -->
 <section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> 실제 캠페인 사례로 증명된 결과</span>
+<span class="strategy-badge"><span class="star">✦</span> 우리가 일하는 방식</span>
 <h2>결과로 말하는,<br><em>브랜드 맞춤형 전략 설계</em></h2>
 <p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br>브랜드와 한 팀이 되어 처음부터 끝까지 함께 설계합니다.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
-<span class="kw">IP</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>무엇을 알릴까</h3>
 <p>브랜드의 이야기와 목표를 먼저 듣고,<br>그 위에서 가장 강한 메시지를 찾습니다</p>
 </div>
 <div class="strategy-card">
-<span class="kw">PLAN</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>어떻게 알릴까</h3>
 <p>목표를 이루는 데 가장 잘 맞는 방법을<br>골라 조합합니다</p>
 <div class="svc-chips"><span class="sc">인플루언서</span><span class="sc">방문 프로모션</span><span class="sc">팝업</span><span class="sc">협찬</span><span class="sc">콘텐츠 제작</span></div>
 <div class="plan-tools"><span class="pt-k">플랜 안에 들어가는 도구</span><p>인플루언서 맞춤 섭외(국내·해외) · 해외 인플루언서 모집 · 현지 판매 채널 연결 · 팝업·오프라인 · 모니터링</p></div>
 </div>
 <div class="strategy-card">
-<span class="kw">RESULT</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>무엇이 남을까</h3>
 <p>처음 세운 목표를 기준으로<br>인지도·판매·콘텐츠 성과를 숫자로 확인하고,<br>다음 캠페인 전략까지 이어갑니다</p>
 </div>
 </div>
+</div>
+</section>
+
+<!-- ③-2 한 팀으로 만든 결과 · 숫자 4개 + 업종 줄 — FR-MKT-028·041 -->
+<section class="strategy-section team-section" id="team-result">
+<div class="strategy-wrap">
+<div class="strategy-head">
+<span class="strategy-badge"><span class="star">✦</span> 한 팀으로 만든 결과</span>
+<h2>브랜드와 <em>한 팀</em>이 되어 일합니다</h2>
+<p>브랜드 카테고리마다 가장 효율이 좋은 크리에이터를 직접 관리하고 연결합니다</p>
+</div>
 <div class="strategy-stats">
-<div class="strategy-stat"><div class="st-k">협업 크리에이터</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">콘텐츠 퀄리티와 실제 반응까지 확인한 크리에이터</div></div>
+<div class="strategy-stat"><div class="st-k">협업 크리에이터</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">전체 네트워크 · 그중 <b>12,000+</b> 명과 직접 계약해 카테고리별로 관리</div></div>
 <div class="strategy-stat"><div class="st-k">글로벌 거점</div><div class="num"><span class="cu" data-to="8">8</span><span class="u">곳</span></div><div class="lbl">일본·인도네시아 지사를 시작으로 세계 각국의 네트워크</div></div>
-<div class="strategy-stat"><div class="st-k">2026 한 팀이 된 브랜드</div><div class="num"><span class="cu" data-to="45">45</span></div><div class="lbl">많이 맡기보다 깊게, 브랜드마다 전담 팀이 끝까지</div></div>
-<div class="strategy-stat"><div class="st-k">재계약률</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">브랜드의 성장을 함께 지켜보는 조력자가 되겠습니다</div></div>
+<div class="strategy-stat hl"><div class="st-k">2026 함께한 브랜드</div><div class="num"><span class="cu" data-to="62">62</span>+</div><div class="lbl">고민을 듣고, 목표를 함께 세운 브랜드</div></div>
+<div class="strategy-stat"><div class="st-k">재계약률</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">한 번 함께한 브랜드가 다시 찾는 비율</div></div>
 </div>
-<p class="strategy-note">호미 MARKET은 한 번에 많은 브랜드를 받지 않습니다. 맡은 브랜드의 마케팅 팀이 되는 것, 그게 저희가 일하는 방식입니다.</p>
 </div>
-<div class="industry-strip"><h3>소상공인부터 대기업까지, 다양한 업종의 브랜드와 함께해 왔습니다</h3>
+<div class="industry-strip"><h3>어떤 업종이든, 그 브랜드의 언어로 기획합니다</h3>
   <div class="ind-tk"><div class="ind-row" role="list"><span class="ind" role="listitem">뷰티</span><span class="ind" role="listitem">패션</span><span class="ind" role="listitem">F&amp;B</span><span class="ind" role="listitem">식품</span><span class="ind" role="listitem">건강기능식품</span><span class="ind" role="listitem">헬스케어</span><span class="ind" role="listitem">유아</span><span class="ind" role="listitem">애견</span><span class="ind" role="listitem">생활·리빙</span><span class="ind" role="listitem">가전·테크</span><span class="ind" role="listitem">유통·커머스</span><span class="ind" role="listitem">금융</span><span class="ind" role="listitem">보험</span><span class="ind" role="listitem">교육</span><span class="ind" role="listitem">캐릭터 IP</span><span class="ind" role="listitem">K-POP·엔터</span><span class="ind" role="listitem">게임</span><span class="ind" role="listitem">여행·호텔</span><span class="ind" role="listitem">스포츠</span><span class="ind" role="listitem">지자체·공공기관</span><span class="ind" role="listitem">축제·행사</span><span class="ind" role="listitem">오프라인 팝업</span><span class="ind" role="listitem">공동구매</span></div></div>
 </div>
 </section>
@@ -699,7 +726,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="pl-vs" aria-hidden="true">VS</div>
       <div class="pl-homi">
         <span class="pl-tag on">호미 MARKET</span>
-        <h3>브랜드의 니즈와 목표에 맞춰, <em>4단계로 전략을 설계해 제안합니다</em></h3>
+        <h3>브랜드의 니즈와 목표에 맞춰, <em>4가지 기준으로 전략을 설계해 제안합니다</em></h3>
         <p class="pl-sub">어느 나라, 누구를, 왜 — 판매까지 브랜드와 한 팀으로 갑니다</p>
         <div class="pl-cards">
       <figure class="pl-card"><div class="pl-ph" data-slot="0"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>01</b>목표 정하기</div></div><figcaption>인지도·판매·입점 중 무엇을 이룰지 먼저 정합니다</figcaption></figure>
