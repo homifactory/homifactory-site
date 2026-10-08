@@ -92,7 +92,7 @@
       var label = btn.innerHTML; btn.disabled = true; btn.textContent = MSG.sending;
       var g = function (name) { var el = f.elements[name]; return el ? (el.value || '').trim() : ''; };
       var multi = function (name) { return [].slice.call(f.querySelectorAll('input[type=checkbox][name="' + name + '"]:checked')).map(function (x) { return x.value; }).join(', '); };
-      var want = multi('관심 있는 일') || g('문의유형');
+      var want = multi('관심 분야') || multi('관심 있는 일') || g('문의유형');
       var mail = { _subject: '[HOMI FACTORY 문의] ' + (g('이름') || g('담당자명')) + (want ? ' · ' + want : ''), _cc: g('_cc'), _template: 'table', _captcha: 'false', _honey: '' };
       [].slice.call(f.querySelectorAll('input:not([type=hidden]):not(.cf-hp),select,textarea')).forEach(function (el) {
         if (!el.name || el.name === '개인정보동의') return;
@@ -102,12 +102,16 @@
       mail['개인정보 동의'] = '동의'; mail['접수 페이지'] = location.href.split('?')[0];
       /* 접수 기록(⑥): 시트 칸 이름이 MARKET 기준이라 맞춰 넣고, 방향 칸에 [FACTORY] 표시 */
       var row = { lang: 'KR', brand: g('소속') || g('회사명'), link: '', dir: '[FACTORY] ' + want, countries: multi('활동 지역'), channel: '',
-        concern: g('지금 고민하고 있는 것') || g('프로젝트내용'), goal: '', timing: g('활동 예정 시기'), budget: '',
+        concern: g('문의 내용') || g('지금 고민하고 있는 것') || g('프로젝트내용'), goal: '', timing: g('활동 예정 시기'), budget: '',
         name: g('이름') || g('담당자명'), phone: g('연락처'), email: g('이메일'), page: mail['접수 페이지'], hp: '' };
       var post = function (u, b) { return fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(b) }).then(function (r) { if (!r.ok) throw new Error(r.status); return r; }); };
       var a = post(MAIL, mail).then(function (r) { return r.json(); }).then(function (j) { if (j && (j.success === false || j.success === 'false')) throw new Error('mail'); return true; });
       var s = post(STORE, row);
-      Promise.allSettled([a, s]).then(function (rs) {
+      /* 통합 관리자 문의함(Supabase com_inquiries) — FR-COM-019, MARKET·PRODUCTION 과 같은 곳 */
+      var db = fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries', { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy', Prefer: 'return=minimal' },
+        body: JSON.stringify({ site: 'factory', kind: 'inquiry', name: row.name, phone: row.phone, email: row.email, summary: row.brand, lang: 'KR', page: row.page,
+          data: { '소속': row.brand, '관심 분야': want, '문의 내용': row.concern } }) }).then(function (r) { if (!r.ok) throw new Error(r.status); return true; });
+      Promise.allSettled([a, s, db]).then(function (rs) {
         if (rs.some(function (x) { return x.status === 'fulfilled'; })) done();
         else { btn.disabled = false; btn.innerHTML = label; top.innerHTML = MSG.fail; top.hidden = false; }
       });
@@ -123,7 +127,7 @@
       slots.forEach(function (el) {
         var k = el.getAttribute('data-fac');
         if (k === 'stats' && d.stats) el.innerHTML = d.stats.map(function (x) { return '<div class="f-stat"><b>' + esc(x.num) + '</b><span>' + esc(x.label) + '</span>' + (x.note ? '<small>' + esc(x.note) + '</small>' : '') + '</div>'; }).join('');
-        if (k === 'principles' && d.principles) el.innerHTML = d.principles.map(function (x) { return '<article class="f-pcard"><i>' + esc(x.no) + '</i><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p></article>'; }).join('');
+        if (k === 'principles' && d.principles) el.innerHTML = d.principles.map(function (x) { return '<article class="x-card"><i>' + esc(x.no) + ' <span>' + esc(x.en || '') + '</span></i><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p></article>'; }).join('');
       });
     }).catch(function () {});
   }

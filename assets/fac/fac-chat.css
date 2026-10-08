@@ -1,0 +1,89 @@
+
+/* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
+.hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#D7FF3C;color:#0B0B0D;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(215,255,60,.45);transition:transform .2s,background .2s}
+.hc-fab:hover{transform:scale(1.06);background:#C6F02A}
+.hc-fab:focus-visible{outline:3px solid #2340FF;outline-offset:3px}
+.hc-fab svg{width:26px;height:26px}
+.hc-fab .hc-x{display:none}.hc-fab[aria-expanded="true"] .hc-x{display:block}.hc-fab[aria-expanded="true"] .hc-b{display:none}
+.hc-badge{position:absolute;top:-2px;right:-2px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#2340FF;color:#fff;font:800 11px/20px Inter,sans-serif;text-align:center}
+.hc-fab[aria-expanded="true"] .hc-badge,.hc-seen .hc-badge{display:none}
+.hc-panel{position:fixed;right:40px;bottom:104px;width:372px;max-height:min(640px,calc(100vh - 140px));display:flex;flex-direction:column;background:#F4F2EE;border-radius:26px;box-shadow:0 24px 60px rgba(20,10,40,.22);z-index:10010;overflow:hidden;font-family:'Noto Sans KR','Pretendard',sans-serif;color:#141414;opacity:0;visibility:hidden;transform:translateY(12px) scale(.98);transform-origin:bottom right;transition:opacity .2s,transform .2s,visibility .2s}
+.hc-panel.open{opacity:1;visibility:visible;transform:none}
+.hc-head{padding:22px 22px 14px;flex-shrink:0}
+.hc-top{display:flex;align-items:center;gap:10px}
+.hc-logo{width:32px;height:32px;border-radius:9px;background:#141414;color:#fff;display:grid;place-items:center;font:800 12px Inter,sans-serif;letter-spacing:-.02em;flex-shrink:0}
+.hc-name{font:800 19px Inter,'Noto Sans KR',sans-serif;letter-spacing:-.01em;flex:1}
+.hc-icon{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;color:#55525C}
+.hc-icon:hover{background:#E8E4DE}.hc-icon:focus-visible{outline:2px solid #0B0B0D}
+.hc-hours-t{all:unset;cursor:pointer;margin-top:8px;font-size:13px;color:#55525C}
+.hc-hours-t:hover{color:#141414}
+.hc-hours{margin-top:8px;padding:9px 12px;border-radius:9px;background:#E9E5DE;font-size:12.5px;color:#55525C}
+.hc-hours[hidden]{display:none}
+.hc-body{flex:1;overflow-y:auto;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px}
+.hc-card{background:#fff;border-radius:20px;padding:20px}
+.hc-who{display:flex;align-items:center;gap:8px;font:800 13px Inter,'Noto Sans KR',sans-serif;margin-bottom:14px}
+.hc-who .hc-logo{width:26px;height:26px;border-radius:50%;font-size:10px}
+.hc-greet{font-size:14px;line-height:1.75;color:#2A2930;white-space:pre-line}
+.hc-cta{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;margin-top:18px;padding:14px;border-radius:12px;background:#0B0B0D;color:#fff;text-align:center;font-weight:700;font-size:15px}
+.hc-cta:hover{background:#2340FF}.hc-cta:focus-visible{outline:3px solid #2340FF}
+.hc-cta[disabled]{opacity:.5;cursor:default}
+.hc-note{margin-top:12px;text-align:center;font-size:12px;color:#6B6B75}
+.hc-other{display:flex;align-items:center;gap:10px;padding:16px 20px}
+.hc-other b{flex:1;font-size:14px}
+.hc-rnd{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;transition:transform .15s}
+.hc-rnd:hover{transform:scale(1.06)}.hc-rnd:focus-visible{outline:2px solid #0B0B0D;outline-offset:2px}
+.hc-kakao{background:#FEE500;color:#3A1D1D}.hc-tel{background:#ECE9E4;color:#141414}
+.hc-info{font-size:12.5px;color:#55525C;background:#fff;border-radius:12px;padding:10px 14px;text-align:center}
+.hc-info a{color:#0B0B0D;font-weight:700}
+.hc-foot{text-align:center;font-size:11.5px;color:#8E8B96;padding:8px 0 12px;flex-shrink:0}
+.hc-tabs{display:flex;flex-shrink:0;background:#fff;border-top:1px solid #E8E4DC}
+.hc-tabs button{all:unset;box-sizing:border-box;flex:1;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 11px;font-size:11.5px;font-weight:600;color:#8E8B96}
+.hc-tabs button svg{width:20px;height:20px}
+.hc-tabs button[aria-current="page"]{color:#0B0B0D}
+.hc-tabs button:focus-visible{outline:2px solid #0B0B0D;outline-offset:-4px;border-radius:8px}
+.hc-set h4{font-size:13px;font-weight:700;margin:0 0 10px}
+.hc-langs{display:flex;flex-wrap:wrap;gap:8px}
+.hc-langs a{padding:7px 12px;border-radius:999px;border:1px solid #E1DCF0;font-size:13px;color:#141414;text-decoration:none}
+.hc-langs a[aria-current="true"]{background:#0B0B0D;border-color:#0B0B0D;color:#fff;font-weight:700}
+.hc-ghost{all:unset;cursor:pointer;font-size:13px;color:#55525C;text-decoration:underline;text-underline-offset:3px}
+@media(hover:none){html.hc-typing .hc-fab{opacity:0;pointer-events:none}}
+@media(max-width:600px){.hf-in{padding-bottom:64px}}
+/* 대화 화면 */
+.hc-msgs{display:flex;flex-direction:column;gap:8px}
+.hc-m{max-width:84%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.6;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.hc-m.bot{background:#fff;align-self:flex-start;border-top-left-radius:6px}
+.hc-m.me{background:#0B0B0D;color:#fff;align-self:flex-end;border-top-right-radius:6px}
+.hc-m.sys{align-self:center;background:none;color:#6B6B75;font-size:12px;padding:2px}
+.hc-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hc-chip{all:unset;cursor:pointer;padding:9px 14px;border-radius:999px;background:#fff;border:1px solid #DDD8E4;font-size:13.5px;font-weight:700}
+.hc-chip:hover,.hc-chip:focus-visible{border-color:#0B0B0D;color:#0B0B0D}
+.hc-form{background:#fff;border-radius:16px;padding:14px;display:grid;gap:8px;align-self:stretch}
+.hc-form input[type=text],.hc-form input[type=email],.hc-form input[type=tel]{width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #DDD8E4;border-radius:10px;font:inherit;font-size:14px}
+.hc-form input:focus{outline:none;border-color:#0B0B0D}
+.hc-agree{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#55525C;line-height:1.55}
+.hc-agree input{margin-top:3px;accent-color:#0B0B0D}
+.hc-agree a{color:#0B0B0D;text-decoration:underline}
+.hc-err{font-size:12px;color:#D33}
+.hc-input{display:flex;gap:8px;padding:10px 12px 12px;background:#F4F2EE;flex-shrink:0;border-top:1px solid #E8E4DE}
+.hc-input textarea{flex:1;resize:none;height:44px;max-height:110px;padding:11px 14px;border:1px solid #DDD8E4;border-radius:14px;font:inherit;font-size:14px;background:#fff}
+.hc-input textarea:focus{outline:none;border-color:#0B0B0D}
+.hc-send{all:unset;cursor:pointer;width:44px;height:44px;border-radius:12px;background:#0B0B0D;color:#fff;display:grid;place-items:center;flex-shrink:0}
+.hc-send[disabled]{opacity:.4;cursor:default}
+.hc-input[hidden]{display:none}
+.hc-back{all:unset;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;margin-left:-8px}
+.hc-back:hover{background:#E8E4DE}
+@media(max-width:600px){
+ .hc-fab{right:20px;bottom:16px;width:56px;height:56px}
+ .hc-panel{right:8px;left:8px;bottom:80px;width:auto;max-height:calc(100dvh - 96px);border-radius:22px}
+}
+body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibility:hidden}
+@media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
+@media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
+
+/* FACTORY 전용 — 급한 일이에요(URGENT) 버튼·로고 (FR-FAC-017) */
+.hc-logo{background:#0B0B0D!important;color:#D7FF3C!important}
+.hc-urgent{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:10px;padding:13px;border-radius:12px;border:1px solid #DDD8E4;background:#fff;color:#0B0B0D;font-weight:700;font-size:15px}
+.hc-urgent:hover{border-color:#0B0B0D}.hc-urgent:focus-visible{outline:3px solid #2340FF}
+.hc-urgent em{font-style:normal;padding:2px 8px;border-radius:6px;background:#D7FF3C;font:800 11px/1.6 Inter,sans-serif;letter-spacing:.06em}
+.hc-m.me.urg{background:#2340FF}
+.hc-callnow{display:block;margin-top:8px;padding:12px;border-radius:12px;background:#D7FF3C;color:#0B0B0D!important;text-align:center;font-weight:800;text-decoration:none!important}
