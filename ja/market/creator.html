@@ -374,7 +374,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul>
           <li>収集目的：クリエイター応募の受付、キャンペーンマッチングのためのご連絡</li>
           <li>収集項目：（必須）活動名、メインチャンネルのリンク、プラットフォーム、フォロワー規模、活動国、コンテンツカテゴリー、お名前、ご連絡先、メールアドレス /（任意）自己紹介</li>
-          <li>保有期間：受付日から<strong>1年</strong>（キャンペーンをご一緒した場合は、契約終了後、関係法令に定める期間）。削除をご請求いただければ直ちに削除します</li>
+          <li>保有期間：受付日から<strong>2年</strong>（キャンペーンをご一緒した場合は、契約終了後、関係法令に定める期間）。削除をご請求いただければ直ちに削除します</li>
           <li>同意を拒否することもできますが、その場合はご応募が難しくなります。任意項目は空欄のままでもご応募いただけます。</li>
         </ul>
       </div>
@@ -707,9 +707,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var s=post(STORE,row).then(function(){ return true; });
     /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
     var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
-    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_creators',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
-      body:JSON.stringify({handle:mail['活動名'],channel_url:mail['メインチャンネルのリンク'],platforms:arr(mail['プラットフォーム']),followers:mail['フォロワー規模'],country:mail['活動国'],
-        categories:arr(mail['カテゴリー']),intro:mail['自己紹介']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang})})
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({p:{handle:mail['活動名'],channel_url:mail['メインチャンネルのリンク'],platforms:arr(mail['プラットフォーム']),followers:mail['フォロワー規模'],country:mail['活動国'],
+        categories:arr(mail['カテゴリー']),intro:mail['自己紹介']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
