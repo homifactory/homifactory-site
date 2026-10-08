@@ -95,3 +95,200 @@ body.fac-doc main{padding-top:var(--hh-offset,72px)}
 .fac-tbl thead th{background:#0B0B0F;color:#fff;font-weight:700}
 .fac-tbl tbody th{background:#F7F7F9;width:28%;font-weight:700;color:#0B0B0F}
 @media (max-width:600px){.fac-doc-hero{padding:44px 0 22px}}
+
+/* ════════ FR-FAC 페이지 공통 (Home · About · Business 4 · Contact) ════════ */
+body.fac{margin:0;background:#fff;color:#0B0B0F;font-family:'Pretendard','Noto Sans KR',system-ui,sans-serif;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.fac *{box-sizing:border-box}
+body.fac a{color:inherit;text-decoration:none}
+body.fac img{display:block;max-width:100%}
+body.fac.has-rb{padding-top:40px}
+.rb{position:fixed;top:0;left:0;right:0;z-index:1001;height:40px;display:flex;align-items:center;justify-content:center;background:#0B0B0F;color:#fff;font-size:13px;font-weight:600;border-bottom:2px solid #BC2747}
+.f-wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.f-sec{padding:112px 0}
+.f-sec.alt{background:#F7F7F9}
+.f-sec.dark{background:#0B0B0F;color:#fff}
+.f-eyebrow{margin:0 0 14px;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:800;letter-spacing:.2em;color:#BC2747;text-transform:uppercase}
+.f-sec.dark .f-eyebrow{color:#FF8FA6}
+.f-h2{margin:0;font-size:clamp(28px,3.6vw,46px);font-weight:900;line-height:1.28;letter-spacing:-.035em}
+.f-lead{margin:18px 0 0;max-width:720px;font-size:clamp(15px,1.4vw,17.5px);line-height:1.8;color:#3A3A42}
+.f-sec.dark .f-lead{color:rgba(255,255,255,.72)}
+.f-head{margin-bottom:56px}
+.f-head.split{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end}
+.f-head.split .f-lead{margin:0}
+.f-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 28px;border-radius:999px;font-size:15.5px;font-weight:800;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
+.f-btn-acc{background:#BC2747;color:#fff!important}.f-btn-acc:hover{background:#8E1631;transform:translateY(-1px)}
+.f-btn-ink{background:#0B0B0F;color:#fff!important}.f-btn-ink:hover{background:#BC2747}
+.f-btn-line{border:1.5px solid #0B0B0F;color:#0B0B0F}.f-btn-line:hover{background:#0B0B0F;color:#fff!important}
+.f-btn:focus-visible,body.fac a:focus-visible{outline:3px solid #BC2747;outline-offset:3px}
+/* 사진 자리 — 사진이 오기 전에도 자리를 보여 준다(숨기지 않음) */
+.f-ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#1C1C22 0%,#2A1219 55%,#4A1626 100%);color:rgba(255,255,255,.62);display:flex;align-items:flex-end;padding:14px 16px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em}
+.f-ph::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 75% 25%,rgba(255,255,255,.12),transparent 60%)}
+.f-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.f-ph span{position:relative;z-index:1}
+
+/* WHO WE ARE · 숫자 */
+.f-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.f-stat{padding:30px 26px;border:1px solid #E7E7EC;border-radius:20px;background:#fff}
+.f-stat b{display:block;font-family:'Inter',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.05;color:#0B0B0F}
+.f-stat span{display:block;margin-top:12px;font-size:14.5px;font-weight:600;color:#3A3A42;line-height:1.5}
+.f-stat small{display:block;margin-top:4px;font-size:12.5px;color:#6B6B75}
+
+/* Business 카드 2×2 */
+.f-biz{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.f-bcard{display:flex;flex-direction:column;border:1px solid #E7E7EC;border-radius:22px;overflow:hidden;background:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
+.f-bcard:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(11,11,15,.10);border-color:#0B0B0F}
+.f-bcard .f-ph{height:180px}
+.f-bcard-tx{padding:26px 28px 28px;display:flex;flex-direction:column;gap:8px;flex:1}
+.f-bcard-en{font-family:'Inter',sans-serif;font-size:22px;font-weight:900;letter-spacing:-.01em}
+.f-bcard-kr{font-size:15px;line-height:1.7;color:#3A3A42}
+.f-bcard-go{margin-top:auto;padding-top:10px;font-size:14px;font-weight:800;color:#BC2747}
+
+/* 일하는 방식 3원칙 */
+.f-prin{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.f-pcard{padding:34px 30px 36px;border-radius:22px;background:#17171C;border:1px solid rgba(255,255,255,.08)}
+.f-pcard i{display:block;font-style:normal;font-family:'Inter',sans-serif;font-size:14px;font-weight:900;letter-spacing:.12em;color:#FF8FA6}
+.f-pcard h3{margin:16px 0 12px;font-size:23px;font-weight:900;letter-spacing:-.03em;color:#fff}
+.f-pcard p{margin:0;font-size:15px;line-height:1.85;color:rgba(255,255,255,.72)}
+
+/* 문의 띠 (FR-FAC-015) */
+.f-band{background:#BC2747;color:#fff}
+.f-band .f-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;padding-top:56px;padding-bottom:56px;flex-wrap:wrap}
+.f-band p{margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:900;letter-spacing:-.03em;line-height:1.4;max-width:760px}
+.f-band .f-btn{background:#fff;color:#0B0B0F!important}.f-band .f-btn:hover{background:#0B0B0F;color:#fff!important}
+
+/* 페이지 머리 (About · Business · Contact) */
+.f-phead{padding:calc(var(--hh-offset,112px) + 72px) 0 72px;background:#F7F7F9;border-bottom:1px solid #E7E7EC}
+.f-phead h1{margin:0;font-size:clamp(32px,4.6vw,60px);font-weight:900;line-height:1.22;letter-spacing:-.04em;max-width:900px}
+.f-phead .f-lead{max-width:760px}
+/* Business 4개 탭 — 지금 페이지 검정 */
+.f-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 44px;padding:0;list-style:none}
+.f-tabs a{display:inline-flex;align-items:center;height:42px;padding:0 20px;border:1px solid #D7D7DE;border-radius:999px;background:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#3A3A42;white-space:nowrap}
+.f-tabs a:hover{border-color:#0B0B0F;color:#0B0B0F}
+.f-tabs a[aria-current="page"]{background:#0B0B0F;border-color:#0B0B0F;color:#fff}
+/* 서비스 카드 */
+.f-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.f-scard{border:1px solid #E7E7EC;border-radius:20px;overflow:hidden;background:#fff}
+.f-scard .f-ph{height:150px}
+.f-scard div.t{padding:22px 24px 26px}
+.f-scard h3{margin:0 0 8px;font-size:18.5px;font-weight:900;letter-spacing:-.025em}
+.f-scard p{margin:0;font-size:14.5px;line-height:1.75;color:#3A3A42}
+/* 진행 과정 4단계 */
+.f-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:0;list-style:none;counter-reset:st}
+.f-steps li{position:relative;padding:28px 24px 0 0;border-top:2px solid #0B0B0F}
+.f-steps li::before{counter-increment:st;content:"0" counter(st);display:block;font-family:'Inter',sans-serif;font-size:13px;font-weight:900;letter-spacing:.12em;color:#BC2747}
+.f-steps h3{margin:10px 0 8px;font-size:21px;font-weight:900;letter-spacing:-.03em}
+.f-steps p{margin:0;font-size:14.5px;line-height:1.75;color:#3A3A42}
+/* 익명 사례 3개 */
+.f-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.f-case{padding:28px 26px;border-radius:20px;background:#fff;border:1px solid #E7E7EC;display:flex;flex-direction:column;gap:12px}
+.f-case .who{font-size:13px;font-weight:800;color:#BC2747;letter-spacing:-.01em}
+.f-case ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.f-case li{position:relative;padding-left:16px;font-size:15px;font-weight:600;line-height:1.6}
+.f-case li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:#BC2747}
+.f-case.soon{border-style:dashed;background:transparent;justify-content:center;min-height:180px;color:#6B6B75}
+.f-case.soon b{color:#3A3A42;font-size:15px}
+.f-case.soon p{margin:0;font-size:13.5px;line-height:1.7}
+/* 거점 */
+.f-hubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.f-hub{padding:30px 28px;border-radius:20px;border:1px solid #E7E7EC;background:#fff}
+.f-hub small{font-family:'Inter',sans-serif;font-size:12px;font-weight:800;letter-spacing:.18em;color:#BC2747}
+.f-hub h3{margin:8px 0 10px;font-size:22px;font-weight:900;letter-spacing:-.03em}
+.f-hub p{margin:0;font-size:14.5px;line-height:1.75;color:#3A3A42}
+/* PRODUCTION 연결 */
+.f-link-card{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 44px;border-radius:24px;background:#0B0B0F;color:#fff;flex-wrap:wrap}
+.f-link-card h3{margin:6px 0 0;font-size:clamp(20px,2.4vw,28px);font-weight:900;letter-spacing:-.03em}
+.f-link-card p{margin:8px 0 0;color:rgba(255,255,255,.7);font-size:15px}
+.f-link-card .f-btn{background:#fff;color:#0B0B0F!important}
+/* About — 대표 사진 · 청년 창작자 사진 4칸 · 연혁 */
+.f-hero-ph{height:clamp(240px,40vw,520px);border-radius:24px}
+.f-ph4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.f-ph4 .f-ph{aspect-ratio:4/3;border-radius:16px}
+.f-hist{margin:0;padding:0;list-style:none;border-top:1px solid #E7E7EC}
+.f-hist li{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid #E7E7EC}
+.f-hist time{font-family:'Inter',sans-serif;font-weight:900;font-size:17px}
+.f-hist span{font-size:16px;font-weight:600;color:#3A3A42}
+/* Monitoring 데모 대시보드 (가상 데이터) */
+.f-dash{border-radius:24px;background:#0F0F14;color:#fff;padding:28px;border:1px solid #23232B;box-shadow:0 30px 60px rgba(11,11,15,.18)}
+.f-dash-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.f-dash-top b{font-family:'Inter',sans-serif;font-size:18px;font-weight:900}
+.f-dash-tag{padding:5px 12px;border-radius:999px;background:rgba(255,143,166,.14);color:#FF8FA6;font-size:12px;font-weight:800}
+.f-dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.f-kpi{padding:18px;border-radius:14px;background:#17171E;border:1px solid #23232B}
+.f-kpi small{display:block;font-size:12px;color:rgba(255,255,255,.55);font-weight:600}
+.f-kpi b{display:block;margin-top:6px;font-family:'Inter',sans-serif;font-size:24px;font-weight:900}
+.f-kpi em{font-style:normal;font-size:12px;font-weight:800;color:#5BD39A}
+.f-dash-chart{grid-column:1/3;grid-row:span 2;padding:18px;border-radius:14px;background:#17171E;border:1px solid #23232B}
+.f-dash-chart small{font-size:12px;color:rgba(255,255,255,.55);font-weight:600}
+.f-dash-chart svg{width:100%;height:auto;margin-top:10px}
+.f-dash-rep{grid-column:3/5;padding:18px;border-radius:14px;background:#17171E;border:1px solid #23232B}
+.f-dash-rep ol{margin:10px 0 0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.f-dash-rep li{padding:6px 12px;border-radius:999px;background:#23232B;font-family:'Inter',sans-serif;font-size:12px;font-weight:800}
+.f-dash-rep li.on{background:#BC2747}
+.f-dash-note{margin:16px 0 0;font-size:12.5px;color:rgba(255,255,255,.5)}
+/* Contact (FR-FAC-012) */
+.f-contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.f-contact-side h2{margin:0;font-size:clamp(28px,3.4vw,42px);font-weight:900;letter-spacing:-.035em;line-height:1.3}
+.f-contact-side dl{margin:36px 0 0;display:grid;gap:18px}
+.f-contact-side dt{font-family:'Inter',sans-serif;font-size:12px;font-weight:800;letter-spacing:.18em;color:#BC2747}
+.f-contact-side dd{margin:4px 0 0;font-size:15.5px;font-weight:600;line-height:1.7}
+.f-contact-side dd a{text-decoration:underline;text-underline-offset:3px}
+.f-form{padding:40px;border-radius:24px;border:1px solid #E7E7EC;background:#fff;box-shadow:0 20px 50px rgba(11,11,15,.06)}
+.f-form .form-field{margin-bottom:22px}
+.f-form .f-row{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.f-form label.lb,.f-form legend{display:block;margin:0 0 8px;padding:0;font-size:14px;font-weight:800;color:#0B0B0F}
+.f-form .req{color:#BC2747;margin-left:2px}
+.f-form .opt{margin-left:6px;font-size:12.5px;font-weight:600;color:#6B6B75}
+.f-form input[type=text],.f-form input[type=email],.f-form input[type=tel],.f-form textarea{width:100%;padding:13px 15px;border:1px solid #D7D7DE;border-radius:12px;background:#fff;font:inherit;font-size:15px;color:#0B0B0F;transition:border-color .15s,box-shadow .15s}
+.f-form textarea{min-height:150px;resize:vertical;line-height:1.7}
+.f-form input:focus,.f-form textarea:focus{outline:none;border-color:#0B0B0F;box-shadow:0 0 0 3px rgba(11,11,15,.08)}
+.f-form fieldset{margin:0 0 22px;padding:0;border:0;min-width:0}
+.f-chips{display:flex;flex-wrap:wrap;gap:8px}
+.f-chips label{position:relative;cursor:pointer}
+.f-chips input{position:absolute;opacity:0;width:1px;height:1px}
+.f-chips span{display:inline-flex;align-items:center;height:40px;padding:0 16px;border:1px solid #D7D7DE;border-radius:999px;font-size:14px;font-weight:700;color:#3A3A42;transition:.15s}
+.f-chips input:checked+span{background:#0B0B0F;border-color:#0B0B0F;color:#fff}
+.f-chips input:focus-visible+span{outline:3px solid #BC2747;outline-offset:2px}
+.f-form fieldset.is-invalid .f-chips span{border-color:#D92D20}
+.f-agree{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;font-size:14px;line-height:1.6;color:#3A3A42}
+.f-agree input{width:18px;height:18px;margin-top:2px;accent-color:#BC2747;flex:0 0 18px}
+.f-agree a{color:#BC2747;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.f-agree .cf-err{flex-basis:100%}
+.f-agree-box{margin:0 0 12px;padding:14px 16px;border-radius:12px;background:#F7F7F9;font-size:13px;line-height:1.75;color:#55555E}
+.f-form .f-submit{width:100%;height:56px;border:0;border-radius:14px;background:#0B0B0F;color:#fff;font:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:background .15s}
+.f-form .f-submit:hover{background:#BC2747}
+/* 푸터: 오른쪽 형제 브랜드 링크 (FR-FAC-015) */
+body[data-site="factory"] .hf-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+body[data-site="factory"] .hf-head .hf-brand{margin:0}
+body[data-site="factory"] .hf-sibs{display:flex;gap:10px;flex-wrap:wrap}
+body[data-site="factory"] .hf-sibs a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;font-family:'Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:.04em;color:#fff}
+body[data-site="factory"] .hf-sibs a:hover{background:#fff;color:#0B0B0F}
+body[data-site="factory"] .hf-top{grid-template-columns:1fr 1fr 1.4fr}
+@media (max-width:1000px){
+  .f-head.split{grid-template-columns:1fr;gap:16px}
+  .f-stats{grid-template-columns:repeat(2,1fr)}
+  .f-prin,.f-cases{grid-template-columns:1fr}
+  .f-steps{grid-template-columns:repeat(2,1fr);gap:28px 24px}
+  .f-dash-grid{grid-template-columns:repeat(2,1fr)}
+  .f-dash-chart,.f-dash-rep{grid-column:1/-1;grid-row:auto}
+  .f-contact{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:700px){
+  .f-wrap{padding:0 20px}
+  .f-sec{padding:80px 0}
+  .f-biz{grid-template-columns:1fr}
+  .f-steps{grid-template-columns:1fr}
+  .f-ph4{grid-template-columns:repeat(2,1fr)}
+  .f-hist li{grid-template-columns:1fr;gap:4px}
+  .f-form{padding:26px 20px}
+  .f-form .f-row{grid-template-columns:1fr}
+  .f-band .f-btn{width:100%}
+  .f-link-card{padding:30px 26px}
+  .f-phead{padding-bottom:56px}
+  body.fac.has-rb{padding-top:36px}.rb{height:36px;font-size:12px}
+}
+@media (max-width:420px){.f-stats{grid-template-columns:1fr}}
+.f-svc.n3,.f-svc.n5{grid-template-columns:repeat(3,1fr)}
+.f-svc.n4{grid-template-columns:repeat(4,1fr)}
+.f-head.split{grid-template-columns:1.35fr 1fr}
+@media (max-width:1000px){.f-svc.n3,.f-svc.n4,.f-svc.n5{grid-template-columns:repeat(2,1fr)}.f-head.split{grid-template-columns:1fr}}
+@media (max-width:700px){.f-svc.n3,.f-svc.n4,.f-svc.n5{grid-template-columns:1fr}}

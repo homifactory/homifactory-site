@@ -23,6 +23,7 @@
     email: '이메일 형식을 확인해 주세요. (예: name@company.com)',
     phone: '전화번호 형식을 확인해 주세요. (예: 010-1234-5678)',
     agree: '개인정보 수집·이용에 동의해 주셔야 보낼 수 있어요.',
+    pick: '하나 이상 골라 주세요.',
     top: '입력 내용을 확인해 주세요. 표시된 칸을 고치면 바로 보낼 수 있어요.',
     sending: '보내는 중…',
     fail: '전송에 실패했어요. 잠시 후 다시 시도하시거나 <a href="mailto:support@homifactory.com">support@homifactory.com</a> 으로 보내 주세요.'
@@ -34,7 +35,7 @@
     f.noValidate = true;
     f.removeAttribute('action');
     var n = 0;
-    function box(el) { return el.closest('.form-field') || el.closest('.privacy-check') || el.parentNode; }
+    function box(el) { return el.closest('.privacy-check') || el.closest('.form-field') || el.parentNode; }
     function setErr(el, msg) {
       var b = box(el), p = b.querySelector(':scope > .cf-err');
       if (!msg) { if (p) p.remove(); el.removeAttribute('aria-invalid'); b.classList.remove('is-invalid'); return true; }
@@ -43,6 +44,8 @@
     }
     function check(el) {
       var v = (el.value || '').trim();
+      var grp = el.closest('[data-req-group]');
+      if (grp) { var any = grp.querySelector('input:checked'); var first = grp.querySelector('input'); return setErr(first, any ? '' : MSG.pick); }
       if (el.type === 'checkbox') return setErr(el, el.checked ? '' : MSG.agree);
       if (el.required && !v) return setErr(el, MSG.req);
       if (el.type === 'email' && v && !isEmail(v)) return setErr(el, MSG.email);
@@ -51,11 +54,19 @@
     }
     function fields() {
       return [].slice.call(f.querySelectorAll('input:not([type=hidden]):not(.cf-hp),select,textarea'))
-        .filter(function (el) { return el.required || el.type === 'email' || el.type === 'tel' || el.type === 'checkbox'; });
+        .filter(function (el) {
+          var grp = el.closest('[data-req-group]');
+          if (grp) return el === grp.querySelector('input');
+          return el.required || el.type === 'email' || el.type === 'tel';
+        });
     }
     f.addEventListener('blur', function (e) { var t = e.target; if (t.matches('input,select,textarea') && (t.value || t.getAttribute('aria-invalid'))) check(t); }, true);
     f.addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid')) check(e.target); });
-    f.addEventListener('change', function (e) { if (e.target.getAttribute('aria-invalid')) check(e.target); });
+    f.addEventListener('change', function (e) {
+      var grp = e.target.closest && e.target.closest('[data-req-group]');
+      var t = grp ? grp.querySelector('input') : e.target;
+      if (t.getAttribute('aria-invalid')) check(t);
+    });
 
     var top = document.createElement('p'); top.className = 'cf-top-err'; top.setAttribute('role', 'alert'); top.hidden = true;
     var btn = f.querySelector('[type=submit]'); btn.classList.add('cf-submit'); btn.insertAdjacentElement('afterend', top);
@@ -80,13 +91,19 @@
       if (hp && hp.value) { done(); return; }   /* 스팸(숨은 칸이 채워짐): 보내지 않고 끝낸 것처럼 */
       var label = btn.innerHTML; btn.disabled = true; btn.textContent = MSG.sending;
       var g = function (name) { var el = f.elements[name]; return el ? (el.value || '').trim() : ''; };
-      var type = g('문의유형');
-      var mail = { _subject: '[HOMI FACTORY ' + (type || '문의') + '] ' + g('담당자명'), _cc: g('_cc'), _template: 'table', _captcha: 'false', _honey: '' };
-      [].slice.call(f.querySelectorAll('input:not([type=hidden]):not([type=checkbox]):not(.cf-hp),select,textarea')).forEach(function (el) { if (el.name) mail[el.name] = (el.value || '').trim(); });
+      var multi = function (name) { return [].slice.call(f.querySelectorAll('input[type=checkbox][name="' + name + '"]:checked')).map(function (x) { return x.value; }).join(', '); };
+      var want = multi('관심 있는 일') || g('문의유형');
+      var mail = { _subject: '[HOMI FACTORY 문의] ' + (g('이름') || g('담당자명')) + (want ? ' · ' + want : ''), _cc: g('_cc'), _template: 'table', _captcha: 'false', _honey: '' };
+      [].slice.call(f.querySelectorAll('input:not([type=hidden]):not(.cf-hp),select,textarea')).forEach(function (el) {
+        if (!el.name || el.name === '개인정보동의') return;
+        if (el.type === 'checkbox') { mail[el.name] = multi(el.name); return; }
+        mail[el.name] = (el.value || '').trim();
+      });
       mail['개인정보 동의'] = '동의'; mail['접수 페이지'] = location.href.split('?')[0];
       /* 접수 기록(⑥): 시트 칸 이름이 MARKET 기준이라 맞춰 넣고, 방향 칸에 [FACTORY] 표시 */
-      var row = { lang: 'KR', brand: g('회사명'), link: '', dir: '[FACTORY] ' + type, countries: '', channel: '', concern: g('프로젝트내용'), goal: '', timing: '', budget: '',
-        name: g('담당자명'), phone: g('연락처'), email: g('이메일'), page: mail['접수 페이지'], hp: '' };
+      var row = { lang: 'KR', brand: g('소속') || g('회사명'), link: '', dir: '[FACTORY] ' + want, countries: multi('활동 지역'), channel: '',
+        concern: g('지금 고민하고 있는 것') || g('프로젝트내용'), goal: '', timing: g('활동 예정 시기'), budget: '',
+        name: g('이름') || g('담당자명'), phone: g('연락처'), email: g('이메일'), page: mail['접수 페이지'], hp: '' };
       var post = function (u, b) { return fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(b) }).then(function (r) { if (!r.ok) throw new Error(r.status); return r; }); };
       var a = post(MAIL, mail).then(function (r) { return r.json(); }).then(function (j) { if (j && (j.success === false || j.success === 'false')) throw new Error('mail'); return true; });
       var s = post(STORE, row);
@@ -96,6 +113,20 @@
       });
     });
   });
+
+  /* ── ④ 일하는 방식 3원칙·숫자 4개 (FR-FAC-014) — /assets/fac/data/site.json 한 곳만 고치면 Home·About 둘 다 바뀐다 ── */
+  var slots = document.querySelectorAll('[data-fac]');
+  if (slots.length && window.fetch) {
+    var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    fetch('/assets/fac/data/site.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (!d) return;
+      slots.forEach(function (el) {
+        var k = el.getAttribute('data-fac');
+        if (k === 'stats' && d.stats) el.innerHTML = d.stats.map(function (x) { return '<div class="f-stat"><b>' + esc(x.num) + '</b><span>' + esc(x.label) + '</span>' + (x.note ? '<small>' + esc(x.note) + '</small>' : '') + '</div>'; }).join('');
+        if (k === 'principles' && d.principles) el.innerHTML = d.principles.map(function (x) { return '<article class="f-pcard"><i>' + esc(x.no) + '</i><h3>' + esc(x.title) + '</h3><p>' + esc(x.text) + '</p></article>'; }).join('');
+      });
+    }).catch(function () {});
+  }
 
   /* ── ③ 히어로 배경 영상 (FR-COM-015) ──
      영상이 준비되면 아래 HERO 에 주소만 넣으면 된다.
