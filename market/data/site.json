@@ -68,6 +68,12 @@
    "hidden": false
   },
   {
+   "name": "카펜터즈",
+   "src": "/market/data/uploads/1791423506183-ztgt4.png",
+   "row": 1,
+   "hidden": false
+  },
+  {
    "name": "",
    "src": "",
    "row": 2,
@@ -269,5 +275,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:30:46.550Z"
+ "updatedAt": "2026-10-08T01:38:28.474Z"
 }
