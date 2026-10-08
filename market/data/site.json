@@ -50,8 +50,8 @@
    "hidden": false
   },
   {
-   "name": "[고객사 로고]",
-   "src": "",
+   "name": "LIVEWITH",
+   "src": "/market/data/uploads/1791422908308-xl70s.jpeg",
    "row": 1,
    "hidden": false
   },
@@ -269,5 +269,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:27:54.413Z"
+ "updatedAt": "2026-10-08T01:28:29.887Z"
 }
