@@ -1,348 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>호미팩토리 HOMI FACTORY · WE DESIGN EVERY MOMENT</title>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOMI FACTORY · 엔터테인먼트 마케팅</title>
 <meta name="description" content="아티스트와 한 팀이 되어 컴백 프로모션부터 공연, 해외 홍보까지 직접 기획하고 실행합니다.">
-<meta name="keywords" content="호미팩토리, HOMI FACTORY, 콘텐츠 마케팅, 틱톡 라이브, 인플루언서 마케팅, 글로벌 PR, 콘텐츠 프로덕션">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="canonical" href="https://homifactory.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
+<meta property="og:site_name" content="HOMI FACTORY"><meta property="og:locale" content="ko_KR"><meta property="og:type" content="website">
+<meta property="og:title" content="HOMI FACTORY · 엔터테인먼트 마케팅"><meta property="og:description" content="아티스트와 한 팀이 되어 컴백 프로모션부터 공연, 해외 홍보까지 직접 기획하고 실행합니다."><meta property="og:url" content="https://homifactory.com/">
+<meta property="og:image" content="https://homifactory.com/assets/fac/og-factory.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="HOMI FACTORY — 좋은 무대가 더 많은 사람에게 닿도록">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="HOMI FACTORY · 엔터테인먼트 마케팅"><meta name="twitter:description" content="아티스트와 한 팀이 되어 컴백 프로모션부터 공연, 해외 홍보까지 직접 기획하고 실행합니다."><meta name="twitter:image" content="https://homifactory.com/assets/fac/og-factory.png">
+<meta name="naver-site-verification" content="69642ce4418bf1a865979dc6bfa577e5e898088d">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008f1">
+<link rel="stylesheet" href="/assets/fac/fac.css?v=20261008f1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FN6KY4F9R8');
-</script>
-<style>
-:root{
-  --primary:#BC2747;
-  --primary-2:#E1274C;
-  --primary-3:#8E1631;
-  --ink:#0B0B0F;
-  --ink-2:#3A3A42;
-  --muted:#6B6B75;
-  --line:#E7E7EC;
-  --bg:#FFFFFF;
-  --bg-2:#F7F7F9;
-  --bg-3:#0B0B0F;
-  --white:#FFFFFF;
-  --radius:14px;
-  --radius-lg:22px;
-  --shadow:0 8px 28px rgba(0,0,0,.06);
-  --shadow-lg:0 20px 60px rgba(0,0,0,.10);
-  --font-en:'Inter',system-ui,-apple-system,sans-serif;
-  --font-kr:'Noto Sans KR','Pretendard',system-ui,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-kr);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
-
-/* ─────────── Nav ─────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);transition:.25s}
-.nav-inner{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-en);font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--ink)}
-.brand-mark{width:32px;height:32px;border-radius:6px;display:grid;place-items:center;overflow:hidden;flex-shrink:0}
-.brand-mark img{width:100%;height:100%;object-fit:contain}
-.nav-menu{display:flex;gap:36px;align-items:center}
-.nav-menu a{font-size:15px;font-weight:500;color:var(--ink-2);transition:.2s;position:relative}
-.nav-menu a:hover{color:var(--primary)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.site-switch{display:flex;gap:6px}
-.site-switch a{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);transition:.2s}
-.site-switch a:hover{color:var(--primary);border-color:var(--primary)}
-.site-switch a.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.lang-toggle{display:flex;gap:2px;background:var(--bg-2);border-radius:999px;padding:3px}
-.lang-toggle button{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--muted);transition:.2s}
-.lang-toggle button.active{background:var(--ink);color:#fff}
-.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:6px}
-.nav-mobile-btn span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
-
-/* ─────────── Hero ─────────── */
-.hero{min-height:100vh;display:grid;place-items:center;padding:120px 32px 80px;background:radial-gradient(ellipse at top,#FFEDF1 0%,#FFF 55%);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(188,39,71,.08) 0%,transparent 60%);border-radius:50%;pointer-events:none}
-.hero-inner{max-width:1200px;width:100%;text-align:center;position:relative;z-index:1}
-.hero-eyebrow{display:inline-block;padding:8px 18px;background:rgba(188,39,71,.08);color:var(--primary);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.14em;margin-bottom:28px}
-.hero h1{font-family:var(--font-en);font-weight:900;font-size:clamp(48px,9vw,120px);line-height:.98;letter-spacing:-.02em;color:var(--ink);margin-bottom:32px}
-.hero h1 .hl{color:var(--primary)}
-.hero-sub{max-width:780px;margin:0 auto 44px;font-size:clamp(16px,2vw,20px);color:var(--ink-2);line-height:1.7;font-weight:400}
-.hero-sub strong{color:var(--ink);font-weight:700}
-.hero-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.hero-tag{padding:8px 18px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
-.hero-tag::before{content:"";width:6px;height:6px;background:var(--primary);border-radius:50%}
-.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;transition:.25s;white-space:nowrap}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-primary:hover{background:var(--primary-3);transform:translateY(-2px);box-shadow:0 10px 24px rgba(188,39,71,.35)}
-.btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.btn-outline:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
-.btn-ghost{color:var(--ink-2);padding:16px 20px}
-.btn-ghost:hover{color:var(--primary)}
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:var(--font-en);font-size:11px;letter-spacing:.24em;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
-.scroll-hint::before{content:"";width:1px;height:32px;background:var(--muted)}
-
-/* ─────────── Sections ─────────── */
-section{padding:120px 32px}
-.section-inner{max-width:1280px;margin:0 auto}
-.eyebrow{font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--primary);text-transform:uppercase;margin-bottom:16px;display:block}
-.section-title{font-family:var(--font-en);font-weight:900;font-size:clamp(36px,5.5vw,64px);line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px}
-.section-title .hl{color:var(--primary)}
-.section-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:640px}
-.section-head{margin-bottom:64px}
-.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
-.section-head.center .section-sub{margin-left:auto;margin-right:auto}
-
-/* ─────────── Stats ─────────── */
-.stats{background:var(--bg-3);color:#fff;padding:100px 32px}
-.stats .eyebrow{color:var(--primary-2)}
-.stats .section-title{color:#fff}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px}
-.stat{padding:40px 20px;border-top:2px solid rgba(255,255,255,.15);position:relative;transition:.3s}
-.stat:hover{border-top-color:var(--primary-2)}
-.stat-num{font-family:var(--font-en);font-weight:900;font-size:clamp(52px,7vw,88px);line-height:1;color:#fff;margin-bottom:16px;letter-spacing:-.03em}
-.stat-num .unit{color:var(--primary-2);font-size:.5em;margin-left:4px}
-.stat-label{font-size:15px;color:rgba(255,255,255,.7);font-weight:500;line-height:1.5}
-.stat-note{margin-top:44px;font-size:13px;color:rgba(255,255,255,.4);text-align:center}
-
-/* ─────────── Services (3-axis) ─────────── */
-.services{background:#fff}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.svc-card{background:var(--bg-2);border-radius:var(--radius-lg);padding:44px 36px;transition:.3s;position:relative;overflow:hidden;border:1px solid transparent}
-.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.svc-card:hover{background:#fff;border-color:var(--line);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.svc-card:hover::before{transform:scaleX(1)}
-.svc-num{font-family:var(--font-en);font-weight:800;font-size:14px;color:var(--primary);letter-spacing:.1em;margin-bottom:20px}
-.svc-title{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.25}
-.svc-title-en{font-family:var(--font-en);font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.06em;margin-bottom:20px;text-transform:uppercase}
-.svc-desc{font-size:15px;color:var(--ink-2);line-height:1.7;margin-bottom:28px}
-.svc-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.svc-list li{font-size:14px;color:var(--ink-2);padding-left:20px;position:relative}
-.svc-list li::before{content:"—";position:absolute;left:0;color:var(--primary);font-weight:700}
-.svc-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-en);font-size:14px;font-weight:700;color:var(--ink);letter-spacing:.02em;transition:.2s}
-.svc-link:hover{color:var(--primary);gap:14px}
-
-/* ─────────── How we work ─────────── */
-.how{background:var(--bg-2)}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:60px}
-.how-card{background:#fff;border-radius:var(--radius-lg);padding:44px 36px;border:1px solid var(--line);transition:.3s}
-.how-card:hover{border-color:var(--primary);box-shadow:var(--shadow)}
-.how-icon{width:56px;height:56px;background:rgba(188,39,71,.08);border-radius:14px;display:grid;place-items:center;margin-bottom:24px;color:var(--primary);font-family:var(--font-en);font-weight:900;font-size:20px}
-.how-title{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:14px}
-.how-desc{font-size:15px;color:var(--ink-2);line-height:1.7}
-
-/* ─────────── Cases ─────────── */
-.cases{background:#fff}
-.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:60px}
-.case-card{background:linear-gradient(135deg,#F9F9FB 0%,#F0F0F5 100%);border-radius:var(--radius-lg);padding:44px 40px;border:1px solid var(--line);position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
-.case-card::before{content:"준비 중";position:absolute;top:24px;right:24px;padding:6px 14px;background:rgba(188,39,71,.1);color:var(--primary);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.1em}
-.case-type{font-family:var(--font-en);font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
-.case-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:16px;line-height:1.35;opacity:.5}
-.case-body{font-size:13px;color:var(--ink-2);line-height:1.9;opacity:.55}
-.case-label{display:inline-block;min-width:44px;font-family:var(--font-en);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-right:8px}
-.case-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);opacity:.4;margin-top:16px;font-family:var(--font-en);letter-spacing:.12em}
-.cases-note{margin-top:40px;text-align:center;color:var(--muted);font-size:14px}
-
-/* ─────────── CTA ─────────── */
-.cta{background:var(--bg-3);color:#fff;padding:120px 32px;text-align:center;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(188,39,71,.15) 0%,transparent 60%);border-radius:50%;pointer-events:none}
-.cta-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
-.cta .eyebrow{color:var(--primary-2)}
-.cta-title{font-family:var(--font-en);font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:28px}
-.cta-title .hl{color:var(--primary-2)}
-.cta-sub{font-size:17px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:44px}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-primary-inv{background:#fff;color:var(--ink)}
-.btn-primary-inv:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
-.btn-outline-inv{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-.btn-outline-inv:hover{background:#fff;color:var(--ink);border-color:#fff}
-
-/* ─────────── Footer ─────────── */
-.footer{background:#050508;color:rgba(255,255,255,.7);padding:80px 32px 40px}
-.footer-inner{max-width:1280px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
-.footer-brand{font-family:var(--font-en);font-weight:800;font-size:24px;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.footer-tag{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:24px;max-width:320px}
-.footer-social{display:flex;gap:10px}
-.footer-social a{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:50%;display:grid;place-items:center;transition:.2s;font-family:var(--font-en);font-weight:700;font-size:11px}
-.footer-social a:hover{background:var(--primary);color:#fff}
-.footer-col h4{font-family:var(--font-en);font-size:12px;font-weight:700;color:#fff;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-col a{font-size:13px;color:rgba(255,255,255,.55);transition:.2s}
-.footer-col a:hover{color:#fff}
-.footer-info{font-size:12px;color:rgba(255,255,255,.45);line-height:1.9}
-.footer-info strong{color:rgba(255,255,255,.7);font-weight:600}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.35)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.5)}
-.footer-links a:hover{color:#fff}
-
-/* ─────────── Responsive ─────────── */
-@media (max-width:900px){
-  .nav-menu,.site-switch,.lang-toggle{display:none}
-  .nav-mobile-btn{display:flex}
-  .nav-inner{padding:14px 20px}
-  .hero{padding:100px 20px 60px;min-height:88vh}
-  section{padding:80px 20px}
-  .stats,.cta{padding:80px 20px}
-  .footer{padding:60px 20px 30px}
-  .stats-grid,.svc-grid,.how-grid,.cases-grid{grid-template-columns:1fr;gap:20px}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-  .btn{padding:14px 22px;font-size:14px}
-  .hero-cta{flex-direction:column;width:100%;max-width:320px;margin:0 auto}
-  .hero-cta .btn{justify-content:center;width:100%}
-  .scroll-hint{display:none}
-  .case-card{padding:32px 24px;min-height:220px}
-  .svc-card,.how-card{padding:36px 28px}
-}
-@media (max-width:480px){
-  .footer-top{grid-template-columns:1fr}
-}
-
-@keyframes slideDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.nav{animation:slideDown .7s cubic-bezier(.2,.8,.2,1) both}
-.hero-eyebrow{animation:fadeInUp .8s cubic-bezier(.2,.8,.2,1) .15s both}
-.hero h1{animation:fadeInUp .9s cubic-bezier(.2,.8,.2,1) .3s both}
-.hero-sub{animation:fadeInUp .9s cubic-bezier(.2,.8,.2,1) .5s both}
-.hero-tags{animation:fadeInUp .9s cubic-bezier(.2,.8,.2,1) .7s both}
-.hero-cta{animation:fadeInUp .9s cubic-bezier(.2,.8,.2,1) .85s both}
-.scroll-hint{animation:fadeInUp 1s cubic-bezier(.2,.8,.2,1) 1.1s both}
-@media(prefers-reduced-motion:reduce){.nav,.hero-eyebrow,.hero h1,.hero-sub,.hero-tags,.hero-cta,.scroll-hint{animation:none}}
-
-/* Full-page scroll-snap card-news sections */
-html{scroll-snap-type:y mandatory;scroll-padding-top:0}
-.hero,.stats,.services,.how,.cases,.cta{scroll-snap-align:start;scroll-snap-stop:normal;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
-.footer{scroll-snap-align:start}
-@media (max-width:900px){.hero,.stats,.services,.how,.cases,.cta{min-height:auto;padding-top:100px;padding-bottom:100px}}
-
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
-.reveal.is-visible{opacity:1;transform:translateY(0)}
-.reveal-1{transition-delay:.1s}
-.reveal-2{transition-delay:.25s}
-.reveal-3{transition-delay:.4s}
-.reveal-4{transition-delay:.55s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-
-.section-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:14px}
-.section-nav a{width:8px;height:8px;border-radius:50%;background:rgba(11,11,15,.25);transition:.25s;position:relative}
-.section-nav a:hover,.section-nav a.active{background:var(--primary);transform:scale(1.35)}
-.section-nav a::before{content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink);white-space:nowrap;opacity:0;transition:.25s;pointer-events:none;background:#fff;padding:4px 10px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.section-nav a:hover::before{opacity:1;right:26px}
-@media(max-width:900px){.section-nav{display:none}}
-
-/* Services dropdown */
-.nav-menu-item{position:relative}
-.nav-menu-item .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:10px 0;min-width:220px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s;margin-top:10px;z-index:100}
-.nav-menu-item:hover .dropdown,.nav-menu-item:focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
-.nav-menu-item .dropdown::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line)}
-.nav-menu-item .dropdown a{display:block;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;letter-spacing:.01em;transition:.15s;border-radius:0}
-.nav-menu-item .dropdown a:hover{background:var(--bg-2);color:var(--primary)}
-@media(max-width:900px){.nav-menu-item .dropdown{display:none}}
-
-/* Font-size boost across index sections */
-.hero h1{font-size:clamp(60px,10vw,140px)!important;line-height:1!important;margin-bottom:40px!important;letter-spacing:-.03em!important;min-height:2.2em}
-.hero-eyebrow{font-size:14px!important;padding:9px 20px!important;margin-bottom:36px!important;letter-spacing:.16em!important}
-.hero-sub{font-size:clamp(18px,2.2vw,24px)!important;line-height:1.7!important;max-width:840px!important;margin-bottom:52px!important}
-.hero-tag{font-size:14px!important;padding:10px 20px!important}
-.section-title{font-size:clamp(42px,6.5vw,84px)!important;line-height:1.05!important;letter-spacing:-.03em!important;margin-bottom:24px!important}
-.section-sub{font-size:18px!important;line-height:1.75!important}
-.eyebrow{font-size:14px!important;letter-spacing:.2em!important;margin-bottom:18px!important}
-.hero-cta .btn{font-size:16px!important;padding:16px 30px!important}
-
-/* Typing animation caret */
-.type-caret{display:inline-block;color:var(--primary);font-weight:300;margin-left:6px;animation:caretBlink 1s step-end infinite;vertical-align:baseline}
-.type-caret.done{display:none}
-@keyframes caretBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
-
-/* Hero fade-in (after typing) */
-.hero-fade{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
-.hero-fade.is-visible{opacity:1;transform:translateY(0)}
-.hero-tags.hero-fade{transition-delay:.32s}
-.hero-cta.hero-fade{transition-delay:.64s}
-
-
-/* Nav readability boost */
-.nav-inner{padding-top:18px!important;padding-bottom:18px!important}
-.brand-text{font-size:19px!important;letter-spacing:.02em!important}
-.nav-menu{gap:44px!important}
-.nav-menu a{font-size:17px!important;font-weight:600!important}
-.nav-menu-item .dropdown a{font-size:15px!important;padding:12px 24px!important}
-.site-switch a{font-size:13px!important;padding:7px 14px!important}
-.lang-toggle button{font-size:13px!important;padding:6px 14px!important}
-
-
-/* Nav-right spec IA — lang dropdown + HOMI PRODUCTION link */
-.nav-right{display:flex!important;align-items:center!important;gap:20px!important}
-.lang-drop{position:relative}
-.lang-trigger{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-family:var(--font-en);font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;transition:.2s}
-.lang-trigger:hover{border-color:var(--primary);color:var(--primary)}
-.lang-globe{font-size:14px;line-height:1}
-.lang-caret{font-size:10px;opacity:.7}
-.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.08);padding:8px 0;min-width:180px;opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;transition:.2s;z-index:110}
-.lang-drop:hover .lang-menu,.lang-drop:focus-within .lang-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-.lang-menu a{display:block;padding:10px 20px;font-size:13.5px;font-weight:500;color:var(--ink-2);white-space:nowrap;transition:.15s}
-.lang-menu a:hover{background:var(--bg-2);color:var(--primary)}
-.lang-menu a.active{color:var(--primary);font-weight:700}
-.prod-link{display:inline-flex;align-items:center;padding:10px 18px;background:var(--ink);color:#fff!important;border-radius:999px;font-family:var(--font-en);font-size:12.5px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap}
-.prod-link:hover{background:var(--primary);transform:translateY(-1px)}
-@media(max-width:900px){.lang-drop,.prod-link{display:none!important}}
-
-
-/* FR-COM-001 unified sibling brand link */
-.sibling-link{display:inline-flex;align-items:center;padding:9px 14px;background:transparent;color:var(--ink)!important;border:1px solid var(--line);border-radius:999px;font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.06em;transition:.2s;white-space:nowrap;margin-left:4px}
-.sibling-link:hover{background:var(--ink);color:#fff!important;border-color:var(--ink);transform:translateY(-1px)}
-@media(max-width:900px){.sibling-link{display:none!important}}
-
-</style>
-<meta property="og:site_name" content="HOMI FACTORY">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HOMI FACTORY · 엔터테인먼트 마케팅">
-<meta property="og:description" content="아티스트와 한 팀이 되어 컴백 프로모션부터 공연, 해외 홍보까지 직접 기획하고 실행합니다.">
-<meta property="og:url" content="https://homifactory.com/">
-<meta property="og:image" content="https://homifactory.com/assets/fac/og-factory.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HOMI FACTORY — 좋은 무대가 더 많은 사람에게 닿도록">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HOMI FACTORY · 엔터테인먼트 마케팅">
-<meta name="twitter:description" content="아티스트와 한 팀이 되어 컴백 프로모션부터 공연, 해외 홍보까지 직접 기획하고 실행합니다.">
-<meta name="twitter:image" content="https://homifactory.com/assets/fac/og-factory.png">
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007f1">
-<link rel="stylesheet" href="/assets/fac/fac.css?v=20261007f1">
-</head>
-<body data-site="factory" data-page="home" data-header="fixed">
-
-<!-- Renewal banner -->
-<div class="renewal-banner">현재 사이트 리뉴얼 진행 중입니다 · Homepage under renewal</div>
-<style>.renewal-banner{position:fixed;top:0;left:0;right:0;z-index:9999;background:#0B0B0F;color:#fff;padding:10px 20px;text-align:center;font-size:13px;font-weight:600;letter-spacing:.02em;border-bottom:2px solid #BC2747;font-family:var(--font-kr)}.nav{top:40px!important}body{padding-top:40px}@media(max-width:600px){.renewal-banner{font-size:12px;padding:8px 12px}.nav{top:36px!important}body{padding-top:36px}}</style>
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
+</head><body class="fac has-rb" data-site="factory" data-page="home" data-header="fixed">
+<div class="renewal-banner rb">현재 사이트 리뉴얼 진행 중입니다 · Homepage under renewal</div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007f1"></script>
+<script src="/shared/homi-header.js?v=20261008f1"></script>
+<main id="main">
 
-<nav class="section-nav" aria-label="Section navigation">
-  <a href="#top" data-label="HOME" class="active"></a>
-  <a href="#stats" data-label="NUMBERS"></a>
-  <a href="#services" data-label="SERVICES"></a>
-  <a href="#how" data-label="HOW WE WORK"></a>
-  <a href="#cases" data-label="CASES"></a>
-  <a href="#contact" data-label="CONTACT"></a>
-</nav>
-
-<!-- ─────────── Hero ─────────── -->
-<section class="hero fac-hero" id="top" aria-label="HOMI FACTORY 소개">
+<section class="fac-hero" id="top" aria-label="HOMI FACTORY 소개">
   <div class="fac-hero-media" aria-hidden="true"></div>
   <div class="fac-hero-dim" aria-hidden="true"></div>
   <div class="fac-hero-in">
@@ -357,222 +37,40 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
   <div class="fac-hero-scroll" aria-hidden="true">SCROLL</div>
 </section>
 
-<!-- ─────────── Stats ─────────── -->
-<section class="stats" id="stats">
-  <div class="section-inner">
-    <div class="section-head center reveal">
-      <span class="eyebrow">BY THE NUMBERS</span>
-      <h2 class="section-title">데이터로 증명하는 <span class="hl">역량</span></h2>
-      <p class="section-sub">홈페이지가 아니라 실적표가 말합니다. 지난 시즌들 누적한 숫자들.</p>
+<section class="f-sec" id="who-we-are">
+  <div class="f-wrap">
+    <div class="f-head split">
+      <div><p class="f-eyebrow">WHO WE ARE</p><h2 class="f-h2">아티스트의 활동을<br>처음부터 끝까지 함께 만드는 팀</h2></div>
+      <p class="f-lead">기획사와 아티스트 곁에서 컴백 프로모션, 공연, 콘텐츠 제작, 해외 홍보까지 맡습니다. 일을 여러 곳에 나눠 맡기지 않아도 되도록, 계획한 사람이 현장까지 함께 갑니다.</p>
     </div>
-    <div class="stats-grid reveal reveal-2">
-      <div class="stat">
-        <div class="stat-num">400M<span class="unit">+</span></div>
-        <div class="stat-label">누적 콘텐츠 조회수<br><span style="opacity:.5">Total Content Views</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">40,000<span class="unit">+</span></div>
-        <div class="stat-label">협업 크리에이터 네트워크<br><span style="opacity:.7">그중 직접 계약 12,000+ · 카테고리별 직접 관리</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">20<span class="unit">팀+</span></div>
-        <div class="stat-label">연간 캠페인 실행<br><span style="opacity:.5">Annual Campaign Executions</span></div>
-      </div>
-    </div>
-    <p class="stat-note reveal reveal-3">* 협업 인플루언서 풀 기준 (소속 크리에이터가 아닙니다) · 2026년 8월 기준</p>
+    <div class="f-stats" data-fac="stats"><div class="f-stat"><b>40,000+</b><span>협업 크리에이터</span><small>그중 직접 계약 12,000+</small></div><div class="f-stat"><b>2,000명+</b><span>직접 운영한 공연 최대 관객</span></div><div class="f-stat"><b>2곳</b><span>해외 거점</span><small>일본 · 인도네시아</small></div><div class="f-stat"><b>2곳+</b><span>함께하는 대학</span><small>MOU 체결 기준</small></div></div>
   </div>
 </section>
 
-<!-- ─────────── Services 3-axis ─────────── -->
-<section class="services" id="services">
-  <div class="section-inner">
-    <div class="section-head center reveal">
-      <span class="eyebrow">SERVICES</span>
-      <h2 class="section-title">우리가 <span class="hl">일하는 방식</span> 세 갈래</h2>
-      <p class="section-sub">
-        회사소개서와 사이트가 같은 말을 합니다. 마케팅부터 글로벌 PR, 콘텐츠 프로덕션까지 —
-        한 곳에서 처음부터 끝까지 설계합니다.
-      </p>
-    </div>
-    <div class="svc-grid reveal reveal-2">
-
-      <!-- 축 1: 마케팅 -->
-      <div class="svc-card">
-        <div class="svc-num">01</div>
-        <div class="svc-title-en">MARKETING</div>
-        <div class="svc-title">마케팅</div>
-        <p class="svc-desc">
-          퍼포먼스 · SNS 바이럴 · 커뮤니티 · 콘텐츠 마케팅.
-          2,000명+ 협업 인플루언서 풀을 활용해 브랜드가 필요한 순간, 필요한 방식으로 소비자와 만나게 합니다.
-        </p>
-        <ul class="svc-list">
-          <li>퍼포먼스 마케팅</li>
-          <li>SNS 바이럴</li>
-          <li>커뮤니티 · 이슈채널</li>
-          <li>콘텐츠 마케팅</li>
-        </ul>
-        <a href="#contact" class="svc-link">
-          견적 문의
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-
-      <!-- 축 2: 글로벌 마케팅 · PR -->
-      <div class="svc-card">
-        <div class="svc-num">02</div>
-        <div class="svc-title-en">GLOBAL MARKETING · PR</div>
-        <div class="svc-title">글로벌 마케팅 · PR</div>
-        <p class="svc-desc">
-          방송·콘서트 PR, 중국 PR, 틱톡 라이브까지 —
-          국내를 넘어 글로벌 무대에서 K-콘텐츠가 사랑받도록 현지 네트워크와 함께 움직입니다.
-        </p>
-        <ul class="svc-list">
-          <li>글로벌 네트워크 마케팅</li>
-          <li>방송 · 콘서트 PR</li>
-          <li>중국 PR</li>
-          <li>틱톡 라이브 (인도네시아 지사)</li>
-        </ul>
-        <a href="#contact" class="svc-link">
-          견적 문의
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-
-      <!-- 축 3: 콘텐츠 프로덕션 -->
-      <div class="svc-card">
-        <div class="svc-num">03</div>
-        <div class="svc-title-en">CONTENT PRODUCTION</div>
-        <div class="svc-title">콘텐츠 프로덕션</div>
-        <p class="svc-desc">
-          영상 기획부터 촬영·편집·스튜디오 대관까지. 자체 콘텐츠팀과 스튜디오 인프라로
-          외주 없이 아이디어를 완성된 영상으로 만듭니다.
-        </p>
-        <ul class="svc-list">
-          <li>영상 기획 · 촬영 · 편집</li>
-          <li>스튜디오 대관 (자체 공간)</li>
-          <li>브랜드 필름 · 뮤직비디오</li>
-          <li>숏폼 콘텐츠 대량 제작</li>
-        </ul>
-        <a href="#contact" class="svc-link">
-          자세히 보기 (준비 중)
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-
-    </div>
+<section class="f-sec alt" id="business">
+  <div class="f-wrap">
+    <div class="f-head"><p class="f-eyebrow">BUSINESS</p><h2 class="f-h2">필요한 일부터 골라 보세요</h2></div>
+    <div class="f-biz"><a class="f-bcard" href="/service-marketing"><div class="f-ph" role="img" aria-label="사진 준비 중"><span>FAC-BIZ-MKT</span></div><div class="f-bcard-tx"><span class="f-bcard-en">Marketing</span><span class="f-bcard-kr">컴백 프로모션부터 팬덤 바이럴·챌린지, 인플루언서 시딩, 쇼케이스·공연·팝업까지.</span><span class="f-bcard-go">자세히 보기 →</span></div></a><a class="f-bcard" href="/service-global"><div class="f-ph" role="img" aria-label="사진 준비 중"><span>FAC-BIZ-PR</span></div><div class="f-bcard-tx"><span class="f-bcard-en">Global PR</span><span class="f-bcard-kr">현지 방송·미디어 섭외와 프로모션, 비자·행정, 다국어 커뮤니케이션까지.</span><span class="f-bcard-go">자세히 보기 →</span></div></a><a class="f-bcard" href="/service-production"><div class="f-ph" role="img" aria-label="사진 준비 중"><span>FAC-BIZ-CP</span></div><div class="f-bcard-tx"><span class="f-bcard-en">Content Production</span><span class="f-bcard-kr">아티스트 자체 콘텐츠와 챌린지·숏폼, 앨범 관련 콘텐츠를 기획하고 만듭니다.</span><span class="f-bcard-go">자세히 보기 →</span></div></a><a class="f-bcard" href="/service-monitoring"><div class="f-ph" role="img" aria-label="사진 준비 중"><span>FAC-BIZ-MON</span></div><div class="f-bcard-tx"><span class="f-bcard-en">Monitoring Service</span><span class="f-bcard-kr">음원·광고·SNS·바이럴 반응을 한 화면에서 보고, 정해진 날마다 리포트로 받습니다.</span><span class="f-bcard-go">자세히 보기 →</span></div></a></div>
   </div>
 </section>
 
-<!-- ─────────── How we work ─────────── -->
-<section class="how" id="how">
-  <div class="section-inner">
-    <div class="section-head center reveal">
-      <span class="eyebrow">HOW WE WORK</span>
-      <h2 class="section-title">일하는 <span class="hl">방식</span></h2>
-      <p class="section-sub">
-        감이 아니라 데이터로. 시즌이 아니라 기간 단위로. 결과는 실시간으로 —
-        브랜드 담당자가 답답하지 않도록 캠페인 전체를 투명하게 설계합니다.
-      </p>
-    </div>
-    <div class="how-grid reveal reveal-2">
-      <div class="how-card">
-        <div class="how-icon">01</div>
-        <h3 class="how-title">데이터 기반 전략 설계</h3>
-        <p class="how-desc">
-          트렌드·타겟·경쟁 브랜드 데이터를 먼저 뜯어봅니다.
-          누구에게, 어떤 형식으로, 어떤 크리에이터가 말할 때 반응이 나올지 —
-          시작 전에 근거부터 확보합니다.
-        </p>
-      </div>
-      <div class="how-card">
-        <div class="how-icon">02</div>
-        <h3 class="how-title">기간 선택형 실행</h3>
-        <p class="how-desc">
-          72시간 스프린트부터 1주 · 2주 · 4주까지 —
-          브랜드의 이슈 사이클에 맞춰 실행 단위를 고를 수 있습니다.
-          긴급 대응이든 시즌 캠페인이든 프레임이 명확합니다.
-        </p>
-      </div>
-      <div class="how-card">
-        <div class="how-icon">03</div>
-        <h3 class="how-title">실시간 대시보드</h3>
-        <p class="how-desc">
-          캠페인이 도는 동안 조회수·인게이지먼트·감성 반응을
-          실시간으로 확인할 수 있는 대시보드를 제공합니다.
-          "지금 어떻게 돌아가?" 라는 질문에 매번 답할 필요가 없습니다.
-        </p>
-      </div>
-    </div>
+<section class="f-sec dark" id="how-we-work">
+  <div class="f-wrap">
+    <div class="f-head"><p class="f-eyebrow">HOW WE WORK</p><h2 class="f-h2">일하는 방식</h2></div>
+    <div class="f-prin" data-fac="principles"><article class="f-pcard"><i>01</i><h3>먼저 듣습니다</h3><p>정해 둔 상품을 고르게 하지 않습니다. 아티스트와 회사가 지금 무엇을 고민하는지부터 듣고, 그에 맞는 계획을 새로 짭니다.</p></article><article class="f-pcard"><i>02</i><h3>직접 실행합니다</h3><p>계획한 사람이 현장까지 갑니다. 콘텐츠 제작과 크리에이터 섭외, 공연·팝업 운영을 한 팀이 맡습니다.</p></article><article class="f-pcard"><i>03</i><h3>끝까지 함께 봅니다</h3><p>활동이 끝나면 반응을 함께 확인하고 다음 활동으로 이어 갑니다. 예산의 크기가 아니라 필요한 도움에 맞춰 일합니다.</p></article></div>
   </div>
 </section>
-
-<!-- ─────────── Anonymous Cases ─────────── -->
-<section class="cases" id="cases">
-  <div class="section-inner">
-    <div class="section-head center reveal">
-      <span class="eyebrow">SELECTED CASES</span>
-      <h2 class="section-title">대표 <span class="hl">사례</span></h2>
-      <p class="section-sub">
-        고객사 비공개 원칙에 따라 클라이언트명·로고는 노출하지 않습니다.
-        캠페인 유형과 결과 수치로 대신 말씀드립니다.
-      </p>
-    </div>
-    <div class="cases-grid reveal reveal-2">
-      <div class="case-card">
-        <div>
-          <div class="case-type">MUSIC · K-POP COMEBACK</div>
-          <h3 class="case-title">K-pop 4인조 그룹 컴백 캠페인</h3>
-          <div class="case-body">
-            <span class="case-label">기간</span> 2026 · 4주<br>
-            <span class="case-label">실행</span> 틱톡 챌린지 · 숏폼 · 커뮤니티 시딩<br>
-            <span class="case-label">결과</span> 숏폼 누적 조회수 (준비 중)
-          </div>
-        </div>
-        <div class="case-meta"><span>MARKETING AXIS</span></div>
-      </div>
-      <div class="case-card">
-        <div>
-          <div class="case-type">BEAUTY · PRODUCT LAUNCH</div>
-          <h3 class="case-title">뷰티 브랜드 신제품 론칭</h3>
-          <div class="case-body">
-            <span class="case-label">기간</span> 2026 · 2주<br>
-            <span class="case-label">실행</span> 인플루언서 시딩 · 리뷰 콘텐츠<br>
-            <span class="case-label">결과</span> 리뷰 콘텐츠 도달수 (준비 중)
-          </div>
-        </div>
-        <div class="case-meta"><span>MARKETING AXIS</span></div>
-      </div>
-    </div>
-    <p class="cases-note reveal reveal-3">* 실제 사례 카드는 순차 오픈 예정입니다. 캠페인 상세는 견적 문의 시 자료로 제공됩니다.</p>
-  </div>
-</section>
-
-<!-- ─────────── CTA ─────────── -->
-<section class="cta" id="contact">
-  <div class="cta-inner reveal">
-    <span class="eyebrow">GET IN TOUCH</span>
-    <h2 class="cta-title">
-      다음 캠페인,<br>
-      <span class="hl">함께 설계할까요?</span>
-    </h2>
-    <p class="cta-sub">
-      브랜드 · 기획사 · 대행사 담당자님, 프로젝트 개요와 원하는 목표를 알려주세요.<br>
-      2영업일 안에 담당자가 초기 제안 자료로 회신드립니다.
-    </p>
-    <div class="cta-btns">
-      <a href="mailto:support@homifactory.com" class="btn btn-primary-inv">
-        support@homifactory.com
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="tel:01040262695" class="btn btn-outline-inv">010-4026-2695</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────── Footer ─────────── -->
+<section class="f-band" aria-label="문의"><div class="f-wrap"><p>다음 활동을 준비하고 있다면, 지금의 고민부터 들려주세요</p><a class="f-btn" href="/contact">문의하기 <span aria-hidden="true">→</span></a></div></section>
+</main>
 <footer class="hf" id="homi-footer">
   <div class="hf-in">
-    <div class="hf-brand"><img src="/assets/logo-symbol.png" alt="" width="24" height="26">HOMI FACTORY</div>
+    <div class="hf-head">
+      <div class="hf-brand"><img src="/assets/logo-symbol.png" alt="" width="24" height="26">HOMI FACTORY</div>
+      <nav class="hf-sibs" aria-label="형제 브랜드">
+        <a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION <span aria-hidden="true">↗</span><span class="hh-sr">(새 탭)</span></a>
+        <a href="/market/" target="_blank" rel="noopener">HOMI MARKET <span aria-hidden="true">↗</span><span class="hh-sr">(새 탭)</span></a>
+      </nav>
+    </div>
     <div class="hf-top">
       <div class="hf-col">
         <h5>Business</h5>
@@ -588,13 +86,6 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
         <ul>
           <li><a href="/about">About us</a></li>
           <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="hf-col">
-        <h5>바로가기</h5>
-        <ul>
-          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗<span class="hh-sr">(새 탭)</span></a></li>
-          <li><a href="/market/" target="_blank" rel="noopener">HOMI MARKET ↗<span class="hh-sr">(새 탭)</span></a></li>
           <li><a href="/terms">이용약관</a></li>
           <li><a href="/privacy" class="hf-privacy">개인정보처리방침</a></li>
         </ul>
@@ -613,81 +104,5 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0}
     </div>
   </div>
 </footer>
-
-<script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-}, {threshold: 0.15});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-const secIds = ['top','stats','services','how','cases','contact'];
-const navLinks = document.querySelectorAll('.section-nav a');
-const navIo = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const id = e.target.id;
-      const i = secIds.indexOf(id);
-      navLinks.forEach((a,ai) => a.classList.toggle('active', ai === i));
-    }
-  });
-}, {threshold: 0.5});
-secIds.forEach(id => { const el = document.getElementById(id); if (el) navIo.observe(el); });
-
-
-// Smooth anchor scroll offset (nav height)
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (id.length > 1) {
-      const el = document.querySelector(id);
-      if (el) {
-        e.preventDefault();
-        const y = el.getBoundingClientRect().top + window.scrollY - ((parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh-offset'),10)||72) + 8);
-        window.scrollTo({top: y, behavior: 'smooth'});
-      }
-    }
-  });
-});
-
-// Lang toggle (Phase 1: placeholder — full EN translation ships in follow-up sprint)
-document.querySelectorAll('.lang-toggle button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (btn.dataset.lang === 'en') {
-      alert('English version coming soon. 영문 버전은 곧 오픈 예정입니다.');
-      document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-      document.querySelector('.lang-toggle button[data-lang="ko"]').classList.add('active');
-    }
-  });
-});
-</script>
-
-<script>
-(function typeHero(){
-  const a = document.getElementById('type-a');
-  const b = document.getElementById('type-b');
-  const caret = document.querySelector('.type-caret');
-  if (!a || !b || !caret) return;
-  const line1 = 'WE DESIGN';
-  const line2 = 'EVERY MOMENT.';
-  const speed = 75;
-  let i = 0, j = 0;
-  function tick1(){
-    if (i < line1.length){ a.textContent += line1[i++]; setTimeout(tick1, speed); }
-    else setTimeout(tick2, 320);
-  }
-  function tick2(){
-    if (j < line2.length){ b.textContent += line2[j++]; setTimeout(tick2, speed); }
-    else setTimeout(() => {
-      caret.classList.add('done');
-      document.querySelectorAll('.hero-fade').forEach(el => el.classList.add('is-visible'));
-    }, 900);
-  }
-  setTimeout(tick1, 500);
-})();
-</script>
-
-<script src="/assets/fac/fac.js?v=20261007f1"></script>
-</body>
-</html>
+<script src="/assets/fac/fac.js?v=20261008f1"></script>
+</body></html>
