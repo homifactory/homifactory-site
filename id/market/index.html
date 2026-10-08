@@ -395,9 +395,6 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .strategy-stat .num{font-variant-numeric:tabular-nums}
 .strategy-stat .num .u{font-size:.62em;margin-left:2px}
 .strategy-stat .lbl{max-width:220px;margin:10px auto 0}
-/* FR-MKT-028 · Q-68 숫자 카드 아래 한 줄 */
-.strategy-note{text-align:center;margin:22px auto 0;max-width:760px;text-wrap:balance;font-size:15px;line-height:1.7;color:#3A3A42;font-weight:600;word-break:keep-all}
-@media(max-width:600px){.strategy-note{font-size:14px;padding:0 6px}}
 .strategy-section .industry-strip h3{color:#8B3DFF;font-weight:700;font-size:17px}
 .ind-tk{position:relative;overflow:hidden;border-top:1px solid #E6E0D6;border-bottom:1px solid #E6E0D6;padding:16px 0;max-width:1200px;margin:0 auto}
 .ind-tk::before,.ind-tk::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
@@ -409,6 +406,26 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 /* FR-MKT-008 ③ PLAN 안의 도구 */
 .plan-tools{margin-top:auto;padding-top:16px;border-top:1px dashed #E6E0D6}
 .strategy-card .svc-chips{margin-bottom:16px}
+/* ③-1 IP→PLAN→RESULT 원 아이콘 흐름 */
+.strategy-card{position:relative;text-align:center;align-items:center}
+.strategy-card .kw-ic{width:72px;height:72px;border-radius:50%;background:#F3ECFF;border:1px solid #D9C4FF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.strategy-card .kw-ic svg{width:32px;height:32px;fill:none;stroke:#8B3DFF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.strategy-card .svc-chips{justify-content:center}
+.strategy-card .plan-tools{text-align:left;align-self:stretch}
+@media(min-width:901px){.strategy-card:not(:last-child)::after{content:"";position:absolute;right:-17px;top:70px;width:14px;height:14px;border-top:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+@media(max-width:900px){.strategy-card:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-15px;width:12px;height:12px;margin-left:-6px;border-bottom:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+/* ③-2 한 팀으로 만든 결과 */
+.team-section{background:#fff}
+.team-section .strategy-head{margin-bottom:36px}
+.team-section .strategy-head p{font-size:16px;color:#3A3A42;font-weight:600;word-break:keep-all}
+.team-section .strategy-stats{margin-top:0;background:#FAF7F2}
+.team-section .ind-tk::before{background:linear-gradient(to right,#fff,rgba(255,255,255,0))}
+.team-section .ind-tk::after{background:linear-gradient(to left,#fff,rgba(255,255,255,0))}
+.strategy-stat .lbl b{color:#8B3DFF;font-weight:800}
+.strategy-stat.hl{background:#8B3DFF;border-radius:16px;padding:22px 14px;margin:-22px 0;box-shadow:0 14px 30px rgba(139,61,255,.28)}
+.strategy-stat.hl .st-k,.strategy-stat.hl .num{color:#fff}
+.strategy-stat.hl .lbl{color:rgba(255,255,255,.88)}
+@media(max-width:900px){.strategy-stat.hl{margin:0}}
 .plan-tools .pt-k{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:4px}
 .plan-tools p{font-size:13px!important;color:#3a3732!important;line-height:1.6!important;margin:0!important}
 /* FR-MKT-018 ④ */
@@ -646,42 +663,52 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 
-<!-- ③ 전문성 · 브랜드 맞춤형 전략 설계 (How We Work 이동 위치) -->
+<!-- ③-1 우리가 일하는 방식 · IP→PLAN→RESULT (How We Work 이동 위치) — FR-MKT-028 -->
 <section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> Hasil yang terbukti lewat kampanye nyata</span>
+<span class="strategy-badge"><span class="star">✦</span> Cara kami bekerja</span>
 <h2>Bicara lewat hasil,<br><em>strategi yang dirancang khusus untuk brand Anda</em></h2>
 <p>Yang penting bukan besarnya anggaran, melainkan IP apa, dengan rencana apa, dan hasil seperti apa yang ingin dicapai.<br>Kami menjadi satu tim dengan brand Anda dan merancangnya bersama dari awal hingga akhir.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
-<span class="kw">IP</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>Apa yang ingin disampaikan</h3>
 <p>Kami mendengarkan cerita dan tujuan brand terlebih dahulu,<br>lalu menemukan pesan terkuat di atasnya</p>
 </div>
 <div class="strategy-card">
-<span class="kw">PLAN</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>Bagaimana menyampaikannya</h3>
 <p>Kami memilih dan memadukan cara<br>yang paling tepat untuk mencapai target</p>
 <div class="svc-chips"><span class="sc">Influencer</span><span class="sc">Promosi Kunjungan</span><span class="sc">Pop-up</span><span class="sc">Sponsorship</span><span class="sc">Produksi Konten</span></div>
 <div class="plan-tools"><span class="pt-k">Alat yang masuk ke dalam rencana</span><p>Perekrutan influencer khusus (Korea &amp; luar negeri) · Rekrutmen influencer luar negeri · Koneksi kanal penjualan lokal · Pop-up &amp; offline · Monitoring</p></div>
 </div>
 <div class="strategy-card">
-<span class="kw">RESULT</span>
+<span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>Apa yang tersisa</h3>
 <p>Berdasarkan target awal,<br>kami mengukur kinerja awareness, penjualan, dan konten dalam angka,<br>lalu melanjutkannya ke strategi kampanye berikutnya</p>
 </div>
 </div>
+</div>
+</section>
+
+<!-- ③-2 한 팀으로 만든 결과 · 숫자 4개 + 업종 줄 — FR-MKT-028·041 -->
+<section class="strategy-section team-section" id="team-result">
+<div class="strategy-wrap">
+<div class="strategy-head">
+<span class="strategy-badge"><span class="star">✦</span> Hasil yang kami bangun sebagai satu tim</span>
+<h2>Kami bekerja sebagai <em>satu tim</em> dengan brand Anda</h2>
+<p>Untuk setiap kategori brand, kami mengelola langsung dan menghubungkan kreator yang paling efektif</p>
+</div>
 <div class="strategy-stats">
-<div class="strategy-stat"><div class="st-k">Kreator kolaborasi</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">Kreator yang sudah dicek kualitas konten dan respons nyatanya</div></div>
+<div class="strategy-stat"><div class="st-k">Kreator kolaborasi</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">Seluruh jaringan · <b>12.000+</b> di antaranya dikontrak langsung dan dikelola per kategori</div></div>
 <div class="strategy-stat"><div class="st-k">Basis global</div><div class="num"><span class="cu" data-to="8">8</span><span class="u"> hub</span></div><div class="lbl">Jaringan global, dimulai dari kantor cabang Jepang dan Indonesia</div></div>
-<div class="strategy-stat"><div class="st-k">Brand yang menjadi satu tim di 2026</div><div class="num"><span class="cu" data-to="45">45</span></div><div class="lbl">Lebih dalam, bukan lebih banyak — tim khusus untuk tiap brand sampai tuntas</div></div>
-<div class="strategy-stat"><div class="st-k">Tingkat kontrak ulang</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">Kami siap menjadi mitra yang menemani pertumbuhan brand Anda</div></div>
+<div class="strategy-stat hl"><div class="st-k">Brand yang bermitra di 2026</div><div class="num"><span class="cu" data-to="62">62</span>+</div><div class="lbl">Brand yang kami dengar tantangannya dan kami susun targetnya bersama</div></div>
+<div class="strategy-stat"><div class="st-k">Tingkat kontrak ulang</div><div class="num"><span class="cu" data-to="91">91</span>%</div><div class="lbl">Persentase brand yang kembali setelah sekali bekerja sama</div></div>
 </div>
-<p class="strategy-note">HOMI MARKET tidak menangani banyak brand sekaligus. Menjadi tim pemasaran bagi setiap brand yang kami pegang — begitulah cara kami bekerja.</p>
 </div>
-<div class="industry-strip"><h3>Dari UMKM hingga perusahaan besar, kami telah bekerja sama dengan brand dari berbagai industri</h3>
+<div class="industry-strip"><h3>Apa pun industrinya, kami merancang dengan bahasa brand Anda</h3>
   <div class="ind-tk"><div class="ind-row" role="list"><span class="ind" role="listitem">Kecantikan</span><span class="ind" role="listitem">Fashion</span><span class="ind" role="listitem">F&amp;B</span><span class="ind" role="listitem">Makanan</span><span class="ind" role="listitem">Suplemen kesehatan</span><span class="ind" role="listitem">Layanan kesehatan</span><span class="ind" role="listitem">Ibu &amp; anak</span><span class="ind" role="listitem">Hewan peliharaan</span><span class="ind" role="listitem">Rumah &amp; gaya hidup</span><span class="ind" role="listitem">Elektronik &amp; teknologi</span><span class="ind" role="listitem">Ritel &amp; e-commerce</span><span class="ind" role="listitem">Keuangan</span><span class="ind" role="listitem">Asuransi</span><span class="ind" role="listitem">Pendidikan</span><span class="ind" role="listitem">IP karakter</span><span class="ind" role="listitem">K-POP &amp; hiburan</span><span class="ind" role="listitem">Game</span><span class="ind" role="listitem">Wisata &amp; hotel</span><span class="ind" role="listitem">Olahraga</span><span class="ind" role="listitem">Pemerintah daerah &amp; publik</span><span class="ind" role="listitem">Festival &amp; acara</span><span class="ind" role="listitem">Pop-up offline</span><span class="ind" role="listitem">Pembelian grup</span></div></div>
 </div>
 </section>
@@ -699,7 +726,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <div class="pl-vs" aria-hidden="true">VS</div>
       <div class="pl-homi">
         <span class="pl-tag on">HOMI MARKET</span>
-        <h3>Sesuai kebutuhan dan tujuan brand, <em>kami merancang dan mengusulkan strategi dalam 4 langkah</em></h3>
+        <h3>Sesuai kebutuhan dan target brand Anda, <em>kami merancang dan mengusulkan strategi berdasarkan 4 kriteria</em></h3>
         <p class="pl-sub">Negara mana, siapa, dan mengapa — kami melangkah sebagai satu tim dengan brand hingga penjualan</p>
         <div class="pl-cards">
       <figure class="pl-card"><div class="pl-ph" data-slot="0"><span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span><img alt="" loading="lazy" decoding="async" hidden><div class="pl-band"><b>01</b>Tentukan tujuan</div></div><figcaption>Pertama tentukan apa yang ingin dicapai: awareness, penjualan, atau masuk ritel</figcaption></figure>
