@@ -374,7 +374,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul>
           <li>수집 목적: 크리에이터 지원 접수, 캠페인 매칭을 위한 연락</li>
           <li>수집 항목: (필수) 활동명, 대표 채널 링크, 플랫폼, 팔로워 규모, 활동 나라, 콘텐츠 카테고리, 이름, 연락처, 이메일 / (선택) 자기소개</li>
-          <li>보유 기간: 접수일로부터 <strong>1년</strong> (캠페인을 함께하면 계약 종료 후 관계 법령에 따른 기간), 삭제를 요청하시면 바로 지웁니다</li>
+          <li>보유 기간: 접수일로부터 <strong>2년</strong> (캠페인을 함께하면 계약 종료 후 관계 법령에 따른 기간), 삭제를 요청하시면 바로 지웁니다</li>
           <li>동의를 거부할 수 있으며, 거부하면 지원이 어렵습니다. 선택 항목은 비워도 지원할 수 있습니다.</li>
         </ul>
       </div>
@@ -707,9 +707,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var s=post(STORE,row).then(function(){ return true; });
     /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
     var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
-    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_creators',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
-      body:JSON.stringify({handle:mail['활동명'],channel_url:mail['대표 채널 링크'],platforms:arr(mail['플랫폼']),followers:mail['팔로워 규모'],country:mail['활동 나라'],
-        categories:arr(mail['카테고리']),intro:mail['자기소개']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang})})
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({p:{handle:mail['활동명'],channel_url:mail['대표 채널 링크'],platforms:arr(mail['플랫폼']),followers:mail['팔로워 규모'],country:mail['활동 나라'],
+        categories:arr(mail['카테고리']),intro:mail['자기소개']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
