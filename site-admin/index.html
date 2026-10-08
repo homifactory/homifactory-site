@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>통합 관리자 · HOMI</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- FR-COM-017~023 통합 관리자 — 위에서 사이트를 고르는 방식(공통 / FACTORY / MARKET / PRODUCTION).
+     데이터(문의함·크리에이터 DB·계정·권한·개인정보·사이트 설정) = Supabase(작품 관리와 같은 프로젝트·같은 로그인)
+     페이지 편집 = GitHub 저장소 파일을 직접 고쳐 저장(저장 키 필요) → Vercel 자동 배포 -->
+<style>
+:root{--ink:#141414;--ink2:#3A3A42;--mut:#6B6B75;--line:#E6E0D6;--bg:#FAF7F2;--card:#fff;--p:#8B3DFF;--pl:#F3ECFF;--ok:#14804A;--bad:#C2410C;
+  --f:'Noto Sans KR','Inter',system-ui,sans-serif;--fe:'Inter','Noto Sans KR',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{font-family:var(--f);color:var(--ink);background:var(--bg);font-size:14px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--p)}
+.top{position:sticky;top:0;z-index:20;background:#141414;color:#fff;display:flex;align-items:center;gap:18px;padding:0 22px;height:58px}
+.top b{font-family:var(--fe);font-weight:800;letter-spacing:.02em;white-space:nowrap}
+.top b span{color:#B98CFF}
+.sites{display:flex;gap:4px;flex:1;overflow-x:auto}
+.sites button{background:transparent;border:0;color:#bbb;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;white-space:nowrap}
+.sites button[aria-pressed="true"]{background:#fff;color:#141414}
+.who{font-size:12.5px;color:#bbb;white-space:nowrap;display:flex;gap:10px;align-items:center}
+.who button{background:transparent;border:1px solid #444;color:#ddd;border-radius:999px;padding:4px 10px;font-size:12px}
+.wrap{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 58px)}
+.nav{border-right:1px solid var(--line);background:#fff;padding:18px 12px;display:flex;flex-direction:column;gap:4px}
+.nav button{text-align:left;background:transparent;border:0;padding:10px 12px;border-radius:10px;font-weight:600;color:var(--ink2)}
+.nav button[aria-current="true"]{background:var(--pl);color:var(--p)}
+.nav .hint{margin-top:auto;font-size:11.5px;color:var(--mut);padding:8px 12px;line-height:1.6}
+main{padding:26px 30px 80px;min-width:0}
+h1{font-size:22px;font-weight:900;margin-bottom:4px}
+.sub{color:var(--mut);margin-bottom:20px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:13px}
+.btn.p{background:var(--p);color:#fff;border-color:var(--p)}
+.btn.d{color:var(--bad);border-color:#F3C9B5}
+.btn:disabled{opacity:.5;cursor:default}
+input[type=text],input[type=email],input[type=password],input[type=search],select,textarea{border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff;min-width:0}
+textarea{width:100%;min-height:70px;resize:vertical}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #F0EBE0;vertical-align:top}
+th{font-size:12px;color:var(--mut);font-weight:700}
+tr.click{cursor:pointer} tr.click:hover td{background:#FCFAF6}
+.tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:700;background:#F2EFE9;color:var(--ink2)}
+.tag.new{background:#FFF0E6;color:#C2410C}.tag.in_progress,.tag.contacted,.tag.reviewed{background:var(--pl);color:var(--p)}.tag.done,.tag.partner{background:#E6F4EC;color:var(--ok)}
+.empty{padding:30px;text-align:center;color:var(--mut)}
+.msg{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#141414;color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;z-index:50;max-width:90vw}
+.msg.err{background:var(--bad)}
+.notice{background:#FFF8E6;border:1px solid #F5D98B;border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:16px}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100vw);background:#fff;border-left:1px solid var(--line);box-shadow:-20px 0 40px rgba(0,0,0,.08);z-index:30;overflow-y:auto;padding:24px}
+.drawer h2{font-size:18px;font-weight:900;margin-bottom:12px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:6px 12px;font-size:13px;margin-bottom:16px}
+.kv dt{color:var(--mut)} .kv dd{white-space:pre-wrap;word-break:break-word}
+.lbl{display:block;font-size:12px;color:var(--mut);font-weight:700;margin:12px 0 6px}
+.login{max-width:420px;margin:12vh auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px}
+.login h1{margin-bottom:8px}.login p{color:var(--mut);margin-bottom:18px;font-size:13px}
+.login input{width:100%;margin-bottom:10px}
+.seg{display:flex;flex-direction:column;gap:8px}
+.seg-item{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:start}
+.seg-item .n{font-size:11px;color:var(--mut);padding-top:10px;text-align:right;font-family:var(--fe)}
+.seg-item textarea{min-height:42px}
+.seg-item textarea.changed{border-color:var(--p);background:#FBF8FF}
+.img-item{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #F0EBE0}
+.img-item img{width:90px;height:60px;object-fit:cover;border-radius:8px;background:#eee}
+.img-item code{font-size:11.5px;word-break:break-all;color:var(--ink2)}
+iframe.embed{width:100%;height:calc(100vh - 170px);border:1px solid var(--line);border-radius:14px;background:#fff}
+.chk{display:inline-flex;gap:6px;align-items:center;margin-right:12px;font-size:13px}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}.nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}.nav .hint{display:none}main{padding:18px 14px 80px}.kv{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div id="app"></div>
+<div id="msg" class="msg" role="status" hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/site-admin/admin.js?v=20261008a"></script>
+</body></html>
