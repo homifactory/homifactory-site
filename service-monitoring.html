@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitoring Service · HOMI FACTORY</title>
-<meta name="description" content="음원·광고·SNS·바이럴·반응까지 캠페인의 모든 숫자를 실시간 대시보드와 정기 리포트로 확인합니다.">
-<meta property="og:title" content="Monitoring Service · HOMI FACTORY">
-<meta property="og:url" content="https://homifactory.com/service-monitoring.html">
+<meta name="description" content="음원·광고·SNS·바이럴 반응을 한 화면에서 보는 실시간 마케팅 대시보드.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="canonical" href="https://homifactory.com/service-monitoring.html">
@@ -131,39 +129,29 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:n
 @media(max-width:900px){.sibling-link{display:none!important}}
 
 </style>
+<meta property="og:site_name" content="HOMI FACTORY">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monitoring Service · HOMI FACTORY">
+<meta property="og:description" content="음원·광고·SNS·바이럴 반응을 한 화면에서 보는 실시간 마케팅 대시보드.">
+<meta property="og:url" content="https://homifactory.com/service-monitoring">
+<meta property="og:image" content="https://homifactory.com/assets/fac/og-factory.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HOMI FACTORY — 좋은 무대가 더 많은 사람에게 닿도록">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Monitoring Service · HOMI FACTORY">
+<meta name="twitter:description" content="음원·광고·SNS·바이럴 반응을 한 화면에서 보는 실시간 마케팅 대시보드.">
+<meta name="twitter:image" content="https://homifactory.com/assets/fac/og-factory.png">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261007f1">
+<link rel="stylesheet" href="/assets/fac/fac.css?v=20261007f1">
 </head>
-<body>
+<body data-site="factory" data-page="business" data-header="fixed">
 
 <div class="renewal-banner">현재 사이트 리뉴얼 진행 중입니다 · Homepage under renewal</div>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="brand"><span class="brand-mark"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt="" aria-hidden="true"></span><span class="brand-text">HOMI FACTORY</span></a>
-    <div class="nav-menu">
-      <a href="/">Home</a>
-      <a href="about.html">About us</a>
-      <span class="nav-menu-item"><a href="service-marketing.html" class="active">Business</a><div class="dropdown" role="menu"><a href="service-marketing.html">Marketing</a><a href="service-global.html">Global PR</a><a href="service-production.html">Content Production</a><a href="service-monitoring.html">Monitoring Service</a></div></span>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <div class="lang-drop" title="Language">
-        <button class="lang-trigger" type="button" aria-label="언어 선택">
-          <span class="lang-globe" aria-hidden="true">🌐</span>
-          <span class="lang-current">KR</span>
-          <span class="lang-caret" aria-hidden="true">▾</span>
-        </button>
-        <div class="lang-menu" role="menu">
-          <a href="/" class="active">한국어 · KR</a>
-          <a href="#" onclick="alert('English version coming soon.'); return false;">English · EN</a>
-          <a href="/id/">Bahasa · ID</a>
-        </div>
-      </div>
-      <a href="/market/" class="sibling-link" title="호미 MARKET으로 이동">HOMI MARKET →</a>
-      <a href="/production/" class="sibling-link" title="호미 프로덕션으로 이동">HOMI PRODUCTION →</a>
-      <button class="nav-mobile-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
+<header id="homi-header"></header>
+<script src="/shared/homi-header.js?v=20261007f1"></script>
 
 <section class="detail-hero">
   <div class="detail-hero-inner">
@@ -250,16 +238,46 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:n
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand"><span class="footer-brand-mark"><img src="assets/HOMI_%EB%A1%9C%EA%B3%A0(SIDE).png" alt=""></span><span class="footer-brand-text">HOMI FACTORY</span></div>
-      <div><div class="footer-copy">© 2026 HOMI FACTORY Inc. All rights reserved.</div>
-      <div class="footer-links"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a></div></div>
+<footer class="hf" id="homi-footer">
+  <div class="hf-in">
+    <div class="hf-brand"><img src="/assets/logo-symbol.png" alt="" width="24" height="26">HOMI FACTORY</div>
+    <div class="hf-top">
+      <div class="hf-col">
+        <h5>Business</h5>
+        <ul>
+          <li><a href="/service-marketing">Marketing</a></li>
+          <li><a href="/service-global">Global PR</a></li>
+          <li><a href="/service-production">Content Production</a></li>
+          <li><a href="/service-monitoring">Monitoring Service</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>회사</h5>
+        <ul>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>바로가기</h5>
+        <ul>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗<span class="hh-sr">(새 탭)</span></a></li>
+          <li><a href="/market/" target="_blank" rel="noopener">HOMI MARKET ↗<span class="hh-sr">(새 탭)</span></a></li>
+          <li><a href="/terms">이용약관</a></li>
+          <li><a href="/privacy" class="hf-privacy">개인정보처리방침</a></li>
+        </ul>
+      </div>
+      <div class="hf-support">
+        <h5>고객 지원</h5>
+        <p class="hf-hours">평일 10:00 ~ 22:00 (주말·공휴일 상담 가능)</p>
+        <p>이메일 · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>전화 · <a href="tel:01040262695" class="hf-tel">010-4026-2695</a></p>
+        <a href="/contact" class="hf-cta">문의하기</a>
+      </div>
     </div>
-    <div class="footer-info">
-      <strong>주식회사 호미팩토리</strong> · 사업자번호 581-87-03832 · 통신판매번호 제2026-서울강남-05160호<br>
-      서울특별시 강남구 논현로142길 11, 4층 (논현동) · <strong>support@homifactory.com</strong> · 010-4026-2695
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
 </footer>
@@ -268,5 +286,6 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:n
 const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, {threshold: 0.15});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+<script src="/assets/fac/fac.js?v=20261007f1"></script>
 </body>
 </html>
