@@ -361,6 +361,8 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 body[data-site] .logo-card.lc-img,.logo-card.lc-img{background:transparent !important;border-color:transparent !important}
 body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:transparent !important;border-color:transparent !important}
 .logo-card.lc-img img{max-height:44px;max-width:150px;mix-blend-mode:multiply}
+.logo-card.lc-img img.lc-dark{filter:brightness(0);opacity:.85}
+.logo-card.lc-img{width:184px !important}
 .marquee-row{display:flex;gap:16px;padding:8px 0}
 /* Marquee direction labels */
 .marquee-direction{display:flex;justify-content:space-between;max-width:1400px;margin:14px auto 0;padding:0 24px;color:#999;font-size:12px}
@@ -1271,6 +1273,50 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 <script id="site-js">/* FR-MKT-027 관리자 저장값(/market/data/site.json) 반영 — 히어로 문구 · 고객사 로고 · 업종 줄 · ④ 사진.
    값이 비어 있으면 페이지에 들어 있는 기본 내용을 그대로 둔다(번역 페이지는 그 언어 칸이 비어 있으면 기본 번역 유지) */
 window.HOMI_SITE_PENDING=1;
+/* 고객사 로고 자동 다듬기 — 파일 안의 남는 여백을 잘라내고, 가로·세로 비율이 달라도 비슷한 크기로 보이게 맞춤.
+   흰 글자만 있는(배경 투명) 로고는 흰 바탕에서 안 보이므로 어둡게 바꿔서 보여 줌 */
+(function(){
+  var CACHE={};
+  function size(img,w,h){ var r=w/h, A=4600, W=Math.sqrt(A*r), H=Math.sqrt(A/r);
+    if(H>54){ H=54; W=H*r; } if(W>160){ W=160; H=W/r; }
+    img.style.width=Math.round(W)+'px'; img.style.height=Math.round(H)+'px'; img.style.maxWidth='none'; img.style.maxHeight='none'; }
+  function apply(img,res){ img.setAttribute('data-trim','1'); if(res.light) img.classList.add('lc-dark');
+    if(res.src&&img.src!==res.src) img.src=res.src; size(img,res.w,res.h); }
+  function trim(img){
+    var key=(img.getAttribute('src')||'').split('?')[0]; if(CACHE[key]) return apply(img,CACHE[key]);
+    var nw=img.naturalWidth, nh=img.naturalHeight; if(!nw||!nh) return;
+    var res={w:nw,h:nh,src:null,light:false};
+    try{
+      var k=Math.min(1,400/Math.max(nw,nh)), cw=Math.max(1,Math.round(nw*k)), ch=Math.max(1,Math.round(nh*k));
+      var c=document.createElement('canvas'); c.width=cw; c.height=ch; var x=c.getContext('2d'); x.drawImage(img,0,0,cw,ch);
+      var d=x.getImageData(0,0,cw,ch).data;
+      function px(i,j){ var o=(j*cw+i)*4; return [d[o],d[o+1],d[o+2],d[o+3]]; }
+      var cs=[px(0,0),px(cw-1,0),px(0,ch-1),px(cw-1,ch-1)], clear=cs.every(function(p){ return p[3]<16; });
+      var bg=[0,1,2].map(function(t){ return (cs[0][t]+cs[1][t]+cs[2][t]+cs[3][t])/4; });
+      var flat=clear||cs.every(function(p){ return p[3]>200&&Math.abs(p[0]-bg[0])+Math.abs(p[1]-bg[1])+Math.abs(p[2]-bg[2])<36; });
+      if(flat){
+        var x0=cw,y0=ch,x1=-1,y1=-1,lum=0,n=0;
+        for(var j=0;j<ch;j++) for(var i=0;i<cw;i++){ var o=(j*cw+i)*4, a=d[o+3], on;
+          if(clear) on=a>=24; else on=a>=24&&(Math.abs(d[o]-bg[0])+Math.abs(d[o+1]-bg[1])+Math.abs(d[o+2]-bg[2]))>42;
+          if(on){ if(i<x0)x0=i; if(i>x1)x1=i; if(j<y0)y0=j; if(j>y1)y1=j; lum+=0.299*d[o]+0.587*d[o+1]+0.114*d[o+2]; n++; } }
+        if(x1>=0){
+          if(clear&&n&&lum/n>215) res.light=true;
+          var pad=Math.round(Math.max(x1-x0,y1-y0)*0.04);
+          x0=Math.max(0,x0-pad); y0=Math.max(0,y0-pad); x1=Math.min(cw-1,x1+pad); y1=Math.min(ch-1,y1+pad);
+          var sx=x0/k, sy=y0/k, sw=(x1-x0+1)/k, sh=(y1-y0+1)/k;
+          if(sw<nw*0.96||sh<nh*0.96){
+            var o2=document.createElement('canvas'); o2.width=Math.round(sw); o2.height=Math.round(sh);
+            o2.getContext('2d').drawImage(img,sx,sy,sw,sh,0,0,o2.width,o2.height);
+            res.src=o2.toDataURL('image/png'); res.w=o2.width; res.h=o2.height; }
+        }
+      }
+    }catch(e){}
+    CACHE[key]=res; apply(img,res);
+  }
+  document.addEventListener('load',function(e){ var t=e.target;
+    if(!t||t.tagName!=='IMG'||t.getAttribute('data-trim')||!t.closest||!t.closest('.logo-card.lc-img')) return;
+    if((t.getAttribute('src')||'').indexOf('data/uploads/')<0) return; trim(t); },true);
+})();
 /* 관리자가 올린 이미지(data/uploads)는 배포가 끝나기 전에 열리면 브라우저가 「없음」을 오래 기억함 → 실패하면 주소 뒤에 값을 붙여 한 번 더 받기 */
 document.addEventListener('error',function(e){ var t=e.target; if(!t||(t.tagName!=='IMG'&&t.tagName!=='VIDEO')) return;
   var u=t.getAttribute('src')||''; if(u.indexOf('data/uploads/')<0) return; var n=+(t.getAttribute('data-rt')||0); if(n>=3) return;
