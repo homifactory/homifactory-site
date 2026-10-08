@@ -62,8 +62,8 @@
    "hidden": false
   },
   {
-   "name": "[고객사 로고]",
-   "src": "",
+   "name": "FORBEST",
+   "src": "/market/data/uploads/1791423044864-r8zjq.png",
    "row": 1,
    "hidden": false
   },
@@ -269,5 +269,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:30:01.149Z"
+ "updatedAt": "2026-10-08T01:30:46.550Z"
 }
