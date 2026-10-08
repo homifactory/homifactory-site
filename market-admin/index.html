@@ -129,19 +129,19 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
     <div class="add"><div class="row"><input type="text" id="indNew" placeholder="업종 이름 (한국어)" style="max-width:260px"><button class="btn pri sm" id="indAdd" type="button">+ 업종 추가</button></div></div>
   </section>
 
-  <section class="card" aria-labelledby="h-ph">
+  <section class="card" aria-labelledby="h-ph" hidden>
     <h2 id="h-ph">전략 설계 4단계 사진 <span class="badge">Home ④</span></h2>
     <p class="hint">세로 4:5 사진 권장. 비우면 연보라 바탕 + 아이콘.</p>
     <div class="ph4" id="phList"></div>
   </section>
   <section class="card" aria-labelledby="h-media">
-    <h2 id="h-media">Home 사진·영상 <span class="badge">① 히어로 · ⑥ POINT · ⑨ 사례</span></h2>
-    <p class="hint">① 히어로 배경 영상은 가로 16:9 MP4(40MB 이하, 소리 없이 반복 재생)와 첫 장면 사진을 함께 넣어 주세요. ⑥ POINT 이미지는 가로 560×200 비율(사진 또는 5~8초 반복 영상 MP4, 소리 없음). 글자·숫자·로고가 없는 실사로. ⑨ 사례 사진은 가로 16:10. 비우면 지금 그림이 나옵니다.</p>
+    <h2 id="h-media">Home 사진·영상 <span class="badge">① 히어로 · ⑨ 고객 사례</span></h2>
+    <p class="hint">① 히어로 배경 영상은 가로 16:9 MP4(40MB 이하, 소리 없이 반복 재생)와 첫 장면 사진을 함께 넣어 주세요. ⑨ 사례 사진은 가로 16:10. 비우면 지금 그림이 나옵니다.</p>
     <div class="ph4" id="mediaList" style="grid-template-columns:repeat(3,1fr)"></div>
   </section>
 
   <section class="card" aria-labelledby="h-txt">
-    <h2 id="h-txt">Home 문구 <span class="badge">⑥ ⑦ ⑨ ⑩ ⑪ · 하단 바</span></h2>
+    <h2 id="h-txt">Home 문구 <span class="badge">⑦ ⑨ ⑩ ⑪ · 하단 바</span></h2>
     <p class="hint">지금 사이트에 나오는 문구가 들어 있습니다. 고친 칸만 저장됩니다. 강조색은 [대괄호], 줄바꿈은 그대로 반영.</p>
     <div id="txtList"><p class="hint">문구 불러오는 중…</p></div>
   </section>
@@ -240,7 +240,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
 
 
   /* ── ⑥ ⑨ 이미지·영상 ── */
-  var MEDIA=[['hero_video','① 히어로 배경 영상 — 가로 MP4, 24~30초, 소리 없음'],['hero_poster','① 히어로 첫 장면 사진 — 영상 뜨기 전·모바일 절약 모드'],['pt1','⑥ POINT 1 — 전략 제안'],['pt2','⑥ POINT 2 — 현지 판매 연결'],['pt3','⑥ POINT 3 — 결과 리포트'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3']];
+  var MEDIA=[['hero_video','① 히어로 배경 영상 — 가로 MP4, 24~30초, 소리 없음'],['hero_poster','① 히어로 첫 장면 사진 — 영상 뜨기 전·모바일 절약 모드'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3']];
   function media(){ D.images=D.images||{};
     $('mediaList').innerHTML=MEDIA.map(function(m){ var u=D.images[m[0]]||'', v=/\.(mp4|webm)(\?|$)/i.test(u)||/^blob:/.test(u)&&pending['md_'+m[0]]&&/^video/.test(pending['md_'+m[0]].type);
       return '<div class="ph"><div class="im" style="aspect-ratio:'+(m[0][0]==='p'?'560/200':'16/10')+'">'+(u?(v||m[0]==='hero_video'?'<video src="'+esc(u)+'" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover"></video>':'<img src="'+esc(u)+'" alt="">'):'지금 그림')+'</div><div style="font-size:12.5px;font-weight:700;margin-bottom:6px">'+m[1]+'</div>'+
@@ -249,7 +249,7 @@ details.tr summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--m
   $('mediaList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var k=t.dataset.k; D.images[k]=''; delete pending['md_'+k]; media(); });
 
   /* ── Home 문구: 사이트 페이지에서 data-k 문구를 읽어와 기본값으로 ── */
-  var GROUPS=[['pt','⑥ 우리가 다른 점'],['dir','⑦ 방향별 카드 — 제목'],['d1','⑦ 카드 1'],['d2','⑦ 카드 2'],['d3','⑦ 카드 3'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3'],['q','⑩ 자주 묻는 질문'],['final','⑪ 마지막 한 마디'],['bar','하단 고정 바']];
+  var GROUPS=[['dir','⑦ 방향별 카드 — 제목'],['d1','⑦ 카드 1'],['d2','⑦ 카드 2'],['d3','⑦ 카드 3'],['c1','⑨ 사례 1'],['c2','⑨ 사례 2'],['c3','⑨ 사례 3'],['q','⑩ 자주 묻는 질문'],['final','⑪ 마지막 한 마디'],['bar','하단 고정 바']];
   var NAMES={t:'제목',d:'설명',cat:'작은 분류',dir:'방향',line:'한 줄',m1:'방법 1',m2:'방법 2',m3:'방법 3',title:'제목',lead:'한 줄',tag1:'태그 1',tag2:'태그 2',name:'이름',text:'글 2~3줄'};
   var PAGE={};
   function toPlain(el){ var c=el.cloneNode(true); [].forEach.call(c.querySelectorAll('.hl'),function(h){ h.replaceWith('['+h.textContent+']'); }); [].forEach.call(c.querySelectorAll('br'),function(b){ b.replaceWith('\n'); }); return c.textContent.trim(); }
