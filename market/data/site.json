@@ -92,6 +92,12 @@
    "hidden": false
   },
   {
+   "name": "청담유식",
+   "src": "/market/data/uploads/1791425206140-jg66e.png",
+   "row": 1,
+   "hidden": false
+  },
+  {
    "name": "[고객사 로고]",
    "src": "",
    "row": 2,
@@ -287,5 +293,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:43:58.103Z"
+ "updatedAt": "2026-10-08T02:06:48.833Z"
 }
