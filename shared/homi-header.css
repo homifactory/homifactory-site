@@ -282,3 +282,9 @@ body[data-site="market"] .trend-banner.tb[hidden]{display:none}
   .trend-banner.tb .tb-bar{display:none}
   .trend-banner.tb .tb-sub{display:block;font-weight:600;color:rgba(255,255,255,.75);font-size:12px}
 }
+
+/* 크리에이터 지원 — 상단 바 보라 글자 (FR-MKT-042) */
+.hh .hh-extra{color:#8B3DFF!important;font-weight:700;font-size:14px;white-space:nowrap;text-decoration:none;margin-right:6px}
+.hh-extra:hover{text-decoration:underline}
+@media (max-width:1100px){.hh-right .hh-extra{display:none}}
+.hh-pfoot .hh-extra{display:block;padding:12px 0;margin:0}
