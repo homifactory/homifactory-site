@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261006a">
-<link rel="stylesheet" href="/production/prd.css?v=20261007p8">
+<link rel="stylesheet" href="/production/prd.css?v=20261008p9">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN6KY4F9R8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FN6KY4F9R8');</script>
 </head><body data-site="production" data-page="contact" data-header="fixed">
@@ -52,7 +52,7 @@
 <div class="p-rental" id="p-rental" hidden>
 <div class="p-f"><label for="f-date">희망 날짜<em>*</em></label><input type="date" id="f-date" name="희망 날짜"></div>
 <div class="p-f"><label for="f-time">희망 시간<em>*</em></label><input type="text" id="f-time" name="희망 시간" placeholder="예: 14:00 ~ 18:00 (4시간)"></div>
-<div class="p-f"><label for="f-ppl">인원<em>*</em></label><input type="number" id="f-ppl" name="인원" min="1" max="10" inputmode="numeric" placeholder="1~10명"><p class="hint">최대 10명까지 이용할 수 있어요.</p></div>
+<div class="p-f"><label for="f-ppl">인원<em>*</em></label><input type="number" id="f-ppl" name="인원" min="1" max="30" inputmode="numeric" placeholder="1~30명"><p class="hint">최대 30명까지 이용할 수 있어요.</p></div>
 </div>
 <div class="p-f full"><label for="f-msg">문의 내용<em>*</em></label><textarea id="f-msg" name="문의 내용" required placeholder="어디에 쓰일 영상인지, 지금 고민하고 있는 것을 편하게 적어 주세요."></textarea></div>
 <div class="p-f full"><label class="p-agree"><input type="checkbox" name="개인정보 동의" value="동의" required><span>[필수] 문의 답변을 위해 이름·연락처·이메일과 문의 내용을 수집·이용하는 데 동의합니다. 문의 처리 완료일로부터 1년간 보관 후 파기합니다. <a href="/production/privacy" target="_blank" rel="noopener">개인정보처리방침</a></span></label></div>
@@ -101,7 +101,7 @@
     if(el.type==='tel'&&v&&!/^\+?\d{9,15}$/.test(v.replace(/[\s\-().]/g,''))) return setErr(el,'전화번호 형식을 확인해 주세요. (예: 010-1234-5678)');
     if(el.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v)) return setErr(el,'이메일 형식을 확인해 주세요. (예: name@company.com)');
     if(el.type==='url'&&v&&!/^https?:\/\/\S+\.\S+/.test(v)) return setErr(el,'https:// 로 시작하는 주소를 넣어 주세요.');
-    if(el.name==='인원'&&v&&(+v<1||+v>10)) return setErr(el,'인원은 1~10명이에요. 더 많으면 문의 내용에 적어 주세요.');
+    if(el.name==='인원'&&v&&(+v<1||+v>30)) return setErr(el,'인원은 1~30명이에요. 더 많으면 문의 내용에 적어 주세요.');
     return setErr(el,'');
   }
   function fields(){ return [].slice.call(f.querySelectorAll('input:not([type=hidden]):not([type=radio]):not(.p-hp),select,textarea')).filter(function(el){ return !el.closest('[hidden]'); }); }
@@ -133,5 +133,5 @@
 </script>
 </main>
 <footer class="p-foot" id="p-foot"></footer>
-<script src="/production/prd.js?v=20261007p8"></script>
+<script src="/production/prd.js?v=20261008p9"></script>
 </body></html>
