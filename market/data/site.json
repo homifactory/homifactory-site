@@ -44,32 +44,8 @@
  },
  "logos": [
   {
-   "name": "하츄핑·티니핑",
-   "src": "/market/data/uploads/1791369578749-rrmq1.jpeg",
-   "row": 1,
-   "hidden": false
-  },
-  {
    "name": "DB손해보험",
-   "src": "/market/data/uploads/1791369591096-zqxao.jpeg",
-   "row": 1,
-   "hidden": false
-  },
-  {
-   "name": "수원새빛인강",
-   "src": "/market/data/uploads/1791369603915-wg9h1.jpeg",
-   "row": 1,
-   "hidden": false
-  },
-  {
-   "name": "청담유식",
-   "src": "",
-   "row": 1,
-   "hidden": false
-  },
-  {
-   "name": "성수 두다",
-   "src": "",
+   "src": "/market/data/uploads/1791422872924-4sbd9.jpeg",
    "row": 1,
    "hidden": false
   },
@@ -293,5 +269,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-07T10:40:05.862Z"
+ "updatedAt": "2026-10-08T01:27:54.413Z"
 }
