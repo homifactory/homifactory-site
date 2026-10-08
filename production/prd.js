@@ -35,8 +35,11 @@
     var h = document.querySelector('[data-set="intro-h"]'), b = document.getElementById('p-who-body');
     if (!h || !b || !v) return;
     if (v.headline) { h.textContent = ''; String(v.headline).split('\n').forEach(function (line, k) { if (k) h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(line)); }); }
-    var ps = b.querySelectorAll('p');
-    (v.paras || []).forEach(function (t, k) { if (ps[k] && t) ps[k].textContent = t; });
+    /* 소개는 한 단락(본문 + 굵은 마무리 한 줄). 예전 형식(paras 3개)도 받아 줌 */
+    var p = b.querySelector('p'), strong = p && p.querySelector('strong');
+    var body = v.body || (v.paras ? v.paras.slice(0, 2).filter(Boolean).join(' ') : ''), closing = v.closing || (v.paras ? v.paras[2] : '');
+    if (p && body) { while (p.firstChild && p.firstChild !== strong) p.removeChild(p.firstChild); p.insertBefore(document.createTextNode(body + ' '), strong); }
+    if (strong && closing) strong.textContent = closing;
     var chips = b.querySelectorAll('.p-chips-static span');
     (v.chips || []).forEach(function (t, k) { if (chips[k] && t) chips[k].textContent = t; });
   }

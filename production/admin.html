@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/production/prd.css?v=20261008p9">
+<link rel="stylesheet" href="/production/prd.css?v=20261008p10">
 <style>
 body{padding:0}
 .a-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;border-bottom:1px solid var(--p-line);position:sticky;top:0;background:var(--p-bg);z-index:5}
@@ -112,8 +112,7 @@ html.a-mock .a-top::after{content:"점검 모드(저장 안 됨)";color:#FFD24A;
 <p class="a-help">「독보적인」 같은 과장 표현이나 확인되지 않은 숫자는 쓰지 않아요.</p>
 <form id="s-intro" class="p-form" novalidate>
 <div class="p-f full"><label for="s-h">제목 (줄바꿈 = 엔터)</label><textarea id="s-h" name="headline" style="min-height:70px"></textarea></div>
-<div class="p-f full"><label for="s-p1">문단 1</label><textarea id="s-p1" name="p1"></textarea></div>
-<div class="p-f full"><label for="s-p2">문단 2</label><textarea id="s-p2" name="p2"></textarea></div>
+<div class="p-f full"><label for="s-p1">설명 (한 단락)</label><textarea id="s-p1" name="p1" style="min-height:140px"></textarea></div>
 <div class="p-f full"><label for="s-p3">마무리 한 줄 (굵게)</label><input type="text" id="s-p3" name="p3"></div>
 <div class="p-f"><label for="s-c1">강점 1</label><input type="text" id="s-c1" name="c1"></div>
 <div class="p-f"><label for="s-c2">강점 2</label><input type="text" id="s-c2" name="c2"></div>
@@ -131,5 +130,5 @@ html.a-mock .a-top::after{content:"점검 모드(저장 안 됨)";color:#FFD24A;
 </div>
 <p id="a-msg" class="a-msg" role="status" hidden></p>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/production/prd-admin.js?v=20261008p9"></script>
+<script src="/production/prd-admin.js?v=20261008p10"></script>
 </body></html>

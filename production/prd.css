@@ -292,3 +292,12 @@ html.p-lock{overflow:hidden}
 .p-lb img{max-width:min(1400px,100%);max-height:calc(100vh - 130px);object-fit:contain}
 .p-lb-cap{margin-top:12px;font-size:13.5px;color:var(--p-ink-2)}
 .p-lb-x{position:absolute;top:14px;right:18px;width:44px;height:44px;font-size:22px;color:#fff}
+/* 문의 폼 개인정보 안내 박스 (FR-PRD-005 · FR-COM-011) */
+.p-consent{border:1px solid var(--p-line-2);padding:16px 18px;background:var(--p-bg-2)}
+.p-consent-h{font-size:13.5px;font-weight:700;color:#fff;margin-bottom:10px}
+.p-consent-tbl{display:grid;gap:6px;font-size:13px;margin:0}
+.p-consent-tbl div{display:grid;grid-template-columns:92px 1fr;gap:10px}
+.p-consent-tbl dt{color:var(--p-muted)} .p-consent-tbl dd{margin:0;color:var(--p-ink-2)}
+.p-consent .hint a{text-decoration:underline;text-underline-offset:3px;color:#fff}
+.p-consent .p-agree{margin-top:12px}
+.p-who-body p strong{color:#fff;font-weight:700}
