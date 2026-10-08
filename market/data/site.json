@@ -56,8 +56,8 @@
    "hidden": false
   },
   {
-   "name": "[고객사 로고]",
-   "src": "",
+   "name": "오산대학교",
+   "src": "/market/data/uploads/1791422999601-zlnxw.png",
    "row": 1,
    "hidden": false
   },
@@ -68,7 +68,7 @@
    "hidden": false
   },
   {
-   "name": "[해외 브랜드]",
+   "name": "",
    "src": "",
    "row": 2,
    "hidden": false
@@ -269,5 +269,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:28:29.887Z"
+ "updatedAt": "2026-10-08T01:30:01.149Z"
 }
