@@ -222,7 +222,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <style id="nm-css">
 .nm-arcs path{stroke:#FFC53D;stroke-dasharray:5 5;animation:nmFlow 2.4s linear infinite}
 .nm-arcs path.nm-hub{stroke:#8B3DFF;stroke-dasharray:none;animation:none;stroke-width:2}
@@ -273,7 +273,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </head>
 <body data-site="market" data-header="fixed" data-tb="nocomp">
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <!-- FR-MKT-014 Global Network — 지도 → 국가 카드 → 무료 상담 (국가별 사례는 두지 않음, 사례는 Home ⑨) -->
 <section class="gn-hero">
   <div class="gn-in">
@@ -534,7 +534,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">KakaoTalkチャンネルは現在準備中です。今は<b>お問い合わせ</b>からご連絡ください。</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">こんにちは、HOMI MARKETです 👋\n海外進出・インフルエンサーマーケティングなど、\nお気軽にご相談ください。\n\nご相談内容を選んでいただくと、\n担当者がご案内いたします。</p>'
+      +'<p class="hc-greet">こんにちは、HOMI MARKETです。\n海外進出・インフルエンサーマーケティングの\nご相談を承ります。\n\n相談タイプをお選びいただくと、担当者が\nご案内いたします。</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'会話を続ける ›':'お問い合わせ ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 営業時間内にご返信いたします':'🌙 現在は営業時間外です · ご連絡先を残していただければ、次の営業時間にご返信いたします')+'</p></div>'
       +'<div class="hc-card hc-other"><b>その他のお問い合わせ方法</b>'
@@ -583,11 +583,20 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','こんにちは、HOMI MARKETです 👋\nどのようなご相談でしょうか？'); }
+    if(!st.msgs.length){ push('bot','こんにちは、HOMI MARKETです。\nどのようなご相談でしょうか？'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[チャット相談] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });

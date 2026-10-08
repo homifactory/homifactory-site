@@ -288,6 +288,9 @@ body{padding-top:48px}
 .sd-ctry span{font-size:13px;color:#55525C}
 .sd-dark{background:#141414;color:#fff}
 .sd-drow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sd-drow.solo{grid-template-columns:1fr;text-align:center;justify-items:center}.sd-drow.solo .sd-dtxt p{margin-left:auto;margin-right:auto}
+.sd-checks{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:22px}.sd-checks .sd-check{margin-top:0}
+
 .sd-drow+.sd-drow{margin-top:100px}
 .sd-dtxt .k{font-size:15px;color:#C8C5CE;margin-bottom:14px}
 .sd-dtxt h3{font-size:clamp(28px,3.6vw,38px);font-weight:800;line-height:1.35;letter-spacing:-.03em;margin-bottom:20px}
@@ -429,7 +432,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261007d">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
 <link rel="alternate" hreflang="ko" href="https://homifactory.com/market/service-event">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/service-event">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/service-event">
@@ -441,7 +444,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/ja/market/trend-report.html">2026 グローバルマーケティング・トレンドレポート · 国別の戦略をまずチェック <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261007d"></script>
+<script src="/shared/homi-header.js?v=20261008a"></script>
 <main id="main">
 <section class="sd-hero">
   <div class="sd-in">
@@ -452,12 +455,8 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     <nav class="sd-tabs" aria-label="サービス"><a href="/ja/market/service-influencer.html" class="sd-tab">インフルエンサーマーケティング</a><a href="/ja/market/service-visit.html" class="sd-tab">来店プロモーション</a><a href="/ja/market/service-event.html" class="sd-tab on" aria-current="page">ポップアップ・イベント運営</a></nav>
     <div class="sd-ask" id="sdAsk"><span class="sd-ask-q">自社ブランドのポップアップ、どこでどう開けばいい？</span><span class="sd-ask-b"><a href="/ja/market/contact.html" class="sd-btn sm">無料相談はこちら</a><a href="/ja/market/trend-report.html" class="sd-btn sm ghost">トレンドレポートを見る</a></span></div>
   </div>
-</section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">こんなイベントをつくります</div><h2 class="sd-h2">空間を開いて終わりではなく、<br><span class="sd-hl">足を運び、発信したくなる</span>場をつくります</h2><div class="sd-g3"><article class="sd-icard" id="svc-popup"><div class="ph" aria-hidden="true"><span>01</span></div><div class="bd"><div class="lb">ブランドポップアップストア</div><h3>ポップアップでブランドを直接体験してほしい</h3><p>ブランドのアイデンティティを空間と体験で表現し、来場者が写真や動画を残したくなるよう設計します。</p><div class="r"><span>こんなときに</span><b>ブランドリニューアル · シーズンコレクション · 海外初のオフライン展開</b></div><div class="r"><span>私たちの仕事</span><b>企画 · 空間 · グッズ · 現場運営 · インフルエンサー招待</b></div><div class="r"><span>場所</span><b>ソウル聖水・漢南など＋海外の拠点都市</b></div></div></article><article class="sd-icard" id="svc-launch"><div class="ph" aria-hidden="true"><span>02</span></div><div class="bd"><div class="lb">ローンチ · ショーケース</div><h3>新商品のローンチを大々的に告知したい</h3><p>ローンチイベント・ショーケースを、ステージ演出から招待、現場コンテンツまで一括で実施します。</p><div class="r"><span>こんなときに</span><b>新商品・新メニューの発表 · アルバム・IPの発表 · メディアデー</b></div><div class="r"><span>私たちの仕事</span><b>イベント企画 · ステージ・演出 · セレブ・インフルエンサー招待 · 現場撮影</b></div><div class="r"><span>成果物</span><b>現場映像 · 招待インフルエンサーのコンテンツ</b></div></div></article><article class="sd-icard" id="svc-festival"><div class="ph" aria-hidden="true"><span>03</span></div><div class="bd"><div class="lb">お祭り · フェスティバルブース</div><h3>イベント会場でお客様に直接会いたい</h3><p>多くの人が集まるお祭り・展示会・大学祭でブランドブースを運営し、参加型イベントをつくります。</p><div class="r"><span>こんなときに</span><b>サンプリング · 会員獲得 · 現場販売</b></div><div class="r"><span>私たちの仕事</span><b>ブース企画・制作 · 参加型イベント · 運営スタッフ</b></div><div class="r"><span>場所</span><b>地域のお祭り · 展示会 · 大学祭</b></div></div></article></div></div></section><section class="sd-sec sd-beige"><div class="sd-in"><div class="sd-eyebrow">HOMI MARKETのポップアップ拡散設計</div><h2 class="sd-h2">ポップアップは<span class="sd-hl">3回</span>告知すべきです</h2><p class="sd-desc">関心はオープン直前に、来場は初週に集中します。だからこそインフルエンサーもタイミングごとに配置を変えます。</p><div class="sd-flow"><div class="sd-step3"><div class="when">オープン前</div><h3><em>1</em> ティザー</h3><span class="pill">マクロインフルエンサー</span><p>オープン日と空間を先に見せ、「行くべき場所」として保存してもらいます。</p></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="when">オープン初週</div><h3><em>2</em> 現場招待</h3><span class="pill">メガインフルエンサー · セレブ</span><p>オープンイベントに招待し、現場の第一印象を大きく発信します。</p></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="when">オープン後</div><h3><em>3</em> レビュー拡散</h3><span class="pill">マイクロ · 体験レビュアー</span><p>多くの人が訪れたレビューで、残り期間の来場をつなげます。</p></div></div></div></section><section class="sd-sec sd-dark"><div class="sd-in"><div class="sd-drow"><div class="sd-dtxt"><div class="k">企画から撤収まで</div><h3>ワンチームが<br>最初から最後まで</h3><p>会場手配、デザイン、施工、グッズ、現場スタッフ、インフルエンサー招待まで<br>複数の業者を個別に手配せず、ワンチームが担当します。</p></div><ol class="sd-steps"><li class=""><span class="n">1</span><span class="t">目標と成果基準の設定</span></li><li class="on"><span class="n">2</span><span class="t">会場手配・デザイン</span><span class="b">HOMI</span></li><li class="on"><span class="n">3</span><span class="t">施工・グッズ制作</span><span class="b">HOMI</span></li><li class="on"><span class="n">4</span><span class="t">現場運営スタッフ</span><span class="b">HOMI</span></li><li class="on"><span class="n">5</span><span class="t">インフルエンサー招待・結果レポート</span><span class="b">HOMI</span></li></ol></div><div class="sd-drow"><div class="sd-dtxt"><div class="k">現場を知るチーム</div><h3>ショーケースや公演、<br>ポップアップの現場を運営してきたチーム</h3><p>大型ショーケース・公演や市民参加型ポップアップを企画・運営してきた経験から、<br>動線、待機列、安全、現場撮影まで細やかに対応します。</p></div><ol class="sd-steps"><li class="on"><span class="n">1</span><span class="t">動線・待機列の設計</span><span class="b">HOMI</span></li><li class="on"><span class="n">2</span><span class="t">現場スタッフの教育</span><span class="b">HOMI</span></li><li class="on"><span class="n">3</span><span class="t">安全・人数管理</span><span class="b">HOMI</span></li><li class="on"><span class="n">4</span><span class="t">現場コンテンツの撮影</span><span class="b">HOMI</span></li><li class=""><span class="n">5</span><span class="t">撤収・精算</span></li></ol></div></div></section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">目標によって成果の見方は変わります</div><h2 class="sd-h2">最初に決めた目標で<span class="sd-hl">数字を確認</span>します</h2><div class="sd-g3"><div class="sd-card"><div class="when">目標が</div><h3>認知なら</h3><ul class="chk"><li>来場者数</li><li>コンテンツの露出・再生数</li><li>現場の写真・動画のシェア</li></ul></div><div class="sd-card"><div class="when">目標が</div><h3>販売なら</h3><ul class="chk"><li>現場での購入・クーポン利用</li><li>ECサイトへの流入</li><li>会員登録</li></ul></div><div class="sd-card"><div class="when">目標が</div><h3>ブランディングなら</h3><ul class="chk"><li>滞在時間</li><li>来場者のレビューコンテンツ</li><li>再来場・再言及</li></ul></div></div></div></section><section class="sd-sec sd-consult"><div class="sd-in">
-  <h2 class="sd-h2 c">はじまりは<span class="sd-hl">一度のご相談</span>から</h2>
-  <div class="sd-cs"><div><span>01</span><b>ご相談・ニーズ把握</b><em>ご依頼フォームまたはチャットでお悩み・目標を伺います</em></div><i></i><div><span>02</span><b>専門マネージャーのアサイン</b><em>業種・国に合った専任マネージャーが付きます</em></div><i></i><div><span>03</span><b>最適な戦略のご提案</b><em>場所 · スケジュール · 招待 · 成果基準</em></div></div>
-  <a href="/ja/market/contact.html" class="sd-btn">無料相談はこちら</a>
-</div></section>
-<section class="sd-band"><h2>どんなイベントが合うか、一緒に決めましょう</h2><a href="/ja/market/contact.html" class="sd-btn">無料相談はこちら</a></section>
+</section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">こんなイベントをつくります</div><h2 class="sd-h2">空間を開いて終わりではなく、<br><span class="sd-hl">足を運び、発信したくなる</span>場をつくります</h2><div class="sd-g3"><article class="sd-icard" id="svc-popup"><div class="ph" aria-hidden="true"><span>01</span></div><div class="bd"><div class="lb">ブランドポップアップストア</div><h3>ポップアップでブランドを直接体験してほしい</h3><p>ブランドのアイデンティティを空間と体験で表現し、来場者が写真や動画を残したくなるよう設計します。</p><div class="r"><span>こんなときに</span><b>ブランドリニューアル · シーズンコレクション · 海外初のオフライン展開</b></div><div class="r"><span>私たちの仕事</span><b>企画 · 空間 · グッズ · 現場運営 · インフルエンサー招待</b></div><div class="r"><span>場所</span><b>ソウル聖水・漢南など＋海外の拠点都市</b></div></div></article><article class="sd-icard" id="svc-launch"><div class="ph" aria-hidden="true"><span>02</span></div><div class="bd"><div class="lb">ローンチ · ショーケース</div><h3>新商品のローンチを大々的に告知したい</h3><p>ローンチイベント・ショーケースを、ステージ演出から招待、現場コンテンツまで一括で実施します。</p><div class="r"><span>こんなときに</span><b>新商品・新メニューの発表 · アルバム・IPの発表 · メディアデー</b></div><div class="r"><span>私たちの仕事</span><b>イベント企画 · ステージ・演出 · セレブ・インフルエンサー招待 · 現場撮影</b></div><div class="r"><span>成果物</span><b>現場映像 · 招待インフルエンサーのコンテンツ</b></div></div></article><article class="sd-icard" id="svc-festival"><div class="ph" aria-hidden="true"><span>03</span></div><div class="bd"><div class="lb">お祭り · フェスティバルブース</div><h3>イベント会場でお客様に直接会いたい</h3><p>多くの人が集まるお祭り・展示会・大学祭でブランドブースを運営し、参加型イベントをつくります。</p><div class="r"><span>こんなときに</span><b>サンプリング · 会員獲得 · 現場販売</b></div><div class="r"><span>私たちの仕事</span><b>ブース企画・制作 · 参加型イベント · 運営スタッフ</b></div><div class="r"><span>場所</span><b>地域のお祭り · 展示会 · 大学祭</b></div></div></article></div></div></section><section class="sd-sec sd-beige"><div class="sd-in"><div class="sd-eyebrow">HOMI MARKETのポップアップ拡散設計</div><h2 class="sd-h2">ポップアップは<span class="sd-hl">3回</span>告知すべきです</h2><p class="sd-desc">関心はオープン直前に、来場は初週に集中します。だからこそインフルエンサーもタイミングごとに配置を変えます。</p><div class="sd-flow"><div class="sd-step3"><div class="when">オープン前</div><h3><em>1</em> ティザー</h3><span class="pill">マクロインフルエンサー</span><p>オープン日と空間を先に見せ、「行くべき場所」として保存してもらいます。</p></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="when">オープン初週</div><h3><em>2</em> 現場招待</h3><span class="pill">メガインフルエンサー · セレブ</span><p>オープンイベントに招待し、現場の第一印象を大きく発信します。</p></div><i class="arr" aria-hidden="true">→</i><div class="sd-step3"><div class="when">オープン後</div><h3><em>3</em> レビュー拡散</h3><span class="pill">マイクロ · 体験レビュアー</span><p>多くの人が訪れたレビューで、残り期間の来場をつなげます。</p></div></div></div></section><section class="sd-sec sd-dark"><div class="sd-in"><div class="sd-drow"><div class="sd-dtxt"><div class="k">企画から撤収まで</div><h3>ワンチームが<br>最初から最後まで</h3><p>会場手配、デザイン、施工、グッズ、現場スタッフ、インフルエンサー招待まで<br>複数の業者を個別に手配せず、ワンチームが担当します。</p></div><ol class="sd-steps"><li class=""><span class="n">1</span><span class="t">目標と成果基準の設定</span></li><li class="on"><span class="n">2</span><span class="t">会場手配・デザイン</span><span class="b">HOMI</span></li><li class="on"><span class="n">3</span><span class="t">施工・グッズ制作</span><span class="b">HOMI</span></li><li class="on"><span class="n">4</span><span class="t">現場運営スタッフ</span><span class="b">HOMI</span></li><li class="on"><span class="n">5</span><span class="t">インフルエンサー招待・結果レポート</span><span class="b">HOMI</span></li></ol></div><div class="sd-drow solo"><div class="sd-dtxt"><div class="k">現場を知るチーム</div><h3>ショーケースや公演、<br>ポップアップの現場を運営してきたチーム</h3><p>大型ショーケース・公演や市民参加型ポップアップを企画・運営してきた経験から、<br>動線、待機列、安全、現場撮影まで細やかに対応します。</p></div></div></div></section><section class="sd-sec"><div class="sd-in"><div class="sd-eyebrow">目標によって成果の見方は変わります</div><h2 class="sd-h2">最初に決めた目標で<span class="sd-hl">数字を確認</span>します</h2><div class="sd-g3"><div class="sd-card"><div class="when">目標が</div><h3>認知なら</h3><ul class="chk"><li>来場者数</li><li>コンテンツの露出・再生数</li><li>現場の写真・動画のシェア</li></ul></div><div class="sd-card"><div class="when">目標が</div><h3>販売なら</h3><ul class="chk"><li>現場での購入・クーポン利用</li><li>ECサイトへの流入</li><li>会員登録</li></ul></div><div class="sd-card"><div class="when">目標が</div><h3>ブランディングなら</h3><ul class="chk"><li>滞在時間</li><li>来場者のレビューコンテンツ</li><li>再来場・再言及</li></ul></div></div></div></section>
+<section class="sd-band"><h2>どんなイベントが合うかは、ご相談の中で決めます</h2><a href="/ja/market/contact.html" class="sd-btn">無料相談はこちら</a></section>
 </main>
 <footer class="hf" id="homi-footer">
   <div class="hf-in">
@@ -578,7 +577,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var kk=st.kakaoMsg?'<div class="hc-info">KakaoTalkチャンネルは現在準備中です。今は<b>お問い合わせ</b>からご連絡ください。</div>':'';
     return head(false)+'<div class="hc-body">'
       +'<div class="hc-card"><div class="hc-who"><span class="hc-logo" aria-hidden="true">HM</span>HOMI MARKET</div>'
-      +'<p class="hc-greet">こんにちは、HOMI MARKETです 👋\n海外進出・インフルエンサーマーケティングなど、\nお気軽にご相談ください。\n\nご相談内容を選んでいただくと、\n担当者がご案内いたします。</p>'
+      +'<p class="hc-greet">こんにちは、HOMI MARKETです。\n海外進出・インフルエンサーマーケティングの\nご相談を承ります。\n\n相談タイプをお選びいただくと、担当者が\nご案内いたします。</p>'
       +'<button type="button" class="hc-cta" data-a="start">'+(st.msgs.length?'会話を続ける ›':'お問い合わせ ›')+'</button>'
       +'<p class="hc-note">'+(on?'🕘 営業時間内にご返信いたします':'🌙 現在は営業時間外です · ご連絡先を残していただければ、次の営業時間にご返信いたします')+'</p></div>'
       +'<div class="hc-card hc-other"><b>その他のお問い合わせ方法</b>'
@@ -627,11 +626,20 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   }
   function startChat(){
     st.view='chat';
-    if(!st.msgs.length){ push('bot','こんにちは、HOMI MARKETです 👋\nどのようなご相談でしょうか？'); }
+    if(!st.msgs.length){ push('bot','こんにちは、HOMI MARKETです。\nどのようなご相談でしょうか？'); }
     save(); render();
     var f=pn.querySelector('.hc-chip,textarea'); if(f) f.focus();
   }
+  /* 통합 관리자 문의함(Supabase com_inquiries)에도 함께 넣기 — 실패해도 메일 접수에는 영향 없음 (FR-COM-019) */
+  function toInbox(p){
+    if(!p['대화 내용']) return;
+    var c=p['연락처']||'', em=/@/.test(c)?c:'', ph=em?'':c, lc=(document.documentElement.lang||'ko').slice(0,2).toUpperCase();
+    try{ fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({site:'market',kind:'chat',name:p['성함']||null,phone:ph||null,email:em||null,summary:'[チャット相談] '+(p['상담 유형']||''),
+        data:{'상담 유형':p['상담 유형'],'대화 내용':p['대화 내용'],'운영시간 여부':p['운영시간 여부']},lang:lc==='KO'?'KR':lc,page:(p['페이지']||'').split('?')[0]})}).catch(function(){}); }catch(e){}
+  }
   function send(payload){
+    toInbox(payload);
     return fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error(j.message||'fail'); return j; });
