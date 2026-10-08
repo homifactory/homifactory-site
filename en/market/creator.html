@@ -374,7 +374,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul>
           <li>Purpose: receiving creator applications, contacting you for campaign matching</li>
           <li>Items collected: (required) creator name, main channel link, platforms, follower count, country of activity, content category, name, phone, email / (optional) about you</li>
-          <li>Retention period: <strong>1 year</strong> from the date of application (if we work together on a campaign, the period required by applicable laws after the contract ends); deleted immediately upon request</li>
+          <li>Retention period: <strong>2 years</strong> from the date of application (if we work together on a campaign, the period required by applicable laws after the contract ends); deleted immediately upon request</li>
           <li>You may decline to consent, but your application cannot be processed without it. Optional fields may be left blank.</li>
         </ul>
       </div>
@@ -707,9 +707,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var s=post(STORE,row).then(function(){ return true; });
     /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
     var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
-    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_creators',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
-      body:JSON.stringify({handle:mail['Creator name'],channel_url:mail['Main channel link'],platforms:arr(mail['Platforms']),followers:mail['Follower count'],country:mail['Country of activity'],
-        categories:arr(mail['Category']),intro:mail['About you']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang})})
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({p:{handle:mail['Creator name'],channel_url:mail['Main channel link'],platforms:arr(mail['Platforms']),followers:mail['Follower count'],country:mail['Country of activity'],
+        categories:arr(mail['Category']),intro:mail['About you']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
