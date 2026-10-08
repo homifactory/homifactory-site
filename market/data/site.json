@@ -74,6 +74,12 @@
    "hidden": false
   },
   {
+   "name": "스타스토리",
+   "src": "/market/data/uploads/1791423527621-79ljk.png",
+   "row": 1,
+   "hidden": false
+  },
+  {
    "name": "",
    "src": "",
    "row": 2,
@@ -275,5 +281,5 @@
   "ja": {},
   "id": {}
  },
- "updatedAt": "2026-10-08T01:38:28.474Z"
+ "updatedAt": "2026-10-08T01:38:49.182Z"
 }
