@@ -374,7 +374,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul>
           <li>Tujuan pengumpulan: menerima pendaftaran kreator, menghubungi Anda untuk pencocokan kampanye</li>
           <li>Data yang dikumpulkan: (wajib) nama kreator, link channel utama, platform, jumlah followers, negara aktivitas, kategori konten, nama, kontak, email / (opsional) tentang Anda</li>
-          <li>Masa penyimpanan: <strong>1 tahun</strong> sejak tanggal pendaftaran (jika kita bekerja sama dalam kampanye, selama periode yang ditetapkan peraturan terkait setelah kontrak berakhir); segera dihapus jika Anda memintanya</li>
+          <li>Masa penyimpanan: <strong>2 tahun</strong> sejak tanggal pendaftaran (jika kita bekerja sama dalam kampanye, selama periode yang ditetapkan peraturan terkait setelah kontrak berakhir); segera dihapus jika Anda memintanya</li>
           <li>Anda berhak menolak memberikan persetujuan, namun pendaftaran tidak dapat diproses jika Anda menolak. Kolom opsional boleh dikosongkan.</li>
         </ul>
       </div>
@@ -707,9 +707,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var s=post(STORE,row).then(function(){ return true; });
     /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
     var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
-    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_creators',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
-      body:JSON.stringify({handle:mail['Nama kreator'],channel_url:mail['Link channel utama'],platforms:arr(mail['Platform']),followers:mail['Jumlah followers'],country:mail['Negara aktivitas'],
-        categories:arr(mail['Kategori']),intro:mail['Tentang Anda']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang})})
+    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
+      body:JSON.stringify({p:{handle:mail['Nama kreator'],channel_url:mail['Link channel utama'],platforms:arr(mail['Platform']),followers:mail['Jumlah followers'],country:mail['Negara aktivitas'],
+        categories:arr(mail['Kategori']),intro:mail['Tentang Anda']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
