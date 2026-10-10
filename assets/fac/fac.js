@@ -140,7 +140,7 @@
      영상이 준비되면 아래 HERO 에 주소만 넣으면 된다.
      컷 3~4개는 편집에서 0.5초 크로스페이드로 이어 붙인 24~30초 한 파일(소리 없음).
      desktop: 1080p MP4, mobile: 720p MP4(비우면 모바일은 정지 이미지), poster: 첫 프레임 정지 이미지 */
-  var HERO = { desktop: '', mobile: '', poster: '' };
+  var HERO = { desktop: '/assets/fac/hero/hero-f-1080.mp4', mobile: '/assets/fac/hero/hero-f-720.mp4', poster: '/assets/fac/hero/hero-f-poster.jpg' };   /* HERO-F · 4컷(연습실·공연장·지하철·공항) 26초 루프 */
   var hero = document.querySelector('.fac-hero');
   if (hero) {
     var media = hero.querySelector('.fac-hero-media');
