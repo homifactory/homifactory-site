@@ -80,7 +80,7 @@
       d.className = 'cf-done'; d.tabIndex = -1; d.setAttribute('role', 'status');
       d.innerHTML = '<div class="cf-done-ic" aria-hidden="true">✓</div><h3>문의가 접수되었어요</h3>' +
         '<p>남겨 주신 내용을 확인한 뒤 <strong>2영업일 안에</strong> 담당자가 연락드릴게요.</p>' +
-        '<p>급한 일은 <a href="tel:01040262695">010-4026-2695</a> 또는 <a href="mailto:support@homifactory.com">support@homifactory.com</a> 으로 알려 주세요.</p>' +
+        '<p>급한 일은 <a href="tel:01098734339">010-9873-4339</a> 또는 <a href="mailto:support@homifactory.com">support@homifactory.com</a> 으로 알려 주세요.</p>' +
         '<a class="cf-done-btn" href="/">HOMI FACTORY 홈으로</a>';
       f.hidden = true; f.parentNode.insertBefore(d, f.nextSibling); d.focus(); d.scrollIntoView({ block: 'center' });
     }

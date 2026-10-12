@@ -5,7 +5,7 @@
   var CFG={
     channelKey:'',                     /* 채널톡 플러그인 키를 넣으면 채널톡으로 전환 */
     kakaoUrl:'',                       /* 카카오톡 채널 주소 (예: https://pf.kakao.com/_xxxx/chat) — Q-41 */
-    phone:'010-4026-2695',
+    phone:'010-9873-4339',
     email:'support@homifactory.com',
     endpoint:'https://formsubmit.co/ajax/support@homifactory.com',
     open:10, close:22                  /* 운영시간 (KST) */
