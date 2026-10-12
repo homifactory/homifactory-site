@@ -119,7 +119,7 @@
     ];
     cr.forEach(function (c) { c.campaign_types = c.campaign_types || []; c.tags = c.tags || []; });
     var mem = [{ email: 'hosung@homifactory.com', name: '윤호성', role: 'owner', sites: ['factory', 'market', 'production'], menus: null }, { email: 'soobin1027@homifactory.com', name: '배수빈', role: 'owner', sites: ['factory', 'market', 'production'], menus: null }, { email: 'support@homifactory.com', name: '고객지원', role: 'editor', sites: ['market'], menus: ['inbox', 'creators'] }];
-    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-4026-2695', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'soobin1027@homifactory.com,hosung@homifactory.com' } }];
+    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-9873-4339', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'soobin1027@homifactory.com,hosung@homifactory.com' } }];
     var aud = [{ id: 1, at: d(1), actor: 'hosung@homifactory.com', site: 'market', action: 'view', target: 'inquiry:i1' }];
     var works = [
       { id: 'w1', section: 'visual', category: 'mv', title: 'Night Drive', client: '아티스트A', show_client: true, published_on: '2026-08-01', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', roles: ['기획', '촬영', '편집'], description: '', thumb_url: null, sort_order: 0, is_featured: true, hidden: false },
