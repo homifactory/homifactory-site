@@ -87,7 +87,7 @@
     ];
     var cr = [{ id: 'c1', handle: '데일리뷰티', channel_url: 'https://instagram.com/dailybeauty', platforms: ['인스타그램', '틱톡'], followers: '1만~10만', country: '한국', categories: ['뷰티'], intro: '직장인 뷰티 루틴', name: '최크리', phone: '010-7777-8888', email: 'cr@ex.com', status: 'new', retain_until: '2027-10-08', created_at: d(5) }];
     var mem = [{ email: 'hosung@homifactory.com', name: '윤호성', role: 'owner', sites: ['factory', 'market', 'production'] }, { email: 'support@homifactory.com', name: '고객지원', role: 'editor', sites: ['market'] }];
-    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-4026-2695', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'soobin1027@homifactory.com,hosung@homifactory.com' } }];
+    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-9873-4339', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'soobin1027@homifactory.com,hosung@homifactory.com' } }];
     var P = function (v) { return Promise.resolve(JSON.parse(JSON.stringify(v))); };
     var upd = function (arr, id, p, k) { arr.forEach(function (r) { if (r[k || 'id'] === id) Object.assign(r, p); }); return P(null); };
     return {
