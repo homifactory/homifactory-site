@@ -102,9 +102,9 @@
     var now = Date.now(), d = function (h) { return new Date(now - h * 3600e3).toISOString(); };
     var inq = [
       { id: 'i1', site: 'market', kind: 'inquiry', name: '김브랜드', phone: '010-1111-2222', email: 'brand@ex.com', company: '모이스처랩', summary: '저자극 선크림 신제품', data: { '방향': '한국→세계', '진출 국가·시장': '일본, 인도네시아', '지금 가장 큰 고민': '어디서부터 시작할지', '이루고 싶은 목표': '6개월 안에 현지 판매', '시기': '11월', '예산': '3천만 원대' }, lang: 'KR', page: '/market/contact', status: 'new', history: [], retain_until: '2027-10-08', created_at: d(2) },
-      { id: 'i2', site: 'production', kind: 'rental', name: '박감독', phone: '010-5555-6666', email: 'pd@ex.com', company: '스튜디오B', summary: '호리존 대관', data: { '희망 일정': '10/20 오후', '문의 내용': '4시간 촬영' }, lang: 'KR', page: '/production/contact', status: 'contacted', assignee: '배수빈', history: [{ at: d(20), by: '배수빈', what: '연락함' }], retain_until: '2027-10-07', created_at: d(26) },
+      { id: 'i2', site: 'production', kind: 'rental', name: '박감독', phone: '010-5555-6666', email: 'pd@ex.com', company: '스튜디오B', summary: '호리존 대관', data: { '희망 일정': '10/20 오후', '문의 내용': '4시간 촬영' }, lang: 'KR', page: '/production/contact', status: 'contacted', assignee: '최성용', history: [{ at: d(20), by: '최성용', what: '연락함' }], retain_until: '2027-10-07', created_at: d(26) },
       { id: 'i3', site: 'factory', kind: 'project', name: '이매니저', phone: '010-3333-4444', email: 'ent@ex.com', company: 'OO레이블', summary: '컴백 프로모션', data: { '문의 유형': 'Marketing', '프로젝트 내용': '11월 컴백 SNS 바이럴' }, lang: 'KR', page: '/contact', status: 'in_progress', assignee: '윤호성', history: [], retain_until: '2027-10-07', created_at: d(30) },
-      { id: 'i4', site: 'production', kind: 'production', name: '최PD', phone: '010-1212-3434', email: 'mv@ex.com', company: '아티스트C', summary: '뮤직비디오 제작', data: { '예산': '협의', '희망 일정': '12월' }, lang: 'KR', page: '/production/contact', status: 'in_progress', assignee: '배수빈', history: [], retain_until: '2027-10-07', created_at: d(38) },
+      { id: 'i4', site: 'production', kind: 'production', name: '최PD', phone: '010-1212-3434', email: 'mv@ex.com', company: '아티스트C', summary: '뮤직비디오 제작', data: { '예산': '협의', '희망 일정': '12월' }, lang: 'KR', page: '/production/contact', status: 'in_progress', assignee: '최성용', history: [], retain_until: '2027-10-07', created_at: d(38) },
       { id: 'i5', site: 'market', kind: 'inquiry', name: '정대표', phone: '010-9999-0000', email: 'ceo@ex.com', company: '푸드컴퍼니', summary: '방문 프로모션', data: {}, lang: 'EN', page: '/en/market/contact', status: 'done', assignee: '고객지원', history: [], retain_until: '2027-10-04', created_at: d(60) },
       { id: 'i6', site: 'factory', kind: 'project', name: '한실장', phone: '010-4545-6767', email: 'han@ex.com', company: 'D엔터', summary: '팬미팅 기획', data: {}, lang: 'KR', page: '/contact', status: 'hold', assignee: '윤호성', history: [], retain_until: '2026-10-30', created_at: d(110) },
       { id: 'i7', site: 'market', kind: 'chat', name: '고객', phone: '', email: 'chat@ex.com', company: '', summary: '[실시간 상담] 인플루언서 마케팅', data: { '대화': '안녕하세요, 일본 시딩 문의드려요' }, lang: 'KR', page: '/market', status: 'new', history: [], retain_until: '2027-10-08', created_at: d(5) }
@@ -118,8 +118,8 @@
       { id: 'c6', handle: 'manila.glow', channel_url: 'https://facebook.com/manilaglow', platforms: ['페이스북', '틱톡'], followers: '1만~10만', country: '필리핀', categories: ['뷰티'], status: 'hold', tags: [], campaigns: [], delete_requested: true, retain_until: '2028-02-01', created_at: d(200) }
     ];
     cr.forEach(function (c) { c.campaign_types = c.campaign_types || []; c.tags = c.tags || []; });
-    var mem = [{ email: 'hosung@homifactory.com', name: '윤호성', role: 'owner', sites: ['factory', 'market', 'production'], menus: null }, { email: 'soobin1027@homifactory.com', name: '배수빈', role: 'owner', sites: ['factory', 'market', 'production'], menus: null }, { email: 'support@homifactory.com', name: '고객지원', role: 'editor', sites: ['market'], menus: ['inbox', 'creators'] }];
-    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-9873-4339', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'soobin1027@homifactory.com,hosung@homifactory.com' } }];
+    var mem = [{ email: 'hosung@homifactory.com', name: '윤호성', role: 'owner', sites: ['factory', 'market', 'production'], menus: null }, { email: 'support@homifactory.com', name: '고객지원', role: 'editor', sites: ['market'], menus: ['inbox', 'creators'] }];
+    var set = [{ key: 'contact', value: { email: 'support@homifactory.com', phone: '010-9873-4339', hours: '평일 10:00~22:00', kakao: '' } }, { key: 'notify', value: { to: 'support@homifactory.com', cc: 'hosung@homifactory.com' } }];
     var aud = [{ id: 1, at: d(1), actor: 'hosung@homifactory.com', site: 'market', action: 'view', target: 'inquiry:i1' }];
     var works = [
       { id: 'w1', section: 'visual', category: 'mv', title: 'Night Drive', client: '아티스트A', show_client: true, published_on: '2026-08-01', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', roles: ['기획', '촬영', '편집'], description: '', thumb_url: null, sort_order: 0, is_featured: true, hidden: false },
@@ -322,15 +322,15 @@
   }
 
   /* ───────── 크리에이터 DB (FR-COM-023 · p.32) ───────── */
-  var CR_FIELDS = [['handle', '활동명*', ['활동명', '이름(활동명)', '닉네임', 'handle', 'name (handle)', '크리에이터']], ['channel_url', '채널 링크*', ['채널', '채널 링크', '채널링크', 'url', '링크', '계정', '주소', 'sns']],
+  var CR_FIELDS = [['handle', '이름(활동명)*', ['활동명', '이름(활동명)', '닉네임', 'handle', 'name (handle)', '크리에이터']], ['channel_url', '채널 링크*', ['채널', '채널 링크', '채널링크', 'url', '링크', '계정', '주소', 'sns']],
     ['platforms', '플랫폼', ['플랫폼', 'platform']], ['followers', '팔로워 규모', ['팔로워', 'followers', '규모']], ['country', '국가', ['국가', '나라', 'country', '활동 국가']],
     ['categories', '카테고리', ['카테고리', '분야', 'category']], ['campaign_types', '캠페인 유형', ['캠페인 유형', '희망 캠페인', 'campaign']], ['name', '이름', ['성함', '실명', '이름']],
-    ['phone', '연락처', ['연락처', '전화', '휴대폰', 'phone']], ['email', '이메일', ['이메일', 'email', '메일']], ['intro', '자기소개', ['자기소개', '소개', 'intro']], ['tags', '태그', ['태그', 'tag']], ['contact_log', '메모', ['메모', '비고', 'memo']]];
+    ['phone', '연락처', ['연락처', '전화', '휴대폰', 'phone']], ['email', '이메일', ['이메일', 'email', '메일']], ['intro', '자기소개', ['자기소개', '소개', 'intro']], ['languages', '사용 언어', ['사용 언어', 'language']], ['tags', '태그', ['태그', 'tag']], ['contact_log', '메모', ['메모', '비고', 'memo']]];
   function viewCreators(m) {
     var w = canWrite('market', 'creators');
     m.innerHTML = head('크리에이터 DB', '크리에이터 지원 페이지로 들어온 지원서가 쌓이는 곳', 'FR-COM-023 · 기존 구글 폼 DB 옮기기 Q-74') +
       '<div class="row" style="margin-bottom:14px"><input type="search" id="cq" placeholder="이름 · 링크 검색" style="width:220px">' +
-      [['country', '국가'], ['platforms', '플랫폼'], ['followers', '팔로워 규모'], ['categories', '카테고리'], ['campaign_types', '캠페인 유형'], ['status', '상태']].map(function (f) { return '<select class="chip" data-f="' + f[0] + '" aria-label="' + f[1] + '"><option value="">' + f[1] + '</option></select>'; }).join('') +
+      [['country', '국가'], ['platforms', '플랫폼'], ['followers', '팔로워 규모'], ['categories', '카테고리'], ['campaign_types', '캠페인 유형'], ['languages', '사용 언어'], ['status', '상태']].map(function (f) { return '<select class="chip" data-f="' + f[0] + '" aria-label="' + f[1] + '"><option value="">' + f[1] + '</option></select>'; }).join('') +
       '<span class="sp"></span>' + (w ? '<button type="button" class="chip" id="cimp">⬆ 시트 가져오기</button>' : '') + '<button type="button" class="chip" id="cx">⬇ 엑셀</button></div>' +
       '<div class="selbar" id="csel"></div>' +
       '<div class="split cr"><div class="card tablewrap" id="clist"><div class="empty">불러오는 중…</div></div><aside class="card side" id="cpanel"><div class="empty">왼쪽에서 크리에이터를 고르세요</div></aside></div>' +
@@ -395,7 +395,7 @@
       $('#cbx').onclick = function () { exp(pick()); };
     }
     function exp(list) {
-      xlsxOut(list, [['handle', '활동명'], ['channel_url', '채널'], ['channels', '다른 채널'], ['platforms', '플랫폼'], ['followers', '팔로워 규모'], ['country', '국가'], ['categories', '카테고리'], ['campaign_types', '캠페인 유형'], ['status', '상태'], ['tags', '태그'], ['rating', '평가'], [function (r) { return (r.campaigns || []).map(function (c) { return c.name + '(' + c.month + ' ' + c.state + ')'; }).join(', '); }, '참여 이력'], ['name', '이름'], ['phone', '연락처'], ['email', '이메일'], ['intro', '자기소개'], ['contact_log', '연락 기록'], ['created_at', '지원일'], ['retain_until', '보유 기한']], 'HOMI_크리에이터DB_' + today() + '.xlsx')
+      xlsxOut(list, [['handle', '활동명'], ['channel_url', '채널'], ['channels', '다른 채널'], ['platforms', '플랫폼'], ['followers', '팔로워 규모'], ['country', '국가'], ['categories', '카테고리'], ['campaign_types', '캠페인 유형'], ['status', '상태'], ['tags', '태그'], ['rating', '평가'], [function (r) { return (r.campaigns || []).map(function (c) { return c.name + '(' + c.month + ' ' + c.state + ')'; }).join(', '); }, '참여 이력'], ['name', '이름'], ['phone', '연락처'], ['email', '이메일'], ['intro', '자기소개'], ['languages', '사용 언어'], ['news_ok', '소식 수신'], ['contact_log', '연락 기록'], ['created_at', '지원일'], ['retain_until', '보유 기한']], 'HOMI_크리에이터DB_' + today() + '.xlsx')
         .then(function () { api.audit('export', 'market', 'creators', { rows: list.length }); msg(list.length + '명을 내려받았어요 (기록 남음)'); }).catch(fail('내보내기 실패'));
     }
     function open(id, auto) {
@@ -412,7 +412,7 @@
         '<label class="lbl">태그 · 평가</label><div class="row" style="flex-wrap:nowrap"><input type="text" id="ptg" value="' + esc((r.tags || []).map(function (t) { return '#' + t; }).join(' ')) + '" placeholder="#스킨케어 #20대"' + dis + '><span class="stars" id="prt"></span></div>' +
         '<label class="lbl">참여 이력 <small>— 후보로 묶이면 여기 쌓이고, 실제 참여하면 「참여」로</small></label><div id="pcp"></div>' + (w ? '<button class="btn sm" type="button" id="pca">+ 이력 추가</button>' : '') +
         '<label class="lbl">연락 기록 · 메모</label><textarea id="plog" placeholder="10.04 라인으로 제안 → 수락"' + dis + '>' + esc(r.contact_log || r.memo || '') + '</textarea>' +
-        '<label class="lbl">지원 정보</label><dl class="kv2"><dt>이름</dt><dd>' + esc(r.name || '') + '</dd><dt>연락처</dt><dd>' + esc(r.phone || '') + '</dd><dt>이메일</dt><dd>' + (r.email ? '<a href="mailto:' + esc(r.email) + '">' + esc(r.email) + '</a>' : '') + '</dd><dt>자기소개</dt><dd>' + esc(r.intro || '') + '</dd><dt>지원일</dt><dd>' + fmtY(r.created_at) + '</dd><dt>보유 기한</dt><dd>' + esc(r.retain_until || '') + '</dd></dl>' +
+        '<label class="lbl">지원 정보</label><dl class="kv2"><dt>이름</dt><dd>' + esc(r.name || '') + '</dd><dt>사용 언어</dt><dd>' + esc((r.languages || []).join(', ')) + '</dd><dt>소식 수신</dt><dd>' + (r.news_ok ? '동의' : '—') + '</dd><dt>연락처</dt><dd>' + esc(r.phone || '') + '</dd><dt>이메일</dt><dd>' + (r.email ? '<a href="mailto:' + esc(r.email) + '">' + esc(r.email) + '</a>' : '') + '</dd><dt>자기소개</dt><dd>' + esc(r.intro || '') + '</dd><dt>지원일</dt><dd>' + fmtY(r.created_at) + '</dd><dt>보유 기한</dt><dd>' + esc(r.retain_until || '') + '</dd></dl>' +
         '<div class="acts">' + (w ? '<button class="btn" type="button" id="pdl">삭제 요청 처리</button><span class="sp"></span><button class="btn k" type="button" id="psv">저장</button>' : '') + '</div>';
       function stars() { $('#prt').innerHTML = [1, 2, 3, 4, 5].map(function (i) { return '<button type="button" data-s="' + i + '" class="' + (i <= rating ? 'on' : '') + '" aria-label="' + i + '점"' + dis + '>' + (i <= rating ? '★' : '☆') + '</button>'; }).join(''); $$('#prt button').forEach(function (b) { b.onclick = function () { rating = +b.dataset.s === rating ? 0 : +b.dataset.s; stars(); }; }); }
       function campDraw() {
@@ -465,7 +465,7 @@
           var o = { source: 'import' };
           Object.keys(mp).forEach(function (k) {
             var v = String(row[mp[k]] || '').trim(); if (!v) return;
-            o[k] = ['platforms', 'categories', 'campaign_types', 'tags'].indexOf(k) > -1 ? arr(v).map(function (t) { return t.replace(/^#/, ''); }) : v.slice(0, 2000);
+            o[k] = ['platforms', 'categories', 'campaign_types', 'languages', 'tags'].indexOf(k) > -1 ? arr(v).map(function (t) { return t.replace(/^#/, ''); }) : v.slice(0, 2000);
           });
           if (!o.handle || !o.channel_url) return;
           var key = o.channel_url.toLowerCase().replace(/^\s*(https?:\/\/)?(www\.)?/, '').replace(/[\/?#\s]+$/, '');
