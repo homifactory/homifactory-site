@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/privacy">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/privacy">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/privacy">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/privacy">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/privacy">
@@ -246,7 +246,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>The Company processes personal information for the following purposes. Personal information processed will not be used for any purpose other than the following, and if the purpose of use changes, the Company will take necessary measures, such as obtaining separate consent pursuant to Article 18 of the Personal Information Protection Act.</p>
   <ol>
     <li>Receiving and processing HOMI MARKET consultation request forms: reviewing requests, proposing tailored marketing plans, contacting you about your consultation, and informing you of the outcome</li>
-    <li>Receiving HOMI MARKET creator applications: reviewing applications and contacting you to match brand campaigns suited to your category and country</li>
+    <li>HOMI MARKET creator application: registration in the creator pool, contact regarding campaign proposals, casting review, and (where consent is given) notices of new campaigns</li>
     <li>Receiving and processing HOMI FACTORY project inquiries: reviewing inquiries and contacting you to make proposals and proceed with consultation</li>
     <li>Receiving and processing HOMI PRODUCTION production and rental inquiries: discussing video production quotes and schedules, checking studio availability, and replying</li>
     <li>Live chat consultation (HOMI FACTORY · HOMI MARKET): reviewing and answering chat inquiries, managing consultation history</li>
@@ -257,7 +257,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <h2 id="pv-2">Article 2 (Items of Personal Information Processed)</h2>
   <ol>
     <li>HOMI MARKET consultation request form — Required: name, contact (phone number), email, brand/product name, consultation details (direction, target countries/markets, concerns, goals)<br>Optional: brand link (website/social media URL), current sales channels, preferred timing, budget range</li>
-    <li>HOMI MARKET creator application — Required: creator name, main channel link, platforms, follower count, country of activity, content category, name, contact (phone number), email<br>Optional: about you</li>
+    <li>HOMI MARKET creator application — Required: name (creator name or full name), email, contact details (one of phone number, LINE or WhatsApp), country of activity, main platform, main channel link, follower count, main categories, campaigns available to join, confirmation of being 14 years of age or older<br>Optional: other channel links, languages, introduction, consent to receive new campaign updates<br>※ Product shipping addresses are collected with separate consent only after selection for a campaign.</li>
     <li>HOMI FACTORY project inquiry — Required: contact person’s name, email, contact (phone number), project details<br>Optional: company/brand name, inquiry type</li>
     <li>HOMI PRODUCTION production/rental inquiry — Required: inquiry type, name, contact (phone number), email, inquiry details<br>Optional: company/brand/artist name, video type, preferred schedule, reference video link</li>
     <li>Live chat consultation (HOMI FACTORY · HOMI MARKET) — consultation type, consultation details, and name and contact (phone number or email) for receiving a reply</li>
@@ -270,7 +270,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>② The processing and retention periods for each category of personal information are as follows.</p>
   <ol>
     <li>Consultation request form, project inquiry, and production/rental inquiry information: 1 year from the date the consultation/inquiry is completed. However, if it leads to a contract, the information is retained for the period required by applicable laws (such as the Commercial Act and the Framework Act on National Taxes) to perform the contract and resolve related disputes.</li>
-    <li>Creator application information: 2 years from the date of application. If we have worked together on a campaign, it is retained for the period required by applicable laws after the contract ends, and destroyed without delay upon the data subject’s request for deletion.</li>
+    <li>Creator application information: 2 years from the date of registration (destroyed after notice is given 30 days before the retention period expires). Where the creator has participated in a campaign, the information is retained for the period prescribed by applicable laws after the contract ends, and is destroyed without delay upon the data subject’s request for deletion.</li>
     <li>Live chat consultation records: 1 year from the date the consultation ends</li>
     <li>Website access records: 3 months (the Protection of Communications Secrets Act)</li>
   </ol>
@@ -295,6 +295,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <tr><td>Vercel Inc.</td><td>Website operation (hosting)</td><td>All three sites</td></tr>
       <tr><td>FormSubmit</td><td>Sending notification emails for consultation requests, creator applications, inquiries, and live chat</td><td>All three sites</td></tr>
       <tr><td>Make(make.com)</td><td>Forwarding and recording consultation requests, creator applications, and inquiries</td><td>All three sites</td></tr>
+      <tr><td>Supabase Inc.</td><td>Storage of records of consultation request forms, creator applications, inquiries and live chat consultations (administrator inbox and creator DB)</td><td>All three sites</td></tr>
       <tr><td>Google LLC</td><td>Storing submissions (Google Sheets), website usage analytics (Google Analytics)</td><td>All three sites</td></tr>
     </tbody>
   </table></div>
@@ -315,7 +316,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <tr><th scope="row">How to refuse and its effect</th><td>You may refuse by blocking cookie storage in your browser or installing the Google Analytics opt-out browser add-on, and refusal will not result in any disadvantage in using the website or requesting a consultation.</td></tr>
     </tbody>
   </table></div>
-  <p>② When you submit a consultation request, creator application, inquiry, or chat to any processor under Article 5 with servers located overseas (Vercel Inc., FormSubmit, Make, Google LLC), the relevant items in Article 2 are transmitted over the network and stored for the retention period in Article 3. If you do not want your information transferred overseas, you may contact us by email (support@homifactory.com) or phone (010-9873-4339) instead of using the on-screen forms.</p>
+  <p>② For trustees under Article 5 whose servers are located overseas (Vercel Inc., FormSubmit, Make, Google LLC, Supabase Inc.), the relevant items under Article 2 are transmitted over the network when a consultation request form, creator application, inquiry or chat consultation is submitted, and are stored for the retention period set out in Article 3. If you do not wish your information to be transferred overseas, you may contact us by email (support@homifactory.com) or phone (010-9873-4339) instead of using the on-screen forms.</p>
 
   <h2 id="pv-7">Article 7 (Procedures and Methods for Destruction of Personal Information)</h2>
   <p>① The Company destroys personal information without delay when it is no longer necessary, such as when the retention period has expired or the purpose of processing has been achieved.</p>
@@ -349,11 +350,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>④ Refusing cookie storage does not affect your use of the website or your ability to request a consultation.</p>
 
   <h2 id="pv-12">Article 12 (Chief Privacy Officer and Department Receiving Access Requests)</h2>
-  <p>The Company has designated the following department responsible for personal information protection and grievance handling, to take overall responsibility for personal information processing and to handle data subjects’ complaints and provide remedies for damages related to personal information processing. Data subjects may submit requests for access to personal information to the department below.</p>
+  <p>The Company assumes overall responsibility for matters relating to the processing of personal information and has designated a Privacy Officer and a grievance-handling department, as set out below, to handle data subjects’ complaints and provide remedies for damages relating to the processing of personal information. Data subjects may submit requests to access their personal information to the department below.</p>
   <div class="pv-table"><table>
     <thead><tr><th>Category</th><th>Details</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Department in charge of personal information protection</th><td>Customer Support Team</td></tr>
+      <tr><th scope="row">Privacy Officer</th><td>Yoon Ho-seong (Co-CEO) · Oversees all matters relating to the processing of personal information</td></tr>
+<tr><th scope="row">Department in charge of personal information protection</th><td>Customer Support Team</td></tr>
       <tr><th scope="row">Contact</th><td>Phone <a href="tel:01098734339">010-9873-4339</a> / Email <a href="mailto:support@homifactory.com">support@homifactory.com</a></td></tr>
       <tr><th scope="row">Department receiving and processing access requests</th><td>Customer Support Team (contact details as above)</td></tr>
     </tbody>
@@ -411,7 +413,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>Business Reg. No. 581-87-03832</span><span>Mail-Order Business Reg. No. 2026-Seoul Gangnam-05160</span><span>Address: 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea</span></p>
+      <p class="hf-biz"><span>Homi Factory Co., Ltd.</span><span>CEOs Yoon Ho-seong & Choi Seong-yong</span><span>Business Registration No. 581-87-03832</span><span>Mail-Order Business Registration No. 2026-Seoul Gangnam-05160</span><span>Address: 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul (Nonhyeon-dong)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -432,6 +434,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
