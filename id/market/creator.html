@@ -194,6 +194,14 @@ body{padding-top:48px}
 .cf-submit:hover{background:#7D2AE8}
 .cf-footer-note{text-align:center;color:#999;font-size:12px;margin-top:12px}
 @media(max-width:900px){.contact-wrap{grid-template-columns:1fr}.cf-row,.cf-row.triple{grid-template-columns:1fr}.direction-radio{grid-template-columns:1fr}}
+html.form-in-view .hc-fab{opacity:0;pointer-events:none;transform:scale(.6);transition:.2s}
+.cr-sec{font-size:17px;font-weight:800;color:#141414;margin:0 0 16px}
+.cr-hr{border:0;border-top:1px solid #EEE8DE;margin:8px 0 26px}
+.cr-points{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px;font-size:14px;color:#333}
+.cr-points li::before{content:'✦ ';color:#8B3DFF}
+.cf-agree{align-items:flex-start}.cf-agree input{flex:none;margin-top:2px}
+.country-chip-grid .cc.off{opacity:.45;cursor:not-allowed}
+@media(max-width:600px){.contact-wrap{margin:32px auto;padding:0 16px}.contact-right{padding:24px 18px;border-radius:16px}.contact-left h1{font-size:30px}}
 </style><style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -277,7 +285,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/creator">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/creator">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/creator">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/creator">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/creator">
@@ -291,107 +299,134 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <script src="/shared/homi-header.js?v=20261008a"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-breadcrumb">Pendaftaran Kreator</div>
+    <div class="page-breadcrumb">Pendaftaran Kreator HOMI MARKET</div>
   </div>
 </section>
 
-<!-- FR-MKT-042 · IA MKT-P13 크리에이터 지원 — 입구는 상단 바 하나. 접수 내용은 메일(support@) + 접수 기록(Make → 구글 시트, 방향 칸 「크리에이터 지원」)으로 들어가 관리자 「크리에이터 DB」에서 봄 -->
+<!-- FR-MKT-042 · 설계서 v0.99993 p.15 크리에이터 지원 — 입구는 상단 바 하나. 보내면 메일(support@) + 접수 기록(Make → 구글 시트) + 관리자 「크리에이터 DB」(같은 채널 링크면 새로 쌓지 않고 고침) -->
 <section class="contact-section">
 <div class="contact-wrap">
   <aside class="contact-left">
-    <h1>Kami mencari <em>kreator</em><br>untuk berkolaborasi dengan brand</h1>
-    <p>Jika ada kampanye brand yang sesuai dengan kategori dan negara Anda,<br>tim kami akan menghubungi Anda lebih dulu.<br>Ini bukan kontrak eksklusif — kita berkolaborasi per kampanye.</p>
+    <h1>Kami mencari <em>kreator</em><br>untuk berkolaborasi</h1>
+    <p>Tinggalkan info kanal Anda, dan kami akan menghubungi Anda lebih dulu saat ada kampanye brand yang cocok.</p>
+    <ul class="cr-points">
+      <li>Kampanye di 9 negara, termasuk Korea, Jepang, dan Indonesia</li>
+      <li>Sponsor · Review · Kunjungan · Pop-up · Live</li>
+      <li>Kontrak & pembayaran langsung</li>
+    </ul>
   </aside>
   <div class="contact-right">
     <form id="inquiryForm" class="cr-form" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="[HOMI MARKET 크리에이터 지원·ID] 신규 지원">
-      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+      <input type="hidden" name="_cc" value="hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://homifactory.com/id/market/creator?sent=1">
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+      <h3 class="cr-sec">Informasi dasar</h3>
       <div class="cf-row">
-        <div class="cf-field"><label>Nama kreator <span class="req">*</span></label><input name="활동명" required placeholder="Nama yang Anda gunakan di channel"></div>
-        <div class="cf-field"><label>Link channel utama <span class="req">*</span></label><input name="대표 채널 링크" required placeholder="https://instagram.com/…"></div>
+        <div class="cf-field"><label for="cr-name">Nama <span class="req">*</span></label><input id="cr-name" name="c_name" required autocomplete="name" placeholder="Nama kreator atau nama lengkap"></div>
+        <div class="cf-field"><label for="cr-email">Email <span class="req">*</span></label><input id="cr-email" name="c_email" type="email" required autocomplete="email" placeholder="example@email.com"></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cr-contact">Kontak <span class="req">*</span></label><input id="cr-contact" name="c_contact" required placeholder="Nomor telepon · LINE · WhatsApp, mana saja yang praktis"></div>
+        <div class="cf-field"><label for="cr-country">Negara aktivitas <span class="req">*</span></label><input id="cr-country" name="c_country" required placeholder="Contoh) Seoul, Korea Selatan"></div>
       </div>
 
+      <hr class="cr-hr">
+      <h3 class="cr-sec">Kanal</h3>
       <div class="cf-row single">
         <div class="cf-field">
           <label>Platform utama <span class="req">*</span></label>
           <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
-          <div class="country-chip-grid cr-chips" data-target="platformHidden">
-            <span class="cc" data-v="인스타그램">Instagram</span><span class="cc" data-v="틱톡">TikTok</span><span class="cc" data-v="유튜브">YouTube</span><span class="cc" data-v="블로그">Blog</span><span class="cc" data-v="샤오홍슈">Xiaohongshu</span><span class="cc" data-v="기타">Lainnya</span>
+          <div class="country-chip-grid cr-chips" data-target="cr-platforms">
+            <span class="cc" data-v="인스타그램">Instagram</span><span class="cc" data-v="틱톡">TikTok</span><span class="cc" data-v="유튜브">YouTube</span><span class="cc" data-v="샤오홍슈">Xiaohongshu</span><span class="cc" data-v="X">X</span><span class="cc" data-v="페이스북">Facebook</span><span class="cc" data-v="블로그">Blog</span><span class="cc" data-v="기타">Lainnya</span>
           </div>
-          <input type="hidden" name="플랫폼" id="platformHidden" data-req="1">
+          <input type="hidden" name="c_platforms" id="cr-platforms" data-req="1">
         </div>
       </div>
-
       <div class="cf-row">
-        <div class="cf-field"><label>Jumlah followers <span class="req">*</span></label>
-          <select name="팔로워 규모" required>
-            <option value="">Silakan pilih</option>
-            <option value="1만 미만">Di bawah 10 ribu</option>
-            <option value="1만~10만">10 ribu~100 ribu</option>
-            <option value="10만~50만">100 rb–500 rb</option>
-            <option value="50만~100만">500 rb–1 jt</option>
-            <option value="100만 이상">1 juta ke atas</option>
-          </select>
-        </div>
-        <div class="cf-field"><label>Negara aktivitas <span class="req">*</span></label>
-          <select name="활동 나라" required>
-            <option value="">Silakan pilih</option>
-            <option value="한국">Korea</option><option value="일본">Jepang</option><option value="인도네시아">Indonesia</option><option value="북미">Amerika Utara</option><option value="중국">Tiongkok</option><option value="대만">Taiwan</option><option value="홍콩">Hong Kong</option><option value="필리핀">Filipina</option><option value="인도">India</option><option value="기타">Lainnya</option>
-          </select>
-        </div>
+        <div class="cf-field"><label for="cr-channel">Link channel utama <span class="req">*</span></label><input id="cr-channel" name="c_channel" required inputmode="url" placeholder="https://"></div>
+        <div class="cf-field"><label for="cr-channels">Link kanal lain <span class="opt">(opsional)</span></label><input id="cr-channels" name="c_channels" inputmode="url" placeholder="Maksimal 2"></div>
       </div>
-
       <div class="cf-row single">
         <div class="cf-field">
-          <label>Kategori konten <span class="req">*</span></label>
-          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
-          <div class="country-chip-grid cr-chips" data-target="categoryHidden">
-            <span class="cc" data-v="뷰티">Kecantikan</span><span class="cc" data-v="패션">Fashion</span><span class="cc" data-v="푸드">Kuliner</span><span class="cc" data-v="여행">Travel</span><span class="cc" data-v="라이프스타일">Gaya Hidup</span><span class="cc" data-v="헬스·운동">Kesehatan & Olahraga</span><span class="cc" data-v="육아">Parenting</span><span class="cc" data-v="반려동물">Hewan Peliharaan</span><span class="cc" data-v="테크">Teknologi</span><span class="cc" data-v="기타">Lainnya</span>
+          <label>Jumlah followers <span class="req">*</span></label>
+          <div class="cf-sub">(berdasarkan kanal utama)</div>
+          <div class="country-chip-grid cr-chips" data-target="cr-followers" data-single="1">
+            <span class="cc" data-v="1천~1만">1 ribu~10 ribu</span><span class="cc" data-v="1만~10만">10 ribu~100 ribu</span><span class="cc" data-v="10만~100만">100 ribu~1 juta</span><span class="cc" data-v="100만 이상">1 juta ke atas</span>
           </div>
-          <input type="hidden" name="카테고리" id="categoryHidden" data-req="1">
+          <input type="hidden" name="c_followers" id="cr-followers" data-req="1">
         </div>
       </div>
-
       <div class="cf-row single">
-        <div class="cf-field"><label>Tentang Anda <span class="opt">(opsional)</span></label>
-          <textarea name="자기소개" placeholder="Contoh: Saya biasanya mengunggah video pendek rutinitas kecantikan sebagai pekerja kantoran usia 20-an. Tuliskan brand yang pernah bekerja sama dengan Anda, jika ada."></textarea>
+        <div class="cf-field">
+          <label>Kategori utama <span class="req">*</span></label>
+          <div class="cf-sub">(maksimal 3)</div>
+          <div class="country-chip-grid cr-chips" data-target="cr-categories" data-max="3">
+            <span class="cc" data-v="뷰티">Kecantikan</span><span class="cc" data-v="패션">Fashion</span><span class="cc" data-v="푸드·맛집">Kuliner & Restoran</span><span class="cc" data-v="여행">Travel</span><span class="cc" data-v="라이프스타일">Gaya Hidup</span><span class="cc" data-v="육아">Parenting</span><span class="cc" data-v="펫">Hewan Peliharaan</span><span class="cc" data-v="테크">Teknologi</span><span class="cc" data-v="게임">Game</span><span class="cc" data-v="K-POP·엔터">K-POP & Hiburan</span><span class="cc" data-v="기타">Lainnya</span>
+          </div>
+          <input type="hidden" name="c_categories" id="cr-categories" data-req="1">
         </div>
       </div>
-
-      <div class="cf-row triple">
-        <div class="cf-field"><label>Nama <span class="req">*</span></label><input name="이름" required autocomplete="name"></div>
-        <div class="cf-field"><label>Kontak <span class="req">*</span></label><input name="연락처" required type="tel" autocomplete="tel" placeholder="Contoh: 010-1234-5678"></div>
-        <div class="cf-field"><label>Email <span class="req">*</span></label><input name="이메일" required type="email" autocomplete="email" placeholder="name@example.com"></div>
+      <div class="cf-row single">
+        <div class="cf-field">
+          <label>Kampanye yang bisa Anda ikuti <span class="req">*</span></label>
+          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
+          <div class="country-chip-grid cr-chips" data-target="cr-campaigns">
+            <span class="cc" data-v="제품 협찬·리뷰">Sponsor & review produk</span><span class="cc" data-v="매장 방문">Kunjungan toko</span><span class="cc" data-v="팝업·행사 참석">Hadir di pop-up & event</span><span class="cc" data-v="라이브 방송">Siaran live</span><span class="cc" data-v="숏폼 제작">Produksi short-form</span><span class="cc" data-v="해외 촬영">Syuting di luar negeri</span>
+          </div>
+          <input type="hidden" name="c_campaigns" id="cr-campaigns" data-req="1">
+        </div>
+      </div>
+      <div class="cf-row single">
+        <div class="cf-field">
+          <label>Bahasa yang digunakan</label>
+          <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
+          <div class="country-chip-grid cr-chips" data-target="cr-languages">
+            <span class="cc" data-v="한국어">Bahasa Korea</span><span class="cc" data-v="English">English</span><span class="cc" data-v="日本語">日本語</span><span class="cc" data-v="Bahasa Indonesia">Bahasa Indonesia</span><span class="cc" data-v="中文">中文</span><span class="cc" data-v="기타">Lainnya</span>
+          </div>
+          <input type="hidden" name="c_languages" id="cr-languages">
+        </div>
+      </div>
+      <div class="cf-row single">
+        <div class="cf-field"><label for="cr-intro">Perkenalan <span class="opt">(opsional)</span></label>
+          <textarea id="cr-intro" name="c_intro" placeholder="Perkenalan kanal, konten andalan, brand yang ingin diajak bekerja sama"></textarea>
+        </div>
       </div>
 
       <div class="cf-privacy-box">
         <h4>Informasi pengumpulan & penggunaan data pribadi</h4>
         <ul>
-          <li>Tujuan pengumpulan: menerima pendaftaran kreator, menghubungi Anda untuk pencocokan kampanye</li>
-          <li>Data yang dikumpulkan: (wajib) nama kreator, link channel utama, platform, jumlah followers, negara aktivitas, kategori konten, nama, kontak, email / (opsional) tentang Anda</li>
-          <li>Masa penyimpanan: <strong>2 tahun</strong> sejak tanggal pendaftaran (jika kita bekerja sama dalam kampanye, selama periode yang ditetapkan peraturan terkait setelah kontrak berakhir); segera dihapus jika Anda memintanya</li>
-          <li>Anda berhak menolak memberikan persetujuan, namun pendaftaran tidak dapat diproses jika Anda menolak. Kolom opsional boleh dikosongkan.</li>
+          <li>Tujuan pengumpulan: pendaftaran ke pool kreator, menghubungi untuk tawaran kampanye, peninjauan perekrutan</li>
+          <li>Data yang dikumpulkan: (wajib) nama, email, kontak, negara aktivitas, platform, link kanal, jumlah pengikut, kategori, kampanye yang bisa diikuti / (opsional) link kanal lain, bahasa yang digunakan, perkenalan</li>
+          <li>Masa penyimpanan: <strong>2 tahun</strong> sejak tanggal pendaftaran atau sampai Anda meminta penghapusan</li>
+          <li>Anda berhak menolak memberikan persetujuan, tetapi jika menolak, pendaftaran kreator tidak dapat diproses. Alamat pengiriman produk hanya kami minta secara terpisah setelah Anda terpilih untuk kampanye.</li>
         </ul>
       </div>
 
       <label class="cf-agree">
-        <input type="checkbox" name="개인정보 동의" value="동의" required>
-        Saya menyetujui pengumpulan dan penggunaan data pribadi di atas (wajib) · <a href="/id/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">Kebijakan Privasi selengkapnya ↗</a>
+        <input type="checkbox" name="c_agree" value="동의" required data-msg="agree">
+        <span>Saya menyetujui pengumpulan dan penggunaan data pribadi di atas (wajib) · <a href="/id/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">Baca Kebijakan Privasi lengkap</a></span>
+      </label>
+      <label class="cf-agree">
+        <input type="checkbox" name="c_age" value="만 14세 이상" required data-msg="age">
+        <span>Saya berusia 14 tahun atau lebih (wajib)</span>
+      </label>
+      <label class="cf-agree">
+        <input type="checkbox" name="c_news" value="수신 동의">
+        <span>Saya ingin menerima info kampanye baru lewat email (opsional)</span>
       </label>
 
       <p class="cf-top-err" role="alert" hidden></p>
-      <button type="submit" class="cf-submit">Daftar</button>
-      <p class="cf-footer-note">Setelah Anda mengirim, konfirmasi penerimaan akan langsung ditampilkan, dan tim kami akan menghubungi Anda jika ada kampanye yang cocok.</p>
+      <button type="submit" class="cf-submit">Daftar sebagai kreator</button>
+      <p class="cf-footer-note">Jika mendaftar lagi dengan link kanal yang sama, data Anda hanya diperbarui, bukan ditambahkan baru · Setelah dikirim, Anda akan melihat pemberitahuan selesai dan menerima email konfirmasi</p>
     </form>
     <div id="cfDone" class="cf-done" tabindex="-1" hidden>
       <div class="cf-done-ic" aria-hidden="true">✓</div>
-      <h3>Pendaftaran kreator Anda telah diterima</h3>
-      <p>Jika ada kampanye yang sesuai dengan kategori dan negara Anda, kami akan menghubungi Anda lebih dulu melalui kontak atau email yang Anda berikan.</p>
+      <h3>Pendaftaran kreator Anda telah selesai</h3>
+      <p>Kami sudah mengirim email konfirmasi ke alamat email Anda. Saat ada kampanye yang cocok, kami akan menghubungi Anda lebih dulu.</p>
       <a href="/id/market/" class="cf-done-btn">Ke Beranda</a>
     </div>
   </div>
@@ -434,7 +469,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan</span></p>
+      <p class="hf-biz"><span>Homi Factory Co., Ltd.</span><span>Direktur Yoon Ho-seong & Choi Seong-yong</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Izin Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat: Lt. 4, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul (Nonhyeon-dong)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -455,6 +490,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
@@ -635,50 +675,65 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 </script>
 <script id="cf-js">
-/* FR-MKT-042 크리에이터 지원 — 칸 검사·동의 필수·완료 안내, 메일(FormSubmit) + 접수 기록(Make → 구글 시트, 방향 칸 「크리에이터 지원」으로 구분) */
+/* FR-MKT-042 크리에이터 지원 (설계서 v0.99993 p.15)
+   - 칸은 영문 name(c_*)으로 찾음 → 번역 페이지에서도 그대로 동작
+   - 보내면: 메일(FormSubmit, 지원자에게 확인 메일) + 접수 기록(Make → 구글 시트) + 관리자 크리에이터 DB(rpc com_creator_apply, 같은 채널이면 고침) */
 (function(){
   var f=document.getElementById('inquiryForm'); if(!f) return;
   var MAIL='https://formsubmit.co/ajax/support@homifactory.com';
   var STORE='https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh';
+  var SB='https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply', SBK='sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
   f.noValidate=true;
-  var MSG={req:'Kolom ini wajib diisi. Silakan masukkan isinya.',pick:'Silakan pilih minimal satu.',sel:'Silakan pilih salah satu.',
-    phone:'Silakan periksa format nomor telepon. (Contoh: 010-1234-5678, +62 812 3456 7890)',email:'Silakan periksa format email Anda. (contoh: name@example.com)',
-    url:'Silakan periksa alamat channel Anda. (contoh: https://instagram.com/…)',agree:'Anda perlu menyetujui pengumpulan dan penggunaan data pribadi untuk mendaftar.',
+  var MSG={req:'Kolom ini wajib diisi. Silakan masukkan isinya.',pick:'Silakan pilih minimal satu.',
+    contact:'Silakan isi nomor telepon atau ID LINE/WhatsApp yang bisa dihubungi.',email:'Silakan periksa format email Anda. (contoh: name@example.com)',
+    url:'Silakan periksa alamat channel Anda. (contoh: https://instagram.com/…)',more:'Link kanal lain bisa diisi maksimal 2.',max:'Kategori bisa dipilih maksimal 3.',
+    agree:'Anda perlu menyetujui pengumpulan dan penggunaan data pribadi untuk mendaftar.',age:'Pendaftaran hanya untuk usia 14 tahun ke atas.',
     top:'Silakan periksa kembali isian Anda. Perbaiki kolom yang ditandai, lalu Anda dapat langsung mengirimnya.',sending:'Mengirim…',
-    fail:'Pengiriman gagal. Silakan coba lagi beberapa saat lagi atau kirimkan ke support@homifactory.com.'};
-  function field(el){ return el.closest('.cf-field')||el.closest('.cf-agree')||el.parentNode; }
+    fail:'Pengiriman gagal. Silakan coba lagi beberapa saat lagi atau kirimkan ke support@homifactory.com.',
+    thanks:'Pendaftaran kreator HOMI MARKET Anda telah kami terima. Saat ada kampanye brand yang cocok, kami akan menghubungi Anda lebih dulu melalui kontak yang Anda berikan. Jika ingin mengubah atau menghapus data Anda, silakan balas email ini. — HOMI MARKET'};
+  function box(el){ return el.closest('.cf-field')||el.closest('.cf-agree')||el.parentNode; }
   function setErr(el,msg){
-    var box=field(el), p=box.querySelector(':scope > .cf-err');
-    if(!msg){ if(p) p.remove(); el.removeAttribute('aria-invalid'); box.classList.remove('is-invalid'); return true; }
-    if(!p){ p=document.createElement('p'); p.className='cf-err'; p.id='e'+Math.random().toString(36).slice(2,8); p.setAttribute('role','alert'); box.appendChild(p); }
-    p.textContent=msg; el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',p.id); box.classList.add('is-invalid'); return false;
+    var b=box(el), p=b.querySelector(':scope > .cf-err');
+    if(!msg){ if(p) p.remove(); el.removeAttribute('aria-invalid'); b.classList.remove('is-invalid'); return true; }
+    if(!p){ p=document.createElement('p'); p.className='cf-err'; p.id='e'+Math.random().toString(36).slice(2,8); p.setAttribute('role','alert'); b.appendChild(p); }
+    p.textContent=msg; el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',p.id); b.classList.add('is-invalid'); return false;
   }
   var isEmail=function(v){ return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v); };
-  var isPhone=function(v){ var d=v.replace(/[\s\-().]/g,''); return /^\+?\d{9,15}$/.test(d); };
   var isUrl=function(v){ return /^(https?:\/\/)?[\w-]+(\.[\w-]+)+(\/\S*)?$/i.test(v)||/^@[\w.]{2,}$/.test(v); };
+  var links=function(v){ return v.split(/[\s,，、]+/).filter(Boolean); };
   function check(el){
     var v=(el.value||'').trim();
-    if(el.type==='checkbox') return setErr(el, el.checked?'':MSG.agree);
+    if(el.type==='checkbox') return el.required? setErr(el, el.checked?'':MSG[el.getAttribute('data-msg')||'agree']) : true;
     if(el.getAttribute('data-req')) return setErr(el, v?'':MSG.pick);
-    if(el.tagName==='SELECT') return setErr(el, v?'':MSG.sel);
     if(el.required && !v) return setErr(el, MSG.req);
-    if(el.name==='연락처' && v && !isPhone(v)) return setErr(el, MSG.phone);
+    if(el.name==='c_contact' && v && v.replace(/[\s\-().+]/g,'').length<4) return setErr(el, MSG.contact);
     if(el.type==='email' && v && !isEmail(v)) return setErr(el, MSG.email);
-    if(el.name==='Link channel utama' && v && !isUrl(v)) return setErr(el, MSG.url);
+    if(el.name==='c_channel' && v && !isUrl(v)) return setErr(el, MSG.url);
+    if(el.name==='c_channels' && v){ var l=links(v); if(l.length>2) return setErr(el, MSG.more); if(!l.every(isUrl)) return setErr(el, MSG.url); }
     return setErr(el,'');
   }
-  var targets=[].slice.call(f.querySelectorAll('input[required],textarea[required],select[required],input[type=email],input[data-req]'));
+  var targets=[].slice.call(f.querySelectorAll('input[required],textarea[required],input[type=email],input[data-req],input[name=c_channels]'));
   targets.sort(function(a,b){ return a.compareDocumentPosition(b)&2?1:-1; });
   targets.forEach(function(el){
     ['blur','input','change'].forEach(function(ev){ el.addEventListener(ev,function(){ if(ev==='blur'?(el.value||el.getAttribute('aria-invalid')):el.getAttribute('aria-invalid')) check(el); }); });
   });
   [].forEach.call(f.querySelectorAll('.cr-chips'),function(g){
-    var hid=document.getElementById(g.getAttribute('data-target'));
-    [].forEach.call(g.querySelectorAll('.cc'),function(c){
-      c.setAttribute('role','checkbox'); c.setAttribute('tabindex','0'); c.setAttribute('aria-checked','false');
-      c.addEventListener('click',function(){ c.classList.toggle('active'); c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false');
-        hid.value=[].map.call(g.querySelectorAll('.cc.active'),function(x){ return x.getAttribute('data-v'); }).join(', ');
-        if(hid.getAttribute('aria-invalid')) check(hid); });
+    var hid=document.getElementById(g.getAttribute('data-target')), single=g.hasAttribute('data-single'), max=+g.getAttribute('data-max')||0;
+    var all=[].slice.call(g.querySelectorAll('.cc'));
+    function sync(){
+      var on=all.filter(function(x){ return x.classList.contains('active'); });
+      hid.value=on.map(function(x){ return x.getAttribute('data-v'); }).join(', ');
+      if(max) all.forEach(function(x){ x.classList.toggle('off', on.length>=max && !x.classList.contains('active')); });
+      if(hid.getAttribute('aria-invalid')) check(hid);
+    }
+    all.forEach(function(c){
+      c.setAttribute('role',single?'radio':'checkbox'); c.setAttribute('tabindex','0'); c.setAttribute('aria-checked','false');
+      c.addEventListener('click',function(){
+        var on=c.classList.contains('active');
+        if(single) all.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-checked','false'); });
+        else if(!on && max && all.filter(function(x){ return x.classList.contains('active'); }).length>=max){ setErr(hid, MSG.max); return; }
+        c.classList.toggle('active', single?true:!on); c.setAttribute('aria-checked',c.classList.contains('active')?'true':'false'); sync();
+      });
       c.addEventListener('keydown',function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); c.click(); } });
     });
   });
@@ -689,33 +744,40 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     e.preventDefault();
     var bad=targets.filter(function(el){ return !check(el); });
     if(bad.length){ if(topErr){ topErr.textContent=MSG.top; topErr.hidden=false; }
-      var b0=bad[0]; if(b0.type==='hidden'){ var g=f.querySelector('[data-target="'+b0.id+'"] .cc'); if(g) g.focus(); } else b0.focus(); return; }
+      var b0=bad[0]; if(b0.type==='hidden'){ var g0=f.querySelector('[data-target="'+b0.id+'"] .cc'); if(g0) g0.focus(); } else b0.focus(); return; }
     if(topErr) topErr.hidden=true;
     if(f._honey && f._honey.value){ done(); return; }
     var btn=f.querySelector('.cf-submit'), label=btn.textContent; btn.disabled=true; btn.textContent=MSG.sending;
-    var g=function(n){ var el=f.elements[n]; return el? (el.value||'').trim() : ''; };
+    var g=function(n){ var el=f.elements[n]; return el? (el.type==='checkbox'?(el.checked?'예':'아니오'):(el.value||'').trim()) : ''; };
+    var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
     var lang=(document.documentElement.lang||'ko').slice(0,2).toUpperCase(); if(lang==='KO') lang='KR';
-    var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',
-      'Kategori':'Pendaftaran Kreator','언어':lang,'Nama kreator':g('Nama kreator'),'Link channel utama':g('Link channel utama'),'Platform':g('Platform'),'Jumlah followers':g('Jumlah followers'),
-      'Negara aktivitas':g('Negara aktivitas'),'Kategori':g('Kategori'),'Tentang Anda':g('Tentang Anda'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+    var d={name:g('c_name'),email:g('c_email'),contact:g('c_contact'),country:g('c_country'),platforms:g('c_platforms'),channel:g('c_channel'),
+      channels:links(g('c_channels')).join('\n'),followers:g('c_followers'),categories:g('c_categories'),campaigns:g('c_campaigns'),languages:g('c_languages'),intro:g('c_intro'),news:g('c_news')};
+    /* 직원이 읽는 알림 메일 — 항목 이름은 어느 언어 페이지에서 와도 한국어 */
+    var L=['구분','언어','이름','이메일','연락처','활동 국가','주 플랫폼','대표 채널 링크','다른 채널 링크','팔로워 규모','주요 카테고리','참여할 수 있는 캠페인','사용 언어','소개','만 14세 이상','캠페인 소식 수신','개인정보 동의','접수 페이지'];
+    var V=['크리에이터 지원',lang,d.name,d.email,d.contact,d.country,d.platforms,d.channel,d.channels,d.followers,d.categories,d.campaigns,d.languages,d.intro,'예',d.news,'동의',location.href.split('?')[0]];
+    var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',email:d.email,_replyto:d.email,_autoresponse:MSG.thanks};
+    L.forEach(function(k,i){ mail[k]=V[i]; });
     /* 접수 기록은 상담 신청서와 같은 시트 — 칸을 맞춰 보내고 「방향」 칸을 「크리에이터 지원」으로 구분 */
-    var row={lang:lang,brand:'[Kreator] '+mail['Nama kreator'],link:mail['Link channel utama'],dir:'Pendaftaran Kreator',countries:mail['Negara aktivitas'],
-      channel:mail['Platform']+' · '+mail['Jumlah followers'],concern:mail['Kategori'],goal:mail['Tentang Anda'],timing:'',budget:'',
-      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
-    var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
+    var row={lang:lang,brand:'[크리에이터] '+d.name,link:[d.channel].concat(arr(d.channels.replace(/\n/g,','))).join(' · '),dir:'크리에이터 지원',countries:d.country,
+      channel:d.platforms+' · '+d.followers,concern:d.categories+' / '+d.campaigns,goal:d.intro,timing:d.languages,budget:'',
+      name:d.name,phone:d.contact,email:d.email,page:location.href.split('?')[0],hp:''};
+    var post=function(u,b,h){ return fetch(u,{method:'POST',headers:Object.assign({'Content-Type':'application/json','Accept':'application/json'},h||{}),body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
     var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
     var s=post(STORE,row).then(function(){ return true; });
-    /* 통합 관리자 크리에이터 DB(Supabase com_creators) — FR-MKT-042 */
-    var arr=function(v){ return v?v.split(/\s*,\s*/).filter(Boolean):[]; };
-    var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
-      body:JSON.stringify({p:{handle:mail['Nama kreator'],channel_url:mail['Link channel utama'],platforms:arr(mail['Platform']),followers:mail['Jumlah followers'],country:mail['Negara aktivitas'],
-        categories:arr(mail['Kategori']),intro:mail['Tentang Anda']||null,name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],lang:lang}})})
-      .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
+    var db=post(SB,{p:{handle:d.name,name:d.name,channel_url:d.channel,channels:d.channels||null,platforms:arr(d.platforms),followers:d.followers,country:d.country,
+      categories:arr(d.categories),campaign_types:arr(d.campaigns),languages:arr(d.languages),intro:d.intro||null,phone:d.contact,email:d.email,
+      news_ok:!!(f.elements.c_news&&f.elements.c_news.checked),lang:lang}},{apikey:SBK,Prefer:'return=minimal'}).then(function(){ return true; });
+    /* 메일이 가면 접수 완료. 메일이 실패해도 시트·DB 중 하나에 남으면 완료로 보되, 셋 다 실패하면 다시 시도 안내 */
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })) done();
       else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
     });
   });
+  /* 모바일: 폼을 보는 동안 떠 있는 상담 버튼이 칸을 가리지 않게 잠시 숨김 */
+  if('IntersectionObserver' in window && matchMedia('(max-width:900px)').matches){
+    new IntersectionObserver(function(es){ es.forEach(function(en){ document.documentElement.classList.toggle('form-in-view', en.isIntersecting); }); },{threshold:0.05}).observe(f);
+  }
 })();
 </script>
 </body></html>

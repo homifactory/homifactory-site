@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/terms">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/terms">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/terms">
@@ -244,7 +244,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
   <h2 id="tm-3">Pasal 3 (Publikasi dan Perubahan Syarat dan Ketentuan)</h2>
   <p>① Perusahaan memublikasikan isi Syarat dan Ketentuan ini di Situs agar mudah diketahui oleh Pengguna.</p>
-  <p>② Perusahaan dapat mengubah Syarat dan Ketentuan ini sepanjang tidak melanggar peraturan perundang-undangan terkait, termasuk 「Undang-Undang tentang Pengaturan Syarat dan Ketentuan」 (Korea).</p>
+  <p>② Perusahaan dapat mengubah Syarat dan Ketentuan ini sepanjang tidak melanggar peraturan perundang-undangan terkait, termasuk “Undang-Undang tentang Pengaturan Syarat dan Ketentuan” (Korea).</p>
   <p>③ Apabila Syarat dan Ketentuan diubah, Perusahaan akan mengumumkan tanggal berlaku dan alasan perubahan di Situs sejak 7 hari sebelum tanggal berlaku. Namun, apabila perubahan tersebut merugikan Pengguna, pengumuman dilakukan sejak 30 hari sebelumnya.</p>
 
   <h2 id="tm-4">Pasal 4 (Isi Layanan)</h2>
@@ -297,7 +297,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
   <h2 id="tm-13">Pasal 13 (Hukum yang Berlaku dan Yurisdiksi)</h2>
   <p>① Penafsiran Syarat dan Ketentuan ini serta sengketa antara Perusahaan dan Pengguna tunduk pada hukum Republik Korea.</p>
-  <p>② Apabila timbul sengketa antara Perusahaan dan Pengguna sehubungan dengan penggunaan Situs, pengadilan yang berwenang ditentukan sesuai dengan 「Undang-Undang Hukum Acara Perdata」 (Korea).</p>
+  <p>② Apabila timbul sengketa antara Perusahaan dan Pengguna sehubungan dengan penggunaan Situs, pengadilan yang berwenang ditentukan sesuai dengan “Undang-Undang Hukum Acara Perdata” (Korea).</p>
 
   <h2 id="tm-b">Ketentuan Tambahan</h2>
   <p>① Syarat ini berlaku sejak 15 Oktober 2026.</p>
@@ -341,7 +341,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>HOMI FACTORY Co., Ltd.</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Registrasi Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat 4F, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul, Korea Selatan</span></p>
+      <p class="hf-biz"><span>Homi Factory Co., Ltd.</span><span>Direktur Yoon Ho-seong & Choi Seong-yong</span><span>No. Registrasi Usaha 581-87-03832</span><span>No. Izin Penjualan Online 2026-Seoul Gangnam-05160</span><span>Alamat: Lt. 4, 11 Nonhyeon-ro 142-gil, Gangnam-gu, Seoul (Nonhyeon-dong)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -362,6 +362,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
