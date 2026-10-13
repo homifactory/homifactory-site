@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/terms">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/terms">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/terms">
@@ -340,7 +340,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>(주) 호미팩토리</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>대표 윤호성·최성용</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -361,6 +361,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;

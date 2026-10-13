@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/privacy">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/privacy">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/privacy">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/privacy">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/privacy">
@@ -245,7 +245,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리한 개인정보는 다음 목적 외의 용도로는 이용하지 않으며, 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행합니다.</p>
   <ol>
     <li>HOMI MARKET 상담 신청서 접수 및 처리: 신청 내용 확인, 맞춤 마케팅 플랜 제안, 상담 진행을 위한 연락, 처리 결과 안내</li>
-    <li>HOMI MARKET 크리에이터 지원 접수: 지원 내용 확인, 카테고리·나라에 맞는 브랜드 캠페인 매칭을 위한 연락</li>
+    <li>HOMI MARKET 크리에이터 지원 접수: 크리에이터 풀 등록, 캠페인 제안 연락, 섭외 검토, (동의한 경우) 새 캠페인 소식 안내</li>
     <li>HOMI FACTORY 프로젝트 문의 접수 및 처리: 문의 내용 확인, 제안 및 상담 진행을 위한 연락</li>
     <li>HOMI PRODUCTION 제작·대관 문의 접수 및 처리: 영상 제작 견적·일정 협의, 스튜디오 대관 가능 여부 확인과 회신</li>
     <li>실시간 채팅 상담(HOMI FACTORY·HOMI MARKET): 채팅 문의 확인 및 답변, 상담 이력 관리</li>
@@ -256,7 +256,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <h2 id="pv-2">제2조 (처리하는 개인정보의 항목)</h2>
   <ol>
     <li>HOMI MARKET 상담 신청서 — 필수: 이름, 연락처(전화번호), 이메일, 브랜드·제품명, 상담 내용(진행 방향, 진출하려는 국가·시장, 고민, 목표)<br>선택: 브랜드 링크(홈페이지·SNS 주소), 현재 판매 채널, 원하는 시기, 예산 범위</li>
-    <li>HOMI MARKET 크리에이터 지원 — 필수: 활동명, 대표 채널 링크, 활동 플랫폼, 팔로워 규모, 활동 나라, 콘텐츠 카테고리, 이름, 연락처(전화번호), 이메일<br>선택: 자기소개</li>
+    <li>HOMI MARKET 크리에이터 지원 — 필수: 이름(활동명 또는 성함), 이메일, 연락처(전화번호·라인·왓츠앱 중 하나), 활동 국가, 주 플랫폼, 대표 채널 링크, 팔로워 규모, 주요 카테고리, 참여할 수 있는 캠페인, 만 14세 이상 여부<br>선택: 다른 채널 링크, 사용 언어, 소개, 새 캠페인 소식 수신 동의<br>※ 제품 배송 주소는 캠페인에 선정된 뒤 별도로 동의를 받아 수집합니다.</li>
     <li>HOMI FACTORY 프로젝트 문의 — 필수: 담당자명, 이메일, 연락처(전화번호), 프로젝트 내용<br>선택: 회사·브랜드명, 문의 유형</li>
     <li>HOMI PRODUCTION 제작·대관 문의 — 필수: 문의 유형, 이름, 연락처(전화번호), 이메일, 문의 내용<br>선택: 회사·브랜드·아티스트명, 영상 종류, 희망 일정, 참고 영상 링크</li>
     <li>실시간 채팅 상담(HOMI FACTORY·HOMI MARKET) — 상담 유형, 상담 내용, 답변을 받기 위한 이름·연락처(전화번호 또는 이메일)</li>
@@ -269,7 +269,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.</p>
   <ol>
     <li>상담 신청서·프로젝트 문의·제작·대관 문의 정보: 상담·문의 처리 완료일로부터 1년. 다만 계약으로 이어진 경우에는 계약 이행 및 관련 분쟁 해결을 위하여 관계 법령(「상법」, 「국세기본법」 등)에서 정한 기간 동안 보유합니다.</li>
-    <li>크리에이터 지원 정보: 접수일로부터 2년. 캠페인을 함께한 경우에는 계약 종료 후 관계 법령에서 정한 기간 동안 보유하며, 정보주체가 삭제를 요청하면 지체 없이 파기합니다.</li>
+    <li>크리에이터 지원 정보: 등록일로부터 2년(보유 기간 만료 30일 전에 알린 뒤 파기). 캠페인을 함께한 경우에는 계약 종료 후 관계 법령에서 정한 기간 동안 보유하며, 정보주체가 삭제를 요청하면 지체 없이 파기합니다.</li>
     <li>실시간 채팅 상담 기록: 상담 종료일로부터 1년</li>
     <li>웹사이트 접속 기록: 3개월(「통신비밀보호법」)</li>
   </ol>
@@ -294,6 +294,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <tr><td>Vercel Inc.</td><td>웹사이트 운영(호스팅)</td><td>세 사이트 공통</td></tr>
       <tr><td>FormSubmit</td><td>상담 신청서·크리에이터 지원·문의·실시간 채팅 상담 접수 알림 이메일 발송</td><td>세 사이트 공통</td></tr>
       <tr><td>Make(make.com)</td><td>상담 신청서·크리에이터 지원·문의 접수 내역 전달 및 기록</td><td>세 사이트 공통</td></tr>
+      <tr><td>Supabase Inc.</td><td>상담 신청서·크리에이터 지원·문의·실시간 채팅 상담 접수 내역 보관(관리자 문의함·크리에이터 DB)</td><td>세 사이트 공통</td></tr>
       <tr><td>Google LLC</td><td>접수 내역 보관(Google 스프레드시트), 웹사이트 이용 통계(Google 애널리틱스)</td><td>세 사이트 공통</td></tr>
     </tbody>
   </table></div>
@@ -314,7 +315,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <tr><th scope="row">거부 방법 및 효과</th><td>브라우저의 쿠키 저장 차단 또는 Google 애널리틱스 차단 부가기능 설치로 거부할 수 있으며, 거부하더라도 웹사이트 이용 및 상담 신청에 불이익은 없습니다.</td></tr>
     </tbody>
   </table></div>
-  <p>② 제5조의 수탁자 중 국외에 서버를 둔 수탁자(Vercel Inc., FormSubmit, Make, Google LLC)에게는 상담 신청서·크리에이터 지원·문의·채팅 상담을 보낼 때 네트워크를 통하여 제2조의 해당 항목이 전송되며, 제3조의 보유 기간 동안 보관됩니다. 국외 이전을 원하지 않으시면 화면의 양식 대신 이메일(support@homifactory.com) 또는 전화(010-9873-4339)로 연락하실 수 있습니다.</p>
+  <p>② 제5조의 수탁자 중 국외에 서버를 둔 수탁자(Vercel Inc., FormSubmit, Make, Google LLC, Supabase Inc.)에게는 상담 신청서·크리에이터 지원·문의·채팅 상담을 보낼 때 네트워크를 통하여 제2조의 해당 항목이 전송되며, 제3조의 보유 기간 동안 보관됩니다. 국외 이전을 원하지 않으시면 화면의 양식 대신 이메일(support@homifactory.com) 또는 전화(010-9873-4339)로 연락하실 수 있습니다.</p>
 
   <h2 id="pv-7">제7조 (개인정보의 파기 절차 및 방법)</h2>
   <p>① 회사는 개인정보 보유 기간이 지나거나 처리 목적이 달성되는 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
@@ -348,11 +349,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>④ 쿠키 저장을 거부하더라도 웹사이트 이용 및 상담 신청에는 영향이 없습니다.</p>
 
   <h2 id="pv-12">제12조 (개인정보 보호책임자 및 열람청구 접수 부서)</h2>
-  <p>회사는 개인정보 처리에 관한 업무를 총괄하여 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호 업무 및 고충 처리 부서를 지정하고 있습니다. 정보주체는 개인정보 열람 청구를 아래 부서에 할 수 있습니다.</p>
+  <p>회사는 개인정보 처리에 관한 업무를 총괄하여 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호책임자와 고충 처리 부서를 지정하고 있습니다. 정보주체는 개인정보 열람 청구를 아래 부서에 할 수 있습니다.</p>
   <div class="pv-table"><table>
     <thead><tr><th>구분</th><th>내용</th></tr></thead>
     <tbody>
-      <tr><th scope="row">개인정보 보호 담당 부서</th><td>고객지원팀</td></tr>
+      <tr><th scope="row">개인정보 보호책임자</th><td>윤호성 (공동대표) · 개인정보 처리에 관한 업무를 총괄합니다</td></tr>
+<tr><th scope="row">개인정보 보호 담당 부서</th><td>고객지원팀</td></tr>
       <tr><th scope="row">연락처</th><td>전화 <a href="tel:01098734339">010-9873-4339</a> / 이메일 <a href="mailto:support@homifactory.com">support@homifactory.com</a></td></tr>
       <tr><th scope="row">열람청구 접수·처리 부서</th><td>고객지원팀 (연락처는 위와 같음)</td></tr>
     </tbody>
@@ -410,7 +412,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>(주) 호미팩토리</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>대표 윤호성·최성용</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -431,6 +433,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;

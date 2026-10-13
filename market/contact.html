@@ -192,6 +192,7 @@ body{padding-top:48px}
 .cf-submit:hover{background:#7D2AE8}
 .cf-footer-note{text-align:center;color:#999;font-size:12px;margin-top:12px}
 @media(max-width:900px){.contact-wrap{grid-template-columns:1fr}.cf-row,.cf-row.triple{grid-template-columns:1fr}.direction-radio{grid-template-columns:1fr}}
+html.form-in-view .hc-fab{opacity:0;pointer-events:none;transform:scale(.6);transition:.2s}
 </style><style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -275,7 +276,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/contact">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/contact">
@@ -302,7 +303,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="contact-right">
     <form id="inquiryForm" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="[HOMI MARKET 상담 신청서] 신규 상담 신청">
-      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+      <input type="hidden" name="_cc" value="hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://homifactory.com/market/contact?sent=1">
       <input type="hidden" name="_template" value="table">
@@ -459,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function(){
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>(주) 호미팩토리</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>대표 윤호성·최성용</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -480,6 +481,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
@@ -743,6 +749,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
     });
   });
+  if('IntersectionObserver' in window && matchMedia('(max-width:900px)').matches){ var ff=document.getElementById('inquiryForm'); if(ff) new IntersectionObserver(function(es){ es.forEach(function(en){ document.documentElement.classList.toggle('form-in-view', en.isIntersecting); }); },{threshold:0.05}).observe(ff); }
 })();
 </script>
 </body></html>
