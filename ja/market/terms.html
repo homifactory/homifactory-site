@@ -213,7 +213,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </style>
 <style id="hh-page-fix">/* 공통 헤더(고정) 아래로 제목 내리기 — 기존에 제목이 헤더에 가려지던 문제 */.doc-hero{padding-top:calc(var(--hh-offset,122px) - 48px + 40px)}@media(max-width:600px){.doc-hero{padding-top:calc(var(--hh-offset,144px) - 70px + 32px)}}</style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/terms">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/terms">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/terms">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/terms">
@@ -261,7 +261,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>① 利用者はサイトのご相談フォーム・お問い合わせフォームに記入してご相談をお申し込みいただけます。当社は申込内容を確認のうえ、ご記入いただいた連絡先へ回答します。クリエイター応募は当社がキャンペーンをご提案できるよう情報を残していただくものであり、所属契約やキャンペーンへの参加を約束するものではありません。</p>
   <p>② ご相談のお申し込みおよびご相談に費用はかかりません。費用が発生する業務は、事前にお知らせし、別途契約を締結した後にのみ行います。</p>
   <p>③ 当社は、業務範囲、日程、関係法令等の理由により、ご相談のお申し込み内容に応じたご提案ができない場合があり、その場合はその理由をご案内します。</p>
-  <p>④ ご相談のお申し込み時にご提供いただいた個人情報は、当社の<a href="/ja/market/privacy">個人情報処理方針</a>に従って取り扱われます。</p>
+  <p>④ ご相談のお申し込み時にご提供いただいた個人情報は、当社の<a href="/ja/market/privacy">プライバシーポリシー</a>に従って取り扱われます。</p>
 
   <h2 id="tm-6">第6条（利用者の義務）</h2>
   <p>利用者は、以下の行為をしてはなりません。</p>
@@ -293,7 +293,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <p>③ 第1項および第2項にかかわらず、当社の故意または重大な過失による損害については、関係法令に従って責任を負います。</p>
 
   <h2 id="tm-12">第12条（個人情報の保護）</h2>
-  <p>当社は、関係法令に従って利用者の個人情報を保護し、個人情報の取扱いに関する事項は、当社の<a href="/ja/market/privacy">個人情報処理方針</a>に定めます。</p>
+  <p>当社は、関係法令に従って利用者の個人情報を保護し、個人情報の取扱いに関する事項は、当社の<a href="/ja/market/privacy">プライバシーポリシー</a>に定めます。</p>
 
   <h2 id="tm-13">第13条（準拠法および管轄）</h2>
   <p>① 本規約の解釈および当社と利用者との間の紛争には、大韓民国法を適用します。</p>
@@ -329,7 +329,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
           <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
           <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
           <li><a href="/ja/market/terms">利用規約</a></li>
-          <li><a href="/ja/market/privacy" class="hf-privacy">個人情報処理方針</a></li>
+          <li><a href="/ja/market/privacy" class="hf-privacy">プライバシーポリシー</a></li>
         </ul>
       </div>
       <div class="hf-support">
@@ -341,7 +341,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>株式会社HOMI FACTORY</span><span>事業者登録番号 581-87-03832</span><span>通信販売業申告番号 第2026-ソウル江南-05160号</span><span>住所 韓国ソウル特別市江南区論峴路142ギル11、4階（論峴洞）</span></p>
+      <p class="hf-biz"><span>株式会社ホミファクトリー</span><span>代表 ユン・ホソン、チェ・ソンヨン</span><span>事業者登録番号 581-87-03832</span><span>通信販売業申告番号 第2026-ソウル江南-05160号</span><span>住所 ソウル特別市江南区論峴路142キル11、4階（論峴洞）</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -362,6 +362,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
@@ -438,7 +443,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       +'<input type="text" name="name" placeholder="お名前 *" autocomplete="name" value="'+esc(st.name||'')+'" required>'
       +'<input type="text" name="contact" placeholder="ご連絡先（電話番号またはメール） *" autocomplete="email" value="'+esc(st.contact||'')+'" required>'
       +'<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">'
-      +'<label class="hc-agree"><input type="checkbox" name="agree"><span>ご相談への回答のための個人情報（お名前・ご連絡先・お問い合わせ内容）の収集・利用に同意します。相談完了後1年間保管 · <a href="/ja/market/privacy.html" target="_blank" rel="noopener">個人情報処理方針</a></span></label>'
+      +'<label class="hc-agree"><input type="checkbox" name="agree"><span>ご相談への回答のための個人情報（お名前・ご連絡先・お問い合わせ内容）の収集・利用に同意します。相談完了後1年間保管 · <a href="/ja/market/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></span></label>'
       +'<div class="hc-err" role="alert"></div><button type="submit" class="hc-cta" style="margin-top:4px">送信する</button></form>';
     b+='</div>';
     var showInput=!!st.type && !(st.ask && !st.sent);

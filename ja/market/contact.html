@@ -192,6 +192,7 @@ body{padding-top:48px}
 .cf-submit:hover{background:#7D2AE8}
 .cf-footer-note{text-align:center;color:#999;font-size:12px;margin-top:12px}
 @media(max-width:900px){.contact-wrap{grid-template-columns:1fr}.cf-row,.cf-row.triple{grid-template-columns:1fr}.direction-radio{grid-template-columns:1fr}}
+html.form-in-view .hc-fab{opacity:0;pointer-events:none;transform:scale(.6);transition:.2s}
 </style><style id="hc-css">
 /* FR-MKT-032 실시간 상담 창 (PDF v0.84 · 16) */
 .hc-fab{position:fixed;right:40px;bottom:32px;width:60px;height:60px;border-radius:50%;background:#8B3DFF;color:#fff;border:0;display:grid;place-items:center;cursor:pointer;z-index:10010;box-shadow:0 10px 28px rgba(139,61,255,.42);transition:transform .2s,background .2s}
@@ -275,7 +276,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
 <link rel="stylesheet" href="/shared/homi-header.css?v=20261008a">
-<link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
+<style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/market/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/market/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/market/contact">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/market/contact">
@@ -303,7 +304,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     <form id="inquiryForm" action="https://formsubmit.co/support@homifactory.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="[HOMI MARKET 상담 신청서·JA] 신규 상담 신청">
       <input type="hidden" name="언어" value="JA">
-      <input type="hidden" name="_cc" value="soobin1027@homifactory.com,hosung@homifactory.com">
+      <input type="hidden" name="_cc" value="hosung@homifactory.com">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://homifactory.com/ja/market/contact?sent=1">
       <input type="hidden" name="_template" value="table">
@@ -372,7 +373,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
       <label class="cf-agree">
         <input type="checkbox" name="개인정보 동의" value="동의" required>
-        上記の個人情報の収集・利用に同意します（必須） · <a href="/ja/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">個人情報処理方針の全文 ↗</a>
+        上記の個人情報の収集・利用に同意します（必須） · <a href="/ja/market/privacy" target="_blank" rel="noopener" class="cf-pv-link">プライバシーポリシーの全文 ↗</a>
       </label>
 
       <p class="cf-top-err" role="alert" hidden></p>
@@ -448,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <li><a href="/" target="_blank" rel="noopener">HOMI FACTORY ↗</a></li>
           <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
           <li><a href="/ja/market/terms">利用規約</a></li>
-          <li><a href="/ja/market/privacy" class="hf-privacy">個人情報処理方針</a></li>
+          <li><a href="/ja/market/privacy" class="hf-privacy">プライバシーポリシー</a></li>
         </ul>
       </div>
       <div class="hf-support">
@@ -460,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function(){
       </div>
     </div>
     <div class="hf-bottom">
-      <p class="hf-biz"><span>株式会社HOMI FACTORY</span><span>事業者登録番号 581-87-03832</span><span>通信販売業申告番号 第2026-ソウル江南-05160号</span><span>住所 韓国ソウル特別市江南区論峴路142ギル11、4階（論峴洞）</span></p>
+      <p class="hf-biz"><span>株式会社ホミファクトリー</span><span>代表 ユン・ホソン、チェ・ソンヨン</span><span>事業者登録番号 581-87-03832</span><span>通信販売業申告番号 第2026-ソウル江南-05160号</span><span>住所 ソウル特別市江南区論峴路142キル11、4階（論峴洞）</span></p>
       <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
     </div>
   </div>
@@ -481,6 +482,11 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     open:10, close:22                  /* 운영시간 (KST) */
   };
   if(window.__hcLoaded) return; window.__hcLoaded=true;
+  /* 카카오톡 채널 주소: 관리자 「사이트 설정」의 카카오톡 채널 주소를 읽어 씀 (Q-41) — 비어 있으면 「준비 중」 안내 */
+  try{ var kk=sessionStorage.getItem('hm_kakao'); if(kk!==null){ CFG.kakaoUrl=CFG.kakaoUrl||kk; } else {
+    fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_settings?key=eq.contact&select=value',{headers:{apikey:'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy'}})
+      .then(function(r){ return r.ok?r.json():[]; }).then(function(j){ var u=(j[0]&&j[0].value&&j[0].value.kakao)||''; if(!/^https:\/\/(pf\.kakao\.com|open\.kakao\.com)\//.test(u)) u=''; try{ sessionStorage.setItem('hm_kakao',u); }catch(e){} if(u&&!CFG.kakaoUrl) CFG.kakaoUrl=u; }).catch(function(){});
+  } }catch(e){}
 
   if(CFG.channelKey){
     (function(){var w=window;if(w.ChannelIO)return;var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(a){ch.q.push(a)};w.ChannelIO=ch;
@@ -557,7 +563,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       +'<input type="text" name="name" placeholder="お名前 *" autocomplete="name" value="'+esc(st.name||'')+'" required>'
       +'<input type="text" name="contact" placeholder="ご連絡先（電話番号またはメール） *" autocomplete="email" value="'+esc(st.contact||'')+'" required>'
       +'<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">'
-      +'<label class="hc-agree"><input type="checkbox" name="agree"><span>ご相談への回答のための個人情報（お名前・ご連絡先・お問い合わせ内容）の収集・利用に同意します。相談完了後1年間保管 · <a href="/ja/market/privacy.html" target="_blank" rel="noopener">個人情報処理方針</a></span></label>'
+      +'<label class="hc-agree"><input type="checkbox" name="agree"><span>ご相談への回答のための個人情報（お名前・ご連絡先・お問い合わせ内容）の収集・利用に同意します。相談完了後1年間保管 · <a href="/ja/market/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></span></label>'
       +'<div class="hc-err" role="alert"></div><button type="submit" class="hc-cta" style="margin-top:4px">送信する</button></form>';
     b+='</div>';
     var showInput=!!st.type && !(st.ask && !st.sent);
@@ -744,6 +750,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       else { btn.disabled=false; btn.textContent=label; if(topErr){ topErr.textContent=MSG.fail; topErr.hidden=false; } }
     });
   });
+  if('IntersectionObserver' in window && matchMedia('(max-width:900px)').matches){ var ff=document.getElementById('inquiryForm'); if(ff) new IntersectionObserver(function(es){ es.forEach(function(en){ document.documentElement.classList.toggle('form-in-view', en.isIntersecting); }); },{threshold:0.05}).observe(ff); }
 })();
 </script>
 </body></html>
