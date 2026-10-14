@@ -5,26 +5,103 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     },
     {
       "source": "/(.*).(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*).(jpg|jpeg|png|gif|webp|svg|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ],
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true }
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/market",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/market/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/market/:path((?!img/|data/).+)",
+      "destination": "/:path",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|ja|id)/market",
+      "destination": "/:lang",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|ja|id)/market/:path((?!img/).+)",
+      "destination": "/:lang/:path",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(en|ja|id)/market/img/:file*",
+      "destination": "/market/img/:file*",
+      "permanent": true
+    },
+    {
+      "source": "/service",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/service-marketing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/service-global",
+      "destination": "/global",
+      "permanent": true
+    },
+    {
+      "source": "/service-production",
+      "destination": "/production/",
+      "permanent": true
+    },
+    {
+      "source": "/service-monitoring",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
