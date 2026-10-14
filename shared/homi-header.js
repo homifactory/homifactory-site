@@ -33,26 +33,26 @@
   /* ── 사이트별 설정 — 메뉴·링크만 다르고 구조는 같다 ── */
   var SITES = {
     market: {
-      name: 'HOMI', sub: 'MARKET', home: '/market/', logo: '/assets/logo-symbol.png',
+      name: 'HOMI', sub: 'FACTORY', home: '/', logo: '/assets/logo-symbol.png',
       menu: [
-        { key: 'home', label: 'Home', href: '/market/' },
+        { key: 'home', label: 'Home', href: '/' },
         { key: 'service', label: '서비스', mega: [
-          { title: '인플루언서 마케팅', href: '/market/service-influencer', items: [
+          { title: '인플루언서 마케팅', href: '/service-influencer', items: [
             ['svc-mega', 'person-star', '메가 인플루언서·셀럽', '브랜드의 얼굴(모델)이 필요해요'],
             ['svc-macro', 'megaphone', '매크로 인플루언서', '브랜드의 화제성과 노출이 필요해요'],
             ['svc-micro', 'users', '마이크로 인플루언서', '일상 속에서 자연스럽게 퍼지게 하고 싶어요'],
             ['svc-nano', 'box', '나노·체험단', '제품을 써본 실제 후기가 많이 필요해요']] },
-          { title: '방문 프로모션', href: '/market/service-visit', items: [
+          { title: '방문 프로모션', href: '/service-visit', items: [
             ['svc-domestic', 'store', '국내 인플루언서 방문', '동네·상권 손님에게 우리 매장을 알리고 싶어요'],
             ['svc-inbound', 'plane', '해외 인플루언서 한국 방문', '한국에 오는 외국인 손님을 매장으로 부르고 싶어요'],
             ['svc-overseas', 'globe', '해외 현지 매장 방문', '해외 매장·입점처를 현지 손님에게 알리고 싶어요']] },
-          { title: '팝업 및 행사 운영', href: '/market/service-event', items: [
+          { title: '팝업 및 행사 운영', href: '/service-event', items: [
             ['svc-popup', 'bag', '브랜드 팝업스토어', '팝업으로 브랜드를 직접 경험하게 하고 싶어요'],
             ['svc-launch', 'rocket', '런칭·쇼케이스', '신제품 런칭을 크게 알리고 싶어요'],
             ['svc-festival', 'booth', '축제·페스티벌 부스', '행사 현장에서 고객을 직접 만나고 싶어요']] }
         ] },
-        { key: 'how', label: 'How We Work', href: '/market/#how-we-work', spy: 'how-we-work' },
-        { key: 'case', label: 'Case', href: '/market/#case', spy: 'case' }
+        { key: 'how', label: 'How We Work', href: '/#how-we-work', spy: 'how-we-work' },
+        { key: 'case', label: 'Case', href: '/#case', spy: 'case' }
       ],
       /* 언어: KR 이 기준. 번역 언어는 prefix(주소 앞에 붙는 경로) + pages(번역된 페이지, '*'=전부)
          또는 map(「한국어 주소 → 번역 주소」)으로 지정. 그 페이지 번역이 없는 언어는 목록에 안 보인다 (FR-COM-006) */
@@ -60,14 +60,14 @@
               { code: 'EN', label: 'English · EN', prefix: '/en', pages: '*' },
               { code: 'JA', label: '日本語 · JA', prefix: '/ja', pages: '*' },
               { code: 'ID', label: 'Bahasa Indonesia · ID', prefix: '/id', pages: '*' }],
-      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }],
+      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }, { label: 'SNP COMPANY', href: '/snp', newTab: true }],
       /* 크리에이터 지원 입구는 상단 바 하나만 (FR-MKT-001·042, IA MKT-P13) — 보라 글자 */
-      extra: { label: '크리에이터 지원', href: '/market/creator' },
-      cta: { label: '무료 상담 받기', href: '/market/contact' },
+      extra: { label: '크리에이터 지원', href: '/creator' },
+      cta: { label: '무료 상담 받기', href: '/contact' },
       /* 상단 띠 배너 (FR-MKT-026) — 관리자 화면이 생기기 전까지 여기서 문구·링크·노출·표지 이미지를 바꾼다.
          cover: 실제 리포트 표지 이미지 주소(비우면 기본 「글로벌 지도형」 표지) */
       banner: { show: true, small: 'HOMI TREND REPORT 2026', big: ['2026 글로벌 마케팅 트렌드 리포트', '나라별 전략을 먼저 확인하세요'],
-                href: '/market/trend-report.html', cover: '' }
+                href: '/trend-report.html', cover: '' }
     },
     factory: {
       name: 'HOMI', sub: 'FACTORY', home: '/', logo: '/assets/logo-symbol.png',
@@ -95,7 +95,7 @@
         { key: 'contact', label: 'CONTACT', href: '/production/contact' }
       ],
       langs: [{ code: 'KR', label: '한국어 · KR' }],
-      siblings: [{ label: 'HOMI FACTORY', href: '/' }],
+      siblings: [{ label: 'HOMI FACTORY', href: '/' }, { label: 'SNP COMPANY', href: '/snp', newTab: true }],
       cta: { label: '문의하기', href: '/production/contact' }
     }
   };
