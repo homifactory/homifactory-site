@@ -19,6 +19,22 @@
     "order": 1,
     "hidden": false
   },
-  "featured": null,
-  "items": []
+  "featured": "ilhoon-devil-can-wait",
+  "items": [
+    {
+      "id": "ilhoon-devil-can-wait",
+      "section": "visual",
+      "category": "live",
+      "title": "[Special Live Clip] ILHOON - Devil Can Wait",
+      "client": "ILHOON",
+      "showClient": true,
+      "date": "",
+      "url": "https://www.youtube.com/watch?v=47lTL470gF4",
+      "roles": [],
+      "desc": "",
+      "thumb": "",
+      "order": 1,
+      "hidden": false
+    }
+  ]
 }
