@@ -286,7 +286,9 @@
   "",
   ""
  ],
- "images": {},
+ "images": {
+  "c1": "/assets/case/CASE-c1-hachuping.jpg"
+ },
  "texts": {
   "ko": {},
   "en": {},
