@@ -35,6 +35,21 @@
       "thumb": "",
       "order": 1,
       "hidden": false
+    },
+    {
+      "id": "glory-beyond-the-stage-jakarta",
+      "section": "visual",
+      "category": "film",
+      "title": "GLORY : Beyond the Stage of Jakarta MV",
+      "client": "GLORY",
+      "showClient": true,
+      "date": "2026-07-20",
+      "url": "https://www.youtube.com/watch?v=0dtvl00kY00",
+      "roles": [],
+      "desc": "",
+      "thumb": "",
+      "order": 2,
+      "hidden": false
     }
   ]
 }
