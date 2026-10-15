@@ -287,20 +287,28 @@
   ""
  ],
  "images": {
-  "c1": "/assets/case/CASE-c1-hachuping.jpg"
+  "c1": "/assets/case/CASE-c1-hachuping-full.jpg"
  },
  "texts": {
   "ko": {
-   "c1.text": "캐릭터 IP 굿즈를 크리에이터의 일상 브이로그 시리즈에 자연스럽게 녹인 틱톡 씨딩 캠페인입니다. ‘하츄핑 랜덤깡’ 언박싱 에피소드로 구성해, 어떤 캐릭터가 나올지 끝까지 궁금하게 만드는 숏폼으로 광고 같지 않게 제품을 보여줬습니다."
+   "c1.text": "캐릭터 IP 굿즈를 크리에이터의 일상 브이로그 시리즈에 자연스럽게 녹인 틱톡 씨딩 캠페인입니다. ‘하츄핑 랜덤깡’ 언박싱 에피소드로 구성해, 어떤 캐릭터가 나올지 끝까지 궁금하게 만드는 숏폼으로 광고 같지 않게 제품을 보여줬습니다.",
+   "c2.name": "정일훈 · GLORY 자카르타 MV",
+   "c2.text": "K-POP 아티스트 정일훈의 인도네시아 자카르타 일정을 한 편의 뮤직비디오로 담은 현지 프로모션입니다. 무대 위와 무대 뒤의 순간을 함께 보여주고, 현지 팬덤과 크리에이터가 함께 참여해 공연이 끝난 뒤에도 현지 팬들이 다시 찾아보는 콘텐츠로 남겼습니다."
   },
   "en": {
-   "c1.text": "A TikTok seeding campaign that wove character-IP merchandise into a creator's daily vlog series. Framed as a Hachuping blind-box unboxing episode, the short kept viewers guessing which character would appear — showing the product without feeling like an ad."
+   "c1.text": "A TikTok seeding campaign that wove character-IP merchandise into a creator's daily vlog series. Framed as a Hachuping blind-box unboxing episode, the short kept viewers guessing which character would appear — showing the product without feeling like an ad.",
+   "c2.name": "ILHOON · GLORY Jakarta MV",
+   "c2.text": "A local promotion that turned K-pop artist ILHOON’s Jakarta schedule into a single music video. It captures moments on stage and behind it, with the local fandom and creators taking part — leaving content Indonesian fans keep coming back to long after the show ended."
   },
   "ja": {
-   "c1.text": "キャラクターIPグッズを、クリエイターの日常Vlogシリーズに自然に溶け込ませたTikTokシーディング施策です。「ハチュピン ランダム開封」エピソードとして構成し、どのキャラが出るか最後まで気になるショート動画で、広告らしさを抑えて商品を見せました。"
+   "c1.text": "キャラクターIPグッズを、クリエイターの日常Vlogシリーズに自然に溶け込ませたTikTokシーディング施策です。「ハチュピン ランダム開封」エピソードとして構成し、どのキャラが出るか最後まで気になるショート動画で、広告らしさを抑えて商品を見せました。",
+   "c2.name": "イルフン · GLORY ジャカルタMV",
+   "c2.text": "K-POPアーティスト、チョン・イルフンのインドネシア・ジャカルタ公演の日々を1本のMVにまとめた現地プロモーションです。ステージの上と舞台裏の瞬間を描き、現地ファンダムとクリエイターも参加。公演後も現地ファンが繰り返し見返すコンテンツとして残しました。"
   },
   "id": {
-   "c1.text": "Kampanye seeding TikTok yang memadukan merchandise karakter IP ke dalam seri vlog harian kreator. Dikemas sebagai episode unboxing blind box Hachuping, video pendek ini membuat penonton penasaran karakter mana yang keluar — menampilkan produk tanpa terasa seperti iklan."
+   "c1.text": "Kampanye seeding TikTok yang memadukan merchandise karakter IP ke dalam seri vlog harian kreator. Dikemas sebagai episode unboxing blind box Hachuping, video pendek ini membuat penonton penasaran karakter mana yang keluar — menampilkan produk tanpa terasa seperti iklan.",
+   "c2.name": "ILHOON · GLORY Jakarta MV",
+   "c2.text": "Promosi lokal yang merangkum jadwal artis K-pop ILHOON di Jakarta menjadi satu video musik. Menampilkan momen di atas panggung maupun di balik layar, dengan partisipasi fandom dan kreator lokal — menjadi konten yang terus ditonton ulang penggemar Indonesia bahkan setelah konser usai."
   }
  },
  "updatedAt": "2026-10-08T02:06:48.833Z"
