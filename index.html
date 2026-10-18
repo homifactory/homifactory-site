@@ -889,7 +889,8 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   {type:'instagram', id:'DXlM9-3kcTi', poster:'/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg', title:'청담유식 릴스'},
   {type:'instagram', id:'DXQ-FbMDl7V', poster:'/assets/shorts/SHORT-ig-DXQ-FbMDl7V.jpg', title:'청담유식 릴스'},
   {type:'instagram', id:'DXWZ9TFiYm6', poster:'/assets/shorts/SHORT-ig-DXWZ9TFiYm6.jpg', title:'청담유식 릴스'},
-  {type:'instagram', id:'DcQflbuPhfh', poster:'/assets/shorts/SHORT-ig-DcQflbuPhfh.jpg', title:'nadafid 릴스'}
+  {type:'instagram', id:'DcQflbuPhfh', poster:'/assets/shorts/SHORT-ig-DcQflbuPhfh.jpg', title:'nadafid 릴스'},
+  {type:'instagram', id:'DCiibe8PVbp', poster:'/assets/shorts/SHORT-ig-DCiibe8PVbp.jpg', title:'ang.hosung 게시물'}
 ];
 (function(){
   var sec=document.getElementById('mkt-shorts'); if(!sec) return;
@@ -938,7 +939,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
     var h=''; if(v.type==='mp4') h='<video src="'+v.src+'" controls autoplay playsinline></video>';
     else if(v.type==='youtube') h='<iframe src="https://www.youtube.com/embed/'+v.id+'?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
     else if(v.type==='tiktok') h='<iframe src="https://www.tiktok.com/embed/v2/'+v.id+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-    else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/reel/'+v.id+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/p/'+v.id+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     player.innerHTML=h; modal.hidden=false; document.documentElement.style.overflow='hidden'; modal.querySelector('.hs-close').focus(); }
   function close(){ modal.hidden=true; player.innerHTML=''; document.documentElement.style.overflow=''; st.modal=false; if(opener) opener.focus(); }
   track.addEventListener('click',function(e){ var c=e.target.closest('.hs-card'); if(c) open(list[+c.dataset.i],c); });
