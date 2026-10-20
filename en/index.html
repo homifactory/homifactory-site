@@ -455,6 +455,42 @@ html body .hero h1 span.hl.hl.hl.hl{color:#fff!important}
 /* 업종 띠: 화면 좌우 끝까지 */
 #team-result{overflow-x:clip}
 #team-result .ind-tk{max-width:none!important;width:100vw;margin-left:calc(50% - 50vw)!important;margin-right:0!important}
+/* 일하는 방식: PC에서 한 화면에 (2026-10-20) */
+@media(min-width:1024px){
+#how-we-work{padding:36px 24px 40px}
+#how-we-work .strategy-head{margin-bottom:22px}
+#how-we-work .strategy-badge{margin-bottom:8px}
+#how-we-work .strategy-head h2{font-size:30px;line-height:1.25}
+#how-we-work .strategy-head h2 br{display:none}
+#how-we-work .strategy-head p{font-size:14px;margin-top:8px;line-height:1.55}
+#how-we-work .strategy-head p br{display:none}
+#how-we-work .strategy-grid{gap:18px;align-items:stretch}
+#how-we-work .strategy-card{padding:18px 18px 18px;text-align:left;align-items:stretch}
+#how-we-work .strategy-card .kw-ic{display:none}
+#how-we-work .strategy-card .kw{align-self:flex-start;margin-bottom:8px}
+#how-we-work .strategy-card h3{font-size:19px;margin-bottom:4px}
+#how-we-work .strategy-card > p{font-size:13px;line-height:1.55;margin-bottom:10px}
+#how-we-work .strategy-card > p br{display:none}
+#how-we-work .wk-shot{margin:0 0 10px}
+#how-we-work .wk-shot img{height:150px;object-fit:cover;object-position:top center}
+#how-we-work .wk-shot figcaption{padding:5px 9px;font-size:11px}
+#how-we-work .wk-crit{margin:0 0 8px;padding:9px 10px}
+#how-we-work .wk-crit .wk-ck{margin-bottom:5px}
+#how-we-work .wk-crit .wk-cr b{padding:3px 7px;font-size:11.5px}
+#how-we-work .wk-crit .wk-cn{margin-top:5px}
+#how-we-work .svc-chips{justify-content:flex-start;margin-bottom:8px}
+#how-we-work .svc-chips .sc{padding:3px 9px;font-size:11px}
+#how-we-work .plan-tools{padding-top:8px}
+#how-we-work .plan-tools p{font-size:12px!important;line-height:1.5!important}
+#how-we-work .wk-met{justify-content:flex-start;margin-bottom:8px;gap:5px}
+#how-we-work .wk-met span{padding:3px 9px;font-size:11px}
+#how-we-work .wk-out{margin-top:auto;padding:10px 12px}
+#how-we-work .strategy-card .plan-tools+.wk-out,#how-we-work .wk-crit~.wk-out{margin-top:10px}
+#how-we-work .wk-out .wk-v{font-size:13px}
+#how-we-work .wk-out .wk-v small{font-size:11px}
+#how-we-work .wk-cta{margin-top:4px}
+@media(min-width:901px){#how-we-work .strategy-card:not(:last-child)::after{top:50%}}
+}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -698,13 +734,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
 
 <!-- ② 고객사 로고 -->
-<section class="section gray" id="client-logos">
-
-<div class="logo-marquee-wrap" aria-label="Client logos">
-  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">Hachuping · Teenieping</div><div class="logo-card" role="listitem">DB Insurance</div><div class="logo-card" role="listitem">Suwon Saebit Online Lectures</div><div class="logo-card" role="listitem">Cheongdam Yusik</div><div class="logo-card" role="listitem">Seongsu Duda</div><div class="logo-card" role="listitem">[Client logo]</div><div class="logo-card" role="listitem">[Client logo]</div><div class="logo-card" role="listitem">[Client logo]</div></div>
-  <div class="marquee-row right" role="list"></div>
-</div>
-</section>
 
 
 <!-- ③-1 우리가 일하는 방식 · IP→PLAN→RESULT (How We Work 이동 위치) — FR-MKT-028 -->
@@ -712,36 +741,44 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> How we work</span>
-<h2>Strategy tailored to your brand,<br><em>proven by results</em></h2>
-<p>What matters isn’t the size of the budget, but which IP, which plan, and what results you aim for.<br>Four weeks from selection to upload and report — with a deliverable you keep at every step.</p>
+<h2>Strategy tailored to your brand,<br> <em>proven by results</em></h2>
+<p>What matters isn’t the size of the budget, but which IP, which plan, and what results you aim for.<br> Four weeks from selection to upload and report — with a deliverable you keep at every step.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>What to say</h3>
-<p>We start by listening to your brand’s story and goals,<br>then build the strongest message on top of them</p>
+<p>We start by listening to your brand’s story and goals,<br> then build the strongest message on top of them</p>
 <figure class="wk-shot"><img src="/assets/WORK-ip-strategy.jpg" alt="From a real report · positioning by target" loading="lazy" decoding="async"><figcaption>From a real report · positioning by target</figcaption></figure>
-<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">A one-page brand diagnosis<br><small>Key message · Target · Goal KPIs</small></span></div>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">A one-page brand diagnosis<br> <small>Key message · Target · Goal KPIs</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>How to say it</h3>
-<p>We pick and combine the methods<br>that best fit your goals</p>
+<p>We pick and combine the methods<br> that best fit your goals</p>
+<figure class="wk-shot"><img src="/assets/WORK-plan-db.jpg" alt="Our live creator database — we pick by view rate, ER and comments/likes, not followers" loading="lazy" decoding="async"><figcaption>Our live creator database</figcaption></figure>
 <div class="wk-crit"><span class="wk-ck">Selection criteria · reactions, not followers</span><span class="wk-cr"><b>View rate ≥ 100%</b><b>Comments/Likes ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 2 of 3 met = Rising creator</span></div>
 <div class="svc-chips"><span class="sc">Influencers</span><span class="sc">Visit Promotion</span><span class="sc">Pop-ups</span><span class="sc">Sponsorship</span><span class="sc">Content production</span></div>
 <div class="plan-tools"><span class="pt-k">Tools that go into the plan</span><p>Tailored influencer casting (Korea &amp; overseas) · Overseas influencer recruitment · Local sales channel connection · Pop-ups &amp; offline · Monitoring</p></div>
-<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Creator shortlist<br><small>With view rate &amp; fair-price estimate</small></span></div>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Creator shortlist<br> <small>With view rate &amp; fair-price estimate</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>What remains</h3>
-<p>We track uploads in real time,<br>measure reactions like saves, comments, and shares in numbers,<br>and carry them into your next campaign strategy</p>
+<p>We track uploads in real time,<br> measure reactions like saves, comments, and shares in numbers,<br> and carry them into your next campaign strategy</p>
 <figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="From a real report · per-creator results" loading="lazy" decoding="async"><figcaption>From a real report · per-creator results</figcaption></figure>
 <div class="wk-met"><span>Views</span><span>Saves</span><span>Comments</span><span>Shares</span><span>Purchase inquiries</span></div>
-<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Results report + next proposal<br><a class="wk-cta" href="#case">See real cases →</a></span></div>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Results report + next proposal<br> <a class="wk-cta" href="#case">See real cases →</a></span></div>
 </div>
 </div>
-<figure class="wk-shot wk-wide"><img src="/assets/WORK-plan-db.jpg" alt="Our live creator database — we pick by view rate, ER and comments/likes, not followers" loading="lazy" decoding="async"><figcaption>Our live creator database — we pick by view rate, ER and comments/likes, not followers</figcaption></figure>
+</div>
+</section>
+
+<section class="section gray" id="client-logos">
+
+<div class="logo-marquee-wrap" aria-label="Client logos">
+  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">Hachuping · Teenieping</div><div class="logo-card" role="listitem">DB Insurance</div><div class="logo-card" role="listitem">Suwon Saebit Online Lectures</div><div class="logo-card" role="listitem">Cheongdam Yusik</div><div class="logo-card" role="listitem">Seongsu Duda</div><div class="logo-card" role="listitem">[Client logo]</div><div class="logo-card" role="listitem">[Client logo]</div><div class="logo-card" role="listitem">[Client logo]</div></div>
+  <div class="marquee-row right" role="list"></div>
 </div>
 </section>
 
@@ -1448,6 +1485,18 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   els.forEach(function(el){ el.textContent='0'; });
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.unobserve(e.target); run(e.target); } }); },{threshold:.4});
   els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script id="hww-fit">
+/* 일하는 방식: PC 화면 높이에 맞춰 한 화면에 보이도록 살짝 축소 */
+(function(){
+  var s=document.getElementById('how-we-work'); if(!s) return;
+  var mq=matchMedia('(min-width:1024px) and (pointer:fine)');
+  function fit(){ s.style.zoom=''; if(!mq.matches) return;
+    var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0;
+    var avail=innerHeight-off, cur=s.getBoundingClientRect().height;
+    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3); }
+  fit(); addEventListener('load',fit); var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150);});
 })();
 </script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
