@@ -439,6 +439,13 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .wk-out .wk-v small{font-size:12px;font-weight:500;color:rgba(255,255,255,.72)}
 .wk-cta{display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#B98CFF;text-decoration:none}
 .wk-cta:hover{text-decoration:underline}
+/* ③-1 v3: 실제 리포트·운영 화면 */
+.wk-shot{align-self:stretch;margin:0 0 16px;border-radius:12px;overflow:hidden;border:1px solid #E6E0D6;background:#fff;box-shadow:0 6px 18px rgba(20,20,20,.06);text-align:left}
+.wk-shot img{display:block;width:100%;height:auto}
+.wk-shot figcaption{display:flex;align-items:center;gap:6px;padding:7px 10px;font-size:11.5px;font-weight:700;color:#6B665E;border-top:1px solid #F0EBE3;background:#FAF7F2}
+.wk-wide{max-width:1000px;margin:28px auto 0}
+.wk-wide figcaption{font-size:13px;padding:10px 14px}
+.wk-shot figcaption::before{content:"";width:6px;height:6px;border-radius:50%;background:#8B3DFF;flex:none}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -704,6 +711,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>무엇을 알릴까</h3>
 <p>브랜드의 이야기와 목표를 먼저 듣고,<br>그 위에서 가장 강한 메시지를 찾습니다</p>
+<figure class="wk-shot"><img src="/assets/WORK-ip-strategy.jpg" alt="실제 리포트 · 타깃별 크리에이터 포지션 설계" loading="lazy" decoding="async"><figcaption>실제 리포트 · 타깃별 크리에이터 포지션 설계</figcaption></figure>
 <div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">브랜드 진단 1장<br><small>핵심 메시지 · 타깃 · 목표 KPI</small></span></div>
 </div>
 <div class="strategy-card">
@@ -719,10 +727,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>무엇이 남을까</h3>
 <p>업로드를 실시간으로 추적하고,<br>저장·댓글·공유 같은 &lsquo;반응&rsquo;을 숫자로 확인해<br>다음 캠페인 전략까지 이어갑니다</p>
+<figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="실제 리포트 · 크리에이터별 성과" loading="lazy" decoding="async"><figcaption>실제 리포트 · 크리에이터별 성과</figcaption></figure>
 <div class="wk-met"><span>조회</span><span>저장</span><span>댓글</span><span>공유</span><span>구매 문의</span></div>
 <div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">결과 리포트 + 다음 제안<br><a class="wk-cta" href="#case">실제 사례 보기 →</a></span></div>
 </div>
 </div>
+<figure class="wk-shot wk-wide"><img src="/assets/WORK-plan-db.jpg" alt="실제 운영 화면 · 호미 크리에이터 DB — 팔로워가 아니라 조회율·ER·댓글/좋아요로 고릅니다" loading="lazy" decoding="async"><figcaption>실제 운영 화면 · 호미 크리에이터 DB — 팔로워가 아니라 조회율·ER·댓글/좋아요로 고릅니다</figcaption></figure>
 </div>
 </section>
 
