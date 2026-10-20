@@ -344,14 +344,14 @@ nav.nav{box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .country-chips .chip::before{content:'' !important;display:inline-block !important;width:7px !important;height:7px !important;border-radius:50% !important;background:#8B3DFF !important}
 /* Hero pill badge above title */
 /* 히어로 v2: 정체성 라벨 · 버튼 2개 · 3단 흐름 (벤치마크 #1~3) */
-.hero .hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.hero .hero-ctas{display:flex;flex-direction:column;align-items:center;gap:12px}
 .hero .sub-cta{display:inline-flex;align-items:center;gap:8px;padding:19px 34px;border:2px solid #8B3DFF;color:#5B2BB8;background:rgba(255,255,255,.92);border-radius:999px;font-size:16px;font-weight:800;transition:.2s}
 .hero .sub-cta:hover{background:#F3ECFF;transform:translateY(-2px)}
 .hero .hero-flow{display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px;font-size:14px;font-weight:700;color:var(--ink-2);text-decoration:none}
-.hero .hero-flow b{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid #D9C4FF;color:#5B2BB8;font-weight:800}
+.hero .hero-flow b{color:#fff;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.55)}
 .hero .hero-flow i{font-style:normal;color:#fff;font-weight:900;text-shadow:0 1px 4px rgba(0,0,0,.5)}
-.hero .hero-flow:hover b{background:#F3ECFF}
-@media(max-width:600px){.hero .hero-ctas{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}.hero .big-cta,.hero .sub-cta{justify-content:center;padding:17px 22px}}
+.hero .hero-flow:hover b{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){.hero .hero-ctas{align-items:stretch;max-width:340px;margin:0 auto}.hero .big-cta,.hero .sub-cta{justify-content:center;padding:17px 22px}}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1.5px solid #8B3DFF;border-radius:999px;color:#5B2BB8;font-size:13px;font-weight:700;letter-spacing:.3px;background:#fff;margin-bottom:28px}
 .hero-badge .spark{color:#8B3DFF;font-size:14px}
 .hero-badge .divider{color:#B49DD9}
