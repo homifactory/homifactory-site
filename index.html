@@ -456,6 +456,42 @@ html body .hero h1 span.hl.hl.hl.hl{color:#fff!important}
 /* 업종 띠: 화면 좌우 끝까지 */
 #team-result{overflow-x:clip}
 #team-result .ind-tk{max-width:none!important;width:100vw;margin-left:calc(50% - 50vw)!important;margin-right:0!important}
+/* 일하는 방식: PC에서 한 화면에 (2026-10-20) */
+@media(min-width:1024px){
+#how-we-work{padding:36px 24px 40px}
+#how-we-work .strategy-head{margin-bottom:22px}
+#how-we-work .strategy-badge{margin-bottom:8px}
+#how-we-work .strategy-head h2{font-size:30px;line-height:1.25}
+#how-we-work .strategy-head h2 br{display:none}
+#how-we-work .strategy-head p{font-size:14px;margin-top:8px;line-height:1.55}
+#how-we-work .strategy-head p br{display:none}
+#how-we-work .strategy-grid{gap:18px;align-items:stretch}
+#how-we-work .strategy-card{padding:18px 18px 18px;text-align:left;align-items:stretch}
+#how-we-work .strategy-card .kw-ic{display:none}
+#how-we-work .strategy-card .kw{align-self:flex-start;margin-bottom:8px}
+#how-we-work .strategy-card h3{font-size:19px;margin-bottom:4px}
+#how-we-work .strategy-card > p{font-size:13px;line-height:1.55;margin-bottom:10px}
+#how-we-work .strategy-card > p br{display:none}
+#how-we-work .wk-shot{margin:0 0 10px}
+#how-we-work .wk-shot img{height:150px;object-fit:cover;object-position:top center}
+#how-we-work .wk-shot figcaption{padding:5px 9px;font-size:11px}
+#how-we-work .wk-crit{margin:0 0 8px;padding:9px 10px}
+#how-we-work .wk-crit .wk-ck{margin-bottom:5px}
+#how-we-work .wk-crit .wk-cr b{padding:3px 7px;font-size:11.5px}
+#how-we-work .wk-crit .wk-cn{margin-top:5px}
+#how-we-work .svc-chips{justify-content:flex-start;margin-bottom:8px}
+#how-we-work .svc-chips .sc{padding:3px 9px;font-size:11px}
+#how-we-work .plan-tools{padding-top:8px}
+#how-we-work .plan-tools p{font-size:12px!important;line-height:1.5!important}
+#how-we-work .wk-met{justify-content:flex-start;margin-bottom:8px;gap:5px}
+#how-we-work .wk-met span{padding:3px 9px;font-size:11px}
+#how-we-work .wk-out{margin-top:auto;padding:10px 12px}
+#how-we-work .strategy-card .plan-tools+.wk-out,#how-we-work .wk-crit~.wk-out{margin-top:10px}
+#how-we-work .wk-out .wk-v{font-size:13px}
+#how-we-work .wk-out .wk-v small{font-size:11px}
+#how-we-work .wk-cta{margin-top:4px}
+@media(min-width:901px){#how-we-work .strategy-card:not(:last-child)::after{top:50%}}
+}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -699,13 +735,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
 
 <!-- ② 고객사 로고 -->
-<section class="section gray" id="client-logos">
-
-<div class="logo-marquee-wrap" aria-label="고객사 로고">
-  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">하츄핑·티니핑</div><div class="logo-card" role="listitem">DB손해보험</div><div class="logo-card" role="listitem">수원새빛인강</div><div class="logo-card" role="listitem">청담유식</div><div class="logo-card" role="listitem">성수 두다</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[고객사 로고]</div></div>
-  <div class="marquee-row right" role="list"></div>
-</div>
-</section>
 
 
 <!-- ③-1 우리가 일하는 방식 · IP→PLAN→RESULT (How We Work 이동 위치) — FR-MKT-028 -->
@@ -713,36 +742,44 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> 우리가 일하는 방식</span>
-<h2>결과로 말하는,<br><em>브랜드 맞춤형 전략 설계</em></h2>
-<p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br>선정부터 업로드·리포트까지 4주, 단계마다 손에 쥐는 결과물이 있습니다.</p>
+<h2>결과로 말하는,<br> <em>브랜드 맞춤형 전략 설계</em></h2>
+<p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br> 선정부터 업로드·리포트까지 4주, 단계마다 손에 쥐는 결과물이 있습니다.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>무엇을 알릴까</h3>
-<p>브랜드의 이야기와 목표를 먼저 듣고,<br>그 위에서 가장 강한 메시지를 찾습니다</p>
+<p>브랜드의 이야기와 목표를 먼저 듣고,<br> 그 위에서 가장 강한 메시지를 찾습니다</p>
 <figure class="wk-shot"><img src="/assets/WORK-ip-strategy.jpg" alt="실제 리포트 · 타깃별 크리에이터 포지션 설계" loading="lazy" decoding="async"><figcaption>실제 리포트 · 타깃별 크리에이터 포지션 설계</figcaption></figure>
-<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">브랜드 진단 1장<br><small>핵심 메시지 · 타깃 · 목표 KPI</small></span></div>
+<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">브랜드 진단 1장<br> <small>핵심 메시지 · 타깃 · 목표 KPI</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>어떻게 알릴까</h3>
-<p>목표를 이루는 데 가장 잘 맞는 방법을<br>골라 조합합니다</p>
+<p>목표를 이루는 데 가장 잘 맞는 방법을<br> 골라 조합합니다</p>
+<figure class="wk-shot"><img src="/assets/WORK-plan-db.jpg" alt="실제 운영 화면 · 호미 크리에이터 DB — 팔로워가 아니라 조회율·ER·댓글/좋아요로 고릅니다" loading="lazy" decoding="async"><figcaption>실제 운영 화면 · 호미 크리에이터 DB</figcaption></figure>
 <div class="wk-crit"><span class="wk-ck">선별 기준 · 팔로워가 아니라 반응으로</span><span class="wk-cr"><b>조회율 ≥ 100%</b><b>댓글/좋아요 ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3개 중 2개 충족 = 라이징 크리에이터</span></div>
 <div class="svc-chips"><span class="sc">인플루언서</span><span class="sc">방문 프로모션</span><span class="sc">팝업</span><span class="sc">협찬</span><span class="sc">콘텐츠 제작</span></div>
 <div class="plan-tools"><span class="pt-k">플랜 안에 들어가는 도구</span><p>인플루언서 맞춤 섭외(국내·해외) · 해외 인플루언서 모집 · 현지 판매 채널 연결 · 팝업·오프라인 · 모니터링</p></div>
-<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">크리에이터 후보 리스트<br><small>조회율 · 적정단가 포함</small></span></div>
+<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">크리에이터 후보 리스트<br> <small>조회율 · 적정단가 포함</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>무엇이 남을까</h3>
-<p>업로드를 실시간으로 추적하고,<br>저장·댓글·공유 같은 &lsquo;반응&rsquo;을 숫자로 확인해<br>다음 캠페인 전략까지 이어갑니다</p>
+<p>업로드를 실시간으로 추적하고,<br> 저장·댓글·공유 같은 &lsquo;반응&rsquo;을 숫자로 확인해<br> 다음 캠페인 전략까지 이어갑니다</p>
 <figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="실제 리포트 · 크리에이터별 성과" loading="lazy" decoding="async"><figcaption>실제 리포트 · 크리에이터별 성과</figcaption></figure>
 <div class="wk-met"><span>조회</span><span>저장</span><span>댓글</span><span>공유</span><span>구매 문의</span></div>
-<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">결과 리포트 + 다음 제안<br><a class="wk-cta" href="#case">실제 사례 보기 →</a></span></div>
+<div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">결과 리포트 + 다음 제안<br> <a class="wk-cta" href="#case">실제 사례 보기 →</a></span></div>
 </div>
 </div>
-<figure class="wk-shot wk-wide"><img src="/assets/WORK-plan-db.jpg" alt="실제 운영 화면 · 호미 크리에이터 DB — 팔로워가 아니라 조회율·ER·댓글/좋아요로 고릅니다" loading="lazy" decoding="async"><figcaption>실제 운영 화면 · 호미 크리에이터 DB — 팔로워가 아니라 조회율·ER·댓글/좋아요로 고릅니다</figcaption></figure>
+</div>
+</section>
+
+<section class="section gray" id="client-logos">
+
+<div class="logo-marquee-wrap" aria-label="고객사 로고">
+  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">하츄핑·티니핑</div><div class="logo-card" role="listitem">DB손해보험</div><div class="logo-card" role="listitem">수원새빛인강</div><div class="logo-card" role="listitem">청담유식</div><div class="logo-card" role="listitem">성수 두다</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[고객사 로고]</div><div class="logo-card" role="listitem">[고객사 로고]</div></div>
+  <div class="marquee-row right" role="list"></div>
 </div>
 </section>
 
@@ -1449,6 +1486,18 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   els.forEach(function(el){ el.textContent='0'; });
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.unobserve(e.target); run(e.target); } }); },{threshold:.4});
   els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script id="hww-fit">
+/* 일하는 방식: PC 화면 높이에 맞춰 한 화면에 보이도록 살짝 축소 */
+(function(){
+  var s=document.getElementById('how-we-work'); if(!s) return;
+  var mq=matchMedia('(min-width:1024px) and (pointer:fine)');
+  function fit(){ s.style.zoom=''; if(!mq.matches) return;
+    var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0;
+    var avail=innerHeight-off, cur=s.getBoundingClientRect().height;
+    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3); }
+  fit(); addEventListener('load',fit); var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150);});
 })();
 </script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
