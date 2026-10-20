@@ -423,6 +423,21 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .strategy-card .plan-tools{text-align:left;align-self:stretch}
 @media(min-width:901px){.strategy-card:not(:last-child)::after{content:"";position:absolute;right:-17px;top:70px;width:14px;height:14px;border-top:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
 @media(max-width:900px){.strategy-card:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-15px;width:12px;height:12px;margin-left:-6px;border-bottom:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+/* ③-1 v2: 단계별 결과물·선별 기준·반응 지표 (벤치마크: 피처링·BDB) */
+.wk-crit{align-self:stretch;margin:0 0 16px;padding:14px 14px 12px;border-radius:14px;background:#FAF7F2;border:1px solid #E6E0D6;text-align:left}
+.wk-crit .wk-ck{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:8px}
+.wk-crit .wk-cr{display:flex;flex-wrap:wrap;gap:6px}
+.wk-crit .wk-cr b{padding:5px 10px;border-radius:8px;background:#fff;border:1px solid #D9C4FF;color:#5B2BB8;font-size:12.5px;font-weight:800}
+.wk-crit .wk-cn{display:block;margin-top:8px;font-size:12px;color:#8B3DFF;font-weight:700}
+.wk-met{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+.wk-met span{padding:5px 11px;border-radius:999px;background:#fff;border:1px solid #E6E0D6;font-size:12px;font-weight:600;color:#3A3A42}
+.wk-out{margin-top:auto;align-self:stretch;display:flex;gap:10px;align-items:flex-start;text-align:left;padding:14px 16px;border-radius:14px;background:#141414;color:#fff}
+.strategy-card .plan-tools+.wk-out,.wk-crit~.wk-out{margin-top:16px}
+.wk-out .wk-k{flex:none;font-size:11px;font-weight:800;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:#C8FF00;color:#141414}
+.wk-out .wk-v{font-size:14px;font-weight:700;line-height:1.5}
+.wk-out .wk-v small{font-size:12px;font-weight:500;color:rgba(255,255,255,.72)}
+.wk-cta{display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#C8FF00;text-decoration:none}
+.wk-cta:hover{text-decoration:underline}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -681,25 +696,30 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> 私たちの働き方</span>
 <h2>成果で語る、<br><em>ブランドに合わせた戦略設計</em></h2>
-<p>大切なのは予算の大きさではなく、どのIPを、どのプランで、どんな成果まで導くかです。<br>最初から最後まで、ブランドとともに設計します。</p>
+<p>大切なのは予算の大きさではなく、どのIPを、どのプランで、どんな成果まで導くかです。<br>選定からアップロード・レポートまで4週間。各ステップで手元に残る成果物があります。</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>何を伝えるか</h3>
 <p>まずブランドのストーリーと目標を伺い、<br>その上で最も強いメッセージを見つけます</p>
+<div class="wk-out"><span class="wk-k">お渡しするもの</span><span class="wk-v">ブランド診断シート1枚<br><small>コアメッセージ・ターゲット・目標KPI</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>どう伝えるか</h3>
 <p>目標達成に最も適した手法を<br>選び、組み合わせます</p>
+<div class="wk-crit"><span class="wk-ck">選定基準 · フォロワー数ではなく反応で</span><span class="wk-cr"><b>再生率 ≥ 100%</b><b>コメント/いいね ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3つ中2つ達成 = ライジングクリエイター</span></div>
 <div class="svc-chips"><span class="sc">インフルエンサー</span><span class="sc">来店プロモーション</span><span class="sc">ポップアップ</span><span class="sc">協賛</span><span class="sc">コンテンツ制作</span></div>
 <div class="plan-tools"><span class="pt-k">プランに組み込むツール</span><p>インフルエンサーのオーダーメイド起用（国内・海外）・海外インフルエンサー募集・現地販売チャネル連携・ポップアップ・オフライン・モニタリング</p></div>
+<div class="wk-out"><span class="wk-k">お渡しするもの</span><span class="wk-v">クリエイター候補リスト<br><small>再生率・適正単価つき</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>何を残すか</h3>
-<p>最初に立てた目標を基準に、<br>認知・販売・コンテンツの成果を数字で確認し、<br>次のキャンペーン戦略へつなげます</p>
+<p>アップロードをリアルタイムで追跡し、<br>保存・コメント・シェアなどの「反応」を数字で確認して、<br>次のキャンペーン戦略へつなげます</p>
+<div class="wk-met"><span>再生</span><span>保存</span><span>コメント</span><span>シェア</span><span>購入問い合わせ</span></div>
+<div class="wk-out"><span class="wk-k">お渡しするもの</span><span class="wk-v">成果レポート + 次の提案<br><a class="wk-cta" href="#case">実際の事例を見る →</a></span></div>
 </div>
 </div>
 </div>
