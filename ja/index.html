@@ -1450,4 +1450,70 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   els.forEach(function(el){ io.observe(el); });
 })();
 </script>
+<!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
+<style id="pg-css">
+@media (min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .pg-sec > *{transition:transform 1.1s cubic-bezier(.16,1,.3,1),opacity .9s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}
+  html.pg-on .pg-sec:not(.pg-in) > *{transform:translateY(70px);opacity:0}
+  .pg-sec > *:nth-child(2){transition-delay:.06s}.pg-sec > *:nth-child(3){transition-delay:.12s}.pg-sec > *:nth-child(n+4){transition-delay:.16s}
+}
+</style>
+<script id="pg-js">
+(function(){
+  var mq=matchMedia('(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
+  if(!mq.matches) return;
+  var root=document.documentElement; root.classList.add('pg-on');
+  var all=[].slice.call(document.querySelectorAll('body > section, body > footer.hf')).filter(function(s){return s.offsetHeight>0;});
+  var secs=all.filter(function(s,i){ return i===0 || s.offsetHeight>=innerHeight*0.35 || s.tagName==='FOOTER'; });
+  /* 짧은 구간(로고 띠 등)은 다음 구간과 한 화면으로 묶음 */
+  var lead=secs.map(function(s){ var k=all.indexOf(s), l=s; while(k>0 && secs.indexOf(all[k-1])<0){ k--; l=all[k]; } return l; });
+  function stop(i){ return top(lead[i]); }
+  all.forEach(function(s,i){ if(i>0) s.classList.add('pg-sec'); else s.classList.add('pg-sec','pg-in'); });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('pg-in'); });},{threshold:0.12});
+  all.forEach(function(s){ io.observe(s); });
+  function off(){ var h=document.querySelector('.hh'); return h?Math.max(0,h.getBoundingClientRect().bottom):0; }
+  function top(el){ return el.getBoundingClientRect().top+scrollY; }
+  var busy=false, acc=0, accT=0;
+  function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+  function go(y){
+    y=Math.max(0,Math.min(y,root.scrollHeight-innerHeight));
+    var s=scrollY, d=y-s; if(Math.abs(d)<2){ return; }
+    busy=true; var dur=Math.min(1100,Math.max(750,Math.abs(d)*0.6)), t0=null, prev=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';
+    function step(ts){ if(!t0) t0=ts; var p=Math.min(1,(ts-t0)/dur); scrollTo(0,s+d*ease(p));
+      if(p<1) requestAnimationFrame(step); else { root.style.scrollBehavior=prev; setTimeout(function(){busy=false;},120); } }
+    requestAnimationFrame(step);
+  }
+  function cur(){ var o=off(), y=scrollY+o+2, c=0; secs.forEach(function(s,i){ if(stop(i)<=y) c=i; }); return c; }
+  function move(dir){
+    var o=off(), i=cur(), s=secs[i], r=s.getBoundingClientRect(), vh=innerHeight;
+    if(dir>0){
+      if(r.bottom>vh+4){ return false; }            /* 긴 구간은 끝까지 평소대로 스크롤 */
+      var n=secs[i+1]; if(!n) return false; go(stop(i+1)-o); return true;
+    } else {
+      if(lead[i].getBoundingClientRect().top<o-4){ return false; }
+      var p=secs[i-1]; if(!p) return false;
+      var ph=p.offsetHeight; go(ph>vh-o+4 ? top(p)+ph-vh : stop(i-1)-o); return true;
+    }
+  }
+  addEventListener('wheel',function(e){
+    if(e.ctrlKey || Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    if(e.target.closest && e.target.closest('.hc-panel,#homiChat,[data-noscrollpage],textarea,select,.mega,.hh-panel')) return;
+    if(busy){ e.preventDefault(); return; }
+    var now=Date.now(); if(now-accT>220) acc=0; accT=now; acc+=e.deltaY;
+    var dir=acc>0?1:-1, o=off(), s=secs[cur()], r=s.getBoundingClientRect();
+    var native = dir>0 ? r.bottom>innerHeight+4 : lead[cur()].getBoundingClientRect().top<o-4;
+    if(native) return;
+    e.preventDefault();
+    if(Math.abs(acc)<25) return;
+    acc=0; move(dir);
+  },{passive:false});
+  addEventListener('keydown',function(e){
+    var t=e.target; if(t && /INPUT|TEXTAREA|SELECT/.test(t.tagName) || (t&&t.isContentEditable)) return;
+    var k=e.key, dir=(k==='PageDown'||k==='ArrowDown'||(k===' '&&!e.shiftKey))?1:(k==='PageUp'||k==='ArrowUp'||(k===' '&&e.shiftKey))?-1:0;
+    if(!dir) return; if(busy){ e.preventDefault(); return; }
+    if(move(dir)) e.preventDefault();
+  });
+})();
+</script>
 </body></html>
