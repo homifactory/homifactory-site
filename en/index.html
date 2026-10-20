@@ -423,6 +423,21 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .strategy-card .plan-tools{text-align:left;align-self:stretch}
 @media(min-width:901px){.strategy-card:not(:last-child)::after{content:"";position:absolute;right:-17px;top:70px;width:14px;height:14px;border-top:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
 @media(max-width:900px){.strategy-card:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-15px;width:12px;height:12px;margin-left:-6px;border-bottom:2.5px solid #8B3DFF;border-right:2.5px solid #8B3DFF;transform:rotate(45deg);z-index:2}}
+/* ③-1 v2: 단계별 결과물·선별 기준·반응 지표 (벤치마크: 피처링·BDB) */
+.wk-crit{align-self:stretch;margin:0 0 16px;padding:14px 14px 12px;border-radius:14px;background:#FAF7F2;border:1px solid #E6E0D6;text-align:left}
+.wk-crit .wk-ck{display:block;font-size:12px;font-weight:800;color:#6B665E;margin-bottom:8px}
+.wk-crit .wk-cr{display:flex;flex-wrap:wrap;gap:6px}
+.wk-crit .wk-cr b{padding:5px 10px;border-radius:8px;background:#fff;border:1px solid #D9C4FF;color:#5B2BB8;font-size:12.5px;font-weight:800}
+.wk-crit .wk-cn{display:block;margin-top:8px;font-size:12px;color:#8B3DFF;font-weight:700}
+.wk-met{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+.wk-met span{padding:5px 11px;border-radius:999px;background:#fff;border:1px solid #E6E0D6;font-size:12px;font-weight:600;color:#3A3A42}
+.wk-out{margin-top:auto;align-self:stretch;display:flex;gap:10px;align-items:flex-start;text-align:left;padding:14px 16px;border-radius:14px;background:#141414;color:#fff}
+.strategy-card .plan-tools+.wk-out,.wk-crit~.wk-out{margin-top:16px}
+.wk-out .wk-k{flex:none;font-size:11px;font-weight:800;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:#C8FF00;color:#141414}
+.wk-out .wk-v{font-size:14px;font-weight:700;line-height:1.5}
+.wk-out .wk-v small{font-size:12px;font-weight:500;color:rgba(255,255,255,.72)}
+.wk-cta{display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#C8FF00;text-decoration:none}
+.wk-cta:hover{text-decoration:underline}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -681,25 +696,30 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> How we work</span>
 <h2>Strategy tailored to your brand,<br><em>proven by results</em></h2>
-<p>What matters isn’t the size of the budget, but which IP, which plan, and what results you aim for.<br>We design it with your brand from start to finish.</p>
+<p>What matters isn’t the size of the budget, but which IP, which plan, and what results you aim for.<br>Four weeks from selection to upload and report — with a deliverable you keep at every step.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>What to say</h3>
 <p>We start by listening to your brand’s story and goals,<br>then build the strongest message on top of them</p>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">A one-page brand diagnosis<br><small>Key message · Target · Goal KPIs</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>How to say it</h3>
 <p>We pick and combine the methods<br>that best fit your goals</p>
+<div class="wk-crit"><span class="wk-ck">Selection criteria · reactions, not followers</span><span class="wk-cr"><b>View rate ≥ 100%</b><b>Comments/Likes ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 2 of 3 met = Rising creator</span></div>
 <div class="svc-chips"><span class="sc">Influencers</span><span class="sc">Visit Promotion</span><span class="sc">Pop-ups</span><span class="sc">Sponsorship</span><span class="sc">Content production</span></div>
 <div class="plan-tools"><span class="pt-k">Tools that go into the plan</span><p>Tailored influencer casting (Korea &amp; overseas) · Overseas influencer recruitment · Local sales channel connection · Pop-ups &amp; offline · Monitoring</p></div>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Creator shortlist<br><small>With view rate &amp; fair-price estimate</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>What remains</h3>
-<p>Measured against the goals we set at the start,<br>we report awareness, sales, and content performance in numbers,<br>and carry it into your next campaign strategy</p>
+<p>We track uploads in real time,<br>measure reactions like saves, comments, and shares in numbers,<br>and carry them into your next campaign strategy</p>
+<div class="wk-met"><span>Views</span><span>Saves</span><span>Comments</span><span>Shares</span><span>Purchase inquiries</span></div>
+<div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Results report + next proposal<br><a class="wk-cta" href="#case">See real cases →</a></span></div>
 </div>
 </div>
 </div>
