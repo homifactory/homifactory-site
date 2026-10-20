@@ -455,7 +455,7 @@ html body .hero h1 span.hl.hl.hl.hl{color:#fff!important}
 #client-logos .logo-marquee-wrap{margin-top:0;padding:28px 0;border-top:0}
 /* 업종 띠: 화면 좌우 끝까지 */
 #team-result{overflow-x:clip}
-#team-result .ind-tk{max-width:none!important;width:100vw;margin-left:calc(50% - 50vw)!important;margin-right:0!important}
+#team-result .ind-tk{max-width:none!important;width:calc(100vw / var(--pz,1));margin-left:calc(50% - 50vw / var(--pz,1))!important;margin-right:0!important}
 /* 일하는 방식: PC에서 한 화면에 (2026-10-20) */
 @media(min-width:1024px){
 #how-we-work{padding:36px 24px 40px}
@@ -1491,18 +1491,33 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 })();
 </script>
 <script id="hww-fit">
-/* 일하는 방식: PC 화면 높이에 맞춰 한 화면에 보이도록 살짝 축소 */
+/* 홈 PC: 넘김 단위(구간 묶음)마다 화면 높이에 딱 맞춤 — 다음 구간이 아래로 비치지 않게.
+   살짝 크면 축소(최소 0.65), 작으면 마지막 구간이 남는 높이를 채움(내용은 세로 가운데). 아주 긴 구간(FAQ 등)은 그대로 스크롤 */
 (function(){
-  var s=document.getElementById('how-we-work'); if(!s) return;
   var mq=matchMedia('(min-width:1024px) and (pointer:fine)');
-  function fit(){ s.style.zoom=''; s.style.minHeight=''; s.style.display=''; if(!mq.matches) return;
-    var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0;
-    var avail=innerHeight-off, cur=s.getBoundingClientRect().height;
-    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3);
-    /* 남는 높이는 섹션이 채워서 다음 구간이 아래로 비치지 않게 (내용은 세로 가운데) */
-    var r=s.getBoundingClientRect().height;
-    if(r<avail){ var k=s.offsetHeight/r; s.style.display='flex'; s.style.flexDirection='column'; s.style.justifyContent='center'; s.style.minHeight=Math.ceil(avail*k)+'px'; } }
-  fit(); addEventListener('load',fit); var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150);});
+  function hgt(g){ return g.reduce(function(a,s){ return a+s.getBoundingClientRect().height; },0); }
+  function fit(){
+    var all=[].slice.call(document.querySelectorAll('body > section, body > footer.hf'));
+    all.forEach(function(s){ s.style.zoom=''; s.style.minHeight=''; s.style.display=''; s.style.flexDirection=''; s.style.justifyContent=''; s.style.removeProperty('--pz'); });
+    if(!mq.matches) return;
+    all=all.filter(function(s){ return s.offsetHeight>0; });
+    var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0, avail=innerHeight-off;
+    var groups=[], g=[];
+    all.forEach(function(s,i){ if(i===0 || s.tagName==='FOOTER') return; g.push(s); if(s.offsetHeight>=innerHeight*0.35){ groups.push(g); g=[]; } });
+    groups.forEach(function(g){
+      var H=hgt(g); if(H>avail/0.65+1) return;
+      for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.65,z);
+        g.forEach(function(s){ s.style.zoom=z.toFixed(4); s.style.setProperty('--pz',z.toFixed(4)); }); H=hgt(g); if(z<=0.65) break; }
+      if(H<avail){ var last=g[g.length-1], r=last.getBoundingClientRect().height, k=last.offsetHeight/r;
+        last.style.display='flex'; last.style.flexDirection='column'; last.style.justifyContent='center';
+        last.style.minHeight=Math.ceil((r+avail-H)*k)+'px'; }
+    });
+  }
+  var t; function later(){ clearTimeout(t); t=setTimeout(fit,150); }
+  fit(); addEventListener('load',fit); addEventListener('resize',later);
+  /* 사례 이미지·로고 등이 늦게 채워지면 다시 맞춤 */
+  document.addEventListener('load',function(e){ if(e.target.tagName==='IMG') later(); },true);
+  setTimeout(fit,1200); setTimeout(fit,3000);
 })();
 </script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
