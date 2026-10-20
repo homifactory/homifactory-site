@@ -759,7 +759,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <figure class="wk-shot"><img src="/assets/WORK-plan-db.jpg" alt="Database kreator kami — dipilih berdasarkan view rate, ER, dan komentar/like, bukan follower" loading="lazy" decoding="async"><figcaption>Tampilan nyata · database kreator kami</figcaption></figure>
 <div class="wk-crit"><span class="wk-ck">Kriteria seleksi · reaksi, bukan follower</span><span class="wk-cr"><b>View rate ≥ 100%</b><b>Komentar/Like ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ Memenuhi 2 dari 3 = Rising creator</span></div>
 <div class="svc-chips"><span class="sc">Influencer</span><span class="sc">Promosi Kunjungan</span><span class="sc">Pop-up</span><span class="sc">Sponsorship</span><span class="sc">Produksi Konten</span></div>
-<div class="plan-tools"><span class="pt-k">Alat yang masuk ke dalam rencana</span><p>Perekrutan influencer khusus (Korea &amp; luar negeri) · Rekrutmen influencer luar negeri · Koneksi kanal penjualan lokal · Pop-up &amp; offline · Monitoring</p></div>
 <div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Daftar kandidat kreator<br> <small>Termasuk view rate &amp; estimasi harga wajar</small></span></div>
 </div>
 <div class="strategy-card">
@@ -1108,7 +1107,6 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
 <div id="stickyAsk" class="">
-  <span class="text" data-k="bar.t">Produk kami cocok dijual di negara mana?</span>
   <a href="/id/contact.html" class="cta">Konsultasi Gratis</a>
 </div><script>
 (function(){
@@ -1321,6 +1319,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 <style>@media(max-width:700px){.stat-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}.stat-grid>div{padding:24px 10px!important}.stat-grid>div>div:first-child{font-size:34px!important}}
 @media(max-width:900px){.mgr-grid{grid-template-columns:repeat(3,1fr)!important}}@media(max-width:560px){.mgr-grid{grid-template-columns:repeat(2,1fr)!important}}
+/* 하단 상담 버튼: 문구 삭제, 버튼만 톡 버튼 왼쪽에 */
+#stickyAsk{left:auto!important;right:112px!important;transform:none!important;bottom:40px!important;width:auto!important;max-width:none!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;margin:0!important;z-index:10009!important}
+#stickyAsk .cta{display:inline-flex;align-items:center;height:44px;padding:0 22px!important;box-shadow:0 10px 28px rgba(20,20,20,.35)}
+@media(max-width:600px){#stickyAsk{right:86px!important;bottom:22px!important}}
 </style>
 <script id="hv-js">
 /* FR-COM-015 히어로 배경 영상 — 정지 이미지 먼저, 영상은 페이지가 다 뜬 뒤 재생. 화면 밖·탭 숨김이면 일시정지.
