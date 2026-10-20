@@ -189,7 +189,7 @@
   function drawBanner(B) {
     if (B.show === false) { ban.hidden = true; return; }
     ban.hidden = false;
-    var COVER = '<svg viewBox="0 0 48 64" aria-hidden="true"><rect width="48" height="64" rx="3" fill="#8B3DFF"/>' +
+    var COVER = '<svg viewBox="0 0 48 64" aria-hidden="true"><rect width="48" height="64" rx="3" fill="#141414"/>' +
       '<g fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"><circle cx="24" cy="25" r="13"/><ellipse cx="24" cy="25" rx="6" ry="13"/><path d="M11 25h26M13 18.5h22M13 31.5h22"/></g>' +
       '<circle cx="29.5" cy="20" r="1.9" fill="#FFC53D"/><circle cx="17.5" cy="28" r="1.6" fill="#FFC53D"/><circle cx="31" cy="31" r="1.6" fill="#FFC53D"/>' +
       '<text x="5" y="47" textLength="38" lengthAdjust="spacingAndGlyphs" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="4.4" fill="#fff">GLOBAL MARKETING</text>' +
