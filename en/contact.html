@@ -409,6 +409,11 @@ document.addEventListener('DOMContentLoaded', function(){
   chips.forEach(c => c.addEventListener('click', function(){ this.classList.toggle('active'); updateHidden(); }));
   // Preselect from URL ?direction=
   const params = new URLSearchParams(location.search);
+  /* 히어로 '크리에이터 후보 무료로 받아보기'에서 들어옴: ?req=shortlist */
+  if (params.get('req')==='shortlist') {
+    var sj=document.querySelector('input[name="_subject"]'); if (sj) sj.value=sj.value.replace('신규 상담 신청','크리에이터 후보 리스트 요청');
+    var gl=document.querySelector('textarea[name="이루고 싶은 목표"]'); if (gl && !gl.value) gl.value='I’d like a shortlist of creators that fit my brand category';
+  }
   const dir = params.get('direction');
   if (/^[123]$/.test(dir||'')) {   /* Home ⑦ 방향 카드에서 들어옴: 1 한국→세계 · 2 세계→한국·아시아 · 3 국내 시장 */
     const r = document.querySelectorAll('.direction-radio input')[+dir - 1];
