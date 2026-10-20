@@ -89,7 +89,7 @@
    "name": "",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "청담유식",
@@ -101,43 +101,43 @@
    "name": "[고객사 로고]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[해외 브랜드]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[고객사 로고]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[해외 브랜드]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[고객사 로고]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[해외 브랜드]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   },
   {
    "name": "[고객사 로고]",
    "src": "",
    "row": 2,
-   "hidden": false
+   "hidden": true
   }
  ],
  "industries": [
