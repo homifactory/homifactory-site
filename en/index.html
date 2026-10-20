@@ -438,6 +438,13 @@ body[data-site] .logo-card.lc-img:hover,.logo-card.lc-img:hover{background:trans
 .wk-out .wk-v small{font-size:12px;font-weight:500;color:rgba(255,255,255,.72)}
 .wk-cta{display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#B98CFF;text-decoration:none}
 .wk-cta:hover{text-decoration:underline}
+/* ③-1 v3: 실제 리포트·운영 화면 */
+.wk-shot{align-self:stretch;margin:0 0 16px;border-radius:12px;overflow:hidden;border:1px solid #E6E0D6;background:#fff;box-shadow:0 6px 18px rgba(20,20,20,.06);text-align:left}
+.wk-shot img{display:block;width:100%;height:auto}
+.wk-shot figcaption{display:flex;align-items:center;gap:6px;padding:7px 10px;font-size:11.5px;font-weight:700;color:#6B665E;border-top:1px solid #F0EBE3;background:#FAF7F2}
+.wk-wide{max-width:1000px;margin:28px auto 0}
+.wk-wide figcaption{font-size:13px;padding:10px 14px}
+.wk-shot figcaption::before{content:"";width:6px;height:6px;border-radius:50%;background:#8B3DFF;flex:none}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -703,6 +710,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>What to say</h3>
 <p>We start by listening to your brand’s story and goals,<br>then build the strongest message on top of them</p>
+<figure class="wk-shot"><img src="/assets/WORK-ip-strategy.jpg" alt="From a real report · positioning by target" loading="lazy" decoding="async"><figcaption>From a real report · positioning by target</figcaption></figure>
 <div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">A one-page brand diagnosis<br><small>Key message · Target · Goal KPIs</small></span></div>
 </div>
 <div class="strategy-card">
@@ -718,10 +726,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>What remains</h3>
 <p>We track uploads in real time,<br>measure reactions like saves, comments, and shares in numbers,<br>and carry them into your next campaign strategy</p>
+<figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="From a real report · per-creator results" loading="lazy" decoding="async"><figcaption>From a real report · per-creator results</figcaption></figure>
 <div class="wk-met"><span>Views</span><span>Saves</span><span>Comments</span><span>Shares</span><span>Purchase inquiries</span></div>
 <div class="wk-out"><span class="wk-k">You get</span><span class="wk-v">Results report + next proposal<br><a class="wk-cta" href="#case">See real cases →</a></span></div>
 </div>
 </div>
+<figure class="wk-shot wk-wide"><img src="/assets/WORK-plan-db.jpg" alt="Our live creator database — we pick by view rate, ER and comments/likes, not followers" loading="lazy" decoding="async"><figcaption>Our live creator database — we pick by view rate, ER and comments/likes, not followers</figcaption></figure>
 </div>
 </section>
 
