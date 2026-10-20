@@ -1495,10 +1495,13 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 (function(){
   var s=document.getElementById('how-we-work'); if(!s) return;
   var mq=matchMedia('(min-width:1024px) and (pointer:fine)');
-  function fit(){ s.style.zoom=''; if(!mq.matches) return;
+  function fit(){ s.style.zoom=''; s.style.minHeight=''; s.style.display=''; if(!mq.matches) return;
     var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0;
     var avail=innerHeight-off, cur=s.getBoundingClientRect().height;
-    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3); }
+    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3);
+    /* 남는 높이는 섹션이 채워서 다음 구간이 아래로 비치지 않게 (내용은 세로 가운데) */
+    var r=s.getBoundingClientRect().height;
+    if(r<avail){ var k=s.offsetHeight/r; s.style.display='flex'; s.style.flexDirection='column'; s.style.justifyContent='center'; s.style.minHeight=Math.ceil(avail*k)+'px'; } }
   fit(); addEventListener('load',fit); var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150);});
 })();
 </script>
