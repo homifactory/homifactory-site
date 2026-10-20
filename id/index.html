@@ -455,6 +455,42 @@ html body .hero h1 span.hl.hl.hl.hl{color:#fff!important}
 /* 업종 띠: 화면 좌우 끝까지 */
 #team-result{overflow-x:clip}
 #team-result .ind-tk{max-width:none!important;width:100vw;margin-left:calc(50% - 50vw)!important;margin-right:0!important}
+/* 일하는 방식: PC에서 한 화면에 (2026-10-20) */
+@media(min-width:1024px){
+#how-we-work{padding:36px 24px 40px}
+#how-we-work .strategy-head{margin-bottom:22px}
+#how-we-work .strategy-badge{margin-bottom:8px}
+#how-we-work .strategy-head h2{font-size:30px;line-height:1.25}
+#how-we-work .strategy-head h2 br{display:none}
+#how-we-work .strategy-head p{font-size:14px;margin-top:8px;line-height:1.55}
+#how-we-work .strategy-head p br{display:none}
+#how-we-work .strategy-grid{gap:18px;align-items:stretch}
+#how-we-work .strategy-card{padding:18px 18px 18px;text-align:left;align-items:stretch}
+#how-we-work .strategy-card .kw-ic{display:none}
+#how-we-work .strategy-card .kw{align-self:flex-start;margin-bottom:8px}
+#how-we-work .strategy-card h3{font-size:19px;margin-bottom:4px}
+#how-we-work .strategy-card > p{font-size:13px;line-height:1.55;margin-bottom:10px}
+#how-we-work .strategy-card > p br{display:none}
+#how-we-work .wk-shot{margin:0 0 10px}
+#how-we-work .wk-shot img{height:150px;object-fit:cover;object-position:top center}
+#how-we-work .wk-shot figcaption{padding:5px 9px;font-size:11px}
+#how-we-work .wk-crit{margin:0 0 8px;padding:9px 10px}
+#how-we-work .wk-crit .wk-ck{margin-bottom:5px}
+#how-we-work .wk-crit .wk-cr b{padding:3px 7px;font-size:11.5px}
+#how-we-work .wk-crit .wk-cn{margin-top:5px}
+#how-we-work .svc-chips{justify-content:flex-start;margin-bottom:8px}
+#how-we-work .svc-chips .sc{padding:3px 9px;font-size:11px}
+#how-we-work .plan-tools{padding-top:8px}
+#how-we-work .plan-tools p{font-size:12px!important;line-height:1.5!important}
+#how-we-work .wk-met{justify-content:flex-start;margin-bottom:8px;gap:5px}
+#how-we-work .wk-met span{padding:3px 9px;font-size:11px}
+#how-we-work .wk-out{margin-top:auto;padding:10px 12px}
+#how-we-work .strategy-card .plan-tools+.wk-out,#how-we-work .wk-crit~.wk-out{margin-top:10px}
+#how-we-work .wk-out .wk-v{font-size:13px}
+#how-we-work .wk-out .wk-v small{font-size:11px}
+#how-we-work .wk-cta{margin-top:4px}
+@media(min-width:901px){#how-we-work .strategy-card:not(:last-child)::after{top:50%}}
+}
 /* ③-2 한 팀으로 만든 결과 */
 .team-section{background:#fff}
 .team-section .strategy-head{margin-bottom:36px}
@@ -698,13 +734,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
 
 <!-- ② 고객사 로고 -->
-<section class="section gray" id="client-logos">
-
-<div class="logo-marquee-wrap" aria-label="Logo klien">
-  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">Hachuping · Teenieping</div><div class="logo-card" role="listitem">DB Insurance</div><div class="logo-card" role="listitem">Suwon Saebit Ingang</div><div class="logo-card" role="listitem">Cheongdam Yusik</div><div class="logo-card" role="listitem">Seongsu Duda</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div></div>
-  <div class="marquee-row right" role="list"></div>
-</div>
-</section>
 
 
 <!-- ③-1 우리가 일하는 방식 · IP→PLAN→RESULT (How We Work 이동 위치) — FR-MKT-028 -->
@@ -712,36 +741,44 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <div class="strategy-wrap">
 <div class="strategy-head">
 <span class="strategy-badge"><span class="star">✦</span> Cara kami bekerja</span>
-<h2>Bicara lewat hasil,<br><em>strategi yang dirancang khusus untuk brand Anda</em></h2>
-<p>Yang penting bukan besarnya anggaran, melainkan IP apa, dengan rencana apa, dan hasil seperti apa yang ingin dicapai.<br>Empat minggu dari seleksi hingga upload dan laporan — dengan hasil nyata di setiap tahap.</p>
+<h2>Bicara lewat hasil,<br> <em>strategi yang dirancang khusus untuk brand Anda</em></h2>
+<p>Yang penting bukan besarnya anggaran, melainkan IP apa, dengan rencana apa, dan hasil seperti apa yang ingin dicapai.<br> Empat minggu dari seleksi hingga upload dan laporan — dengan hasil nyata di setiap tahap.</p>
 </div>
 <div class="strategy-grid">
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></span><span class="kw">IP</span>
 <h3>Apa yang ingin disampaikan</h3>
-<p>Kami mendengarkan cerita dan tujuan brand terlebih dahulu,<br>lalu menemukan pesan terkuat di atasnya</p>
+<p>Kami mendengarkan cerita dan tujuan brand terlebih dahulu,<br> lalu menemukan pesan terkuat di atasnya</p>
 <figure class="wk-shot"><img src="/assets/WORK-ip-strategy.jpg" alt="Dari laporan nyata · positioning per target" loading="lazy" decoding="async"><figcaption>Dari laporan nyata · positioning per target</figcaption></figure>
-<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Diagnosis brand 1 halaman<br><small>Pesan inti · Target · KPI tujuan</small></span></div>
+<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Diagnosis brand 1 halaman<br> <small>Pesan inti · Target · KPI tujuan</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H14a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h5.8"/></svg></span><span class="kw">PLAN</span>
 <h3>Bagaimana menyampaikannya</h3>
-<p>Kami memilih dan memadukan cara<br>yang paling tepat untuk mencapai target</p>
+<p>Kami memilih dan memadukan cara<br> yang paling tepat untuk mencapai target</p>
+<figure class="wk-shot"><img src="/assets/WORK-plan-db.jpg" alt="Database kreator kami — dipilih berdasarkan view rate, ER, dan komentar/like, bukan follower" loading="lazy" decoding="async"><figcaption>Tampilan nyata · database kreator kami</figcaption></figure>
 <div class="wk-crit"><span class="wk-ck">Kriteria seleksi · reaksi, bukan follower</span><span class="wk-cr"><b>View rate ≥ 100%</b><b>Komentar/Like ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ Memenuhi 2 dari 3 = Rising creator</span></div>
 <div class="svc-chips"><span class="sc">Influencer</span><span class="sc">Promosi Kunjungan</span><span class="sc">Pop-up</span><span class="sc">Sponsorship</span><span class="sc">Produksi Konten</span></div>
 <div class="plan-tools"><span class="pt-k">Alat yang masuk ke dalam rencana</span><p>Perekrutan influencer khusus (Korea &amp; luar negeri) · Rekrutmen influencer luar negeri · Koneksi kanal penjualan lokal · Pop-up &amp; offline · Monitoring</p></div>
-<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Daftar kandidat kreator<br><small>Termasuk view rate &amp; estimasi harga wajar</small></span></div>
+<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Daftar kandidat kreator<br> <small>Termasuk view rate &amp; estimasi harga wajar</small></span></div>
 </div>
 <div class="strategy-card">
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>Apa yang tersisa</h3>
-<p>Kami memantau upload secara real-time,<br>mengukur reaksi seperti simpan, komentar, dan bagikan dalam angka,<br>lalu melanjutkannya ke strategi kampanye berikutnya</p>
+<p>Kami memantau upload secara real-time,<br> mengukur reaksi seperti simpan, komentar, dan bagikan dalam angka,<br> lalu melanjutkannya ke strategi kampanye berikutnya</p>
 <figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="Dari laporan nyata · hasil per kreator" loading="lazy" decoding="async"><figcaption>Dari laporan nyata · hasil per kreator</figcaption></figure>
 <div class="wk-met"><span>Views</span><span>Simpan</span><span>Komentar</span><span>Bagikan</span><span>Pertanyaan pembelian</span></div>
-<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Laporan hasil + usulan berikutnya<br><a class="wk-cta" href="#case">Lihat kasus nyata →</a></span></div>
+<div class="wk-out"><span class="wk-k">Yang Anda terima</span><span class="wk-v">Laporan hasil + usulan berikutnya<br> <a class="wk-cta" href="#case">Lihat kasus nyata →</a></span></div>
 </div>
 </div>
-<figure class="wk-shot wk-wide"><img src="/assets/WORK-plan-db.jpg" alt="Database kreator kami — dipilih berdasarkan view rate, ER, dan komentar/like, bukan follower" loading="lazy" decoding="async"><figcaption>Database kreator kami — dipilih berdasarkan view rate, ER, dan komentar/like, bukan follower</figcaption></figure>
+</div>
+</section>
+
+<section class="section gray" id="client-logos">
+
+<div class="logo-marquee-wrap" aria-label="Logo klien">
+  <div class="marquee-row left" role="list"><div class="logo-card" role="listitem">Hachuping · Teenieping</div><div class="logo-card" role="listitem">DB Insurance</div><div class="logo-card" role="listitem">Suwon Saebit Ingang</div><div class="logo-card" role="listitem">Cheongdam Yusik</div><div class="logo-card" role="listitem">Seongsu Duda</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div><div class="logo-card" role="listitem">[Logo klien]</div></div>
+  <div class="marquee-row right" role="list"></div>
 </div>
 </section>
 
@@ -1448,6 +1485,18 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   els.forEach(function(el){ el.textContent='0'; });
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.unobserve(e.target); run(e.target); } }); },{threshold:.4});
   els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script id="hww-fit">
+/* 일하는 방식: PC 화면 높이에 맞춰 한 화면에 보이도록 살짝 축소 */
+(function(){
+  var s=document.getElementById('how-we-work'); if(!s) return;
+  var mq=matchMedia('(min-width:1024px) and (pointer:fine)');
+  function fit(){ s.style.zoom=''; if(!mq.matches) return;
+    var h=document.querySelector('.hh'), off=h?Math.max(0,h.getBoundingClientRect().bottom):0;
+    var avail=innerHeight-off, cur=s.getBoundingClientRect().height;
+    if(cur>avail) s.style.zoom=Math.max(.7,avail/cur).toFixed(3); }
+  fit(); addEventListener('load',fit); var t; addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150);});
 })();
 </script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
