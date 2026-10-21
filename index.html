@@ -766,7 +766,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <span class="kw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span class="kw">RESULT</span>
 <h3>무엇이 남을까</h3>
 <p>업로드를 실시간으로 추적하고,<br> 저장·댓글·공유 같은 &lsquo;반응&rsquo;을 숫자로 확인해<br> 다음 캠페인 전략까지 이어갑니다</p>
-<figure class="wk-shot"><img src="/assets/WORK-result-creator.jpg" alt="실제 리포트 · 크리에이터별 성과" loading="lazy" decoding="async"><figcaption>실제 리포트 · 크리에이터별 성과</figcaption></figure>
+<figure class="wk-shot"><img src="/assets/WORK-result-creator-v2.jpg" alt="실제 리포트 · 크리에이터별 성과" loading="lazy" decoding="async"><figcaption>실제 리포트 · 크리에이터별 성과</figcaption></figure>
 <div class="wk-met"><span>조회</span><span>저장</span><span>댓글</span><span>공유</span><span>구매 문의</span></div>
 <div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">결과 리포트 + 다음 제안<br> <a class="wk-cta" href="#case">실제 사례 보기 →</a></span></div>
 </div>
@@ -1056,7 +1056,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   </div>
 </section>
 
-<section class="final-cta" data-pg-fill>
+<section class="final-cta" data-pg-fill data-pg-stop>
   <div class="final-cta-inner">
     <h2 data-k="final.t">어느 나라부터 시작할지,<br><span class="hl">상담에서 함께 정합니다</span></h2>
     <a href="/contact.html" class="big-cta">무료 상담 받기 →</a>
@@ -1507,6 +1507,7 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
     var groups=[], g=[];
     all.forEach(function(s,i){ if(i===0 || (s.tagName==='FOOTER' && !s.hasAttribute('data-pg-join'))) return;
       if(s.hasAttribute('data-pg-join') && !g.length && groups.length){ groups[groups.length-1].push(s); return; } g.push(s); if(s.offsetHeight>=innerHeight*0.35 || s.hasAttribute('data-pg-stop')){ groups.push(g); g=[]; } });
+    if(g.length) groups.push(g);
     groups.forEach(function(g){
       var H=hgt(g); if(H>avail/0.65+1) return;
       for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.65,z);
@@ -1629,13 +1630,13 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 @media(min-width:1024px){
   #faq{padding:40px 32px 36px!important}
   #faq .section-head{margin-bottom:0!important}
-  #faq .section-head h2{font-size:clamp(28px,2.6vw,40px)!important;margin-bottom:0!important}
-  #faq .faq-list{zoom:1!important;max-width:1180px;margin:24px auto 0;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;align-items:start}
-  #faq .faq-item summary{padding:15px 6px;gap:12px}
-  #faq .faq-item summary::before{font-size:14px}
-  #faq .faq-item summary .qtxt{font-size:14.5px}
-  #faq .faq-item summary::after{font-size:20px}
-  #faq .faq-item .ans{padding:0 6px 16px;font-size:13.5px;line-height:1.65}
+  #faq .section-head h2{font-size:clamp(34px,3vw,48px)!important;margin-bottom:0!important}
+  #faq .faq-list{zoom:1!important;max-width:1240px;margin:32px auto 0;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;align-items:start}
+  #faq .faq-item summary{padding:20px 8px;gap:14px}
+  #faq .faq-item summary::before{font-size:18px}
+  #faq .faq-item summary .qtxt{font-size:19px}
+  #faq .faq-item summary::after{font-size:26px}
+  #faq .faq-item .ans{padding:0 8px 20px;font-size:16.5px;line-height:1.7}
 }
 </style>
 <script id="faq-one-js">
