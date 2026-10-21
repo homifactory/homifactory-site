@@ -1694,7 +1694,9 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   all.forEach(function(s){ io.observe(s); });
   function off(){ var h=document.querySelector('.hh'); return h?Math.max(0,h.getBoundingClientRect().bottom):0; }
   function top(el){ return el.getBoundingClientRect().top+scrollY; }
-  var busy=false, acc=0, accT=0;
+  var busy=false, acc=0, accT=0, lastW=0;
+  /* 관성 스크롤(트랙패드·부드러운 휠)이 끝날 때까지 다음 넘김을 막아 한 화면씩만 넘어가게 */
+  function release(){ var t=Date.now()-lastW; if(t>=240) busy=false; else setTimeout(release,250-t); }
   function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
   function go(y){
     y=Math.max(0,Math.min(y,root.scrollHeight-innerHeight));
@@ -1702,7 +1704,7 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
     busy=true; var dur=Math.min(1100,Math.max(750,Math.abs(d)*0.6)), t0=null, prev=root.style.scrollBehavior;
     root.style.scrollBehavior='auto';
     function step(ts){ if(!t0) t0=ts; var p=Math.min(1,(ts-t0)/dur); scrollTo(0,s+d*ease(p));
-      if(p<1) requestAnimationFrame(step); else { root.style.scrollBehavior=prev; setTimeout(function(){busy=false;},120); } }
+      if(p<1) requestAnimationFrame(step); else { root.style.scrollBehavior=prev; setTimeout(release,120); } }
     requestAnimationFrame(step);
   }
   function cur(){ var o=off(), y=scrollY+o+2, c=0; secs.forEach(function(s,i){ if(stop(i)<=y) c=i; }); return c; }
@@ -1720,7 +1722,7 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   addEventListener('wheel',function(e){
     if(e.ctrlKey || Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
     if(e.target.closest && e.target.closest('.hc-panel,#homiChat,[data-noscrollpage],textarea,select,.mega,.hh-panel')) return;
-    if(busy){ e.preventDefault(); return; }
+    lastW=Date.now(); if(busy){ acc=0; e.preventDefault(); return; }
     var now=Date.now(); if(now-accT>220) acc=0; accT=now; acc+=e.deltaY;
     var dir=acc>0?1:-1, o=off(), s=secs[cur()], r=s.getBoundingClientRect();
     var native = dir>0 ? r.bottom>innerHeight+4 : lead[cur()].getBoundingClientRect().top<o-4;
