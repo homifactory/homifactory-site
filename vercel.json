@@ -90,7 +90,7 @@
     },
     {
       "source": "/service-global",
-      "destination": "/global",
+      "destination": "/",
       "permanent": true
     },
     {
