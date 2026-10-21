@@ -1641,9 +1641,11 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 <style id="tail-join-css">
 @media(min-width:1024px) and (pointer:fine){
   /* 분류 띠: 화면 하단에 딱 붙게 */
-  #team-result{justify-content:flex-start!important;padding-bottom:0!important}
-  #team-result .strategy-wrap{margin-top:auto;margin-bottom:auto}
-  #team-result .industry-strip{margin-top:auto!important;padding-bottom:14px!important}
+  #team-result{justify-content:flex-start!important;padding-top:36px!important;padding-bottom:0!important}
+  #team-result .strategy-wrap{flex:0 0 auto;width:100%}
+  #team-result .industry-strip{flex:1 1 auto;display:flex;flex-direction:column;margin-top:0!important;padding:0 0 14px!important;max-width:none!important;width:100%}
+  /* 업종 문구: 크게, 위 박스와 아래 분류 띠 사이 가운데 */
+  #team-result .industry-strip h3{margin:auto 0!important;padding:16px 24px;font-size:clamp(22px,1.9vw,30px)!important;font-weight:800!important;letter-spacing:-.02em}
   /* 숏폼 카드 조금 작게 (사례와 한 화면) */
   #mkt-shorts .hs-card{flex-basis:170px!important;width:170px!important;height:300px!important}
   #case .camp-body{padding-top:14px!important;padding-bottom:14px!important}
