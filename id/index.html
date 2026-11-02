@@ -730,6 +730,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
   </div>
+  <div class="hv-stats" role="list" aria-label="Rekam jejak HOMI FACTORY"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="300" data-sep=",">300</span><small>jt+</small></div><div class="hv-lbl">Total tayangan konten</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="60" data-sep=",">60</span><small>+</small></div><div class="hv-lbl">Klien</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="2600" data-sep=".">2.600</span><small>+</small></div><div class="hv-lbl">Kreator berkolaborasi</div></div></div>
 </section>
 
 
@@ -912,6 +913,18 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 
 
 
+<section class="tl-section" id="tiktok-live">
+  <div class="tl-inner">
+    <div class="tl-text reveal">
+      <div class="tl-eb">TikTok LIVE · Group LIVE</div>
+      <h2>TikTok LIVE juga, dalam <span class="hl">satu tim</span></h2>
+      <p class="tl-lead">Rekrutmen dan pengembangan kreator LIVE serta operasional group live ditangani bersama SNP Company, agensi TikTok LIVE kami.</p>
+      <div class="tl-cards"><div class="tl-card"><div class="tl-k">LIVE AGENCY</div><h3>Agensi TikTok LIVE</h3><p>Dari rekrutmen kreator dan onboarding 4 minggu hingga perencanaan siaran dan pengelolaan data oleh manajer khusus — kami mendampingi sampai kreator berkembang.</p><div class="tl-tags"><span>Manajer khusus</span><span>Onboarding 4 minggu</span><span>Pengelolaan data LIVE</span></div></div><div class="tl-card"><div class="tl-k">GROUP LIVE</div><h3>Group LIVE</h3><p>Kami merencanakan, memandu, dan mengoperasikan group live yang menghadirkan beberapa kreator dalam satu siaran.</p><div class="tl-tags"><span>Perencanaan siaran</span><span>Susunan kreator</span><span>Operasional lapangan</span></div></div></div>
+      <div class="tl-ctas"><a class="tl-btn pri" href="/snp" target="_blank" rel="noopener">Kunjungi SNP COMPANY ↗</a><a class="tl-btn sec" href="/snp#apply" target="_blank" rel="noopener">Daftar sebagai kreator LIVE →</a></div>
+    </div>
+    <figure class="tl-phone reveal" aria-label="Contoh layar LIVE"><div class="tl-live"><b>LIVE</b><i>GROUP</i></div><figcaption>Contoh layar LIVE</figcaption><div class="tl-grid"><span></span><span></span><span></span><span></span></div><div class="tl-chat"><span></span><span></span><span></span></div></figure>
+  </div>
+</section>
 <section class="hs-shorts" id="case" data-pg-stop aria-label="Video pendek buatan HOMI"><span id="campaigns" aria-hidden="true"></span><span id="mkt-shorts" aria-hidden="true"></span>
   <div class="section-head reveal"><h2>Studi <span class="hl">kasus</span> klien</h2></div>
   <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
@@ -1679,6 +1692,61 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 @media (max-width:900px),(hover:none){#case .hs-viewport{overflow:hidden;scroll-snap-type:none}}
 @media (max-width:600px){#case.hs-shorts{padding:44px 0 32px}#case .hs-card{--h:180px}#case .hs-track{gap:10px}#case .hs-row + .hs-row{margin-top:10px}}
 </style>
+<style id="hv-stats-css">
+/* 히어로 하단 누적 숫자 카운터 */
+section.hero.hv{padding-bottom:140px!important}
+.hv-stats{position:absolute;left:0;right:0;bottom:0;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(12,12,12,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.16)}
+.hv-stat{padding:18px 12px 20px;text-align:center;color:#fff}
+.hv-stat + .hv-stat{border-left:1px solid rgba(255,255,255,.14)}
+.hv-num{font-size:clamp(26px,2.6vw,40px);font-weight:900;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.hv-num small{font-size:.62em;font-weight:800;margin-left:2px}
+.hv-lbl{margin-top:6px;font-size:13px;font-weight:600;color:rgba(255,255,255,.78)}
+@media(max-width:600px){section.hero.hv{padding-bottom:112px!important}.hv-stat{padding:14px 6px 16px}.hv-lbl{font-size:11px}}
+/* 틱톡 라이브 · 그룹라이브 */
+.tl-section{background:#141414;color:#fff;padding:72px 32px;overflow:hidden}
+.tl-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.tl-eb{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:13px;font-weight:800;letter-spacing:.04em}
+.tl-eb::before{content:"";width:8px;height:8px;border-radius:50%;background:#FF3B5C;box-shadow:0 0 0 4px rgba(255,59,92,.25)}
+.tl-section h2{font-size:clamp(30px,3.2vw,48px);font-weight:900;line-height:1.25;letter-spacing:-.03em;margin:20px 0 14px}
+.tl-section h2 .hl{color:#BDBDBD}
+.tl-lead{font-size:16px;line-height:1.7;color:rgba(255,255,255,.75);max-width:560px}
+.tl-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.tl-card{background:#1E1E1E;border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px 24px}
+.tl-k{font-size:12px;font-weight:800;letter-spacing:.12em;color:rgba(255,255,255,.55)}
+.tl-card h3{font-size:22px;font-weight:800;margin:8px 0 10px}
+.tl-card p{font-size:14.5px;line-height:1.65;color:rgba(255,255,255,.75);margin:0}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tl-tags span{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.tl-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tl-btn{display:inline-flex;align-items:center;padding:15px 26px;border-radius:999px;font-size:15px;font-weight:800}
+.tl-btn.pri{background:#fff;color:#141414}.tl-btn.pri:hover{background:#E6E6E6}
+.tl-btn.sec{border:1px solid rgba(255,255,255,.4);color:#fff}.tl-btn.sec:hover{background:rgba(255,255,255,.08)}
+.tl-phone{justify-self:center;width:min(300px,100%);aspect-ratio:9/17;border-radius:36px;background:linear-gradient(160deg,#2A2A2A,#0E0E0E);border:8px solid #2C2C2C;box-shadow:0 30px 70px rgba(0,0,0,.55);position:relative;overflow:hidden}
+.tl-phone .tl-live{position:absolute;top:18px;left:16px;display:flex;gap:6px;align-items:center;font-size:12px;font-weight:800}
+.tl-phone .tl-live b{background:#FF3B5C;padding:3px 8px;border-radius:6px}
+.tl-phone .tl-live i{font-style:normal;background:rgba(255,255,255,.18);padding:3px 8px;border-radius:6px}
+.tl-phone .tl-grid{position:absolute;inset:56px 14px 96px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tl-phone .tl-grid span{border-radius:12px;background:linear-gradient(150deg,#3A3A3A,#1A1A1A);position:relative}
+.tl-phone .tl-grid span::after{content:"";position:absolute;left:50%;top:42%;width:34%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:#4A4A4A}
+.tl-phone .tl-chat{position:absolute;left:14px;right:14px;bottom:18px;display:grid;gap:6px}
+.tl-phone .tl-chat span{height:10px;border-radius:6px;background:rgba(255,255,255,.18)}
+.tl-phone .tl-chat span:nth-child(2){width:70%}.tl-phone .tl-chat span:nth-child(3){width:45%}
+.tl-phone figcaption{position:absolute;right:14px;top:20px;font-size:10.5px;color:rgba(255,255,255,.5)}
+@media(max-width:900px){.tl-section{padding:64px 20px}.tl-inner{grid-template-columns:1fr;gap:36px}.tl-cards{grid-template-columns:1fr}.tl-phone{width:220px}}
+</style>
+<script id="hv-stats-js">
+/* 카운터: 화면에 보이면 0부터 올라감 */
+(function(){ var els=[].slice.call(document.querySelectorAll('.hv-num [data-to]')); if(!els.length) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n,sep){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep); }
+  function run(el){ var to=+el.dataset.to, sep=el.dataset.sep||',', t0=null, d=1400;
+    if(reduce){ el.textContent=fmt(to,sep); return; }
+    function step(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/d), e=1-Math.pow(1-p,3); el.textContent=fmt(Math.round(to*e),sep); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step); }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }); },{threshold:.4});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
 <style id="pg-css">
 @media (min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
