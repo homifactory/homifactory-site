@@ -730,7 +730,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
     </div>
   </div>
-  <div class="hv-stats" role="list" aria-label="HOMI FACTORY track record"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="300" data-sep=",">300</span><small>M+</small></div><div class="hv-lbl">Total content views</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="60" data-sep=",">60</span><small>+</small></div><div class="hv-lbl">Brands we worked with</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="2600" data-sep=",">2,600</span><small>+</small></div><div class="hv-lbl">Partner creators</div></div></div>
+  <div class="hv-stats" role="list" aria-label="HOMI FACTORY track record"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="300" data-sep=",">300</span><small>M+</small></div><div class="hv-lbl">Total content views</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="62" data-sep=",">62</span><small>+</small></div><div class="hv-lbl">Brands we worked with</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="2600" data-sep=",">2,600</span><small>+</small></div><div class="hv-lbl">Partner creators</div></div></div>
 </section>
 
 
@@ -791,7 +791,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <p>For every brand category, we directly manage and connect the creators who deliver the best results</p>
 </div>
 <div class="strategy-stats">
-<div class="strategy-stat"><div class="st-k">Partner creators</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">Full network · <b>12,000+</b> under direct contract, managed by category</div></div>
+<div class="strategy-stat"><div class="st-k">Creator network</div><div class="num"><span class="cu" data-to="40000">40,000</span>+</div><div class="lbl">Full network · <b>12,000+</b> under direct contract, managed by category</div></div>
 <div class="strategy-stat"><div class="st-k">Global hubs</div><div class="num"><span class="cu" data-to="8">8</span><span class="u"> hubs</span></div><div class="lbl">Our Indonesia office plus a worldwide partner network</div></div>
 <div class="strategy-stat hl"><div class="st-k">Brands we worked with in 2026</div><div class="num"><span class="cu" data-to="62">62</span>+</div><div class="lbl">Brands whose challenges we heard and whose goals we set together</div></div>
 </div>
@@ -1745,6 +1745,78 @@ section.hero.hv{padding-bottom:140px!important}
     requestAnimationFrame(step); }
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }); },{threshold:.4});
   els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<style id="fix-1102-css">
+/* 디자인 크리틱 반영 (2026-11-02) */
+/* 섹션 제목 크기 통일 */
+#how-we-work .strategy-head h2,#team-result .strategy-head h2,#partner .section-head h2,#directions .section-head h2,.network-section .network-text h2,.tl-section h2,#case .section-head h2,#faq .section-head h2{font-size:clamp(28px,2.7vw,42px)!important;line-height:1.25!important;letter-spacing:-.03em}
+/* 배경 리듬: 사례(흰색) 다음 FAQ는 베이지 */
+#faq{background:#FAF7F2!important}
+/* LIVE 배지 대비 */
+.tl-eb::before{background:#D1123B}.tl-phone .tl-live b{background:#D1123B}
+/* 틱톡 라이브 휴대폰 화면: 방송 중인 느낌 */
+.tl-phone .tl-grid span:nth-child(1){background:linear-gradient(150deg,#4B3A55,#1C1A22)}
+.tl-phone .tl-grid span:nth-child(2){background:linear-gradient(150deg,#3A4A55,#191E22)}
+.tl-phone .tl-grid span:nth-child(3){background:linear-gradient(150deg,#55463A,#221D19)}
+.tl-phone .tl-grid span:nth-child(4){background:linear-gradient(150deg,#3A5545,#19221D)}
+.tl-phone .tl-grid span::before{content:"";position:absolute;left:8px;bottom:8px;width:38%;height:6px;border-radius:4px;background:rgba(255,255,255,.35)}
+.tl-phone .tl-view{position:absolute;top:20px;right:14px;font-size:11px;font-weight:800;background:rgba(0,0,0,.45);padding:3px 8px;border-radius:6px}
+.tl-phone figcaption{top:auto;bottom:62px;right:auto;left:14px}
+.tl-hearts{position:absolute;right:16px;bottom:70px;width:30px;height:160px;pointer-events:none}
+.tl-hearts i{position:absolute;bottom:0;left:6px;font-style:normal;font-size:16px;color:#FF5A7A;opacity:0;animation:tlUp 3.2s ease-in infinite}
+.tl-hearts i:nth-child(2){animation-delay:.8s;left:0;color:#fff}.tl-hearts i:nth-child(3){animation-delay:1.6s;left:12px}.tl-hearts i:nth-child(4){animation-delay:2.4s;color:#FFC53D}
+@keyframes tlUp{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translateY(-150px) scale(1.1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.tl-hearts i{animation:none}}
+/* 모바일 지도: 나라 칩으로 누르기 */
+.nm-chips{display:none}
+@media(max-width:900px){
+  .nm-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .nm-chips .nm-chips-k{width:100%;font-size:13px;font-weight:700;color:#3A3A42}
+  .nm-chips button{all:unset;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;gap:6px;padding:0 14px;border-radius:999px;background:#fff;border:1px solid #E6E0D6;font-size:14px;font-weight:700;color:#141414}
+  .nm-chips button::before{content:"";width:8px;height:8px;border-radius:50%;background:#FFC53D}
+  .nm-chips button.hub::before{background:#141414}
+  .nm-chips button:focus-visible{outline:2px solid #141414;outline-offset:2px}
+}
+@media(max-width:600px){
+  /* 모바일 히어로 제목 줄바꿈 */
+  section.hero.hv h1{font-size:30px!important;word-break:keep-all;line-height:1.25}
+  /* 모바일: 하단 상담 버튼은 숨김(상단 헤더에 상담 버튼이 항상 있음) */
+  #stickyAsk{display:none!important}
+  body .hf{padding-bottom:40px!important}
+  /* 모바일 일하는 방식: 좌우로 넘기는 카드 */
+  #how-we-work .strategy-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  #how-we-work .strategy-grid::-webkit-scrollbar{display:none}
+  #how-we-work .strategy-card{flex:0 0 84%;scroll-snap-align:center}
+  #how-we-work .strategy-card::after{display:none!important}
+  #how-we-work .wk-shot img{max-height:150px;object-fit:cover;object-position:top}
+  .wk-dots{display:flex;justify-content:center;gap:6px;margin-top:4px}
+  .wk-dots span{width:7px;height:7px;border-radius:50%;background:#D8D2C7;transition:all .25s}
+  .wk-dots span.on{width:20px;border-radius:4px;background:#141414}
+  .tl-phone figcaption{display:none}
+}
+@media(min-width:601px){.wk-dots{display:none}}
+</style>
+<script id="fix-1102-js">
+(function(){
+  /* 모바일 지도 나라 칩 — 누르면 지도 팝업과 같은 카드 */
+  var sec=document.querySelector('.network-section'), svg=sec&&sec.querySelector('.nm-svg');
+  if(svg){ var box=document.createElement('div'); box.className='nm-chips'; box.innerHTML='<span class="nm-chips-k">Tap a country to see its profile</span>';
+    var labels=svg.querySelectorAll('.nm-labels text'), nodes=svg.querySelectorAll('.nm-nodes circle');
+    [].forEach.call(labels,function(t,i){ var c=t.getAttribute('data-c'); if(!c) return; var b=document.createElement('button'); b.type='button'; b.textContent=t.textContent;
+      if(nodes[i]&&nodes[i].getAttribute('fill')==='#141414') b.className='hub';
+      b.addEventListener('click',function(e){ e.stopPropagation(); var n=svg.querySelector('.nm-nodes circle[data-c="'+c+'"]'); if(n) n.dispatchEvent(new MouseEvent('click',{bubbles:true})); }); box.appendChild(b); });
+    var map=sec.querySelector('.network-map'); if(map&&map.parentNode) map.parentNode.insertBefore(box,map.nextSibling); }
+  /* 모바일 일하는 방식 카드 점 표시 */
+  var g=document.querySelector('#how-we-work .strategy-grid');
+  if(g){ var cards=g.querySelectorAll('.strategy-card'), d=document.createElement('div'); d.className='wk-dots'; d.setAttribute('aria-hidden','true');
+    d.innerHTML=[].map.call(cards,function(){ return '<span></span>'; }).join(''); g.parentNode.insertBefore(d,g.nextSibling);
+    function on(){ var k=Math.round(g.scrollLeft/(cards[0].offsetWidth+12)); [].forEach.call(d.children,function(s,j){ s.classList.toggle('on',j===k); }); }
+    g.addEventListener('scroll',on,{passive:true}); on(); }
+  /* 틱톡 라이브 휴대폰: 시청자 수·하트 */
+  var ph=document.querySelector('.tl-phone');
+  if(ph){ var v=document.createElement('div'); v.className='tl-view'; v.textContent='● 1.2K'; ph.appendChild(v);
+    var h=document.createElement('div'); h.className='tl-hearts'; h.setAttribute('aria-hidden','true'); h.innerHTML='<i>♥</i><i>♥</i><i>♥</i><i>♥</i>'; ph.appendChild(h); }
 })();
 </script>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
