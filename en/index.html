@@ -910,20 +910,13 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       </div>
 </section>
 
-<section class="section" id="case" data-pg-stop><span id="campaigns" aria-hidden="true"></span><div class="section-inner"><div class="section-head reveal">
-      <h2>Client <span class="hl">cases</span></h2>
-    </div>
-    <div class="campaign-slider" tabindex="0" aria-label="Cases — swipe left or right">
-      <article class="camp reveal"><div class="camp-cover" data-img="c1"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c1.tag1">Korea</span><span class="camp-tag" data-k="c1.tag2">Character IP</span></div></div><div class="camp-body"><h3 data-k="c1.name">Hachuping · Teenieping</h3><p data-k="c1.text">2–3 lines about the campaign — freely editable in the admin</p></div></article>
-      <article class="camp reveal"><div class="camp-cover" data-img="c2"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c2.tag1">Indonesia</span><span class="camp-tag" data-k="c2.tag2">K-POP</span></div></div><div class="camp-body"><h3 data-k="c2.name">Local promotion for a K-POP artist</h3><p data-k="c2.text">2–3 lines about the campaign — freely editable in the admin</p></div></article>
-      <article class="camp reveal"><div class="camp-cover" data-img="c3"><img alt="" loading="lazy" decoding="async" hidden><div class="camp-tags"><span class="camp-tag" data-k="c3.tag1">Korea</span><span class="camp-tag" data-k="c3.tag2">F&amp;B</span></div></div><div class="camp-body"><h3 data-k="c3.name">Cheongdam Yusik</h3><p data-k="c3.text">2–3 lines about the campaign — freely editable in the admin</p></div></article>
-    </div>
-  </div>
-</section>
 
-<section class="hs-shorts" id="mkt-shorts" data-pg-join aria-label="Short-form videos made by HOMI">
-  <div class="hs-viewport"><div class="hs-track" role="list"></div></div>
-  <div class="hs-dots" aria-hidden="true"></div>
+
+<section class="hs-shorts" id="case" data-pg-stop aria-label="Short-form videos made by HOMI"><span id="campaigns" aria-hidden="true"></span><span id="mkt-shorts" aria-hidden="true"></span>
+  <div class="section-head reveal"><h2>Client <span class="hl">cases</span></h2></div>
+  <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
+  <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
+  <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
 </section>
 <div class="hs-modal" id="hsModal" hidden role="dialog" aria-modal="true" aria-label="Play short-form video">
   <div class="hs-modal-box"><button type="button" class="hs-close" aria-label="Close">×</button><div class="hs-player"></div></div>
@@ -980,12 +973,13 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   {type:'instagram', id:'DcQflbuPhfh', poster:'/assets/shorts/SHORT-ig-DcQflbuPhfh.jpg', title:'nadafid Reel'},
   {type:'instagram', id:'DCiibe8PVbp', poster:'/assets/shorts/SHORT-ig-DCiibe8PVbp.jpg', title:'ang.hosung Post'}
 ];
+/* 고객 사례: 숏폼 3줄 — 윗줄·아랫줄은 오른쪽→왼쪽, 가운데 줄은 왼쪽→오른쪽으로 계속 흐름 */
 (function(){
-  var sec=document.getElementById('mkt-shorts'); if(!sec) return;
+  var sec=document.getElementById('case'); if(!sec) return;
   var list=(window.HOMI_SHORTS||[]).filter(function(v){ return !v.hidden; });
-  if(!list.length){ for(var i=0;i<8;i++) list.push({type:'ph'}); }   /* 영상 등록 전에는 빈 슬롯으로 자리를 보여 줌 */
-  var track=sec.querySelector('.hs-track'), dots=sec.querySelector('.hs-dots'), vp=sec.querySelector('.hs-viewport');
+  if(!list.length){ for(var i=0;i<8;i++) list.push({type:'ph'}); }
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, touch=matchMedia('(max-width:900px),(hover:none)').matches;
+  var loop=!reduce && list.length>1;
   function poster(v){ return v.poster||(v.type==='youtube'?'https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg':''); }
   function card(v,i,clone){
     var b=document.createElement('button'); b.type='button'; b.className='hs-card'; b.setAttribute('role','listitem'); b.dataset.i=i;
@@ -994,33 +988,32 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
     if(v.type==='mp4'){ var vd=document.createElement('video'); vd.muted=true; vd.loop=true; vd.playsInline=true; vd.setAttribute('playsinline',''); vd.preload='none'; vd.dataset.src=v.src; b.appendChild(vd); }
     return b;
   }
-  list.forEach(function(v,i){ track.appendChild(card(v,i)); });
-  var loop=!touch && !reduce && list.length>1;
-  function addSet(){ list.forEach(function(v,i){ var c=card(v,i,true); track.appendChild(c); if(window.__hsIO) __hsIO.observe(c); }); }
-  if(loop) addSet();   /* 끊김 없이 흐르도록 복제 — 부족하면 measure()에서 더 붙임 */
-  dots.innerHTML=list.map(function(){ return '<span></span>'; }).join('');
   /* 화면에 보일 때만 영상을 불러와 소리 없이 반복 재생 */
-  var io=window.__hsIO=new IntersectionObserver(function(es){ es.forEach(function(e){ var vd=e.target.querySelector('video'); if(!vd) return;
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var vd=e.target.querySelector('video'); if(!vd) return;
     if(e.isIntersecting){ if(!vd.src){ vd.src=vd.dataset.src; } var pr=vd.play(); if(pr&&pr.catch) pr.catch(function(){}); vd.onplaying=function(){ e.target.classList.add('on'); }; }
     else { vd.pause(); } }); },{root:null,threshold:0.25});
-  track.querySelectorAll('.hs-card').forEach(function(c){ io.observe(c); });
-  /* 천천히 옆으로 흐름, 영상 카드 위에 마우스를 올릴 때만 멈춤 */
-  var x=0, last=0, half=0, step=240, st={hover:false,focus:false,off:false,modal:false};
-  function isPaused(){ return st.hover||st.focus||st.off||st.modal; }
-  function measure(){ var c=track.querySelector('.hs-card'); step=c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):240;
-    if(!loop){ half=0; return; }
-    half=step*list.length;   /* 한 바퀴 = 카드 수 × (카드 폭+간격) → 마지막 다음에 첫 카드가 정확히 이어짐 */
-    var g=0; while(track.scrollWidth<half+vp.clientWidth+step*2 && g++<20) addSet(); }
-  function setDot(k){ [].forEach.call(dots.children,function(d,j){ d.classList.toggle('on',j===k); }); }
-  function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
-    if(!isPaused()&&!document.hidden){ x+=dt*0.028; if(half&&x>=half) x-=half; track.style.transform='translateX('+(-x)+'px)'; setDot(Math.floor((x+step/2)/step)%list.length); }
-    requestAnimationFrame(frame); }
-  measure(); addEventListener('resize',measure); setDot(0);
-  if(loop){ track.addEventListener('mouseover',function(e){ st.hover=!!e.target.closest('.hs-card'); });
-    track.addEventListener('mouseleave',function(){ st.hover=false; });
-    sec.addEventListener('focusin',function(){ st.focus=true; }); sec.addEventListener('focusout',function(){ st.focus=false; });
-    new IntersectionObserver(function(e){ st.off=!e[0].isIntersecting; }).observe(sec); requestAnimationFrame(frame); }
-  else vp.addEventListener('scroll',function(){ setDot(Math.min(list.length-1,Math.round(vp.scrollLeft/step))); },{passive:true});
+  var st={off:false,modal:false};
+  new IntersectionObserver(function(e){ st.off=!e[0].isIntersecting; }).observe(sec);
+  var rows=[].slice.call(sec.querySelectorAll('.hs-row'));
+  rows.forEach(function(row,r){
+    var vp=row.querySelector('.hs-viewport'), track=row.querySelector('.hs-track'), dir=r===1?1:-1;   /* 1: 왼쪽→오른쪽 */
+    var shift=Math.round(list.length*r/rows.length);   /* 줄마다 시작 영상을 다르게 */
+    var order=list.map(function(v,i){ return (i+shift)%list.length; });
+    function addSet(clone){ order.forEach(function(i){ var c=card(list[i],i,clone); track.appendChild(c); io.observe(c); }); }
+    addSet(false);
+    var x=0, last=0, half=0, hover=false;
+    function measure(){ if(!loop){ half=0; return; } var a=track.children[0], b=track.children[1];
+      var step=b?b.getBoundingClientRect().left-a.getBoundingClientRect().left:a.getBoundingClientRect().width;
+      half=step*list.length; var g=0; while(track.scrollWidth<half+vp.clientWidth+step*2 && g++<30) addSet(true); }
+    function frame(t){ if(!last) last=t; var dt=Math.min(64,t-last); last=t;
+      if(!hover&&!st.off&&!st.modal&&!document.hidden&&half){ x=(x+dt*0.03)%half; track.style.transform='translateX('+(dir<0?-x:-(half-x))+'px)'; }
+      requestAnimationFrame(frame); }
+    if(loop){ measure(); addEventListener('resize',measure); addEventListener('load',measure);
+      row.addEventListener('mouseover',function(e){ hover=!!e.target.closest('.hs-card'); });
+      row.addEventListener('mouseleave',function(){ hover=false; });
+      row.addEventListener('touchstart',function(){ hover=true; },{passive:true}); row.addEventListener('touchend',function(){ setTimeout(function(){ hover=false; },1500); },{passive:true});
+      requestAnimationFrame(frame); }
+  });
   /* 누르면 팝업에서 소리와 함께 재생 */
   var modal=document.getElementById('hsModal'), player=modal.querySelector('.hs-player'), opener=null;
   function open(v,btn){ if(v.type==='ph') return; opener=btn; st.modal=true;
@@ -1030,7 +1023,7 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
     else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/p/'+v.id+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     player.innerHTML=h; modal.hidden=false; document.documentElement.style.overflow='hidden'; modal.querySelector('.hs-close').focus(); }
   function close(){ modal.hidden=true; player.innerHTML=''; document.documentElement.style.overflow=''; st.modal=false; if(opener) opener.focus(); }
-  track.addEventListener('click',function(e){ var c=e.target.closest('.hs-card'); if(c) open(list[+c.dataset.i],c); });
+  sec.addEventListener('click',function(e){ var c=e.target.closest('.hs-card'); if(c) open(list[+c.dataset.i],c); });
   modal.addEventListener('click',function(e){ if(e.target===modal||e.target.closest('.hs-close')) close(); });
   addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
 })();
@@ -1616,12 +1609,6 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 <style id="case-join-css">
 /* 고객 사례 + 숏폼을 PC에서 한 화면으로 */
 @media(min-width:1024px) and (pointer:fine){
-  #case{padding:36px 32px 6px!important}
-  #case .section-head{margin-bottom:0!important}
-  #case .section-head h2{font-size:clamp(28px,2.6vw,40px)!important;margin-bottom:0!important}
-  #case .campaign-slider{margin-top:18px!important;padding-bottom:4px!important}
-  #case .camp-cover{aspect-ratio:16/8!important}
-  #mkt-shorts{padding:22px 0 30px!important}
 }
 </style>
 <style id="faq-2col-css">
@@ -1656,8 +1643,6 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   #team-result .industry-strip h3{margin:auto 0 0!important;padding:0 24px;font-size:clamp(22px,1.9vw,30px)!important;font-weight:800!important;letter-spacing:-.02em;text-align:center}
   #team-result .ind-tk{margin-top:auto!important;margin-bottom:14px!important}
   /* 숏폼 카드 조금 작게 (사례와 한 화면) */
-  #mkt-shorts .hs-card{flex-basis:170px!important;width:170px!important;height:300px!important}
-  #case .camp-body{padding-top:14px!important;padding-bottom:14px!important}
 }
 /* 마지막 화면: 상담 유도 + 푸터를 한 화면, 검은 배경에 큰 로고 */
 .final-cta{background:#141414!important}
@@ -1681,6 +1666,19 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   h(); addEventListener('load',h); addEventListener('resize',h); if(window.ResizeObserver) new ResizeObserver(h).observe(c);
 })();
 </script>
+<style id="hs3-css">
+/* 고객 사례: 숏폼 3줄 */
+#case.hs-shorts{padding:40px 0 28px}
+#case .section-head{text-align:center;margin:0 0 18px;padding:0 24px}
+#case .section-head h2{font-size:clamp(30px,3vw,46px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin:0}
+#case .hs-row + .hs-row{margin-top:14px}
+#case .hs-viewport{padding:4px 0}
+#case .hs-track{gap:14px;padding:0 14px}
+#case .hs-card{--h:clamp(150px,calc((100vh - 330px)/3),250px);flex:0 0 calc(var(--h)*.5625);width:calc(var(--h)*.5625);height:var(--h);border-radius:12px;box-shadow:0 8px 20px rgba(25,25,25,.12)}
+#case .hs-card::after{width:28px;height:28px;right:8px;bottom:8px;background-size:12px}
+@media (max-width:900px),(hover:none){#case .hs-viewport{overflow:hidden;scroll-snap-type:none}}
+@media (max-width:600px){#case.hs-shorts{padding:44px 0 32px}#case .hs-card{--h:180px}#case .hs-track{gap:10px}#case .hs-row + .hs-row{margin-top:10px}}
+</style>
 <!-- 홈 페이지 넘김: 스크롤하면 다음 구간이 부드럽게 슬라이드 업 (PC 전용, 모션 줄이기 설정 존중) -->
 <style id="pg-css">
 @media (min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
