@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://homifactory.com/about</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://homifactory.com/case</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
+  <url><loc>https://homifactory.com/pricing</loc><lastmod>2026-11-03</lastmod><priority>0.8</priority></url>
   <url><loc>https://homifactory.com/contact</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://homifactory.com/creator</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://homifactory.com/how-we-work</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
@@ -20,6 +21,7 @@
   <url><loc>https://homifactory.com/trend-report</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
   <url><loc>https://homifactory.com/en/about</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/en/case</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://homifactory.com/en/pricing</loc><lastmod>2026-11-03</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/en/contact</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/en/creator</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/en/how-we-work</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
@@ -38,6 +40,7 @@
   <url><loc>https://homifactory.com/en/trend-report</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/ja/about</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/ja/case</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://homifactory.com/ja/pricing</loc><lastmod>2026-11-03</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/ja/contact</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/ja/creator</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/ja/how-we-work</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
@@ -56,6 +59,7 @@
   <url><loc>https://homifactory.com/ja/trend-report</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/id/about</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/id/case</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://homifactory.com/id/pricing</loc><lastmod>2026-11-03</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/id/contact</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/id/creator</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://homifactory.com/id/how-we-work</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
