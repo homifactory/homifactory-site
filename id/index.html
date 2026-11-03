@@ -1511,6 +1511,7 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
   els.forEach(function(el){ io.observe(el); });
 })();
 </script>
+<style id="tall-css">/* 세로가 넉넉한 큰 화면: 위아래 여백을 줄이고 내용은 hww-fit 이 키워 채운다 */@media (min-width:1024px) and (min-height:1100px) and (pointer:fine){#partner.section,#directions.section{padding-top:56px!important;padding-bottom:56px!important}}</style>
 <script id="hww-fit">
 /* 홈 PC: 넘김 단위(구간 묶음)마다 화면 높이에 딱 맞춤 — 다음 구간이 아래로 비치지 않게.
    살짝 크면 축소(최소 0.65), 작으면 마지막 구간이 남는 높이를 채움(내용은 세로 가운데). 아주 긴 구간(FAQ 등)은 그대로 스크롤 */
@@ -1531,6 +1532,12 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
       var H=hgt(g); if(H>avail/0.65+1) return;
       for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.65,z);
         g.forEach(function(s){ s.style.zoom=z.toFixed(4); s.style.setProperty('--pz',z.toFixed(4)); }); H=hgt(g); if(z<=0.65) break; }
+      /* 큰 화면(세로가 넉넉한 모니터·브라우저 축소): 내용이 화면의 88%에 못 미치면 최대 1.45배까지 키워 빈 공간을 줄인다 (지도 구간은 제외 — 지도가 스스로 채움) */
+      if(H<avail*0.88 && !g.some(function(s){ return s.classList.contains('network-section'); })){
+        for(var m=0;m<3;m++){ var cz=parseFloat(g[0].style.zoom||1), uz=Math.min(1.45, cz*avail*0.93/H); if(Math.abs(uz-cz)<0.01) break;
+          g.forEach(function(s){ s.style.zoom=uz.toFixed(4); s.style.setProperty('--pz',uz.toFixed(4)); }); H=hgt(g); }
+        while(H>avail+1){ var dz=parseFloat(g[0].style.zoom)*avail/H*0.995; g.forEach(function(s){ s.style.zoom=dz.toFixed(4); s.style.setProperty('--pz',dz.toFixed(4)); }); H=hgt(g); if(dz<=1) break; }
+      }
       if(H<avail){ var last=g.filter(function(x){return x.hasAttribute('data-pg-fill');})[0]||g[g.length-1], r=last.getBoundingClientRect().height, k=last.offsetHeight/r;
         last.style.display='flex'; last.style.flexDirection='column'; last.style.justifyContent='center';
         last.style.minHeight=Math.ceil((r+avail-H)*k)+'px'; }
@@ -1861,14 +1868,14 @@ section.hero.hv{padding-bottom:140px!important}
   all.forEach(function(s){ io.observe(s); });
   function off(){ var h=document.querySelector('.hh'); return h?Math.max(0,h.getBoundingClientRect().bottom):0; }
   function top(el){ return el.getBoundingClientRect().top+scrollY; }
-  var busy=false, acc=0, accT=0, lastW=0;
+  var busy=false, acc=0, accT=0, lastW=0, lastD=0, tail=false;
   /* 관성 스크롤(트랙패드·부드러운 휠)이 끝날 때까지 다음 넘김을 막아 한 화면씩만 넘어가게 */
   function release(){ var t=Date.now()-lastW; if(t>=240) busy=false; else setTimeout(release,250-t); }
   function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
   function go(y){
     y=Math.max(0,Math.min(y,root.scrollHeight-innerHeight));
     var s=scrollY, d=y-s; if(Math.abs(d)<2){ return; }
-    busy=true; var dur=Math.min(1100,Math.max(750,Math.abs(d)*0.6)), t0=null, prev=root.style.scrollBehavior;
+    busy=true; tail=true; var dur=Math.min(1100,Math.max(750,Math.abs(d)*0.6)), t0=null, prev=root.style.scrollBehavior;
     root.style.scrollBehavior='auto';
     function step(ts){ if(!t0) t0=ts; var p=Math.min(1,(ts-t0)/dur); scrollTo(0,s+d*ease(p));
       if(p<1) requestAnimationFrame(step); else { root.style.scrollBehavior=prev; setTimeout(release,120); } }
@@ -1889,7 +1896,10 @@ section.hero.hv{padding-bottom:140px!important}
   addEventListener('wheel',function(e){
     if(e.ctrlKey || Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
     if(e.target.closest && e.target.closest('.hc-panel,#homiChat,[data-noscrollpage],textarea,select,.mega,.hh-panel')) return;
-    lastW=Date.now(); if(busy){ acc=0; e.preventDefault(); return; }
+    /* 관성 꼬리: 넘긴 직후 줄어드는 휠 값(같은 손짓의 관성)은 무시 — 무거운 지도 화면에서 이벤트가 끊겨 두 장 넘어가던 문제 */
+    var ad=Math.abs(e.deltaY), nw=Date.now();
+    if(busy || (tail && nw-lastW<450 && ad<=lastD*1.15+1)){ lastW=nw; lastD=ad; acc=0; e.preventDefault(); return; }
+    tail=false; lastW=nw; lastD=ad;
     var now=Date.now(); if(now-accT>220) acc=0; accT=now; acc+=e.deltaY;
     var dir=acc>0?1:-1, o=off(), s=secs[cur()], r=s.getBoundingClientRect();
     var native = dir>0 ? r.bottom>innerHeight+4 : lead[cur()].getBoundingClientRect().top<o-4;
