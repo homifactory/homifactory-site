@@ -8,6 +8,9 @@ var want=nl==='ko'?'ko':(nl==='ja'||nl==='id')?nl:'en';if(want===cur)return;
 location.replace((want==='ko'?'':'/'+want)+rest+location.search+location.hash);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formulir Permohonan Konsultasi · HOMI FACTORY</title>
+<meta name="description" content="Ceritakan tantangan, target, anggaran, dan waktu brand Anda—kami tentukan negara, kanal, kreator, dan paket yang tepat bersama. Konsultasi dan usulan rencana gratis.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="HOMI FACTORY"><meta property="og:title" content="Formulir Permohonan Konsultasi · HOMI FACTORY"><meta property="og:description" content="Ceritakan tantangan, target, anggaran, dan waktu brand Anda—kami tentukan negara, kanal, kreator, dan paket yang tepat bersama. Konsultasi dan usulan rencana gratis."><meta property="og:image" content="https://homifactory.com/og-image.png"><meta property="og:url" content="https://homifactory.com/id/contact"><meta property="og:locale" content="id_ID"><meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -169,6 +172,7 @@ body{padding-top:48px}
 .cf-field label{display:block;font-size:13px;font-weight:700;color:#141414;margin-bottom:8px}
 .cf-field label .req{color:#141414}
 .cf-field label .opt{color:#888;font-weight:500;font-size:12px;margin-left:4px}
+.cf-field select{width:100%;border:1px solid #E6E0D6;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#141414;background:#fff;font-family:inherit;min-height:46px}.cf-field select:focus{outline:none;border-color:#141414;box-shadow:0 0 0 3px rgba(20,20,20,.12)}
 .cf-field input, .cf-field textarea{width:100%;border:1px solid #E6E0D6;border-radius:10px;padding:12px 14px;font-size:14.5px;color:#141414;background:#fff;font-family:inherit}
 .cf-field input:focus, .cf-field textarea:focus{outline:none;border-color:#141414;box-shadow:0 0 0 3px rgba(20,20,20,.12)}
 .cf-field textarea{resize:vertical;min-height:100px}
@@ -275,7 +279,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:600px){body:has(#stickyAsk.visible) .hc-fab{bottom:172px}}
 @media(prefers-reduced-motion:reduce){.hc-panel,.hc-fab{transition:none}}
 </style>
-<link rel="stylesheet" href="/shared/homi-header.css?v=20261020mono">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261103">
 <style id="ja-wrap">html[lang="ja"] body *{word-break:auto-phrase!important;line-break:strict}html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{text-wrap:balance}</style><link rel="alternate" hreflang="ko" href="https://homifactory.com/contact">
 <link rel="alternate" hreflang="en" href="https://homifactory.com/en/contact">
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/contact">
@@ -287,7 +291,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <a href="/id/trend-report.html">Laporan Tren Pemasaran Global 2026 · Lihat dulu strategi untuk tiap negara <span class="arrow">›</span></a>
 </div>
 <header id="homi-header"></header>
-<script src="/shared/homi-header.js?v=20261020mono"></script>
+<script src="/shared/homi-header.js?v=20261103"></script>
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="page-breadcrumb">Formulir Permohonan Konsultasi</div>
@@ -331,7 +335,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
           <label>Negara · pasar tujuan <span class="req">*</span></label>
           <div class="cf-sub">(Boleh pilih lebih dari satu)</div>
           <div class="country-chip-grid" id="countryChips">
-            <span class="cc" data-v="한국">Korea</span><span class="cc" data-v="일본">Jepang</span><span class="cc" data-v="인도네시아">Indonesia</span><span class="cc" data-v="북미">Amerika Utara</span><span class="cc" data-v="중국">Tiongkok</span><span class="cc" data-v="대만">Taiwan</span><span class="cc" data-v="홍콩">Hong Kong</span><span class="cc" data-v="필리핀">Filipina</span><span class="cc" data-v="인도">India</span><span class="cc" data-v="기타">Lainnya · Belum tahu</span>
+            <span class="cc" data-v="한국">Korea</span><span class="cc" data-v="일본">Jepang</span><span class="cc" data-v="인도네시아">Indonesia</span><span class="cc" data-v="북미">Amerika Utara</span><span class="cc" data-v="중국">Tiongkok</span><span class="cc" data-v="대만">Taiwan</span><span class="cc" data-v="홍콩">Hong Kong</span><span class="cc" data-v="필리핀">Filipina</span><span class="cc" data-v="유럽">Eropa</span><span class="cc" data-v="태국">Thailand</span><span class="cc" data-v="기타">Lainnya · Belum tahu</span>
           </div>
           <input type="hidden" name="진출 국가·시장" id="countryHidden">
         </div>
@@ -349,10 +353,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         </div>
       </div>
 
+      <div class="cf-row"><div class="cf-field"><label for="cfService">Layanan yang diminati <span class="opt">(opsional)</span></label><select name="관심 서비스" id="cfService"><option value="">Silakan pilih</option><option value="인플루언서 마케팅·시딩">Pemasaran influencer & seeding</option><option value="방문 프로모션">Promosi kunjungan</option><option value="팝업·행사 운영">Pop-up & event</option><option value="틱톡 라이브·그룹라이브">TikTok LIVE & Group LIVE</option><option value="퍼포먼스 아티스트 섭외">Booking artis pertunjukan</option><option value="무료 경쟁사 크리에이터 분석">Analisis kreator kompetitor gratis</option><option value="패키지 상담 (진입·성장·확장)">Konsultasi paket (Starter · Growth · Scale)</option><option value="아직 모르겠어요">Belum tahu</option></select></div></div>
+
       <div class="cf-row triple">
         <div class="cf-field"><label>Kanal penjualan saat ini <span class="opt">(opsional)</span></label><input name="현재 판매 채널" placeholder="Contoh) Toko online sendiri, Coupang, Amazon"></div>
-        <div class="cf-field"><label>Waktu yang diinginkan <span class="opt">(opsional)</span></label><input name="원하는 시기" placeholder="Contoh) Menyesuaikan peluncuran bulan November"></div>
-        <div class="cf-field"><label>Kisaran anggaran <span class="opt">(opsional)</span></label><input name="예산 범위" placeholder="Kosongkan jika belum tahu"></div>
+        <div class="cf-field"><label>Waktu yang diinginkan <span class="opt">(opsional)</span></label><select name="원하는 시기" id="cfTime"><option value="">Silakan pilih</option><option value="1개월 이내">Dalam 1 bulan</option><option value="1~3개월 안">1–3 bulan lagi</option><option value="3~6개월 안">3–6 bulan lagi</option><option value="6개월 이후">Setelah 6 bulan</option><option value="아직 미정">Belum ditentukan</option></select></div>
+        <div class="cf-field"><label>Kisaran anggaran <span class="opt">(opsional)</span></label><select name="예산 범위" id="cfBudget"><option value="">Silakan pilih</option><option value="500만 원 미만">Di bawah ₩5 juta (± Rp 57 jt)</option><option value="500만~1,000만 원">₩5–10 juta (± Rp 57–115 jt)</option><option value="1,000만~3,000만 원">₩10–30 juta (± Rp 115–345 jt)</option><option value="3,000만~5,000만 원">₩30–50 juta (± Rp 345–575 jt)</option><option value="5,000만 원 이상">₩50 juta ke atas (± Rp 575 jt+)</option><option value="아직 모르겠어요">Belum tahu</option></select></div>
       </div>
 
       <div class="cf-row triple">
@@ -414,6 +420,17 @@ document.addEventListener('DOMContentLoaded', function(){
     var sj=document.querySelector('input[name="_subject"]'); if (sj) sj.value=sj.value.replace('신규 상담 신청','크리에이터 후보 리스트 요청');
     var gl=document.querySelector('textarea[name="이루고 싶은 목표"]'); if (gl && !gl.value) gl.value='Saya ingin daftar kandidat kreator yang cocok dengan kategori brand saya';
   }
+  /* 개편 #15·#16: ?req=competitor(무료 경쟁사 분석) · ?service=artist · ?package=starter|growth|scale 로 들어오면 미리 골라 둔다 */
+  (function(){ var sv=document.getElementById('cfService'); if(!sv) return;
+    function pick(v){ for(var i=0;i<sv.options.length;i++) if(sv.options[i].value===v){ sv.selectedIndex=i; return; } }
+    if (params.get('req')==='competitor') { pick('무료 경쟁사 크리에이터 분석');
+      var sj2=document.querySelector('input[name="_subject"]'); if (sj2) sj2.value=sj2.value.replace(/신규 상담 신청.*$/,'무료 경쟁사 크리에이터 분석 요청');
+      var gl2=document.querySelector('textarea[name="이루고 싶은 목표"]'); if (gl2 && !gl2.value) gl2.value='Saya ingin analisis kreator yang bekerja dengan kompetitor dan akun teratas berdasarkan tayangan & engagement'; }
+    if (params.get('service')==='artist') pick('퍼포먼스 아티스트 섭외');
+    if (params.get('service')==='live') pick('틱톡 라이브·그룹라이브');
+    var pk=params.get('package'); if (/^(starter|growth|scale)$/.test(pk||'')) { pick('패키지 상담 (진입·성장·확장)');
+      var gl3=document.querySelector('textarea[name="이루고 싶은 목표"]'); if (gl3 && !gl3.value) gl3.value=({starter:'Saya ingin mulai dengan paket Starter',growth:'Saya ingin konsultasi paket Growth (garansi CPV)',scale:'Saya ingin konsultasi paket Scale (banyak negara & kanal)'})[pk]; }
+  })();
   const dir = params.get('direction');
   if (/^[123]$/.test(dir||'')) {   /* Home ⑦ 방향 카드에서 들어옴: 1 한국→세계 · 2 세계→한국·아시아 · 3 국내 시장 */
     const r = document.querySelectorAll('.direction-radio input')[+dir - 1];
@@ -438,6 +455,8 @@ document.addEventListener('DOMContentLoaded', function(){
           <li><a href="/id/service-influencer">Pemasaran Influencer</a></li>
           <li><a href="/id/service-visit">Promosi Kunjungan</a></li>
           <li><a href="/id/service-event">Pop-up & Event</a></li>
+          <li><a href="/snp" target="_blank" rel="noopener">TikTok LIVE & Group LIVE ↗</a></li>
+          <li><a href="/id/contact?service=artist">Booking artis pertunjukan</a></li>
         </ul>
       </div>
       <div class="hf-col">
@@ -446,6 +465,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <li><a href="/id/#how-we-work">How We Work</a></li>
           <li><a href="/id/#case">Studi Kasus</a></li>
           <li><a href="/id/trend-report">Laporan Tren</a></li>
+          <li><a href="/id/pricing" class="hf-pricing">Paket & Harga</a></li>
         </ul>
       </div>
       <div class="hf-col">
@@ -738,9 +758,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     var mail={_subject:g('_subject'),_cc:g('_cc'),_template:'table',_captcha:'false',_honey:'',
       '언어':lang,'브랜드·제품':g('브랜드·제품'),'브랜드 링크':g('브랜드 링크'),'방향':dirEl?dirEl.value:'','진출 국가·시장':g('진출 국가·시장'),
       '현재 판매 채널':g('현재 판매 채널'),'지금 가장 큰 고민':g('지금 가장 큰 고민'),'이루고 싶은 목표':g('이루고 싶은 목표'),
-      '원하는 시기':g('원하는 시기'),'예산 범위':g('예산 범위'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+      '관심 서비스':g('관심 서비스'),'원하는 시기':g('원하는 시기'),'예산 범위':g('예산 범위'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
     var row={lang:lang,brand:mail['브랜드·제품'],link:mail['브랜드 링크'],dir:mail['방향'],countries:mail['진출 국가·시장'],channel:mail['현재 판매 채널'],
-      concern:mail['지금 가장 큰 고민'],goal:mail['이루고 싶은 목표'],timing:mail['원하는 시기'],budget:mail['예산 범위'],
+      concern:mail['지금 가장 큰 고민'],goal:mail['이루고 싶은 목표'],service:mail['관심 서비스'],timing:mail['원하는 시기'],budget:mail['예산 범위'],
       name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
     var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
     var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
@@ -748,7 +768,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     /* 통합 관리자 문의함(Supabase com_inquiries) — FR-COM-019 */
     var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
       body:JSON.stringify({site:'market',kind:'inquiry',name:row.name,phone:row.phone,email:row.email,summary:row.brand,lang:lang,page:row.page,
-        data:{'브랜드 링크':row.link,'방향':row.dir,'진출 국가·시장':row.countries,'지금 가장 큰 고민':row.concern,'이루고 싶은 목표':row.goal,'현재 판매 채널':row.channel,'원하는 시기':row.timing,'예산 범위':row.budget}})})
+        data:{'브랜드 링크':row.link,'방향':row.dir,'진출 국가·시장':row.countries,'지금 가장 큰 고민':row.concern,'이루고 싶은 목표':row.goal,'관심 서비스':row.service,'현재 판매 채널':row.channel,'원하는 시기':row.timing,'예산 범위':row.budget}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })){ done(); }
