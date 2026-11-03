@@ -85,6 +85,19 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
 .mdl iframe,.mdl video{width:100%;height:100%;border:0;display:block}
 .mdl .x{position:absolute;top:14px;right:14px}
 
+.ml{display:grid;grid-template-columns:110px repeat(4,1fr);gap:6px;align-items:start;margin-bottom:6px}
+.ml .lb{font-size:12px;font-weight:800;color:#3a3732;padding-top:9px}
+.ml textarea{width:100%;min-height:58px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:13px;resize:vertical}
+.ml .hd{font-size:11.5px;font-weight:800;color:var(--mute)}
+.stbox{background:#fff;border-radius:16px;padding:20px 22px;width:min(980px,96vw);max-height:88vh;overflow:auto}
+.stbox h3{margin:0 0 6px;font-size:17px}
+.pr-blk{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.pr-blk h3{margin:0 0 10px;font-size:15px}
+.pool{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pool label{display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:13px}
+.pool input{padding:9px 11px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:16px}
+.s-it .bm{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+@media(max-width:760px){.ml{grid-template-columns:1fr}.pool{grid-template-columns:1fr}}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
 #msg{font-weight:700;font-size:13.5px}
 #msg.ok{color:var(--ok)}#msg.err{color:var(--err)}
@@ -101,6 +114,8 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
   <div class="tabs" role="tablist" aria-label="편집 항목">
     <button role="tab" id="t-logo" aria-controls="p-logo" aria-selected="true" type="button">고객사 로고</button>
     <button role="tab" id="t-case" aria-controls="p-case" aria-selected="false" type="button">고객 사례 영상</button>
+    <button role="tab" id="t-price" aria-controls="p-price" aria-selected="false" type="button">패키지·가격</button>
+    <button role="tab" id="t-pool" aria-controls="p-pool" aria-selected="false" type="button">크리에이터 풀</button>
   </div>
   <div class="sp"></div>
   <div class="tok">
@@ -116,7 +131,7 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
     <p class="hint" style="margin:0 0 10px">고친 뒤 아래 <b>[저장하기]</b>를 누르면 저장소에 바로 올라가고 <b>1~2분 뒤</b> 4개 언어 홈페이지에 함께 반영됩니다.
     카드를 끌어다 놓거나 ←→ 버튼으로 순서를 바꾸고, 「숨기기」로 잠시 뺄 수 있습니다. 저장 키는 이 컴퓨터 브라우저에만 기억됩니다 (HOMI MARKET 관리자와 같은 키).</p>
     <div class="links"><span class="cnt" style="margin-right:4px">사이트 확인 ↗</span>
-      <a href="/" target="_blank" rel="noopener">KR</a><a href="/en/" target="_blank" rel="noopener">EN</a><a href="/ja/" target="_blank" rel="noopener">JA</a><a href="/id/" target="_blank" rel="noopener">ID</a></div>
+      <a href="/" target="_blank" rel="noopener">KR</a><a href="/en/" target="_blank" rel="noopener">EN</a><a href="/ja/" target="_blank" rel="noopener">JA</a><a href="/id/" target="_blank" rel="noopener">ID</a><a href="/pricing" target="_blank" rel="noopener">가격 페이지</a><a href="/creator" target="_blank" rel="noopener">크리에이터 페이지</a></div>
   </div>
 
   <!-- ① 고객사 로고 -->
@@ -146,6 +161,7 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
     <div class="card">
       <h2>고객 사례 영상 <span class="badge">Home · 고객 사례 3줄</span> <span class="cnt" id="sCnt"></span></h2>
       <p class="hint">여기 순서대로 3줄에 흐릅니다(줄마다 시작 영상이 다름). 누르면 홈페이지 팝업에서 소리와 함께 재생됩니다.
+      카드 아래에 <b>브랜드명·성과</b>(예: 조회 120만)가 붙고, 「사례 본문」을 채우면 팝업 옆에 목표 → 실행 → 결과 → 다음 제안이 나옵니다.
       호미가 실제로 만든 영상, 게재 동의를 받은 것만 올려 주세요. 인스타그램·틱톡은 <b>썸네일(세로 9:16)</b>을 꼭 넣어 주세요 — 유튜브는 자동입니다.</p>
       <div class="sgrid" id="sList"></div>
       <div class="add">
@@ -159,7 +175,38 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
       </div>
     </div>
   </section>
+
+  <!-- ③ 패키지·가격 -->
+  <section id="p-price" role="tabpanel" aria-labelledby="t-price" hidden>
+    <div class="card">
+      <h2>패키지·가격 <span class="badge">/pricing · 4개 언어</span></h2>
+      <p class="hint">비워 둔 칸은 사이트에 「상담 시 안내」로 나옵니다. 숫자를 확정한 것만 넣어 주세요. 영어·일본어·인도네시아어 칸이 비면 한국어가 그대로 나옵니다.</p>
+      <div id="prList"></div>
+    </div>
+  </section>
+
+  <!-- ④ 크리에이터 풀 -->
+  <section id="p-pool" role="tabpanel" aria-labelledby="t-pool" hidden>
+    <div class="card">
+      <h2>크리에이터 풀 3분류 <span class="badge">/creator · 4개 언어</span></h2>
+      <p class="hint">숫자만 넣으면 됩니다(예: 8000 → 「8,000+ 명」). 비워 두면 「집계 중」으로 나옵니다. 사이트의 전체 40,000+ · 직접 계약 12,000+ 와 같은 기준으로 맞춰 주세요.</p>
+      <div class="pool">
+        <label>숏폼<input type="number" min="0" step="1" data-pool="shortform"></label>
+        <label>틱톡 라이브 (SNP)<input type="number" min="0" step="1" data-pool="live"></label>
+        <label>커머스<input type="number" min="0" step="1" data-pool="commerce"></label>
+      </div>
+    </div>
+  </section>
 </main>
+
+<div class="mdl" id="stMdl" hidden role="dialog" aria-modal="true" aria-label="사례 본문 편집">
+  <div class="stbox"><h3 id="stTitle">사례 본문</h3>
+    <p class="hint" style="margin:0 0 10px">한국어만 채워도 됩니다. 번역 칸이 비면 한국어가 나옵니다. 숫자는 실제 집계값만 넣어 주세요.</p>
+    <div id="stGrid"></div>
+    <div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn pri" id="stOk" type="button">적용</button></div>
+  </div>
+  <button class="btn sm x" id="stX" type="button">닫기 ✕</button>
+</div>
 
 <div class="mdl" id="mdl" hidden role="dialog" aria-modal="true" aria-label="영상 미리보기">
   <div class="box" id="mdlBox"></div>
@@ -189,21 +236,56 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
   function mv(arr,i,j){ if(j<0||j>=arr.length||i===j) return; var x=arr.splice(i,1)[0]; arr.splice(j,0,x); }
 
   /* ── 탭 ── */
-  function tab(which){ ['logo','case'].forEach(function(k){ $('t-'+k).setAttribute('aria-selected',k===which); $('p-'+k).hidden=k!==which; });
+  function tab(which){ ['logo','case','price','pool'].forEach(function(k){ $('t-'+k).setAttribute('aria-selected',k===which); $('p-'+k).hidden=k!==which; });
     try{ history.replaceState(null,'','#'+which); }catch(e){} }
   $('t-logo').onclick=function(){ tab('logo'); }; $('t-case').onclick=function(){ tab('case'); };
-  if(location.hash==='#case') tab('case');
+  $('t-price').onclick=function(){ tab('price'); }; $('t-pool').onclick=function(){ tab('pool'); };
+  if(/^#(case|price|pool)$/.test(location.hash)) tab(location.hash.slice(1));
 
   /* ── 불러오기 ── */
   function load(){
     msg('불러오는 중…'); pending={};
     var p=tok()? gh(PATH).then(function(r){ if(!r.ok) throw new Error('저장 키를 확인해 주세요 ('+r.status+')'); return r.json(); }).then(function(j){ SHA=j.sha; return JSON.parse(unb64(j.content)); })
              : fetch('/market/data/site.json',{cache:'no-store'}).then(function(r){ return r.json(); });
-    p.then(function(d){ D=d||{}; D.logos=D.logos||[]; D.shorts=Array.isArray(D.shorts)?D.shorts:[]; render(); setDirty(false);
+    p.then(function(d){ D=d||{}; D.logos=D.logos||[]; D.shorts=Array.isArray(D.shorts)?D.shorts:[]; D.pricing=D.pricing||{}; D.creatorPool=D.creatorPool||{}; render(); setDirty(false);
         msg(tok()?'불러왔습니다 — 고친 뒤 [저장하기]':'읽기 전용 — 저장하려면 오른쪽 위에 저장 키를 넣어 주세요', tok()?'':'err'); })
      .catch(function(e){ msg('불러오지 못했습니다: '+e.message,'err'); });
   }
-  function render(){ logos(); shorts(); }
+  function render(){ logos(); shorts(); pricing(); pool(); }
+
+  /* ── 여러 언어 칸 (한국어·영어·일본어·인도네시아어) — 값은 문자열 또는 {ko,en,ja,id} ── */
+  var LGS=[['ko','한국어'],['en','영어'],['ja','일본어'],['id','인니어']];
+  function getL(o,l){ if(!o) return ''; if(typeof o==='string') return l==='ko'?o:''; return o[l]||''; }
+  function setL(obj,key,l,val){ var o=obj[key]; if(typeof o==='string') o={ko:o}; o=o||{}; if(val) o[l]=val; else delete o[l]; if(Object.keys(o).length) obj[key]=o; else delete obj[key]; }
+  function mlRow(label,path,o,key,multi){ return '<div class="ml"><div class="lb">'+label+'</div>'+LGS.map(function(L){ var v=esc(getL(o[key],L[0]));
+      return multi?'<textarea data-p="'+path+'" data-k="'+key+'" data-l="'+L[0]+'" placeholder="'+L[1]+'">'+v+'</textarea>':'<input type="text" data-p="'+path+'" data-k="'+key+'" data-l="'+L[0]+'" value="'+v+'" placeholder="'+L[1]+'">'; }).join('')+'</div>'; }
+  function mlHead(){ return '<div class="ml"><div></div>'+LGS.map(function(L){ return '<div class="hd">'+L[1]+'</div>'; }).join('')+'</div>'; }
+
+  /* ── 패키지·가격 ── */
+  var TIERS=[['starter','진입 STARTER'],['growth','성장 GROWTH'],['scale','확장 SCALE']];
+  function prObj(path){ var P=D.pricing; if(path==='cpv') return P.cpv=P.cpv||{}; P.tiers=P.tiers||{}; return P.tiers[path]=P.tiers[path]||{}; }
+  function pricing(){
+    $('prList').innerHTML=TIERS.map(function(T){ var o=prObj(T[0]); return '<div class="pr-blk"><h3>'+T[1]+'</h3>'+mlHead()+mlRow('가격','t:'+T[0],o,'price')+mlRow('단위·메모','t:'+T[0],o,'unit')+'</div>'; }).join('')+
+      '<div class="pr-blk"><h3>CPV 15원 보장 조건</h3>'+mlHead()+mlRow('조회 집계 시점','cpv',prObj('cpv'),'window')+mlRow('최소 보장 조회수','cpv',prObj('cpv'),'min')+mlRow('집계 대상','cpv',prObj('cpv'),'scope')+
+      '<p class="hint" style="margin:6px 0 0">예) 가격 「300만 원~」, 단위 「캠페인 1회 · 부가세 별도」 / 집계 시점 「게시 후 7일」 / 집계 대상을 비우면 「캠페인으로 게시된 콘텐츠」로 나옵니다.</p></div>';
+  }
+  $('prList').addEventListener('input',function(e){ var t=e.target, p=t.dataset.p; if(!p) return; var o=prObj(p==='cpv'?'cpv':p.slice(2)); setL(o,t.dataset.k,t.dataset.l,t.value.trim()); setDirty(true); });
+
+  /* ── 크리에이터 풀 ── */
+  function pool(){ [].forEach.call(document.querySelectorAll('[data-pool]'),function(el){ var v=D.creatorPool[el.dataset.pool]; el.value=v?v:''; }); }
+  [].forEach.call(document.querySelectorAll('[data-pool]'),function(el){ el.addEventListener('input',function(){ var n=parseInt(el.value,10); if(n>0) D.creatorPool[el.dataset.pool]=n; else delete D.creatorPool[el.dataset.pool]; setDirty(true); }); });
+
+  /* ── 사례 본문 편집 창 ── */
+  var stI=-1, ST=[['metric','성과 한 줄',false],['goal','목표',true],['action','실행',true],['result','결과',true],['next','다음 제안',true]];
+  function openStory(i){ stI=i; var v=D.shorts[i]; v.story=v.story||{};
+    $('stTitle').textContent='사례 본문 — '+(v.brand||v.title||'영상 #'+(i+1));
+    $('stGrid').innerHTML=mlHead()+ST.map(function(r){ return r[0]==='metric'?mlRow(r[1],'m',v,'metric',false):mlRow(r[1],'s',v.story,r[0],r[2]); }).join('');
+    $('stMdl').hidden=false; }
+  $('stGrid').addEventListener('input',function(e){ var t=e.target; if(!t.dataset.p||stI<0) return; var v=D.shorts[stI];
+    if(t.dataset.p==='m') setL(v,'metric',t.dataset.l,t.value.trim()); else { v.story=v.story||{}; setL(v.story,t.dataset.k,t.dataset.l,t.value.trim()); }
+    setDirty(true); });
+  function closeStory(){ if(stI>=0){ var v=D.shorts[stI]; if(v.story&&!Object.keys(v.story).length) delete v.story; } $('stMdl').hidden=true; stI=-1; shorts(); }
+  $('stOk').onclick=closeStory; $('stX').onclick=closeStory;
 
   /* ── 끌어다 놓기 (로고·영상 공용) ── */
   function dnd(box,sel,arr,redraw){
@@ -268,17 +350,23 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
           '<button class="btn sm play" data-a="play" data-i="'+i+'" type="button">▶ 재생</button></div>'+
         (needP?'<div class="warn">⚠ 썸네일을 넣어 주세요</div>':'')+
         '<input type="text" data-i="'+i+'" data-k="title" value="'+esc(v.title)+'" aria-label="제목" placeholder="제목">'+
+        '<div class="bm"><input type="text" data-i="'+i+'" data-k="brand" value="'+esc(v.brand||'')+'" aria-label="브랜드명" placeholder="브랜드명"><input type="text" data-i="'+i+'" data-k="metric" value="'+esc(getL(v.metric,'ko'))+'" aria-label="성과 한 줄" placeholder="성과 예) 조회 120만"></div>'+
+        '<button class="btn sm" data-a="story" data-i="'+i+'" type="button">'+(v.story&&Object.keys(v.story).length?'✓ 사례 본문·번역':'+ 사례 본문·번역')+'</button>'+
         '<div class="meta">'+esc(v.type==='mp4'?(/^blob:/.test(v.src||'')?'(새 MP4 — 저장 시 업로드)':v.src):v.id)+'</div>'+
         '<div class="ops"><button class="btn sm" data-a="up" data-i="'+i+'" type="button" aria-label="앞으로">←</button><button class="btn sm" data-a="dn" data-i="'+i+'" type="button" aria-label="뒤로">→</button>'+
         '<label class="btn sm"><input type="file" data-a="poster" data-i="'+i+'" accept="image/png,image/jpeg,image/webp" style="display:none">썸네일</label>'+
         '<button class="btn sm" data-a="hide" data-i="'+i+'" type="button">'+(v.hidden?'보이기':'숨기기')+'</button><button class="btn sm del" data-a="del" data-i="'+i+'" type="button">삭제</button></div></div>'; }).join('')
       :'<p class="hint">아직 영상이 없습니다 — 아래에서 추가해 주세요. (비어 있으면 홈페이지에는 회색 칸이 나옵니다)</p>';
   }
-  $('sList').addEventListener('input',function(e){ var t=e.target; if(t.dataset.k==='title'){ D.shorts[+t.dataset.i].title=t.value; setDirty(true); } });
+  $('sList').addEventListener('input',function(e){ var t=e.target, v=D.shorts[+t.dataset.i]; if(!v) return;
+    if(t.dataset.k==='title'){ v.title=t.value; setDirty(true); }
+    if(t.dataset.k==='brand'){ if(t.value.trim()) v.brand=t.value.trim(); else delete v.brand; setDirty(true); }
+    if(t.dataset.k==='metric'){ setL(v,'metric','ko',t.value.trim()); setDirty(true); } });
   $('sList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i;
     if(t.dataset.a==='poster'&&t.files[0]){ var k='sp_'+Date.now(); D.shorts[i].poster=fileUrl(k,t.files[0]); D.shorts[i].__pk=k; setDirty(true); shorts(); } });
   $('sList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i,a=t.dataset.a,S=D.shorts;
     if(a==='play'){ play(S[i]); return; }
+    if(a==='story'){ openStory(i); return; }
     if(a==='up') mv(S,i,i-1); else if(a==='dn') mv(S,i,i+1); else if(a==='hide') S[i].hidden=!S[i].hidden;
     else if(a==='del'){ if(!confirm('「'+(S[i].title||'영상')+'」을 목록에서 뺄까요? (저장해야 사이트에 반영)')) return; S.splice(i,1); }
     setDirty(true); shorts(); });
@@ -331,9 +419,10 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
     chain.then(function(){
       out.logos.forEach(function(l){ delete l.__k; if(/^blob:/.test(l.src||'')) l.src=''; });
       out.shorts=out.shorts.filter(function(v){ delete v.__pk; delete v.__vk; if(/^blob:/.test(v.poster||'')) delete v.poster; return !(v.type==='mp4'&&/^blob:/.test(v.src||'')); });
+      if(out.pricing&&out.pricing.tiers){ Object.keys(out.pricing.tiers).forEach(function(k){ if(!Object.keys(out.pricing.tiers[k]).length) delete out.pricing.tiers[k]; }); }
       out.updatedAt=new Date().toISOString();
       msg('저장하는 중…');
-      return gh(PATH,{method:'PUT',body:JSON.stringify({message:'home-admin: 고객사 로고·고객 사례 영상 변경',content:b64(JSON.stringify(out,null,1)),sha:SHA,branch:BR})});
+      return gh(PATH,{method:'PUT',body:JSON.stringify({message:'home-admin: 로고·고객 사례·가격·크리에이터 풀 변경',content:b64(JSON.stringify(out,null,1)),sha:SHA,branch:BR})});
     }).then(function(r){ if(r.status===409) throw new Error('다른 곳에서 먼저 저장됐습니다 — [다시 불러오기] 후 다시 고쳐 주세요'); if(!r.ok) throw new Error('저장 실패 ('+r.status+')'); return r.json(); })
     .then(function(j){ SHA=j.content.sha; pending={}; D=out; render(); setDirty(false); msg('저장 완료 — 1~2분 뒤 4개 언어 홈페이지에 반영됩니다','ok'); })
     .catch(function(e){ msg(e.message,'err'); }).then(function(){ btn.disabled=false; });
