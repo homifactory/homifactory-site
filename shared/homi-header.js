@@ -67,7 +67,7 @@
               { code: 'EN', label: 'English · EN', prefix: '/en', pages: '*' },
               { code: 'JA', label: '日本語 · JA', prefix: '/ja', pages: '*' },
               { code: 'ID', label: 'Bahasa Indonesia · ID', prefix: '/id', pages: '*' }],
-      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }, { label: 'SNP COMPANY', href: '/snp', newTab: true }],
+      siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }, { label: 'SNP COMPANY', href: '/snp', newTab: true, desk: true }],
       /* 크리에이터 지원 입구는 상단 바 하나만 (FR-MKT-001·042, IA MKT-P13) — 보라 글자 */
       sibPanelOnly: true,   /* 계열사(HOMI PRODUCTION·SNP) 링크는 데스크톱에선 푸터·서비스 메뉴로, 모바일 메뉴 아래에만 */
       cta: { label: '무료 상담 받기', href: '/contact' },
@@ -165,6 +165,8 @@
   var langHtml = '<div class="hh-lang"><button type="button" class="hh-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="' + esc('언어 선택, 현재') + ' ' + lang.code + '">' + GLOBE +
     '<span>' + lang.code + '</span><span class="hh-caret" aria-hidden="true">▾</span></button>' +
     '<ul class="hh-lang-menu">' + langLinks().map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul></div>';
+  function sibHtml0(list) { return list.map(function (s) { return '<a class="hh-sib" href="' + s.href + '"' + (s.newTab ? ' target="_blank" rel="noopener"' : '') + '>' + esc(s.label) +
+      ' <span aria-hidden="true">↗</span>' + (s.newTab ? '<span class="hh-sr">(' + esc('새 탭') + ')</span>' : '') + '</a>'; }).join(''); }
   var sibHtml = C.siblings.map(function (s) { return '<a class="hh-sib" href="' + s.href + '"' + (s.newTab ? ' target="_blank" rel="noopener"' : '') + '>' + esc(s.label) +
       ' <span aria-hidden="true">↗</span>' + (s.newTab ? '<span class="hh-sr">(' + esc('새 탭') + ')</span>' : '') + '</a>'; }).join('');
   var extraHtml = C.extra ? '<a class="hh-extra" href="' + L(C.extra.href) + '">' + esc(C.extra.label) + '</a>' : '';
@@ -186,7 +188,7 @@
         '<div class="hh-left"><a class="hh-logo" href="' + L(C.home) + '" aria-label="' + C.name + ' ' + C.sub + ' Home">' +
           '<img src="' + C.logo + '" alt="" width="26" height="28"><span class="hh-logo-text">' + C.name + ' <span>' + C.sub + '</span></span></a></div>' +
         '<nav class="hh-center" aria-label="' + esc('주 메뉴') + '"><ul class="hh-menu">' + center + '</ul></nav>' +
-        '<div class="hh-right">' + extraHtml + langHtml + (C.sibPanelOnly ? '' : sibHtml) + ctaHtml +
+        '<div class="hh-right">' + extraHtml + langHtml + (C.sibPanelOnly ? sibHtml0(C.siblings.filter(function (s) { return s.desk; })) : sibHtml) + ctaHtml +
           '<button type="button" class="hh-burger" aria-label="' + esc('메뉴 열기') + '" aria-expanded="false" aria-controls="hh-panel"><span></span></button></div>' +
       '</div>' +
       '<nav class="hh-panel" id="hh-panel" aria-label="' + esc('모바일 메뉴') + '">' + panel + '</nav>' +
