@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>HOMI 홈 마스터</title>
+<link rel="icon" href="/assets/logo-symbol.png">
+<!-- 홈 마스터 — Home(4개 언어 공통)의 ② 고객사 로고 띠 · 고객 사례 숏폼을 고치는 관리 화면.
+     데이터 = /market/data/site.json 의 logos · shorts (HOMI MARKET 관리자와 같은 파일·같은 저장 키)
+     저장 = GitHub 저장소 파일을 직접 고쳐 커밋 → Vercel 자동 배포(1~2분) -->
+<style>
+:root{--p:#8B3DFF;--p2:#7D2AE8;--pl:#F3ECFF;--ink:#141414;--mute:#6B665E;--line:#E6E0D6;--bg:#FAF7F2;--ok:#16A34A;--err:#DC2626;--warn:#B45309}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:14px;line-height:1.55}
+header{position:sticky;top:0;z-index:20;background:#141414;color:#fff;padding:12px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.02em}
+header h1 span{color:#C9A6FF}
+header .sp{flex:1}
+header a{color:#C9A6FF;font-size:13px;text-decoration:none}
+.tabs{display:flex;gap:4px;background:#222;border-radius:999px;padding:3px}
+.tabs button{all:unset;cursor:pointer;padding:6px 14px;border-radius:999px;font-weight:700;font-size:13px;color:#bbb}
+.tabs button[aria-selected=true]{background:#fff;color:#141414}
+.tok{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tok input{width:240px;background:#222;border:1px solid #333;color:#fff;padding:7px 10px;border-radius:10px;font:inherit}
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13.5px;background:#fff;color:var(--ink);border:1px solid var(--line);white-space:nowrap}
+.btn:hover{border-color:var(--p);color:var(--p)}
+.btn.pri{background:var(--p);color:#fff;border-color:var(--p)}
+.btn.pri:hover{background:var(--p2);color:#fff}
+.btn.sm{padding:5px 10px;font-size:12px}
+.btn.del:hover{border-color:var(--err);color:var(--err)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn:focus-visible,.tabs button:focus-visible{outline:2px solid var(--p);outline-offset:2px}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 130px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:16px}
+.card h2{font-size:17px;margin:0 0 4px;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hint{color:var(--mute);font-size:13px;margin:0 0 14px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--pl);color:var(--p2);font-size:11.5px;font-weight:700}
+.cnt{font-size:12.5px;color:var(--mute);font-weight:600}
+input[type=text],select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--pl);border-color:var(--p)}
+label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.add{margin-top:14px;padding:14px;border:1px dashed #D9C4FF;border-radius:12px;background:#FCFAFF}
+.add .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:10px;align-items:end}
+[hidden]{display:none!important}
+
+/* 미리보기 띠 */
+.pvw{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 0;overflow:hidden;margin-bottom:14px}
+.pvw .lane{display:flex;gap:14px;align-items:center;padding:6px 16px;overflow:hidden;white-space:nowrap}
+.pvw .lane .lg{flex:0 0 auto;height:44px;min-width:96px;padding:0 14px;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#444;background:#fff}
+.pvw .lane .lg img{max-height:30px;max-width:110px;object-fit:contain}
+.pvw .lab{font-size:11.5px;color:var(--mute);font-weight:700;padding:0 16px}
+
+/* 로고 목록 */
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.lg-it{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px;display:flex;flex-direction:column;gap:8px;cursor:grab}
+.lg-it.off{opacity:.45}
+.lg-it.drag{opacity:.3}
+.lg-it.over{outline:2px dashed var(--p);outline-offset:2px}
+.lg-it .pv{height:64px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:12px;color:var(--mute);text-align:center;padding:4px}
+.lg-it .pv img{max-width:90%;max-height:52px;object-fit:contain}
+.lg-it .two{display:grid;grid-template-columns:1fr 84px;gap:6px}
+.ops{display:flex;gap:4px;flex-wrap:wrap}
+.num{font-size:11px;color:var(--mute);font-weight:700}
+
+/* 숏폼 목록 */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:12px}
+.s-it{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px;display:flex;flex-direction:column;gap:7px;cursor:grab}
+.s-it.off{opacity:.45}
+.s-it.drag{opacity:.3}
+.s-it.over{outline:2px dashed var(--p);outline-offset:2px}
+.s-it .pv{position:relative;aspect-ratio:9/16;border-radius:9px;background:#1b1b1b;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#888;font-size:12px;text-align:center;padding:6px}
+.s-it .pv img,.s-it .pv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-it .pv .tp{position:absolute;left:6px;top:6px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.s-it .pv .play{position:absolute;inset:auto 6px 6px auto;z-index:2}
+.s-it .warn{font-size:11.5px;color:var(--warn);font-weight:700}
+.s-it .meta{font-size:11px;color:var(--mute);word-break:break-all}
+.det{font-size:12px;color:var(--mute);margin-top:4px}
+.det.ok{color:var(--ok)}.det.err{color:var(--err)}
+
+/* 재생 팝업 */
+.mdl{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:20px}
+.mdl .box{width:min(380px,92vw);aspect-ratio:9/16;max-height:86vh;background:#000;border-radius:14px;overflow:hidden;position:relative}
+.mdl iframe,.mdl video{width:100%;height:100%;border:0;display:block}
+.mdl .x{position:absolute;top:14px;right:14px}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+#msg{font-weight:700;font-size:13.5px}
+#msg.ok{color:var(--ok)}#msg.err{color:var(--err)}
+#dirty{font-size:12px;color:var(--warn);font-weight:700}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links a{font-size:12px;font-weight:700;color:var(--p2);text-decoration:none;border:1px solid #D9C4FF;border-radius:999px;padding:3px 10px;background:#FCFAFF}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:760px){header{padding:12px 16px}.tok input{width:100%}.add .grid{grid-template-columns:1fr}main{padding:16px 16px 150px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>HOMI <span>홈 마스터</span></h1>
+  <div class="tabs" role="tablist" aria-label="편집 항목">
+    <button role="tab" id="t-logo" aria-controls="p-logo" aria-selected="true" type="button">고객사 로고</button>
+    <button role="tab" id="t-case" aria-controls="p-case" aria-selected="false" type="button">고객 사례 영상</button>
+  </div>
+  <div class="sp"></div>
+  <div class="tok">
+    <label for="tk" class="sr">GitHub 저장 키</label>
+    <input id="tk" type="password" placeholder="저장 키(GitHub 토큰)" autocomplete="off">
+    <button class="btn sm" id="tkSave" type="button">키 기억</button>
+    <span id="tkState" style="font-size:12px;color:#bbb"></span>
+  </div>
+</header>
+<main>
+  <div class="card" style="background:#FCFAFF;border-color:#D9C4FF">
+    <h2>사용 방법</h2>
+    <p class="hint" style="margin:0 0 10px">고친 뒤 아래 <b>[저장하기]</b>를 누르면 저장소에 바로 올라가고 <b>1~2분 뒤</b> 4개 언어 홈페이지에 함께 반영됩니다.
+    카드를 끌어다 놓거나 ←→ 버튼으로 순서를 바꾸고, 「숨기기」로 잠시 뺄 수 있습니다. 저장 키는 이 컴퓨터 브라우저에만 기억됩니다 (HOMI MARKET 관리자와 같은 키).</p>
+    <div class="links"><span class="cnt" style="margin-right:4px">사이트 확인 ↗</span>
+      <a href="/#client-logos" target="_blank" rel="noopener">KR</a><a href="/en/#client-logos" target="_blank" rel="noopener">EN</a><a href="/ja/#client-logos" target="_blank" rel="noopener">JA</a><a href="/id/#client-logos" target="_blank" rel="noopener">ID</a></div>
+  </div>
+
+  <!-- ① 고객사 로고 -->
+  <section id="p-logo" role="tabpanel" aria-labelledby="t-logo">
+    <div class="card">
+      <h2>고객사 로고 띠 <span class="badge">Home · 함께한 브랜드</span> <span class="cnt" id="lgCnt"></span></h2>
+      <p class="hint">윗줄은 왼쪽으로, 아랫줄은 오른쪽으로 끝없이 흐릅니다. PNG·SVG(배경 투명 권장, 5MB 이하). 파일이 없으면 브랜드명이 글자로 나옵니다.</p>
+      <div class="pvw" aria-label="미리보기">
+        <div class="lab">미리보기 · 윗줄</div><div class="lane" id="pv1"></div>
+        <div class="lab" style="margin-top:6px">아랫줄</div><div class="lane" id="pv2"></div>
+      </div>
+      <div class="lgrid" id="logoList"></div>
+      <div class="add">
+        <div class="grid">
+          <div><label class="f" for="lgFile">로고 파일</label><input type="file" id="lgFile" accept="image/png,image/svg+xml,image/webp,image/jpeg"></div>
+          <div><label class="f" for="lgName">브랜드명 (필수)</label><input type="text" id="lgName" placeholder="예) 청담유식"></div>
+          <div><label class="f" for="lgRow">줄</label><select id="lgRow"><option value="1">윗줄 (← 흐름)</option><option value="2">아랫줄 (→ 흐름)</option></select></div>
+          <button class="btn pri" id="lgAdd" type="button">+ 로고 추가</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 고객 사례 영상 -->
+  <section id="p-case" role="tabpanel" aria-labelledby="t-case" hidden>
+    <div class="card">
+      <h2>고객 사례 영상 <span class="badge">Home · 고객 사례 3줄</span> <span class="cnt" id="sCnt"></span></h2>
+      <p class="hint">여기 순서대로 3줄에 흐릅니다(줄마다 시작 영상이 다름). 누르면 홈페이지 팝업에서 소리와 함께 재생됩니다.
+      호미가 실제로 만든 영상, 게재 동의를 받은 것만 올려 주세요. 인스타그램·틱톡은 <b>썸네일(세로 9:16)</b>을 꼭 넣어 주세요 — 유튜브는 자동입니다.</p>
+      <div class="sgrid" id="sList"></div>
+      <div class="add">
+        <div class="grid" style="grid-template-columns:1.6fr 1fr 1fr auto">
+          <div><label class="f" for="sUrl">영상 링크 (인스타그램 · 유튜브 쇼츠 · 틱톡)</label><input type="text" id="sUrl" placeholder="https://www.instagram.com/reel/…"><div class="det" id="sDet" aria-live="polite">또는 MP4 파일을 아래에서 고르세요</div></div>
+          <div><label class="f" for="sTitle">제목 (관리용·화면 읽기용)</label><input type="text" id="sTitle" placeholder="예) 청담유식 릴스"></div>
+          <div><label class="f" for="sPoster">썸네일 (세로 9:16)</label><input type="file" id="sPoster" accept="image/png,image/jpeg,image/webp"></div>
+          <button class="btn pri" id="sAdd" type="button">+ 영상 추가</button>
+        </div>
+        <div class="row" style="margin-top:10px"><label class="f" for="sMp4" style="margin:0">MP4 직접 올리기 (40MB 이하, 링크 대신)</label><input type="file" id="sMp4" accept="video/mp4,video/webm"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="mdl" id="mdl" hidden role="dialog" aria-modal="true" aria-label="영상 미리보기">
+  <div class="box" id="mdlBox"></div>
+  <button class="btn sm x" id="mdlX" type="button">닫기 ✕</button>
+</div>
+
+<div class="bar">
+  <span id="msg" role="status" aria-live="polite">불러오는 중…</span>
+  <span id="dirty" hidden>● 저장 안 한 변경 있음</span>
+  <button class="btn" id="reload" type="button">다시 불러오기</button>
+  <button class="btn pri" id="save" type="button">저장하기</button>
+</div>
+
+<script>
+(function(){
+  var REPO='homifactory/homifactory-site', BR='main', PATH='market/data/site.json', UP='market/data/uploads/';
+  var D=null, SHA=null, pending={}, dirty=false, $=function(id){ return document.getElementById(id); };
+  function msg(t,c){ var m=$('msg'); m.textContent=t; m.className=c||''; }
+  function setDirty(v){ dirty=v; $('dirty').hidden=!v; }
+  function b64(str){ return btoa(unescape(encodeURIComponent(str))); }
+  function unb64(s){ return decodeURIComponent(escape(atob(s.replace(/\n/g,'')))); }
+  function tok(){ try{ return localStorage.getItem('hm_gh_token')||''; }catch(e){ return ''; } }
+  function gh(path,opt){ opt=opt||{}; opt.headers=Object.assign({'Accept':'application/vnd.github+json'},opt.headers||{}); var t=tok(); if(t) opt.headers.Authorization='Bearer '+t;
+    return fetch('https://api.github.com/repos/'+REPO+'/contents/'+path+(opt.method?'':'?ref='+BR+'&t='+Date.now()),opt); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function fileUrl(key,file){ pending[key]=file; return URL.createObjectURL(file); }
+  function mv(arr,i,j){ if(j<0||j>=arr.length||i===j) return; var x=arr.splice(i,1)[0]; arr.splice(j,0,x); }
+
+  /* ── 탭 ── */
+  function tab(which){ ['logo','case'].forEach(function(k){ $('t-'+k).setAttribute('aria-selected',k===which); $('p-'+k).hidden=k!==which; });
+    try{ history.replaceState(null,'','#'+which); }catch(e){} }
+  $('t-logo').onclick=function(){ tab('logo'); }; $('t-case').onclick=function(){ tab('case'); };
+  if(location.hash==='#case') tab('case');
+
+  /* ── 불러오기 ── */
+  function load(){
+    msg('불러오는 중…'); pending={};
+    var p=tok()? gh(PATH).then(function(r){ if(!r.ok) throw new Error('저장 키를 확인해 주세요 ('+r.status+')'); return r.json(); }).then(function(j){ SHA=j.sha; return JSON.parse(unb64(j.content)); })
+             : fetch('/market/data/site.json',{cache:'no-store'}).then(function(r){ return r.json(); });
+    p.then(function(d){ D=d||{}; D.logos=D.logos||[]; D.shorts=Array.isArray(D.shorts)?D.shorts:[]; render(); setDirty(false);
+        msg(tok()?'불러왔습니다 — 고친 뒤 [저장하기]':'읽기 전용 — 저장하려면 오른쪽 위에 저장 키를 넣어 주세요', tok()?'':'err'); })
+     .catch(function(e){ msg('불러오지 못했습니다: '+e.message,'err'); });
+  }
+  function render(){ logos(); shorts(); }
+
+  /* ── 끌어다 놓기 (로고·영상 공용) ── */
+  function dnd(box,sel,arr,redraw){
+    var from=-1;
+    box.addEventListener('dragstart',function(e){ var it=e.target.closest(sel); if(!it) return; from=+it.dataset.i; it.classList.add('drag'); e.dataTransfer.effectAllowed='move'; try{ e.dataTransfer.setData('text/plain',from); }catch(_){} });
+    box.addEventListener('dragend',function(){ from=-1; [].forEach.call(box.querySelectorAll(sel),function(x){ x.classList.remove('drag','over'); }); });
+    box.addEventListener('dragover',function(e){ var it=e.target.closest(sel); if(!it||from<0) return; e.preventDefault();
+      [].forEach.call(box.querySelectorAll(sel+'.over'),function(x){ if(x!==it) x.classList.remove('over'); }); it.classList.add('over'); });
+    box.addEventListener('drop',function(e){ var it=e.target.closest(sel); if(!it||from<0) return; e.preventDefault(); mv(arr(),from,+it.dataset.i); from=-1; setDirty(true); redraw(); });
+  }
+
+  /* ── 고객사 로고 ── */
+  function logos(){
+    var L=D.logos, on=L.filter(function(l){ return !l.hidden&&(l.name||l.src); });
+    $('lgCnt').textContent='보이는 로고 '+on.length+'개 / 전체 '+L.length+'개';
+    [1,2].forEach(function(n){ var a=on.filter(function(l){ return (+l.row||1)===n; });
+      $('pv'+n).innerHTML=a.length?a.map(function(l){ return '<span class="lg">'+(l.src?'<img src="'+esc(l.src)+'" alt="'+esc(l.name)+'">':esc(l.name))+'</span>'; }).join(''):'<span class="cnt">(비어 있음 — 이 줄은 기본 내용이 나옵니다)</span>'; });
+    $('logoList').innerHTML=L.map(function(l,i){ return '<div class="lg-it'+(l.hidden?' off':'')+'" draggable="true" data-i="'+i+'">'+
+      '<div class="num">#'+(i+1)+(l.hidden?' · 숨김':'')+'</div>'+
+      '<div class="pv">'+(l.src?'<img src="'+esc(l.src)+'" alt="">':(esc(l.name)||'(빈 칸)'))+'</div>'+
+      '<div class="two"><input type="text" data-i="'+i+'" data-k="name" value="'+esc(l.name)+'" aria-label="브랜드명" placeholder="브랜드명">'+
+      '<select data-i="'+i+'" data-k="row" aria-label="줄"><option value="1"'+(+l.row!==2?' selected':'')+'>윗줄</option><option value="2"'+(+l.row===2?' selected':'')+'>아랫줄</option></select></div>'+
+      '<div class="ops"><button class="btn sm" data-a="up" data-i="'+i+'" type="button" aria-label="앞으로">←</button><button class="btn sm" data-a="dn" data-i="'+i+'" type="button" aria-label="뒤로">→</button>'+
+      '<label class="btn sm"><input type="file" data-a="img" data-i="'+i+'" accept="image/png,image/svg+xml,image/webp,image/jpeg" style="display:none">'+(l.src?'파일 교체':'파일 넣기')+'</label>'+
+      '<button class="btn sm" data-a="hide" data-i="'+i+'" type="button">'+(l.hidden?'보이기':'숨기기')+'</button><button class="btn sm del" data-a="del" data-i="'+i+'" type="button">삭제</button></div></div>'; }).join('');
+  }
+  $('logoList').addEventListener('input',function(e){ var t=e.target; if(t.dataset.k==='name'){ D.logos[+t.dataset.i].name=t.value; setDirty(true); } });
+  $('logoList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i;
+    if(t.dataset.k==='row'){ D.logos[i].row=+t.value; setDirty(true); logos(); }
+    if(t.dataset.k==='name') logos();
+    if(t.dataset.a==='img'&&t.files[0]){ var k='lg_'+Date.now(); D.logos[i].src=fileUrl(k,t.files[0]); D.logos[i].__k=k; setDirty(true); logos(); } });
+  $('logoList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i,a=t.dataset.a,L=D.logos;
+    if(a==='up') mv(L,i,i-1); else if(a==='dn') mv(L,i,i+1); else if(a==='hide') L[i].hidden=!L[i].hidden;
+    else if(a==='del'){ if(!confirm('「'+(L[i].name||'빈 칸')+'」 로고를 목록에서 뺄까요? (저장해야 사이트에 반영)')) return; L.splice(i,1); }
+    setDirty(true); logos(); });
+  dnd($('logoList'),'.lg-it',function(){ return D.logos; },logos);
+  $('lgAdd').onclick=function(){ var n=$('lgName').value.trim(), f=$('lgFile').files[0];
+    if(!n){ msg('브랜드명을 넣어 주세요','err'); $('lgName').focus(); return; }
+    var l={name:n,src:'',row:+$('lgRow').value,hidden:false}; if(f){ var k='lgN_'+Date.now(); l.src=fileUrl(k,f); l.__k=k; }
+    /* 숨긴 빈 칸들 앞에 넣어 보이는 로고끼리 모이게 */
+    var at=D.logos.length; while(at>0&&D.logos[at-1].hidden&&!D.logos[at-1].src) at--; D.logos.splice(at,0,l);
+    $('lgName').value=''; $('lgFile').value=''; setDirty(true); logos(); msg('추가했습니다 — [저장하기]를 눌러야 사이트에 반영됩니다'); };
+
+  /* ── 고객 사례 영상 ── */
+  function parse(u){ u=(u||'').trim(); var m;
+    if(!u) return null;
+    if((m=u.match(/instagram\.com\/(?:[\w.]+\/)?(?:p|reel|reels|tv)\/([\w-]+)/i))) return {type:'instagram',id:m[1]};
+    if((m=u.match(/youtube\.com\/shorts\/([\w-]{6,})/i))||(m=u.match(/[?&]v=([\w-]{6,})/))||(m=u.match(/youtu\.be\/([\w-]{6,})/i))) return {type:'youtube',id:m[1]};
+    if((m=u.match(/tiktok\.com\/.*\/video\/(\d+)/i))) return {type:'tiktok',id:m[1]};
+    if(/vm\.tiktok\.com|vt\.tiktok\.com|tiktok\.com\/t\//i.test(u)) return {err:'틱톡 짧은 링크는 안 됩니다 — 브라우저에서 열어 주소창의 …/video/숫자 링크를 붙여 주세요'};
+    if(/^https?:\/\/\S+\.(mp4|webm)(\?|$)/i.test(u)||/^\/\S+\.(mp4|webm)$/i.test(u)) return {type:'mp4',src:u};
+    return {err:'인스타그램 · 유튜브 · 틱톡 영상 링크를 넣어 주세요'}; }
+  function poster(v){ return v.poster||(v.type==='youtube'?'https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg':''); }
+  function link(v){ return v.type==='instagram'?'https://www.instagram.com/p/'+v.id+'/':v.type==='youtube'?'https://youtube.com/shorts/'+v.id:v.type==='tiktok'?'https://www.tiktok.com/video/'+v.id:(v.src||''); }
+  function shorts(){
+    var S=D.shorts, on=S.filter(function(v){ return !v.hidden; });
+    $('sCnt').textContent='보이는 영상 '+on.length+'개 / 전체 '+S.length+'개'+(on.length&&on.length<6?' · 6개 이상이면 3줄이 더 풍성해 보여요':'');
+    $('sList').innerHTML=S.length?S.map(function(v,i){ var p=poster(v), needP=(v.type==='instagram'||v.type==='tiktok')&&!v.poster;
+      return '<div class="s-it'+(v.hidden?' off':'')+'" draggable="true" data-i="'+i+'">'+
+        '<div class="num">#'+(i+1)+(v.hidden?' · 숨김':'')+'</div>'+
+        '<div class="pv"><span class="tp">'+esc(v.type)+'</span>'+(p?'<img src="'+esc(p)+'" alt="">':(v.type==='mp4'&&v.src?'<video src="'+esc(v.src)+'" muted playsinline preload="metadata"></video>':'썸네일 없음'))+
+          '<button class="btn sm play" data-a="play" data-i="'+i+'" type="button">▶ 재생</button></div>'+
+        (needP?'<div class="warn">⚠ 썸네일을 넣어 주세요</div>':'')+
+        '<input type="text" data-i="'+i+'" data-k="title" value="'+esc(v.title)+'" aria-label="제목" placeholder="제목">'+
+        '<div class="meta">'+esc(v.type==='mp4'?(/^blob:/.test(v.src||'')?'(새 MP4 — 저장 시 업로드)':v.src):v.id)+'</div>'+
+        '<div class="ops"><button class="btn sm" data-a="up" data-i="'+i+'" type="button" aria-label="앞으로">←</button><button class="btn sm" data-a="dn" data-i="'+i+'" type="button" aria-label="뒤로">→</button>'+
+        '<label class="btn sm"><input type="file" data-a="poster" data-i="'+i+'" accept="image/png,image/jpeg,image/webp" style="display:none">썸네일</label>'+
+        '<button class="btn sm" data-a="hide" data-i="'+i+'" type="button">'+(v.hidden?'보이기':'숨기기')+'</button><button class="btn sm del" data-a="del" data-i="'+i+'" type="button">삭제</button></div></div>'; }).join('')
+      :'<p class="hint">아직 영상이 없습니다 — 아래에서 추가해 주세요. (비어 있으면 홈페이지에는 회색 칸이 나옵니다)</p>';
+  }
+  $('sList').addEventListener('input',function(e){ var t=e.target; if(t.dataset.k==='title'){ D.shorts[+t.dataset.i].title=t.value; setDirty(true); } });
+  $('sList').addEventListener('change',function(e){ var t=e.target,i=+t.dataset.i;
+    if(t.dataset.a==='poster'&&t.files[0]){ var k='sp_'+Date.now(); D.shorts[i].poster=fileUrl(k,t.files[0]); D.shorts[i].__pk=k; setDirty(true); shorts(); } });
+  $('sList').addEventListener('click',function(e){ var t=e.target.closest('button'); if(!t) return; var i=+t.dataset.i,a=t.dataset.a,S=D.shorts;
+    if(a==='play'){ play(S[i]); return; }
+    if(a==='up') mv(S,i,i-1); else if(a==='dn') mv(S,i,i+1); else if(a==='hide') S[i].hidden=!S[i].hidden;
+    else if(a==='del'){ if(!confirm('「'+(S[i].title||'영상')+'」을 목록에서 뺄까요? (저장해야 사이트에 반영)')) return; S.splice(i,1); }
+    setDirty(true); shorts(); });
+  dnd($('sList'),'.s-it',function(){ return D.shorts; },shorts);
+  $('sUrl').addEventListener('input',function(){ var r=parse(this.value), d=$('sDet');
+    if(!r){ d.textContent='또는 MP4 파일을 아래에서 고르세요'; d.className='det'; return; }
+    if(r.err){ d.textContent=r.err; d.className='det err'; return; }
+    d.textContent='✓ '+({instagram:'인스타그램',youtube:'유튜브',tiktok:'틱톡',mp4:'MP4'})[r.type]+' 영상'+(r.id?' · '+r.id:'')+(r.type==='youtube'?' · 썸네일 자동':r.type==='mp4'?'':' · 썸네일을 넣어 주세요'); d.className='det ok'; });
+  $('sAdd').onclick=function(){
+    var f=$('sMp4').files[0], r=f?{type:'mp4'}:parse($('sUrl').value), pf=$('sPoster').files[0];
+    if(!r){ msg('영상 링크를 넣거나 MP4 파일을 골라 주세요','err'); $('sUrl').focus(); return; }
+    if(r.err){ msg(r.err,'err'); $('sUrl').focus(); return; }
+    var v={type:r.type,title:$('sTitle').value.trim()||'고객 사례 영상',hidden:false};
+    if(r.id) v.id=r.id; if(r.src) v.src=r.src;
+    if(f){ var k='sv_'+Date.now(); v.src=fileUrl(k,f); v.__vk=k; }
+    if(pf){ var k2='sp_'+Date.now(); v.poster=fileUrl(k2,pf); v.__pk=k2; }
+    if(D.shorts.some(function(x){ return v.id&&x.id===v.id; })&&!confirm('이미 목록에 있는 영상입니다. 그래도 추가할까요?')) return;
+    D.shorts.push(v); ['sUrl','sTitle','sPoster','sMp4'].forEach(function(id){ $(id).value=''; }); $('sDet').textContent='또는 MP4 파일을 아래에서 고르세요'; $('sDet').className='det';
+    setDirty(true); shorts(); msg('추가했습니다 — [저장하기]를 눌러야 사이트에 반영됩니다'+((v.type==='instagram'||v.type==='tiktok')&&!v.poster?' (썸네일도 넣어 주세요)':'')); };
+
+  /* 미리 재생 */
+  function play(v){ var h='';
+    if(v.type==='mp4') h='<video src="'+esc(v.src)+'" controls autoplay playsinline></video>';
+    else if(v.type==='youtube') h='<iframe src="https://www.youtube.com/embed/'+esc(v.id)+'?autoplay=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    else if(v.type==='tiktok') h='<iframe src="https://www.tiktok.com/embed/v2/'+esc(v.id)+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/p/'+esc(v.id)+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    $('mdlBox').innerHTML=h; $('mdl').hidden=false; $('mdlX').focus(); }
+  function closeM(){ $('mdl').hidden=true; $('mdlBox').innerHTML=''; }
+  $('mdlX').onclick=closeM; $('mdl').addEventListener('click',function(e){ if(e.target===this) closeM(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'&&!$('mdl').hidden) closeM(); });
+
+  /* ── 저장 ── */
+  function readB64(file){ return new Promise(function(ok,no){ var r=new FileReader(); r.onload=function(){ ok(String(r.result).split(',')[1]); }; r.onerror=no; r.readAsDataURL(file); }); }
+  function safeName(f){ var ext=(f.name.match(/\.(png|svg|webp|jpe?g|mp4|webm)$/i)||['','png'])[1].toLowerCase(); return Date.now()+'-'+Math.random().toString(36).slice(2,7)+'.'+ext; }
+  function upload(file){ var lim=/^video/.test(file.type)?40:5; if(file.size>lim*1024*1024) return Promise.reject(new Error('「'+file.name+'」이 '+lim+'MB를 넘습니다 — 줄여서 올려 주세요'));
+    var path=UP+safeName(file);
+    return readB64(file).then(function(c){
+      function put(n){ return gh(path,{method:'PUT',body:JSON.stringify({message:'home-admin: 파일 업로드 '+file.name,content:c,branch:BR})})
+        .then(function(r){ if((r.status===409||r.status===422)&&n<4) return new Promise(function(ok){ setTimeout(ok,1200*(n+1)); }).then(function(){ return put(n+1); }); return r; }); }
+      return put(0); })
+      .then(function(r){ if(!r.ok) throw new Error('「'+file.name+'」 업로드 실패 ('+r.status+') — 잠시 뒤 다시 눌러 주세요'); return '/'+path; }); }
+  $('save').onclick=function(){
+    if(!tok()){ msg('저장 키가 없습니다 — 오른쪽 위에 넣고 [키 기억]','err'); $('tk').focus(); return; }
+    var btn=this; btn.disabled=true; msg('파일 올리는 중…');
+    var out=JSON.parse(JSON.stringify(D)), chain=Promise.resolve();
+    function up(file,apply){ chain=chain.then(function(){ return upload(file); }).then(apply); }
+    D.logos.forEach(function(l,i){ if(l.__k&&pending[l.__k]) up(pending[l.__k],function(u){ out.logos[i].src=u; }); });
+    D.shorts.forEach(function(v,i){ if(v.__pk&&pending[v.__pk]) up(pending[v.__pk],function(u){ out.shorts[i].poster=u; });
+      if(v.__vk&&pending[v.__vk]) up(pending[v.__vk],function(u){ out.shorts[i].src=u; }); });
+    chain.then(function(){
+      out.logos.forEach(function(l){ delete l.__k; if(/^blob:/.test(l.src||'')) l.src=''; });
+      out.shorts=out.shorts.filter(function(v){ delete v.__pk; delete v.__vk; if(/^blob:/.test(v.poster||'')) delete v.poster; return !(v.type==='mp4'&&/^blob:/.test(v.src||'')); });
+      out.updatedAt=new Date().toISOString();
+      msg('저장하는 중…');
+      return gh(PATH,{method:'PUT',body:JSON.stringify({message:'home-admin: 고객사 로고·고객 사례 영상 변경',content:b64(JSON.stringify(out,null,1)),sha:SHA,branch:BR})});
+    }).then(function(r){ if(r.status===409) throw new Error('다른 곳에서 먼저 저장됐습니다 — [다시 불러오기] 후 다시 고쳐 주세요'); if(!r.ok) throw new Error('저장 실패 ('+r.status+')'); return r.json(); })
+    .then(function(j){ SHA=j.content.sha; pending={}; D=out; render(); setDirty(false); msg('저장 완료 — 1~2분 뒤 4개 언어 홈페이지에 반영됩니다','ok'); })
+    .catch(function(e){ msg(e.message,'err'); }).then(function(){ btn.disabled=false; });
+  };
+  $('reload').onclick=function(){ if(dirty&&!confirm('저장 안 한 변경이 사라집니다. 다시 불러올까요?')) return; load(); };
+  addEventListener('beforeunload',function(e){ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+  $('tk').value=tok(); $('tkState').textContent=tok()?'키 기억됨':'';
+  $('tkSave').onclick=function(){ try{ localStorage.setItem('hm_gh_token',$('tk').value.trim()); }catch(e){} $('tkState').textContent=$('tk').value.trim()?'키 기억됨':''; load(); };
+  load();
+})();
+</script>
+</body>
+</html>
