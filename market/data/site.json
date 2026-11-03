@@ -317,5 +317,42 @@
    "c3.text": "Kampanye Instagram Reels bersama kreator kuliner untuk Cheongdam Yoosik, pub makanan Korea di Cheongdam-dong. Close-up yang menggugah selera dari menu andalan ayam kampung rebus cheonggukjang dan paha ayam panggang beraroma asap, ditambah lokasi dan momen kunjungan — makan malam kantor, kencan, acara keluarga — mengubah tontonan menjadi kunjungan nyata."
   }
  },
- "updatedAt": "2026-10-08T02:06:48.833Z"
+ "updatedAt": "2026-10-08T02:06:48.833Z",
+ "shorts": [
+  {
+   "type": "instagram",
+   "id": "DXlM9-3kcTi",
+   "poster": "/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg",
+   "title": "청담유식 릴스",
+   "hidden": false
+  },
+  {
+   "type": "instagram",
+   "id": "DXQ-FbMDl7V",
+   "poster": "/assets/shorts/SHORT-ig-DXQ-FbMDl7V.jpg",
+   "title": "청담유식 릴스",
+   "hidden": false
+  },
+  {
+   "type": "instagram",
+   "id": "DXWZ9TFiYm6",
+   "poster": "/assets/shorts/SHORT-ig-DXWZ9TFiYm6.jpg",
+   "title": "청담유식 릴스",
+   "hidden": false
+  },
+  {
+   "type": "instagram",
+   "id": "DcQflbuPhfh",
+   "poster": "/assets/shorts/SHORT-ig-DcQflbuPhfh.jpg",
+   "title": "nadafid 릴스",
+   "hidden": false
+  },
+  {
+   "type": "instagram",
+   "id": "DCiibe8PVbp",
+   "poster": "/assets/shorts/SHORT-ig-DCiibe8PVbp.jpg",
+   "title": "ang.hosung 게시물",
+   "hidden": false
+  }
+ ]
 }
