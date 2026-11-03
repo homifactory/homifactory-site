@@ -979,7 +979,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 /* 영상 목록 — 관리자 화면이 생기기 전까지 여기에서 추가·순서·숨김을 관리한다.
    호미가 실제로 만든 영상, 게재 동의를 받은 것만 넣는다(AI 생성 금지, Q-59).
    type: 'mp4' (src·poster) | 'youtube' (id) | 'tiktok' (id·poster) | 'instagram' (id·poster), hidden:true 면 숨김 */
-window.HOMI_SHORTS=window.HOMI_SHORTS||[
+window.HOMI_SHORTS_DEF=[
   {type:'instagram', id:'DXlM9-3kcTi', poster:'/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg', title:'Reel Cheongdam Yoosik'},
   {type:'instagram', id:'DXQ-FbMDl7V', poster:'/assets/shorts/SHORT-ig-DXQ-FbMDl7V.jpg', title:'Reel Cheongdam Yoosik'},
   {type:'instagram', id:'DXWZ9TFiYm6', poster:'/assets/shorts/SHORT-ig-DXWZ9TFiYm6.jpg', title:'Reel Cheongdam Yoosik'},
@@ -987,9 +987,9 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   {type:'instagram', id:'DCiibe8PVbp', poster:'/assets/shorts/SHORT-ig-DCiibe8PVbp.jpg', title:'Postingan ang.hosung'}
 ];
 /* 고객 사례: 숏폼 3줄 — 윗줄·아랫줄은 오른쪽→왼쪽, 가운데 줄은 왼쪽→오른쪽으로 계속 흐름 */
-(function(){
+window.HS_BUILD=function(src){
   var sec=document.getElementById('case'); if(!sec) return;
-  var list=(window.HOMI_SHORTS||[]).filter(function(v){ return !v.hidden; });
+  var list=(src||[]).filter(function(v){ return v&&!v.hidden&&(v.id||v.src); });
   if(!list.length){ for(var i=0;i<8;i++) list.push({type:'ph'}); }
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, touch=matchMedia('(max-width:900px),(hover:none)').matches;
   var loop=!reduce && list.length>1;
@@ -1039,7 +1039,12 @@ window.HOMI_SHORTS=window.HOMI_SHORTS||[
   sec.addEventListener('click',function(e){ var c=e.target.closest('.hs-card'); if(c) open(list[+c.dataset.i],c); });
   modal.addEventListener('click',function(e){ if(e.target===modal||e.target.closest('.hs-close')) close(); });
   addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
-})();
+};
+/* 관리자(홈 마스터 /home-admin/)에서 저장한 목록(/market/data/site.json 의 shorts)을 먼저 쓰고, 못 읽으면 위 기본 목록 */
+(function(){ var done=false; function go(a){ if(done) return; done=true; window.HOMI_SHORTS=a; window.HS_BUILD(a); }
+  fetch('/market/data/site.json',{cache:'no-store'}).then(function(r){ return r.ok?r.json():null; })
+    .then(function(d){ go(d&&Array.isArray(d.shorts)?d.shorts:window.HOMI_SHORTS_DEF); }).catch(function(){ go(window.HOMI_SHORTS_DEF); });
+  setTimeout(function(){ go(window.HOMI_SHORTS_DEF); },2500); })();
 </script>
 
 <section class="section" id="faq">
