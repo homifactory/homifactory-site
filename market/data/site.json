@@ -44,12 +44,6 @@
  },
  "logos": [
   {
-   "name": "DB손해보험",
-   "src": "/market/data/uploads/1791422872924-4sbd9.jpeg",
-   "row": 1,
-   "hidden": false
-  },
-  {
    "name": "LIVEWITH",
    "src": "/market/data/uploads/1791422908308-xl70s.jpeg",
    "row": 1,
@@ -68,12 +62,6 @@
    "hidden": false
   },
   {
-   "name": "카펜터즈",
-   "src": "/market/data/uploads/1791423506183-ztgt4.png",
-   "row": 1,
-   "hidden": false
-  },
-  {
    "name": "스타스토리",
    "src": "/market/data/uploads/1791423527621-79ljk.png",
    "row": 1,
@@ -84,12 +72,6 @@
    "src": "/market/data/uploads/1791423673388-shf23.png",
    "row": 1,
    "hidden": false
-  },
-  {
-   "name": "",
-   "src": "",
-   "row": 2,
-   "hidden": true
   },
   {
    "name": "청담유식",
@@ -317,7 +299,7 @@
    "c3.text": "Kampanye Instagram Reels bersama kreator kuliner untuk Cheongdam Yoosik, pub makanan Korea di Cheongdam-dong. Close-up yang menggugah selera dari menu andalan ayam kampung rebus cheonggukjang dan paha ayam panggang beraroma asap, ditambah lokasi dan momen kunjungan — makan malam kantor, kencan, acara keluarga — mengubah tontonan menjadi kunjungan nyata."
   }
  },
- "updatedAt": "2026-10-08T02:06:48.833Z",
+ "updatedAt": "2026-11-03T02:33:55.076Z",
  "shorts": [
   {
    "type": "instagram",
