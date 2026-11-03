@@ -73,9 +73,9 @@ html{scroll-padding-top:calc(var(--hh-h,72px) + 16px)}
 .hh-cta:focus-visible{outline:3px solid var(--hh-accent-soft);outline-offset:2px}
 
 /* ── 서비스 ▾ 메가 메뉴 (FR-MKT-029) ── */
-.hh-mega{position:fixed;left:50%;top:var(--hh-bottom,72px);width:min(980px,calc(100vw - 48px));transform:translate(-50%,-6px);padding-top:10px;opacity:0;visibility:hidden;transition:opacity .16s,transform .16s,visibility .16s;z-index:1001}
+.hh-mega{position:fixed;left:50%;top:var(--hh-bottom,72px);width:min(1220px,calc(100vw - 48px));transform:translate(-50%,-6px);padding-top:10px;opacity:0;visibility:hidden;transition:opacity .16s,transform .16s,visibility .16s;z-index:1001}
 .hh-has-mega.open .hh-mega{opacity:1;visibility:visible;transform:translate(-50%,0)}
-.hh-mega-grid{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--hh-line);border-radius:18px;box-shadow:0 24px 60px rgba(50,50,50,.12);padding:26px 0}
+.hh-mega-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--hh-line);border-radius:18px;box-shadow:0 24px 60px rgba(50,50,50,.12);padding:26px 0}
 .hh-col{padding:0 28px;border-left:1px solid #E7E4EC}
 .hh-col:first-child{border-left:0}
 .hh-col-title{display:inline-block;font-size:13px;font-weight:600;color:var(--hh-muted);margin:0 0 12px}

@@ -35,7 +35,6 @@
     market: {
       name: 'HOMI', sub: 'FACTORY', home: '/', logo: '/assets/logo-symbol.png',
       menu: [
-        { key: 'home', label: 'Home', href: '/' },
         { key: 'service', label: '서비스', mega: [
           { title: '인플루언서 마케팅', href: '/service-influencer', items: [
             ['svc-mega', 'person-star', '메가 인플루언서·셀럽', '브랜드의 얼굴(모델)이 필요해요'],
@@ -49,10 +48,18 @@
           { title: '팝업 및 행사 운영', href: '/service-event', items: [
             ['svc-popup', 'bag', '브랜드 팝업스토어', '팝업으로 브랜드를 직접 경험하게 하고 싶어요'],
             ['svc-launch', 'rocket', '런칭·쇼케이스', '신제품 런칭을 크게 알리고 싶어요'],
-            ['svc-festival', 'booth', '축제·페스티벌 부스', '행사 현장에서 고객을 직접 만나고 싶어요']] }
+            ['svc-festival', 'booth', '축제·페스티벌 부스', '행사 현장에서 고객을 직접 만나고 싶어요']] },
+          /* 5개 부서 모두 노출 (개편 체크리스트 #8) — 틱톡 라이브는 SNP COMPANY(새 탭), 아티스트 섭외는 상담폼으로 */
+          { title: '틱톡 라이브·아티스트', href: '/snp', ext: true, items: [
+            ['svc-live', 'megaphone', '틱톡 라이브 에이전시', '라이브 크리에이터를 키우고 운영하고 싶어요', '/snp', true],
+            ['svc-group', 'users', '틱톡 그룹라이브', '여러 크리에이터 합동 방송을 기획하고 싶어요', '/snp', true],
+            ['svc-artist', 'person-star', '퍼포먼스 아티스트 섭외', '행사·공연에 설 아티스트가 필요해요', '/contact?service=artist']] }
         ] },
-        { key: 'how', label: 'How We Work', href: '/#how-we-work', spy: 'how-we-work' },
-        { key: 'case', label: 'Case', href: '/#case', spy: 'case' }
+        /* 상단 메뉴 6개: 서비스 / 패키지·가격 / 사례 / 크리에이터 / 리포트 / 무료 상담 (개편 체크리스트 #4) */
+        { key: 'pricing', label: '패키지·가격', href: '/pricing' },
+        { key: 'case', label: '사례', href: '/#case', spy: 'case' },
+        { key: 'creator', label: '크리에이터', href: '/creator' },
+        { key: 'report', label: '리포트', href: '/trend-report' }
       ],
       /* 언어: KR 이 기준. 번역 언어는 prefix(주소 앞에 붙는 경로) + pages(번역된 페이지, '*'=전부)
          또는 map(「한국어 주소 → 번역 주소」)으로 지정. 그 페이지 번역이 없는 언어는 목록에 안 보인다 (FR-COM-006) */
@@ -62,7 +69,7 @@
               { code: 'ID', label: 'Bahasa Indonesia · ID', prefix: '/id', pages: '*' }],
       siblings: [{ label: 'HOMI PRODUCTION', href: '/production/', newTab: true }, { label: 'SNP COMPANY', href: '/snp', newTab: true }],
       /* 크리에이터 지원 입구는 상단 바 하나만 (FR-MKT-001·042, IA MKT-P13) — 보라 글자 */
-      extra: { label: '크리에이터 지원', href: '/creator' },
+      sibPanelOnly: true,   /* 계열사(HOMI PRODUCTION·SNP) 링크는 데스크톱에선 푸터·서비스 메뉴로, 모바일 메뉴 아래에만 */
       cta: { label: '무료 상담 받기', href: '/contact' },
       /* 상단 띠 배너 (FR-MKT-026) — 관리자 화면이 생기기 전까지 여기서 문구·링크·노출·표지 이미지를 바꾼다.
          cover: 실제 리포트 표지 이미지 주소(비우면 기본 「글로벌 지도형」 표지) */
@@ -126,7 +133,7 @@
   }
 
   /* 헤더 문구 번역 (번역 페이지에서 메뉴·버튼 글자) */
-  var I18N = {"EN":{"2026 글로벌 마케팅 트렌드 리포트":"2026 Global Marketing Trend Report","나라별 전략을 먼저 확인하세요":"See country-by-country strategies first","트렌드 리포트":"Trend Report","서비스":"Services","인플루언서 마케팅":"Influencer Marketing","방문 프로모션":"Visit Promotion","팝업 및 행사 운영":"Pop-ups & Events","메가 인플루언서·셀럽":"Mega Influencers & Celebrities","브랜드의 얼굴(모델)이 필요해요":"We need a face (model) for our brand","매크로 인플루언서":"Macro Influencers","브랜드의 화제성과 노출이 필요해요":"We need buzz and reach for our brand","마이크로 인플루언서":"Micro Influencers","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"We want it to spread naturally in everyday life","나노·체험단":"Nano & Product Testers","제품을 써본 실제 후기가 많이 필요해요":"We need lots of real reviews from people who’ve used the product","국내 인플루언서 방문":"Korean influencer visits","동네·상권 손님에게 우리 매장을 알리고 싶어요":"We want to reach customers in our neighborhood and local trade area","해외 인플루언서 한국 방문":"Foreign influencers visiting Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"We want to bring international visitors in Korea to our store","해외 현지 매장 방문":"Overseas local store visits","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"We want local customers to discover our overseas stores and retailers","브랜드 팝업스토어":"Brand pop-up stores","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"We want people to experience our brand firsthand through a pop-up","런칭·쇼케이스":"Launches · Showcases","신제품 런칭을 크게 알리고 싶어요":"We want to make a big splash with our new product launch","축제·페스티벌 부스":"Festival booths","행사 현장에서 고객을 직접 만나고 싶어요":"We want to meet customers in person at events","무료 상담 받기":"Free Consultation","메뉴 열기":"Open menu","메뉴 닫기":"Close menu","언어 선택, 현재":"Select language, current","언어":"Language","주 메뉴":"Main menu","모바일 메뉴":"Mobile menu","새 탭":"new tab","크리에이터 지원":"For Creators"},"JA":{"2026 글로벌 마케팅 트렌드 리포트":"2026 グローバルマーケティング・トレンドレポート","나라별 전략을 먼저 확인하세요":"国別の戦略をまずチェック","트렌드 리포트":"トレンドレポート","서비스":"サービス","인플루언서 마케팅":"インフルエンサーマーケティング","방문 프로모션":"来店プロモーション","팝업 및 행사 운영":"ポップアップ・イベント運営","메가 인플루언서·셀럽":"メガインフルエンサー・セレブ","브랜드의 얼굴(모델)이 필요해요":"ブランドの顔（モデル）が欲しい","매크로 인플루언서":"マクロインフルエンサー","브랜드의 화제성과 노출이 필요해요":"ブランドの話題性と露出が欲しい","마이크로 인플루언서":"マイクロインフルエンサー","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"日常の中で自然に広めたい","나노·체험단":"ナノ・体験レビュアー","제품을 써본 실제 후기가 많이 필요해요":"商品を実際に使ったレビューをたくさん集めたい","국내 인플루언서 방문":"韓国インフルエンサーの来店","동네·상권 손님에게 우리 매장을 알리고 싶어요":"地元・商圏のお客様に自社の店舗を知ってほしい","해외 인플루언서 한국 방문":"海外インフルエンサーの韓国来店","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"韓国を訪れる海外のお客様を店舗に呼びたい","해외 현지 매장 방문":"海外現地店舗への来店","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"海外の店舗・出店先を現地のお客様に知ってほしい","브랜드 팝업스토어":"ブランドポップアップストア","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"ポップアップでブランドを直接体験してほしい","런칭·쇼케이스":"ローンチ・ショーケース","신제품 런칭을 크게 알리고 싶어요":"新商品のローンチを大々的に告知したい","축제·페스티벌 부스":"お祭り・フェスティバルブース","행사 현장에서 고객을 직접 만나고 싶어요":"イベント会場でお客様に直接会いたい","무료 상담 받기":"無料相談はこちら","메뉴 열기":"メニューを開く","메뉴 닫기":"メニューを閉じる","언어 선택, 현재":"言語を選択、現在","언어":"言語","주 메뉴":"メインメニュー","모바일 메뉴":"モバイルメニュー","새 탭":"新しいタブ","크리에이터 지원":"クリエイターの方へ"},"ID":{"2026 글로벌 마케팅 트렌드 리포트":"Laporan Tren Pemasaran Global 2026","나라별 전략을 먼저 확인하세요":"Lihat dulu strategi untuk tiap negara","트렌드 리포트":"Laporan Tren","서비스":"Layanan","인플루언서 마케팅":"Pemasaran Influencer","방문 프로모션":"Promosi Kunjungan","팝업 및 행사 운영":"Pop-up & Event","메가 인플루언서·셀럽":"Mega Influencer & Selebriti","브랜드의 얼굴(모델)이 필요해요":"Saya butuh wajah (model) untuk brand","매크로 인플루언서":"Influencer Makro","브랜드의 화제성과 노출이 필요해요":"Saya butuh gaung dan eksposur untuk brand","마이크로 인플루언서":"Influencer Mikro","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"Saya ingin brand menyebar alami dalam keseharian","나노·체험단":"Nano & Pengulas Produk","제품을 써본 실제 후기가 많이 필요해요":"Saya butuh banyak review nyata dari pemakai produk","국내 인플루언서 방문":"Kunjungan influencer Korea","동네·상권 손님에게 우리 매장을 알리고 싶어요":"Saya ingin memperkenalkan toko ke pelanggan di sekitar","해외 인플루언서 한국 방문":"Kunjungan influencer luar negeri ke Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"Saya ingin mengajak wisatawan asing di Korea datang ke toko","해외 현지 매장 방문":"Kunjungan ke toko di luar negeri","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"Saya ingin memperkenalkan toko & mitra ritel luar negeri ke pelanggan lokal","브랜드 팝업스토어":"Pop-up store brand","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"Saya ingin pelanggan merasakan brand secara langsung lewat pop-up","런칭·쇼케이스":"Launching · Showcase","신제품 런칭을 크게 알리고 싶어요":"Saya ingin peluncuran produk baru diketahui secara luas","축제·페스티벌 부스":"Booth festival & pameran","행사 현장에서 고객을 직접 만나고 싶어요":"Saya ingin bertemu pelanggan langsung di lokasi acara","무료 상담 받기":"Konsultasi Gratis","메뉴 열기":"Buka menu","메뉴 닫기":"Tutup menu","언어 선택, 현재":"Pilih bahasa, saat ini","언어":"Bahasa","주 메뉴":"Menu utama","모바일 메뉴":"Menu mobile","새 탭":"tab baru","크리에이터 지원":"Untuk Kreator"}};
+  var I18N = {"EN":{"2026 글로벌 마케팅 트렌드 리포트":"2026 Global Marketing Trend Report","나라별 전략을 먼저 확인하세요":"See country-by-country strategies first","트렌드 리포트":"Trend Report","서비스":"Services","인플루언서 마케팅":"Influencer Marketing","방문 프로모션":"Visit Promotion","팝업 및 행사 운영":"Pop-ups & Events","메가 인플루언서·셀럽":"Mega Influencers & Celebrities","브랜드의 얼굴(모델)이 필요해요":"We need a face (model) for our brand","매크로 인플루언서":"Macro Influencers","브랜드의 화제성과 노출이 필요해요":"We need buzz and reach for our brand","마이크로 인플루언서":"Micro Influencers","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"We want it to spread naturally in everyday life","나노·체험단":"Nano & Product Testers","제품을 써본 실제 후기가 많이 필요해요":"We need lots of real reviews from people who’ve used the product","국내 인플루언서 방문":"Korean influencer visits","동네·상권 손님에게 우리 매장을 알리고 싶어요":"We want to reach customers in our neighborhood and local trade area","해외 인플루언서 한국 방문":"Foreign influencers visiting Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"We want to bring international visitors in Korea to our store","해외 현지 매장 방문":"Overseas local store visits","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"We want local customers to discover our overseas stores and retailers","브랜드 팝업스토어":"Brand pop-up stores","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"We want people to experience our brand firsthand through a pop-up","런칭·쇼케이스":"Launches · Showcases","신제품 런칭을 크게 알리고 싶어요":"We want to make a big splash with our new product launch","축제·페스티벌 부스":"Festival booths","행사 현장에서 고객을 직접 만나고 싶어요":"We want to meet customers in person at events","무료 상담 받기":"Free Consultation","메뉴 열기":"Open menu","메뉴 닫기":"Close menu","언어 선택, 현재":"Select language, current","언어":"Language","주 메뉴":"Main menu","모바일 메뉴":"Mobile menu","새 탭":"new tab","크리에이터 지원":"For Creators","틱톡 라이브·아티스트":"TikTok LIVE & Artists","틱톡 라이브 에이전시":"TikTok LIVE Agency","라이브 크리에이터를 키우고 운영하고 싶어요":"We want to grow and run LIVE creators","틱톡 그룹라이브":"TikTok Group LIVE","여러 크리에이터 합동 방송을 기획하고 싶어요":"We want to plan a joint broadcast with several creators","퍼포먼스 아티스트 섭외":"Performance artist booking","행사·공연에 설 아티스트가 필요해요":"We need artists for an event or show","패키지·가격":"Packages & Pricing","사례":"Cases","크리에이터":"Creators","리포트":"Reports"},"JA":{"2026 글로벌 마케팅 트렌드 리포트":"2026 グローバルマーケティング・トレンドレポート","나라별 전략을 먼저 확인하세요":"国別の戦略をまずチェック","트렌드 리포트":"トレンドレポート","서비스":"サービス","인플루언서 마케팅":"インフルエンサーマーケティング","방문 프로모션":"来店プロモーション","팝업 및 행사 운영":"ポップアップ・イベント運営","메가 인플루언서·셀럽":"メガインフルエンサー・セレブ","브랜드의 얼굴(모델)이 필요해요":"ブランドの顔（モデル）が欲しい","매크로 인플루언서":"マクロインフルエンサー","브랜드의 화제성과 노출이 필요해요":"ブランドの話題性と露出が欲しい","마이크로 인플루언서":"マイクロインフルエンサー","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"日常の中で自然に広めたい","나노·체험단":"ナノ・体験レビュアー","제품을 써본 실제 후기가 많이 필요해요":"商品を実際に使ったレビューをたくさん集めたい","국내 인플루언서 방문":"韓国インフルエンサーの来店","동네·상권 손님에게 우리 매장을 알리고 싶어요":"地元・商圏のお客様に自社の店舗を知ってほしい","해외 인플루언서 한국 방문":"海外インフルエンサーの韓国来店","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"韓国を訪れる海外のお客様を店舗に呼びたい","해외 현지 매장 방문":"海外現地店舗への来店","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"海外の店舗・出店先を現地のお客様に知ってほしい","브랜드 팝업스토어":"ブランドポップアップストア","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"ポップアップでブランドを直接体験してほしい","런칭·쇼케이스":"ローンチ・ショーケース","신제품 런칭을 크게 알리고 싶어요":"新商品のローンチを大々的に告知したい","축제·페스티벌 부스":"お祭り・フェスティバルブース","행사 현장에서 고객을 직접 만나고 싶어요":"イベント会場でお客様に直接会いたい","무료 상담 받기":"無料相談はこちら","메뉴 열기":"メニューを開く","메뉴 닫기":"メニューを閉じる","언어 선택, 현재":"言語を選択、現在","언어":"言語","주 메뉴":"メインメニュー","모바일 메뉴":"モバイルメニュー","새 탭":"新しいタブ","크리에이터 지원":"クリエイターの方へ","틱톡 라이브·아티스트":"TikTok LIVE・アーティスト","틱톡 라이브 에이전시":"TikTok LIVEエージェンシー","라이브 크리에이터를 키우고 운영하고 싶어요":"LIVEクリエイターを育成・運営したい","틱톡 그룹라이브":"TikTokグループLIVE","여러 크리에이터 합동 방송을 기획하고 싶어요":"複数クリエイターの合同配信を企画したい","퍼포먼스 아티스트 섭외":"パフォーマンスアーティストのブッキング","행사·공연에 설 아티스트가 필요해요":"イベント・公演に出演するアーティストが必要","패키지·가격":"パッケージ・料金","사례":"導入事例","크리에이터":"クリエイター","리포트":"レポート"},"ID":{"2026 글로벌 마케팅 트렌드 리포트":"Laporan Tren Pemasaran Global 2026","나라별 전략을 먼저 확인하세요":"Lihat dulu strategi untuk tiap negara","트렌드 리포트":"Laporan Tren","서비스":"Layanan","인플루언서 마케팅":"Pemasaran Influencer","방문 프로모션":"Promosi Kunjungan","팝업 및 행사 운영":"Pop-up & Event","메가 인플루언서·셀럽":"Mega Influencer & Selebriti","브랜드의 얼굴(모델)이 필요해요":"Saya butuh wajah (model) untuk brand","매크로 인플루언서":"Influencer Makro","브랜드의 화제성과 노출이 필요해요":"Saya butuh gaung dan eksposur untuk brand","마이크로 인플루언서":"Influencer Mikro","일상 속에서 자연스럽게 퍼지게 하고 싶어요":"Saya ingin brand menyebar alami dalam keseharian","나노·체험단":"Nano & Pengulas Produk","제품을 써본 실제 후기가 많이 필요해요":"Saya butuh banyak review nyata dari pemakai produk","국내 인플루언서 방문":"Kunjungan influencer Korea","동네·상권 손님에게 우리 매장을 알리고 싶어요":"Saya ingin memperkenalkan toko ke pelanggan di sekitar","해외 인플루언서 한국 방문":"Kunjungan influencer luar negeri ke Korea","한국에 오는 외국인 손님을 매장으로 부르고 싶어요":"Saya ingin mengajak wisatawan asing di Korea datang ke toko","해외 현지 매장 방문":"Kunjungan ke toko di luar negeri","해외 매장·입점처를 현지 손님에게 알리고 싶어요":"Saya ingin memperkenalkan toko & mitra ritel luar negeri ke pelanggan lokal","브랜드 팝업스토어":"Pop-up store brand","팝업으로 브랜드를 직접 경험하게 하고 싶어요":"Saya ingin pelanggan merasakan brand secara langsung lewat pop-up","런칭·쇼케이스":"Launching · Showcase","신제품 런칭을 크게 알리고 싶어요":"Saya ingin peluncuran produk baru diketahui secara luas","축제·페스티벌 부스":"Booth festival & pameran","행사 현장에서 고객을 직접 만나고 싶어요":"Saya ingin bertemu pelanggan langsung di lokasi acara","무료 상담 받기":"Konsultasi Gratis","메뉴 열기":"Buka menu","메뉴 닫기":"Tutup menu","언어 선택, 현재":"Pilih bahasa, saat ini","언어":"Bahasa","주 메뉴":"Menu utama","모바일 메뉴":"Menu mobile","새 탭":"tab baru","크리에이터 지원":"Untuk Kreator","틱톡 라이브·아티스트":"TikTok LIVE & Artis","틱톡 라이브 에이전시":"Agensi TikTok LIVE","라이브 크리에이터를 키우고 운영하고 싶어요":"Saya ingin membina dan mengelola kreator LIVE","틱톡 그룹라이브":"TikTok Group LIVE","여러 크리에이터 합동 방송을 기획하고 싶어요":"Saya ingin merencanakan siaran bersama beberapa kreator","퍼포먼스 아티스트 섭외":"Booking artis pertunjukan","행사·공연에 설 아티스트가 필요해요":"Saya butuh artis untuk acara atau pertunjukan","패키지·가격":"Paket & Harga","사례":"Studi Kasus","크리에이터":"Kreator","리포트":"Laporan"}};
   function T(s) { var d = I18N[lang.code]; return (d && d[s]) || s; }
   function L(h) { return (lang.prefix && h.indexOf(C.home) === 0) ? lang.prefix + h : h; }   /* 같은 사이트 링크는 지금 언어로 */
   document.documentElement.setAttribute('data-lang', lang.code.toLowerCase());
@@ -135,9 +142,11 @@
 
   function megaCols(m) {
     return m.map(function (col) {
-      return '<div class="hh-col"><a class="hh-col-title" href="' + L(col.href) + '">' + esc(col.title) + '</a>' +
+      function X(ext) { return ext ? ' target="_blank" rel="noopener"' : ''; }
+      return '<div class="hh-col"><a class="hh-col-title" href="' + (col.ext ? col.href : L(col.href)) + '"' + X(col.ext) + '>' + esc(col.title) + (col.ext ? ' <span aria-hidden="true">↗</span>' : '') + '</a>' +
         col.items.map(function (it) {
-          return '<a class="hh-mi" href="' + L(col.href) + '#' + it[0] + '"><span class="hh-ic">' + svg(it[1]) + '</span>' +
+          var h = it[4] ? (it[5] ? it[4] : L(it[4])) : L(col.href) + '#' + it[0];
+          return '<a class="hh-mi" href="' + h + '"' + X(it[5]) + '><span class="hh-ic">' + svg(it[1]) + '</span>' +
             '<span class="hh-tx"><span class="hh-lb">' + esc(it[2]) + '</span><span class="hh-gl">' + esc(it[3]) + '</span></span></a>';
         }).join('') + '</div>';
     }).join('');
@@ -177,7 +186,7 @@
         '<div class="hh-left"><a class="hh-logo" href="' + L(C.home) + '" aria-label="' + C.name + ' ' + C.sub + ' Home">' +
           '<img src="' + C.logo + '" alt="" width="26" height="28"><span class="hh-logo-text">' + C.name + ' <span>' + C.sub + '</span></span></a></div>' +
         '<nav class="hh-center" aria-label="' + esc('주 메뉴') + '"><ul class="hh-menu">' + center + '</ul></nav>' +
-        '<div class="hh-right">' + extraHtml + langHtml + sibHtml + ctaHtml +
+        '<div class="hh-right">' + extraHtml + langHtml + (C.sibPanelOnly ? '' : sibHtml) + ctaHtml +
           '<button type="button" class="hh-burger" aria-label="' + esc('메뉴 열기') + '" aria-expanded="false" aria-controls="hh-panel"><span></span></button></div>' +
       '</div>' +
       '<nav class="hh-panel" id="hh-panel" aria-label="' + esc('모바일 메뉴') + '">' + panel + '</nav>' +
@@ -258,6 +267,7 @@
       if (a.tagName === 'A') { if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); }
     });
   }
+  if (!page) { C.menu.forEach(function (m) { if (m.href && m.href.indexOf('#') < 0 && norm(m.href) === base) page = m.key; }); }   /* data-page 없는 페이지는 주소로 */
   setCurrent(page);
   /* Home 안의 구간 메뉴(How We Work·Case): 그 구간이 화면 위쪽에 와 있는 동안 밑줄 */
   var spies = C.menu.filter(function (m) { return m.spy; });
