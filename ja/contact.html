@@ -285,6 +285,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <link rel="alternate" hreflang="ja" href="https://homifactory.com/ja/contact">
 <link rel="alternate" hreflang="id" href="https://homifactory.com/id/contact">
 <link rel="alternate" hreflang="x-default" href="https://homifactory.com/contact">
+<style id="cfplan-css">/* 콘텐츠 기획 정보 — 2026-11-04 */.cf-plan{margin:8px 0 28px;padding:22px 22px 6px;border:1px solid #E6E0D6;border-radius:16px;background:#FAF7F2}.cf-plan-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 6px;font-size:16px;font-weight:800;color:#141414}.cf-plan-h .opt{font-size:12px;font-weight:500;color:#888}.cf-plan-lead{margin:0 0 18px;font-size:13px;line-height:1.6;color:#4a463f}.cf-plan-lead b{color:#141414}.cf-plan-g{margin:6px 0 12px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#141414;display:flex;align-items:center;gap:8px}.cf-plan-g::after{content:"";flex:1;height:1px;background:#E6E0D6}.cf-plan .cf-field input,.cf-plan .cf-field textarea,.cf-plan .cf-field select{background:#fff}.cf-plan textarea{min-height:84px}.cf-plan .cf-note{margin-top:6px;font-size:11.5px;color:#888;line-height:1.5}.cf-plan .cf-period{display:flex;align-items:center;gap:8px}.cf-plan .cf-period span{flex:none;font-size:13px;color:#888}.cf-plan .cf-period input{flex:1 1 0;width:0;min-width:0}.cf-plan .cf-row>.cf-field{min-width:0}.cf-plan{min-width:0;max-width:100%;box-sizing:border-box}@media(max-width:600px){.cf-plan{padding:18px 14px 4px}}</style>
 </head><body data-site="market" data-header="fixed">
 <div class="trend-banner">
   <span class="pill"><span class="star">✦</span> HOMI TREND REPORT 2026</span>
@@ -335,7 +336,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
           <label>進出したい国・市場 <span class="req">*</span></label>
           <div class="cf-sub">（複数選択できます）</div>
           <div class="country-chip-grid" id="countryChips">
-            <span class="cc" data-v="한국">韓国</span><span class="cc" data-v="일본">日本</span><span class="cc" data-v="인도네시아">インドネシア</span><span class="cc" data-v="북미">北米</span><span class="cc" data-v="중국">中国</span><span class="cc" data-v="대만">台湾</span><span class="cc" data-v="홍콩">香港</span><span class="cc" data-v="필리핀">フィリピン</span><span class="cc" data-v="유럽">ヨーロッパ</span><span class="cc" data-v="태국">タイ</span><span class="cc" data-v="기타">その他・まだ決まっていない</span>
+            <span class="cc" data-v="한국">韓国</span><span class="cc" data-v="일본">日本</span><span class="cc" data-v="인도네시아">インドネシア</span><span class="cc" data-v="북미">北米</span><span class="cc" data-v="중국">中国</span><span class="cc" data-v="대만">台湾</span><span class="cc" data-v="홍콩">香港</span><span class="cc" data-v="필리핀">フィリピン</span><span class="cc" data-v="브라질">ブラジル</span><span class="cc" data-v="유럽">ヨーロッパ</span><span class="cc" data-v="태국">タイ</span><span class="cc" data-v="기타">その他・まだ決まっていない</span>
           </div>
           <input type="hidden" name="진출 국가·시장" id="countryHidden">
         </div>
@@ -361,6 +362,8 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <div class="cf-field"><label>予算の目安 <span class="opt">（任意）</span></label><select name="예산 범위" id="cfBudget"><option value="">選択してください</option><option value="500만 원 미만">500万ウォン未満（約55万円）</option><option value="500만~1,000만 원">500万〜1,000万ウォン（約55万〜110万円）</option><option value="1,000만~3,000만 원">1,000万〜3,000万ウォン（約110万〜330万円）</option><option value="3,000만~5,000만 원">3,000万〜5,000万ウォン（約330万〜550万円）</option><option value="5,000만 원 이상">5,000万ウォン以上（約550万円〜）</option><option value="아직 모르겠어요">まだわかりません</option></select></div>
       </div>
 
+      <section class="cf-plan" aria-labelledby="cfPlanH"><h3 class="cf-plan-h" id="cfPlanH">コンテンツ企画情報 <span class="opt">（任意・決まっている内容があれば）</span></h3><p class="cf-plan-lead">商品のキーポイントと必ず伝えたいフレーズをご記入いただくと、その内容で<b>AIサンプル画像・動画</b>を先に作ってご承認いただき、クリエイター別の詳細ガイドとして使います。詳しく書いていただくほど、仕上がりが正確になります。</p><div class="cf-plan-g">キャンペーン情報</div><div class="cf-row"><div class="cf-field"><label>形式・本数</label><input name="기획_형식·수량" placeholder="例）Instagramリール2本"></div><div class="cf-field"><label>投稿希望期間</label><div class="cf-period"><input type="date" name="기획_업로드 시작" aria-label="投稿希望期間"><span>〜</span><input type="date" name="기획_업로드 종료" aria-label="投稿希望期間"></div></div></div><div class="cf-row"><div class="cf-field"><label>二次利用</label><select name="기획_2차 활용"><option value="">選択してください</option><option value="なし">なし</option><option value="クライアントのチャネルで再投稿">クライアントのチャネルで再投稿</option><option value="広告配信">広告配信</option></select><div class="cf-note">※ 二次利用には別途費用のご相談が必要です。</div></div><div class="cf-field"><label>利用期間</label><input name="기획_2차 활용 기간" placeholder="例）3か月"></div></div><div class="cf-plan-g">必須情報</div><div class="cf-row single"><div class="cf-field"><label>コアメッセージ（一文）</label><input name="기획_핵심 메시지" placeholder="例）疲れた目をやさしくケアする毎日の癒しアイテム"></div></div><div class="cf-row single"><div class="cf-field"><label>必須フレーズ・シーン</label><textarea name="기획_필수 멘트·장면" placeholder="例）特価＋プレゼントに言及／耳ひもを着けて休むシーン／「大切な人に、休息を贈ろう」"></textarea></div></div><div class="cf-row"><div class="cf-field"><label>ハッシュタグ（最大3つ）</label><input name="기획_해시태그" placeholder="例）#ブランド名 #商品名 #カテゴリー"><div class="cf-note">広告表記（キャプション1行目の#PR、有料パートナーシップ表示）は自動で入り、3つには含まれません。</div></div><div class="cf-field"><label>タグ付けアカウント（1つ）</label><input name="기획_태그 계정" placeholder="例）@brand_official"></div></div><div class="cf-row"><div class="cf-field"><label>リンク・行動喚起</label><input name="기획_링크·행동 유도" placeholder="例）イベントページのリンク・「プロフィールのリンクから」"></div><div class="cf-field"><label>使用音源・区間</label><input name="기획_사용 음원·구간" placeholder="音源プロモーションの場合のみご記入ください"></div></div><div class="cf-plan-g">除外情報</div><div class="cf-row single"><div class="cf-field"><label>禁止表現・シーン・競合</label><textarea name="기획_금지 표현·장면·경쟁사" placeholder="例）医薬品と誤解される表現、競合商品の映り込み"></textarea></div></div></section>
+
       <div class="cf-row triple">
         <div class="cf-field"><label>お名前 <span class="req">*</span></label><input name="이름" required autocomplete="name"></div>
         <div class="cf-field"><label>ご連絡先 <span class="req">*</span></label><input name="연락처" required type="tel" autocomplete="tel" placeholder="例）010-1234-5678"></div>
@@ -371,7 +374,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <h4>個人情報の収集・利用について</h4>
         <ul>
           <li>収集目的：ご相談の受付、最適なプランのご提案、ご相談に関するご連絡</li>
-          <li>収集項目：（必須）お名前、ご連絡先、メールアドレス、ブランド・商品名、ご相談内容 /（任意）ブランドリンク、現在の販売チャネル、希望時期、予算の目安</li>
+          <li>収集項目：（必須）お名前、ご連絡先、メールアドレス、ブランド・商品名、ご相談内容 /（任意）ブランドリンク、現在の販売チャネル、希望時期、予算の目安、コンテンツ企画情報</li>
           <li>保有期間：相談完了日から<strong>1年</strong>（契約締結時は関係法令に定める期間）</li>
           <li>同意を拒否することもできますが、その場合はご相談のお申し込みが難しくなります。任意項目は空欄のままでもお申し込みいただけます。</li>
         </ul>
@@ -759,16 +762,17 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       '언어':lang,'브랜드·제품':g('브랜드·제품'),'브랜드 링크':g('브랜드 링크'),'방향':dirEl?dirEl.value:'','진출 국가·시장':g('진출 국가·시장'),
       '현재 판매 채널':g('현재 판매 채널'),'지금 가장 큰 고민':g('지금 가장 큰 고민'),'이루고 싶은 목표':g('이루고 싶은 목표'),
       '관심 서비스':g('관심 서비스'),'원하는 시기':g('원하는 시기'),'예산 범위':g('예산 범위'),'이름':g('이름'),'연락처':g('연락처'),'이메일':g('이메일'),'개인정보 동의':'동의','접수 페이지':location.href.split('?')[0]};
+    var plan=(function(){var pl={},ks=["기획_형식·수량", "기획_업로드 시작", "기획_업로드 종료", "기획_2차 활용", "기획_2차 활용 기간", "기획_핵심 메시지", "기획_필수 멘트·장면", "기획_사용 음원·구간", "기획_해시태그", "기획_태그 계정", "기획_링크·행동 유도", "기획_금지 표현·장면·경쟁사"];ks.forEach(function(k){var v=g(k);if(v)pl[k.replace('기획_','')]=v;});if(pl['업로드 시작']||pl['업로드 종료']){pl['업로드 희망 기간']=(pl['업로드 시작']||'')+' ~ '+(pl['업로드 종료']||'');delete pl['업로드 시작'];delete pl['업로드 종료'];}return pl;})(); Object.keys(plan).forEach(function(k){ mail['기획 · '+k]=plan[k]; });
     var row={lang:lang,brand:mail['브랜드·제품'],link:mail['브랜드 링크'],dir:mail['방향'],countries:mail['진출 국가·시장'],channel:mail['현재 판매 채널'],
       concern:mail['지금 가장 큰 고민'],goal:mail['이루고 싶은 목표'],service:mail['관심 서비스'],timing:mail['원하는 시기'],budget:mail['예산 범위'],
-      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:''};
+      name:mail['이름'],phone:mail['연락처'],email:mail['이메일'],page:mail['접수 페이지'],hp:'',plan:Object.keys(plan).map(function(k){return k+': '+plan[k];}).join(' / ')};
     var post=function(u,b){ return fetch(u,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(b)}).then(function(r){ if(!r.ok) throw new Error(r.status); return r; }); };
     var a=post(MAIL,mail).then(function(r){ return r.json(); }).then(function(j){ if(j && (j.success===false||j.success==='false')) throw new Error('mail'); return true; });
     var s=post(STORE,row).then(function(){ return true; });
     /* 통합 관리자 문의함(Supabase com_inquiries) — FR-COM-019 */
     var db=fetch('https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/com_inquiries',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy','Prefer':'return=minimal'},
       body:JSON.stringify({site:'market',kind:'inquiry',name:row.name,phone:row.phone,email:row.email,summary:row.brand,lang:lang,page:row.page,
-        data:{'브랜드 링크':row.link,'방향':row.dir,'진출 국가·시장':row.countries,'지금 가장 큰 고민':row.concern,'이루고 싶은 목표':row.goal,'관심 서비스':row.service,'현재 판매 채널':row.channel,'원하는 시기':row.timing,'예산 범위':row.budget}})})
+        data:{'브랜드 링크':row.link,'방향':row.dir,'진출 국가·시장':row.countries,'지금 가장 큰 고민':row.concern,'이루고 싶은 목표':row.goal,'관심 서비스':row.service,'현재 판매 채널':row.channel,'원하는 시기':row.timing,'예산 범위':row.budget,'콘텐츠 기획':plan}})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return true; });
     Promise.allSettled([a,s,db]).then(function(rs){
       if(rs.some(function(x){ return x.status==='fulfilled'; })){ done(); }
