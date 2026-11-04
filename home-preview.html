@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Home 시안 · HOMI FACTORY</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/homi-header.css?v=20261103b">
+<style>
+:root{--bg:#FFFFFF;--ink:#0B0B0F;--ink-2:#3A3A42;--tone:#F4F2EC;--dark:#0B0B0F;--accent:#FFC53D;--g:clamp(20px,4vw,56px);--max:1320px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans KR','Pretendard',sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.num{font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+h1,h2{font-weight:900;letter-spacing:-.04em;line-height:1.04}
+h1{font-size:clamp(44px,6.4vw,100px)}
+h2{font-size:clamp(34px,4.4vw,64px)}
+.lead{font-size:clamp(17px,1.35vw,20px);color:var(--ink-2);max-width:34em;line-height:1.6}
+.btn{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 28px;background:var(--ink);color:#fff;font-weight:700;font-size:17px;transition:transform .2s,background .2s}
+.btn:hover{background:#2a2a30;transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible,.tlink:focus-visible,.post:focus-visible,summary:focus-visible,.dgrid a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn.y{background:var(--accent);color:var(--ink)}.btn.y:hover{background:#ffd364}
+.tlink{font-weight:700;border-bottom:2px solid currentColor;padding-bottom:2px;transition:opacity .2s}
+.tlink:hover{opacity:.65}
+/* 히어로 */
+.hero{padding:calc(var(--hh-offset,122px) + clamp(40px,6vw,88px)) 0 0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:end}
+.hero h1{margin-bottom:28px}
+.hero .lead{margin-bottom:36px}
+.hero .acts{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end}
+.stack .post:nth-child(1){transform:translateY(-48px)}
+.stack .post:nth-child(3){transform:translateY(-24px)}
+.stats{margin-top:clamp(56px,7vw,104px);background:var(--tone)}
+.stats ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:clamp(32px,4vw,52px) var(--g);max-width:var(--max);margin:0 auto}
+.stats b{display:block;font-size:clamp(40px,4.6vw,72px);font-weight:900;line-height:1}
+.stats span{display:block;margin-top:10px;color:var(--ink-2);font-size:16px}
+/* 포스트 */
+.post{all:unset;cursor:pointer;display:block;aspect-ratio:9/16;overflow:hidden;background:#222;position:relative}
+.post img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.post:hover img{transform:scale(1.04)}
+/* 기준 + 판정기 */
+.rule{background:var(--accent);padding:clamp(88px,11vw,170px) 0}
+.rule .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,88px);align-items:start}
+.rule h2{margin-bottom:24px}
+.rule .lead{color:var(--ink);margin-bottom:44px}
+.crit{list-style:none;display:grid;gap:26px}
+.crit li{display:grid;grid-template-columns:clamp(150px,13vw,210px) 1fr;gap:20px;align-items:baseline}
+.crit b{font-size:clamp(38px,4.2vw,64px);font-weight:900;line-height:1}
+.crit p{font-size:17px;line-height:1.5}
+.crit p strong{display:block;font-size:19px}
+.calc{background:#fff;padding:clamp(24px,3vw,40px)}
+.calc h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+.calc .sub{font-size:15.5px;color:var(--ink-2);margin-bottom:24px}
+.calc .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.calc label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.calc input{width:100%;height:52px;border:0;background:var(--tone);padding:0 14px;font:700 19px 'Inter',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;border-radius:0}
+.calc input:focus{outline:3px solid var(--ink);outline-offset:0}
+.res{list-style:none;display:grid;gap:8px;margin-bottom:12px}
+.res li{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--tone);font-size:16px;transition:background .2s,color .2s}
+.res li .v{font-weight:800}
+.res li.ok{background:var(--ink);color:#fff}
+.res li.ok .v::after{content:"  통과";color:var(--accent)}
+.res li.no .v::after{content:"  미달";color:#9a3b2f}
+.verdict{font-size:21px;font-weight:900;letter-spacing:-.02em;padding:14px 0 4px}
+.note{font-size:13.5px;color:var(--ink-2);line-height:1.5;margin-top:6px}
+/* 절차 */
+.flow{padding:clamp(110px,13vw,200px) 0}
+.flow .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px)}
+.flow .side{position:sticky;top:calc(var(--hh-offset,122px) + 32px);align-self:start}
+.flow .side h2{margin-bottom:24px}
+.flow .side .lead{margin-bottom:32px}
+.steps{display:grid;gap:clamp(56px,6vw,96px)}
+.step h3{font-size:clamp(24px,2.2vw,32px);font-weight:900;letter-spacing:-.03em;margin-bottom:10px}
+.step>p{font-size:17px;color:var(--ink-2);margin-bottom:22px;max-width:36em}
+.brief{background:var(--tone);padding:clamp(22px,3vw,36px)}
+.brief .k{font-size:14.5px;color:var(--ink-2);margin-top:18px}
+.brief blockquote{font-size:clamp(22px,2.2vw,30px);font-weight:900;letter-spacing:-.03em;line-height:1.3;margin:0 0 20px}
+.brief ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.brief li{background:#fff;padding:8px 12px;font-size:15px;font-weight:700}
+.cuts{position:relative}
+.cuts .ok{position:absolute;left:16px;top:16px;background:var(--accent);color:var(--ink);font-weight:900;font-size:15px;padding:6px 12px}
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guide div{background:var(--tone);padding:22px}
+.guide b{display:block;font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+.guide span{display:block;font-size:15.5px;color:var(--ink-2)}
+.guide .n{font-family:'Inter',sans-serif;font-weight:800;font-size:15px;margin-top:14px;color:var(--ink)}
+.rep{background:var(--tone);padding:18px}
+/* 콘텐츠 벽 */
+.wall{background:var(--dark);color:#fff;padding:clamp(100px,12vw,180px) 0 clamp(80px,9vw,140px)}
+.wall .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end;margin-bottom:48px}
+.wall .lead{color:#C9C9CF;margin-top:20px}
+.wall .res-big{font-size:17px;color:#C9C9CF}
+.wall .res-big b{display:block;color:var(--accent);font-size:clamp(28px,2.9vw,44px);white-space:nowrap;font-weight:900;line-height:1.05;margin-bottom:10px}
+.strip{--pad:max(var(--g),calc((100vw - var(--max))/2 + var(--g)));display:grid;grid-auto-flow:column;grid-auto-columns:clamp(180px,16vw,236px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 18px;scroll-padding:0 var(--pad);scrollbar-width:thin;scrollbar-color:#444 transparent}
+.strip .post{scroll-snap-align:start}
+.strip-hint{max-width:var(--max);margin:18px auto 0;padding:0 var(--g);color:#9a9aa3;font-size:15px}
+/* 거점 */
+.net{background:var(--tone);padding:clamp(110px,13vw,190px) 0}
+.net .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,88px)}
+.net h2{margin-bottom:24px}
+.net .lead{margin-bottom:28px}
+.hubs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hubs li{background:#fff;padding:22px 22px 20px}
+.hn{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.hn b{font-size:22px;font-weight:900;letter-spacing:-.02em}
+.hn span{font-size:13px;font-weight:800;padding:4px 10px}
+.hn .hub{background:var(--ink);color:#fff}.hn .edge{background:var(--accent)}
+.hm{font-size:16px;font-weight:700;line-height:1.45;margin-bottom:8px}
+.hp,.hc{font-size:15px;color:var(--ink-2)}
+/* 방향 */
+.dir{padding:clamp(110px,13vw,190px) 0}
+.dir h2{margin-bottom:16px}
+.dir .lead{margin-bottom:48px}
+.dgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.dgrid a{display:flex;flex-direction:column;min-height:320px;padding:28px;background:var(--tone);transition:background .25s,color .25s}
+.dgrid a:hover{background:var(--ink);color:#fff}
+.dgrid a:hover p{color:#C9C9CF}
+.dgrid p strong{color:var(--ink)}
+.dgrid a:hover p strong{color:var(--accent)}
+.dgrid b{font-size:clamp(24px,2.1vw,30px);font-weight:900;letter-spacing:-.03em;line-height:1.18;margin:0 0 16px}
+.dgrid p{font-size:16px;color:var(--ink-2);line-height:1.55}
+.dgrid .go{margin-top:auto;padding-top:22px;font-weight:800}
+/* FAQ */
+.faq{padding:0 0 clamp(110px,13vw,190px)}
+.faq .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,88px)}
+.faq h2{position:sticky;top:calc(var(--hh-offset,122px) + 32px);align-self:start}
+.qs{display:grid;gap:8px}
+.q{background:var(--tone)}
+.q summary{list-style:none;cursor:pointer;padding:22px 56px 22px 24px;font-size:18px;font-weight:800;letter-spacing:-.02em;position:relative}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);font:400 26px 'Inter',sans-serif}
+.q[open] summary::after{content:"−"}
+.q p{padding:0 24px 24px;font-size:16.5px;color:var(--ink-2);line-height:1.7;max-width:46em}
+/* 마무리 */
+.end{background:var(--dark);color:#fff;padding:clamp(110px,13vw,190px) 0}
+.end .wrap{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:40px;align-items:end}
+.end h2{font-size:clamp(40px,5.4vw,84px);margin-bottom:24px}
+.end .lead{color:#C9C9CF}
+.end .cta{justify-self:end}
+/* 모달 */
+.mod{position:fixed;inset:0;z-index:10060;background:rgba(10,10,12,.86);display:none;align-items:center;justify-content:center;padding:64px 24px 24px}
+.mod.on{display:flex}
+.mod .box{width:min(420px,100%);height:min(760px,calc(100vh - 100px));background:#fff;position:relative}
+.mod .frame,.mod iframe{width:100%;height:100%;border:0}
+.mod .x{position:absolute;top:-48px;right:0;width:40px;height:40px;border:0;background:#fff;color:#000;font:400 26px 'Inter',sans-serif;cursor:pointer}
+/* 등장 */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.stack.rv.in .post:nth-child(1){transform:translateY(-48px)}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.post img,.btn,.dgrid a{transition:none}html{scroll-behavior:auto}}
+/* 반응형 */
+@media(max-width:1100px){.dgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+ .hero .wrap,.rule .wrap,.flow .wrap,.wall .head,.net .wrap,.faq .wrap,.end .wrap{grid-template-columns:1fr}
+ .flow .side,.faq h2{position:static}
+ .end .cta{justify-self:start}
+ .stack .post:nth-child(1),.stack .post:nth-child(3),.stack.rv.in .post:nth-child(1){transform:none}
+ .stats ul{grid-template-columns:1fr 1fr;gap:28px 16px}
+}
+@media(max-width:600px){
+ body{font-size:16px}
+ .hubs,.dgrid,.guide{grid-template-columns:1fr}
+ .dgrid a{min-height:0}
+ .crit li{grid-template-columns:1fr;gap:4px}
+ .q summary{font-size:16.5px;padding:18px 48px 18px 18px}.q p{padding:0 18px 20px}
+ .btn{height:54px;padding:0 22px}
+ .end h2{font-size:28px}
+}
+</style>
+</head><body data-site="market" data-header="fixed" data-page="home" class="no-js">
+<script>document.body.classList.remove('no-js')</script>
+<div class="trend-banner">
+  <span class="pill"><span class="star">✦</span> HOMI TREND REPORT 2026</span>
+  <a href="/trend-report.html">2026 글로벌 마케팅 트렌드 리포트 · 나라별 전략을 먼저 확인하세요 <span class="arrow">›</span></a>
+</div>
+<header id="homi-header"></header>
+<script src="/shared/homi-header.js?v=20261103b"></script>
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1" class="rv">팔로워 말고,<br>반응으로 고릅니다</h1>
+      <p class="lead rv">호미팩토리는 크리에이터를 조회·댓글·참여 반응으로 골라 브랜드와 아티스트의 캠페인을 만들고, 인도네시아 지사와 8개 해외 거점까지 연결합니다.</p>
+      <div class="acts rv"><a class="btn" href="/contact">마케팅 상담받기 →</a><a class="tlink" href="/creator">크리에이터 등록하기</a></div>
+    </div>
+    <div class="stack rv" aria-label="진행한 캠페인 게시물"><button type="button" class="post" data-id="DY_f2nVz2a0" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DY_f2nVz2a0.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DewEyUpma3F" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DewEyUpma3F.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DXMLxkiEw_b" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXMLxkiEw_b.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button></div>
+  </div>
+  <div class="stats"><ul>
+    <li><b class="num">3억+</b><span>누적 콘텐츠 조회수</span></li>
+    <li><b class="num">62+</b><span>함께한 브랜드</span></li>
+    <li><b class="num">8,000+</b><span>크리에이터 네트워크</span></li>
+    <li><b class="num">500+</b><span>직접 계약 크리에이터</span></li>
+  </ul></div>
+</section>
+
+<section class="rule" id="rule" aria-labelledby="h-rule">
+  <div class="wrap">
+    <div>
+      <h2 id="h-rule" class="rv">셋 중 둘을 넘어야<br>함께합니다</h2>
+      <p class="lead rv">팔로워가 많아도 보는 사람이 적으면 고르지 않습니다. 호미가 후보를 거르는 기준은 세 가지이고, 둘 이상 통과한 계정을 ‘라이징 크리에이터’로 추천합니다.</p>
+      <ul class="crit">
+        <li class="rv"><b class="num">100%</b><p><strong>조회율 이상</strong>평균 조회수가 팔로워 수보다 많은가</p></li>
+        <li class="rv"><b class="num">3%</b><p><strong>댓글 ÷ 좋아요 이상</strong>좋아요만 누르고 가지 않고 말을 거는가</p></li>
+        <li class="rv"><b class="num">5%</b><p><strong>참여율 이상</strong>본 사람 중 반응을 남긴 비율이 충분한가</p></li>
+      </ul>
+    </div>
+    <form class="calc rv" id="calc" onsubmit="return false" aria-labelledby="h-calc">
+      <h3 id="h-calc">이 크리에이터, 통과할까요?</h3>
+      <p class="sub">관심 있는 계정의 숫자를 넣으면 바로 판정합니다.</p>
+      <div class="fields">
+        <div><label for="cf">팔로워</label><input id="cf" inputmode="numeric" value="117,000"></div>
+        <div><label for="cv">평균 조회수</label><input id="cv" inputmode="numeric" value="136,000"></div>
+        <div><label for="cl">평균 좋아요</label><input id="cl" inputmode="numeric" value="6,800"></div>
+        <div><label for="cc">평균 댓글</label><input id="cc" inputmode="numeric" value="240"></div>
+      </div>
+      <ul class="res">
+        <li id="r1"><span>조회율</span><span class="v num">–</span></li>
+        <li id="r2"><span>댓글 ÷ 좋아요</span><span class="v num">–</span></li>
+        <li id="r3"><span>참여율</span><span class="v num">–</span></li>
+      </ul>
+      <p class="verdict" id="vd" aria-live="polite">숫자를 넣으면 판정합니다</p>
+      <p class="note">참여율 = (좋아요 + 댓글) ÷ 평균 조회수. 처음 넣어 둔 값은 예시입니다.</p>
+    </form>
+  </div>
+</section>
+
+<section class="flow" id="how-we-work" aria-labelledby="h-flow">
+  <div class="wrap">
+    <div class="side">
+      <h2 id="h-flow" class="rv">찍기 전에,<br>결과물부터 봅니다</h2>
+      <p class="lead rv">제품의 키 포인트와 꼭 넣을 문구를 받아 AI 예시를 먼저 만들고, 컨펌된 예시를 크리에이터별 가이드로 바꿉니다. 무엇을 어떻게 찍을지 정해져 있어 재촬영과 메시지 누락이 줄어듭니다.</p>
+      <a class="btn rv" href="/contact">제작 요청서 쓰러 가기 →</a>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3>제작 요청서를 받습니다</h3><p>브랜드가 꼭 알리고 싶은 한 문장과 필수 멘트·장면, 금지 표현을 정리합니다.</p>
+        <div class="brief"><blockquote>“지친 눈을 편안하게 케어하는 데일리 힐링 아이템”</blockquote><ul><li>개별 포장 · 여행 필수템</li><li>귀끈 착용 휴식 장면</li><li>“소중한 사람에게 휴식을 선물하세요”</li><li>의약품 혼동 표현 금지</li></ul><p class="k">실제 진행한 뷰티·헬스케어 브랜드의 요청서 내용입니다.</p></div></div>
+      <div class="step rv"><h3>AI 예시로 먼저 컨펌받습니다</h3><p>요청서대로 예시 이미지·영상을 만들어 보여드리고, 수정은 다섯 번까지 받습니다.</p>
+        <div class="cuts"><img src="/assets/WORK-plan-eyesion-cuts.jpg" alt="요청서를 바탕으로 AI로 만든 예시 컷 다섯 장" width="1024" height="210" loading="lazy"><span class="ok">고객 컨펌 ✓</span></div></div>
+      <div class="step rv"><h3>크리에이터마다 가이드를 따로 씁니다</h3><p>같은 메시지도 각자 평소 컨셉으로 풀어야 반응이 납니다.</p>
+        <div class="guide"><div><b>크리에이터 A</b><span>라이프스타일 · 휴식 루틴 컨셉</span><span class="n">팔로워 83.2만 · 평균 조회 11.9만</span></div><div><b>크리에이터 B</b><span>가족 일상 · 가족 힐링 컨셉</span><span class="n">팔로워 11.7만 · 평균 조회 13.6만</span></div></div></div>
+      <div class="step rv"><h3>14일 뒤, 숫자로 보고합니다</h3><p>업로드 후 14일 시점의 조회·좋아요·댓글·공유를 크리에이터별로 정리하고 다음 캠페인을 제안합니다.</p>
+        <div class="rep"><img src="/assets/WORK-result-creator-v2.jpg" alt="크리에이터별 성과를 정리한 실제 리포트 화면" width="900" height="656" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wall" id="case" aria-labelledby="h-wall">
+  <div class="wrap head">
+    <div><h2 id="h-wall" class="rv">우리가 만든 콘텐츠</h2><p class="lead rv">실제 캠페인으로 올라간 게시물 13편입니다. 눌러서 원본을 확인하세요.</p></div>
+    <p class="res-big rv"><b class="num">조회 3.2만 · 참여율 6.4%</b>뷰티·헬스케어 브랜드 캠페인, 크리에이터 두 명으로 낸 결과</p>
+  </div>
+  <div class="strip" tabindex="0" aria-label="캠페인 게시물 목록"><button type="button" class="post" data-id="DXlM9-3kcTi" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DXQ-FbMDl7V" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXQ-FbMDl7V.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DXWZ9TFiYm6" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXWZ9TFiYm6.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DcQflbuPhfh" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DcQflbuPhfh.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DCiibe8PVbp" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DCiibe8PVbp.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DewEyUpma3F" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DewEyUpma3F.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DQYK0wAAS8m" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DQYK0wAAS8m.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DXT85dzCTL3" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXT85dzCTL3.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DVWJiqkgXiF" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DVWJiqkgXiF.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DZFSArQPwqW" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DZFSArQPwqW.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DY_f2nVz2a0" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DY_f2nVz2a0.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DXHA8raE_NN" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXHA8raE_NN.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button><button type="button" class="post" data-id="DXMLxkiEw_b" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXMLxkiEw_b.jpg" alt="호미팩토리가 진행한 캠페인 게시물" loading="lazy" decoding="async"></button></div>
+  <p class="strip-hint">옆으로 넘겨 더 보기 →</p>
+</section>
+
+<section class="net" id="network" aria-labelledby="h-net">
+  <div class="wrap">
+    <div><h2 id="h-net" class="rv">해외 거점 8곳</h2><p class="lead rv">인도네시아는 지사가 직접 운영하고, 나머지 일곱 곳은 현지 파트너와 함께합니다. 나라마다 쓰는 앱과 사는 곳이 달라서, 현지 크리에이터와 판매 채널까지 한 번에 연결합니다.</p><a class="tlink rv" href="/global">나라별 지도로 보기 →</a></div>
+    <ul class="hubs"><li class="rv"><div class="hn"><b>인도네시아</b><span class="hub">지사</span></div><p class="hm">틱톡 성인 이용자 약 1억 8천만 명</p><p class="hp">플랫폼 · 틱톡 · 인스타그램 · 유튜브</p><p class="hc">판매 · 쇼피 · 토코피디아 · 틱톡샵</p></li><li class="rv"><div class="hn"><b>브라질</b></div><p class="hm">인플루언서 약 200만 명, 1년 새 67% 증가</p><p class="hp">플랫폼 · 인스타그램 · 틱톡 · 카와이</p><p class="hc">판매 · 메르카도 리브레 · 쇼피 · 틱톡샵</p></li><li class="rv"><div class="hn"><b>필리핀</b></div><p class="hm">SNS 이용자 9,580만 명 (인구 82%)</p><p class="hp">플랫폼 · 페이스북 · 틱톡 · 유튜브</p><p class="hc">판매 · 쇼피 · 라자다 · 틱톡샵</p></li><li class="rv"><div class="hn"><b>일본</b></div><p class="hm">인플루언서 마케팅 1,302억 엔 (2027 전망)</p><p class="hp">플랫폼 · 라인 · X · 인스타그램</p><p class="hc">판매 · 라쿠텐 · 아마존 재팬 · Qoo10</p></li><li class="rv"><div class="hn"><b>북미</b></div><p class="hm">미국 인플루언서 마케팅 105억 달러 (2025)</p><p class="hp">플랫폼 · 인스타그램 · 유튜브 · 틱톡</p><p class="hc">판매 · 아마존 · 틱톡샵 · 쇼피파이</p></li><li class="rv"><div class="hn"><b>유럽</b></div><p class="hm">수익 내는 크리에이터 약 860만 명</p><p class="hp">플랫폼 · 인스타그램 · 틱톡 · 유튜브</p><p class="hc">판매 · 아마존 · 틱톡샵 · 자사몰</p></li><li class="rv"><div class="hn"><b>태국</b></div><p class="hm">인플루언서 약 300만 명 (2025 전망)</p><p class="hp">플랫폼 · 틱톡 · 페이스북 · 라인</p><p class="hc">판매 · 쇼피 · 라자다 · 틱톡샵</p></li><li class="rv"><div class="hn"><b>대만</b></div><p class="hm">인터넷 이용자 16% 이상이 인플루언서 팔로우</p><p class="hp">플랫폼 · 라인 · 인스타그램 · 스레드</p><p class="hc">판매 · 쇼피 · momo · PChome</p></li></ul>
+  </div>
+</section>
+
+<section class="dir" id="directions" aria-labelledby="h-dir">
+  <div class="wrap">
+    <h2 id="h-dir" class="rv">어디로 가고 싶으세요?</h2>
+    <p class="lead rv">방향만 골라 주세요. 나라·채널·방식은 목표에 맞춰 함께 설계합니다.</p>
+    <div class="dgrid">
+      <a class="rv" href="/contact?direction=1"><b>해외에서 팔고 싶어요</b><p><strong>한국 → 세계.</strong> 제품에 맞는 나라와 현지 SNS를 고르고, 거점 크리에이터 시딩부터 현지 쇼핑몰 판매까지 잇습니다.</p><span class="go">해외 진출 상담 →</span></a>
+      <a class="rv" href="/contact?direction=2"><b>한국에 들어오고 싶어요</b><p><strong>세계 → 한국·아시아.</strong> 한국 소비자가 정보를 찾는 채널을 진단하고, 리뷰·체험단과 팝업으로 신뢰를 쌓습니다.</p><span class="go">한국 진입 상담 →</span></a>
+      <a class="rv" href="/contact?direction=3"><b>국내에서 제대로 알리고 싶어요</b><p><strong>국내 시장.</strong> 메가부터 체험단까지 규모를 조합하고, 방문 프로모션·팝업·행사로 직접 만나게 합니다.</p><span class="go">국내 마케팅 상담 →</span></a>
+      <a class="rv" href="/contact?type=ent"><b>신곡·앨범·공연을 알리고 싶어요</b><p><strong>엔터·아티스트.</strong> 챌린지 구간과 안무 포인트를 담은 가이드로, 음원이 짧은 영상에서 퍼지게 만듭니다.</p><span class="go">엔터 마케팅 상담 →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="h-faq">
+  <div class="wrap">
+    <h2 id="h-faq" class="rv">자주 묻는 질문</h2>
+    <div class="qs"><details class="q" open><summary>상담과 플랜 제안에도 비용이 드나요?</summary><p>상담은 무료입니다. 브랜드의 목표와 상황을 듣고 어떤 나라, 어떤 방식이 맞을지 방향을 함께 정리해 드립니다. 진행을 결정하기 전까지는 비용이 들지 않습니다.</p></details><details class="q"><summary>예산이 크지 않아도 진행할 수 있나요?</summary><p>네. 중요한 건 예산의 크기보다 목표입니다. 정해진 예산 안에서 나라, 인플루언서 규모, 방식을 조정해 가장 효과적인 조합을 제안합니다. 정확한 비용은 상담 후 견적으로 안내합니다.</p></details><details class="q"><summary>어떤 크리에이터와 일하나요? 직접 고를 수도 있나요?</summary><p>8,000명이 넘는 크리에이터 네트워크 가운데 500명 이상과 직접 계약해 카테고리별로 관리합니다. 후보는 팔로워 수가 아니라 조회율·댓글·참여율 같은 반응 기준으로 골라 리스트로 드리고, 브랜드가 직접 고르셔도 됩니다. 함께하고 싶은 크리에이터가 있다면 그대로 반영합니다.</p></details><details class="q"><summary>콘텐츠는 어떤 순서로 만들어지나요?</summary><p>① 제품의 키 포인트와 꼭 넣을 문구를 제작 요청서로 받고 → ② 그 내용으로 AI 예시 이미지·영상을 먼저 만들어 컨펌받습니다(수정 5회까지). → ③ 컨펌된 예시를 바탕으로 크리에이터마다 평소 컨셉을 살린 상세 가이드를 보내고 → ④ 촬영·편집 → ⑤ 승인 후 업로드 → ⑥ 결과 리포트 순서로 진행합니다. 무엇을 어떻게 찍을지 미리 정해 두어 크리에이터의 제작 반경을 줄입니다.</p></details><details class="q"><summary>크리에이터가 필수 멘트나 장면을 빠뜨리면 어떻게 하나요?</summary><p>승인된 기획안의 필수 멘트·장면이 빠졌다면 재촬영합니다. 기획안대로 촬영된 경우에는 자막·음원 같은 편집을 1회 수정할 수 있습니다. 각 단계에서 전달물을 받으신 뒤 영업일 3일 안에 회신이 없으면 승인된 것으로 보고 다음 단계로 넘어갑니다.</p></details><details class="q"><summary>엔터·아티스트 프로모션(음원·앨범·공연)도 하나요?</summary><p>네. 신곡 챌린지, 음원 구간 확산, 앨범·공연 홍보까지 진행합니다. 상담 신청서에서 「엔터·아티스트」를 고르시면 곡·아티스트 기준 항목으로 바뀌고, 챌린지 구간과 안무 포인트를 담은 크리에이터 가이드를 만들어 드립니다.</p></details><details class="q"><summary>어느 나라에서 진행할 수 있나요?</summary><p>인도네시아 지사를 비롯해 브라질, 필리핀, 일본, 북미, 유럽, 태국, 대만까지 8개 해외 협업 거점과 함께 진행합니다. 나라별 시딩 시장과 주로 쓰는 플랫폼은 홈의 지도에서 나라를 눌러 확인하실 수 있고, 그 밖의 나라는 상담에서 가능 여부를 확인해 드립니다.</p></details><details class="q"><summary>현지 쇼핑몰 입점이나 라이브커머스까지 연결해 주나요?</summary><p>콘텐츠가 구매로 이어지도록 현지 쇼핑몰·라이브커머스 연결까지 함께 설계합니다. 입점 조건과 인증, 통관은 나라와 제품마다 달라 상담에서 먼저 확인합니다.</p></details><details class="q"><summary>광고 표기는 어떻게 하나요?</summary><p>나라마다 정해진 규칙에 맞춰 표기합니다. 캡션 첫 줄에 「#광고」(일본 #PR, 미국 #ad 등)를 넣고 플랫폼의 유료 파트너십 기능을 함께 쓰도록 안내하며, 게시 후 빠짐없이 표기됐는지 확인합니다.</p></details><details class="q"><summary>만든 콘텐츠를 우리 광고나 상세페이지에 써도 되나요?</summary><p>네. 고객사 채널 재게시나 광고 집행처럼 2차 활용 범위와 기간을 크리에이터와 계약할 때 미리 정합니다. 2차 활용은 추가 비용 협의가 필요하니 계획이 있다면 상담이나 신청서에 적어 주세요.</p></details><details class="q"><summary>결과는 어떻게 확인하나요?</summary><p>업로드 후 14일 시점의 조회·좋아요·댓글·공유 인사이트를 크리에이터별로 정리한 리포트를 드립니다. 처음 정한 목표와 비교해 무엇이 반응을 만들었는지 짚고, 다음 캠페인 방향까지 함께 제안합니다.</p></details><details class="q"><summary>무엇을 준비하면 되나요?</summary><p>제품 소개 자료와 이루고 싶은 목표면 충분합니다. 상담 신청서의 「콘텐츠 기획 정보」에 핵심 메시지와 꼭 넣을 문구를 적어 주시면 AI 예시를 더 빠르게 만들어 드립니다. 어느 나라가 맞을지 몰라도 괜찮으니 아는 만큼만 적어 주세요.</p></details></div>
+  </div>
+</section>
+
+<section class="end" aria-labelledby="h-end">
+  <div class="wrap">
+    <div><h2 id="h-end" class="rv">어느 나라부터 시작할지,<br>상담에서 함께 정합니다</h2>
+    <p class="lead rv">상담과 플랜 제안은 무료입니다. 평일 10:00~22:00, 주말·공휴일에도 답합니다.</p></div>
+    <a class="btn y cta rv" href="/contact">무료 상담 받기 →</a>
+  </div>
+</section>
+</main>
+<footer class="hf" id="homi-footer" data-pg-join>
+  <div class="hf-in">
+    <div class="hf-top">
+      <div class="hf-col">
+        <h5>서비스</h5>
+        <ul>
+          <li><a href="/service-influencer">인플루언서 마케팅</a></li>
+          <li><a href="/service-visit">방문 프로모션</a></li>
+          <li><a href="/service-event">팝업 및 행사 운영</a></li>
+          <li><a href="/snp" target="_blank" rel="noopener">틱톡 라이브·그룹라이브 ↗</a></li>
+          <li><a href="/contact?service=artist">퍼포먼스 아티스트 섭외</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>알아보기</h5>
+        <ul>
+          <li><a href="/#how-we-work">How We Work</a></li>
+          <li><a href="/#case">고객 사례</a></li>
+          <li><a href="/trend-report">트렌드 리포트</a></li>
+          <li><a href="/pricing" class="hf-pricing">패키지·가격</a></li>
+        </ul>
+      </div>
+      <div class="hf-col">
+        <h5>회사</h5>
+        <ul>
+          <li><a href="/snp" target="_blank" rel="noopener">SNP COMPANY ↗</a></li>
+          <li><a href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION ↗</a></li>
+          <li><a href="/terms">이용약관</a></li>
+          <li><a href="/privacy" class="hf-privacy">개인정보처리방침</a></li>
+        </ul>
+      </div>
+      <div class="hf-support">
+        <h5>고객 지원</h5>
+        <p class="hf-hours">평일 10:00 ~ 22:00 (주말·공휴일 상담 가능)</p>
+        <p>이메일 · <a href="mailto:support@homifactory.com">support@homifactory.com</a></p>
+        <p>전화 · <a href="tel:01098734339" class="hf-tel">010-9873-4339</a></p>
+        <a href="/contact" class="hf-cta">무료 상담 받기</a>
+      </div>
+    </div>
+    <div class="hf-bottom">
+      <p class="hf-biz"><span>(주) 호미팩토리</span><span>대표 윤호성·최성용</span><span>사업자번호 581-87-03832</span><span>통신판매 번호 제2026-서울강남-05160호</span><span>주소 서울특별시 강남구 논현로142길 11, 4층 (논현동)</span></p>
+      <p class="hf-copy">©2026 HOMI FACTORY Co., Ltd. All rights reserved</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mod" id="mod" role="dialog" aria-modal="true" aria-label="인스타그램 게시물"><div class="box"><button class="x" type="button" aria-label="닫기">×</button><div class="frame"></div></div></div>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  /* 판정기 */
+  function n(el){var v=parseFloat(String(el.value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0}
+  function fmt(el){var v=n(el);if(v)el.value=Math.round(v).toLocaleString('ko-KR')}
+  function pct(x){return (Math.round(x*10)/10).toLocaleString('ko-KR')+'%'}
+  function set(li,val,ok){li.className=ok?'ok':'no';li.querySelector('.v').textContent=val}
+  function run(){
+    var f=n($('cf')),v=n($('cv')),l=n($('cl')),c=n($('cc'));
+    if(!f||!v){$('vd').textContent='팔로워와 평균 조회수를 넣어 주세요';['r1','r2','r3'].forEach(function(i){$(i).className='';$(i).querySelector('.v').textContent='–'});return}
+    var a=v/f*100,b=l?c/l*100:0,e=(l+c)/v*100,p=0;
+    set($('r1'),pct(a),a>=100);if(a>=100)p++;
+    set($('r2'),l?pct(b):'–',b>=3);if(b>=3)p++;
+    set($('r3'),pct(e),e>=5);if(e>=5)p++;
+    $('vd').textContent=p>=2?('셋 중 '+p+'개 통과 — 라이징 크리에이터 후보입니다'):('셋 중 '+p+'개 통과 — 이번 후보에서는 빠집니다');
+  }
+  ['cf','cv','cl','cc'].forEach(function(i){var el=$(i);el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
+  run();
+  /* 게시물 열기 */
+  var mod=$('mod'),fr=mod.querySelector('.frame'),last=null;
+  function close(){mod.classList.remove('on');fr.innerHTML='';if(last)last.focus()}
+  [].forEach.call(document.querySelectorAll('.post'),function(b){b.addEventListener('click',function(){last=b;fr.innerHTML='<iframe src="https://www.instagram.com/p/'+b.getAttribute('data-id')+'/embed" title="인스타그램 게시물" allow="autoplay; encrypted-media" allowfullscreen></iframe>';mod.classList.add('on');mod.querySelector('.x').focus()})});
+  mod.querySelector('.x').addEventListener('click',close);
+  mod.addEventListener('click',function(e){if(e.target===mod)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mod.classList.contains('on'))close()});
+  /* 등장: 섹션 안에서 제목 → 문장 → 그림 순 */
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var el=en.target,sib=[].slice.call(el.parentNode.children).filter(function(x){return x.classList.contains('rv')});el.style.transitionDelay=(Math.max(0,sib.indexOf(el))*75)+'ms';el.classList.add('in');io.unobserve(el)})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},4000);
+})();
+</script>
+</body></html>
