@@ -28,15 +28,20 @@ h2{font-size:clamp(34px,4.4vw,64px)}
 .tlink{font-weight:700;border-bottom:2px solid currentColor;padding-bottom:2px;transition:opacity .2s}
 .tlink:hover{opacity:.65}
 /* 히어로 */
-.hero{padding:calc(var(--hh-offset,122px) + clamp(40px,6vw,88px)) 0 0}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:end}
-.hero h1{margin-bottom:28px}
-.hero .lead{margin-bottom:36px}
+.hero{padding-top:var(--top,148px)}
+.hv{position:relative;min-height:calc(100svh - 150px);display:flex;align-items:flex-end;color:#fff;background:#111;overflow:hidden}
+.hv-media,.hv-media img,.hv-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hv-media picture{position:absolute;inset:0;z-index:1}
+.hv-poster{transition:opacity .6s}
+.hv-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to right,rgba(8,8,10,.72) 0%,rgba(8,8,10,.45) 45%,rgba(8,8,10,0) 75%),linear-gradient(to top,rgba(8,8,10,.7) 0%,rgba(8,8,10,.15) 50%,rgba(8,8,10,0) 100%)}
+.hv .wrap{position:relative;z-index:3;width:100%;padding-top:80px;padding-bottom:clamp(48px,7vw,96px)}
+.hv h1{margin-bottom:24px;max-width:11em}
+.hv .lead{color:#E6E6EA;margin-bottom:36px}
 .hero .acts{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end}
-.stack .post:nth-child(1){transform:translateY(-48px)}
-.stack .post:nth-child(3){transform:translateY(-24px)}
-.stats{margin-top:clamp(56px,7vw,104px);background:var(--tone)}
+.hv .btn{background:#fff;color:var(--ink)}.hv .btn:hover{background:var(--accent)}
+.hv .tlink{color:#fff}
+.ai-tag{position:absolute;right:var(--g);bottom:clamp(20px,3vw,32px);z-index:3;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:6px 10px}
+.stats{background:var(--tone)}
 .stats ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:clamp(32px,4vw,52px) var(--g);max-width:var(--max);margin:0 auto}
 .stats b{display:block;font-size:clamp(40px,4.6vw,72px);font-weight:900;line-height:1}
 .stats span{display:block;margin-top:10px;color:var(--ink-2);font-size:16px}
@@ -91,6 +96,13 @@ h2{font-size:clamp(34px,4.4vw,64px)}
 .guide span{display:block;font-size:15.5px;color:var(--ink-2)}
 .guide .n{font-family:'Inter',sans-serif;font-weight:800;font-size:15px;margin-top:14px;color:var(--ink)}
 .rep{background:var(--tone);padding:18px}
+.ai{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px;align-items:start}
+.ai figure{margin:0}
+.ai-v video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#111}
+.ai figcaption{font-size:14px;color:var(--ink-2);margin-top:8px}
+.ai-pts{list-style:none;display:grid;gap:8px;margin-top:16px}
+.ai-pts li{background:var(--tone);padding:14px 16px;font-size:15px;color:var(--ink-2)}
+.ai-pts b{display:block;color:var(--ink);font-size:16px}
 /* 콘텐츠 벽 */
 .wall{background:var(--dark);color:#fff;padding:clamp(100px,12vw,180px) 0 clamp(80px,9vw,140px)}
 .wall .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end;margin-bottom:48px}
@@ -152,21 +164,22 @@ h2{font-size:clamp(34px,4.4vw,64px)}
 /* 등장 */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
-.stack.rv.in .post:nth-child(1){transform:translateY(-48px)}
 .no-js .rv{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.post img,.btn,.dgrid a{transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.hv-video{display:none}.rv{opacity:1;transform:none;transition:none}.post img,.btn,.dgrid a{transition:none}html{scroll-behavior:auto}}
 /* 반응형 */
 @media(max-width:1100px){.dgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){
- .hero .wrap,.rule .wrap,.flow .wrap,.wall .head,.net .wrap,.faq .wrap,.end .wrap{grid-template-columns:1fr}
+ .rule .wrap,.flow .wrap,.wall .head,.net .wrap,.faq .wrap,.end .wrap{grid-template-columns:1fr}
  .flow .side,.faq h2{position:static}
  .end .cta{justify-self:start}
- .stack .post:nth-child(1),.stack .post:nth-child(3),.stack.rv.in .post:nth-child(1){transform:none}
  .stats ul{grid-template-columns:1fr 1fr;gap:28px 16px}
 }
 @media(max-width:600px){
  body{font-size:16px}
- .hubs,.dgrid,.guide{grid-template-columns:1fr}
+ .hubs,.dgrid,.guide,.ai{grid-template-columns:1fr}
+ .ai-v video{max-height:70svh;width:auto;max-width:100%;margin:0 auto}
+ .ai-tag{bottom:auto;top:16px}
+ .hv-shade{background:linear-gradient(to top,rgba(8,8,10,.88) 0%,rgba(8,8,10,.6) 50%,rgba(8,8,10,.1) 100%)}
  .dgrid a{min-height:0}
  .crit li{grid-template-columns:1fr;gap:4px}
  .q summary{font-size:16.5px;padding:18px 48px 18px 18px}.q p{padding:0 18px 20px}
@@ -184,13 +197,19 @@ h2{font-size:clamp(34px,4.4vw,64px)}
 <script src="/shared/homi-header.js?v=20261103b"></script>
 <main>
 <section class="hero" aria-labelledby="h1">
-  <div class="wrap">
-    <div>
+  <div class="hv">
+    <div class="hv-media" aria-hidden="true">
+      <picture><source media="(max-width:768px)" srcset="/assets/hero/market-hero-20261007-poster-m.jpg"><img class="hv-poster" src="/assets/hero/market-hero-20261007-poster.jpg" alt="" fetchpriority="high" decoding="async"></picture>
+      <video class="hv-video" muted playsinline loop preload="none" tabindex="-1" disablepictureinpicture
+        data-webm="/assets/hero/market-hero-20261007-720p.webm" data-mp4="/assets/hero/market-hero-20261007-1080p.mp4" data-mp4-m="/assets/hero/market-hero-20261007-9x16.mp4"></video>
+      <div class="hv-shade"></div>
+    </div>
+    <div class="wrap">
       <h1 id="h1" class="rv">팔로워 말고,<br>반응으로 고릅니다</h1>
       <p class="lead rv">호미팩토리는 크리에이터를 조회·댓글·참여 반응으로 골라 브랜드와 아티스트의 캠페인을 만들고, 인도네시아 지사와 8개 해외 거점까지 연결합니다.</p>
       <div class="acts rv"><a class="btn" href="/contact">마케팅 상담받기 →</a><a class="tlink" href="/creator">크리에이터 등록하기</a></div>
     </div>
-    <div class="stack rv" aria-label="진행한 캠페인 게시물"><button type="button" class="post" data-id="DY_f2nVz2a0" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DY_f2nVz2a0.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DewEyUpma3F" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DewEyUpma3F.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button><button type="button" class="post" data-id="DXMLxkiEw_b" aria-label="인스타그램 게시물 열기"><img src="/assets/shorts/SHORT-ig-DXMLxkiEw_b.jpg" alt="호미팩토리가 진행한 캠페인 게시물" decoding="async"></button></div>
+    <span class="ai-tag">AI로 제작한 영상</span>
   </div>
   <div class="stats"><ul>
     <li><b class="num">3억+</b><span>누적 콘텐츠 조회수</span></li>
@@ -241,8 +260,10 @@ h2{font-size:clamp(34px,4.4vw,64px)}
     <div class="steps">
       <div class="step rv"><h3>제작 요청서를 받습니다</h3><p>브랜드가 꼭 알리고 싶은 한 문장과 필수 멘트·장면, 금지 표현을 정리합니다.</p>
         <div class="brief"><blockquote>“지친 눈을 편안하게 케어하는 데일리 힐링 아이템”</blockquote><ul><li>개별 포장 · 여행 필수템</li><li>귀끈 착용 휴식 장면</li><li>“소중한 사람에게 휴식을 선물하세요”</li><li>의약품 혼동 표현 금지</li></ul><p class="k">실제 진행한 뷰티·헬스케어 브랜드의 요청서 내용입니다.</p></div></div>
-      <div class="step rv"><h3>AI 예시로 먼저 컨펌받습니다</h3><p>요청서대로 예시 이미지·영상을 만들어 보여드리고, 수정은 다섯 번까지 받습니다.</p>
-        <div class="cuts"><img src="/assets/WORK-plan-eyesion-cuts.jpg" alt="요청서를 바탕으로 AI로 만든 예시 컷 다섯 장" width="1024" height="210" loading="lazy"><span class="ok">고객 컨펌 ✓</span></div></div>
+      <div class="step rv"><h3>AI 예시로 먼저 컨펌받습니다</h3><p>요청서대로 예시 이미지·영상을 만들어 보여드리고, 수정은 다섯 번까지 받습니다. 촬영 전에 완성본에 가까운 그림을 보고 고칠 수 있습니다.</p>
+        <div class="ai"><figure class="ai-v"><video class="ai-video" muted playsinline loop preload="none" poster="/assets/fac/hero/hero-f-poster.jpg" data-src="/assets/fac/hero/hero-f-720.mp4" aria-label="AI로 만든 예시 영상: 연습실 안무를 휴대폰으로 찍는 장면과 공연장 응원봉 장면"></video><figcaption>AI 예시 영상 · 엔터 캠페인</figcaption></figure>
+        <figure class="ai-i"><div class="cuts"><img src="/assets/WORK-plan-eyesion-cuts.jpg" alt="요청서를 바탕으로 AI로 만든 예시 컷 다섯 장" width="1024" height="210" loading="lazy"><span class="ok">고객 컨펌 ✓</span></div><figcaption>AI 예시 이미지 · 뷰티·헬스케어 캠페인</figcaption>
+        <ul class="ai-pts"><li><b>촬영 전에 확인</b>무엇을 어떤 장면으로 보여줄지 미리 봅니다</li><li><b>수정 5회</b>컨펌될 때까지 예시 단계에서 고칩니다</li><li><b>그대로 가이드로</b>컨펌된 예시가 크리에이터 가이드의 기준이 됩니다</li></ul></figure></div></div>
       <div class="step rv"><h3>크리에이터마다 가이드를 따로 씁니다</h3><p>같은 메시지도 각자 평소 컨셉으로 풀어야 반응이 납니다.</p>
         <div class="guide"><div><b>크리에이터 A</b><span>라이프스타일 · 휴식 루틴 컨셉</span><span class="n">팔로워 83.2만 · 평균 조회 11.9만</span></div><div><b>크리에이터 B</b><span>가족 일상 · 가족 힐링 컨셉</span><span class="n">팔로워 11.7만 · 평균 조회 13.6만</span></div></div></div>
       <div class="step rv"><h3>14일 뒤, 숫자로 보고합니다</h3><p>업로드 후 14일 시점의 조회·좋아요·댓글·공유를 크리에이터별로 정리하고 다음 캠페인을 제안합니다.</p>
@@ -345,6 +366,9 @@ h2{font-size:clamp(34px,4.4vw,64px)}
 <script>
 (function(){
   var $=function(id){return document.getElementById(id)};
+  /* 고정 헤더 높이만큼 히어로를 내림 */
+  function top(){var hh=document.querySelector('.hh')||document.getElementById('homi-header'),sec=document.querySelector('.hero');if(!hh||!sec)return;var hb=hh.getBoundingClientRect().bottom;if(!hb)return;sec.style.paddingTop='0px';var st=sec.getBoundingClientRect().top;document.documentElement.style.setProperty('--top',Math.max(0,Math.round(hb-st))+'px');sec.style.paddingTop=''}
+  top();addEventListener('resize',top);setTimeout(top,300);setTimeout(top,1200);
   /* 판정기 */
   function n(el){var v=parseFloat(String(el.value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0}
   function fmt(el){var v=n(el);if(v)el.value=Math.round(v).toLocaleString('ko-KR')}
@@ -361,6 +385,14 @@ h2{font-size:clamp(34px,4.4vw,64px)}
   }
   ['cf','cv','cl','cc'].forEach(function(i){var el=$(i);el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
   run();
+  /* 영상: 화면에 들어올 때만 불러와 재생, 동작 줄이기·데이터 절약이면 정지 이미지 */
+  var still=(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)||(navigator.connection&&navigator.connection.saveData);
+  var hv=document.querySelector('.hv-video');
+  if(hv&&!still){var mob=matchMedia('(max-width:768px)').matches;
+    (mob?[['mp4M','video/mp4']]:[['webm','video/webm'],['mp4','video/mp4']]).forEach(function(x){var s=hv.dataset[x[0]];if(!s)return;var so=document.createElement('source');so.src=s;so.type=x[1];hv.appendChild(so)});
+    hv.load();hv.addEventListener('timeupdate',function f(){if(hv.currentTime>.25&&hv.videoWidth){hv.parentNode.querySelector('.hv-poster').style.opacity=0;hv.removeEventListener('timeupdate',f)}});var pp=hv.play();if(pp&&pp.catch)pp.catch(function(){});}
+  var av=document.querySelector('.ai-video');
+  if(av&&!still&&'IntersectionObserver' in window){var vo=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!av.src){av.src=av.dataset.src}var q=av.play();if(q&&q.catch)q.catch(function(){})}else if(av.src){av.pause()}})},{threshold:.3});vo.observe(av)}
   /* 게시물 열기 */
   var mod=$('mod'),fr=mod.querySelector('.frame'),last=null;
   function close(){mod.classList.remove('on');fr.innerHTML='';if(last)last.focus()}
