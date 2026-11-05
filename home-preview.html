@@ -720,7 +720,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 .np-calc{background:#fff;padding:clamp(24px,3vw,38px)}
 .np-calc h3{font-size:23px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px}
 .np-sub{font-size:15.5px;color:#3A3A42;margin:0 0 22px}
-.np-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.np-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px}
 .np-fields label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
 .np-fields input{width:100%;box-sizing:border-box;height:52px;border:0;background:#F4F2EC;padding:0 14px;font:700 19px 'Inter',sans-serif;color:#0B0B0F;font-variant-numeric:tabular-nums;border-radius:0}
 .np-fields input:focus{outline:3px solid #0B0B0F;outline-offset:0}
@@ -755,6 +755,28 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media(max-width:640px){#directions .dir-grid{grid-template-columns:1fr!important}}
 .np-btn{border-radius:999px}
 @media(max-width:768px){.hc-fab{width:48px!important;height:48px!important;right:12px!important;bottom:14px!important}.np-crit,.np-lead{padding-right:44px}}
+
+/* AI 예시 구간 v4 — 다크 밴드 */
+#np-ai{background:#0B0B0F;color:#fff;position:relative;overflow:hidden}
+#np-ai::before{content:"";position:absolute;right:-10%;top:50%;width:min(780px,70vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(255,197,61,.22) 0%,rgba(255,197,61,0) 62%);pointer-events:none}
+.np-ai{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.np-kick{display:inline-block;font:800 12.5px/1 'Inter',sans-serif;letter-spacing:.14em;color:#FFC53D;margin-bottom:18px}
+#np-ai h2{color:#fff}
+#np-ai h2 em{font-style:normal;color:#FFC53D}
+#np-ai .np-lead{color:rgba(255,255,255,.78)}
+.np-steps{list-style:none;padding:0;margin:0 0 32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+.np-steps li{display:flex;gap:14px;padding:18px 18px 20px;background:#0B0B0F;font-size:15px;line-height:1.5;color:rgba(255,255,255,.66)}
+.np-steps b{font:800 15px/1.5 'Inter',sans-serif;color:#FFC53D;flex:none}
+.np-steps strong{display:block;color:#fff;font-size:16.5px;margin-bottom:2px}
+#np-ai .np-btn{background:#FFC53D;color:#0B0B0F}
+#np-ai .np-btn:hover{background:#ffd56e}
+.np-vid{justify-self:center}
+.np-phone{position:relative;padding:10px;background:#1c1c22;border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+.np-phone video{display:block;height:min(68vh,600px);width:auto;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:26px;background:#111;margin:0}
+.np-badge{position:absolute;left:24px;top:24px;z-index:2;background:#FFC53D;color:#0B0B0F;font-weight:900;font-size:13px;padding:5px 10px;border-radius:999px}
+#np-ai figcaption{text-align:center;color:rgba(255,255,255,.55);margin-top:14px}
+@media(max-width:900px){.np-ai{grid-template-columns:1fr}.np-phone video{height:auto;max-height:66svh;width:auto}.np-vid{order:2}}
+@media(max-width:600px){.np-steps{grid-template-columns:1fr}.np-fields{grid-template-columns:1fr 1fr}}
 </style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
@@ -805,7 +827,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <h3>어떻게 알릴까</h3>
 <p>목표를 이루는 데 가장 잘 맞는 방법을<br> 골라 조합합니다</p>
 <figure class="wk-shot wk-case"><div class="wkc-h"><span>실제 진행</span><b>아이즈온 스팀아이마스크</b></div><table class="wkc-t"><thead><tr><th>후보</th><th>팔로워</th><th>평균 조회</th><th>컨셉</th></tr></thead><tbody><tr><td>크리에이터 A · 라이프스타일</td><td>83.2만</td><td>11.9만</td><td>휴식 루틴</td></tr><tr><td>크리에이터 B · 가족 일상</td><td>11.7만</td><td>13.6만</td><td>가족 힐링</td></tr></tbody></table><figcaption>후보 리스트 → 조회 3.2만 · 참여율 6.4%</figcaption></figure>
-<div class="wk-crit"><span class="wk-ck">선별 기준 · 팔로워가 아니라 반응으로</span><span class="wk-cr"><b>조회율 ≥ 100%</b><b>댓글/좋아요 ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3개 중 2개 충족 = 라이징 크리에이터</span></div>
+<div class="wk-crit"><span class="wk-ck">선별 기준 · 팔로워가 아니라 반응으로</span><span class="wk-cr"><b>댓글/좋아요 ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3개 중 2개 충족 = 라이징 크리에이터</span></div>
 <div class="svc-chips"><span class="sc">인플루언서</span><span class="sc">방문 프로모션</span><span class="sc">팝업</span><span class="sc">협찬</span><span class="sc">콘텐츠 제작</span></div>
 <div class="wk-em"><b>광고비 낭비를 줄입니다</b><span>팔로워 수가 아니라 반응 지표로 크리에이터를 골라, 같은 예산으로 더 많은 조회를 만듭니다</span></div><div class="wk-out"><span class="wk-k">받는 것</span><span class="wk-v">크리에이터 후보 리스트 + 컨셉 매칭<br> <small>조회율 · 적정단가 포함</small></span></div>
 </div>
@@ -824,10 +846,9 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <section class="np" id="np-rule" aria-labelledby="np-h-rule">
   <div class="np-wrap np-2">
     <div>
-      <h2 id="np-h-rule">셋 중 둘을 넘어야<br>함께합니다</h2>
-      <p class="np-lead">팔로워가 많아도 보는 사람이 적으면 고르지 않습니다. 호미가 크리에이터 후보를 거르는 기준은 세 가지이고, 둘 이상 통과한 계정을 ‘라이징 크리에이터’로 추천합니다.</p>
+      <h2 id="np-h-rule">두 반응 기준을 넘어야<br>함께합니다</h2>
+      <p class="np-lead">좋아요 숫자만으로는 고르지 않습니다. 보는 사람이 실제로 말을 걸고 반응을 남기는지, 이 두 가지를 모두 넘은 계정을 ‘라이징 크리에이터’로 추천합니다.</p>
       <ul class="np-crit">
-        <li><b>100%</b><p><strong>조회율 이상</strong>평균 조회수가 팔로워 수보다 많은가</p></li>
         <li><b>3%</b><p><strong>댓글 ÷ 좋아요 이상</strong>좋아요만 누르고 가지 않고 말을 거는가</p></li>
         <li><b>5%</b><p><strong>참여율 이상</strong>본 사람 중 반응을 남긴 비율이 충분한가</p></li>
       </ul>
@@ -836,13 +857,11 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       <h3 id="np-h-calc">이 크리에이터, 통과할까요?</h3>
       <p class="np-sub">관심 있는 계정의 숫자를 넣으면 바로 판정합니다.</p>
       <div class="np-fields">
-        <div><label for="np-f">팔로워</label><input id="np-f" inputmode="numeric" value="117,000"></div>
         <div><label for="np-v">평균 조회수</label><input id="np-v" inputmode="numeric" value="136,000"></div>
         <div><label for="np-l">평균 좋아요</label><input id="np-l" inputmode="numeric" value="6,800"></div>
         <div><label for="np-c">평균 댓글</label><input id="np-c" inputmode="numeric" value="240"></div>
       </div>
       <ul class="np-res">
-        <li id="np-r1"><span>조회율</span><span class="v">–</span></li>
         <li id="np-r2"><span>댓글 ÷ 좋아요</span><span class="v">–</span></li>
         <li id="np-r3"><span>참여율</span><span class="v">–</span></li>
       </ul>
@@ -853,14 +872,23 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </section>
 
 <section class="np" id="np-ai" aria-labelledby="np-h-ai">
-  <div class="np-wrap np-2 np-ai">
-    <div>
-      <h2 id="np-h-ai">찍기 전에,<br>AI 예시로 먼저 봅니다</h2>
+  <div class="np-wrap np-ai">
+    <div class="np-ai-txt">
+      <span class="np-kick">AI PRE-VISUALIZATION</span>
+      <h2 id="np-h-ai">찍기 전에,<br><em>AI 예시</em>로 먼저 봅니다</h2>
       <p class="np-lead">IP 카드의 제작 요청서를 받으면, 촬영 전에 이런 AI 예시 영상을 먼저 만들어 보여드립니다. 무엇을 어떤 장면으로 보여줄지 미리 정해져 있어 재촬영과 메시지 누락이 줄어듭니다.</p>
-      <ul class="np-pts"><li><b>촬영 전에 확인</b>무엇을 어떤 장면으로 보여줄지 미리 봅니다</li><li><b>수정 5회</b>컨펌될 때까지 예시 단계에서 고칩니다</li><li><b>그대로 가이드로</b>컨펌된 예시가 크리에이터 가이드의 기준이 됩니다</li></ul>
+      <ol class="np-steps">
+        <li><b>01</b><div><strong>제작 요청서</strong>제품·곡, 꼭 보여줄 장면을 적어 주세요</div></li>
+        <li><b>02</b><div><strong>AI 예시 영상</strong>촬영 전에 장면 흐름을 영상으로 먼저 봅니다</div></li>
+        <li><b>03</b><div><strong>컨펌 · 수정 5회</strong>컨펌될 때까지 예시 단계에서 고칩니다</div></li>
+        <li><b>04</b><div><strong>크리에이터 가이드</strong>컨펌된 예시가 그대로 촬영 기준이 됩니다</div></li>
+      </ol>
       <a class="np-btn" href="/contact">제작 요청서 쓰러 가기 →</a>
     </div>
-    <figure class="np-vid"><video class="np-video" muted playsinline loop preload="none" poster="/assets/fac/hero/hero-f-poster.jpg" data-src="/assets/fac/hero/hero-f-720.mp4" aria-label="AI로 만든 예시 영상: 연습실 안무를 휴대폰으로 찍는 장면과 공연장 응원봉 장면"></video><figcaption>AI 예시 영상 · 엔터 캠페인</figcaption></figure>
+    <figure class="np-vid">
+      <div class="np-phone"><span class="np-badge">AI 예시</span><video class="np-video" muted playsinline loop preload="none" poster="/assets/fac/hero/hero-f-poster.jpg" data-src="/assets/fac/hero/hero-f-720.mp4" aria-label="AI로 만든 예시 영상: 연습실 안무를 휴대폰으로 찍는 장면과 공연장 응원봉 장면"></video></div>
+      <figcaption>AI 예시 영상 · 엔터 캠페인</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1148,7 +1176,7 @@ window.HS_BUILD=function(src){
     <div class="faq-list reveal">
       <details class="faq-item" open><summary><span class="qtxt" data-k="q1">상담과 플랜 제안에도 비용이 드나요?</span></summary><div class="ans" data-k="a1">상담은 무료입니다. 브랜드의 목표와 상황을 듣고 어떤 나라, 어떤 방식이 맞을지 방향을 함께 정리해 드립니다. 진행을 결정하기 전까지는 비용이 들지 않습니다.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q2">예산이 크지 않아도 진행할 수 있나요?</span></summary><div class="ans" data-k="a2">네. 중요한 건 예산의 크기보다 목표입니다. 정해진 예산 안에서 나라, 인플루언서 규모, 방식을 조정해 가장 효과적인 조합을 제안합니다. 정확한 비용은 상담 후 견적으로 안내합니다.</div></details>
-      <details class="faq-item"><summary><span class="qtxt" data-k="q3">어떤 크리에이터와 일하나요? 직접 고를 수도 있나요?</span></summary><div class="ans" data-k="a3">8,000명이 넘는 크리에이터 네트워크 가운데 500명 이상과 직접 계약해 카테고리별로 관리합니다. 후보는 팔로워 수가 아니라 조회율·댓글·참여율 같은 반응 기준으로 골라 리스트로 드리고, 브랜드가 직접 고르셔도 됩니다. 함께하고 싶은 크리에이터가 있다면 그대로 반영합니다.</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q3">어떤 크리에이터와 일하나요? 직접 고를 수도 있나요?</span></summary><div class="ans" data-k="a3">8,000명이 넘는 크리에이터 네트워크 가운데 500명 이상과 직접 계약해 카테고리별로 관리합니다. 후보는 팔로워 수가 아니라 댓글·참여율 같은 반응 기준으로 골라 리스트로 드리고, 브랜드가 직접 고르셔도 됩니다. 함께하고 싶은 크리에이터가 있다면 그대로 반영합니다.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q4">콘텐츠는 어떤 순서로 만들어지나요?</span></summary><div class="ans" data-k="a4">① 제품의 키 포인트와 꼭 넣을 문구를 제작 요청서로 받고 → ② 그 내용으로 AI 예시 이미지·영상을 먼저 만들어 컨펌받습니다(수정 5회까지). → ③ 컨펌된 예시를 바탕으로 크리에이터마다 평소 컨셉을 살린 상세 가이드를 보내고 → ④ 촬영·편집 → ⑤ 승인 후 업로드 → ⑥ 결과 리포트 순서로 진행합니다. 무엇을 어떻게 찍을지 미리 정해 두어 크리에이터의 제작 반경을 줄입니다.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q5">크리에이터가 필수 멘트나 장면을 빠뜨리면 어떻게 하나요?</span></summary><div class="ans" data-k="a5">승인된 기획안의 필수 멘트·장면이 빠졌다면 재촬영합니다. 기획안대로 촬영된 경우에는 자막·음원 같은 편집을 1회 수정할 수 있습니다. 각 단계에서 전달물을 받으신 뒤 영업일 3일 안에 회신이 없으면 승인된 것으로 보고 다음 단계로 넘어갑니다.</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q6">엔터·아티스트 프로모션(음원·앨범·공연)도 하나요?</span></summary><div class="ans" data-k="a6">네. 신곡 챌린지, 음원 구간 확산, 앨범·공연 홍보까지 진행합니다. 상담 신청서에서 「엔터·아티스트」를 고르시면 곡·아티스트 기준 항목으로 바뀌고, 챌린지 구간과 안무 포인트를 담은 크리에이터 가이드를 만들어 드립니다.</div></details>
@@ -2042,16 +2070,15 @@ html.in-final #stickyAsk{opacity:0!important;pointer-events:none!important}
   function pct(x){return (Math.round(x*10)/10).toLocaleString('ko-KR')+'%'}
   function set(li,val,ok){li.className=ok?'ok':'no';li.querySelector('.v').textContent=val}
   function run(){
-    var f=n($('np-f')),v=n($('np-v')),l=n($('np-l')),c=n($('np-c'));
-    if(!f||!v){$('np-vd').textContent='팔로워와 평균 조회수를 넣어 주세요';['np-r1','np-r2','np-r3'].forEach(function(i){$(i).className='';$(i).querySelector('.v').textContent='–'});return}
-    var a=v/f*100,b=l?c/l*100:0,e=(l+c)/v*100,p=0;
-    set($('np-r1'),pct(a),a>=100);if(a>=100)p++;
-    set($('np-r2'),l?pct(b):'–',b>=3);if(b>=3)p++;
+    var v=n($('np-v')),l=n($('np-l')),c=n($('np-c'));
+    if(!v||!l){$('np-vd').textContent='평균 조회수와 좋아요를 넣어 주세요';['np-r2','np-r3'].forEach(function(i){$(i).className='';$(i).querySelector('.v').textContent='–'});return}
+    var b=c/l*100,e=(l+c)/v*100,p=0;
+    set($('np-r2'),pct(b),b>=3);if(b>=3)p++;
     set($('np-r3'),pct(e),e>=5);if(e>=5)p++;
-    $('np-vd').textContent=p>=2?('셋 중 '+p+'개 통과 — 라이징 크리에이터 후보입니다'):('셋 중 '+p+'개 통과 — 이번 후보에서는 빠집니다');
+    $('np-vd').textContent=p===2?'두 기준 모두 통과 — 라이징 크리에이터 후보입니다':('둘 중 '+p+'개 통과 — 이번 후보에서는 빠집니다');
   }
-  ['np-f','np-v','np-l','np-c'].forEach(function(i){var el=$(i);if(!el)return;el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
-  if($('np-f'))run();
+  ['np-v','np-l','np-c'].forEach(function(i){var el=$(i);if(!el)return;el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
+  if($('np-v'))run();
   function tagPos(){var st=document.querySelector('.hv-stats'),tg=document.querySelector('.np-aitag');if(st&&tg)tg.style.setProperty('--np-tagb',(st.offsetHeight+14)+'px')}
   tagPos();addEventListener('resize',tagPos);setTimeout(tagPos,800);
   var av=document.querySelector('.np-video');
