@@ -701,6 +701,83 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <style id="wkc-css">/* 2번 카드: 아이즈온 실제 진행 자료(콘티 5컷 + 후보 리스트) — 2026-11-04 */#how-we-work .wk-case{display:flex;flex-direction:column}#how-we-work .wk-case .wkc-h{display:flex;align-items:center;gap:6px;padding:6px 9px 5px;font-size:11px;color:#6B665E}#how-we-work .wk-case .wkc-h span{background:#141414;color:#fff;font-weight:800;font-size:10px;padding:2px 7px;border-radius:999px;letter-spacing:.02em}#how-we-work .wk-case .wkc-h b{color:#141414;font-weight:800}#how-we-work .wk-case img.wkc-cuts{height:auto;aspect-ratio:1024/210;object-fit:cover;padding:0 9px;box-sizing:border-box;border-radius:0}#how-we-work .wk-case .wkc-t{width:calc(100% - 18px);margin:6px 9px 7px;border-collapse:collapse;font-size:10.5px;line-height:1.3}#how-we-work .wk-case .wkc-t th{font-weight:700;color:#8a8579;text-align:left;padding:2px 4px;border-bottom:1px solid #F0EBE3}#how-we-work .wk-case .wkc-t td{padding:3px 4px;color:#141414;font-weight:600;border-bottom:1px solid #F6F2EC;white-space:nowrap}#how-we-work .wk-case .wkc-t td:first-child{white-space:normal;font-weight:700}#how-we-work .wk-case .wkc-t th:not(:first-child),#how-we-work .wk-case .wkc-t td:not(:first-child){text-align:right}</style>
 <style id="wkip-css">/* 1번 카드: 제작 요청서 → AI 예시 컨펌 → 크리에이터별 가이드 (아이즈온) — 2026-11-04 */#how-we-work .wk-ip ol{list-style:none;margin:0;padding:2px 9px 6px;display:grid;gap:5px;counter-reset:wks}#how-we-work .wk-ip li{position:relative;padding-left:22px;font-size:10.5px;line-height:1.4;color:#4a463f}#how-we-work .wk-ip li::before{counter-increment:wks;content:counter(wks);position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:#141414;color:#fff;font-size:9.5px;font-weight:800;display:grid;place-items:center}#how-we-work .wk-ip li b{display:block;color:#141414;font-size:11px;font-weight:800}#how-we-work .wk-ip .wkc-chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}#how-we-work .wk-ip .wkc-chips i{font-style:normal;font-size:9.5px;font-weight:700;color:#141414;background:#F3EFE8;border-radius:999px;padding:1px 6px}#how-we-work .wk-ip .wkc-ok{display:inline-block;margin-left:4px;font-size:9.5px;font-weight:800;color:#15803D;background:#E5F4E4;border-radius:999px;padding:0 6px;vertical-align:1px}#how-we-work .wk-ip img.wkc-cuts{display:block;width:100%;height:auto;aspect-ratio:1024/210;object-fit:cover;margin-top:4px;padding:0;border-radius:6px}#how-we-work .wk-em{align-self:stretch;margin:0 0 10px;padding:9px 11px;border-radius:12px;background:#141414;color:#fff;text-align:left}#how-we-work .wk-em b{display:block;font-size:12.5px;font-weight:800;margin-bottom:2px}#how-we-work .wk-em span{display:block;font-size:11px;line-height:1.45;color:#D6D3CD}#how-we-work .wk-em{margin-top:auto;min-height:78px;display:flex;flex-direction:column;justify-content:center}#how-we-work .wk-em+.wk-out{margin-top:0}</style>
 <style id="flagfont-css">/* 윈도우에서도 국기 이모지 보이게 */@font-face{font-family:"Twemoji Country Flags";unicode-range:U+1F1E6-1F1FF,U+1F3F4,U+E0062-E0063,U+E0065,U+E0067,U+E006C,U+E006E,U+E0073-E0074,U+E0077,U+E007F;src:url("https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1.8/dist/TwemojiCountryFlags.woff2") format("woff2");font-display:swap}.gn-flag{font-family:"Twemoji Country Flags","Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}</style>
+<style id="np-css">/* 시안 추가 구간: 선별 기준 판정기 · AI 예시 (기존 홈 위에 얹음) */
+.np-aitag{position:absolute;right:24px;top:20px;z-index:3;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:6px 10px}
+.np{padding:clamp(56px,6vw,96px) 24px;color:#0B0B0F}
+#np-rule{background:#FFC53D}
+#np-ai{background:#fff}
+.np-wrap{max-width:1240px;margin:0 auto}
+.np-2{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+.np h2{font-size:clamp(34px,4.2vw,60px);font-weight:900;letter-spacing:-.04em;line-height:1.06;margin-bottom:22px}
+.np-lead{font-size:clamp(17px,1.3vw,19px);line-height:1.6;color:#2a2a30;max-width:34em;margin-bottom:28px}
+.np-crit{list-style:none;padding:0;margin:0;display:grid;gap:24px}
+.np-crit li{display:grid;grid-template-columns:clamp(140px,12vw,200px) 1fr;gap:18px;align-items:baseline}
+.np-crit b{font:900 clamp(38px,4vw,60px)/1 'Inter',sans-serif;letter-spacing:-.03em}
+.np-crit p{font-size:16.5px;line-height:1.5;margin:0}
+.np-crit strong{display:block;font-size:18.5px}
+.np-calc{background:#fff;padding:clamp(24px,3vw,38px)}
+.np-calc h3{font-size:23px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px}
+.np-sub{font-size:15.5px;color:#3A3A42;margin:0 0 22px}
+.np-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.np-fields label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.np-fields input{width:100%;box-sizing:border-box;height:52px;border:0;background:#F4F2EC;padding:0 14px;font:700 19px 'Inter',sans-serif;color:#0B0B0F;font-variant-numeric:tabular-nums;border-radius:0}
+.np-fields input:focus{outline:3px solid #0B0B0F;outline-offset:0}
+.np-res{list-style:none;padding:0;margin:0 0 10px;display:grid;gap:8px}
+.np-res li{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#F4F2EC;font-size:16px;transition:background .2s,color .2s}
+.np-res .v{font:800 16px 'Inter',sans-serif;font-variant-numeric:tabular-nums}
+.np-res li.ok{background:#0B0B0F;color:#fff}
+.np-res li.ok .v::after{content:"  통과";color:#FFC53D;font-family:'Noto Sans KR',sans-serif}
+.np-res li.no .v::after{content:"  미달";color:#9a3b2f;font-family:'Noto Sans KR',sans-serif}
+.np-verdict{font-size:20px;font-weight:900;letter-spacing:-.02em;margin:12px 0 4px}
+.np-note{font-size:13.5px;color:#3A3A42;margin:0}
+.np-cuts{position:relative;margin:0 0 20px}
+.np-cuts img{display:block;width:100%;height:auto}
+.np-ok{position:absolute;left:14px;top:14px;background:#FFC53D;color:#0B0B0F;font-weight:900;font-size:14px;padding:5px 10px}
+.np figcaption{font-size:14px;color:#3A3A42;margin-top:8px}
+.np-pts{list-style:none;padding:0;margin:0 0 26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.np-pts li{background:#F4F2EC;padding:14px 16px;font-size:15px;color:#3A3A42}
+.np-pts b{display:block;color:#0B0B0F;font-size:16px}
+.np-btn{display:inline-flex;align-items:center;height:56px;padding:0 26px;background:#0B0B0F;color:#fff;font-weight:700;font-size:16.5px;transition:background .2s,transform .2s}
+.np-btn:hover{background:#2a2a30;transform:translateY(-2px)}
+.np-vid{margin:0}
+.np-vid video{display:block;height:min(66vh,640px);width:auto;max-width:100%;margin-left:auto;aspect-ratio:9/16;object-fit:cover;background:#111}
+.np-vid figcaption{text-align:right}
+@media(max-width:900px){.np-2{grid-template-columns:1fr}.np-vid video{margin:0 auto;height:auto;max-height:70svh;width:auto;max-width:100%;aspect-ratio:9/16}.np-vid figcaption{text-align:center}}
+@media(max-width:600px){.np-pts{grid-template-columns:1fr}.np{padding:72px 20px}.np-crit li{grid-template-columns:1fr;gap:4px}}
+
+/* 검수 반영 */
+.hv-stats{grid-template-columns:repeat(2,1fr)!important}
+.np-aitag{top:auto!important;bottom:var(--np-tagb,104px)!important;right:24px}
+#directions .dir-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}
+@media(max-width:1100px){#directions .dir-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:640px){#directions .dir-grid{grid-template-columns:1fr!important}}
+.np-btn{border-radius:999px}
+@media(max-width:768px){.hc-fab{width:48px!important;height:48px!important;right:12px!important;bottom:14px!important}.np-crit,.np-lead{padding-right:44px}}
+
+/* AI 예시 구간 v4 — 다크 밴드 */
+#np-ai{background:#0B0B0F;color:#fff;position:relative;overflow:hidden}
+#np-ai::before{content:"";position:absolute;right:-10%;top:50%;width:min(780px,70vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(255,197,61,.22) 0%,rgba(255,197,61,0) 62%);pointer-events:none}
+.np-ai{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.np-kick{display:inline-block;font:800 12.5px/1 'Inter',sans-serif;letter-spacing:.14em;color:#FFC53D;margin-bottom:18px}
+#np-ai h2{color:#fff}
+#np-ai h2 em{font-style:normal;color:#FFC53D}
+#np-ai .np-lead{color:rgba(255,255,255,.78)}
+.np-steps{list-style:none;padding:0;margin:0 0 32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+.np-steps li{display:flex;gap:14px;padding:18px 18px 20px;background:#0B0B0F;font-size:15px;line-height:1.5;color:rgba(255,255,255,.66)}
+.np-steps b{font:800 15px/1.5 'Inter',sans-serif;color:#FFC53D;flex:none}
+.np-steps strong{display:block;color:#fff;font-size:16.5px;margin-bottom:2px}
+#np-ai .np-btn{background:#FFC53D;color:#0B0B0F}
+#np-ai .np-btn:hover{background:#ffd56e}
+.np-vid{justify-self:center}
+.np-phone{position:relative;padding:10px;background:#1c1c22;border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+.np-phone video{display:block;height:min(68vh,600px);width:auto;max-width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:26px;background:#111;margin:0}
+.np-badge{position:absolute;left:24px;top:24px;z-index:2;background:#FFC53D;color:#0B0B0F;font-weight:900;font-size:13px;padding:5px 10px;border-radius:999px}
+#np-ai figcaption{text-align:center;color:rgba(255,255,255,.55);margin-top:14px}
+@media(max-width:900px){.np-ai{grid-template-columns:1fr}.np-phone video{height:auto;max-height:66svh;width:auto}.np-vid{order:2}}
+@media(max-width:600px){.np-steps{grid-template-columns:1fr}.np-fields{grid-template-columns:1fr 1fr}}
+
+.np-res li.ok .v::after{content:"  通過"}.np-res li.no .v::after{content:"  未達"}
+</style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
   <span class="pill"><span class="star">✦</span> HOMI TREND REPORT 2026</span>
@@ -716,27 +793,14 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
       data-webm-m="" data-mp4-m="/assets/hero/market-hero-20261007-9x16.mp4"></video>
     <div class="hv-shade"></div>
   </div>
+  <span class="np-aitag">AIで制作した映像</span>
   <div class="hero-inner">
-    <div class="hero-badge"><span class="spark">✦</span>CREATOR GROWTH AGENCY<span class="divider">·</span>韓国 ⇄ 世界</div>
-    <h1>クライアントと<span class="hl">ワンチーム</span>になり、<br>世界市場まで共に進みます</h1>
-    <p>フォロワーではなく、「反応するファン」をつくります。</p>
+    <h1>フォロワーではなく、<br>反応で選びます</h1>
+    <p>再生・コメント・エンゲージメントの反応で選んだクリエイターで、ブランドとアーティストのキャンペーンをつくり、インドネシア支社と8つの海外拠点までつなぎます。</p>
     <div class="hero-ctas two"><a href="/ja/contact.html" class="big-cta">マーケティング相談 →</a><a href="/ja/creator.html" class="cr-cta">クリエイター登録</a></div>
-    <a class="hero-flow" href="#how-we-work" aria-label="ホミの進め方"><b>見つけて</b><i>→</i><b>つないで</b><i>→</i><b>証明します</b></a>
-    <div class="country-network">
-      <div class="cn-label">現地ネットワーク</div>
-      <div class="region-chips">
-        <span class="region-chip hub"><span class="dot"></span>インドネシア支社</span>
-        <span class="region-chip edge"><span class="dot"></span>ブラジル</span>
-        <span class="region-chip edge"><span class="dot"></span>フィリピン</span>
-        <span class="region-chip edge"><span class="dot"></span>日本</span>
-        <span class="region-chip edge"><span class="dot"></span>北米</span>
-        <span class="region-chip edge"><span class="dot"></span>ヨーロッパ</span>
-        <span class="region-chip edge"><span class="dot"></span>タイ</span>
-        <span class="region-chip edge"><span class="dot"></span>台湾</span>
-      </div>
-    </div>
+
   </div>
-  <div class="hv-stats" role="list" aria-label="HOMI FACTORYの累計実績"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="3" data-sep=",">3</span><small>億+</small></div><div class="hv-lbl">累計コンテンツ再生数</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="62" data-sep=",">62</span><small>+</small></div><div class="hv-lbl">共に歩んだブランド</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="8000" data-sep=",">8,000</span><small>+</small></div><div class="hv-lbl">クリエイターネットワーク</div></div></div>
+  <div class="hv-stats" role="list" aria-label="HOMI FACTORYの累計実績"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="3" data-sep=",">3</span><small>億+</small></div><div class="hv-lbl">累計コンテンツ再生数</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="62" data-sep=",">62</span><small>+</small></div><div class="hv-lbl">共に歩んだブランド</div></div></div>
 </section>
 
 
@@ -747,7 +811,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> 私たちの働き方</span>
 <h2>成果で語る、<br> <em>ブランドに合わせた戦略設計</em></h2>
 <p>大切なのは予算の大きさではなく、どのIPを、どのプランで、どんな成果まで導くかです。<br> 選定からアップロード・レポートまで4週間。各ステップで手元に残る成果物があります。</p>
 </div>
@@ -764,7 +827,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <h3>どう伝えるか</h3>
 <p>目標達成に最も適した手法を<br> 選び、組み合わせます</p>
 <figure class="wk-shot wk-case"><div class="wkc-h"><span>実際の事例</span><b>EYESION スチームアイマスク</b></div><table class="wkc-t"><thead><tr><th>候補</th><th>フォロワー</th><th>平均再生</th><th>コンセプト</th></tr></thead><tbody><tr><td>クリエイターA・ライフスタイル</td><td>83.2万</td><td>11.9万</td><td>休息ルーティン</td></tr><tr><td>クリエイターB・家族の日常</td><td>11.7万</td><td>13.6万</td><td>家族の癒し</td></tr></tbody></table><figcaption>候補リスト → 再生3.2万・エンゲージメント率6.4%</figcaption></figure>
-<div class="wk-crit"><span class="wk-ck">選定基準 · フォロワー数ではなく反応で</span><span class="wk-cr"><b>再生率 ≥ 100%</b><b>コメント/いいね ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3つ中2つ達成 = ライジングクリエイター</span></div>
+<div class="wk-crit"><span class="wk-ck">選定基準 · フォロワー数ではなく反応で</span><span class="wk-cr"><b>コメント/いいね ≥ 3%</b><b>ER ≥ 5%</b></span><span class="wk-cn">★ 3つ中2つ達成 = ライジングクリエイター</span></div>
 <div class="svc-chips"><span class="sc">インフルエンサー</span><span class="sc">来店プロモーション</span><span class="sc">ポップアップ</span><span class="sc">協賛</span><span class="sc">コンテンツ制作</span></div>
 <div class="wk-em"><b>広告費のムダを減らします</b><span>フォロワー数ではなく反応指標でクリエイターを選ぶので、同じ予算でより多くの再生を生みます</span></div><div class="wk-out"><span class="wk-k">お渡しするもの</span><span class="wk-v">クリエイター候補リスト＋コンセプトマッチング<br> <small>再生率・適正単価つき</small></span></div>
 </div>
@@ -780,12 +843,61 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 </div>
 </section>
 
+<section class="np" id="np-rule" aria-labelledby="np-h-rule">
+  <div class="np-wrap np-2">
+    <div>
+      <h2 id="np-h-rule">2つの反応基準を<br>超えた人と組みます</h2>
+      <p class="np-lead">いいねの数だけでは選びません。見た人が実際に話しかけ、反応を残しているか——この2つを両方超えたアカウントを「ライジングクリエイター」として推薦します。</p>
+      <ul class="np-crit">
+        <li><b>3%</b><p><strong>コメント ÷ いいね 以上</strong>いいねだけで去らず、話しかけているか</p></li>
+        <li><b>5%</b><p><strong>エンゲージメント率 以上</strong>見た人のうち反応を残した割合は十分か</p></li>
+      </ul>
+    </div>
+    <form class="np-calc" onsubmit="return false" aria-labelledby="np-h-calc">
+      <h3 id="np-h-calc">このクリエイター、通過する?</h3>
+      <p class="np-sub">気になるアカウントの数字を入れると、すぐに判定します。</p>
+      <div class="np-fields">
+        <div><label for="np-v">平均再生数</label><input id="np-v" inputmode="numeric" value="136,000"></div>
+        <div><label for="np-l">平均いいね</label><input id="np-l" inputmode="numeric" value="6,800"></div>
+        <div><label for="np-c">平均コメント</label><input id="np-c" inputmode="numeric" value="240"></div>
+      </div>
+      <ul class="np-res">
+        <li id="np-r2"><span>コメント ÷ いいね</span><span class="v">–</span></li>
+        <li id="np-r3"><span>エンゲージメント率</span><span class="v">–</span></li>
+      </ul>
+      <p class="np-verdict" id="np-vd" aria-live="polite">数字を入れると判定します</p>
+      <p class="np-note">エンゲージメント率 = (いいね + コメント) ÷ 平均再生数。最初の値は例です。</p>
+    </form>
+  </div>
+</section>
+
+<section class="np" id="np-ai" aria-labelledby="np-h-ai">
+  <div class="np-wrap np-ai">
+    <div class="np-ai-txt">
+      <span class="np-kick">AI PRE-VISUALIZATION</span>
+      <h2 id="np-h-ai">撮る前に、<br><em>AIの例示</em>で先に見ます</h2>
+      <p class="np-lead">IPカードの制作依頼書を受け取ったら、撮影前にこのようなAI例示映像を先に作ってお見せします。何をどんな場面で見せるかが事前に決まるので、撮り直しやメッセージ漏れが減ります。</p>
+      <ol class="np-steps">
+        <li><b>01</b><div><strong>制作依頼書</strong>商品・曲と、必ず見せたい場面を書いてください</div></li>
+        <li><b>02</b><div><strong>AI例示映像</strong>撮影前にシーンの流れを映像で確認します</div></li>
+        <li><b>03</b><div><strong>確認・修正5回</strong>承認されるまで例示の段階で直します</div></li>
+        <li><b>04</b><div><strong>クリエイターガイド</strong>承認された例示がそのまま撮影基準になります</div></li>
+      </ol>
+      <a class="np-btn" href="/ja/contact.html">制作依頼書を書く →</a>
+    </div>
+    <figure class="np-vid">
+      <div class="np-phone"><span class="np-badge">AI例示</span><video class="np-video" muted playsinline loop preload="none" poster="/assets/fac/hero/hero-f-poster.jpg" data-src="/assets/fac/hero/hero-f-720.mp4" aria-label="AIで作った例示映像:練習室のダンスをスマホで撮る場面と、公演会場のペンライトの場面"></video></div>
+      <figcaption>AI例示映像・エンタメキャンペーン</figcaption>
+    </figure>
+  </div>
+</section>
+
+
 
 <!-- ③-2 카테고리별로 검증한 크리에이터 · 숫자 3개 + 업종 줄 — FR-MKT-028·041 (v143: 「한 팀」은 히어로에만, 재계약률 카드 삭제) -->
 <section class="strategy-section team-section" id="team-result">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> ともに生み出した成果</span>
 <h2>カテゴリーごとに<em>厳選したクリエイター</em>と取り組みます</h2>
 <p>ブランドのカテゴリーごとに、最も効果の高いクリエイターを直接管理し、おつなぎします</p>
 </div>
@@ -852,6 +964,14 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul class="dir-list"><li data-k="d3.m1">目標に合わせてメガから体験レビュアーまで規模を組み合わせる</li><li data-k="d3.m2">来店プロモーション・ポップアップ・イベントで直接会う</li><li data-k="d3.m3">結果レポートで次のキャンペーンまでつなげる</li></ul>
         <a class="dir-cta" href="/ja/contact.html?direction=3">この方向で相談する →</a>
       </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat">エンタメ・アーティスト</div>
+        <h3 class="dir-dir">音源・アルバム・公演</h3>
+        <p class="dir-line">新曲や公演をしっかり届けたい</p>
+        <div class="dir-how">HOMIのやり方</div>
+        <ul class="dir-list"><li>チャレンジ区間と振付ポイントから決める</li><li>曲の雰囲気に合うクリエイターでチャレンジを拡散</li><li>音源チャート・チケット予約ページまでつながるよう設計</li></ul>
+        <a class="dir-cta" href="/ja/contact.html?type=ent">この方向で相談する →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -860,7 +980,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="network-inner">
     <div class="network-grid">
       <div class="network-text reveal">
-        <div class="section-eyebrow">🌐 GLOBAL NETWORK</div>
         <h2>インドネシア支社と現地パートナーを拠点に、<br><span class="hl">世界各地へ広がるネットワーク</span></h2>
         <p>国ごとのインフルエンサー規模と販売チャネルをご確認ください。</p>
       </div>
@@ -1056,7 +1175,7 @@ window.HS_BUILD=function(src){
     <div class="faq-list reveal">
       <details class="faq-item" open><summary><span class="qtxt" data-k="q1">相談やプラン提案にも費用はかかりますか？</span></summary><div class="ans" data-k="a1">ご相談は無料です。ブランドの目標と状況を伺い、どの国・どの方法が合うかを一緒に整理します。実施を決めるまで費用はかかりません。</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q2">予算が大きくなくても進められますか？</span></summary><div class="ans" data-k="a2">はい。大切なのは予算の大きさより目標です。決まった予算の中で国・インフルエンサーの規模・方法を調整し、最も効果的な組み合わせをご提案します。正確な費用はご相談後にお見積りでご案内します。</div></details>
-      <details class="faq-item"><summary><span class="qtxt" data-k="q3">どんなクリエイターと組みますか？自分で選ぶこともできますか？</span></summary><div class="ans" data-k="a3">8,000人以上のクリエイターネットワークのうち、500人以上と直接契約し、カテゴリー別に管理しています。候補はフォロワー数ではなく再生率・コメント・エンゲージメント率などの反応基準で選んでリストでお渡しし、ブランドが直接選ぶこともできます。組みたいクリエイターがいればそのまま反映します。</div></details>
+      <details class="faq-item"><summary><span class="qtxt" data-k="q3">どんなクリエイターと組みますか？自分で選ぶこともできますか？</span></summary><div class="ans" data-k="a3">8,000人以上のクリエイターネットワークのうち、500人以上と直接契約し、カテゴリー別に管理しています。候補はフォロワー数ではなくコメント・エンゲージメント率などの反応基準で選んでリストでお渡しし、ブランドが直接選ぶこともできます。組みたいクリエイターがいればそのまま反映します。</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q4">コンテンツはどんな順番で作られますか？</span></summary><div class="ans" data-k="a4">① 商品のキーポイントと必ず入れたいフレーズを制作依頼書でいただき → ② その内容でAIサンプル画像・動画を先に作ってご承認いただきます（修正5回まで）。→ ③ 承認されたサンプルをもとに、クリエイターごとの普段のコンセプトを活かした詳細ガイドを送り → ④ 撮影・編集 → ⑤ 承認後に投稿 → ⑥ 結果レポートの順で進めます。何をどう撮るかを事前に決めて、クリエイターの制作の幅を絞り込みます。</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q5">クリエイターが必須フレーズやシーンを入れ忘れたら？</span></summary><div class="ans" data-k="a5">承認された企画の必須フレーズ・シーンが抜けていれば撮り直します。企画どおりに撮影されている場合は、字幕・音源などの編集を1回修正できます。各段階で納品物をお送りしてから3営業日以内にご返信がない場合は、承認とみなして次の段階へ進みます。</div></details>
       <details class="faq-item"><summary><span class="qtxt" data-k="q6">エンタメ・アーティストのプロモーション（音源・アルバム・公演）もできますか？</span></summary><div class="ans" data-k="a6">はい。新曲チャレンジ、音源パートの拡散、アルバム・公演のプロモーションまで対応します。相談フォームで「エンタメ・アーティスト」を選ぶと曲・アーティスト向けの項目に切り替わり、チャレンジ区間と振付ポイントを盛り込んだクリエイターガイドをお作りします。</div></details>
@@ -1527,8 +1646,8 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
       if(s.hasAttribute('data-pg-join') && !g.length && groups.length){ groups[groups.length-1].push(s); return; } g.push(s); if(s.offsetHeight>=innerHeight*0.35 || s.hasAttribute('data-pg-stop')){ groups.push(g); g=[]; } });
     if(g.length) groups.push(g);
     groups.forEach(function(g){
-      var H=hgt(g); if(H>avail/0.65+1) return;
-      for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.65,z);
+      var H=hgt(g); if(H>avail/0.85+1) return;
+      for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.85,z);
         g.forEach(function(s){ s.style.zoom=z.toFixed(4); s.style.setProperty('--pz',z.toFixed(4)); }); H=hgt(g); if(z<=0.65) break; }
       /* 큰 화면(세로가 넉넉한 모니터·브라우저 축소): 내용이 화면의 88%에 못 미치면 최대 1.45배까지 키워 빈 공간을 줄인다 (지도 구간은 제외 — 지도가 스스로 채움) */
       if(H<avail*0.88 && !g.some(function(s){ return s.classList.contains('network-section'); })){
@@ -1942,5 +2061,28 @@ html.in-final #stickyAsk{opacity:0!important;pointer-events:none!important}
 (function(){ if(!('IntersectionObserver' in window)) return; var R=document.documentElement;
   [['hero','in-hero'],['.final-cta','in-final']].forEach(function(p){ var el=p[0][0]==='.'?document.querySelector(p[0]):document.getElementById(p[0]); if(!el) return;
     new IntersectionObserver(function(es){ R.classList.toggle(p[1],es[0].isIntersecting&&es[0].intersectionRatio>0.25); },{threshold:[0,0.25,0.5]}).observe(el); }); })();
+</script>
+<script id="np-js">(function(){
+  var $=function(i){return document.getElementById(i)};
+  function n(el){var v=parseFloat(String(el.value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0}
+  function fmt(el){var v=n(el);if(v)el.value=Math.round(v).toLocaleString('ko-KR')}
+  function pct(x){return (Math.round(x*10)/10).toLocaleString('ko-KR')+'%'}
+  function set(li,val,ok){li.className=ok?'ok':'no';li.querySelector('.v').textContent=val}
+  function run(){
+    var v=n($('np-v')),l=n($('np-l')),c=n($('np-c'));
+    if(!v||!l){$('np-vd').textContent='平均再生数といいねを入力してください';['np-r2','np-r3'].forEach(function(i){$(i).className='';$(i).querySelector('.v').textContent='–'});return}
+    var b=c/l*100,e=(l+c)/v*100,p=0;
+    set($('np-r2'),pct(b),b>=3);if(b>=3)p++;
+    set($('np-r3'),pct(e),e>=5);if(e>=5)p++;
+    $('np-vd').textContent=p===2?'2つとも通過 — ライジングクリエイター候補です':('2つ中'+p+'つ通過 — 今回の候補からは外れます');
+  }
+  ['np-v','np-l','np-c'].forEach(function(i){var el=$(i);if(!el)return;el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
+  if($('np-v'))run();
+  function tagPos(){var st=document.querySelector('.hv-stats'),tg=document.querySelector('.np-aitag');if(st&&tg)tg.style.setProperty('--np-tagb',(st.offsetHeight+14)+'px')}
+  tagPos();addEventListener('resize',tagPos);setTimeout(tagPos,800);
+  var av=document.querySelector('.np-video');
+  var still=(matchMedia('(prefers-reduced-motion: reduce)').matches)||(navigator.connection&&navigator.connection.saveData);
+  if(av&&!still&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!av.src)av.src=av.dataset.src;var q=av.play();if(q&&q.catch)q.catch(function(){})}else if(av.src)av.pause()})},{threshold:.3}).observe(av)}
+})();
 </script>
 </body></html>
