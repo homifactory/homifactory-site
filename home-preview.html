@@ -745,7 +745,16 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 .np-vid video{display:block;height:min(66vh,640px);width:auto;max-width:100%;margin-left:auto;aspect-ratio:9/16;object-fit:cover;background:#111}
 .np-vid figcaption{text-align:right}
 @media(max-width:900px){.np-2{grid-template-columns:1fr}.np-vid video{margin:0 auto;height:auto;max-height:70svh;width:auto;max-width:100%;aspect-ratio:9/16}.np-vid figcaption{text-align:center}}
-@media(max-width:600px){.np-pts{grid-template-columns:1fr}.np{padding:72px 20px}.np-crit li{grid-template-columns:1fr;gap:4px}.np-aitag{top:12px;right:12px}}
+@media(max-width:600px){.np-pts{grid-template-columns:1fr}.np{padding:72px 20px}.np-crit li{grid-template-columns:1fr;gap:4px}}
+
+/* 검수 반영 */
+.hv-stats{grid-template-columns:repeat(2,1fr)!important}
+.np-aitag{top:auto!important;bottom:var(--np-tagb,104px)!important;right:24px}
+#directions .dir-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}
+@media(max-width:1100px){#directions .dir-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:640px){#directions .dir-grid{grid-template-columns:1fr!important}}
+.np-btn{border-radius:999px}
+@media(max-width:768px){.hc-fab{width:48px!important;height:48px!important;right:12px!important;bottom:14px!important}.np-crit,.np-lead{padding-right:44px}}
 </style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
@@ -764,26 +773,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   </div>
   <span class="np-aitag">AI로 제작한 영상</span>
   <div class="hero-inner">
-    <div class="hero-badge"><span class="spark">✦</span>CREATOR GROWTH AGENCY<span class="divider">·</span>한국 ⇄ 세계</div>
     <h1>팔로워 말고,<br>반응으로 고릅니다</h1>
     <p>조회·댓글·참여 반응으로 고른 크리에이터로 브랜드와 아티스트의 캠페인을 만들고, 인도네시아 지사와 8개 해외 거점까지 연결합니다.</p>
     <div class="hero-ctas two"><a href="/contact.html" class="big-cta">마케팅 상담받기 →</a><a href="/creator.html" class="cr-cta">크리에이터 등록하기</a></div>
-    <a class="hero-flow" href="#how-we-work" aria-label="호미가 일하는 방식"><b>찾고</b><i>→</i><b>연결하고</b><i>→</i><b>증명합니다</b></a>
-    <div class="country-network">
-      <div class="cn-label">현지 네트워크</div>
-      <div class="region-chips">
-        <span class="region-chip hub"><span class="dot"></span>인도네시아 지사</span>
-        <span class="region-chip edge"><span class="dot"></span>브라질</span>
-        <span class="region-chip edge"><span class="dot"></span>필리핀</span>
-        <span class="region-chip edge"><span class="dot"></span>일본</span>
-        <span class="region-chip edge"><span class="dot"></span>북미</span>
-        <span class="region-chip edge"><span class="dot"></span>유럽</span>
-        <span class="region-chip edge"><span class="dot"></span>태국</span>
-        <span class="region-chip edge"><span class="dot"></span>대만</span>
-      </div>
-    </div>
+
   </div>
-  <div class="hv-stats" role="list" aria-label="호미팩토리 누적 실적"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="3" data-sep=",">3</span><small>억+</small></div><div class="hv-lbl">누적 콘텐츠 조회수</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="62" data-sep=",">62</span><small>+</small></div><div class="hv-lbl">함께한 브랜드</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="8000" data-sep=",">8,000</span><small>+</small></div><div class="hv-lbl">크리에이터 네트워크</div></div></div>
+  <div class="hv-stats" role="list" aria-label="호미팩토리 누적 실적"><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="3" data-sep=",">3</span><small>억+</small></div><div class="hv-lbl">누적 콘텐츠 조회수</div></div><div class="hv-stat" role="listitem"><div class="hv-num"><span data-to="62" data-sep=",">62</span><small>+</small></div><div class="hv-lbl">함께한 브랜드</div></div></div>
 </section>
 
 
@@ -794,7 +789,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <section class="strategy-section" id="how-we-work">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> 우리가 일하는 방식</span>
 <h2>결과로 말하는,<br> <em>브랜드 맞춤형 전략 설계</em></h2>
 <p>중요한 건 예산의 크기가 아니라, 어떤 IP를 어떤 플랜으로 어떤 결과까지 만들지입니다.<br> 선정부터 업로드·리포트까지 4주, 단계마다 손에 쥐는 결과물이 있습니다.</p>
 </div>
@@ -862,8 +856,7 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="np-wrap np-2 np-ai">
     <div>
       <h2 id="np-h-ai">찍기 전에,<br>AI 예시로 먼저 봅니다</h2>
-      <p class="np-lead">제작 요청서대로 AI 예시 이미지·영상을 만들어 컨펌받은 뒤, 그 예시를 크리에이터별 가이드로 바꿉니다. 무엇을 어떤 장면으로 보여줄지 미리 정해져 있어 재촬영과 메시지 누락이 줄어듭니다.</p>
-      <figure class="np-cuts"><img src="/assets/WORK-plan-eyesion-cuts.jpg" alt="요청서를 바탕으로 AI로 만든 예시 컷 다섯 장" width="1024" height="210" loading="lazy"><span class="np-ok">고객 컨펌 ✓</span><figcaption>AI 예시 이미지 · 뷰티·헬스케어 캠페인</figcaption></figure>
+      <p class="np-lead">IP 카드의 제작 요청서를 받으면, 촬영 전에 이런 AI 예시 영상을 먼저 만들어 보여드립니다. 무엇을 어떤 장면으로 보여줄지 미리 정해져 있어 재촬영과 메시지 누락이 줄어듭니다.</p>
       <ul class="np-pts"><li><b>촬영 전에 확인</b>무엇을 어떤 장면으로 보여줄지 미리 봅니다</li><li><b>수정 5회</b>컨펌될 때까지 예시 단계에서 고칩니다</li><li><b>그대로 가이드로</b>컨펌된 예시가 크리에이터 가이드의 기준이 됩니다</li></ul>
       <a class="np-btn" href="/contact">제작 요청서 쓰러 가기 →</a>
     </div>
@@ -877,7 +870,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 <section class="strategy-section team-section" id="team-result">
 <div class="strategy-wrap">
 <div class="strategy-head">
-<span class="strategy-badge"><span class="star">✦</span> 함께 만든 결과</span>
 <h2>카테고리별로 <em>검증한 크리에이터</em>와 일합니다</h2>
 <p>브랜드 카테고리마다 가장 효율이 좋은 크리에이터를 직접 관리하고 연결합니다</p>
 </div>
@@ -944,6 +936,15 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <ul class="dir-list"><li data-k="d3.m1">목표에 맞게 메가부터 체험단까지 규모 조합</li><li data-k="d3.m2">매장 방문 프로모션·팝업·행사로 직접 만나기</li><li data-k="d3.m3">결과 리포트로 다음 캠페인까지 이어가기</li></ul>
         <a class="dir-cta" href="/contact.html?direction=3">이 방향으로 상담하기 →</a>
       </div>
+      <div class="dir-card reveal">
+        <div class="dir-cat">엔터·아티스트</div>
+        <h3 class="dir-dir">음원·앨범·공연</h3>
+        <p class="dir-line">신곡과 공연을 제대로 알리고 싶어요</p>
+        <div class="dir-how">호미가 하는 방법</div>
+        <ul class="dir-list"><li>챌린지 구간과 안무 포인트부터 정하기</li><li>곡 분위기에 맞는 크리에이터로 챌린지 확산</li><li>음원 차트·예매 페이지까지 이어지게 설계</li></ul>
+        <a class="dir-cta" href="/contact.html?type=ent">이 방향으로 상담하기 →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -952,7 +953,6 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
   <div class="network-inner">
     <div class="network-grid">
       <div class="network-text reveal">
-        <div class="section-eyebrow">🌐 GLOBAL NETWORK</div>
         <h2>인도네시아 지사와<br>현지 파트너를 거점으로 한,<br><span class="hl">해외 곳곳의 거점 네트워크</span></h2>
         <p>나라별 인플루언서 규모와 판매 채널을 확인하세요.</p>
       </div>
@@ -1619,8 +1619,8 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
       if(s.hasAttribute('data-pg-join') && !g.length && groups.length){ groups[groups.length-1].push(s); return; } g.push(s); if(s.offsetHeight>=innerHeight*0.35 || s.hasAttribute('data-pg-stop')){ groups.push(g); g=[]; } });
     if(g.length) groups.push(g);
     groups.forEach(function(g){
-      var H=hgt(g); if(H>avail/0.65+1) return;
-      for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.65,z);
+      var H=hgt(g); if(H>avail/0.85+1) return;
+      for(var n=0;n<3 && H>avail+1;n++){ var z=parseFloat(g[0].style.zoom||1)*avail/H; z=Math.max(0.85,z);
         g.forEach(function(s){ s.style.zoom=z.toFixed(4); s.style.setProperty('--pz',z.toFixed(4)); }); H=hgt(g); if(z<=0.65) break; }
       /* 큰 화면(세로가 넉넉한 모니터·브라우저 축소): 내용이 화면의 88%에 못 미치면 최대 1.45배까지 키워 빈 공간을 줄인다 (지도 구간은 제외 — 지도가 스스로 채움) */
       if(H<avail*0.88 && !g.some(function(s){ return s.classList.contains('network-section'); })){
@@ -2052,6 +2052,8 @@ html.in-final #stickyAsk{opacity:0!important;pointer-events:none!important}
   }
   ['np-f','np-v','np-l','np-c'].forEach(function(i){var el=$(i);if(!el)return;el.addEventListener('input',run);el.addEventListener('blur',function(){fmt(el)})});
   if($('np-f'))run();
+  function tagPos(){var st=document.querySelector('.hv-stats'),tg=document.querySelector('.np-aitag');if(st&&tg)tg.style.setProperty('--np-tagb',(st.offsetHeight+14)+'px')}
+  tagPos();addEventListener('resize',tagPos);setTimeout(tagPos,800);
   var av=document.querySelector('.np-video');
   var still=(matchMedia('(prefers-reduced-motion: reduce)').matches)||(navigator.connection&&navigator.connection.saveData);
   if(av&&!still&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!av.src)av.src=av.dataset.src;var q=av.play();if(q&&q.catch)q.catch(function(){})}else if(av.src)av.pause()})},{threshold:.3}).observe(av)}
