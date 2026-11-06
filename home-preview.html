@@ -950,6 +950,23 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media (max-width:1000px){.rd-net-map{position:relative;height:62vw;min-height:260px;margin-bottom:8px}.rd-net-map .network-map{display:block!important}.rd-net{padding-top:0}}
 @media (max-width:1000px){.rd-net{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:72px 0 0}.rd-net-in{order:1}.rd-net-map{order:2;position:relative!important;inset:auto;width:100%;height:70vw;min-height:260px;margin-top:24px}}
 @media (max-width:1000px){.rd-net{display:block!important;height:auto!important;min-height:0!important;padding:0 0 72px!important}.rd-net-map{position:relative!important;inset:auto!important;display:block;height:70vw!important;min-height:260px;margin:0 0 28px!important}}
+
+/* 엔터 마케팅 */
+.rd-ent{padding:clamp(96px,11vw,170px) 0}
+.rd-ent-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(36px,4vw,64px) clamp(40px,6vw,96px);margin-bottom:clamp(56px,6vw,96px)}
+.rd-ent-a h3{font-size:clamp(26px,2.6vw,40px);font-weight:900;letter-spacing:-.04em;margin:0 0 16px}
+.rd-ent-a ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rd-ent-a li{font-size:17px;line-height:1.5;color:#2b2926;padding-left:18px;position:relative}
+.rd-ent-a li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--y)}
+.rd-ent-l{display:inline-block;margin-top:16px;font-weight:700;color:var(--ink);text-underline-offset:5px}
+.rd-ent-b{background:var(--ink);color:#fff;border-radius:24px;padding:clamp(32px,4vw,56px);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) auto;gap:clamp(28px,4vw,56px);align-items:center}
+.rd-ent-k{margin:0 0 8px;font-size:15px;color:rgba(255,255,255,.7);font-weight:700}
+.rd-ent-big{margin:0;font-size:clamp(28px,3.2vw,48px);font-weight:900;letter-spacing:-.04em;color:var(--y);line-height:1.15}
+.rd-ent-way{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:15px;color:rgba(255,255,255,.72);line-height:1.45}
+.rd-ent-way strong{display:block;color:#fff;font-size:17px}
+@media (max-width:1000px){.rd-ent-g{grid-template-columns:1fr}.rd-ent-b{grid-template-columns:1fr}}
+.rd-ent-big{display:flex;flex-wrap:wrap;gap:0 .45em;font-size:clamp(26px,2.7vw,42px)}.rd-ent-big span{white-space:nowrap}.rd-ent-big span:not(:last-child)::after{content:"·";margin-left:.45em;color:rgba(255,255,255,.35)}
+@media (min-width:1001px){.rd-ent-big{flex-wrap:nowrap}}
 </style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
@@ -1054,6 +1071,46 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
         <li><strong>크리에이터 가이드</strong>컨펌된 예시가 그대로 촬영 기준이 됩니다</li>
       </ol>
       <a class="rd-btn" href="/contact.html">제작 요청서 쓰러 가기 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="rd-ent" id="ent" aria-labelledby="rd-h-ent">
+  <div class="rd-wrap">
+    <div class="rd-head2">
+      <h2 id="rd-h-ent">아티스트 활동,<br>처음부터 같이 짭니다</h2>
+      <p class="rd-lead">발매 전 티저부터 음원 확산, 해외 무대와 팬미팅까지. 필요한 영역만 골라도, 한 팀에 통째로 맡겨도 됩니다.</p>
+    </div>
+    <div class="rd-ent-g">
+      <div class="rd-ent-a">
+        <h3>음원·SNS 마케팅</h3>
+        <ul><li>뮤직비디오·음원 광고 운영</li><li>숏폼·인플루언서 시딩으로 화제 만들기</li><li>팬 커뮤니티·이슈 채널 확산</li><li>쇼케이스·팝업·팬 이벤트 운영</li></ul>
+      </div>
+      <div class="rd-ent-a">
+        <h3>해외 PR·공연</h3>
+        <ul><li>아시아·북미·남미 현지 프로모션</li><li>해외 방송·매체·화보 PR</li><li>해외 공연 섭외와 팬미팅 운영</li><li>중국 플랫폼 계정 운영</li></ul>
+      </div>
+      <div class="rd-ent-a">
+        <h3>콘텐츠 제작</h3>
+        <ul><li>공연 실황·라이브 클립</li><li>메이킹·브이로그·웹예능</li><li>알고리즘에 맞춘 숏폼·챌린지</li><li>티저·스케치 등 앨범 활동 영상</li></ul>
+        <a class="rd-ent-l" href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION 작업 보기 ↗</a>
+      </div>
+      <div class="rd-ent-a">
+        <h3>실시간 모니터링</h3>
+        <ul><li>채널별 반응을 한 화면에서 확인</li><li>반응에 맞춰 바로 조정</li><li>저장·공유·댓글까지 콘텐츠별 리포트</li></ul>
+      </div>
+    </div>
+    <div class="rd-ent-b">
+      <div class="rd-ent-per">
+        <p class="rd-ent-k">기간은 활동에 맞춰</p>
+        <p class="rd-ent-big"><span>72시간</span> <span>1주</span> <span>2주</span> <span>4주</span></p>
+      </div>
+      <ul class="rd-ent-way">
+        <li><strong>필요한 영역만</strong>광고·바이럴·콘텐츠 중 골라서</li>
+        <li><strong>기획부터 확산까지</strong>마케팅·콘텐츠·공연을 전담팀이 한 번에</li>
+        <li><strong>해외까지</strong>현지 프로모션·매체 PR·공연 섭외</li>
+      </ul>
+      <a class="rd-btn rd-btn-y" href="/contact.html?type=ent">엔터 마케팅 상담하기 →</a>
     </div>
   </div>
 </section>
