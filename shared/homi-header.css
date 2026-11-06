@@ -301,3 +301,19 @@ body:not([data-site="production"]):not([data-site="factory"]) .sd-dark .sd-steps
 body:not([data-site="production"]):not([data-site="factory"]) .sd-dark .sd-steps li.on *{color:#141414!important}
 body:not([data-site="production"]):not([data-site="factory"]) .sd-band .sd-btn{background:#fff!important;color:#141414!important}
 body:not([data-site="production"]):not([data-site="factory"]) .sd-band .sd-hl,body:not([data-site="production"]):not([data-site="factory"]) .sd-dark .sd-hl{color:#B5B5B5!important}
+
+/* ── 서비스 메가메뉴 정리 (2026-11-06): 아이콘 상자 제거, 이름 굵게·설명 회색 한 줄, 칸 구분선 대신 여백 ── */
+.hh-mega-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0 8px;padding:28px 28px 24px;border-radius:16px;box-shadow:0 20px 50px rgba(20,20,20,.10)}
+.hh-mega .hh-col{padding:0 12px;border-left:0}
+.hh-mega .hh-col-title{display:flex;align-items:center;gap:6px;width:100%;font-size:12px;font-weight:700;letter-spacing:.02em;color:#8A8792;padding:0 10px 12px;margin:0 0 8px;border-bottom:1px solid #EFEDF2}
+.hh-mega .hh-mi{display:block;padding:10px;margin:0 0 2px;border-radius:10px}
+.hh-mega .hh-ic{display:none}
+.hh-mega .hh-tx{gap:2px}
+.hh-mega .hh-lb{font-size:15px;font-weight:700;color:#141318;letter-spacing:-.01em}
+.hh-mega .hh-gl{font-size:13px;font-weight:400;color:#77737F;line-height:1.45;letter-spacing:-.01em}
+.hh-mega .hh-mi:hover .hh-lb,.hh-mega .hh-mi:focus-visible .hh-lb{color:var(--hh-accent)}
+.hh-mega .hh-mi:hover,.hh-mega .hh-mi:focus-visible{background:#F7F6F4}
+/* 모바일 펼침 메뉴도 같은 위계 */
+.hh-psub .hh-ic{display:none}
+.hh-psub .hh-lb{font-size:15px;font-weight:700;color:#141318}
+.hh-psub .hh-gl{font-size:13px;font-weight:400;color:#77737F}
