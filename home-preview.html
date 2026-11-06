@@ -833,8 +833,8 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 .rd-work{padding:clamp(96px,11vw,170px) 0 clamp(64px,8vw,120px)}
 .rd-head2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
 .rd-head2 .rd-lead{margin:0 0 6px}
-.rd-step{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,4fr) minmax(0,5.8fr);gap:clamp(24px,3vw,48px);align-items:start;padding:clamp(32px,3.6vw,52px) 0}
-.rd-step-k{font-family:'Inter',sans-serif;font-weight:900;white-space:nowrap;font-size:clamp(40px,4.4vw,72px);letter-spacing:-.05em;line-height:.9}
+.rd-step{display:grid;grid-template-columns:clamp(170px,19vw,300px) minmax(0,4fr) minmax(0,5.8fr);gap:clamp(24px,3vw,48px);align-items:start;padding:clamp(32px,3.6vw,52px) 0}
+.rd-step-k{font-family:'Inter',sans-serif;font-weight:900;white-space:nowrap;font-size:clamp(40px,3.6vw,64px);letter-spacing:-.05em;line-height:.9}
 .rd-step-q{font-size:clamp(20px,1.7vw,26px);font-weight:900;letter-spacing:-.03em;margin:0 0 12px}
 .rd-step-t p{font-size:16.5px;line-height:1.65;color:#2b2926;margin:0 0 14px}
 .rd-step-t .rd-get{font-weight:700;color:var(--ink);margin:0}
@@ -967,6 +967,12 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 @media (max-width:1000px){.rd-ent-g{grid-template-columns:1fr}.rd-ent-b{grid-template-columns:1fr}}
 .rd-ent-big{display:flex;flex-wrap:wrap;gap:0 .45em;font-size:clamp(26px,2.7vw,42px)}.rd-ent-big span{white-space:nowrap}.rd-ent-big span:not(:last-child)::after{content:"·";margin-left:.45em;color:rgba(255,255,255,.35)}
 @media (min-width:1001px){.rd-ent-big{flex-wrap:nowrap}}
+/* 겹침 방지 (2026-11-06) */
+.rd-ind{line-height:1.5;row-gap:.15em}
+.rd-crit dt{line-height:1;margin-bottom:18px}
+.rd-ent-big{font-size:clamp(24px,2.2vw,34px);flex-wrap:wrap!important}
+.rd-step-k,.rd-step-q,.rd h2,.rd h3{overflow-wrap:anywhere}
+.rd-step-k{overflow-wrap:normal}
 </style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
