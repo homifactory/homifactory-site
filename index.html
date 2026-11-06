@@ -974,6 +974,27 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
 .rd-step-k{overflow-wrap:normal}
 @media (max-width:1000px){.rd-aitag{top:var(--tag-top,16px)!important;bottom:auto!important}}
 @media (max-width:600px){.rd-hero{flex-direction:column;justify-content:flex-end;align-items:stretch}.rd-aitag{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;align-self:flex-end;margin:var(--tag-top,16px) var(--gut) auto}}
+
+/* 엔터 구간 v2 — 다크 + 장면 이미지 (2026-11-06) */
+.rd-ent{background:var(--ink);color:#fff}
+.rd-ent .rd-lead{color:rgba(255,255,255,.72)}
+.rd-ent-g{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(18px,2vw,28px)!important}
+.rd-ent-f{position:relative;margin:0 0 22px;aspect-ratio:4/5;overflow:hidden;border-radius:18px;background:#222}
+.rd-ent-f img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.rd-ent-a:hover .rd-ent-f img{transform:scale(1.05)}
+.rd-ent-ai{position:absolute;left:12px;top:12px;font:700 11px/1 'Inter',sans-serif;letter-spacing:.04em;color:#fff;background:rgba(0,0,0,.55);padding:6px 9px;border-radius:999px}
+.rd-ent-a h3{font-size:clamp(21px,1.8vw,28px)!important;color:#fff}
+.rd-ent-a li{font-size:15px;color:rgba(255,255,255,.76)}
+.rd-ent-l{color:var(--y)!important}
+.rd-ent-b{background:var(--y)!important;color:var(--ink)!important}
+.rd-ent-k{color:rgba(18,18,18,.66)!important}
+.rd-ent-big{color:var(--ink)!important}
+.rd-ent-big span:not(:last-child)::after{color:rgba(18,18,18,.3)!important}
+.rd-ent-way{color:rgba(18,18,18,.72)!important}
+.rd-ent-way strong{color:var(--ink)!important}
+.rd-ent-b .rd-btn{background:var(--ink);color:#fff}
+@media (max-width:1100px){.rd-ent-g{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:600px){.rd-ent-g{grid-template-columns:1fr!important}.rd-ent-f{aspect-ratio:16/10}}
 </style>
 </head><body data-site="market" data-header="fixed" data-page="home">
 <div class="trend-banner">
@@ -1086,19 +1107,23 @@ body:has(.hc-panel.open) #stickyAsk,body:has(.hc-panel.open) #sdAskFixed{visibil
     </div>
     <div class="rd-ent-g">
       <div class="rd-ent-a">
+        <figure class="rd-ent-f"><img src="/assets/ent/ent-music.jpg" alt="" loading="lazy" decoding="async" width="720" height="900"><span class="rd-ent-ai">AI</span></figure>
         <h3>음원·SNS 마케팅</h3>
         <ul><li>뮤직비디오·음원 광고 운영</li><li>숏폼·인플루언서 시딩으로 화제 만들기</li><li>팬 커뮤니티·이슈 채널 확산</li><li>쇼케이스·팝업·팬 이벤트 운영</li></ul>
       </div>
       <div class="rd-ent-a">
+        <figure class="rd-ent-f"><img src="/assets/ent/ent-global.jpg" alt="" loading="lazy" decoding="async" width="720" height="900"><span class="rd-ent-ai">AI</span></figure>
         <h3>해외 PR·공연</h3>
         <ul><li>아시아·북미·남미 현지 프로모션</li><li>해외 방송·매체·화보 PR</li><li>해외 공연 섭외와 팬미팅 운영</li><li>중국 플랫폼 계정 운영</li></ul>
       </div>
       <div class="rd-ent-a">
+        <figure class="rd-ent-f"><img src="/assets/ent/ent-content.jpg" alt="" loading="lazy" decoding="async" width="720" height="900"><span class="rd-ent-ai">AI</span></figure>
         <h3>콘텐츠 제작</h3>
         <ul><li>공연 실황·라이브 클립</li><li>메이킹·브이로그·웹예능</li><li>알고리즘에 맞춘 숏폼·챌린지</li><li>티저·스케치 등 앨범 활동 영상</li></ul>
         <a class="rd-ent-l" href="/production/" target="_blank" rel="noopener">HOMI PRODUCTION 작업 보기 ↗</a>
       </div>
       <div class="rd-ent-a">
+        <figure class="rd-ent-f"><img src="/assets/ent/ent-monitor.jpg" alt="" loading="lazy" decoding="async" width="720" height="900"><span class="rd-ent-ai">AI</span></figure>
         <h3>실시간 모니터링</h3>
         <ul><li>채널별 반응을 한 화면에서 확인</li><li>반응에 맞춰 바로 조정</li><li>저장·공유·댓글까지 콘텐츠별 리포트</li></ul>
       </div>
