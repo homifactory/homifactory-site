@@ -302,6 +302,66 @@
  "updatedAt": "2026-11-03T02:33:55.076Z",
  "shorts": [
   {
+   "type": "mp4",
+   "src": "/assets/shorts/SHORT-cm510-v1.mp4",
+   "poster": "/assets/shorts/SHORT-cm510-v1.jpg",
+   "title": "꼬망세 510 릴스"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p1.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p1-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
+   "type": "mp4",
+   "src": "/assets/shorts/SHORT-cm510-v2.mp4",
+   "poster": "/assets/shorts/SHORT-cm510-v2.jpg",
+   "title": "꼬망세 510 릴스"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p2.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p2-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
+   "type": "mp4",
+   "src": "/assets/shorts/SHORT-cm510-v3.mp4",
+   "poster": "/assets/shorts/SHORT-cm510-v3.jpg",
+   "title": "꼬망세 510 릴스"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p3.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p3-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
+   "type": "mp4",
+   "src": "/assets/shorts/SHORT-cm510-v4.mp4",
+   "poster": "/assets/shorts/SHORT-cm510-v4.jpg",
+   "title": "꼬망세 510 릴스"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p4.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p4-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p5.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p5-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
+   "type": "image",
+   "src": "/assets/shorts/SHORT-cm510-p6.jpg",
+   "poster": "/assets/shorts/SHORT-cm510-p6-t.jpg",
+   "title": "꼬망세 510 게시물"
+  },
+  {
    "type": "instagram",
    "id": "DXlM9-3kcTi",
    "poster": "/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg",
