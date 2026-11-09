@@ -337,3 +337,20 @@
   }
   window.addEventListener('hashchange', land); window.addEventListener('load', land);
 })();
+
+/* 모든 페이지 하단: 홈과 같은 큰 로고 (2026-11-09) — 홈은 자체 스크립트가 이미 붙이므로 건너뜀 */
+(function(){
+  function run(){
+    var f=document.getElementById('homi-footer'); if(!f||f.querySelector('.fc-logo')) return;
+    var ft=f.getBoundingClientRect().top+scrollY, c=null;
+    [].slice.call(document.querySelectorAll('section,main>div,body>div')).forEach(function(e){ if(e.offsetHeight<80||f.contains(e)) return;
+      var r=e.getBoundingClientRect(); if(Math.abs(r.bottom+scrollY-ft)>3) return;
+      var m=getComputedStyle(e).backgroundColor.match(/[\d.]+/g); if(!m||(m[3]!==undefined&&+m[3]===0)) return;
+      if((+m[0]+ +m[1]+ +m[2])/3<=60) c=e; });
+    var i=document.createElement('div'); i.className='fc-logo'; i.setAttribute('aria-hidden','true'); i.innerHTML='<img src="/assets/logo-symbol-white.png" alt="">'; f.appendChild(i);
+    f.classList.add('hf-has-logo'); if(c) c.classList.add('hf-band');
+    function h(){ f.style.setProperty('--fc-h',(c?c.offsetHeight:0)+'px'); }
+    h(); addEventListener('load',h); addEventListener('resize',h); if(c&&window.ResizeObserver) new ResizeObserver(h).observe(c);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
+})();

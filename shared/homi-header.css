@@ -321,3 +321,14 @@ body:not([data-site="production"]):not([data-site="factory"]) .sd-band .sd-hl,bo
 /* 서비스 메뉴 설명 숨김 (2026-11-06b) */
 .hh-mega .hh-gl,.hh-psub .hh-gl{display:none!important}
 .hh-mega .hh-mi{padding-top:8px;padding-bottom:8px}
+
+/* 모든 페이지 하단 큰 로고 (홈과 동일, 2026-11-09) */
+#homi-footer.hf-has-logo{position:relative}
+#homi-footer.hf-has-logo > :not(.fc-logo){position:relative;z-index:1}
+.hf-band{position:relative}
+.hf-band > *{position:relative;z-index:2}
+@media(min-width:901px){
+  #homi-footer.hf-has-logo .fc-logo{position:absolute;right:0;bottom:0;height:calc(100% + var(--fc-h,0px));width:30vw;overflow:hidden;opacity:.5;pointer-events:none;z-index:0}
+  #homi-footer.hf-has-logo .fc-logo img{height:100%;width:auto;max-width:none;display:block;user-select:none}
+}
+@media(max-width:900px){#homi-footer.hf-has-logo .fc-logo{display:none}}
