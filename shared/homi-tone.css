@@ -1,0 +1,91 @@
+/* 홈 톤앤매너 통일 — 서비스·가격·리포트·상담 페이지 공통 (2026-11-09)
+   홈(rd) 기준: 굵은 900 제목·좁은 자간, 모래색 면(#F4F2EE), 노랑 강조(#FFC53D), 알약 버튼, 넓은 여백 */
+:root{--t-ink:#121212;--t-sand:#F4F2EE;--t-y:#FFC53D;--t-mute:#56534E;
+  --t-h1:clamp(40px,5.4vw,84px);--t-h2:clamp(30px,3.4vw,52px);--t-lead:clamp(16px,1.2vw,18px);
+  --t-pad:clamp(80px,8vw,128px);--t-gut:clamp(20px,4vw,64px);--t-max:1320px}
+
+/* ── 공통 틀: 폭·좌우 여백 ── */
+html body .sd-in,html body .pr-wrap,html body .trl-in,html body .trd-in{max-width:var(--t-max)!important;padding-left:var(--t-gut)!important;padding-right:var(--t-gut)!important;box-sizing:border-box}
+html body .pr-tiers{max-width:var(--t-max)!important;padding-left:var(--t-gut)!important;padding-right:var(--t-gut)!important;box-sizing:border-box}
+
+/* ── 첫 화면(히어로) ── */
+html body .sd-hero,html body .pr-hero,html body .trl-head,html body .trd-head,html body .page-hero,html body .contact-section{font-family:'Noto Sans KR',sans-serif}
+html body .sd-hero{background:var(--t-sand)!important;padding-bottom:clamp(64px,6vw,96px)!important}
+html body .sd-h1,html body .pr-hero h1,html body .trl-head h1,html body .contact-section h1{font-size:var(--t-h1)!important;font-weight:900!important;line-height:1.04!important;letter-spacing:-.05em!important;color:var(--t-ink)!important;text-wrap:balance}
+html body .trd-head h1{font-size:clamp(32px,3.6vw,56px)!important;font-weight:900!important;line-height:1.14!important;letter-spacing:-.045em!important;color:var(--t-ink)!important;max-width:18em!important;text-wrap:balance}
+html body .sd-lead,html body .pr-hero p,html body .trl-head p{font-size:var(--t-lead)!important;line-height:1.6!important;color:var(--t-mute)!important}
+html body .sd-h1 .sd-hl,html body .pr-hero h1 .hl,html body .trl-head h1 .hl{background:none!important;color:inherit!important}
+html body .pr-hero{background:var(--t-sand)!important}
+html body .trl-head{background:var(--t-sand)!important;padding-bottom:clamp(48px,5vw,80px)!important}
+
+/* ── 섹션 제목·설명 ── */
+html body .sd-sec{padding:var(--t-pad) 0!important}
+html body .sd-h2,html body .pr-sec h2,html body .trl-feat h2,html body .trl-latest-h h2,html body .trd-rel-h h2{font-size:var(--t-h2)!important;font-weight:900!important;line-height:1.12!important;letter-spacing:-.045em!important;color:var(--t-ink);margin-bottom:20px!important;text-wrap:balance}
+html body .sd-dark .sd-h2,html body .sd-dark h2{color:#fff}
+html body .sd-h2 .sd-hl{color:inherit!important}
+html body .sd-desc{font-size:var(--t-lead)!important;line-height:1.6!important;color:var(--t-mute)!important;max-width:40em}
+html body .sd-dark .sd-desc{color:rgba(255,255,255,.72)!important}
+html body .sd-eyebrow,html body .trl-eyebrow{display:none!important}
+html body .sd-beige{background:var(--t-sand)!important}
+html body .pr-sec{padding-top:calc(var(--t-pad)*.75)!important;padding-bottom:calc(var(--t-pad)*.75)!important}
+
+/* 검은 면의 큰 제목 */
+html body .sd-dtxt h3{font-size:var(--t-h2)!important;font-weight:900!important;line-height:1.12!important;letter-spacing:-.045em!important}
+html body .sd-dtxt p{font-size:var(--t-lead)!important;color:rgba(255,255,255,.72)!important}
+html body .sd-check{border:0!important;background:rgba(255,255,255,.08)!important}
+
+/* ── 카드: 선 대신 면 ── */
+html body .sd-card,html body .sd-scale,html body .sd-ctry,html body .sd-method,html body .sd-icard,html body .sd-place,html body .sd-step3{border:0!important;border-radius:20px!important;background:var(--t-sand)!important;box-shadow:none!important}
+html body .sd-beige .sd-card,html body .sd-beige .sd-scale,html body .sd-beige .sd-ctry,html body .sd-beige .sd-method,html body .sd-beige .sd-icard,html body .sd-beige .sd-place,html body .sd-beige .sd-step3{background:#fff!important}
+html body .sd-ctry.home{background:var(--t-ink)!important}
+html body .sd-ctry.home b,html body .sd-ctry.home span{color:#fff!important}
+html body .sd-ctry.home b::before{background:var(--t-y)!important}
+html body .sd-card h3,html body .sd-method h3,html body .sd-step3 h3,html body .sd-icard h3{font-size:clamp(20px,1.6vw,24px)!important;font-weight:900!important;letter-spacing:-.03em!important}
+html body .sd-method h3{font-size:clamp(26px,2.2vw,34px)!important}
+html body .sd-card .num,html body .sd-step3 .s{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 10px;border-radius:999px;background:var(--t-y);color:var(--t-ink)!important;font:800 13px/1 'Inter',sans-serif;letter-spacing:0}
+html body .sd-method .r,html body .sd-icard .r,html body .sd-icard p{border-color:rgba(18,18,18,.08)!important}
+html body .sd-icard .ph{background:#E8E3DA!important}
+html body .sd-scale b{font-size:22px!important;font-weight:900!important;letter-spacing:-.03em}
+
+/* ── 버튼: 홈과 같은 알약 ── */
+html body .sd-btn,html body .trl-btn,html body .pr-end a{border-radius:999px!important;min-height:52px;padding:0 28px!important;display:inline-flex!important;align-items:center;justify-content:center;font-weight:700!important;font-size:16px!important;transition:transform .2s,background .2s!important}
+html body .sd-btn:hover,html body .trl-btn:hover,html body .pr-end a:hover{transform:translateY(-2px)}
+html body .sd-hero .sd-ctas .sd-btn:not(.ghost),html body .sd-band .sd-btn:not(.ghost){background:var(--t-y)!important;border-color:var(--t-y)!important;color:var(--t-ink)!important}
+html body .sd-btn.ghost{border:0!important;background:#fff!important}
+html body .sd-btn.sm{min-height:40px;padding:0 18px!important;font-size:14px!important}
+html body .sd-tab{border:0!important;background:#fff!important}
+html body .sd-tab.on{background:var(--t-ink)!important;color:#fff!important}
+html body .trd-ask .trl-btn{min-height:44px;padding:0 20px!important;font-size:14px!important}
+
+/* ── 마지막 상담 띠: 홈 마무리처럼 크게 ── */
+html body .sd-band,html body .pr-end,html body .trl-cta{background:var(--t-ink)!important;padding:clamp(96px,10vw,160px) var(--t-gut)!important}
+html body .sd-band h2,html body .pr-end h2,html body .trl-cta h2{font-size:clamp(34px,4.6vw,72px)!important;font-weight:900!important;line-height:1.08!important;letter-spacing:-.05em!important;color:#fff!important;text-wrap:balance;margin-bottom:28px!important}
+html body .pr-end a,html body .trl-cta .trl-btn{background:var(--t-y)!important;color:var(--t-ink)!important;min-height:64px;padding:0 36px!important;font-size:18px!important}
+
+/* ── 리포트: 카드 면 ── */
+html body .trl-feat,html body .trd-summary{border-radius:20px}
+html body .trd-article h2{font-size:clamp(24px,2.2vw,32px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.25!important}
+
+@media(max-width:600px){
+  html body .sd-h1,html body .pr-hero h1,html body .trl-head h1,html body .contact-section h1{font-size:clamp(34px,10vw,44px)!important}
+  html body .sd-h2,html body .pr-sec h2,html body .sd-dtxt h3{font-size:clamp(26px,7.6vw,32px)!important}
+}
+
+/* ── 서비스 첫 화면: 왼쪽 글 · 오른쪽 사진 (홈 첫 화면처럼 사진이 주인공) ── */
+.t-hero-ph{margin:0;display:none}
+@media(min-width:1001px){
+  html body .sd-hero .sd-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(40px,5vw,88px);align-items:start}
+  html body .sd-hero .sd-in>*{grid-column:1}
+  html body .sd-hero .t-hero-ph{display:block;grid-column:2;grid-row:1 / span 5;align-self:stretch;min-height:420px;border-radius:24px;overflow:hidden;position:relative}
+  html body .sd-hero .t-hero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  html body .sd-hero .sd-ask{grid-column:1 / -1}
+}
+@media(max-width:1000px){
+  html body .sd-hero .t-hero-ph{display:block;margin-top:32px;border-radius:20px;overflow:hidden;aspect-ratio:16/10}
+  html body .sd-hero .t-hero-ph img{width:100%;height:100%;object-fit:cover;display:block}
+}
+
+/* 상담·크리에이터 신청서: 왼쪽 좁은 칸이라 제목을 한 단계 작게 */
+html body .contact-section h1{font-size:clamp(34px,3.2vw,52px)!important;line-height:1.1!important}
+html body .pr-t{min-width:0;overflow-wrap:anywhere}
+@media(max-width:900px){html body .pr-tiers{grid-template-columns:minmax(0,1fr)!important}}
