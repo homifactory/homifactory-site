@@ -1206,6 +1206,10 @@ html body .network-section .network-text h2{font-size:clamp(28px,2.7vw,42px)!imp
 .hs-modal-box{position:relative;width:min(400px,calc(100vw - 48px));aspect-ratio:9/16;max-height:calc(100vh - 80px);background:#000;border-radius:18px;overflow:hidden}
 .hs-player,.hs-player video,.hs-player iframe{width:100%;height:100%;border:0;display:block}
 .hs-close{all:unset;position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:#141414;font-size:24px;line-height:38px;text-align:center;cursor:pointer}
+.hs-modal-box.is-img{aspect-ratio:auto;width:auto;max-width:min(640px,calc(100vw - 48px));max-height:none;background:#000}
+.hs-modal-box.is-img .hs-player{width:auto;height:auto}
+.hs-player img{display:block;width:auto;height:auto;max-width:min(640px,calc(100vw - 48px));max-height:calc(100vh - 80px);object-fit:contain}
+.hs-card.hs-zoom::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E")}
 @media (max-width:900px),(hover:none){.hs-viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.hs-viewport::-webkit-scrollbar{display:none}.hs-card{scroll-snap-align:center}}
 @media (max-width:600px){.hs-shorts{padding:48px 0 40px}.hs-card{flex-basis:180px;width:180px;height:320px}.hs-track{gap:14px}}
 </style>
@@ -1214,6 +1218,16 @@ html body .network-section .network-text h2{font-size:clamp(28px,2.7vw,42px)!imp
    호미가 실제로 만든 영상, 게재 동의를 받은 것만 넣는다(AI 생성 금지, Q-59).
    type: 'mp4' (src·poster) | 'youtube' (id) | 'tiktok' (id·poster) | 'instagram' (id·poster), hidden:true 면 숨김 */
 window.HOMI_SHORTS_DEF=[
+  {type:'mp4', src:'/assets/shorts/SHORT-cm510-v1.mp4', poster:'/assets/shorts/SHORT-cm510-v1.jpg', title:'꼬망세 510 릴스'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p1.jpg', poster:'/assets/shorts/SHORT-cm510-p1-t.jpg', title:'꼬망세 510 게시물'},
+  {type:'mp4', src:'/assets/shorts/SHORT-cm510-v2.mp4', poster:'/assets/shorts/SHORT-cm510-v2.jpg', title:'꼬망세 510 릴스'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p2.jpg', poster:'/assets/shorts/SHORT-cm510-p2-t.jpg', title:'꼬망세 510 게시물'},
+  {type:'mp4', src:'/assets/shorts/SHORT-cm510-v3.mp4', poster:'/assets/shorts/SHORT-cm510-v3.jpg', title:'꼬망세 510 릴스'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p3.jpg', poster:'/assets/shorts/SHORT-cm510-p3-t.jpg', title:'꼬망세 510 게시물'},
+  {type:'mp4', src:'/assets/shorts/SHORT-cm510-v4.mp4', poster:'/assets/shorts/SHORT-cm510-v4.jpg', title:'꼬망세 510 릴스'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p4.jpg', poster:'/assets/shorts/SHORT-cm510-p4-t.jpg', title:'꼬망세 510 게시물'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p5.jpg', poster:'/assets/shorts/SHORT-cm510-p5-t.jpg', title:'꼬망세 510 게시물'},
+  {type:'image', src:'/assets/shorts/SHORT-cm510-p6.jpg', poster:'/assets/shorts/SHORT-cm510-p6-t.jpg', title:'꼬망세 510 게시물'},
   {type:'instagram', id:'DXlM9-3kcTi', poster:'/assets/shorts/SHORT-ig-DXlM9-3kcTi.jpg', title:'Reel Cheongdam Yoosik'},
   {type:'instagram', id:'DXQ-FbMDl7V', poster:'/assets/shorts/SHORT-ig-DXQ-FbMDl7V.jpg', title:'Reel Cheongdam Yoosik'},
   {type:'instagram', id:'DXWZ9TFiYm6', poster:'/assets/shorts/SHORT-ig-DXWZ9TFiYm6.jpg', title:'Reel Cheongdam Yoosik'},
@@ -1241,7 +1255,7 @@ window.HS_BUILD=function(src){
   function poster(v){ return v.poster||(v.type==='youtube'?'https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg':''); }
   function card(v,i,clone){
     var b=document.createElement('button'); b.type='button'; b.className='hs-card'; b.setAttribute('role','listitem'); b.dataset.i=i;
-    b.setAttribute('aria-label',(v.title||'Video pendek')+' putar'); if(clone){ b.tabIndex=-1; b.setAttribute('aria-hidden','true'); }
+    var zoom=v.type==='image'||(v.type==='instagram'&&v.poster); if(zoom) b.classList.add('hs-zoom'); b.setAttribute('aria-label',(v.title||'Video pendek')+(zoom?' perbesar':' putar')); if(clone){ b.tabIndex=-1; b.setAttribute('aria-hidden','true'); }
     var p=poster(v); b.innerHTML=v.type==='ph'?'<span class="hs-ph"></span>':(p?'<img src="'+p+'" alt="" loading="lazy" decoding="async">':'');
     var bm=tx(v.brand), mm=tx(v.metric);   /* 카드 아래 브랜드명·성과 (홈 마스터에서 입력) */
     if(bm||mm){ var me=document.createElement('span'); me.className='hs-meta'; me.innerHTML=(bm?'<b>'+esc(bm)+'</b>':'')+(mm?'<em>'+esc(mm)+'</em>':''); b.appendChild(me);
@@ -1278,7 +1292,7 @@ window.HS_BUILD=function(src){
   /* 누르면 팝업에서 소리와 함께 재생 */
   var modal=document.getElementById('hsModal'), player=modal.querySelector('.hs-player'), opener=null;
   function open(v,btn){ if(v.type==='ph') return; opener=btn; st.modal=true;
-    var h=''; if(v.type==='mp4') h='<video src="'+v.src+'" controls autoplay playsinline></video>';
+    var h='', box=modal.querySelector('.hs-modal-box'), big=v.type==='image'?v.src:(v.type==='instagram'&&v.poster?v.poster:''); box.classList.toggle('is-img',!!big); if(big) h='<img src="'+big+'" alt="'+esc(v.title||'')+'">'; else if(v.type==='mp4') h='<video src="'+v.src+'" controls autoplay playsinline></video>';
     else if(v.type==='youtube') h='<iframe src="https://www.youtube.com/embed/'+v.id+'?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
     else if(v.type==='tiktok') h='<iframe src="https://www.tiktok.com/embed/v2/'+v.id+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/p/'+v.id+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
