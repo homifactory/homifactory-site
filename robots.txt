@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://homifactory.com/sitemap.xml
+Sitemap: https://www.homifactory.com/sitemap.xml
