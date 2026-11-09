@@ -392,6 +392,7 @@ label.f{display:block;font-size:12px;font-weight:700;color:#3a3732;margin:0 0 4p
     if(v.type==='mp4') h='<video src="'+esc(v.src)+'" controls autoplay playsinline></video>';
     else if(v.type==='youtube') h='<iframe src="https://www.youtube.com/embed/'+esc(v.id)+'?autoplay=1&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     else if(v.type==='tiktok') h='<iframe src="https://www.tiktok.com/embed/v2/'+esc(v.id)+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    else if(v.type==='image') h='<img src="'+esc(v.src)+'" alt="" style="display:block;max-width:100%;max-height:100%;margin:auto;object-fit:contain">';
     else if(v.type==='instagram') h='<iframe src="https://www.instagram.com/p/'+esc(v.id)+'/embed" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     $('mdlBox').innerHTML=h; $('mdl').hidden=false; $('mdlX').focus(); }
   function closeM(){ $('mdl').hidden=true; $('mdlBox').innerHTML=''; }
