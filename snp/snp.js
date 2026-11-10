@@ -18,7 +18,8 @@
   var STORE = 'https://hook.us2.make.com/ygeoee1dy78ed05ce2ifrddovcs62sfh';
   var SB = 'https://bcngbtwzuqtwtxaebftf.supabase.co/rest/v1/rpc/com_creator_apply';
   var KEY = 'sb_publishable_4f1Mbi136Y8iuHSk-xub8A_43uK3Wiy';
-  var MSG = { req: '필수 항목이에요. 내용을 입력해 주세요.', pick: '하나를 골라 주세요.', url: '링크 형식을 확인해 주세요. (https://로 시작)', tel: '연락처를 숫자로 입력해 주세요.', mail: '이메일 형식을 확인해 주세요.', agree: '개인정보 수집·이용에 동의해 주셔야 보낼 수 있어요.', fail: '전송에 실패했어요. 잠시 후 다시 시도하거나 010-9873-4339로 연락 주세요.' };
+  var LANG = (document.documentElement.lang || 'ko').slice(0, 2), LC = { ko: 'KR', en: 'EN', ja: 'JA', id: 'ID' }[LANG] || 'KR';
+  var MSG = window.SNP_MSG || { req: '필수 항목이에요. 내용을 입력해 주세요.', pick: '하나를 골라 주세요.', url: '링크 형식을 확인해 주세요. (https://로 시작)', tel: '연락처를 숫자로 입력해 주세요.', mail: '이메일 형식을 확인해 주세요.', agree: '개인정보 수집·이용에 동의해 주셔야 보낼 수 있어요.', fail: '전송에 실패했어요. 잠시 후 다시 시도하거나 010-9873-4339로 연락 주세요.' };
 
   function g(n) { var el = form.elements[n]; return el ? (el.value || '').trim() : ''; }
   function multi(n) { return [].slice.call(form.querySelectorAll('input[name="' + n + '"]:checked')).map(function (i) { return i.value; }).join(', '); }
@@ -74,13 +75,13 @@
       '개인정보 동의': '동의', '접수 페이지': location.href.split('?')[0].split('#')[0]
     };
     var row = {
-      lang: 'KR', brand: '[SNP 크리에이터] ' + handle, link: mail['채널 링크'], dir: '[SNP] 틱톡 라이브 지원',
+      lang: LC, brand: '[SNP 크리에이터] ' + handle, link: mail['채널 링크'], dir: '[SNP] 틱톡 라이브 지원',
       countries: mail['활동 나라'], channel: '틱톡 · ' + mail['팔로워 규모'], concern: mail['라이브 경험'] + (mail['방송 장르'] ? ' / ' + mail['방송 장르'] : ''),
       goal: mail['하고 싶은 말'], timing: mail['방송 가능 시간'], budget: '',
       name: mail['이름'], phone: mail['연락처'], email: mail['이메일'], page: mail['접수 페이지'], hp: ''
     };
     var btn = form.querySelector('button[type=submit]'), label = btn.innerHTML;
-    btn.disabled = true; btn.textContent = '보내는 중…';
+    btn.disabled = true; btn.textContent = MSG.sending || '보내는 중…';
 
     var post = function (u, b, h) {
       return fetch(u, { method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json', 'Accept': 'application/json' }, h || {}), body: JSON.stringify(b) })
@@ -92,7 +93,7 @@
       handle: handle, channel_url: mail['채널 링크'], platforms: ['틱톡'], followers: mail['팔로워 규모'] || null, country: mail['활동 나라'] || null,
       categories: ['SNP 틱톡 라이브'].concat(mail['방송 장르'] ? mail['방송 장르'].split(', ') : []),
       intro: ['라이브 경험: ' + mail['라이브 경험'], mail['방송 가능 시간'] ? '방송 가능: ' + mail['방송 가능 시간'] : '', mail['하고 싶은 말']].filter(Boolean).join(' / '),
-      name: mail['이름'], phone: mail['연락처'], email: mail['이메일'] || null, lang: 'KR'
+      name: mail['이름'], phone: mail['연락처'], email: mail['이메일'] || null, lang: LC
     } }, { apikey: KEY, Prefer: 'return=minimal' }).then(function () { return true; });
 
     Promise.allSettled([a, s, d]).then(function (rs) {

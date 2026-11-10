@@ -215,3 +215,112 @@ img{max-width:100%}
   .form{padding:26px 20px}
   .cta .btn{width:100%;justify-content:center}
 }
+
+/* ═══ 호미팩토리 홈 톤 통일 (2026-11-10) ═══
+   굵은 900 제목·좁은 자간, 모래색 면 #F4F2EE, 노랑 강조 #FFC53D, 알약 버튼, 선 대신 면, 제목 위 영문 라벨 없음 */
+:root{--y:#FFC53D;--sand:#F4F2EE;--ink:#121212;--mute:#56534E;--k:#141414;--g1:#F4F2EE;--g4:#56534E;
+  --h2:clamp(30px,3.4vw,52px);--lead:clamp(16px,1.2vw,18px);--pad:clamp(80px,8vw,128px);--gut:clamp(20px,4vw,64px)}
+.wrap{max-width:1320px!important;padding-left:var(--gut)!important;padding-right:var(--gut)!important;box-sizing:border-box}
+.eyebrow{display:none!important}
+
+/* 상단 바: 홈 헤더처럼 흰 바 */
+.nav{background:rgba(255,255,255,.96);color:var(--ink);border-bottom:1px solid rgba(18,18,18,.08)}
+.nav .menu a{opacity:.8;font-weight:600}
+.nav .burger span,.nav .burger span::before,.nav .burger span::after{background:var(--ink)}
+.nav .burger[aria-expanded="true"] span{background:transparent}
+.nav .btn-sm{background:var(--ink);color:#fff}
+.nav .btn-sm:hover{background:#000}
+.mnav{border-top-color:rgba(18,18,18,.08);background:#fff}
+.mnav a{border-bottom-color:rgba(18,18,18,.08)}
+.lang{display:flex;gap:2px;font-family:var(--fe);font-size:12px;font-weight:700}
+.lang a{text-decoration:none;padding:6px 7px;border-radius:999px;opacity:.55}
+.lang a:hover{opacity:1}
+.lang a[aria-current="true"]{opacity:1;background:var(--sand)}
+.mnav .lang{padding:14px 0 0}
+
+/* 첫 화면 */
+.hero{background:var(--k)}
+.hero h1{font-size:clamp(40px,5.4vw,84px);line-height:1.06;letter-spacing:-.05em}
+.hero h1 em{-webkit-text-stroke:0;color:var(--y)}
+.lead{font-size:var(--lead);line-height:1.6;color:rgba(255,255,255,.72)}
+.btn{border-radius:999px;min-height:52px;height:auto;padding:0 28px;font-size:16px}
+.btn-sm{min-height:40px;padding:0 18px;font-size:14px}
+.btn-lg{min-height:64px;font-size:17px}
+.hero .btn-w{background:var(--y);color:var(--ink)}
+.hero .btn-w:hover{background:#FFD25E}
+.hero .btn-line{border:0;background:rgba(255,255,255,.1);color:#fff}
+.hero .btn-line:hover{background:#fff;color:var(--ink)}
+.live{background:var(--y);color:var(--ink)}
+.ph-chat .gift{background:var(--y);color:var(--ink)}
+.phone{border-color:rgba(255,255,255,.3);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ticker{border-top:0;background:#0C0C0C}
+.tk-in span::after{background:var(--y)}
+
+/* 섹션 공통 */
+.sec{padding:var(--pad) 0}
+.sec-g{background:var(--sand)}
+.sec h2{font-size:var(--h2);line-height:1.12;letter-spacing:-.045em;text-wrap:balance}
+.sub{font-size:var(--lead);line-height:1.6;color:var(--mute);max-width:40em}
+.sec-k .sub{color:rgba(255,255,255,.72)}
+.sec-head{margin-bottom:clamp(40px,4vw,56px)}
+
+/* 소개: 선 대신 면 카드 + 노란 번호 */
+.cols3{border-top:0;gap:16px}
+.col,.col+.col{padding:32px 30px 34px;border:0;border-radius:20px;background:var(--sand)}
+.no{display:inline-grid;place-items:center;min-width:36px;height:36px;padding:0 10px;border-radius:999px;background:var(--y);color:var(--ink);-webkit-text-stroke:0;font-size:14px;font-weight:800;font-family:var(--fe)}
+.col h3{font-size:clamp(20px,1.6vw,24px);font-weight:900;letter-spacing:-.03em}
+.col p{color:var(--mute)}
+
+/* 지원 내용(검은 면) */
+.grid6{gap:16px;background:none;border:0;border-radius:0;overflow:visible}
+.grid6 li{background:rgba(255,255,255,.06);border-radius:20px;padding:32px 30px}
+.grid6 li:hover{background:rgba(255,255,255,.1)}
+.grid6 h3{font-size:clamp(19px,1.5vw,22px);font-weight:900;letter-spacing:-.03em}
+.grid6 h3::before{content:"";display:block;width:10px;height:10px;border-radius:50%;background:var(--y);margin-bottom:18px}
+.grid6 p{color:rgba(255,255,255,.72)}
+
+/* 진행 과정 */
+.steps li{border:0;background:var(--sand);border-radius:20px;padding:30px 26px 32px}
+.steps li:last-child{background:var(--ink)}
+.steps li::after{display:none!important}
+.st{display:inline-grid;place-items:center;height:30px;padding:0 12px;border-radius:999px;background:#fff;font-size:12px;letter-spacing:.06em}
+.steps li:last-child .st{background:var(--y);color:var(--ink)}
+.steps h3{font-size:clamp(22px,1.8vw,26px);letter-spacing:-.035em}
+.steps p{color:var(--mute)}
+
+/* 이런 분을 찾아요 */
+.checks{border-top:0;display:grid;gap:10px}
+.checks li{border:0;background:#fff;border-radius:16px;padding:20px 22px 20px 64px;font-weight:600}
+.checks li::before{left:22px;top:50%;width:26px;height:26px;border:0;border-radius:50%;transform:translateY(-50%);background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/16px no-repeat}
+
+/* 현장 사진 자리 (실제 사진 들어올 자리 — 숨기지 않음) */
+.ph-slot{background:var(--sand);border:0;border-radius:20px}
+.ph-slot span{background:#fff;color:var(--mute);letter-spacing:.04em;font-size:13px;font-weight:600}
+.ph-slot img{width:100%;height:100%;object-fit:cover;border-radius:20px;display:block}
+.act figcaption b{font-size:19px;font-weight:900;letter-spacing:-.03em}
+
+/* FAQ */
+.faq{border-top:0;display:grid;gap:10px}
+.faq details{border:0;background:#fff;border-radius:16px;padding:0 22px}
+.faq summary{font-weight:700}
+.faq p{color:var(--mute)}
+
+/* 지원서 */
+.form{border-radius:24px}
+.form .btn-w{background:var(--y);color:var(--ink)}
+.form .btn-w:hover{background:#FFD25E}
+.chips input:checked+span{background:var(--ink);border-color:var(--ink)}
+.fld input,.fld select,.fld textarea{background:var(--sand)}
+.pv{background:var(--sand)}
+.done{border-radius:24px}
+
+/* 하단: 홈처럼 큰 마크 */
+.foot{position:relative;overflow:hidden;background:var(--k);border-top:0;padding:72px 0 64px}
+.foot .wrap{position:relative;z-index:1}
+.foot::after{content:"SNP";position:absolute;right:-1vw;bottom:-6vw;font-family:var(--fe);font-weight:900;font-size:min(30vw,420px);line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.07);pointer-events:none}
+.sib-f{border:0;background:var(--y);color:var(--ink)}
+.sib-f:hover{background:#fff}
+@media(max-width:900px){.foot::after{display:none}}
+@media(max-width:600px){.hero h1{font-size:clamp(34px,10vw,44px)}.sec h2{font-size:clamp(26px,7.6vw,32px)}}
+html[lang="ja"] body{word-break:normal;line-break:strict;overflow-wrap:anywhere}
+html[lang="id"] .hero h1,html[lang="en"] .hero h1{font-size:clamp(36px,4.6vw,68px)}
