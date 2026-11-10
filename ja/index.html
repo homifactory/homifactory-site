@@ -1163,7 +1163,6 @@ html body .network-section .network-text h2{font-size:clamp(28px,2.7vw,42px)!imp
   <div class="section-head reveal"><h2>導入<span class="hl">事例</span></h2></div>
   <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
   <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
-  <div class="hs-row"><div class="hs-viewport"><div class="hs-track" role="list"></div></div></div>
 </section>
 <div class="hs-modal" id="hsModal" hidden role="dialog" aria-modal="true" aria-label="ショート動画を再生">
   <div class="hs-modal-box"><button type="button" class="hs-close" aria-label="閉じる">×</button><div class="hs-player"></div></div><aside class="hs-story" hidden aria-live="polite"></aside>
@@ -1242,7 +1241,7 @@ window.HOMI_SHORTS_DEF=[
   {type:'instagram', id:'DXHA8raE_NN', poster:'/assets/shorts/SHORT-ig-DXHA8raE_NN.jpg', title:'청담유식 게시물'},
   {type:'instagram', id:'DXMLxkiEw_b', poster:'/assets/shorts/SHORT-ig-DXMLxkiEw_b.jpg', title:'청담유식 게시물'}
 ];
-/* 고객 사례: 숏폼 3줄 — 윗줄·아랫줄은 오른쪽→왼쪽, 가운데 줄은 왼쪽→오른쪽으로 계속 흐름 */
+/* 고객 사례: 숏폼 2줄 — 윗줄은 오른쪽→왼쪽, 아랫줄은 왼쪽→오른쪽으로 계속 흐름 */
 window.HS_BUILD=function(src){
   var sec=document.getElementById('case'); if(!sec) return;
   var list=(src||[]).filter(function(v){ return v&&!v.hidden&&(v.id||v.src); });
@@ -2024,17 +2023,17 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 })();
 </script>
 <style id="hs3-css">
-/* 고객 사례: 숏폼 3줄 */
-#case.hs-shorts{padding:40px 0 28px}
-#case .section-head{text-align:center;margin:0 0 18px;padding:0 24px}
+/* 고객 사례: 숏폼 2줄 — 카드 크게, 간격 넉넉하게 */
+#case.hs-shorts{padding:40px 0 36px}
+#case .section-head{text-align:center;margin:0 0 24px;padding:0 24px}
 #case .section-head h2{font-size:clamp(30px,3vw,46px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin:0}
-#case .hs-row + .hs-row{margin-top:14px}
-#case .hs-viewport{padding:4px 0}
-#case .hs-track{gap:14px;padding:0 14px}
-#case .hs-card{--h:clamp(150px,calc((100vh - 330px)/3),250px);flex:0 0 calc(var(--h)*.5625);width:calc(var(--h)*.5625);height:var(--h);border-radius:12px;box-shadow:0 8px 20px rgba(25,25,25,.12)}
-#case .hs-card::after{width:28px;height:28px;right:8px;bottom:8px;background-size:12px}
+#case .hs-row + .hs-row{margin-top:28px}
+#case .hs-viewport{padding:6px 0}
+#case .hs-track{gap:28px;padding:0 28px}
+#case .hs-card{--h:clamp(210px,calc((100vh - 350px)/2),360px);flex:0 0 calc(var(--h)*.5625);width:calc(var(--h)*.5625);height:var(--h);border-radius:16px;box-shadow:0 10px 24px rgba(25,25,25,.12)}
+#case .hs-card::after{width:34px;height:34px;right:10px;bottom:10px;background-size:14px}
 @media (max-width:900px),(hover:none){#case .hs-viewport{overflow:hidden;scroll-snap-type:none}}
-@media (max-width:600px){#case.hs-shorts{padding:44px 0 32px}#case .hs-card{--h:180px}#case .hs-track{gap:10px}#case .hs-row + .hs-row{margin-top:10px}}
+@media (max-width:600px){#case.hs-shorts{padding:44px 0 36px}#case .hs-card{--h:240px}#case .hs-track{gap:16px;padding:0 16px}#case .hs-row + .hs-row{margin-top:16px}}
 </style>
 <style id="hv-stats-css">
 /* 히어로 하단 누적 숫자 카운터 */
