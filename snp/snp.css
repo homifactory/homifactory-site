@@ -355,3 +355,21 @@ html[lang="ja"] .hero h1{font-size:clamp(30px,3.6vw,54px)}
 .sh figcaption b{font-size:19px;font-weight:900;letter-spacing:-.03em}
 .sh figcaption span{color:var(--mute);font-size:14px}
 @media(max-width:860px){.shoots{grid-template-columns:1fr}.sh1{grid-row:auto}.sh1 .ph-slot{aspect-ratio:4/5;min-height:0;flex:none}}
+
+/* 강연 자리: 사진 4장 + 짧은 영상 1개를 5초씩 돌림 */
+.ph-slot.has-ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;display:block}
+.ph-slot.has-ph[data-n="5"]>*{animation:phrot5 25s infinite}
+.ph-slot.has-ph[data-n="5"]>:nth-child(2){animation-delay:5s}
+.ph-slot.has-ph[data-n="5"]>:nth-child(3){animation-delay:10s}
+.ph-slot.has-ph[data-n="5"]>:nth-child(4){animation-delay:15s}
+.ph-slot.has-ph[data-n="5"]>:nth-child(5){animation-delay:20s}
+@keyframes phrot5{0%{opacity:0}2.4%{opacity:1}20%{opacity:1}22.4%{opacity:0}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.ph-slot.has-ph[data-n="5"]>*{animation:none;opacity:0}.ph-slot.has-ph[data-n="5"]>:first-child{opacity:1}}
+
+/* 로고 이미지 (세리프 SNP COMPANY 워드마크) */
+.logo img{display:block;height:20px;width:auto}
+.foot .logo img{height:22px}
+@media(max-width:600px){.logo img{height:15px}}
+.lang{flex-shrink:0}.lang a{white-space:nowrap}
+.logo{flex-shrink:1;min-width:0}.logo img{max-width:100%;object-fit:contain}
+@media(max-width:600px){.logo img{height:14px}}
