@@ -335,3 +335,8 @@ html[lang="ja"] .hero h1{font-size:clamp(30px,3.6vw,54px)}
 .ph-slot.has-ph[data-n="3"] picture:nth-child(3){animation-delay:10s}
 @keyframes phrot3{0%{opacity:0}4%{opacity:1}33%{opacity:1}37%{opacity:0}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.ph-slot.has-ph picture{animation:none!important;opacity:0}.ph-slot.has-ph picture:first-child{opacity:1}}
+.ph-slot.has-ph[data-n="4"] picture{animation:phrot4 20s infinite}
+.ph-slot.has-ph[data-n="4"] picture:nth-child(2){animation-delay:5s}
+.ph-slot.has-ph[data-n="4"] picture:nth-child(3){animation-delay:10s}
+.ph-slot.has-ph[data-n="4"] picture:nth-child(4){animation-delay:15s}
+@keyframes phrot4{0%{opacity:0}3%{opacity:1}25%{opacity:1}28%{opacity:0}100%{opacity:0}}
