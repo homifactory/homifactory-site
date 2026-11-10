@@ -343,3 +343,15 @@ html[lang="ja"] .hero h1{font-size:clamp(30px,3.6vw,54px)}
 .ph-slot.has-ph[data-n="2"] picture{animation:phrot2 10s infinite}
 .ph-slot.has-ph[data-n="2"] picture:nth-child(2){animation-delay:5s}
 @keyframes phrot2{0%{opacity:0}6%{opacity:1}50%{opacity:1}56%{opacity:0}100%{opacity:0}}
+
+/* 방송 밖 기회: 촬영·오프라인 행사 (왼쪽 큰 세로 사진 + 오른쪽 두 장) */
+.shoots{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto auto;gap:20px}
+.sh{margin:0;display:flex;flex-direction:column;min-width:0}
+.sh .ph-slot{position:relative;aspect-ratio:4/3}
+.sh .ph-slot picture{position:absolute;inset:0;opacity:1;animation:none}
+.sh1{grid-row:1 / span 2}
+.sh1 .ph-slot{aspect-ratio:auto;flex:1;min-height:420px}
+.sh figcaption{display:flex;flex-direction:column;margin-top:14px}
+.sh figcaption b{font-size:19px;font-weight:900;letter-spacing:-.03em}
+.sh figcaption span{color:var(--mute);font-size:14px}
+@media(max-width:860px){.shoots{grid-template-columns:1fr}.sh1{grid-row:auto}.sh1 .ph-slot{aspect-ratio:4/5;min-height:0;flex:none}}
