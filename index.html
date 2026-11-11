@@ -2031,10 +2031,14 @@ if(!window.HOMI_SITE_PENDING) HMLoopStart();   /* site.json 을 기다리는 중
 #case .hs-row + .hs-row{margin-top:28px}
 #case .hs-viewport{padding:6px 0}
 #case .hs-track{gap:28px;padding:0 28px}
-#case .hs-card{--h:clamp(210px,calc((100vh - 350px)/2),360px);flex:0 0 calc(var(--h)*.5625);width:calc(var(--h)*.5625);height:var(--h);border-radius:16px;box-shadow:0 10px 24px rgba(25,25,25,.12)}
+#case .hs-card{--h:clamp(220px,calc((100vh - 290px)/2),380px);flex:0 0 calc(var(--h)*.5625);width:calc(var(--h)*.5625);height:var(--h);border-radius:16px;box-shadow:0 10px 24px rgba(25,25,25,.12)}
 #case .hs-card::after{width:34px;height:34px;right:10px;bottom:10px;background-size:14px}
 @media (max-width:900px),(hover:none){#case .hs-viewport{overflow:hidden;scroll-snap-type:none}}
 @media (max-width:600px){#case.hs-shorts{padding:44px 0 36px}#case .hs-card{--h:240px}#case .hs-track{gap:16px;padding:0 16px}#case .hs-row + .hs-row{margin-top:16px}}
+/* 제목은 화면에서 숨기고(화면 읽기 프로그램용으로만 남김) 영상이 바로 보이게 */
+#case{position:relative}
+#case .section-head{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;margin:0!important;padding:0!important}
+#case.hs-shorts{padding-top:36px!important}
 </style>
 <style id="hv-stats-css">
 /* 히어로 하단 누적 숫자 카운터 */
