@@ -44,6 +44,16 @@
   ],
   "redirects": [
     {
+      "source": "/production/:p(portfolio|video|commercial-works|contact|studio|privacy|terms)",
+      "destination": "/production",
+      "permanent": false
+    },
+    {
+      "source": "/production/:p(portfolio|video|commercial-works|contact).html",
+      "destination": "/production",
+      "permanent": false
+    },
+    {
       "source": "/home",
       "destination": "/",
       "permanent": true
